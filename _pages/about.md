@@ -31,11 +31,11 @@ My research interest includes neural machine translation and computer vision. I 
 
 # 📝 Publications 
 
-I am working hard on scientific research currently...![01116C66](https://github.com/user-attachments/assets/d8caf3ca-087b-429d-b940-9fb12e1a2ea7)
+I am working hard on scientific research currently...
 
 <!--
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
+<div class='paper-box-text' markdown="1">  
 
 [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 
