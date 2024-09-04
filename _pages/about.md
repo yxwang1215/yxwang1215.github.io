@@ -50,7 +50,7 @@ I am currently working hard on scientific research ...
 -->
 
 # 🎖 Honors and Awards
-- *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize **
+- *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize**
 - *2024.05*: National College English Competition - **Second Prize**
 - *2024.05*: Mathematical Modeling School Competition - School Second Prize (Team Leader)
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
