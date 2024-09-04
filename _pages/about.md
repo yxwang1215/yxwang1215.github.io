@@ -44,12 +44,14 @@ My research interest includes neural machine translation and computer vision. I 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 
 # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - First Prize 
+- *2024.05*: National College English Competition - Second Prize
+- *2024.05* Mathematical Modeling School Competition - School Second Prize (Team Leader)
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - Honorable Mention
 
 # 📖 Educations
-- *2023.06 - 2024.09 (now)*, Xidian University. I am currently pursuing a Bachelor’s degree in Software Engineering.
-- *2024.06 - 2024.08*, University of California，Los Angeles. I took courses in Numerical Analysis and Film Directing.
+- *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
+- *2024.06 - 2024.08*, [University of California，Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
 - *2020.09 - 2023.06*, Zhenhai High School of Ningbo. I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University. 
 
 <!--
