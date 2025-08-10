@@ -58,9 +58,9 @@ author:
   youtube          :
   wikipedia        :
   links            :
-    - labels: "WeChat"
+    - label: "WeChat"
       icon: "fab fa-weixin"
-      url: "/images/wechat_qr.png"  # 没有公开链接就占位；
+      url: "{{ '/images/wechat_qr.png' | relative_url }}"  # 没有公开链接就占位；
 
 # Reading Files
 include:
