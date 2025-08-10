@@ -71,14 +71,14 @@ Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
 -->
 
 # 🚀 Projects
-- [Operating System Review](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025) \
+- 🔥**Operating System Review** [link](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025) \
 An open-source study guide I created to help Xidian University Software Engineering students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over 2,000 views and engaged more than 800 users.
 
 # 🥇 Honors and Awards
 - *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final**
 - *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
 - *2024.11*: National Mathematical Competition for College Students - **Provincial First Prize**
-- *2024.09*: Awarded the <span class="highlight">National Scholarship</span>
+- *2024.09*: Awarded the <span style="color:red">**National Scholarship**</span> in 2023-2024 
 - *2024.07*: I ranked <span style="color:red">**1st out of 1360**</span> in Computer Category Major(2023-2024)
 - *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize, Final**
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
@@ -91,7 +91,7 @@ An open-source study guide I created to help Xidian University Software Engineer
 # 📖 Educations
 - *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
 - *2024.06 - 2024.08*, [University of California,Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
-- *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University, ~70 students admitted in total.
+- *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University, <span style="color:red">~70</span> students admitted in total.
 
 <!--
 # 💬 Invited Talks  🌐
