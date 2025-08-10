@@ -73,7 +73,7 @@ Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
 
 # 🚀 Projects
 - 🔥**Operating System Review** [link](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025) \
-An open-source study guide I created to help Xidian University Software Engineering students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over 2,000 views and engaged more than 800 users.
+An open-source study guide I created to help Xidian University **Software Engineering** students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over <span style="color:blue">**2,000**</span> views and engaged more than <span style="color:blue">**800**</span> users.
 
 # 🥇 Honors and Awards
 - *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final**
