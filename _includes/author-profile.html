@@ -198,7 +198,6 @@
           <i class="fab fa-fw fa-weixin" aria-hidden="true"></i>
         </a>
       {% endif %}
-      {% endif %}
       {% if author.weibo %}
         <a href="https://www.weibo.com/{{ author.weibo }}"><i class="fab fa-fw fa-weibo" aria-hidden="true"></i></a>
       {% endif %}
@@ -233,7 +232,7 @@
     <div style="position:relative; margin:auto; padding:20px; background:#fff; width:300px; top:20%; border-radius:8px; text-align:center;">
       <span style="position:absolute; right:10px; top:5px; cursor:pointer; font-size:20px;" onclick="document.getElementById('wechatModal').style.display='none'">&times;</span>
       <img src="{{ author.wechat }}" alt="WeChat QR" style="max-width:100%; border-radius:4px;">
-      <p style="margin-top:10px;">scan QR code to add WeChat</p>
+      <p style="margin-top:10px;">Scan QR code to add WeChat</p>
     </div>
   </div>
 </div>
