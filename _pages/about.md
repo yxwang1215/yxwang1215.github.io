@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 
-I am a second-year student at College of Computer Science and Technology, Xidian University, majoring in Software Engineering. And I will graduate from Xidian University with a B.S. in Engineering in 2027! My research interest includes Efficient LLM and RL.
+I am a second-year student at College of Computer Science and Technology, Xidian University, majoring in Software Engineering. And I will graduate from Xidian University with a B.S. in Engineering in 2027! My research interest includes Efficient LLM, I also have interest in RL, MLLM and Embodied AI.
 
 <!--
 My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
@@ -74,7 +74,7 @@ Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
 - [Operating System Review](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
 An open-source study guide I created to help Xidian University Software Engineering students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over 2,000 views and engaged more than 800 users.
 
-# 🎖 Honors and Awards
+# 🥇 Honors and Awards
 - *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final)**
 - *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
 - *2024.11*: National Mathematical Competition for College Students - **Provincial First Prize**
@@ -90,7 +90,7 @@ An open-source study guide I created to help Xidian University Software Engineer
   
 # 📖 Educations
 - *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
-- *2024.06 - 2024.08*, [University of California，Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
+- *2024.06 - 2024.08*, [University of California,Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
 - *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University, ~70 students admitted in total.
 
 <!--
