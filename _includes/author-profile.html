@@ -228,18 +228,17 @@
     </div>
   </div>
   <!-- WeChat Modal -->
+  <!-- WeChat Modal -->
   <div id="wechatModal" style="
       display:none;
       position:fixed;
       z-index:9999;
-      left:250px; /* 左侧 sidebar 宽度，根据实际调整 */
+      left:250px; /* 左侧 sidebar 宽度 */
       top:0;
-      width:calc(100% - 250px); /* 减去 sidebar 宽度 */
+      width:calc(100% - 250px);
       height:100%;
       background-color:rgba(0,0,0,0.6);
-  " onclick="if(event.target.id==='wechatModal'){this.style.display='none';}">
-  
-    <!-- 弹窗内容 -->
+  ">
     <div style="
         position:relative;
         margin:auto;
@@ -256,11 +255,25 @@
           top:5px;
           cursor:pointer;
           font-size:20px;"
-        onclick="document.getElementById('wechatModal').style.display='none'">&times;</span>
+        onclick="closeWechatModal()">&times;</span>
   
       <!-- 微信二维码 -->
       <img src="{{ author.wechat }}" alt="WeChat QR" style="max-width:100%; border-radius:4px;">
       <p style="margin-top:10px;">Scan QR code to add WeChat</p>
     </div>
   </div>
+  
+  <script>
+    // 点击背景空白处关闭
+    document.getElementById('wechatModal').addEventListener('click', function(e) {
+      if (e.target === this) { // 点击的是背景层
+        this.style.display = 'none';
+      }
+    });
+  
+    function closeWechatModal() {
+      document.getElementById('wechatModal').style.display = 'none';
+    }
+  </script>
+
 </div>
