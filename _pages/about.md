@@ -38,8 +38,8 @@ My research interest includes neural machine translation and computer vision. I 
 
 Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Linfeng Zhang
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+[**Code**](https://github.com/Lueci4er/early-exit)
+- Contributed to developing ICE, a novel framework for diffusion LLMs (dLLMs) that transforms prefix-only prompting into in-place prompting. Integrated in-place prompts and confidence-aware early exit to cut computational costs. Achieved 17.29% accuracy boost + 4.12× speedup on GSM8K, and 276.67× acceleration on MMLU with competitive performance. Codes to be released.
 </div>
 </div>
 
@@ -67,11 +67,12 @@ Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Li
 - *2024.09*: Awarded the <span class="highlight">National Scholarship</span>
 - *2024.07*: I ranked **1st out of 1360** in Computer Category Major(2023-2024)
 - *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize**
-<!--
-- *2024.05*: National College English Competition - **Second Prize**
-- *2024.05*: Mathematical Modeling School Competition - School Second Prize (Team Leader)
--->
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
+
+# 💻 Internships
+- *2025.07 - 2025.08*, [LEAP Lab](https://www.leaplab.ai/), Department of Automation, Tsinghua University, China.
+   Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project.
+  
 
 # 📖 Educations
 - *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
@@ -84,7 +85,4 @@ Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Li
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
 -->
 
-<!--
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
--->
+
