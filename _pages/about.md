@@ -33,7 +33,6 @@ My research interest includes neural machine translation and computer vision. I 
 
 I am currently working hard on scientific research ...
 
-<!--
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
 
@@ -47,9 +46,11 @@ I am currently working hard on scientific research ...
 </div>
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
--->
 
 # 🎖 Honors and Awards
+- *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
+- *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
+- *2024.11*: National Mathematical Competition for College Students - **Provincial First Prize**
 - *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize**
 - *2024.05*: National College English Competition - **Second Prize**
 - *2024.05*: Mathematical Modeling School Competition - School Second Prize (Team Leader)
@@ -58,7 +59,7 @@ I am currently working hard on scientific research ...
 # 📖 Educations
 - *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
 - *2024.06 - 2024.08*, [University of California，Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
-- *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University. 
+- *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University, ~70 students admitted in total.
 
 <!--
 # 💬 Invited Talks
