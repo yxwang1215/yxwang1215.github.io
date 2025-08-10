@@ -70,11 +70,9 @@ Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 -->
 
-<!--
 # 🚀 Project
 - [Operating System Review](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
 An open-source study guide I created to help Xidian University Software Engineering students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over 2,000 views and engaged more than 800 users.
--->
 
 # 🎖 Honors and Awards
 - *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final)**
@@ -86,8 +84,9 @@ An open-source study guide I created to help Xidian University Software Engineer
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
 
 # 💻 Internships
-- *2025.07 - 2025.08*, [LEAP Lab](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
-   Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project.
+- [LEAP Lab](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
+- *Research Intern* July 2025 - August 2025
+   Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project. My work was conducted onsite at Tsinghua University's Central Main Building, room 601.
   
 # 📖 Educations
 - *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
