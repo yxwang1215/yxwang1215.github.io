@@ -96,8 +96,15 @@
       {% endif %}
       {% if author.wechat %}
         <li>
-          <a href="#" onclick="document.getElementById('wechatModal').style.display='block'; return false;">
+          <a href="#" onclick="openWechatModal(event)">
             <i class="fab fa-fw fa-weixin" aria-hidden="true"></i> WeChat
+          </a>
+        </li>
+      {% endif %}
+      {% if author.phone %}
+        <li>
+          <a href="tel:{{ author.phone }}">
+            <i class="fas fa-fw fa-phone" aria-hidden="true"></i> Phone
           </a>
         </li>
       {% endif %}
@@ -194,7 +201,7 @@
         <a href="https://soundcloud.com/{{ author.soundcloud }}"><i class="fab fa-fw fa-soundcloud" aria-hidden="true"></i></a>
       {% endif %}
       {% if author.wechat %}
-        <a href="#" onclick="document.getElementById('wechatModal').style.display='block'; return false;">
+        <a href="#" onclick="openWechatModal(event)">
           <i class="fab fa-fw fa-weixin" aria-hidden="true"></i>
         </a>
       {% endif %}
@@ -227,40 +234,24 @@
       {% endif %}
     </div>
   </div>
-   <!-- WeChat Modal (放在任意位置，脚本会把它移动到 <body> 下) -->
   <style>
-    /* 遮罩：默认不显示；仅遮右侧内容，左侧 sidebar 不遮 */
-    #wechatModalBackdrop {
-      display: none;
-      position: fixed;
-      inset: 0;            /* top/right/bottom/left 全 0 */
-      left: 0;             /* 会被脚本改成 sidebar 宽度 */
-      width: 100%;         /* 会被脚本改成 100% - sidebar 宽度 */
-      height: 100%;
-      background: rgba(0,0,0,.6);
-      z-index: 2147483647; /* 极高，确保盖住所有元素 */
+    #wechatModalBackdrop{
+      display:none; position:fixed; inset:0;
+      left:0; width:100%; height:100%;
+      background:rgba(0,0,0,.6);
+      z-index:2147483647; /* 顶层，保证不被覆盖 */
     }
-    /* 弹窗居中 */
-    #wechatDialog {
-      position: absolute;
-      left: 50%;
-      top: 15vh;
-      transform: translateX(-50%);
-      background: #fff;
-      width: min(90vw, 360px);
-      padding: 16px 16px 12px;
-      border-radius: 12px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.25);
-      text-align: center;
+    #wechatDialog{
+      position:absolute; left:50%; top:15vh; transform:translateX(-50%);
+      background:#fff; width:min(90vw,360px); padding:16px 16px 12px;
+      border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,.25); text-align:center;
     }
-    #wechatDialog img { width: 100%; height: auto; display: block; border-radius: 6px; }
-    #wechatClose {
-      position: absolute; right: 10px; top: 6px;
-      border: 0; background: transparent; font-size: 22px; cursor: pointer; line-height: 1;
-    }
-    /* 窄屏（侧栏折叠时）全屏遮罩 */
-    @media (max-width: 860px) {
-      #wechatModalBackdrop { left: 0 !important; width: 100% !important; }
+    #wechatDialog img{width:100%; height:auto; display:block; border-radius:6px;}
+    #wechatClose{position:absolute; right:10px; top:6px; border:0; background:transparent; font-size:22px; cursor:pointer;}
+    /* 仅遮右侧内容：桌面端把遮罩从侧栏右边开始；不想保留这效果就删掉下面两段 @media */
+    @media (min-width: 861px){ .sidebar, .sidebar.sticky{ --sbw: 250px; } }
+    @media (min-width: 861px){
+      #wechatModalBackdrop{ left: var(--sbw, 250px); width: calc(100% - var(--sbw, 250px)); }
     }
   </style>
   
@@ -271,56 +262,5 @@
       <p style="margin:10px 0 0;">Scan QR code to add WeChat</p>
     </div>
   </div>
-  
-  <script>
-    (function () {
-      var backdrop = document.getElementById('wechatModalBackdrop');
-      var dialog   = document.getElementById('wechatDialog');
-  
-      // 1) 把遮罩移动到 <body> 下，避免被任何父元素的 z-index/overflow 影响
-      if (backdrop && backdrop.parentNode !== document.body) {
-        document.addEventListener('DOMContentLoaded', function () {
-          document.body.appendChild(backdrop);
-          updateBackdropBounds();
-        });
-      }
-  
-      // 2) 计算侧栏宽度，让遮罩只盖右侧内容；窄屏自动全屏
-      function updateBackdropBounds() {
-        var isNarrow = window.matchMedia('(max-width: 860px)').matches;
-        if (isNarrow) {
-          backdrop.style.left  = '0px';
-          backdrop.style.width = '100%';
-          return;
-        }
-        var sidebar = document.querySelector('.sidebar') || document.querySelector('.sidebar.sticky');
-        var w = sidebar ? sidebar.getBoundingClientRect().width : 0;
-        backdrop.style.left  = w + 'px';
-        backdrop.style.width = 'calc(100% - ' + w + 'px)';
-      }
-      window.addEventListener('resize', updateBackdropBounds);
-  
-      // 3) 开关函数
-      window.openWechatModal = function (e) {
-        if (e) { e.preventDefault(); e.stopPropagation(); }
-        updateBackdropBounds();
-        backdrop.style.display = 'block';
-      };
-      function closeWechatModal() { backdrop.style.display = 'none'; }
-  
-      // 4) 点击背景任意处关闭（点击对话框内部不关闭）
-      backdrop.addEventListener('click', function (ev) {
-        if (!dialog.contains(ev.target)) closeWechatModal();
-      });
-  
-      // 5) ESC 关闭
-      document.addEventListener('keydown', function (ev) {
-        if (ev.key === 'Escape') closeWechatModal();
-      });
-  
-      // 6) × 按钮关闭
-      document.getElementById('wechatClose').addEventListener('click', closeWechatModal);
-    })();
-  </script>
 
 </div>
