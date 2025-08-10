@@ -31,7 +31,7 @@ My research interest includes neural machine translation and computer vision. I 
 -->
 
 # 📝 Publications 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">PrePrint</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">PrePrint</div><img src='images/thinking_inside_the_mask.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
 
 [Thinking Inside the Mask: In-Place Prompting in Diffusion LLMs](https://github.com/yxwang1215/yxwang1215.github.io/blob/main/_pdf/11075_Thinking_Inside_the_Mask.pdf)
