@@ -25,14 +25,13 @@ My research interest includes neural machine translation and computer vision. I 
 -->
 
 # 🔥 News
-- *2024.09*: &nbsp;🎉🎉 I win the **National Scholarship**.
+- *2025.07*: &nbsp;🎉🎉 I ranked **1st out of 343** in Software Engineering Major.
+<!--
 - *2024.07*: &nbsp;🎉🎉 I ranked **1st out of 1360** in my first year.
-
+-->
 
 # 📝 Publications 
-
-I am currently working hard on scientific research ...
-
+<!--
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
 
@@ -46,14 +45,19 @@ I am currently working hard on scientific research ...
 </div>
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+-->
 
 # 🎖 Honors and Awards
-- *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
+- *2025.05*: Finals of the National English Competition for College Students  - **First Prize(Final)**
 - *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
 - *2024.11*: National Mathematical Competition for College Students - **Provincial First Prize**
+- *2024.09*: Awarded the <span class="highlight">National Scholarship</span>
+- *2024.07*: I ranked **1st out of 1360** in Computer Category Major(2023-2024)
 - *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize**
+<!--
 - *2024.05*: National College English Competition - **Second Prize**
 - *2024.05*: Mathematical Modeling School Competition - School Second Prize (Team Leader)
+-->
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
 
 # 📖 Educations
