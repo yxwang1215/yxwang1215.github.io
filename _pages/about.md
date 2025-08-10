@@ -26,9 +26,6 @@ My research interest includes neural machine translation and computer vision. I 
 
 # 🔥 News
 - *2025.07*: &nbsp;🎉🎉 I ranked **1st out of 343** in Software Engineering Major.
-<!--
-- *2024.07*: &nbsp;🎉🎉 I ranked **1st out of 1360** in my first year.
--->
 
 # 📝 Publications 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">PrePrint</div><img src='images/thinking_inside_the_mask.png' alt="sym" width="100%"></div></div>
@@ -39,11 +36,10 @@ My research interest includes neural machine translation and computer vision. I 
 Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Linfeng Zhang
 
 [**Code**](https://github.com/Lueci4er/early-exit)
-- Contributed to developing ICE, a novel framework for diffusion LLMs (dLLMs) that transforms prefix-only prompting into in-place prompting. Integrated in-place prompts and confidence-aware early exit to cut computational costs. Achieved 17.29% accuracy boost + 4.12× speedup on GSM8K, and 276.67× acceleration on MMLU with competitive performance. Codes to be released.
+- Contributed to developing ICE, a novel framework for accelerating diffusion LLMs (dLLMs). Integrated in-place prompts and confidence-aware early exit to cut computational costs. Achieved 17.29% accuracy boost + 4.12× speedup on GSM8K, and 276.67× acceleration on MMLU with competitive performance.
 </div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 <!--
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
@@ -70,7 +66,7 @@ Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Li
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
 
 # 💻 Internships
-- *2025.07 - 2025.08*, [LEAP Lab](https://www.leaplab.ai/), Department of Automation, Tsinghua University, China.
+- *2025.07 - 2025.08*, [LEAP Lab](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
    Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project.
   
 
@@ -79,10 +75,9 @@ Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Li
 - *2024.06 - 2024.08*, [University of California，Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
 - *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University, ~70 students admitted in total.
 
-<!--
 # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
--->
+
 
 
