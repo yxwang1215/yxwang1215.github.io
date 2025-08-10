@@ -25,19 +25,30 @@ My research interest includes neural machine translation and computer vision. I 
 -->
 
 # 🔥 News
-- *2025.07*: &nbsp;🎉🎉 I ranked **1st out of 343** in Software Engineering Major.
+- *2025.07*: &nbsp;🎉🎉 I ranked **1st out of 343** in Software Engineering Major(2024-2025).
 
 # 📝 Publications 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">PrePrint</div><img src='images/thinking_inside_the_mask.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">(AAAI 2026 submitted)</div><img src='images/thinking_inside_the_mask.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
 
 [Thinking Inside the Mask: In-Place Prompting in Diffusion LLMs](https://github.com/yxwang1215/yxwang1215.github.io/blob/main/_pdf/11075_Thinking_Inside_the_Mask.pdf)
 
 Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Linfeng Zhang
 
-[**Code**](https://github.com/Lueci4er/early-exit)
-- Contributed to developing ICE, a novel framework for accelerating diffusion LLMs (dLLMs). Integrated in-place prompts and confidence-aware early exit to cut computational costs. Achieved 17.29% accuracy boost + 4.12× speedup on GSM8K, and 276.67× acceleration on MMLU with competitive performance.
+- Contributed to developing ICE, a novel framework for diffusion LLMs (dLLMs) that transforms prefix-only prompting into in-place prompting. Integrated in-place prompts and confidence-aware early exit to cut computational costs. Achieved 17.29% accuracy boost + 4.12× speedup on GSM8K, and 276.67× acceleration on MMLU with competitive performance. 
 </div>
+</div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">(AAAI 2026 submitted)</div><img src='images/va-adapter.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">  
+
+[VA-adapter: Adapting Ultrasound Foundation Model
+to Echocardiography Probe Guidance](https://github.com/yxwang1215/yxwang1215.github.io/blob/main/_pdf/2506_BIBM_Adapting_Ultrasound_Foundation_Model_to_Echocardiography_Probe_Guidance.pdf)
+
+Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
+
+- We propose a parameter-efficient Vision-Action Adapter (VA-Adapter) that adapts large ultrasound foundation models for real-time probe guidance in echocardiography. The VA-Adapter encodes vision-action sequences and leverages the model’s sequential reasoning to help junior sonographers acquire high-quality cardiac ultrasound images. By fine-tuning only a small subset of parameters, our approach surpasses strong baselines and improves accessibility to timely heart disease diagnosis. 
 </div>
 
 <!--
@@ -56,28 +67,32 @@ Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Li
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 -->
 
+# 🚀 Project
+- [Operating System Review](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
+An open-source study guide I created to help Xidian University Software Engineering students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over 2,000 views and engaged more than 800 users.
+
 # 🎖 Honors and Awards
-- *2025.05*: Finals of the National English Competition for College Students  - **First Prize(Final)**
+- *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final)**
 - *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
 - *2024.11*: National Mathematical Competition for College Students - **Provincial First Prize**
 - *2024.09*: Awarded the <span class="highlight">National Scholarship</span>
 - *2024.07*: I ranked **1st out of 1360** in Computer Category Major(2023-2024)
-- *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize**
+- *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize, Final**
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
 
 # 💻 Internships
 - *2025.07 - 2025.08*, [LEAP Lab](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
    Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project.
   
-
 # 📖 Educations
 - *2023.06 - 2024.09 (now)*, [Xidian University](https://www.xidian.edu.cn/). I am currently pursuing a Bachelor’s degree in Software Engineering.
 - *2024.06 - 2024.08*, [University of California，Los Angeles](https://www.ucla.edu/). I took courses in Numerical Analysis and Film Directing.
 - *2020.09 - 2023.06*, [Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981). I was a student in the experimental class of Zhenhai High School of Ningbo, with 15 classmates admitted to Peking University and Tsinghua University, ~70 students admitted in total.
 
-# 💬 Invited Talks
+<!--
+# 💬 Invited Talks  🌐
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
-
+-->
 
 
