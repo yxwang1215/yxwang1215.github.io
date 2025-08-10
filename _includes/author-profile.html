@@ -262,5 +262,41 @@
       <p style="margin:10px 0 0;">Scan QR code to add WeChat</p>
     </div>
   </div>
+  <script>
+    // 打开弹窗
+    function openWechatModal(e){
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var backdrop = document.getElementById('wechatModalBackdrop');
+      if (backdrop) backdrop.style.display = 'block';
+    }
+  
+    (function(){
+      var backdrop = document.getElementById('wechatModalBackdrop');
+      var dialog   = document.getElementById('wechatDialog');
+      var closeBtn = document.getElementById('wechatClose');
+  
+      if (!backdrop || !dialog) return;
+  
+      // 点击背景空白处关闭（点击对话框内部不关闭）
+      backdrop.addEventListener('click', function(ev){
+        if (!dialog.contains(ev.target)) backdrop.style.display = 'none';
+      });
+  
+      // × 按钮关闭
+      if (closeBtn) closeBtn.addEventListener('click', function(){
+        backdrop.style.display = 'none';
+      });
+  
+      // 按 ESC 关闭
+      document.addEventListener('keydown', function(ev){
+        if (ev.key === 'Escape') backdrop.style.display = 'none';
+      });
+  
+      // 可选：把遮罩移到 <body> 下，彻底避免被别的层盖住
+      if (backdrop.parentNode !== document.body) {
+        document.body.appendChild(backdrop);
+      }
+    })();
+  </script>
 
 </div>
