@@ -85,7 +85,7 @@ An open-source study guide I created to help Xidian University Software Engineer
 
 # 💻 Internships
 - [LEAP Lab](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
-- *Research Intern* July 2025 - August 2025
+- *Research Intern* July 2025 - August 2025 \
    Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project. My work was conducted onsite at Tsinghua University's Central Main Building, room 601.
   
 # 📖 Educations
