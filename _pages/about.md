@@ -42,7 +42,7 @@ ICE is a novel framework that brings in-place prompting to diffusion large langu
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">(AAAI 2026 submitted)</div><img src='images/va-adapter.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">(BIBM 2026 submitted)</div><img src='images/va-adapter.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
 
 [VA-adapter: Adapting Ultrasound Foundation Model
