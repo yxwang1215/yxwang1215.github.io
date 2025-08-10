@@ -25,7 +25,7 @@ My research interest includes neural machine translation and computer vision. I 
 -->
 
 # 🔥 News
-- *2025.07*: &nbsp;🎉🎉 I ranked **1st out of 343** in Software Engineering Major(2024-2025).
+- *2025.07*: &nbsp;🎉🎉 I am a third-year Software Engineering student at Xidian University, where I'm specializing in **Intelligent Software Engineering**. I'm proud to have recently been ranked 1st out of 343 students in my major for the 2024-2025 academic year.
 
 # 📝 Publications 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">(AAAI 2026 submitted)</div><img src='images/thinking_inside_the_mask.png' alt="sym" width="100%"></div></div>
