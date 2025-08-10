@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 
-I am a second-year Software Engineering student at the College of Computer Science and Technology, Xidian University, expected to earn my B.S. in Engineering in 2027. My research interests primarily focus on Efficient Large Language Models (LLMs), with additional interests in Reinforcement Learning (RL), Multimodal Large Language Models (MLLMs), and Embodied AI.
+I am a third-year Software Engineering student at the College of Computer Science and Technology, Xidian University, expected to earn my B.S. in Engineering in 2027. My research interests primarily focus on Efficient Large Language Models (LLMs), with additional interests in Reinforcement Learning (RL), Multimodal Large Language Models (MLLMs), and Embodied AI.
 
 <!--
 My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
@@ -75,17 +75,17 @@ Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
 An open-source study guide I created to help Xidian University Software Engineering students prepare for their exams, based on [Modern Operating System, fourth Edition](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf). The project has garnered over 2,000 views and engaged more than 800 users.
 
 # 🥇 Honors and Awards
-- *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final)**
+- *2025.05*: Finals of the National English Competition for College Students  - **First Prize, Final**
 - *2024.12*: National Undergraduate Mathematical Modeling Competition  - **Provincial First Prize**
 - *2024.11*: National Mathematical Competition for College Students - **Provincial First Prize**
 - *2024.09*: Awarded the <span class="highlight">National Scholarship</span>
-- *2024.07*: I ranked **1st out of 1360** in Computer Category Major(2023-2024)
+- *2024.07*: I ranked <span style="color:red">**1st out of 1360**</span> in Computer Category Major(2023-2024)
 - *2024.05*: "Foreign Language Society Word Master Cup" National College English Vocabulary Competition - **First Prize, Final**
 - *2024.02*: US College Mathematics Modeling Competition (MCM) - **Honorable Mention**
 
 # 💻 Internships
 - [LEAP Lab](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
-- *Research Intern* July 2025 - August 2025 \
+  *Research Intern* July 2025 - August 2025 \
    Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project. My work was conducted onsite at Tsinghua University's Central Main Building, room 601.
   
 # 📖 Educations
