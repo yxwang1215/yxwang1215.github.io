@@ -26,8 +26,10 @@ author:
   bio              : "Xidian University"
   location         : "Xi'an, China"
   wechat           : "/images/wechat_qr.png"
-  phone            : "+86 18157865833"          # 你的电话（展示用）
+  phone            : "+86 18157865833"          
+  phone_url        : "tel:+8618157865833"
   cv               : "/_pdf/wyx_resume_zh_0730.pdf"   # 简历文件的路径或外链
+  cv_label         : "CV / Resume"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=-i1EsMEAAAAJ"
