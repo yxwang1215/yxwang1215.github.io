@@ -1,7 +1,7 @@
 ---
 permalink: /
-title: ""
-excerpt: ""
+title: "yxwang"
+excerpt: "yxwang"
 author_profile: true
 redirect_from: 
   - /about/
@@ -31,7 +31,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">(AAAI 2026 submitted)</div><img src='images/thinking_inside_the_mask.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">  
 
-[Thinking Inside the Mask: In-Place Prompting in Diffusion LLMs](https://github.com/yxwang1215/yxwang1215.github.io/blob/main/_pdf/11075_Thinking_Inside_the_Mask.pdf) | [code](https://github.com/Lueci4er/early-exit)
+[Thinking Inside the Mask: In-Place Prompting in Diffusion LLMs](https://github.com/yxwang1215/yxwang1215.github.io/blob/main/_pdf/11075_Thinking_Inside_the_Mask.pdf) \| [code](https://github.com/Lueci4er/early-exit)
 
 Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Linfeng Zhang
 
@@ -51,6 +51,7 @@ to Echocardiography Probe Guidance](https://github.com/yxwang1215/yxwang1215.git
 Haojun Jiang, Teng Wang, **Yuxuan Wang**, Gao Huang
 
 - We propose a parameter-efficient Vision-Action Adapter (VA-Adapter) that adapts large ultrasound foundation models for real-time probe guidance in echocardiography. The VA-Adapter encodes vision-action sequences and leverages the model’s sequential reasoning to help junior sonographers acquire high-quality cardiac ultrasound images. By fine-tuning only a small subset of parameters, our approach surpasses strong baselines and improves accessibility to timely heart disease diagnosis. 
+</div>
 </div>
 
 <!--
