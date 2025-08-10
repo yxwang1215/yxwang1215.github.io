@@ -35,7 +35,9 @@ My research interest includes neural machine translation and computer vision. I 
 
 Xiangqi Jin, **Yuxuan Wang**, Yifeng Gao, Zichen Wen, Biqing Qi, Dongrui Liu, Linfeng Zhang
 
-- Contributed to developing ICE, a novel framework for diffusion LLMs (dLLMs) that transforms prefix-only prompting into in-place prompting. Integrated in-place prompts and confidence-aware early exit to cut computational costs. Achieved 17.29% accuracy boost + 4.12× speedup on GSM8K, and 276.67× acceleration on MMLU with competitive performance. 
+- **ICE: In-Place Chain-of-Thought Prompting**
+ICE is a novel framework that brings in-place prompting to diffusion large language models (dLLMs). It directly embeds prompts into masked token positions during a dLLM's iterative refinement process, enabling more flexible, bidirectional information flow.To boost efficiency, ICE features a confidence-aware early exit mechanism. Our results show it delivers a 17.29% accuracy increase and a 4.12x speedup on GSM8K, while achieving up to 276.67x acceleration on MMLU with strong performance.
+
 </div>
 </div>
 
