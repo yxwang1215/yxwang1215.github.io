@@ -96,7 +96,7 @@
       {% endif %}
       {% if author.wechat %}
         <li>
-          <a href="{{ author.wechat }}">
+          <a href="#" onclick="document.getElementById('wechatModal').style.display='block'; return false;">
             <i class="fab fa-fw fa-weixin" aria-hidden="true"></i> WeChat
           </a>
         </li>
@@ -194,7 +194,10 @@
         <a href="https://soundcloud.com/{{ author.soundcloud }}"><i class="fab fa-fw fa-soundcloud" aria-hidden="true"></i></a>
       {% endif %}
       {% if author.wechat %}
-        <a href="{{ author.wechat }}"><i class="fab fa-fw fa-weixin" aria-hidden="true"></i></a>
+        <a href="#" onclick="document.getElementById('wechatModal').style.display='block'; return false;">
+          <i class="fab fa-fw fa-weixin" aria-hidden="true"></i>
+        </a>
+      {% endif %}
       {% endif %}
       {% if author.weibo %}
         <a href="https://www.weibo.com/{{ author.weibo }}"><i class="fab fa-fw fa-weibo" aria-hidden="true"></i></a>
@@ -223,6 +226,14 @@
       {% if author.wikipedia %}
         <a href="https://en.wikipedia.org/wiki/User:{{ author.wikipedia }}"><i class="fab fa-fw fa-wikipedia-w" aria-hidden="true"></i></a>
       {% endif %}
+    </div>
+  </div>
+  <!-- WeChat Modal -->
+  <div id="wechatModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6);">
+    <div style="position:relative; margin:auto; padding:20px; background:#fff; width:300px; top:20%; border-radius:8px; text-align:center;">
+      <span style="position:absolute; right:10px; top:5px; cursor:pointer; font-size:20px;" onclick="document.getElementById('wechatModal').style.display='none'">&times;</span>
+      <img src="{{ author.wechat }}" alt="WeChat QR" style="max-width:100%; border-radius:4px;">
+      <p style="margin-top:10px;">scan QR code to add WeChat</p>
     </div>
   </div>
 </div>
