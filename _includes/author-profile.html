@@ -111,7 +111,7 @@
       {% endif %}
       {% if author.cv %}
         <li>
-          <a href="{{ author.cv }}" target="_blank" rel="noopener">
+          <a href="{{ author.cv }}" download="{{ author.cv | split:'/' | last }}">
             <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>
             {{ author.cv_label | default: 'CV / Resume' }}
           </a>
@@ -220,7 +220,7 @@
         </a>
       {% endif %}
       {% if author.cv %}
-        <a href="{{ author.cv }}" target="_blank" rel="noopener">
+        <a href="{{ author.cv }}" download="{{ author.cv | split:'/' | last }}">
           <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>
         </a>
       {% endif %}
