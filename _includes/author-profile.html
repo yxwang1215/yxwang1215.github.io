@@ -101,10 +101,19 @@
           </a>
         </li>
       {% endif %}
-      {% if author.phone %}
+      {% if author.phone or author.phone_uri %}
         <li>
-          <a href="tel:{{ author.phone }}">
-            <i class="fas fa-fw fa-phone" aria-hidden="true"></i> Phone
+          <a href="{{ author.phone_uri | default: 'tel:' | append: author.phone }}">
+            <i class="fas fa-fw fa-phone" aria-hidden="true"></i>
+            {{ author.phone | default: author.phone_uri }}
+          </a>
+        </li>
+      {% endif %}
+      {% if author.cv %}
+        <li>
+          <a href="{{ author.cv }}" target="_blank" rel="noopener">
+            <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>
+            {{ author.cv_label | default: 'CV / Resume' }}
           </a>
         </li>
       {% endif %}
@@ -203,6 +212,16 @@
       {% if author.wechat %}
         <a href="#" onclick="openWechatModal(event)">
           <i class="fab fa-fw fa-weixin" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+      {% if author.phone_uri or author.phone %}
+        <a href="{{ author.phone_uri | default: 'tel:' | append: author.phone }}">
+          <i class="fas fa-fw fa-phone" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+      {% if author.cv %}
+        <a href="{{ author.cv }}" target="_blank" rel="noopener">
+          <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>
         </a>
       {% endif %}
       {% if author.weibo %}
