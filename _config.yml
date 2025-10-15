@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Yuxuan Wang 王宇轩"
-  avatar           : "images/android-chrome-512x512.png"
+  avatar           : "images/favicon.ico"
   bio              : "Xidian University"
   location         : "Xi'an, China"
   wechat           : "/images/wechat_qr.png"
