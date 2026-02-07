@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 # 👤 About Me
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="highlight-box" markdown="1">
@@ -31,14 +31,12 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <span class="tag tag--purple">Omni LLMs</span>
 <span class="tag tag--blue">Token Pruning</span>
 <span class="tag tag--blue">KV Cache Optimization</span>
-
-<p style="font-size: 0.8em; color: #888; margin-top: 15px; margin-bottom: 0; text-align: right;">Last updated: February 7, 2026 (2026年2月7号)</p>
 </div>
 
 <span class='anchor' id='educations'></span>
 
 # 📖 Educations
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="edu-card">
@@ -75,7 +73,7 @@ My research interest includes neural machine translation and computer vision. I 
 <span class='anchor' id='publications'></span>
 
 # 📝 Publications
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
@@ -97,7 +95,7 @@ My research interest includes neural machine translation and computer vision. I 
 <span class='anchor' id='projects'></span>
 
 # 🚀 Projects
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="pub-card pub-card--submitted" markdown="1">
@@ -147,7 +145,7 @@ My research interest includes neural machine translation and computer vision. I 
 <span class='anchor' id='internships'></span>
 
 # 💻 Internships
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="intern-card">
@@ -171,7 +169,7 @@ My research interest includes neural machine translation and computer vision. I 
 <span class='anchor' id='honors-and-awards'></span>
 
 # 🥇 Selected Awards
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="award-item" markdown="1">
@@ -199,7 +197,7 @@ My research interest includes neural machine translation and computer vision. I 
 <span class='anchor' id='activities'></span>
 
 # 🎨 Activities
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="intern-card" markdown="1">
@@ -210,7 +208,7 @@ My research interest includes neural machine translation and computer vision. I 
 <span class='anchor' id='hobbies'></span>
 
 # 🧙 Hobbies
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="hobby-card" markdown="1">
@@ -226,11 +224,15 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="friend-card" markdown="1">
 🤝 [**Krysdal C. Warhol**](https://vegebirrd.github.io/), a junior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
 </div>
+<br>
+<!-- <br> -->
+
+<div style="text-align: right; color: #999; font-size: 0.85em; margin-top: 10px;">
+  <em>This homepage was last updated on February 7, 2026.</em>
+</div>
 
 <br>
 <br>
 <br>
 <br>
 <br>
-
-
