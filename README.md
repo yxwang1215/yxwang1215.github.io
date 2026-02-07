@@ -58,12 +58,35 @@ Some examples:
 
 ## Debug Locally
 
-1. Clone your REPO to local using `git clone`.
-1. Install Jekyll building environment, including `Ruby`, `RubyGems`, `GCC` and `Make` following [the installation guide](https://jekyllrb.com/docs/installation/#requirements).
-1. Run `bash run_server.sh` to start Jekyll livereload server.
-1. Open http://127.0.0.1:4000 in your browser.
-1. If you change the source code of the website, the livereload server will automatically refresh.
-1. When you finish the modification of your homepage, `commit` your changings and `push` to your remote REPO using `git` command.
+### Prerequisites
+
+- [Conda](https://docs.conda.io/en/latest/) (Miniconda or Anaconda)
+- A conda environment named `jekyll_env` with Ruby and Jekyll installed
+
+### Setup & Run
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/yxwang1215/yxwang1215.github.io.git
+cd yxwang1215.github.io
+
+# 2. Activate the conda environment
+conda activate jekyll_env
+
+# 3. Install dependencies
+bundle install
+
+# 4. Start the Jekyll dev server
+bundle exec jekyll serve
+```
+
+Open http://localhost:4000 in your browser to preview the site.
+
+### Notes
+
+- If you modify `_config.yml`, you need to **restart** the server for changes to take effect.
+- Other file changes (e.g. `_pages/about.md`) will trigger an automatic rebuild.
+- When you finish editing, `commit` and `push` your changes to deploy via GitHub Pages.
 
 # Acknowledges
 

@@ -107,3 +107,444 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+/* ==========================================================================
+   CUSTOM BEAUTIFICATION STYLES
+   ========================================================================== */
+
+/* Research interest tags */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 3px 4px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+}
+
+.tag--green {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  &:hover {
+    box-shadow: 0 4px 12px rgba(17, 153, 142, 0.4);
+  }
+}
+
+.tag--orange {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  &:hover {
+    box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+  }
+}
+
+.tag--blue {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  &:hover {
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
+  }
+}
+
+.tag--purple {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  &:hover {
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+  }
+}
+
+/* Section dividers - gradient lines */
+.section-divider {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+  margin: 8px 0 16px 0;
+  border-radius: 2px;
+}
+
+/* Publication & project cards */
+.pub-card {
+  background: #ffffff;
+  /* Removed border-left in favor of pseudo-element for better rendering with radius */
+  border-radius: 8px;
+  padding: 20px 24px 16px 24px; /* Reduced bottom padding */
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+
+  /* Default Blue Strip */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    background: #667eea;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+    transform: translateY(-3px);
+    &::after {
+      width: 6px;
+    }
+  }
+  
+  h3, h4, strong {
+    color: #2c3e50;
+  }
+  
+  a {
+    transition: color 0.2s;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Publication title links - remove blue underline */
+  > p:first-child a,
+  > a:first-child {
+    color: #1a1a2e !important;
+    text-decoration: none !important;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.3s ease;
+    &:hover {
+      color: #667eea !important;
+      border-bottom-color: #667eea;
+    }
+  }
+
+  p {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+    color: #4a5568;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Ensure all text inside cards is consistent dark color */
+  em, span:not(.btn--research), br + *:not(.btn--research) {
+    color: #4a5568;
+  }
+  strong {
+    color: #2d3748;
+  }
+
+  /* Ensure btn--research links inside cards keep their colors */
+  a.btn--research {
+    text-decoration: none !important;
+  }
+}
+
+/* Gold Theme for Accepted Papers */
+.pub-card--accepted {
+  background: linear-gradient(135deg, #ffffff 0%, #fffcf5 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15); /* Subtle gold border */
+  
+  &::after {
+    background: linear-gradient(180deg, #FFD700, #FDB931, #d4af37);
+    width: 5px;
+  }
+  
+  /* Removed trophy emoji ::before pseudo-element */
+
+  /* Gold-tinted title for accepted papers */
+  > p:first-child a,
+  > a:first-child {
+    color: #8B6914 !important;
+    &:hover {
+      color: #d4af37 !important;
+      border-bottom-color: #d4af37;
+    }
+  }
+  
+  &:hover {
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.25);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Under Review Theme for Submitted Papers */
+.pub-card--submitted {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  
+  &::after {
+    background: linear-gradient(180deg, #667eea, #764ba2);
+  }
+  
+  &::before {
+    content: '📬';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.2em;
+    opacity: 0.55;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.25);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Education timeline card */
+.edu-card {
+  display: flex;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  border: 1px solid #e8ecf4;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  .edu-logo {
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    margin-right: 25px;
+    margin-top: 2px;
+    border-radius: 14px;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #e0e5f5;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .edu-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Clean link styling - no blue underline */
+  a {
+    color: #2c3e50 !important;
+    text-decoration: none !important;
+    border-bottom: 1.5px solid transparent;
+    font-weight: 600;
+    transition: color 0.2s ease, border-color 0.3s ease;
+    &:hover {
+      color: #667eea !important;
+      border-bottom-color: #667eea;
+    }
+  }
+
+  p {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+/* Internship cards */
+.intern-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  border: 1px solid #e8ecf4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  .intern-logo {
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    margin-right: 25px;
+    margin-top: 2px;
+    border-radius: 14px;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #e0e5f5;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .intern-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Clean link styling */
+  a {
+    color: #2c3e50 !important;
+    text-decoration: none !important;
+    border-bottom: 1.5px solid transparent;
+    font-weight: 600;
+    transition: color 0.2s ease, border-color 0.3s ease;
+    &:hover {
+      color: #667eea !important;
+      border-bottom-color: #667eea;
+    }
+  }
+
+  p {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+  }
+}
+
+/* Award badge styling */
+.award-item {
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease;
+  &:hover {
+    background: #f8f9ff;
+    padding-left: 8px;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* CTA / link buttons - soft pastel pill style */
+.btn--research {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.76em;
+  font-weight: 600;
+  text-decoration: none !important;
+  letter-spacing: 0.3px;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  margin: 5px 4px 2px 0;
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.btn--paper {
+  background: linear-gradient(135deg, #fff0f0, #ffe8e8);
+  color: #e74c3c !important;
+  border-color: #f5c6c6;
+  &:hover {
+    background: linear-gradient(135deg, #fce4e4, #fdd);
+    box-shadow: 0 3px 12px rgba(231, 76, 60, 0.2);
+    color: #c0392b !important;
+  }
+}
+
+.btn--code {
+  background: linear-gradient(135deg, #eef6ff, #e0f0ff);
+  color: #3498db !important;
+  border-color: #c8e1f8;
+  &:hover {
+    background: linear-gradient(135deg, #ddeeff, #d0e8ff);
+    box-shadow: 0 3px 12px rgba(52, 152, 219, 0.2);
+    color: #2176ae !important;
+  }
+}
+
+.btn--project {
+  background: linear-gradient(135deg, #e8faf5, #d8f5ee);
+  color: #1abc9c !important;
+  border-color: #b8e8de;
+  &:hover {
+    background: linear-gradient(135deg, #d0f5ec, #c0f0e5);
+    box-shadow: 0 3px 12px rgba(26, 188, 156, 0.2);
+    color: #16a085 !important;
+  }
+}
+
+.btn--dataset {
+  background: linear-gradient(135deg, #f5eeff, #ede0ff);
+  color: #9b59b6 !important;
+  border-color: #ddc8f5;
+  &:hover {
+    background: linear-gradient(135deg, #ede0ff, #e2d0ff);
+    box-shadow: 0 3px 12px rgba(155, 89, 182, 0.2);
+    color: #8e44ad !important;
+  }
+}
+
+.btn--coming {
+  background: #f5f5f5;
+  color: #aaa !important;
+  border-color: #e0e0e0;
+  cursor: default;
+  &:hover {
+    background: #f5f5f5;
+    transform: none;
+    box-shadow: none;
+    color: #aaa !important;
+  }
+}
+
+/* Highlight box for About Me */
+.highlight-box {
+  background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 12px 0;
+  border: 1px solid #e0e5f5;
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.08);
+}
+
+/* Friend card */
+.friend-card {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border-radius: 12px;
+  padding: 16px 24px;
+  border: 1px solid #e0e5f5;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  &:hover {
+    box-shadow: 0 6px 24px rgba(102, 126, 234, 0.15);
+    transform: translateY(-3px);
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+/* Hobby card */
+.hobby-card {
+  background: linear-gradient(135deg, #fffef5 0%, #fff8e1 100%);
+  border-radius: 12px;
+  padding: 18px 24px;
+  border: 1px solid #f0e6c0;
+  box-shadow: 0 2px 12px rgba(255, 193, 7, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  &:hover {
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

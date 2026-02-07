@@ -8,7 +8,9 @@
 # Site Settings
 title                    : "Yuxuan Wang"
 description              : "san jamais renouncer"
-repository               : "yxwang1215.github.io"
+repository               : "yxwang1215/yxwang1215.github.io"
+url                      : "https://yxwang1215.github.io"
+baseurl                  : ""
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -17,18 +19,18 @@ google_analytics_id      :  # get google_analytics_id from https://analytics.goo
 # SEO Related
 google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
 bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
+baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index 
 
 # Site Author
 author:
   name             : "Yuxuan Wang 王宇轩"
-  avatar           : "images/favicon.ico"
+  avatar           : "images/favicon.ico.jpg"
   bio              : "Xidian University"
   location         : "Xi'an, China"
   wechat           : "/images/wechat_qr.png"
   #phone            : "+86 18157865833"          
   #phone_url        : "tel:+8618157865833"
-  cv               : "/_pdf/yxwang_resume_1103.pdf"   # 简历文件的路径或外链
+  cv               : "/_pdf/yxwang_resume_0208.pdf"   # 简历文件的路径或外链
   cv_label         : "CV / Resume"
   employer         :
   pubmed           : 
