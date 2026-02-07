@@ -171,4 +171,6 @@ whitelist:
 compress_html:
   clippings: all
   ignore:
-    envs: development
+    envs:
+      - development
+      - production

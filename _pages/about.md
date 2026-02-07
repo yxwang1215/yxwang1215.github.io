@@ -31,6 +31,8 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <span class="tag tag--purple">Omni LLMs</span>
 <span class="tag tag--blue">Token Pruning</span>
 <span class="tag tag--blue">KV Cache Optimization</span>
+
+<p style="font-size: 0.8em; color: #888; margin-top: 15px; margin-bottom: 0; text-align: right;">Last updated: February 7, 2026 (2026年2月7号)</p>
 </div>
 
 <span class='anchor' id='educations'></span>
