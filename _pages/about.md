@@ -52,7 +52,7 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <img src="/images/UCLA.png" alt="UCLA" class="edu-logo">
 <div class="edu-content" markdown="1">
 🌴 **[University of California, Los Angeles](https://www.ucla.edu/)** · Los Angeles, USA
-<br> *Visiting Student, Summer Session* &emsp; *Jun. 2024 - Oct. 2024*
+<br> *Visiting Student, Summer Session* &emsp; *Jun. 2024 - Aug. 2024*
 <br> Mastered mathematical modeling techniques via intensive study in Numerical Analysis.
 </div>
 </div>
@@ -79,7 +79,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles**](https://arxiv.org/abs/2506.10848)
 <br> Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang
-<br> <span style="color:#d35400; font-weight:bold;">Accepted to ICLR 2026 (CCF-A)</span> 🎉✨
+<br> <span style="color:#d35400; font-weight:bold;">Accepted to ICLR 2026 (Top Conference in Machine Learning)</span> 🎉✨
 <br> *Proposed SlowFast Sampling, a dynamic strategy that adaptively alternates between exploratory and accelerated stages based on token certainty, convergence, and positional principles. Achieved 15.63x speedup on LLaDA.*
 <br> <a href="https://arxiv.org/abs/2506.10848" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling" class="btn--research btn--code">💻 Code</a>
 </div>
@@ -87,7 +87,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography**](https://arxiv.org/abs/2509.13832)
 <br> T. Wang\*, H. Jiang\*, **Y. Wang\***, Z. Sun, X. Yan, X. Li, G. Huang (\* denotes Equal Contribution)
-<br> <span style="color:#d35400; font-weight:bold;">Accepted to ICRA 2026 (CAA-A)</span> 🎉✨
+<br> <span style="color:#d35400; font-weight:bold;">Accepted to ICRA 2026 (Top Conference in Robotics)</span> 🎉✨
 <br> *Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.*
 <br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">📄 Paper</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">🌐 Project Page</a>
 </div>
