@@ -30,9 +30,14 @@ layout: default
   </header>
 
   {% if page.cover %}
+    {% if page.cover contains '://' %}
+      {% assign diary_cover_url = page.cover %}
+    {% else %}
+      {% assign diary_cover_url = page.cover | relative_url %}
+    {% endif %}
   <figure class="diary-entry__cover">
-    <a href="{{ page.cover | relative_url }}" aria-label="查看封面原图">
-      <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title | escape }}">
+    <a href="{{ diary_cover_url }}" aria-label="查看封面原图">
+      <img src="{{ diary_cover_url }}" alt="{{ page.cover_alt | default: page.title | escape }}" decoding="async">
     </a>
     {% if page.cover_caption %}
     <figcaption>{{ page.cover_caption }}</figcaption>

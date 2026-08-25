@@ -30,7 +30,12 @@ author_profile: true
   <article class="diary-card">
     <a class="diary-card__cover" href="{{ entry.url | relative_url }}" aria-label="阅读：{{ entry.title | escape }}">
       {% if entry.cover %}
-      <img src="{{ entry.cover | relative_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="lazy">
+        {% if entry.cover contains '://' %}
+          {% assign diary_card_cover_url = entry.cover %}
+        {% else %}
+          {% assign diary_card_cover_url = entry.cover | relative_url %}
+        {% endif %}
+      <img src="{{ diary_card_cover_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="lazy" decoding="async">
       {% else %}
       <span class="diary-card__placeholder" aria-hidden="true">✦</span>
       {% endif %}

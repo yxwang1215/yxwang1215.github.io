@@ -26,6 +26,13 @@
       </article>
     </div>
 
+    {% if page.url == "/" %}
+    <a class="homepage-diary-fab" href="{{ '/diary/' | relative_url }}" aria-label="进入日记专栏">
+      <span class="homepage-diary-fab__icon" aria-hidden="true">📖</span>
+      <span class="homepage-diary-fab__text"><strong>日记</strong><small>Diary</small></span>
+    </a>
+    {% endif %}
+
     {% include scripts.html %}
 
   </body>
