@@ -19,7 +19,7 @@ google_analytics_id      :  # get google_analytics_id from https://analytics.goo
 # SEO Related
 google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
 bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index 
+baidu_site_verification  :  # get baidu_verification from https://ziyuan.baidu.com/login/index?u=/site/index 
 
 # Site Author
 author:
@@ -129,11 +129,11 @@ kramdown:
   enable_coderay: false
 
 
-# Diary Collection
+# Journal Collection (source files remain in _diary)
 collections:
   diary:
     output: true
-    permalink: /diary/:name/
+    permalink: /journal/:name/
 
 
 # Defaults
@@ -146,13 +146,13 @@ defaults:
       layout: default
       author_profile: true
 
-  # _diary
+  # _diary / Journal entries
   - scope:
       path: ""
       type: diary
     values:
       layout: diary
-      author_profile: true
+      author_profile: false
 
 
 # Sass/SCSS
