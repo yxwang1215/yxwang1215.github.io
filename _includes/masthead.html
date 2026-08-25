@@ -1,19 +1,38 @@
-<div class="masthead">
+{% assign is_journal_page = false %}
+{% if page.url contains '/journal/' or page.collection == 'diary' %}
+  {% assign is_journal_page = true %}
+{% endif %}
+
+<div class="masthead{% if is_journal_page %} masthead--journal{% endif %}">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
+      {% if is_journal_page %}
+      <nav class="journal-masthead" aria-label="Journal navigation">
+        <a class="journal-masthead__brand" href="{{ '/journal/' | relative_url }}">
+          <span class="journal-masthead__brand-name">Yuxuan Wang</span>
+          <span class="journal-masthead__brand-divider" aria-hidden="true">/</span>
+          <span class="journal-masthead__brand-section">Journal</span>
+        </a>
+        <div class="journal-masthead__actions">
+          <a href="{{ '/' | relative_url }}#about-me">Homepage</a>
+          <a class="is-active" href="{{ '/journal/' | relative_url }}" aria-current="page">Journal</a>
+        </div>
+      </nav>
+      {% else %}
       <nav id="site-nav" class="greedy-nav">
         <button aria-label="展开导航菜单"><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="{{ '/' | relative_url }}#about-me">Homepage</a></li>
-          <li class="masthead__menu-item masthead__menu-item--diary"><a href="{{ '/diary/' | relative_url }}" aria-label="进入日记专栏">📖 Diary</a></li>
+          <li class="masthead__menu-item masthead__menu-item--journal"><a href="{{ '/journal/' | relative_url }}" aria-label="进入 Journal">Journal</a></li>
           {% for link in site.data.navigation.main %}
-            {% unless link.url == "/diary/" %}
+            {% unless link.url == "/journal/" %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
             {% endunless %}
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      {% endif %}
     </div>
   </div>
 </div>

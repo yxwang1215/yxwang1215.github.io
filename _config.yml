@@ -129,11 +129,11 @@ kramdown:
   enable_coderay: false
 
 
-# Diary Collection
+# Journal Collection (source files remain in _diary)
 collections:
   diary:
     output: true
-    permalink: /diary/:name/
+    permalink: /journal/:name/
 
 
 # Defaults
@@ -146,13 +146,13 @@ defaults:
       layout: default
       author_profile: true
 
-  # _diary
+  # _diary / Journal entries
   - scope:
       path: ""
       type: diary
     values:
       layout: diary
-      author_profile: true
+      author_profile: false
 
 
 # Sass/SCSS

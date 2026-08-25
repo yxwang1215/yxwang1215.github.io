@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="diary-entry">
-  <a class="diary-entry__back" href="{{ '/diary/' | relative_url }}"><span aria-hidden="true">←</span> 返回日记</a>
+  <a class="diary-entry__back" href="{{ '/journal/' | relative_url }}"><span aria-hidden="true">←</span> 返回 Journal</a>
 
   <header class="diary-entry__header">
     <div class="diary-entry__meta">
@@ -31,13 +31,13 @@ layout: default
 
   {% if page.cover %}
     {% if page.cover contains '://' %}
-      {% assign diary_cover_url = page.cover %}
+      {% assign journal_cover_url = page.cover %}
     {% else %}
-      {% assign diary_cover_url = page.cover | relative_url %}
+      {% assign journal_cover_url = page.cover | relative_url %}
     {% endif %}
   <figure class="diary-entry__cover">
-    <a href="{{ diary_cover_url }}" aria-label="查看封面原图">
-      <img src="{{ diary_cover_url }}" alt="{{ page.cover_alt | default: page.title | escape }}" decoding="async">
+    <a href="{{ journal_cover_url }}" aria-label="查看封面原图">
+      <img src="{{ journal_cover_url }}" alt="{{ page.cover_alt | default: page.title | escape }}" decoding="async">
     </a>
     {% if page.cover_caption %}
     <figcaption>{{ page.cover_caption }}</figcaption>
@@ -51,6 +51,6 @@ layout: default
 
   <footer class="diary-entry__footer">
     <span>写于 {{ page.date | date: "%Y.%m.%d" }}</span>
-    <a href="{{ '/diary/' | relative_url }}">查看全部日记 <span aria-hidden="true">→</span></a>
+    <a href="{{ '/journal/' | relative_url }}">查看全部 Journal <span aria-hidden="true">→</span></a>
   </footer>
 </div>
