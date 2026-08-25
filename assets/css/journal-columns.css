@@ -1,0 +1,29 @@
+/* Final column distribution for the Journal masonry feed. */
+.journal-list {
+  column-count: 4;
+  column-width: auto;
+}
+
+.journal-card {
+  display: block;
+}
+
+@media (max-width: 1080px) {
+  .journal-list {
+    column-count: 3;
+    column-width: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .journal-list {
+    column-count: 2;
+    column-width: auto;
+  }
+}
+
+@media (max-width: 340px) {
+  .journal-list {
+    column-count: 1;
+  }
+}
