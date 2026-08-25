@@ -128,6 +128,14 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+
+# Diary Collection
+collections:
+  diary:
+    output: true
+    permalink: /diary/:name/
+
+
 # Defaults
 defaults:
   # _pages
@@ -136,6 +144,14 @@ defaults:
       type: pages
     values:
       layout: default
+      author_profile: true
+
+  # _diary
+  - scope:
+      path: ""
+      type: diary
+    values:
+      layout: diary
       author_profile: true
 
 

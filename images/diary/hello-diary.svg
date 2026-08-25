@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">日记专栏封面</title>
+  <desc id="desc">落日、植物和摊开的日记本构成的柔和插画</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8e7dc"/>
+      <stop offset="52%" stop-color="#eee8f5"/>
+      <stop offset="100%" stop-color="#dceaf2"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf9"/>
+      <stop offset="100%" stop-color="#f7f0e7"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4c29b"/>
+      <stop offset="100%" stop-color="#de8c85"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#5d4f62" flood-opacity="0.18"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="170" r="126" fill="url(#sun)" opacity="0.92"/>
+  <circle cx="1270" cy="170" r="170" fill="none" stroke="#ffffff" stroke-opacity="0.34" stroke-width="2"/>
+  <circle cx="1270" cy="170" r="220" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+
+  <path d="M0 670 C250 585 410 740 650 650 C900 555 1050 710 1600 560 L1600 900 L0 900 Z" fill="#c8d9d6" opacity="0.72"/>
+  <path d="M0 745 C240 655 470 810 760 695 C1030 590 1280 760 1600 650 L1600 900 L0 900 Z" fill="#b9c9d6" opacity="0.58"/>
+
+  <g opacity="0.42" fill="none" stroke="#6e7880" stroke-width="5" stroke-linecap="round">
+    <path d="M170 725 C205 590 220 475 196 350"/>
+    <path d="M198 560 C142 530 116 486 108 430"/>
+    <path d="M202 500 C255 472 278 430 282 380"/>
+    <path d="M196 650 C136 625 102 580 88 525"/>
+    <path d="M205 610 C265 584 305 540 322 482"/>
+  </g>
+  <g fill="#7e958d" opacity="0.48">
+    <ellipse cx="126" cy="448" rx="43" ry="18" transform="rotate(45 126 448)"/>
+    <ellipse cx="270" cy="397" rx="43" ry="18" transform="rotate(-42 270 397)"/>
+    <ellipse cx="105" cy="544" rx="46" ry="19" transform="rotate(38 105 544)"/>
+    <ellipse cx="302" cy="505" rx="46" ry="19" transform="rotate(-42 302 505)"/>
+  </g>
+
+  <ellipse cx="834" cy="752" rx="430" ry="58" fill="#675b6d" opacity="0.13" filter="url(#soft)"/>
+
+  <g filter="url(#shadow)">
+    <path d="M460 350 Q660 305 805 390 L805 748 Q642 663 460 700 Z" fill="url(#paper)" stroke="#d8cbc0" stroke-width="4"/>
+    <path d="M805 390 Q950 305 1150 350 L1150 700 Q968 663 805 748 Z" fill="url(#paper)" stroke="#d8cbc0" stroke-width="4"/>
+    <path d="M805 390 L805 748" stroke="#c9b8aa" stroke-width="5"/>
+    <path d="M805 407 C786 475 786 654 805 727" fill="none" stroke="#eadfd5" stroke-width="18" opacity="0.9"/>
+
+    <g stroke="#ded6cf" stroke-width="3">
+      <path d="M520 455 H738"/>
+      <path d="M520 505 H730"/>
+      <path d="M520 555 H695"/>
+      <path d="M520 605 H742"/>
+      <path d="M872 480 H1080"/>
+      <path d="M872 530 H1055"/>
+      <path d="M872 580 H1090"/>
+      <path d="M872 630 H1015"/>
+    </g>
+
+    <text x="520" y="420" fill="#755c66" font-size="28" font-family="Georgia, serif" letter-spacing="7">NOTES</text>
+    <text x="870" y="428" fill="#4d4553" font-size="78" font-family="Georgia, serif" font-weight="700" letter-spacing="8">DIARY</text>
+    <text x="873" y="680" fill="#8f7f86" font-size="24" font-family="Georgia, serif" letter-spacing="4">A PLACE FOR SMALL MOMENTS</text>
+  </g>
+
+  <g transform="translate(1170 530) rotate(-10)">
+    <path d="M0 160 C30 88 48 24 55 -45" fill="none" stroke="#657e72" stroke-width="7" stroke-linecap="round"/>
+    <path d="M49 18 C4 6 -21 -23 -28 -59 C10 -61 43 -39 54 -5 Z" fill="#81998c"/>
+    <path d="M37 70 C75 51 103 22 111 -14 C72 -10 44 12 31 48 Z" fill="#6f8b7d"/>
+    <path d="M22 119 C-15 101 -42 73 -50 38 C-10 42 18 64 31 95 Z" fill="#8da397"/>
+  </g>
+
+  <g transform="translate(390 250) rotate(-18)">
+    <rect x="0" y="0" width="250" height="54" rx="27" fill="#795b64"/>
+    <path d="M238 0 L310 27 L238 54 Z" fill="#e0b49d"/>
+    <path d="M296 21 L322 27 L296 33 Z" fill="#4a3e43"/>
+    <rect x="18" y="12" width="34" height="30" rx="15" fill="#d8a3a0" opacity="0.9"/>
+  </g>
+</svg>

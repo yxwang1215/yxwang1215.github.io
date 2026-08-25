@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="diary-entry">
+  <a class="diary-entry__back" href="{{ '/diary/' | relative_url }}"><span aria-hidden="true">←</span> 返回日记</a>
+
+  <header class="diary-entry__header">
+    <div class="diary-entry__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time>
+      {% if page.location %}
+      <span aria-hidden="true">·</span>
+      <span>{{ page.location }}</span>
+      {% endif %}
+    </div>
+
+    <h1>{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+    <p class="diary-entry__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+
+    {% if page.tags %}
+    <div class="diary-tags diary-tags--entry" aria-label="标签">
+      {% for tag in page.tags %}
+      <span># {{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  {% if page.cover %}
+  <figure class="diary-entry__cover">
+    <a href="{{ page.cover | relative_url }}" aria-label="查看封面原图">
+      <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title | escape }}">
+    </a>
+    {% if page.cover_caption %}
+    <figcaption>{{ page.cover_caption }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="diary-entry__content">
+    {{ content }}
+  </div>
+
+  <footer class="diary-entry__footer">
+    <span>写于 {{ page.date | date: "%Y.%m.%d" }}</span>
+    <a href="{{ '/diary/' | relative_url }}">查看全部日记 <span aria-hidden="true">→</span></a>
+  </footer>
+</div>
