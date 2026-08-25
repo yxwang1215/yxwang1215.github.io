@@ -1,6 +1,24 @@
-<div class="masthead">
+{% assign is_diary_page = false %}
+{% if page.url contains '/diary/' %}
+  {% assign is_diary_page = true %}
+{% endif %}
+
+<div class="masthead{% if is_diary_page %} masthead--diary{% endif %}">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
+      {% if is_diary_page %}
+      <nav class="diary-masthead" aria-label="日记专栏导航">
+        <a class="diary-masthead__brand" href="{{ '/diary/' | relative_url }}">
+          <span class="diary-masthead__brand-name">Yuxuan Wang</span>
+          <span class="diary-masthead__brand-divider" aria-hidden="true">/</span>
+          <span class="diary-masthead__brand-section">Diary</span>
+        </a>
+        <div class="diary-masthead__actions">
+          <a href="{{ '/' | relative_url }}#about-me">Homepage</a>
+          <a class="is-active" href="{{ '/diary/' | relative_url }}" aria-current="page">Diary</a>
+        </div>
+      </nav>
+      {% else %}
       <nav id="site-nav" class="greedy-nav">
         <button aria-label="展开导航菜单"><div class="navicon"></div></button>
         <ul class="visible-links">
@@ -14,6 +32,7 @@
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      {% endif %}
     </div>
   </div>
 </div>
