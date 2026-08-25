@@ -48,7 +48,7 @@ author:
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      : # e.g., "https://profiles.org/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : # e.g., "linkedin username"
   dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
@@ -128,6 +128,14 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+
+# Diary Collection
+collections:
+  diary:
+    output: true
+    permalink: /diary/:name/
+
+
 # Defaults
 defaults:
   # _pages
@@ -136,6 +144,14 @@ defaults:
       type: pages
     values:
       layout: default
+      author_profile: true
+
+  # _diary
+  - scope:
+      path: ""
+      type: diary
+    values:
+      layout: diary
       author_profile: true
 
 
