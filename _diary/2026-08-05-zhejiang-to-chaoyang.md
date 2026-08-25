@@ -7,6 +7,8 @@ cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/The_skyline_of
 cover_alt: "暮色中的北京朝阳区天际线与城市灯光"
 cover_caption: "北京朝阳区天际线。资料配图，非本人拍摄；图片署名与授权见文末。"
 location: "浙江 → 北京·朝阳"
+redirect_from:
+  - /diary/2026-08-05-zhejiang-to-chaoyang/
 tags:
   - 旅途
   - 北京
