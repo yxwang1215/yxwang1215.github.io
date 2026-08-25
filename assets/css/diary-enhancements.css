@@ -1,0 +1,113 @@
+/* Diary entry points shown across the homepage and masthead. */
+
+.masthead__menu-item--diary > a {
+  margin: 0.22rem 0.72rem 0.22rem 0.15rem !important;
+  padding: 0.38rem 0.82rem !important;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8f6874 0%, #66577f 100%);
+  box-shadow: 0 5px 16px rgba(102, 87, 127, 0.2);
+  color: #fff !important;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.greedy-nav .visible-links .masthead__menu-item--diary > a::before {
+  display: none;
+}
+
+.masthead__menu-item--diary > a:hover,
+.masthead__menu-item--diary > a:focus {
+  color: #fff !important;
+  opacity: 0.94;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 21px rgba(102, 87, 127, 0.28);
+}
+
+.homepage-diary-fab {
+  position: fixed;
+  right: 1.45rem;
+  bottom: 1.45rem;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.68rem;
+  padding: 0.72rem 1rem 0.72rem 0.82rem;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(143, 104, 116, 0.97), rgba(91, 81, 124, 0.97));
+  box-shadow: 0 12px 34px rgba(61, 48, 73, 0.26);
+  color: #fff !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-decoration: none !important;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.homepage-diary-fab:hover,
+.homepage-diary-fab:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+  transform: translateY(-3px);
+  box-shadow: 0 17px 42px rgba(61, 48, 73, 0.34);
+}
+
+.homepage-diary-fab__icon {
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.17);
+  font-size: 1.08rem;
+}
+
+.homepage-diary-fab__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.08;
+}
+
+.homepage-diary-fab__text strong {
+  color: #fff;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+}
+
+.homepage-diary-fab__text small {
+  margin-top: 0.2rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .masthead__menu-item--diary > a {
+    margin-right: 0.45rem !important;
+    padding-right: 0.68rem !important;
+    padding-left: 0.68rem !important;
+  }
+
+  .homepage-diary-fab {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    gap: 0.48rem;
+    padding: 0.58rem 0.78rem 0.58rem 0.62rem;
+  }
+
+  .homepage-diary-fab__icon {
+    width: 1.9rem;
+    height: 1.9rem;
+    font-size: 0.96rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead__menu-item--diary > a,
+  .homepage-diary-fab {
+    transition: none;
+  }
+}
