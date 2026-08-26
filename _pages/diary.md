@@ -37,6 +37,8 @@ redirect_from:
   </div>
 </section>
 
+{% include section-pager.html position="top" previous_url="/journey/" previous_label="Journey" next_url="/research/" next_label="Research" %}
+
 {% if featured_entry %}
 {% capture featured_search_text %}{{ featured_entry.title }} {{ featured_entry.excerpt }} {{ featured_entry.location }} {{ featured_entry.tags | join: " " }}{% endcapture %}
 <section id="latest" class="journal-feature-section" aria-labelledby="journal-feature-title">
@@ -192,10 +194,10 @@ redirect_from:
 
 <section class="journal-crosslink">
   <div>
-    <span>研究近况</span>
-    <p>看看最近在关注哪些问题，而不只是已经完成的结果。</p>
+    <span>Research</span>
+    <p>查看论文、项目和研究方向。</p>
   </div>
-  <a href="{{ '/now/' | relative_url }}">查看 Now <span aria-hidden="true">→</span></a>
+  <a href="{{ '/research/' | relative_url }}">查看 Research <span aria-hidden="true">→</span></a>
 </section>
 {% else %}
 <div class="journal-empty">
@@ -204,3 +206,5 @@ redirect_from:
   <p>在 <code>_diary</code> 目录中添加 Markdown 文件后，它会自动出现在这里。</p>
 </div>
 {% endif %}
+
+{% include section-pager.html position="bottom" previous_url="/journey/" previous_label="Journey" next_url="/research/" next_label="Research" %}
