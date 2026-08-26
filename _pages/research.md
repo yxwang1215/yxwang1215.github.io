@@ -95,11 +95,12 @@ page_class: "research-map-page"
     </p>
     <div class="research-work-grid research-work-grid--two">
       <article class="research-work">
-        <span class="research-work__status">ICML 2026 · Submitted · First Author</span>
+        <span class="research-work__status">ACM MM 2026 · Accepted · First Author</span>
         <h3>AudioKV</h3>
         <p>Prioritizes audio-critical attention heads through semantic-acoustic alignment and Spectral Score Smoothing; the homepage reports 60% lower memory overhead.</p>
         <div class="research-work__links">
-          <span>Paper coming soon</span>
+          <a href="https://arxiv.org/abs/2604.06694">Paper</a>
+          <a href="https://github.com/yxwang1215/Audio_kvcache">Code</a>
         </div>
       </article>
       <article class="research-work">
@@ -137,11 +138,12 @@ page_class: "research-map-page"
         </div>
       </article>
       <article class="research-work">
-        <span class="research-work__status">Research Project</span>
+        <span class="research-work__status">MICCAI 2026 · Accepted · Top 9%</span>
         <h3>VA-Adapter</h3>
         <p>A parameter-efficient vision-action adapter for real-time echocardiography probe guidance.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2510.06809">Paper</a>
+          <a href="https://github.com/LeapLabTHU/VA-Adapter">Code</a>
         </div>
       </article>
     </div>
