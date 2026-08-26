@@ -79,7 +79,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles**](https://arxiv.org/abs/2506.10848)
 <br> Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang
-<br> <span class="publication-status">Accepted to ICLR 2026 (Top Conference in Machine Learning)</span>
+<br> <span class="publication-status">Accepted to ICLR 2026 (CCF-A)</span>
 <br> *Proposed SlowFast Sampling, a dynamic strategy that adaptively alternates between exploratory and accelerated stages based on token certainty, convergence, and positional principles. Achieved 15.63x speedup on LLaDA.*
 <br> <a href="https://arxiv.org/abs/2506.10848" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling" class="btn--research btn--code">Code</a>
 </div>
@@ -87,7 +87,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography**](https://arxiv.org/abs/2509.13832)
 <br> T. Wang\*, H. Jiang\*, **Y. Wang\***, Z. Sun, X. Yan, X. Li, G. Huang (\* denotes Equal Contribution)
-<br> <span class="publication-status">Accepted to ICRA 2026 (Top Conference in Robotics)</span>
+<br> <span class="publication-status">Accepted to ICRA 2026 (CCF-B)</span>
 <br> *Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.*
 <br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/UltraHiT" class="btn--research btn--code">Code</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">Project Page</a>
 </div>
@@ -103,7 +103,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance**](https://arxiv.org/abs/2510.06809)
 <br> T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang
-<br> <span class="publication-status">Accepted to MICCAI 2026 (Top 9%)</span>
+<br> <span class="publication-status">Accepted to MICCAI 2026 (CCF-B)</span>
 <br> *Parameter-efficient Vision-Action Adapter for real-time probe guidance.*
 <br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">Code</a>
 </div>
