@@ -14,20 +14,27 @@
           <span class="journal-masthead__brand-section">Journal</span>
         </a>
         <div class="journal-masthead__actions">
-          <a href="{{ '/' | relative_url }}#about-me">Homepage</a>
+          <a href="{{ '/' | relative_url }}">Homepage</a>
+          <a class="journal-masthead__optional" href="{{ '/research/' | relative_url }}">Research</a>
+          <a class="journal-masthead__optional" href="{{ '/journal/#archive' | relative_url }}">Archive</a>
           <a class="is-active" href="{{ '/journal/' | relative_url }}" aria-current="page">Journal</a>
         </div>
       </nav>
       {% else %}
-      <nav id="site-nav" class="greedy-nav">
-        <button aria-label="展开导航菜单"><div class="navicon"></div></button>
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        <button aria-label="展开导航菜单"><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="{{ '/' | relative_url }}#about-me">Homepage</a></li>
-          <li class="masthead__menu-item masthead__menu-item--journal"><a href="{{ '/journal/' | relative_url }}" aria-label="进入 Journal">Journal</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
+            <a href="{{ '/' | relative_url }}">Homepage</a>
+          </li>
           {% for link in site.data.navigation.main %}
-            {% unless link.url == "/journal/" %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-            {% endunless %}
+            {% assign link_is_active = false %}
+            {% if page.url == link.url %}
+              {% assign link_is_active = true %}
+            {% endif %}
+            <li class="masthead__menu-item{% if link.title == 'Journal' %} masthead__menu-item--journal{% endif %}">
+              <a href="{{ link.url | relative_url }}"{% if link_is_active %} class="is-active" aria-current="page"{% endif %}>{{ link.title }}</a>
+            </li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
