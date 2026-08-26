@@ -17,12 +17,12 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-# 👤 About Me
+# About Me
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="highlight-box" markdown="1">
-I am a third-year undergraduate at **Xidian University**, majoring in **Software Engineering (Intelligent Direction)**. I rank <span style="color:red">**1st/335**</span> in all Software Engineering and <span style="color:red">**1st/1342**</span> in the Computer Category for the 2023-2024 academic year. Additionally, I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
+I am a third-year undergraduate at **Xidian University**, majoring in **Software Engineering (Intelligent Direction)**. I rank <span class="academic-emphasis">**1st/335**</span> in all Software Engineering and <span class="academic-emphasis">**1st/1342**</span> in the Computer Category for the 2023-2024 academic year. Additionally, I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
 
 **Research Interests:**
 <span class="tag">Multimodal LLMs</span>
@@ -35,14 +35,14 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 
 <span class='anchor' id='educations'></span>
 
-# 📖 Educations
+# Education
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="edu-card">
 <img src="/images/xidian.png" alt="Xidian University" class="edu-logo">
 <div class="edu-content" markdown="1">
-🎓 **[Xidian University](https://www.xidian.edu.cn/)** · Xi'an, China
+**[Xidian University](https://www.xidian.edu.cn/)** · Xi'an, China
 <br> *B.Eng. in Software Engineering* &emsp; *Sep. 2023 - Jun. 2027 (expected)*
 <br> As a top-ranked student with a perfect **GPA of 4.0/4.0**, I have demonstrated consistent academic excellence in core courses such as Physics (99), Programming Design (98), Circuits (98), Discrete Math (98), Data Communications & Networks (97), and Advanced Mathematics (97).
 </div>
@@ -51,7 +51,7 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <div class="edu-card">
 <img src="/images/UCLA.png" alt="UCLA" class="edu-logo">
 <div class="edu-content" markdown="1">
-🌴 **[University of California, Los Angeles](https://www.ucla.edu/)** · Los Angeles, USA
+**[University of California, Los Angeles](https://www.ucla.edu/)** · Los Angeles, USA
 <br> *Visiting Student, Summer Session* &emsp; *Jun. 2024 - Aug. 2024*
 <br> Mastered mathematical modeling techniques via intensive study in Numerical Analysis.
 </div>
@@ -60,7 +60,7 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <div class="edu-card">
 <img src="/images/zhenhai.png" alt="Zhenhai High School" class="edu-logo">
 <div class="edu-content" markdown="1">
-🏫 **[Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981)** · Ningbo, China
+**[Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981)** · Ningbo, China
 <br> *Innovation Class (Jiaochuan Academy)* &emsp; *Sep. 2020 - Jun. 2023*
 <br> Selected for the *Innovation Class* at Zhejiang's top-ranked high school; 15 classmates and ~70 students school-wide are admitted to **Peking University** or **Tsinghua University** annually.
 </div>
@@ -72,45 +72,45 @@ My research interest includes neural machine translation and computer vision. I 
 
 <span class='anchor' id='publications'></span>
 
-# 📝 Publications
+# Publications
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles**](https://arxiv.org/abs/2506.10848)
 <br> Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang
-<br> <span style="color:#d35400; font-weight:bold;">Accepted to ICLR 2026 (Top Conference in Machine Learning)</span> 🎉✨
+<br> <span class="publication-status">Accepted to ICLR 2026 (Top Conference in Machine Learning)</span>
 <br> *Proposed SlowFast Sampling, a dynamic strategy that adaptively alternates between exploratory and accelerated stages based on token certainty, convergence, and positional principles. Achieved 15.63x speedup on LLaDA.*
-<br> <a href="https://arxiv.org/abs/2506.10848" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling" class="btn--research btn--code">💻 Code</a>
+<br> <a href="https://arxiv.org/abs/2506.10848" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography**](https://arxiv.org/abs/2509.13832)
 <br> T. Wang\*, H. Jiang\*, **Y. Wang\***, Z. Sun, X. Yan, X. Li, G. Huang (\* denotes Equal Contribution)
-<br> <span style="color:#d35400; font-weight:bold;">Accepted to ICRA 2026 (Top Conference in Robotics)</span> 🎉✨
+<br> <span class="publication-status">Accepted to ICRA 2026 (Top Conference in Robotics)</span>
 <br> *Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.*
-<br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">📄 Paper</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">🌐 Project Page</a>
+<br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/UltraHiT" class="btn--research btn--code">Code</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">Project Page</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2604.06694)
 <br> **Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang
-<br> **First Author**; <span style="color:#d35400; font-weight:bold;">Accepted to ACM MM 2026 (CCF-A)</span> 🎉✨
+<br> **First Author**; <span class="publication-status">Accepted to ACM MM 2026 (CCF-A)</span>.
 <br> *Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).*
-<br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">💻 Code</a>
+<br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance**](https://arxiv.org/abs/2510.06809)
 <br> T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang
-<br> <span style="color:#d35400; font-weight:bold;">Accepted to MICCAI 2026 (Top 9%)</span> 🎉✨
+<br> <span class="publication-status">Accepted to MICCAI 2026 (Top 9%)</span>
 <br> *Parameter-efficient Vision-Action Adapter for real-time probe guidance.*
-<br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">💻 Code</a>
+<br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">Code</a>
 </div>
 
 <span class='anchor' id='projects'></span>
 
-# 🚀 Projects
+# Projects
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
@@ -119,7 +119,7 @@ My research interest includes neural machine translation and computer vision. I 
 <br> X. Jin, **Y. Wang**, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang
 <br> **Second Author**; Submitted to **ACL 2026 (CCF-A)**.
 <br> *Proposed In-Place Prompting, integrating reasoning chains directly into the mask denoising process for Diffusion LLMs.*
-<br> <a href="https://arxiv.org/abs/2508.10736" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/Lueci4er/ICE" class="btn--research btn--code">💻 Code</a>
+<br> <a href="https://arxiv.org/abs/2508.10736" class="btn--research btn--paper">Paper</a> <a href="https://github.com/Lueci4er/ICE" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card pub-card--submitted" markdown="1">
@@ -127,32 +127,32 @@ My research interest includes neural machine translation and computer vision. I 
 <br> Y. Gao\*, Z. Ji\*, **Y. Wang**, B. Qi, H. Xu, L. Zhang (\* denotes Equal Contribution)
 <br> Submitted to **ACL 2026 (CCF-A)**.
 <br> *Developed SSD for Diffusion LLMs, accelerating inference via internal self-drafting and parallel verification.*
-<br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">📄 Paper</a>
+<br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">Paper</a>
 </div>
 
 <div class="pub-card pub-card--submitted" markdown="1">
 [**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
 <br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
 <br> Submitted to **ACL 2026 (CCF-A)**.
-<br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">💻 Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">🗂️ Dataset</a>
+<br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
 </div>
 
 <div class="pub-card" markdown="1">
-[🔥 **Operating System Review**](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
+[**Operating System Review**](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
 <br> *Open-source study guide for Xidian Software Engineering students, covering Modern Operating Systems.*
-<br> <a href="https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink" class="btn--research btn--project">📖 Read Guide</a>
+<br> <a href="https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink" class="btn--research btn--project">Read Guide</a>
 </div>
 
 <span class='anchor' id='internships'></span>
 
-# 💻 Internships
+# Internships
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="intern-card">
 <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo">
 <div class="intern-content" markdown="1">
-🔬 [**EPIC Lab**](https://epic-lab.github.io/), [School of Artificial Intelligence](https://soai.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), China.
+[**EPIC Lab**](https://epic-lab.github.io/), [School of Artificial Intelligence](https://soai.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), China.
 <br> *Research Assistant* &emsp; August 2025 - February 2026
 <br> Developed efficient algorithms for large language diffusion models, leveraging bidirectional attention as a high-performance alternative to autoregressive models. Also spearheaded KV cache eviction research for Audio LLMs.
 </div>
@@ -161,75 +161,75 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="intern-card">
 <img src="/images/tsinghua.png" alt="Tsinghua University" class="intern-logo">
 <div class="intern-content" markdown="1">
-🤖 [**LEAP Lab**](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
+[**LEAP Lab**](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
 <br> *Research Assistant* &emsp; March 2025 - September 2025
-<br> Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project. My work was conducted onsite at Tsinghua University's Central Main Building, room 601. <span style="color:red">Our work has been accepted to ICRA 2026. 🥳✨🎉</span>
+<br> Participated in the implementation of the internal carotid artery ultrasound autonomous navigation project. My work was conducted onsite at Tsinghua University's Central Main Building, room 601. <span class="publication-status">Our work has been accepted to ICRA 2026.</span>
 </div>
 </div>
 
 <span class='anchor' id='honors-and-awards'></span>
 
-# 🥇 Selected Awards
+# Selected Awards
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="award-item" markdown="1">
-🏆 *2025.12*: **Huawei Scholarship** (Top 0.1%) - Issued by Huawei Xi'an Research Institute
+*2025.12*: **Huawei Scholarship** (Top 0.1%) - Issued by Huawei Xi'an Research Institute
 </div>
 <div class="award-item" markdown="1">
-🏅 *2023 - 2025*: **National Scholarship** (Twice, 2023-2024, 2024-2025)
+*2023 - 2025*: **National Scholarship** (Twice, 2023-2024, 2024-2025)
 </div>
 <div class="award-item" markdown="1">
-🥇 *2025.04*: **National First Prize**, National English Competition for College Students (NECCS)
+*2025.04*: **National First Prize**, National English Competition for College Students (NECCS)
 </div>
 <div class="award-item" markdown="1">
-🥇 *2024.12*: **First Prize**, National Undergraduate Mathematical Modeling Contest
+*2024.12*: **First Prize**, National Undergraduate Mathematical Modeling Contest
 </div>
 <div class="award-item" markdown="1">
-🥇 *2024.11*: **First Prize**, 16th National Undergraduate Mathematics Competition
+*2024.11*: **First Prize**, 16th National Undergraduate Mathematics Competition
 </div>
 <div class="award-item" markdown="1">
-🥇 *2024.01*: **National First Prize**, *Vocabulary Star* National English Vocabulary Competition
+*2024.01*: **National First Prize**, *Vocabulary Star* National English Vocabulary Competition
 </div>
 <div class="award-item" markdown="1">
-🎖️ *2024.01*: **Honorable Mention**, Mathematical Contest in Modeling (MCM)
+*2024.01*: **Honorable Mention**, Mathematical Contest in Modeling (MCM)
 </div>
 
 <span class='anchor' id='activities'></span>
 
-# 🎨 Activities
+# Activities
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="intern-card" markdown="1">
-🌊 **Xidian Inspur Club**, President (2025 - 2026)
+**Xidian Inspur Club**, President (2025 - 2026)
 <br> *Club Management*: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.
 </div>
 
 <span class='anchor' id='hobbies'></span>
 
-# 🧙 Hobbies
+# Hobbies
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="hobby-card" markdown="1">
-⚡ **Professional *Harry Potter Series* Enthusiast.** 8 years of deep immersion having read the books and watched the movies over 10 times; I know the Wizarding World's evolution better than my own life trajectory (still waiting for my owl 🦉).
+**Professional *Harry Potter Series* Enthusiast.** 8 years of deep immersion having read the books and watched the movies over 10 times; I know the Wizarding World's evolution better than my own life trajectory (still waiting for my owl).
 </div>
 
 <span class='anchor' id='friends'></span>
 
-# 👯 Friends
+# Friends
 {: style="margin-top: 1.2em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
 <div class="friend-card" markdown="1">
-🤝 [**Krysdal C. Warhol**](https://vegebirrd.github.io/), a junior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
+[**Krysdal C. Warhol**](https://vegebirrd.github.io/), a junior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
 </div>
 <br>
 <!-- <br> -->
 
-<div style="text-align: right; color: #999; font-size: 0.85em; margin-top: 10px;">
-  <em>This homepage was last updated on August 26, 2026.</em>
+<div class="last-updated">
+  <em>Last updated: 2026/8/26.</em>
 </div>
 
 <br>

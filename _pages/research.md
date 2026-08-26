@@ -41,7 +41,7 @@ page_class: "research-map-page"
 </section>
 
 <section class="research-clusters" aria-label="Research threads">
-  <article class="research-cluster" style="--cluster-accent: #7256d8;">
+  <article class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">THREAD 01</span>
       <div>
@@ -82,7 +82,7 @@ page_class: "research-map-page"
     </div>
   </article>
 
-  <article class="research-cluster" style="--cluster-accent: #e44f7a;">
+  <article class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">THREAD 02</span>
       <div>
@@ -116,7 +116,7 @@ page_class: "research-map-page"
     </div>
   </article>
 
-  <article class="research-cluster" style="--cluster-accent: #168d8d;">
+  <article class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">THREAD 03</span>
       <div>
@@ -134,6 +134,7 @@ page_class: "research-map-page"
         <p>A hierarchical Transformer architecture for generalizable internal-carotid-artery robotic ultrasonography.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2509.13832">Paper</a>
+          <a href="https://github.com/LeapLabTHU/UltraHiT">Code</a>
           <a href="{{ '/UltraHiT/' | relative_url }}">Project</a>
         </div>
       </article>
