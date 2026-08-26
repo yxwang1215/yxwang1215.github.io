@@ -22,6 +22,8 @@ page_class: "journey-page"
   </aside>
 </header>
 
+{% include section-pager.html position="top" previous_url="/research/" previous_label="Research" next_url="/journal/" next_label="Journal" %}
+
 <section class="journey-timeline" aria-label="Education and research timeline">
   <article class="journey-stop">
     <div class="journey-stop__date"><span>2020</span><small>Sep</small></div>
@@ -87,13 +89,10 @@ page_class: "journey-page"
       <p>Continuing research on efficient inference, multimodal memory, and embodied medical AI.</p>
       <div class="journey-stop__actions">
         <a href="{{ '/research/' | relative_url }}">Research</a>
-        <a href="{{ '/now/' | relative_url }}">Now</a>
+        <a href="{{ '/journal/' | relative_url }}">Journal</a>
       </div>
     </div>
   </article>
 </section>
 
-<section class="subpage-next">
-  <p>Selected projects and papers are listed on the research page.</p>
-  <a href="{{ '/research/' | relative_url }}">View research <span aria-hidden="true">→</span></a>
-</section>
+{% include section-pager.html position="bottom" previous_url="/research/" previous_label="Research" next_url="/journal/" next_label="Journal" %}
