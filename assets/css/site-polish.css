@@ -6,21 +6,20 @@
 @import url("./site-polish-home.css");
 @import url("./academic-theme.css");
 
-/* High-contrast accepted-publication labels. */
+/* Accepted-publication status: restrained, high-contrast text only. */
 .pub-card span.publication-status {
-  display: inline-block;
-  padding: 0.16em 0.52em;
-  border: 1px solid #611b2c;
-  border-radius: 3px;
-  background: #7a263a;
-  color: #ffffff !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #176b45 !important;
   font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.01em;
+  line-height: inherit;
+  letter-spacing: 0;
 }
 
 .pub-card span.publication-status strong {
-  color: #ffffff !important;
+  color: #176b45 !important;
 }
 
 /* Keep the priority-plus navigation toggle at its intended width. The navicon
