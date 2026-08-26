@@ -20,7 +20,7 @@ redirect_from:
 
 <section class="journal-feed-hero journal-feed-hero--v2" aria-labelledby="journal-title">
   <div class="journal-feed-hero__copy">
-    <p class="journal-feed-hero__eyebrow">YUXUAN'S JOURNAL</p>
+    <p class="journal-feed-hero__eyebrow">Journal</p>
     <h1 id="journal-title">日常、旅途，和没有结论的片刻。</h1>
     <p class="journal-feed-hero__intro">把照片与文字放在一起，记录研究之外偶尔值得停下来的时刻。</p>
     <div class="journal-feed-hero__links">
@@ -42,7 +42,7 @@ redirect_from:
 <section id="latest" class="journal-feature-section" aria-labelledby="journal-feature-title">
   <div class="journal-section-heading">
     <div>
-      <p>LATEST NOTE</p>
+      <p>最新</p>
       <h2 id="journal-feature-title">最近一篇</h2>
     </div>
     <span>{{ featured_entry.date | date: "%Y年%m月%d日" }}</span>
@@ -66,7 +66,7 @@ redirect_from:
       <span class="journal-featured__date">{{ featured_entry.date | date: "%m.%d" }}</span>
     </a>
     <div class="journal-featured__body">
-      <span class="journal-featured__label">FEATURED · 最新记录</span>
+      <span class="journal-featured__label">最近更新</span>
       <h2><a href="{{ featured_entry.url | relative_url }}">{{ featured_entry.title }}</a></h2>
       {% if featured_entry.subtitle %}<p class="journal-featured__subtitle">{{ featured_entry.subtitle }}</p>{% endif %}
       {% assign featured_excerpt = featured_entry.excerpt | default: featured_entry.content %}
@@ -89,8 +89,8 @@ redirect_from:
 <section class="journal-discovery" data-journal-toolbar aria-labelledby="journal-all-title">
   <div class="journal-discovery__heading">
     <div>
-      <p>DISCOVER</p>
-      <h2 id="journal-all-title">浏览全部记录</h2>
+      <p>全部记录</p>
+      <h2 id="journal-all-title">浏览 Journal</h2>
     </div>
     <span data-journal-visible-count>{{ diary_entries | size }} 篇可见</span>
   </div>
@@ -163,8 +163,8 @@ redirect_from:
 <section id="archive" class="journal-archive" aria-labelledby="journal-archive-title">
   <div class="journal-section-heading">
     <div>
-      <p>ARCHIVE</p>
-      <h2 id="journal-archive-title">按年份归档</h2>
+      <p>归档</p>
+      <h2 id="journal-archive-title">按年份浏览</h2>
     </div>
     <span>从最近到更早</span>
   </div>
@@ -174,7 +174,7 @@ redirect_from:
     <section class="journal-archive__year" aria-labelledby="journal-year-{{ year.name }}">
       <div class="journal-archive__year-label">
         <strong id="journal-year-{{ year.name }}">{{ year.name }}</strong>
-        <span>{{ year.items | size }} notes</span>
+        <span>{{ year.items | size }} 篇</span>
       </div>
       <ol>
         {% for entry in year.items %}
@@ -192,10 +192,10 @@ redirect_from:
 
 <section class="journal-crosslink">
   <div>
-    <span>RESEARCH, BUT LESS FORMAL</span>
-    <p>想看看此刻正在关注的问题，而不是只看已经完成的结果？</p>
+    <span>研究近况</span>
+    <p>看看最近在关注哪些问题，而不只是已经完成的结果。</p>
   </div>
-  <a href="{{ '/now/' | relative_url }}">打开 Now 页面 <span aria-hidden="true">→</span></a>
+  <a href="{{ '/now/' | relative_url }}">查看 Now <span aria-hidden="true">→</span></a>
 </section>
 {% else %}
 <div class="journal-empty">
