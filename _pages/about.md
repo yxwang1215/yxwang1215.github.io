@@ -206,16 +206,6 @@ My research interest includes neural machine translation and computer vision. I 
 <br> *Club Management*: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.
 </div>
 
-<span class='anchor' id='hobbies'></span>
-
-# Hobbies
-{: style="margin-top: 0.8em; margin-bottom: 10px;"}
-<div class="section-divider"></div>
-
-<div class="hobby-card" markdown="1">
-**Professional *Harry Potter Series* Enthusiast.** 8 years of deep immersion having read the books and watched the movies over 10 times; I know the Wizarding World's evolution better than my own life trajectory (still waiting for my owl).
-</div>
-
 <span class='anchor' id='friends'></span>
 
 # Friends
