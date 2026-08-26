@@ -314,6 +314,75 @@
   line-height: 1.52;
 }
 
+/* Remove dashboard-like decoration from the Now page. */
+
+.now-card {
+  min-height: 230px;
+}
+
+.now-card__icon {
+  display: none;
+}
+
+.now-card__tags {
+  gap: 0.55rem;
+}
+
+.now-card__tags span {
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  color: #727b86;
+}
+
+.open-questions {
+  border-color: #d8dee8;
+  background: #fff;
+  color: #303844;
+}
+
+.open-questions__heading p,
+.open-questions li span {
+  color: var(--editorial-meta) !important;
+}
+
+.page__content .open-questions__heading h2 {
+  color: #303844;
+}
+
+.open-questions li {
+  padding: 0.78rem 0;
+  border: 0;
+  border-top: 1px solid #e2e6ec;
+  border-radius: 0;
+  background: transparent;
+}
+
+.open-questions li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.open-questions li:last-child {
+  padding-bottom: 0;
+}
+
+.open-questions li p {
+  color: var(--editorial-muted);
+}
+
+.page__content .research-work__links a,
+.research-work__links span {
+  min-height: auto;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
 /* Journey */
 
 .journey-stop {
