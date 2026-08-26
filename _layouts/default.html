@@ -12,39 +12,43 @@
   {% assign journal_shell_variant = 'journal-shell--entry' %}
 {% endif %}
 
+{% assign is_wide_page = page.wide | default: false %}
+
+{% capture body_class_list %}
+  {% if is_journal_page %}journal-shell {{ journal_shell_variant }}{% endif %}
+  {% if is_wide_page %} subpage-shell{% endif %}
+  {% if page.page_class %} {{ page.page_class }}{% endif %}
+{% endcapture %}
+
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="{{ site.locale | default: 'en' }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
 
-  <body{% if is_journal_page %} class="journal-shell {{ journal_shell_variant }}"{% endif %}>
+  <body class="{{ body_class_list | strip }}">
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    <div id="main" role="main"{% if is_journal_page %} class="journal-shell__main"{% endif %}>
-      {% unless is_journal_page %}
+    <div id="main" role="main"{% if is_journal_page %} class="journal-shell__main"{% elsif is_wide_page %} class="wide-shell__main"{% endif %}>
+      {% unless is_journal_page or is_wide_page %}
         {% include sidebar.html %}
       {% endunless %}
-    
-      <article class="page{% if is_journal_page %} page--journal{% endif %}" itemscope itemtype="http://schema.org/CreativeWork">
+
+      <article class="page{% if is_journal_page %} page--journal{% endif %}{% if is_wide_page %} page--wide{% endif %}" itemscope itemtype="https://schema.org/CreativeWork">
         {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
         <div class="page__inner-wrap">
           <section class="page__content" itemprop="text">
+            {% if page.url == "/" %}
+              {% include home-explorer.html %}
+            {% endif %}
             {{ content }}
           </section>
         </div>
       </article>
     </div>
-
-    {% if page.url == "/" %}
-    <a class="homepage-journal-fab" href="{{ '/journal/' | relative_url }}" aria-label="进入 Journal">
-      <span class="homepage-journal-fab__icon" aria-hidden="true">✦</span>
-      <span class="homepage-journal-fab__text"><strong>Journal</strong><small>Notes & moments</small></span>
-    </a>
-    {% endif %}
 
     {% include scripts.html %}
 
