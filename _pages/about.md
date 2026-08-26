@@ -92,19 +92,27 @@ My research interest includes neural machine translation and computer vision. I 
 <br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">📄 Paper</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">🌐 Project Page</a>
 </div>
 
+<div class="pub-card pub-card--accepted" markdown="1">
+[**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2604.06694)
+<br> **Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang
+<br> **First Author**; <span style="color:#d35400; font-weight:bold;">Accepted to ACM MM 2026 (CCF-A)</span> 🎉✨
+<br> *Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).*
+<br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">💻 Code</a>
+</div>
+
+<div class="pub-card pub-card--accepted" markdown="1">
+[**VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance**](https://arxiv.org/abs/2510.06809)
+<br> T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang
+<br> <span style="color:#d35400; font-weight:bold;">Accepted to MICCAI 2026 (Top 9%)</span> 🎉✨
+<br> *Parameter-efficient Vision-Action Adapter for real-time probe guidance.*
+<br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">💻 Code</a>
+</div>
+
 <span class='anchor' id='projects'></span>
 
 # 🚀 Projects
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
-
-<div class="pub-card pub-card--submitted" markdown="1">
-[**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2510.xxxxx)
-<br> **Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang
-<br> **First Author**; Submitted to **ICML 2026 (CCF-A)**.
-<br> *Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).*
-<br> <a class="btn--research btn--coming">📄 Paper (Coming Soon)</a>
-</div>
 
 <div class="pub-card pub-card--submitted" markdown="1">
 [**Thinking inside the Mask: In-place Prompting in Diffusion LLMs**](https://arxiv.org/abs/2508.10736)
@@ -127,13 +135,6 @@ My research interest includes neural machine translation and computer vision. I 
 <br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
 <br> Submitted to **ACL 2026 (CCF-A)**.
 <br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">📄 Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">💻 Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">🗂️ Dataset</a>
-</div>
-
-<div class="pub-card pub-card--submitted" markdown="1">
-[**VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance**](https://arxiv.org/abs/2510.06809)
-<br> T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang
-<br> *Parameter-efficient Vision-Action Adapter for real-time probe guidance.*
-<br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">📄 Paper</a>
 </div>
 
 <div class="pub-card" markdown="1">
@@ -228,7 +229,7 @@ My research interest includes neural machine translation and computer vision. I 
 <!-- <br> -->
 
 <div style="text-align: right; color: #999; font-size: 0.85em; margin-top: 10px;">
-  <em>This homepage was last updated on February 7, 2026.</em>
+  <em>This homepage was last updated on August 26, 2026.</em>
 </div>
 
 <br>
