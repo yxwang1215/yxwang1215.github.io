@@ -21,7 +21,7 @@ tags:
 
 <figure>
   <a href="https://upload.wikimedia.org/wikipedia/commons/0/0b/Tiantai_Mountain.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tiantai_Mountain.jpg/1600px-Tiantai_Mountain.jpg" alt="浙江天台山层叠的群山与辽阔云层" loading="lazy" decoding="async">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tiantai_Mountain.jpg/1280px-Tiantai_Mountain.jpg" alt="浙江天台山层叠的群山与辽阔云层" loading="lazy" decoding="async">
   </a>
   <figcaption>浙江的山色像一段仍带着水汽的旧句。资料配图，非本人旅途实拍。</figcaption>
 </figure>
