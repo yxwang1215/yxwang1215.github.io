@@ -1,7 +1,7 @@
 ---
 permalink: /research/
-title: "Research Map"
-excerpt: "Research threads, questions, and artifacts."
+title: "Research"
+excerpt: "Research themes and selected work."
 author_profile: false
 wide: true
 page_class: "research-map-page"
@@ -9,48 +9,48 @@ page_class: "research-map-page"
 
 <header class="subpage-hero subpage-hero--research">
   <div>
-    <p class="subpage-hero__eyebrow">RESEARCH MAP · 研究脉络</p>
-    <h1>Follow the questions behind the papers.</h1>
+    <p class="subpage-hero__eyebrow">Research</p>
+    <h1>Research themes and selected work</h1>
     <p class="subpage-hero__lead">
-      A publication list is chronological; research is not. This page groups my work by the recurring questions it tries to answer.
+      My recent work focuses on efficient inference, multimodal models, and embodied medical AI. The projects below are grouped by topic so that their connections are easier to see.
     </p>
   </div>
   <aside class="subpage-hero__aside">
-    <span>3 connected threads</span>
-    <strong>Efficiency · Multimodality · Embodied AI</strong>
-    <a href="{{ '/#publications' | relative_url }}">See the formal publication list →</a>
+    <span>Current themes</span>
+    <strong>Efficient inference · Audio and multimodal LLMs · Robotic ultrasound</strong>
+    <a href="{{ '/#publications' | relative_url }}">Publication list →</a>
   </aside>
 </header>
 
-<section class="research-principles" aria-label="Research lens">
+<section class="research-principles" aria-label="Research approach">
   <div>
     <span>01</span>
-    <strong>Start from the bottleneck</strong>
-    <p>Identify where time, memory, or generalization is actually lost before designing the method.</p>
+    <strong>Find the real bottleneck</strong>
+    <p>I start by measuring where latency, memory, or generalization is actually lost.</p>
   </div>
   <div>
     <span>02</span>
-    <strong>Connect algorithm and system</strong>
-    <p>Prefer improvements that remain visible in measurable end-to-end behavior.</p>
+    <strong>Keep the system in view</strong>
+    <p>A useful model-level idea should still matter in end-to-end behavior.</p>
   </div>
   <div>
     <span>03</span>
-    <strong>Leave reusable artifacts</strong>
-    <p>Pair ideas with code, datasets, benchmarks, or project pages whenever possible.</p>
+    <strong>Make the work reusable</strong>
+    <p>Whenever possible, I release code, datasets, benchmarks, or project pages.</p>
   </div>
 </section>
 
-<section class="research-clusters" aria-label="Research threads">
+<section class="research-clusters" aria-label="Research themes">
   <article class="research-cluster">
     <header class="research-cluster__header">
-      <span class="research-cluster__number">THREAD 01</span>
+      <span class="research-cluster__number">01</span>
       <div>
-        <p>DIFFUSION LANGUAGE MODELS</p>
-        <h2>How can parallel generation become genuinely faster?</h2>
+        <p>Diffusion language models</p>
+        <h2>Efficient generation for diffusion language models</h2>
       </div>
     </header>
     <p class="research-cluster__question">
-      Diffusion LLMs expose parallelism, but useful acceleration depends on token confidence, denoising dynamics, verification cost, and the way reasoning is represented.
+      This line of work studies how confidence, denoising dynamics, verification, and scheduling affect real inference speed.
     </p>
     <div class="research-work-grid">
       <article class="research-work">
@@ -84,18 +84,18 @@ page_class: "research-map-page"
 
   <article class="research-cluster">
     <header class="research-cluster__header">
-      <span class="research-cluster__number">THREAD 02</span>
+      <span class="research-cluster__number">02</span>
       <div>
-        <p>AUDIO & MULTIMODAL LLMS</p>
-        <h2>What information deserves to stay in memory?</h2>
+        <p>Audio and multimodal LLMs</p>
+        <h2>Memory-efficient long-context audio models</h2>
       </div>
     </header>
     <p class="research-cluster__question">
-      Long audio contexts make memory allocation a semantic decision: compression must preserve acoustically and linguistically critical evidence rather than treating every token or head equally.
+      Long audio contexts make memory allocation a semantic decision. The goal is to preserve acoustically and linguistically important evidence without treating every token or attention head equally.
     </p>
     <div class="research-work-grid research-work-grid--two">
       <article class="research-work">
-        <span class="research-work__status">ACM MM 2026 · Accepted · First Author</span>
+        <span class="research-work__status">ACM MM 2026 · Accepted · First author</span>
         <h3>AudioKV</h3>
         <p>Prioritizes audio-critical attention heads through semantic-acoustic alignment and Spectral Score Smoothing; the homepage reports 60% lower memory overhead.</p>
         <div class="research-work__links">
@@ -118,18 +118,18 @@ page_class: "research-map-page"
 
   <article class="research-cluster">
     <header class="research-cluster__header">
-      <span class="research-cluster__number">THREAD 03</span>
+      <span class="research-cluster__number">03</span>
       <div>
-        <p>EMBODIED MEDICAL INTELLIGENCE</p>
-        <h2>How can models generalize from perception to physical guidance?</h2>
+        <p>Embodied medical intelligence</p>
+        <h2>Generalizable robotic ultrasound guidance</h2>
       </div>
     </header>
     <p class="research-cluster__question">
-      Robotic ultrasonography couples visual representation, anatomy-aware generalization, and real-time action guidance under strong safety and data constraints.
+      Robotic ultrasonography brings together visual representation, anatomy-aware generalization, and real-time action guidance under strong safety and data constraints.
     </p>
     <div class="research-work-grid research-work-grid--two">
       <article class="research-work">
-        <span class="research-work__status">ICRA 2026 · Accepted · CCF-B · Equal Contribution</span>
+        <span class="research-work__status">ICRA 2026 · Accepted · CCF-B · Equal contribution</span>
         <h3>UltraHiT</h3>
         <p>A hierarchical Transformer architecture for generalizable internal-carotid-artery robotic ultrasonography.</p>
         <div class="research-work__links">
@@ -152,6 +152,6 @@ page_class: "research-map-page"
 </section>
 
 <section class="subpage-next">
-  <p>Research has a route as well as a result.</p>
-  <a href="{{ '/journey/' | relative_url }}">Continue to the journey timeline <span aria-hidden="true">→</span></a>
+  <p>See how these projects developed over time.</p>
+  <a href="{{ '/journey/' | relative_url }}">Education and research timeline <span aria-hidden="true">→</span></a>
 </section>
