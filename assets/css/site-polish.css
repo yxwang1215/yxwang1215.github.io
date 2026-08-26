@@ -5,6 +5,7 @@
 @import url("./site-polish-responsive.css");
 @import url("./site-polish-home.css");
 @import url("./academic-theme.css");
+@import url("./editorial-typography.css");
 
 /* Accepted-publication status: restrained, high-contrast text only. */
 .page__content .publication-status,
