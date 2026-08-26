@@ -1,0 +1,557 @@
+/* ==========================================================================
+   Editorial typography for the secondary pages
+
+   The original pages used a very wide type scale: 9–12 px metadata beside
+   60–75 px hero headings. This layer keeps the existing information
+   architecture while bringing the typography back to a restrained academic
+   rhythm.
+   ========================================================================== */
+
+:root {
+  --editorial-serif: Georgia, "Times New Roman", "Noto Serif SC", "Songti SC", serif;
+  --editorial-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  --editorial-text: #414955;
+  --editorial-muted: #6b7480;
+  --editorial-meta: #697381;
+}
+
+/* Shared type rhythm */
+
+.research-map-page .page__content,
+.now-page .page__content,
+.journey-page .page__content,
+.journal-shell .page__content {
+  font-family: var(--editorial-sans);
+  color: var(--editorial-text);
+}
+
+.research-map-page .page__content p,
+.now-page .page__content p,
+.journey-page .page__content p,
+.journal-shell .page__content p {
+  text-wrap: pretty;
+}
+
+.page__content .subpage-hero h1,
+.page__content .journal-feed-hero h1,
+.journal-shell--entry .page__content .diary-entry__header h1 {
+  font-family: var(--editorial-serif);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.subpage-hero {
+  gap: clamp(1.25rem, 3vw, 2.3rem);
+  padding: clamp(1.55rem, 3.8vw, 2.7rem);
+}
+
+.page__content .subpage-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.05rem, 4vw, 3.2rem);
+  line-height: 1.14;
+}
+
+.subpage-hero__eyebrow,
+.subpage-hero__aside > span,
+.now-signal > span {
+  color: var(--editorial-meta);
+  font-size: 0.78rem !important;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+  text-transform: none;
+}
+
+.subpage-hero__lead {
+  max-width: 700px;
+  margin-top: 1rem !important;
+  color: var(--editorial-muted);
+  font-size: 1rem !important;
+  line-height: 1.72;
+}
+
+.subpage-hero__aside,
+.now-signal {
+  padding: 1.1rem 1.15rem;
+}
+
+.subpage-hero__aside strong,
+.now-signal strong {
+  margin-top: 0.55rem;
+  color: #303844;
+  font-size: 0.96rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.subpage-hero__aside p,
+.now-signal p {
+  color: var(--editorial-muted);
+  font-size: 0.86rem !important;
+  line-height: 1.65;
+}
+
+.page__content .subpage-hero__aside a {
+  margin-top: 0.72rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+/* Homepage secondary-page links */
+
+.home-shortcuts {
+  gap: 0.75rem;
+  margin-bottom: 0.95rem;
+  padding: 0.2rem 0 0.65rem;
+}
+
+.page__content .home-shortcuts a {
+  padding: 0.18rem 0;
+  border-radius: 0;
+  color: #4e5661;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.page__content .home-shortcuts a:hover {
+  background: transparent;
+  color: #172033;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.home-shortcuts__separator {
+  color: #a6acb5;
+  font-size: 0.76rem;
+}
+
+/* Research */
+
+.research-principles > div {
+  padding: 1.05rem 1.1rem;
+}
+
+.research-principles span {
+  color: var(--editorial-meta);
+  font-family: var(--editorial-sans);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.research-principles strong {
+  margin-top: 0.42rem;
+  color: #303844;
+  font-size: 0.98rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.research-principles p {
+  color: var(--editorial-muted);
+  font-size: 0.87rem !important;
+  line-height: 1.65;
+}
+
+.research-cluster {
+  padding: clamp(1.3rem, 2.5vw, 1.85rem);
+}
+
+.research-cluster__header {
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 0.85rem;
+}
+
+.research-cluster__number,
+.research-cluster__header p,
+.research-work__status {
+  color: var(--editorial-meta);
+  font-size: 0.75rem !important;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+  text-transform: none;
+}
+
+.page__content .research-cluster__header h2 {
+  max-width: 780px;
+  margin-top: 0.34rem;
+  font-family: var(--editorial-serif);
+  font-size: clamp(1.45rem, 2.35vw, 1.92rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.018em;
+}
+
+.research-cluster__question {
+  margin: 0.82rem 0 1rem 67px !important;
+  color: var(--editorial-muted);
+  font-size: 0.92rem !important;
+  line-height: 1.72;
+}
+
+.research-work-grid {
+  gap: 0.78rem;
+  margin-left: 67px;
+}
+
+.research-work {
+  padding: 1rem 1.05rem;
+}
+
+.page__content .research-work h3 {
+  margin-top: 0.48rem;
+  color: #303844;
+  font-family: var(--editorial-serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+.research-work > p {
+  color: var(--editorial-muted);
+  font-size: 0.87rem !important;
+  line-height: 1.66;
+}
+
+.page__content .research-work__links a,
+.research-work__links span {
+  min-height: 1.8rem;
+  padding: 0.2rem 0.58rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+/* Now */
+
+.now-grid {
+  gap: 0.8rem;
+}
+
+.now-card {
+  min-height: 250px;
+  padding: 1.15rem 1.2rem;
+}
+
+.now-card__icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  font-size: 0.92rem;
+}
+
+.now-card__label,
+.open-questions__heading p,
+.now-links span {
+  color: var(--editorial-meta);
+  font-size: 0.76rem !important;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+  text-transform: none;
+}
+
+.page__content .now-card h2 {
+  margin-top: 0.42rem;
+  color: #303844;
+  font-family: var(--editorial-serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+.now-card > p:not(.now-card__label) {
+  color: var(--editorial-muted);
+  font-size: 0.9rem !important;
+  line-height: 1.68;
+}
+
+.now-card__tags span {
+  padding: 0.2rem 0.48rem;
+  border-radius: 4px;
+  font-size: 0.73rem;
+}
+
+.open-questions {
+  gap: 1.2rem;
+}
+
+.page__content .open-questions__heading h2 {
+  margin-top: 0.45rem;
+  font-family: var(--editorial-serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.78rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.open-questions li {
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 0.6rem;
+  padding: 0.8rem 0.85rem;
+}
+
+.open-questions li span {
+  font-family: var(--editorial-sans);
+  font-size: 0.78rem;
+  font-style: normal;
+}
+
+.open-questions li p {
+  font-size: 0.88rem !important;
+  line-height: 1.65;
+}
+
+.page__content .now-links a {
+  padding: 0.95rem 1rem;
+}
+
+.now-links strong {
+  margin-top: 0.42rem;
+  color: #39414c;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.52;
+}
+
+/* Journey */
+
+.journey-stop {
+  grid-template-columns: 88px 28px minmax(0, 1fr);
+}
+
+.journey-stop__date span {
+  color: #3d4651;
+  font-family: var(--editorial-sans);
+  font-size: 1.06rem;
+  font-weight: 650;
+}
+
+.journey-stop__date small {
+  color: #858e99;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+}
+
+.journey-stop__place {
+  color: var(--editorial-meta);
+  font-size: 0.76rem !important;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+  text-transform: none;
+}
+
+.page__content .journey-stop__body h2 {
+  margin-top: 0.4rem;
+  color: #303844;
+  font-family: var(--editorial-serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.journey-stop__body > p:not(.journey-stop__place) {
+  color: var(--editorial-muted);
+  font-size: 0.9rem !important;
+  line-height: 1.7;
+}
+
+.journey-stop__theme,
+.page__content .journey-stop__actions a {
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.journey-note span {
+  font-size: 1.65rem;
+}
+
+.journey-note p {
+  color: #555f6b;
+  font-size: 0.94rem !important;
+  line-height: 1.72;
+}
+
+/* Journal index */
+
+.journal-feed-hero__eyebrow,
+.journal-section-heading p,
+.journal-discovery__heading p,
+.journal-featured__label,
+.journal-crosslink span {
+  color: var(--editorial-meta);
+  font-size: 0.76rem !important;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+  text-transform: none;
+}
+
+.page__content .journal-feed-hero h1 {
+  font-size: clamp(2rem, 3.7vw, 3rem);
+  line-height: 1.18;
+}
+
+.journal-feed-hero__intro {
+  max-width: 680px;
+  font-size: 0.98rem !important;
+  line-height: 1.75;
+}
+
+.page__content .journal-feed-hero__links a {
+  min-height: 2.1rem;
+  padding: 0.32rem 0.72rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.journal-feed-hero__stats strong {
+  font-size: 1.12rem;
+}
+
+.journal-feed-hero__stats span {
+  font-size: 0.74rem;
+}
+
+.page__content .journal-section-heading h2,
+.page__content .journal-discovery__heading h2 {
+  margin-top: 0.2rem;
+  font-family: var(--editorial-serif);
+  font-size: 1.28rem;
+  font-weight: 600;
+}
+
+.journal-section-heading > span,
+.journal-discovery__heading > span {
+  font-size: 0.76rem;
+}
+
+.page__content .journal-featured__body h2 {
+  font-family: var(--editorial-serif);
+  font-size: clamp(1.48rem, 2.55vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.journal-featured__subtitle {
+  font-size: 0.96rem !important;
+  line-height: 1.68;
+}
+
+.journal-featured__excerpt {
+  font-size: 0.88rem !important;
+  line-height: 1.68;
+}
+
+.journal-featured__meta > span,
+.journal-card__place {
+  font-size: 0.74rem;
+}
+
+.page__content a.journal-featured__read {
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.journal-search input {
+  font-size: 0.84rem;
+}
+
+.journal-search kbd {
+  font-size: 0.68rem;
+}
+
+.journal-filter-list button {
+  font-size: 0.76rem;
+}
+
+.page__content .journal-card__title {
+  font-family: var(--editorial-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.journal-card__excerpt {
+  font-size: 0.82rem !important;
+  line-height: 1.62;
+}
+
+.journal-tags span {
+  font-size: 0.7rem;
+}
+
+.journal-archive__year-label span,
+.journal-archive time,
+.journal-archive li > span {
+  font-size: 0.74rem;
+}
+
+.page__content .journal-archive li a {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.journal-crosslink p {
+  font-size: 0.88rem !important;
+  line-height: 1.6;
+}
+
+.page__content .journal-crosslink a {
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+/* Journal reading pages */
+
+.journal-shell--entry .page__content .diary-entry__header h1 {
+  font-size: clamp(2rem, 4vw, 3.05rem);
+  line-height: 1.17;
+}
+
+.journal-shell--entry .diary-entry__subtitle {
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.journal-shell--entry .diary-entry__content {
+  font-size: 1rem;
+  line-height: 1.92;
+}
+
+/* Mobile: keep the same hierarchy rather than shrinking metadata to 9–10 px. */
+
+@media (max-width: 760px) {
+  .page__content .subpage-hero h1,
+  .page__content .journal-feed-hero h1,
+  .journal-shell--entry .page__content .diary-entry__header h1 {
+    font-size: clamp(1.9rem, 8.5vw, 2.55rem);
+  }
+
+  .subpage-hero__lead,
+  .journal-feed-hero__intro {
+    font-size: 0.94rem !important;
+  }
+
+  .research-cluster__header {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .research-cluster__question,
+  .research-work-grid {
+    margin-left: 0 !important;
+  }
+
+  .journey-stop {
+    grid-template-columns: 54px 20px minmax(0, 1fr);
+  }
+
+  .home-shortcuts {
+    gap: 0.62rem;
+  }
+
+  .page__content .home-shortcuts a {
+    font-size: 0.8rem;
+  }
+}
