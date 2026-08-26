@@ -1,7 +1,7 @@
 ---
 permalink: /research/
 title: "Research"
-excerpt: "Research themes and selected work."
+excerpt: "Research areas and selected work."
 author_profile: false
 wide: true
 page_class: "research-map-page"
@@ -9,54 +9,54 @@ page_class: "research-map-page"
 
 <header class="subpage-hero subpage-hero--research">
   <div>
-    <p class="subpage-hero__eyebrow">Research</p>
-    <h1>Research themes and selected work</h1>
+    <p class="subpage-hero__eyebrow">Selected work</p>
+    <h1>Research</h1>
     <p class="subpage-hero__lead">
-      My recent work focuses on efficient inference, multimodal models, and embodied medical AI. The projects below are grouped by topic so that their connections are easier to see.
+      I work on efficient inference for diffusion and audio language models, as well as robotic ultrasound. Selected projects are grouped below by topic.
     </p>
   </div>
   <aside class="subpage-hero__aside">
-    <span>Current themes</span>
-    <strong>Efficient inference · Audio and multimodal LLMs · Robotic ultrasound</strong>
-    <a href="{{ '/#publications' | relative_url }}">Publication list →</a>
+    <span>Areas</span>
+    <strong>Diffusion LLMs · Audio LLMs · Robotic ultrasound</strong>
+    <a href="{{ '/#publications' | relative_url }}">Full publication list →</a>
   </aside>
 </header>
 
-<section class="research-principles" aria-label="Research approach">
+<section class="research-principles" aria-label="Main research areas">
   <div>
     <span>01</span>
-    <strong>Find the real bottleneck</strong>
-    <p>I start by measuring where latency, memory, or generalization is actually lost.</p>
+    <strong>Diffusion LLM inference</strong>
+    <p>Sampling, prompting, and verification methods for faster generation.</p>
   </div>
   <div>
     <span>02</span>
-    <strong>Keep the system in view</strong>
-    <p>A useful model-level idea should still matter in end-to-end behavior.</p>
+    <strong>Audio LLM efficiency</strong>
+    <p>Long-context memory and practical KV-cache management.</p>
   </div>
   <div>
     <span>03</span>
-    <strong>Make the work reusable</strong>
-    <p>Whenever possible, I release code, datasets, benchmarks, or project pages.</p>
+    <strong>Robotic ultrasound</strong>
+    <p>Navigation and probe guidance for medical robotics.</p>
   </div>
 </section>
 
-<section class="research-clusters" aria-label="Research themes">
+<section class="research-clusters" aria-label="Research areas">
   <article class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">01</span>
       <div>
         <p>Diffusion language models</p>
-        <h2>Efficient generation for diffusion language models</h2>
+        <h2>Diffusion LLM inference</h2>
       </div>
     </header>
     <p class="research-cluster__question">
-      This line of work studies how confidence, denoising dynamics, verification, and scheduling affect real inference speed.
+      Work on sampling, prompting, and self-speculative decoding for faster diffusion language-model inference.
     </p>
     <div class="research-work-grid">
       <article class="research-work">
         <span class="research-work__status">ICLR 2026 · Accepted · CCF-A</span>
         <h3>SlowFast Sampling</h3>
-        <p>Alternates exploratory and accelerated stages using certainty, convergence, and positional principles; the homepage reports a 15.63× speedup on LLaDA.</p>
+        <p>Switches between exploratory and accelerated stages using token certainty, convergence, and position; 15.63× speedup on LLaDA.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2506.10848">Paper</a>
           <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling">Code</a>
@@ -65,7 +65,7 @@ page_class: "research-map-page"
       <article class="research-work">
         <span class="research-work__status">ACL 2026 · Submitted</span>
         <h3>Thinking inside the Mask</h3>
-        <p>Places reasoning directly into the mask-denoising process through in-place prompting.</p>
+        <p>Integrates intermediate reasoning into the mask-denoising process through in-place prompting.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2508.10736">Paper</a>
           <a href="https://github.com/Lueci4er/ICE">Code</a>
@@ -74,7 +74,7 @@ page_class: "research-map-page"
       <article class="research-work">
         <span class="research-work__status">ACL 2026 · Submitted</span>
         <h3>Self-Speculative Decoding</h3>
-        <p>Uses internal self-drafting and parallel verification to accelerate diffusion language-model inference.</p>
+        <p>Uses self-drafting and parallel verification to accelerate diffusion language-model inference.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2510.04147">Paper</a>
         </div>
@@ -87,17 +87,17 @@ page_class: "research-map-page"
       <span class="research-cluster__number">02</span>
       <div>
         <p>Audio and multimodal LLMs</p>
-        <h2>Memory-efficient long-context audio models</h2>
+        <h2>Audio LLM memory</h2>
       </div>
     </header>
     <p class="research-cluster__question">
-      Long audio contexts make memory allocation a semantic decision. The goal is to preserve acoustically and linguistically important evidence without treating every token or attention head equally.
+      Work on preserving important acoustic and linguistic context while reducing memory use.
     </p>
     <div class="research-work-grid research-work-grid--two">
       <article class="research-work">
         <span class="research-work__status">ACM MM 2026 · Accepted · First author</span>
         <h3>AudioKV</h3>
-        <p>Prioritizes audio-critical attention heads through semantic-acoustic alignment and Spectral Score Smoothing; the homepage reports 60% lower memory overhead.</p>
+        <p>Uses semantic-acoustic alignment and Spectral Score Smoothing to retain important KV-cache entries; 60% lower memory overhead.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2604.06694">Paper</a>
           <a href="https://github.com/yxwang1215/Audio_kvcache">Code</a>
@@ -106,7 +106,7 @@ page_class: "research-map-page"
       <article class="research-work">
         <span class="research-work__status">ACL 2026 · Submitted</span>
         <h3>AudioMarathon</h3>
-        <p>A benchmark for evaluating long-context audio understanding together with efficiency.</p>
+        <p>A benchmark for long-context audio understanding and efficiency.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2510.07293">Paper</a>
           <a href="https://github.com/DabDans/AudioMarathon">Code</a>
@@ -121,17 +121,17 @@ page_class: "research-map-page"
       <span class="research-cluster__number">03</span>
       <div>
         <p>Embodied medical intelligence</p>
-        <h2>Generalizable robotic ultrasound guidance</h2>
+        <h2>Robotic ultrasound</h2>
       </div>
     </header>
     <p class="research-cluster__question">
-      Robotic ultrasonography brings together visual representation, anatomy-aware generalization, and real-time action guidance under strong safety and data constraints.
+      Work on autonomous navigation and real-time probe guidance for ultrasonography.
     </p>
     <div class="research-work-grid research-work-grid--two">
       <article class="research-work">
         <span class="research-work__status">ICRA 2026 · Accepted · CCF-B · Equal contribution</span>
         <h3>UltraHiT</h3>
-        <p>A hierarchical Transformer architecture for generalizable internal-carotid-artery robotic ultrasonography.</p>
+        <p>A hierarchical Transformer for generalizable internal-carotid-artery robotic ultrasonography.</p>
         <div class="research-work__links">
           <a href="https://arxiv.org/abs/2509.13832">Paper</a>
           <a href="https://github.com/LeapLabTHU/UltraHiT">Code</a>
@@ -152,6 +152,6 @@ page_class: "research-map-page"
 </section>
 
 <section class="subpage-next">
-  <p>See how these projects developed over time.</p>
-  <a href="{{ '/journey/' | relative_url }}">Education and research timeline <span aria-hidden="true">→</span></a>
+  <p>The timeline lists when and where this work was carried out.</p>
+  <a href="{{ '/journey/' | relative_url }}">View journey <span aria-hidden="true">→</span></a>
 </section>
