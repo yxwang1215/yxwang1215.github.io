@@ -1,0 +1,67 @@
+/* Viewport-safe overflow navigation.
+   The greedy menu may contain many homepage anchors, so keep it compact and
+   scroll inside the current viewport instead of letting items fall off-screen. */
+
+.masthead,
+.masthead__inner-wrap,
+.masthead__menu,
+.greedy-nav {
+  overflow: visible;
+}
+
+.greedy-nav button {
+  z-index: 1201;
+}
+
+.greedy-nav .hidden-links {
+  z-index: 1200;
+  width: min(19rem, calc(100vw - 1rem));
+  max-height: calc(100vh - 4.75rem);
+  max-height: calc(100dvh - 4.75rem);
+  margin-top: 0.45rem;
+  padding: 0.3rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.greedy-nav .hidden-links li {
+  min-width: 0;
+}
+
+.greedy-nav .hidden-links a {
+  margin: 0;
+  padding: 0.58rem 0.78rem;
+  font-size: 0.76rem;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.greedy-nav .hidden-links::-webkit-scrollbar {
+  width: 8px;
+}
+
+.greedy-nav .hidden-links::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+  background-color: rgba(80, 83, 92, 0.3);
+}
+
+@media (max-width: 640px) {
+  .greedy-nav .hidden-links {
+    right: -0.2rem;
+    width: min(18rem, calc(100vw - 0.8rem));
+    max-height: calc(100vh - 4.25rem);
+    max-height: calc(100dvh - 4.25rem);
+    margin-top: 0.32rem;
+  }
+
+  .greedy-nav .hidden-links a {
+    padding: 0.54rem 0.7rem;
+    font-size: 0.74rem;
+  }
+}
