@@ -22,6 +22,8 @@ page_class: "research-map-page"
   </aside>
 </header>
 
+{% include section-pager.html position="top" previous_url="/journal/" previous_label="Journal" next_url="/journey/" next_label="Journey" %}
+
 <section class="research-principles" aria-label="Main research areas">
   <div>
     <span>01</span>
@@ -151,7 +153,4 @@ page_class: "research-map-page"
   </article>
 </section>
 
-<section class="subpage-next">
-  <p>The timeline lists when and where this work was carried out.</p>
-  <a href="{{ '/journey/' | relative_url }}">View journey <span aria-hidden="true">→</span></a>
-</section>
+{% include section-pager.html position="bottom" previous_url="/journal/" previous_label="Journal" next_url="/journey/" next_label="Journey" %}
