@@ -1,0 +1,67 @@
+/* Shared previous / home / next controls for Research, Journey, and Journal. */
+.section-pager {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+}
+
+.section-pager--bottom {
+  margin: 1.2rem 0 0;
+}
+
+.page__content .section-pager a {
+  display: flex;
+  min-width: 0;
+  min-height: 2.7rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #e0e4ea;
+  border-radius: 10px;
+  background: #fff;
+  color: #454d58;
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+
+.page__content .section-pager a:hover {
+  border-color: #cbd1da;
+  background: #f7f8fa;
+  color: #20262f;
+}
+
+.page__content .section-pager__link--previous {
+  justify-content: flex-start;
+}
+
+.page__content .section-pager__link--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.page__content .section-pager__home {
+  justify-content: center;
+  min-width: 5.5rem;
+  color: #303844;
+}
+
+@media (max-width: 520px) {
+  .section-pager {
+    gap: 0.38rem;
+  }
+
+  .page__content .section-pager a {
+    min-height: 2.45rem;
+    padding: 0.55rem 0.58rem;
+    font-size: 0.78rem;
+  }
+
+  .page__content .section-pager__home {
+    min-width: 3.8rem;
+  }
+}
