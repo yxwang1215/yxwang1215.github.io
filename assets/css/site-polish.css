@@ -22,3 +22,16 @@
 .pub-card span.publication-status strong {
   color: #ffffff !important;
 }
+
+/* Keep the priority-plus navigation toggle at its intended width. The navicon
+   is a span, so it must be block-level for its 28px width to contribute to
+   the button instead of leaving only the button padding visible. */
+.greedy-nav button .navicon {
+  display: block;
+}
+
+/* Keep the expanded list above page content and inside the viewport. */
+.greedy-nav .hidden-links {
+  z-index: 1000;
+  max-width: calc(100vw - 1rem);
+}
