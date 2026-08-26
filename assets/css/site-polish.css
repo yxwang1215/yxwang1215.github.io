@@ -7,18 +7,24 @@
 @import url("./academic-theme.css");
 
 /* Accepted-publication status: restrained, high-contrast text only. */
-.pub-card span.publication-status {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
+.page__content .publication-status,
+.pub-card span.publication-status,
+.intern-card span.publication-status {
+  display: inline;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
   color: #176b45 !important;
   font-weight: 700;
   line-height: inherit;
   letter-spacing: 0;
 }
 
-.pub-card span.publication-status strong {
+.page__content .publication-status strong,
+.pub-card span.publication-status strong,
+.intern-card span.publication-status strong {
   color: #176b45 !important;
 }
 
