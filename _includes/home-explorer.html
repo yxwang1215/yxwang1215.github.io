@@ -1,0 +1,57 @@
+{% assign home_journal_entries = site.diary | sort: "date" | reverse %}
+{% assign home_latest_entry = home_journal_entries | first %}
+
+<section class="home-explorer" aria-labelledby="home-explorer-title">
+  <div class="home-explorer__copy">
+    <p class="home-explorer__eyebrow">RESEARCH · SYSTEMS · STORIES</p>
+    <h2 id="home-explorer-title">A clearer way to explore the work behind the résumé.</h2>
+    <p class="home-explorer__intro">
+      Follow the research questions, the places that shaped them, and the notes that do not belong in a publication list.
+    </p>
+    <div class="home-explorer__topics" aria-label="Current research themes">
+      <span>Efficient AI</span>
+      <span>Diffusion LLMs</span>
+      <span>Audio LLMs</span>
+      <span>KV Cache Systems</span>
+    </div>
+  </div>
+
+  <aside class="home-explorer__now" aria-label="Current focus">
+    <span class="home-explorer__now-label"><i aria-hidden="true"></i> NOW</span>
+    <strong>Efficient multimodal intelligence</strong>
+    <p>Turning model-level ideas into measurable speed, memory, and long-context gains.</p>
+    <a href="{{ '/now/' | relative_url }}">Open the living page <span aria-hidden="true">→</span></a>
+  </aside>
+</section>
+
+<nav class="home-paths" aria-label="Explore this website">
+  <a class="home-path home-path--research" href="{{ '/research/' | relative_url }}">
+    <span class="home-path__index">01 / RESEARCH MAP</span>
+    <strong>Follow the questions, not only the paper list.</strong>
+    <small>Three connected research threads, with papers, code, and datasets.</small>
+    <b aria-hidden="true">↗</b>
+  </a>
+
+  <a class="home-path home-path--journey" href="{{ '/journey/' | relative_url }}">
+    <span class="home-path__index">02 / JOURNEY</span>
+    <strong>See the route from classrooms to research labs.</strong>
+    <small>A compact timeline across disciplines, cities, and collaborations.</small>
+    <b aria-hidden="true">↗</b>
+  </a>
+
+  {% if home_latest_entry %}
+  <a class="home-path home-path--journal" href="{{ home_latest_entry.url | relative_url }}">
+    <span class="home-path__index">03 / LATEST JOURNAL</span>
+    <strong>{{ home_latest_entry.title }}</strong>
+    <small>{{ home_latest_entry.excerpt | default: home_latest_entry.content | markdownify | strip_html | strip_newlines | truncate: 88 }}</small>
+    <b aria-hidden="true">↗</b>
+  </a>
+  {% else %}
+  <a class="home-path home-path--journal" href="{{ '/journal/' | relative_url }}">
+    <span class="home-path__index">03 / JOURNAL</span>
+    <strong>Notes, photographs, and moments without a conclusion.</strong>
+    <small>A quieter space beside the formal academic homepage.</small>
+    <b aria-hidden="true">↗</b>
+  </a>
+  {% endif %}
+</nav>
