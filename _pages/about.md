@@ -155,7 +155,7 @@ My research interest includes neural machine translation and computer vision. I 
 [**EPIC Lab**](https://epic-lab.github.io/), [School of Artificial Intelligence](https://soai.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), China.
 <br> *Research Assistant* &emsp; August 2025 - February 2026
 <br> Developed efficient diffusion LLM inference methods and KV cache eviction techniques for Audio LLMs.
-<br> <span class="publication-status">Accepted to ICLR 2026 and ACM MM 2026.</span>
+<br> <span class="publication-status">Our work has been accepted to ICLR 2026 and ACM MM 2026.</span>
 </div>
 </div>
 
@@ -165,7 +165,7 @@ My research interest includes neural machine translation and computer vision. I 
 [**LEAP Lab**](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
 <br> *Research Assistant* &emsp; March 2025 - September 2025
 <br> Participated in the implementation of autonomous robotic ultrasonography and real-time probe-guidance projects. My work was conducted onsite at Tsinghua University's Central Main Building, room 601.
-<br> <span class="publication-status">Accepted to MICCAI 2026 and ICRA 2026.</span>
+<br> <span class="publication-status">Our work has been accepted to MICCAI 2026 and ICRA 2026.</span>
 </div>
 </div>
 
