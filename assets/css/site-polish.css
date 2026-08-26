@@ -5,3 +5,20 @@
 @import url("./site-polish-responsive.css");
 @import url("./site-polish-home.css");
 @import url("./academic-theme.css");
+
+/* High-contrast accepted-publication labels. */
+.pub-card span.publication-status {
+  display: inline-block;
+  padding: 0.16em 0.52em;
+  border: 1px solid #611b2c;
+  border-radius: 3px;
+  background: #7a263a;
+  color: #ffffff !important;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+.pub-card span.publication-status strong {
+  color: #ffffff !important;
+}
