@@ -44,7 +44,7 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <div class="edu-content" markdown="1">
 **[Xidian University](https://www.xidian.edu.cn/)** · Xi'an, China
 <br> *B.Eng. in Software Engineering* &emsp; *Sep. 2023 - Jun. 2027 (expected)*
-<br> As a top-ranked student with a perfect **GPA of 4.0/4.0**, I have demonstrated consistent academic excellence in core courses such as Physics (99), Programming Design (98), Circuits (98), Discrete Math (98), Data Communications & Networks (97), and Advanced Mathematics (97).
+<br> As a top-ranked student with a perfect **GPA of 4.0/4.0**, I have demonstrated consistent academic excellence in core courses such as Physics (99), Programming Design (98), Circuits (98), Discrete Math (98).
 </div>
 </div>
 
@@ -154,7 +154,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="intern-content" markdown="1">
 [**EPIC Lab**](https://epic-lab.github.io/), [School of Artificial Intelligence](https://soai.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), China.
 <br> *Research Assistant* &emsp; August 2025 - February 2026
-<br> Developed efficient algorithms for large language diffusion models, leveraging bidirectional attention as a high-performance alternative to autoregressive models. Also spearheaded KV cache eviction research for Audio LLMs.
+<br> Developed efficient diffusion LLM inference methods and KV cache eviction techniques for Audio LLMs.
 <br> <span class="publication-status">Accepted to ICLR 2026 and ACM MM 2026.</span>
 </div>
 </div>
