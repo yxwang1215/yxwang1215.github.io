@@ -1,7 +1,7 @@
 ---
 permalink: /now/
 title: "Now"
-excerpt: "A brief note on current work and open questions."
+excerpt: "Current work and research questions."
 author_profile: false
 wide: true
 page_class: "now-page"
@@ -10,67 +10,64 @@ page_class: "now-page"
 <header class="subpage-hero subpage-hero--now">
   <div>
     <p class="subpage-hero__eyebrow">Updated 26 August 2026</p>
-    <h1>What I am working on</h1>
+    <h1>Now</h1>
     <p class="subpage-hero__lead">
-      A brief note on the projects and questions taking most of my attention. I update this page when the focus changes.
+      A short update on the projects and questions I am currently working on.
     </p>
   </div>
   <aside class="now-signal" aria-label="Current focus">
     <span><i aria-hidden="true"></i> Current focus</span>
-    <strong>Efficient multimodal intelligence</strong>
-    <p>Speed, memory, and long-context behavior that remain meaningful outside an isolated benchmark.</p>
+    <strong>Efficient inference for multimodal models</strong>
+    <p>Reducing latency and memory use while preserving model quality.</p>
   </aside>
 </header>
 
 <section class="now-grid" aria-label="Current activities">
   <article class="now-card">
-    <span class="now-card__icon" aria-hidden="true">↗</span>
-    <p class="now-card__label">Building</p>
-    <h2>Memory-aware systems for Audio LLMs</h2>
-    <p>Exploring how semantic and acoustic evidence can guide KV-cache retention instead of relying on uniform compression.</p>
-    <div class="now-card__tags"><span>AudioKV</span><span>KV Cache</span><span>Efficient AI</span></div>
+    <p class="now-card__label">Project</p>
+    <h2>Audio LLM memory efficiency</h2>
+    <p>Developing cache-retention methods that use semantic and acoustic signals to preserve important context.</p>
+    <div class="now-card__tags"><span>AudioKV</span><span>KV Cache</span><span>Audio LLMs</span></div>
   </article>
 
   <article class="now-card">
-    <span class="now-card__icon" aria-hidden="true">∿</span>
-    <p class="now-card__label">Thinking</p>
-    <h2>When diffusion parallelism becomes real speed</h2>
-    <p>Looking beyond theoretical parallel decoding toward strategies whose gains survive scheduling, verification, and wall-clock measurement.</p>
-    <div class="now-card__tags"><span>Diffusion LLM</span><span>Inference</span><span>Systems</span></div>
+    <p class="now-card__label">Research</p>
+    <h2>Diffusion LLM inference</h2>
+    <p>Evaluating sampling and verification methods with end-to-end latency and hardware utilization.</p>
+    <div class="now-card__tags"><span>Diffusion LLMs</span><span>Inference</span><span>Systems</span></div>
   </article>
 
   <article class="now-card">
-    <span class="now-card__icon" aria-hidden="true">✦</span>
-    <p class="now-card__label">Writing</p>
-    <h2>A quieter record beside the research page</h2>
-    <p>Using the Journal for travel, photographs, reading, and thoughts that do not need to become a polished research claim.</p>
-    <div class="now-card__tags"><span>Journal</span><span>Notes</span><span>Life</span></div>
+    <p class="now-card__label">Personal</p>
+    <h2>Journal</h2>
+    <p>Keeping notes on travel, reading, photographs, and daily life outside research.</p>
+    <div class="now-card__tags"><span>Travel</span><span>Reading</span><span>Notes</span></div>
   </article>
 </section>
 
 <section class="open-questions" aria-labelledby="open-questions-title">
   <div class="open-questions__heading">
-    <p>Open questions</p>
-    <h2 id="open-questions-title">Questions I am keeping in view</h2>
+    <p>Questions</p>
+    <h2 id="open-questions-title">Current research questions</h2>
   </div>
   <ol>
     <li>
       <span>01</span>
-      <p>Can cache compression become semantic-aware without introducing a second expensive model?</p>
+      <p>Can an Audio LLM retain the most useful cache entries without using an additional large model?</p>
     </li>
     <li>
       <span>02</span>
-      <p>Which diffusion-LLM acceleration gains remain after end-to-end latency and hardware utilization are counted?</p>
+      <p>Which diffusion-LLM acceleration methods still improve end-to-end latency after verification and scheduling costs?</p>
     </li>
     <li>
       <span>03</span>
-      <p>How should long-context audio benchmarks balance understanding quality, memory footprint, and response latency?</p>
+      <p>How should long-context audio benchmarks report quality, memory use, and latency together?</p>
     </li>
   </ol>
 </section>
 
-<section class="now-links" aria-label="Continue exploring">
-  <a href="{{ '/research/' | relative_url }}"><span>Research</span><strong>See how these themes connect to papers and artifacts.</strong></a>
-  <a href="{{ '/journal/' | relative_url }}"><span>Journal</span><strong>Read the less formal side of the website.</strong></a>
-  <a href="https://github.com/yxwang1215"><span>GitHub</span><strong>Browse public code and repositories.</strong></a>
+<section class="now-links" aria-label="Related pages">
+  <a href="{{ '/research/' | relative_url }}"><span>Research</span><strong>Selected papers and projects.</strong></a>
+  <a href="{{ '/journal/' | relative_url }}"><span>Journal</span><strong>Travel, reading, photographs, and notes.</strong></a>
+  <a href="https://github.com/yxwang1215"><span>GitHub</span><strong>Public code and repositories.</strong></a>
 </section>
