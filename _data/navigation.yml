@@ -1,12 +1,12 @@
-# Main navigation. Keep the original homepage section anchors available.
+# Main navigation. Keep all homepage section anchors while using compact labels.
 main:
-  - title: "About Me"
+  - title: "About"
     url: "/#about-me"
 
   - title: "Journal"
     url: "/journal/"
 
-  - title: "Educations"
+  - title: "Education"
     url: "/#educations"
 
   - title: "Publications"
@@ -18,7 +18,7 @@ main:
   - title: "Internships"
     url: "/#internships"
 
-  - title: "Honors and Awards"
+  - title: "Awards"
     url: "/#honors-and-awards"
 
   - title: "Activities"
