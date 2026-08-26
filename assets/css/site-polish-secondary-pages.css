@@ -1,0 +1,185 @@
+/* Unified typography for Research, Journey, and Now.
+   Keep the hierarchy visible without large jumps between labels, body text,
+   card titles, section headings, and page titles. */
+
+.research-map-page .page__content,
+.now-page .page__content,
+.journey-page .page__content {
+  --secondary-meta-size: 0.78rem;
+  --secondary-body-size: 0.92rem;
+  --secondary-card-title-size: 1.08rem;
+  --secondary-section-title-size: clamp(1.28rem, 1.8vw, 1.5rem);
+  --secondary-page-title-size: clamp(2rem, 3.2vw, 2.65rem);
+}
+
+.research-map-page .page__content .subpage-hero h1,
+.now-page .page__content .subpage-hero h1,
+.journey-page .page__content .subpage-hero h1 {
+  font-family: var(--editorial-sans);
+  font-size: var(--secondary-page-title-size);
+  font-weight: 650;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+}
+
+.research-map-page .subpage-hero__eyebrow,
+.now-page .subpage-hero__eyebrow,
+.journey-page .subpage-hero__eyebrow,
+.research-map-page .subpage-hero__aside > span,
+.journey-page .subpage-hero__aside > span,
+.now-page .now-signal > span {
+  font-size: var(--secondary-meta-size) !important;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.research-map-page .subpage-hero__lead,
+.now-page .subpage-hero__lead,
+.journey-page .subpage-hero__lead {
+  font-size: 0.96rem !important;
+  line-height: 1.68;
+}
+
+.research-map-page .subpage-hero__aside strong,
+.journey-page .subpage-hero__aside strong,
+.now-page .now-signal strong {
+  font-size: 0.94rem;
+  font-weight: 650;
+  line-height: 1.48;
+}
+
+.now-page .now-signal p {
+  font-size: 0.86rem !important;
+}
+
+.research-map-page .page__content .subpage-hero__aside a,
+.journey-page .page__content .subpage-hero__aside a {
+  font-size: 0.82rem;
+}
+
+/* Shared metadata */
+.research-map-page .research-principles span,
+.research-map-page .research-cluster__number,
+.research-map-page .research-cluster__header p,
+.research-map-page .research-work__status,
+.now-page .now-card__label,
+.now-page .open-questions__heading p,
+.now-page .now-links span,
+.journey-page .journey-stop__place {
+  font-size: var(--secondary-meta-size) !important;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+/* Research */
+.research-map-page .research-principles strong {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.research-map-page .research-principles p,
+.research-map-page .research-cluster__question,
+.research-map-page .research-work > p {
+  font-size: var(--secondary-body-size) !important;
+  line-height: 1.68;
+}
+
+.research-map-page .page__content .research-cluster__header h2 {
+  font-family: var(--editorial-sans);
+  font-size: var(--secondary-section-title-size);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.018em;
+}
+
+.research-map-page .page__content .research-work h3 {
+  font-family: var(--editorial-sans);
+  font-size: var(--secondary-card-title-size);
+  font-weight: 650;
+  line-height: 1.38;
+}
+
+.research-map-page .page__content .research-work__links a,
+.research-map-page .research-work__links span {
+  font-size: 0.8rem;
+}
+
+/* Now */
+.now-page .page__content .now-card h2 {
+  font-family: var(--editorial-sans);
+  font-size: var(--secondary-card-title-size);
+  font-weight: 650;
+  line-height: 1.38;
+}
+
+.now-page .now-card > p:not(.now-card__label),
+.now-page .open-questions li p {
+  font-size: var(--secondary-body-size) !important;
+  line-height: 1.68;
+}
+
+.now-page .now-card__tags span {
+  font-size: 0.78rem;
+}
+
+.now-page .page__content .open-questions__heading h2 {
+  font-family: var(--editorial-sans);
+  font-size: var(--secondary-section-title-size);
+  font-weight: 650;
+  line-height: 1.32;
+}
+
+.now-page .open-questions li span {
+  font-size: var(--secondary-meta-size);
+}
+
+.now-page .now-links strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Journey */
+.journey-page .journey-stop__date span {
+  font-family: var(--editorial-sans);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.journey-page .journey-stop__date small {
+  font-size: 0.72rem;
+}
+
+.journey-page .page__content .journey-stop__body h2 {
+  font-family: var(--editorial-sans);
+  font-size: var(--secondary-card-title-size);
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.journey-page .journey-stop__body > p:not(.journey-stop__place) {
+  font-size: var(--secondary-body-size) !important;
+  line-height: 1.68;
+}
+
+.journey-page .journey-stop__theme,
+.journey-page .page__content .journey-stop__actions a {
+  font-size: 0.78rem;
+}
+
+/* Footer links shared by Research and Journey */
+.research-map-page .subpage-next p,
+.journey-page .subpage-next p,
+.research-map-page .page__content .subpage-next a,
+.journey-page .page__content .subpage-next a {
+  font-size: 0.88rem !important;
+}
+
+@media (max-width: 760px) {
+  .research-map-page .page__content .subpage-hero h1,
+  .now-page .page__content .subpage-hero h1,
+  .journey-page .page__content .subpage-hero h1 {
+    font-size: clamp(1.85rem, 8vw, 2.25rem);
+  }
+}
