@@ -6,7 +6,8 @@
 @import url("./site-polish-home.css");
 @import url("./academic-theme.css");
 
-/* Accepted-publication status: restrained, high-contrast text only. */
+/* Accepted-publication status: follow the restrained treatment used by
+   established academic homepages—plain high-contrast text, no badge color. */
 .page__content .publication-status,
 .pub-card span.publication-status,
 .intern-card span.publication-status {
@@ -16,7 +17,9 @@
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
-  color: #176b45 !important;
+  color: #20242a !important;
+  font-family: inherit;
+  font-style: normal;
   font-weight: 700;
   line-height: inherit;
   letter-spacing: 0;
@@ -25,7 +28,7 @@
 .page__content .publication-status strong,
 .pub-card span.publication-status strong,
 .intern-card span.publication-status strong {
-  color: #176b45 !important;
+  color: #20242a !important;
 }
 
 /* Keep the priority-plus navigation toggle at its intended width. The navicon
