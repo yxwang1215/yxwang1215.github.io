@@ -1,17 +1,31 @@
-# Primary navigation. Keep this list intentionally short; detailed sections
-# remain available on the homepage.
+# Main navigation. Keep the original homepage section anchors available.
 main:
-  - title: "Research"
-    url: "/research/"
+  - title: "About Me"
+    url: "/#about-me"
 
   - title: "Journal"
     url: "/journal/"
 
-  - title: "Journey"
-    url: "/journey/"
-
-  - title: "Now"
-    url: "/now/"
+  - title: "Educations"
+    url: "/#educations"
 
   - title: "Publications"
     url: "/#publications"
+
+  - title: "Projects"
+    url: "/#projects"
+
+  - title: "Internships"
+    url: "/#internships"
+
+  - title: "Honors and Awards"
+    url: "/#honors-and-awards"
+
+  - title: "Activities"
+    url: "/#activities"
+
+  - title: "Hobbies"
+    url: "/#hobbies"
+
+  - title: "Friends"
+    url: "/#friends"
