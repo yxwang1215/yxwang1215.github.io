@@ -2,29 +2,48 @@
 layout: default
 ---
 
+{% assign journal_character_count = content | strip_html | strip_newlines | size %}
+{% assign journal_read_minutes = journal_character_count | divided_by: 500 | plus: 1 %}
+{% assign ordered_entries = site.diary | sort: "date" %}
+{% assign previous_entry = nil %}
+{% assign next_entry = nil %}
+{% assign found_current = false %}
+{% for item in ordered_entries %}
+  {% if found_current and next_entry == nil %}
+    {% assign next_entry = item %}
+  {% endif %}
+  {% if item.url == page.url %}
+    {% assign found_current = true %}
+  {% elsif found_current == false %}
+    {% assign previous_entry = item %}
+  {% endif %}
+{% endfor %}
+
+<div class="journal-reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
+
 <div class="diary-entry">
-  <a class="diary-entry__back" href="{{ '/journal/' | relative_url }}"><span aria-hidden="true">←</span> 返回 Journal</a>
+  <div class="diary-entry__topline">
+    <a class="diary-entry__back" href="{{ '/journal/' | relative_url }}"><span aria-hidden="true">←</span> 返回 Journal</a>
+    <button class="diary-entry__copy" type="button" data-copy-link data-copy-default="复制链接" data-copy-success="已复制">
+      <span aria-hidden="true">⌁</span> <span data-copy-label>复制链接</span>
+    </button>
+  </div>
 
   <header class="diary-entry__header">
     <div class="diary-entry__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time>
-      {% if page.location %}
+      {% if page.location %}<span aria-hidden="true">·</span><span>{{ page.location }}</span>{% endif %}
       <span aria-hidden="true">·</span>
-      <span>{{ page.location }}</span>
-      {% endif %}
+      <span>约 {{ journal_read_minutes }} 分钟阅读</span>
     </div>
 
     <h1>{{ page.title }}</h1>
 
-    {% if page.subtitle %}
-    <p class="diary-entry__subtitle">{{ page.subtitle }}</p>
-    {% endif %}
+    {% if page.subtitle %}<p class="diary-entry__subtitle">{{ page.subtitle }}</p>{% endif %}
 
     {% if page.tags %}
     <div class="diary-tags diary-tags--entry" aria-label="标签">
-      {% for tag in page.tags %}
-      <span># {{ tag }}</span>
-      {% endfor %}
+      {% for tag in page.tags %}<span># {{ tag }}</span>{% endfor %}
     </div>
     {% endif %}
   </header>
@@ -36,21 +55,85 @@ layout: default
       {% assign journal_cover_url = page.cover | relative_url %}
     {% endif %}
   <figure class="diary-entry__cover">
-    <a href="{{ journal_cover_url }}" aria-label="查看封面原图">
+    <a href="{{ journal_cover_url }}" aria-label="查看封面原图" data-keep-new-tab="true">
       <img src="{{ journal_cover_url }}" alt="{{ page.cover_alt | default: page.title | escape }}" decoding="async">
     </a>
-    {% if page.cover_caption %}
-    <figcaption>{{ page.cover_caption }}</figcaption>
-    {% endif %}
+    {% if page.cover_caption %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}
   </figure>
   {% endif %}
 
-  <div class="diary-entry__content">
-    {{ content }}
+  <div class="diary-reading-grid">
+    <aside class="journal-toc" data-journal-toc hidden>
+      <p>ON THIS PAGE</p>
+      <strong>本页目录</strong>
+      <nav aria-label="文章目录"></nav>
+    </aside>
+
+    <div class="diary-entry__content" data-journal-content>
+      {{ content }}
+    </div>
   </div>
 
   <footer class="diary-entry__footer">
     <span>写于 {{ page.date | date: "%Y.%m.%d" }}</span>
-    <a href="{{ '/journal/' | relative_url }}">查看全部 Journal <span aria-hidden="true">→</span></a>
+    <div>
+      <button type="button" data-copy-link data-copy-default="复制永久链接" data-copy-success="已复制">
+        <span data-copy-label>复制永久链接</span>
+      </button>
+      <a href="{{ '/journal/' | relative_url }}">查看全部 Journal <span aria-hidden="true">→</span></a>
+    </div>
   </footer>
+
+  {% assign related_count = 0 %}
+  {% capture related_cards %}
+    {% assign reverse_entries = ordered_entries | reverse %}
+    {% for candidate in reverse_entries %}
+      {% if candidate.url != page.url and related_count < 3 %}
+        {% assign shares_tag = false %}
+        {% for current_tag in page.tags %}
+          {% if candidate.tags contains current_tag %}{% assign shares_tag = true %}{% endif %}
+        {% endfor %}
+        {% if shares_tag %}
+          {% assign related_count = related_count | plus: 1 %}
+          <a class="journal-related__item" href="{{ candidate.url | relative_url }}">
+            <span>{{ candidate.date | date: "%Y.%m.%d" }}</span>
+            <strong>{{ candidate.title }}</strong>
+            <small>{{ candidate.excerpt | default: candidate.content | markdownify | strip_html | strip_newlines | truncate: 72 }}</small>
+          </a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% if related_count > 0 %}
+  <section class="journal-related" aria-labelledby="journal-related-title">
+    <div class="journal-related__heading">
+      <span>KEEP READING</span>
+      <h2 id="journal-related-title">相似记录</h2>
+    </div>
+    <div class="journal-related__grid">{{ related_cards }}</div>
+  </section>
+  {% endif %}
+
+  {% if previous_entry or next_entry %}
+  <nav class="journal-pagination" aria-label="相邻 Journal">
+    {% if previous_entry %}
+    <a class="journal-pagination__item journal-pagination__item--previous" href="{{ previous_entry.url | relative_url }}">
+      <span>← 较早一篇</span>
+      <strong>{{ previous_entry.title }}</strong>
+    </a>
+    {% else %}
+    <span class="journal-pagination__item is-disabled"><span>← 较早一篇</span><strong>已经是最早记录</strong></span>
+    {% endif %}
+
+    {% if next_entry %}
+    <a class="journal-pagination__item journal-pagination__item--next" href="{{ next_entry.url | relative_url }}">
+      <span>较新一篇 →</span>
+      <strong>{{ next_entry.title }}</strong>
+    </a>
+    {% else %}
+    <span class="journal-pagination__item journal-pagination__item--next is-disabled"><span>较新一篇 →</span><strong>已经是最新记录</strong></span>
+    {% endif %}
+  </nav>
+  {% endif %}
 </div>
