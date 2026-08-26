@@ -1,0 +1,108 @@
+/* Final type-scale pass: keep secondary pages close to an edited academic
+   publication rather than a dashboard. Small text is readable; page titles
+   remain prominent without dominating the page. */
+
+.page__content .subpage-hero h1 {
+  font-size: clamp(2rem, 3.55vw, 2.9rem);
+}
+
+.page__content .journal-feed-hero h1 {
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+}
+
+.journal-shell--entry .page__content .diary-entry__header h1 {
+  font-size: clamp(2rem, 3.55vw, 2.9rem);
+}
+
+.subpage-hero__eyebrow,
+.subpage-hero__aside > span,
+.now-signal > span,
+.research-principles span,
+.research-cluster__number,
+.research-cluster__header p,
+.research-work__status,
+.now-card__label,
+.open-questions__heading p,
+.now-links span,
+.journey-stop__place,
+.journal-feed-hero__eyebrow,
+.journal-section-heading p,
+.journal-discovery__heading p,
+.journal-featured__label,
+.journal-crosslink span {
+  font-size: 0.84rem !important;
+  letter-spacing: 0.02em;
+}
+
+.research-principles p,
+.research-work > p {
+  font-size: 0.9rem !important;
+}
+
+.page__content .research-work h3 {
+  font-size: 1.12rem;
+}
+
+.page__content .research-work__links a,
+.research-work__links span {
+  font-size: 0.82rem;
+}
+
+.now-card > p:not(.now-card__label),
+.journey-stop__body > p:not(.journey-stop__place) {
+  font-size: 0.92rem !important;
+}
+
+.now-card__tags span,
+.journey-stop__theme,
+.page__content .journey-stop__actions a {
+  font-size: 0.8rem;
+}
+
+.journey-stop__date small {
+  font-size: 0.76rem;
+}
+
+.journal-feed-hero__stats span,
+.journal-section-heading > span,
+.journal-discovery__heading > span,
+.journal-featured__meta > span,
+.journal-card__place,
+.journal-archive__year-label span,
+.journal-archive time,
+.journal-archive li > span {
+  font-size: 0.8rem;
+}
+
+.journal-featured__excerpt {
+  font-size: 0.92rem !important;
+}
+
+.page__content .journal-card__title {
+  font-size: 1.08rem;
+}
+
+.journal-card__excerpt {
+  font-size: 0.86rem !important;
+}
+
+.journal-tags span,
+.journal-filter-list button {
+  font-size: 0.78rem;
+}
+
+.page__content .home-shortcuts a {
+  font-size: 0.88rem;
+}
+
+.home-shortcuts__separator {
+  font-size: 0.82rem;
+}
+
+@media (max-width: 760px) {
+  .page__content .subpage-hero h1,
+  .page__content .journal-feed-hero h1,
+  .journal-shell--entry .page__content .diary-entry__header h1 {
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+  }
+}
