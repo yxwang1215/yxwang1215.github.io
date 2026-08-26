@@ -46,3 +46,14 @@
   z-index: 1000;
   max-width: calc(100vw - 1rem);
 }
+
+/* The Journal layout reserves a 165px first column for the generated table of
+   contents. Short entries do not generate a TOC, so their prose must span the
+   full grid instead of being auto-placed into that narrow first column. */
+.diary-reading-grid > .journal-toc[hidden] + .diary-entry__content {
+  grid-column: 1 / -1;
+  width: min(100%, 760px);
+  max-width: 760px;
+  min-width: 0;
+  justify-self: center;
+}
