@@ -54,7 +54,7 @@ page_class: "research-map-page"
     </p>
     <div class="research-work-grid">
       <article class="research-work">
-        <span class="research-work__status">ICLR 2026 · Accepted</span>
+        <span class="research-work__status">ICLR 2026 · Accepted · CCF-A</span>
         <h3>SlowFast Sampling</h3>
         <p>Alternates exploratory and accelerated stages using certainty, convergence, and positional principles; the homepage reports a 15.63× speedup on LLaDA.</p>
         <div class="research-work__links">
@@ -129,7 +129,7 @@ page_class: "research-map-page"
     </p>
     <div class="research-work-grid research-work-grid--two">
       <article class="research-work">
-        <span class="research-work__status">ICRA 2026 · Accepted · Equal Contribution</span>
+        <span class="research-work__status">ICRA 2026 · Accepted · CCF-B · Equal Contribution</span>
         <h3>UltraHiT</h3>
         <p>A hierarchical Transformer architecture for generalizable internal-carotid-artery robotic ultrasonography.</p>
         <div class="research-work__links">
@@ -139,7 +139,7 @@ page_class: "research-map-page"
         </div>
       </article>
       <article class="research-work">
-        <span class="research-work__status">MICCAI 2026 · Accepted · Top 9%</span>
+        <span class="research-work__status">MICCAI 2026 · Accepted · CCF-B</span>
         <h3>VA-Adapter</h3>
         <p>A parameter-efficient vision-action adapter for real-time echocardiography probe guidance.</p>
         <div class="research-work__links">
