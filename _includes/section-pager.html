@@ -1,0 +1,11 @@
+<nav class="section-pager section-pager--{{ include.position | default: 'bottom' }}" aria-label="Page navigation">
+  <a class="section-pager__link section-pager__link--previous" href="{{ include.previous_url | relative_url }}" aria-label="Previous page: {{ include.previous_label }}">
+    <span aria-hidden="true">←</span>
+    <span>{{ include.previous_label }}</span>
+  </a>
+  <a class="section-pager__home" href="{{ '/' | relative_url }}">Home</a>
+  <a class="section-pager__link section-pager__link--next" href="{{ include.next_url | relative_url }}" aria-label="Next page: {{ include.next_label }}">
+    <span>{{ include.next_label }}</span>
+    <span aria-hidden="true">→</span>
+  </a>
+</nav>
