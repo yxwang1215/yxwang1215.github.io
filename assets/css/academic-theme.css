@@ -473,3 +473,201 @@ body.subpage-shell {
 .open-questions li span {
   color: #c8d4e2;
 }
+
+/* Preserve accepted-paper status emphasis after generic card typography. */
+.pub-card .publication-status {
+  color: var(--academic-status);
+  font-weight: 700;
+}
+
+/* Journey timeline: one restrained accent, flat surfaces, no pulsing decoration. */
+
+.journey-stop__marker i {
+  background: var(--academic-accent);
+  box-shadow: 0 0 0 1px rgba(36, 59, 90, 0.25);
+}
+
+.journey-stop--current .journey-stop__marker i {
+  animation: none;
+}
+
+.journey-stop__body,
+.journey-note {
+  border-color: var(--academic-line);
+  border-radius: 6px;
+  background: var(--academic-paper);
+  box-shadow: none;
+}
+
+.journey-stop--current .journey-stop__body {
+  border-color: var(--academic-line-strong);
+  background: var(--academic-paper);
+}
+
+.journey-stop__place,
+.journey-note span {
+  color: var(--academic-accent);
+}
+
+.journey-stop__theme,
+.page__content .journey-stop__actions a {
+  border: 1px solid #c7d0dc;
+  border-radius: 4px;
+  background: var(--academic-soft);
+  color: var(--academic-accent);
+}
+
+.page__content .journey-stop__actions a:hover {
+  border-color: #98a6b8;
+  background: #eef2f6;
+  color: var(--academic-accent-hover);
+}
+
+/* Journal index and reading pages: keep the photography, simplify the interface. */
+
+.diary-hero,
+.diary-card,
+.journal-featured,
+.journal-discovery,
+.journal-archive,
+.journal-crosslink,
+.journal-toc,
+.page__content .journal-pagination__item,
+.page__content a.journal-related__item {
+  border-color: var(--academic-line);
+  border-radius: 7px;
+  background: var(--academic-paper);
+  box-shadow: none;
+}
+
+.diary-hero {
+  background: var(--academic-paper);
+}
+
+.diary-hero::before,
+.diary-hero::after {
+  display: none;
+}
+
+.diary-card:hover,
+.page__content a.journal-related__item:hover {
+  transform: none;
+  border-color: var(--academic-line-strong);
+  box-shadow: 0 4px 14px rgba(23, 32, 51, 0.06);
+}
+
+.page__content a.diary-card__cover,
+.page__content a.journal-featured__cover,
+.diary-card__placeholder,
+.journal-featured__placeholder {
+  background: #eef2f6;
+  color: var(--academic-muted);
+}
+
+.diary-hero__eyebrow,
+.diary-section-heading__eyebrow,
+.journal-section-heading p,
+.journal-discovery__heading p,
+.journal-featured__label,
+.journal-crosslink span,
+.journal-toc > p,
+.journal-related__heading > span {
+  color: var(--academic-accent);
+}
+
+.page__content .diary-card__title a,
+.page__content .journal-featured__body h2 a,
+.page__content .journal-archive li a,
+.page__content .journal-related__item,
+.page__content .journal-pagination__item {
+  color: var(--academic-ink);
+}
+
+.page__content .diary-card__title a:hover,
+.page__content a.diary-card__read,
+.page__content a.diary-card__read:hover,
+.page__content a.journal-featured__read,
+.page__content .journal-toc a:hover,
+.page__content .journal-toc a.is-active {
+  color: var(--academic-accent);
+}
+
+.diary-tags span,
+.journal-filter-list button,
+.diary-entry__copy,
+.diary-entry__footer button,
+.page__content .journal-feed-hero__links a,
+.page__content .journal-crosslink a {
+  border-color: var(--academic-line);
+  border-radius: 4px;
+  background: var(--academic-paper);
+  color: var(--academic-muted);
+}
+
+.page__content .journal-feed-hero__links a:first-child,
+.journal-filter-list button.is-active {
+  border-color: var(--academic-accent);
+  background: var(--academic-accent);
+  color: #ffffff;
+}
+
+.journal-filter-list button:hover,
+.diary-entry__copy:hover,
+.diary-entry__footer button:hover,
+.diary-entry__copy.is-copied,
+.diary-entry__footer button.is-copied {
+  border-color: #98a6b8;
+  color: var(--academic-accent);
+}
+
+.journal-feed-hero__stats > div,
+.journal-search,
+.journal-no-results {
+  border-color: var(--academic-line);
+  border-radius: 6px;
+  background: var(--academic-soft);
+}
+
+.journal-crosslink {
+  background: var(--academic-paper);
+}
+
+.page__content .journal-crosslink a {
+  color: var(--academic-accent);
+}
+
+.journal-reading-progress span {
+  background: var(--academic-accent);
+}
+
+.page__content .journal-toc a:hover,
+.page__content .journal-toc a.is-active {
+  border-left-color: var(--academic-accent);
+}
+
+.page__content .diary-entry__cover a {
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+.diary-entry__content blockquote {
+  border-left-color: var(--academic-accent);
+  background: var(--academic-soft);
+  color: var(--academic-muted);
+}
+
+.diary-note {
+  border-color: var(--academic-line);
+  border-radius: 6px;
+  background: var(--academic-soft);
+  color: var(--academic-muted);
+}
+
+.page__content .diary-gallery a,
+.diary-entry__content img {
+  border-radius: 6px;
+}
+
+.page__content .diary-entry__footer a {
+  color: var(--academic-accent);
+}
