@@ -1,33 +1,17 @@
-# main links links
+# Primary navigation. Keep this list intentionally short; detailed sections
+# remain available on the homepage.
 main:
-  - title: "About Me"
-    url: "/#about-me"
+  - title: "Research"
+    url: "/research/"
 
   - title: "Journal"
     url: "/journal/"
 
-  - title: "Educations"
-    url: "/#educations"
+  - title: "Journey"
+    url: "/journey/"
+
+  - title: "Now"
+    url: "/now/"
 
   - title: "Publications"
     url: "/#publications"
-
-  - title: "Projects"
-    url: "/#projects"
-
-  - title: "Internships"
-    url: "/#internships"
-
-  - title: "Honors and Awards"
-    url: "/#honors-and-awards"
-
-  - title: "Activities"
-    url: "/#activities"
-
-  - title: "Hobbies"
-    url: "/#hobbies"
-
-  - title: "Friends"
-    url: "/#friends"
-
-
