@@ -24,8 +24,5 @@ main:
   - title: "Activities"
     url: "/#activities"
 
-  - title: "Hobbies"
-    url: "/#hobbies"
-
   - title: "Friends"
     url: "/#friends"
