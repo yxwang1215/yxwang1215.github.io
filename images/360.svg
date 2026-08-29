@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">360 Security Technology logo</title>
+  <desc id="desc">The green and yellow circular 360 brand mark.</desc>
+  <defs>
+    <clipPath id="mark-circle">
+      <circle cx="500" cy="500" r="500"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#mark-circle)">
+    <circle cx="500" cy="500" r="500" fill="#ffe11f"/>
+    <path fill="#29984b" d="M0 0h1000v181c-27 74-56 128-104 146-61 23-130-3-194-64-54-51-102-101-179-132C383 75 236 92 103 188 58 135 26 73 0 0Z"/>
+    <path fill="#29984b" d="M0 756c30-53 72-86 121-90 66-6 119 30 178 91 74 77 151 128 254 151 137 31 269-5 381-106 27-24 49-42 66-54v252H0V756Z"/>
+  </g>
+  <rect x="435" y="269" width="130" height="462" rx="65" fill="#29984b"/>
+  <rect x="269" y="435" width="462" height="130" rx="65" fill="#29984b"/>
+</svg>
