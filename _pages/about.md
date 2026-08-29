@@ -130,6 +130,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card" markdown="1">
 [**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
 <br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
+<br> *Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency across Audio LLMs.*
 <br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
 </div>
 
@@ -148,7 +149,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="intern-card">
 <img src="/images/360.svg" alt="360 Group" class="intern-logo">
 <div class="intern-content" markdown="1">
-**Internet Products Business Group · ZhiNao Division** · [**360 Group**](https://www.360.cn/), China.
+<span style="color:#2c3e50; font-weight:600;">Internet Products Business Group · ZhiNao Division</span> · [**360 Group**](https://www.360.cn/), China.
 <br> *Foundation Model Research Intern* &emsp; *August 2026 - Present*
 <br> Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.
 </div>
