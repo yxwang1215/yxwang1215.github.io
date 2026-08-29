@@ -124,7 +124,7 @@ My research interest includes neural machine translation and computer vision. I 
 [**Self Speculative Decoding for Diffusion Large Language Models**](https://arxiv.org/abs/2510.04147)
 <br> Y. Gao\*, Z. Ji\*, **Y. Wang**, B. Qi, H. Xu, L. Zhang (\* denotes Equal Contribution)
 <br> *Developed SSD for Diffusion LLMs, accelerating inference via internal self-drafting and parallel verification.*
-<br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">Paper</a>
+<br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">Paper</a> <a class="btn--research btn--code" aria-disabled="true" onclick="return false;" style="cursor: default;">Code</a>
 </div>
 
 <div class="pub-card" markdown="1">
