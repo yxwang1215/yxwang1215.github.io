@@ -107,7 +107,6 @@ My research interest includes neural machine translation and computer vision. I 
 <br> *Parameter-efficient Vision-Action Adapter for real-time probe guidance.*
 <br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">Code</a>
 </div>
-
 <span class='anchor' id='projects'></span>
 
 # Projects
@@ -150,6 +149,7 @@ My research interest includes neural machine translation and computer vision. I 
 <img src="/images/360.svg" alt="360 Group" class="intern-logo">
 <div class="intern-content" markdown="1">
 [**360 Group**](https://www.360.cn/), China.
+<br> *互联网产品事业群-智脑事业部*
 <br> *Foundation Model Research Intern* &emsp; *August 2026 - Present*
 <br> Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.
 </div>
