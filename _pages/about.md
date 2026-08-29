@@ -159,7 +159,7 @@ My research interest includes neural machine translation and computer vision. I 
 <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo">
 <div class="intern-content" markdown="1">
 [**EPIC Lab**](https://epic-lab.github.io/), [School of Artificial Intelligence](https://soai.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), China.
-<br> *Research Assistant* &emsp; August 2025 - February 2026
+<br> *Research Assistant* &emsp; August 2025 - April 2026
 <br> Developed efficient diffusion LLM inference methods and KV cache eviction techniques for Audio LLMs.
 <br> <span class="publication-status">Our work has been accepted to ICLR 2026 and ACM MM 2026.</span>
 </div>
