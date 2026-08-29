@@ -77,6 +77,14 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="section-divider"></div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
+[**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2604.06694)
+<br> **Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang
+<br> **First Author**; <span class="publication-status">Accepted to ACM MM 2026 (CCF-A)</span>.
+<br> *Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).*
+<br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">Code</a>
+</div>
+
+<div class="pub-card pub-card--accepted" markdown="1">
 [**Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles**](https://arxiv.org/abs/2506.10848)
 <br> Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang
 <br> <span class="publication-status">Accepted to ICLR 2026 (CCF-A)</span>
@@ -90,14 +98,6 @@ My research interest includes neural machine translation and computer vision. I 
 <br> <span class="publication-status">Accepted to ICRA 2026 (CCF-B)</span>
 <br> *Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.*
 <br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/UltraHiT" class="btn--research btn--code">Code</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">Project Page</a>
-</div>
-
-<div class="pub-card pub-card--accepted" markdown="1">
-[**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2604.06694)
-<br> **Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang
-<br> **First Author**; <span class="publication-status">Accepted to ACM MM 2026 (CCF-A)</span>.
-<br> *Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).*
-<br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
