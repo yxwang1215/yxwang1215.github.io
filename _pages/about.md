@@ -149,7 +149,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="intern-card">
 <img src="/images/360.svg" alt="360 Group" class="intern-logo">
 <div class="intern-content" markdown="1">
-<span style="color:#2c3e50; font-weight:600;">Internet Products Business Group · ZhiNao Division</span> · [**360 Group**](https://www.360.cn/), China.
+[**Internet Products Business Group · ZhiNao Division · 360 Group**](https://www.360.cn/), China.
 <br> *Foundation Model Research Intern* &emsp; *August 2026 - Present*
 <br> Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.
 </div>
