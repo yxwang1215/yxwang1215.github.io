@@ -148,7 +148,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="intern-card">
 <img src="/images/360.svg" alt="360 Group" class="intern-logo">
 <div class="intern-content" markdown="1">
-*Internet Products Business Group · ZhiNao Division* · [**360 Group**](https://www.360.cn/), China.
+**Internet Products Business Group · ZhiNao Division** · [**360 Group**](https://www.360.cn/), China.
 <br> *Foundation Model Research Intern* &emsp; *August 2026 - Present*
 <br> Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.
 </div>
@@ -169,7 +169,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="intern-content" markdown="1">
 [**LEAP Lab**](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
 <br> *Research Assistant* &emsp; March 2025 - September 2025
-<br> Participated in the implementation of autonomous robotic ultrasonography and real-time probe-guidance projects. My work was conducted onsite at Tsinghua University's Central Main Building, room 601.
+<br> Participated in the implementation of autonomous robotic ultrasonography and real-time probe-guidance projects.
 <br> <span class="publication-status">Our work has been accepted to MICCAI 2026 and ICRA 2026.</span>
 </div>
 </div>
