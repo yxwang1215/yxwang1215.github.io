@@ -114,26 +114,23 @@ My research interest includes neural machine translation and computer vision. I 
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
-<div class="pub-card pub-card--submitted" markdown="1">
+<div class="pub-card" markdown="1">
 [**Thinking inside the Mask: In-place Prompting in Diffusion LLMs**](https://arxiv.org/abs/2508.10736)
 <br> X. Jin, **Y. Wang**, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang
-<br> **Second Author**; Submitted to **ACL 2026 (CCF-A)**.
 <br> *Proposed In-Place Prompting, integrating reasoning chains directly into the mask denoising process for Diffusion LLMs.*
 <br> <a href="https://arxiv.org/abs/2508.10736" class="btn--research btn--paper">Paper</a> <a href="https://github.com/Lueci4er/ICE" class="btn--research btn--code">Code</a>
 </div>
 
-<div class="pub-card pub-card--submitted" markdown="1">
+<div class="pub-card" markdown="1">
 [**Self Speculative Decoding for Diffusion Large Language Models**](https://arxiv.org/abs/2510.04147)
 <br> Y. Gao\*, Z. Ji\*, **Y. Wang**, B. Qi, H. Xu, L. Zhang (\* denotes Equal Contribution)
-<br> Submitted to **ACL 2026 (CCF-A)**.
 <br> *Developed SSD for Diffusion LLMs, accelerating inference via internal self-drafting and parallel verification.*
 <br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">Paper</a>
 </div>
 
-<div class="pub-card pub-card--submitted" markdown="1">
+<div class="pub-card" markdown="1">
 [**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
 <br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
-<br> Submitted to **ACL 2026 (CCF-A)**.
 <br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
 </div>
 
@@ -148,6 +145,15 @@ My research interest includes neural machine translation and computer vision. I 
 # Internships
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
+
+<div class="intern-card">
+<img src="/images/360.svg" alt="360 Group" class="intern-logo">
+<div class="intern-content" markdown="1">
+[**360 Group**](https://www.360.cn/), China.
+<br> *Foundation Model Research Intern* &emsp; *August 2026 - Present*
+<br> Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.
+</div>
+</div>
 
 <div class="intern-card">
 <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo">
@@ -221,7 +227,7 @@ My research interest includes neural machine translation and computer vision. I 
 <!-- <br> -->
 
 <div class="last-updated">
-  <em>Last updated: 2026/8/26.</em>
+  <em>Last updated: 2026/8/29.</em>
 </div>
 
 <br>
