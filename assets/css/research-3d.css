@@ -1,0 +1,112 @@
+/* Homepage-only, scoped styles. No global typography, card or background overrides. */
+#research-3d {
+  --r3d-ink: #172b48;
+  --r3d-blue: #335da1;
+  --r3d-muted: #536582;
+  --r3d-line: #dce4f0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 22px 0 32px;
+  padding: 24px 0 22px;
+  border-top: 1px solid var(--r3d-line);
+  border-bottom: 1px solid var(--r3d-line);
+  color: var(--r3d-ink);
+  background: transparent;
+  font-family: inherit;
+  isolation: isolate;
+}
+#research-3d *, #research-3d *::before, #research-3d *::after { box-sizing: border-box; }
+#research-3d [hidden] { display: none !important; }
+#research-3d .research-3d__intro { flex: .85 1 205px; padding: 0 4px 0 0; }
+#research-3d .research-3d__eyebrow {
+  display: flex; align-items: center; gap: 8px; margin: 0 0 25px;
+  font: 500 9px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .14em; color: var(--r3d-muted);
+}
+#research-3d .research-3d__eyebrow > span { font: 26px/1 Georgia, serif; color: var(--r3d-blue); }
+#research-3d h2 {
+  margin: 0; padding: 0; border: 0; color: var(--r3d-ink);
+  font: 400 clamp(31px, 3.2vw, 43px)/1.1 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.045em; text-transform: none;
+}
+#research-3d h2::after, #research-3d h2::before { content: none; display: none; }
+#research-3d h2 em { color: var(--r3d-blue); font-weight: 400; }
+#research-3d .research-3d__lede { margin: 19px 0 23px; color: var(--r3d-muted); font-size: 12px; line-height: 1.85; }
+#research-3d a.research-3d__link {
+  display: inline-flex; align-items: center; gap: 18px; margin: 0; padding: 0 0 5px;
+  border: 0; border-bottom: 1px solid #aabbcf; border-radius: 0;
+  color: var(--r3d-ink); background: none; box-shadow: none;
+  font-size: 11px; font-weight: 600; text-decoration: none;
+}
+#research-3d a.research-3d__link span { display: inline-block; font-size: 18px; transition: transform 180ms ease; }
+#research-3d a.research-3d__link:hover span { transform: translate(2px, -2px); }
+#research-3d .research-3d__index { display: flex; align-items: center; gap: 10px; width: 94px; margin-top: 36px; font: 10px/1 ui-monospace, monospace; color: var(--r3d-muted); }
+#research-3d .research-3d__index > span:first-child { color: var(--r3d-blue); }
+#research-3d .research-3d__index-line { flex: 1; height: 1px; background: var(--r3d-line); }
+#research-3d .research-3d__visual { flex: 1.6 1 315px; min-width: 0; }
+#research-3d .research-3d__topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 8px/1.5 ui-monospace, monospace; letter-spacing: .07em; color: var(--r3d-muted); }
+#research-3d .research-3d__state { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+#research-3d .research-3d__state::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--r3d-blue); }
+#research-3d .research-3d__stage { position: relative; height: 296px; overflow: hidden; }
+#research-3d .research-3d__stage::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, #869fcc 0.6px, transparent .8px);
+  background-size: 22px 22px; opacity: .17;
+  -webkit-mask-image: radial-gradient(ellipse, #000 15%, transparent 70%);
+  mask-image: radial-gradient(ellipse, #000 15%, transparent 70%);
+}
+#research-3d .research-3d__canvas, #research-3d .research-3d__fallback { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; }
+#research-3d .research-3d__canvas { touch-action: pan-y; cursor: grab; outline-offset: -5px; }
+#research-3d .research-3d__canvas:active { cursor: grabbing; }
+#research-3d .research-3d__corner { position: absolute; pointer-events: none; width: 10px; height: 10px; border-color: #b8c8df; border-style: solid; }
+#research-3d .research-3d__corner--tl { top: 16px; left: 3px; border-width: 1px 0 0 1px; }
+#research-3d .research-3d__corner--br { bottom: 13px; right: 3px; border-width: 0 1px 1px 0; }
+#research-3d .research-3d__axis { position: absolute; bottom: 12px; left: 3px; pointer-events: none; color: var(--r3d-muted); font: italic 10px/1 Georgia, serif; }
+#research-3d .research-3d__caption { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 32px; padding: 0 0 9px; }
+#research-3d .research-3d__caption > span:first-child { color: var(--r3d-ink); font-size: 11px; font-weight: 600; }
+#research-3d .research-3d__caption > span:last-child { max-width: 54%; color: var(--r3d-muted); font: 8px/1.5 ui-monospace, monospace; text-align: right; }
+#research-3d .research-3d__controls { display: flex; justify-content: space-between; gap: 6px; padding-top: 10px; border-top: 1px solid var(--r3d-line); }
+#research-3d .research-3d__modes, #research-3d .research-3d__actions { display: flex; gap: 4px; }
+#research-3d button {
+  appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  min-width: 32px; min-height: 34px; margin: 0; padding: 7px 9px;
+  border: 1px solid transparent; border-radius: 5px;
+  color: var(--r3d-muted); background: transparent; box-shadow: none;
+  font: 500 10px/1.3 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-transform: none; letter-spacing: 0; cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+#research-3d button > span { color: inherit; font: 8px/1 ui-monospace, monospace; opacity: .8; }
+#research-3d button:hover { color: var(--r3d-blue); background: #f3f7ff; }
+#research-3d button[aria-pressed='true'] { border-color: #b5c6e4; color: #284f92; background: #f3f7ff; }
+#research-3d .research-3d__actions button { padding: 6px; font-size: 17px; }
+#research-3d :focus-visible { outline: 2px solid #4773b6; outline-offset: 3px; }
+#research-3d .research-3d__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (min-width: 1400px) { #research-3d .research-3d__stage { height: 325px; } }
+@media (max-width: 650px) {
+  #research-3d { gap: 27px; margin: 18px 0 26px; padding: 22px 0; }
+  #research-3d .research-3d__intro { flex-basis: 100%; position: relative; padding: 0; }
+  #research-3d .research-3d__eyebrow { margin-bottom: 17px; }
+  #research-3d h2 { font-size: 36px; }
+  #research-3d .research-3d__lede { margin: 12px 0 15px; }
+  #research-3d .research-3d__index { position: absolute; right: 4px; bottom: 8px; margin: 0; width: 74px; }
+  #research-3d .research-3d__stage { height: 260px; }
+  #research-3d .research-3d__caption > span:last-child { font-size: 8px; }
+  #research-3d button { min-height: 44px; }
+  #research-3d .research-3d__actions button { min-width: 38px; }
+}
+@media (max-width: 360px) {
+  #research-3d .research-3d__controls { gap: 2px; }
+  #research-3d button { padding-inline: 6px; gap: 3px; }
+  #research-3d .research-3d__modes, #research-3d .research-3d__actions { gap: 1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #research-3d *, #research-3d *::before, #research-3d *::after { transition: none !important; animation: none !important; }
+}
+@media print {
+  #research-3d { display: none !important; }
+}
