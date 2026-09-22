@@ -1,2 +1,4 @@
 jsonpickle==1.4.2
 scholarly==1.5.1
+# scholarly 1.5.1 imports the bibtexparser v1 API (bibdatabase).
+bibtexparser==1.4.4
