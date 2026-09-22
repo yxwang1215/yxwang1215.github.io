@@ -40,6 +40,16 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <div class="section-divider"></div>
 
 <div class="edu-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+<div class="edu-content" markdown="1">
+**[Peking University](https://www.pku.edu.cn/)** · Beijing, China
+<br> *Ph.D. Student in Computer Science and Technology* &emsp; *2027–Future*
+<br> [School of Computer Science](https://cs.pku.edu.cn/)
+<br> Advisor: **[Tong Yang](https://yangtonghome.github.io/)**
+</div>
+</div>
+
+<div class="edu-card">
 <img src="/images/xidian.png" alt="Xidian University" class="edu-logo">
 <div class="edu-content" markdown="1">
 **[Xidian University](https://www.xidian.edu.cn/)** · Xi'an, China
@@ -130,7 +140,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card" markdown="1">
 [**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
 <br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
-<br> *Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency across Audio LLMs.*
+<br> *Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency in Audio LLMs.*
 <br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
 </div>
 
@@ -227,7 +237,7 @@ My research interest includes neural machine translation and computer vision. I 
 <!-- <br> -->
 
 <div class="last-updated">
-  <em>Last updated: 2026/8/29.</em>
+  <em>Last updated: 2026/9/22.</em>
 </div>
 
 <br>
