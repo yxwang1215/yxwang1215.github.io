@@ -43,7 +43,7 @@ I am a third-year undergraduate at **Xidian University**, majoring in **Software
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" loading="lazy" decoding="async" referrerpolicy="no-referrer">
 <div class="edu-content" markdown="1">
 **[Peking University](https://www.pku.edu.cn/)** · Beijing, China
-<br> *Ph.D. Student in Computer Science and Technology* &emsp; *2027–Future*
+<br> *Incoming Ph.D. Student in Computer Science and Technology* &emsp; *2027–Future*
 <br> [School of Computer Science](https://cs.pku.edu.cn/)
 <br> Advisor: **[Tong Yang](https://yangtonghome.github.io/)**
 </div>
@@ -204,7 +204,7 @@ My research interest includes neural machine translation and computer vision. I 
 *2024.12*: **First Prize**, National Undergraduate Mathematical Modeling Contest
 </div>
 <div class="award-item" markdown="1">
-*2024.11*: **First Prize**, 16th National Undergraduate Mathematics Competition
+*2024.11*: **First Prize**, 16th National Undergraduate MathematicsCompetition
 </div>
 <div class="award-item" markdown="1">
 *2024.01*: **National First Prize**, *Vocabulary Star* National English Vocabulary Competition
