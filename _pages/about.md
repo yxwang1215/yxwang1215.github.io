@@ -140,7 +140,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="pub-card" markdown="1">
 [**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
 <br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
-<br> *Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency in Audio LLMs.*
+<br> *Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency across Audio LLMs.*
 <br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
 </div>
 
