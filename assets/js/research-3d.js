@@ -5,7 +5,7 @@
   if (!root || root.dataset.initialized) return;
   root.dataset.initialized = 'true';
   const $ = (selector) => root.querySelector(selector);
-  const canvas = $('.research-3d__canvas');
+  let canvas = $('.research-3d__canvas');
   const stage = $('.research-3d__stage');
   const controls = $('.research-3d__controls');
   const fallback = $('.research-3d__fallback');
@@ -21,7 +21,9 @@
   const storageKey = 'yxw-research-3d-paused';
   let savedPaused = false;
   try { savedPaused = localStorage.getItem(storageKey) === 'true'; } catch (_) { /* Storage is optional. */ }
-  let paused = motion.matches || savedPaused || Boolean(connection && connection.saveData);
+  let pauseReason = motion.matches ? 'Reduced motion' : savedPaused ? 'Saved pause' :
+    (connection && connection.saveData) ? 'Data saver' : '';
+  let paused = Boolean(pauseReason);
   let visible = true;
   let pageActive = true;
   let lost = false;
@@ -52,7 +54,9 @@
     uniform vec3 u_weights;
     uniform vec2 u_rotation;
     uniform vec2 u_cursor;
-    uniform float u_time, u_aspect, u_dpr, u_burst, u_hover, u_lines, u_halo;
+    uniform float u_time, u_aspect, u_dpr, u_burst, u_hover, u_halo;
+    // Shared uniforms must have identical precision in both shader stages.
+    uniform mediump float u_lines;
     varying mediump vec3 v_color;
     varying mediump float v_alpha;
     const float TAU = 6.28318530718;
@@ -64,21 +68,21 @@
       float sy = 2.0 * v - 1.0;
       float sr = sqrt(max(0.0, 1.0 - sy * sy));
       vec3 sphere = vec3(sr * cos(angle), sy, sr * sin(angle));
-      sphere *= 1.03 + .018 * sin(u_time * .7 + angle * 3.0);
+      sphere *= 1.03 + .045 * sin(u_time * .7 + angle * 3.0);
       if (ring > .5) {
-        float a = angle + u_time * .13 * (ring < 1.5 ? 1.0 : -1.0);
+        float a = angle + u_time * .42 * (ring < 1.5 ? 1.0 : -1.0);
         sphere = vec3(1.36 * cos(a), .43 * sin(a), 1.16 * sin(a));
         if (ring > 1.5) sphere = vec3(sphere.z, -sphere.y, sphere.x);
       }
       float wx = (u - .5) * 2.65;
       float wz = (v - .5) * 2.1;
       if (ring > .5) wz = ring < 1.5 ? -1.05 : 1.05;
-      float wy = .24 * sin(wx * 3.2 - u_time * .8)
-               + .16 * cos(wz * 4.0 + u_time * .55)
-               + .10 * sin((wx + wz) * 2.4 + u_time * .45);
+      float wy = .24 * sin(wx * 3.2 - u_time * 1.35)
+               + .16 * cos(wz * 4.0 + u_time * .95)
+               + .10 * sin((wx + wz) * 2.4 + u_time * .75);
       vec3 wave = vec3(wx, wy, wz);
       // An artistic trefoil orbit, not a quantitative model of cache contents.
-      float t = angle + u_time * .06;
+      float t = angle + u_time * .18;
       float radius = .78 + .24 * cos(3.0 * t);
       vec3 orbit = vec3(radius * cos(2.0 * t), .35 * sin(3.0 * t), radius * sin(2.0 * t));
       float tube = TAU * v;
@@ -87,7 +91,7 @@
       orbit = vec3(orbit.x, .7 * orbit.y - .714 * orbit.z, .714 * orbit.y + .7 * orbit.z) * 1.18;
       vec3 p = sphere * u_weights.x + wave * u_weights.y + orbit * u_weights.z;
       p *= 1.0 + u_burst * (.3 + a_seed.z * .48);
-      float ry = u_rotation.x + u_time * .075;
+      float ry = u_rotation.x + u_time * .22;
       float rx = u_rotation.y - .38 * u_weights.y;
       vec3 q = vec3(cos(ry) * p.x + sin(ry) * p.z, p.y, -sin(ry) * p.x + cos(ry) * p.z);
       q = vec3(q.x, cos(rx) * q.y - sin(rx) * q.z, sin(rx) * q.y + cos(rx) * q.z);
@@ -109,7 +113,7 @@
   `;
   const fragmentSource = `
     precision mediump float;
-    uniform float u_lines;
+    uniform mediump float u_lines;
     varying mediump vec3 v_color;
     varying mediump float v_alpha;
     void main() {
@@ -181,6 +185,9 @@
         shaders.push(shader);
         gl.shaderSource(shader, source);
         gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          throw new Error(gl.getShaderInfoLog(shader) || 'Shader compilation failed');
+        }
       }
       program = gl.createProgram();
       if (!program) throw new Error('Program allocation failed');
@@ -221,9 +228,8 @@
       buffers.forEach((buffer) => gl && gl.deleteBuffer(buffer));
       if (gl && program) gl.deleteProgram(program);
       gpu = null;
-      showFallback();
-      console.warn('[Research 3D] Using static fallback:', error.message);
-      return false;
+      console.warn('[Research 3D] Switching to animated Canvas fallback:', error.message);
+      return initCanvas();
     }
   }
 
@@ -231,11 +237,19 @@
   // A real 3D perspective projection for devices without a WebGL context.
   // Lower point density and a 30 fps cap keep the fallback lightweight.
   function initCanvas() {
+    // A canvas that acquired WebGL cannot acquire a 2D context, even after
+    // a shader/link failure. Replace it; stage-delegated controls survive.
+    const hadFocus = document.activeElement === canvas;
+    const replacement = canvas.cloneNode(false);
+    canvas.replaceWith(replacement);
+    canvas = replacement;
+    gl = null; gpu = null; lost = false; drag = null;
     try { ctx = canvas.getContext('2d', { alpha: true }); } catch (_) { ctx = null; }
     if (!ctx) { showFallback(); return false; }
     canvas.hidden = false;
     fallback.setAttribute('hidden', '');
     controls.hidden = false;
+    if (hadFocus) canvas.focus({ preventScroll: true });
     root.dataset.renderer = 'canvas-2d';
     root.dataset.particles = String(Math.ceil(count / 4));
     $('#research-3d-help').textContent = 'Drag / arrow keys · click to pulse';
@@ -246,7 +260,7 @@
   function renderCanvas() {
     const width = canvas.width, height = canvas.height;
     const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2);
-    const rotation = yaw + elapsed * .075;
+    const rotation = yaw + elapsed * .22;
     const rx = pitch - .38 * weights[1];
     const cy = Math.cos(rotation), sy = Math.sin(rotation);
     const cx = Math.cos(rx), sx = Math.sin(rx);
@@ -257,10 +271,10 @@
       let x = 0, y = 0, z = 0;
       if (weights[0] > .001) {
         const yy = 2 * v - 1, rr = Math.sqrt(Math.max(0, 1 - yy * yy));
-        const radius = 1.03 + .018 * Math.sin(elapsed * .7 + angle * 3);
+        const radius = 1.03 + .045 * Math.sin(elapsed * .7 + angle * 3);
         let xx = rr * Math.cos(angle) * radius, vy = yy * radius, zz = rr * Math.sin(angle) * radius;
         if (ring > .5) {
-          const a = angle + elapsed * .13 * (ring < 1.5 ? 1 : -1);
+          const a = angle + elapsed * .42 * (ring < 1.5 ? 1 : -1);
           xx = 1.36 * Math.cos(a); vy = .43 * Math.sin(a); zz = 1.16 * Math.sin(a);
           if (ring > 1.5) { const swap = xx; xx = zz; zz = swap; vy = -vy; }
         }
@@ -269,11 +283,11 @@
       if (weights[1] > .001) {
         const wx = (u - .5) * 2.65;
         const wz = ring > .5 ? (ring < 1.5 ? -1.05 : 1.05) : (v - .5) * 2.1;
-        const wy = .24 * Math.sin(wx * 3.2 - elapsed * .8) + .16 * Math.cos(wz * 4 + elapsed * .55) + .1 * Math.sin((wx + wz) * 2.4 + elapsed * .45);
+        const wy = .24 * Math.sin(wx * 3.2 - elapsed * 1.35) + .16 * Math.cos(wz * 4 + elapsed * .95) + .1 * Math.sin((wx + wz) * 2.4 + elapsed * .75);
         x += wx * weights[1]; y += wy * weights[1]; z += wz * weights[1];
       }
       if (weights[2] > .001) {
-        const t = angle + elapsed * .06, radius = .78 + .24 * Math.cos(3 * t), tube = tau * v;
+        const t = angle + elapsed * .18, radius = .78 + .24 * Math.cos(3 * t), tube = tau * v;
         const mult = ring > .5 ? 1.15 : 1;
         const ox = (radius + .105 * Math.cos(tube)) * Math.cos(2 * t);
         const oy = .35 * Math.sin(3 * t) + .105 * Math.sin(tube);
@@ -403,11 +417,15 @@
     pauseButton.setAttribute('aria-pressed', String(paused));
     pauseButton.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
     pauseButton.title = paused ? 'Play animation' : 'Pause animation';
-    pauseButton.textContent = paused ? '▷' : 'Ⅱ';
+    pauseButton.textContent = paused ? '▶ Play' : 'Ⅱ Pause';
+    $('#research-3d-help').textContent = paused
+      ? (pauseReason || 'Paused') + ' · press Play to animate'
+      : 'Drag / arrow keys · click to pulse';
     $('[data-r3d-state]').textContent = paused ? 'PAUSED' : (ctx ? 'LIVE / CANVAS' : 'LIVE / WEBGL');
   }
-  function setPaused(value, persist) {
+  function setPaused(value, persist, reason = '') {
     paused = value;
+    pauseReason = value ? reason : '';
     if (paused) {
       weights = targetWeights.slice(); yaw = targetYaw; pitch = targetPitch; burst = 0; hover = 0;
     }
@@ -430,7 +448,7 @@
     render();
   }
   function resetView() {
-    targetYaw = .38 - elapsed * .075;
+    targetYaw = .38 - elapsed * .22;
     targetPitch = -.18;
     cursor = [0, 0]; hoverTarget = 0; burst = 0;
     if (paused) { yaw = targetYaw; pitch = targetPitch; hover = 0; }
@@ -439,12 +457,12 @@
   modes.forEach((button, i) => button.addEventListener('click', () => selectMode(i)));
   pauseButton.addEventListener('click', () => setPaused(!paused, true));
   $('[data-r3d-reset]').addEventListener('click', resetView);
-  canvas.addEventListener('pointerdown', (event) => {
-    if (event.button !== 0) return;
+  stage.addEventListener('pointerdown', (event) => {
+    if (event.target !== canvas || event.button !== 0) return;
     drag = { x: event.clientX, y: event.clientY, yaw: targetYaw, pitch: targetPitch, moved: 0, id: event.pointerId };
     canvas.setPointerCapture(event.pointerId);
   });
-  canvas.addEventListener('pointermove', (event) => {
+  stage.addEventListener('pointermove', (event) => {
     if (drag && event.pointerId === drag.id) {
       const dx = event.clientX - drag.x;
       const dy = event.clientY - drag.y;
@@ -465,11 +483,12 @@
     if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
     drag = null;
   };
-  canvas.addEventListener('pointerup', endDrag);
-  canvas.addEventListener('pointercancel', endDrag);
-  canvas.addEventListener('lostpointercapture', () => { drag = null; });
-  canvas.addEventListener('pointerleave', () => { hoverTarget = 0; });
-  canvas.addEventListener('keydown', (event) => {
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointercancel', endDrag);
+  stage.addEventListener('lostpointercapture', () => { drag = null; });
+  stage.addEventListener('pointerleave', () => { hoverTarget = 0; });
+  stage.addEventListener('keydown', (event) => {
+    if (event.target !== canvas) return;
     const key = event.key;
     if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', ' ', '1', '2', '3'].includes(key)) return;
     event.preventDefault();
@@ -484,13 +503,15 @@
     render();
   });
   canvas.addEventListener('webglcontextlost', (event) => {
-    event.preventDefault(); lost = true; stop(); showFallback('Static view — graphics temporarily unavailable.');
+    event.preventDefault();
+    lost = true; stop();
+    // Keep moving on the CPU instead of waiting indefinitely for GPU recovery.
+    if (initCanvas()) sync();
   });
-  canvas.addEventListener('webglcontextrestored', () => { lost = false; if (initGPU()) sync(); });
   document.addEventListener('visibilitychange', sync);
   window.addEventListener('pagehide', () => { pageActive = false; stop(); });
   window.addEventListener('pageshow', () => { pageActive = true; sync(); });
-  const motionChange = () => { if (motion.matches) setPaused(true, false); };
+  const motionChange = () => { if (motion.matches) setPaused(true, false, 'Reduced motion'); };
   if (motion.addEventListener) motion.addEventListener('change', motionChange);
   else motion.addListener(motionChange);
   if (!initGPU()) return;
