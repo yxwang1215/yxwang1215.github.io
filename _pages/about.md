@@ -204,7 +204,7 @@ My research interest includes neural machine translation and computer vision. I 
 *2024.12*: **First Prize**, National Undergraduate Mathematical Modeling Contest
 </div>
 <div class="award-item" markdown="1">
-*2024.11*: **First Prize**, 16th National Undergraduate MathematicsCompetition
+*2024.11*: **First Prize**, 16th National Undergraduate Mathematics Competition
 </div>
 <div class="award-item" markdown="1">
 *2024.01*: **National First Prize**, *Vocabulary Star* National English Vocabulary Competition
