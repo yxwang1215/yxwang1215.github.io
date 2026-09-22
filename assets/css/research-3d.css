@@ -1,9 +1,9 @@
 /* Homepage-only, scoped styles. No global typography, card or background overrides. */
 #research-3d {
-  --r3d-ink: #172b48;
-  --r3d-blue: #335da1;
-  --r3d-muted: #536582;
-  --r3d-line: #dce4f0;
+  --r3d-ink: #142847;
+  --r3d-blue: #4c72e8;
+  --r3d-muted: #667792;
+  --r3d-line: #e6ecf7;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -38,7 +38,7 @@
 #research-3d .research-3d__lede { margin: 19px 0 23px; color: var(--r3d-muted); font-size: 12px; line-height: 1.85; }
 #research-3d a.research-3d__link {
   display: inline-flex; align-items: center; gap: 18px; margin: 0; padding: 0 0 5px;
-  border: 0; border-bottom: 1px solid #aabbcf; border-radius: 0;
+  border: 0; border-bottom: 1px solid #bdc9eb; border-radius: 0;
   color: var(--r3d-ink); background: none; box-shadow: none;
   font-size: 11px; font-weight: 600; text-decoration: none;
 }
@@ -54,15 +54,15 @@
 #research-3d .research-3d__stage { position: relative; height: 296px; overflow: hidden; }
 #research-3d .research-3d__stage::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: radial-gradient(circle, #869fcc 0.6px, transparent .8px);
-  background-size: 22px 22px; opacity: .17;
+  background-image: radial-gradient(circle, #9daee9 0.6px, transparent .8px);
+  background-size: 22px 22px; opacity: .11;
   -webkit-mask-image: radial-gradient(ellipse, #000 15%, transparent 70%);
   mask-image: radial-gradient(ellipse, #000 15%, transparent 70%);
 }
 #research-3d .research-3d__canvas, #research-3d .research-3d__fallback { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; }
 #research-3d .research-3d__canvas { touch-action: pan-y; cursor: grab; outline-offset: -5px; }
 #research-3d .research-3d__canvas:active { cursor: grabbing; }
-#research-3d .research-3d__corner { position: absolute; pointer-events: none; width: 10px; height: 10px; border-color: #b8c8df; border-style: solid; }
+#research-3d .research-3d__corner { position: absolute; pointer-events: none; width: 10px; height: 10px; border-color: #cad4ef; border-style: solid; }
 #research-3d .research-3d__corner--tl { top: 16px; left: 3px; border-width: 1px 0 0 1px; }
 #research-3d .research-3d__corner--br { bottom: 13px; right: 3px; border-width: 0 1px 1px 0; }
 #research-3d .research-3d__axis { position: absolute; bottom: 12px; left: 3px; pointer-events: none; color: var(--r3d-muted); font: italic 10px/1 Georgia, serif; }
@@ -81,12 +81,12 @@
   transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
 }
 #research-3d button > span { color: inherit; font: 8px/1 ui-monospace, monospace; opacity: .8; }
-#research-3d button:hover { color: var(--r3d-blue); background: #f3f7ff; }
-#research-3d button[aria-pressed='true'] { border-color: #b5c6e4; color: #284f92; background: #f3f7ff; }
+#research-3d button:hover { color: var(--r3d-blue); background: #f4f5ff; }
+#research-3d button[aria-pressed='true'] { border-color: #c5cbf2; color: #3d54aa; background: #f4f5ff; }
 #research-3d .research-3d__actions button { padding: 6px; font-size: 17px; }
 #research-3d .research-3d__actions { margin-left: auto; }
 #research-3d .research-3d__actions [data-r3d-pause] { min-width: 68px; padding: 6px 9px; font-size: 11px; white-space: nowrap; border-color: var(--r3d-line); }
-#research-3d :focus-visible { outline: 2px solid #4773b6; outline-offset: 3px; }
+#research-3d :focus-visible { outline: 2px solid #4c72e8; outline-offset: 3px; }
 #research-3d .research-3d__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (min-width: 1400px) { #research-3d .research-3d__stage { height: 325px; } }
 @media (max-width: 650px) {

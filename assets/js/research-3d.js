@@ -102,13 +102,18 @@
       float sparkle = step(.965, a_seed.z);
       gl_PointSize = clamp(u_dpr * (1.9 + 2.2 * sparkle) * (4.1 / depth) * (1.0 + 1.5 * u_halo), 1.0, 22.0);
       float hue = .5 + .5 * sin(angle + v * 2.5 + .3);
-      v_color = mix(vec3(.12, .32, .65), vec3(.57, .23, .70), hue);
-      v_color = mix(v_color, vec3(.18, .49, .72), u_weights.y * v * .7);
+      // Editorial blue / periwinkle / orchid, matching Canvas and SVG stops.
+      vec3 blue = vec3(76.0, 114.0, 232.0) / 255.0;
+      vec3 violet = vec3(124.0, 111.0, 232.0) / 255.0;
+      vec3 orchid = vec3(208.0, 107.0, 219.0) / 255.0;
+      v_color = mix(blue, violet, clamp(hue / .55, 0.0, 1.0));
+      v_color = mix(v_color, orchid, clamp((hue - .55) / .45, 0.0, 1.0));
+      v_color = mix(v_color, vec3(.33, .78, .86), u_weights.y * v * .7);
       float front = smoothstep(-1.4, 1.3, q.z);
-      v_alpha = mix(.30, .82, front);
-      if (ring > .5) v_alpha *= .80;
-      if (u_lines > .5) v_alpha = mix(.07, .23, front);
-      if (u_halo > .5) v_alpha *= .12;
+      v_alpha = mix(.42, .94, front);
+      if (ring > .5) v_alpha *= .86;
+      if (u_lines > .5) v_alpha = mix(.14, .34, front);
+      if (u_halo > .5) v_alpha *= .18;
     }
   `;
   const fragmentSource = `
@@ -310,8 +315,8 @@
     };
     ctx.clearRect(0, 0, width, height);
     const ink = ctx.createLinearGradient(width * .25, height * .2, width * .8, height * .85);
-    ink.addColorStop(0, '#285da8'); ink.addColorStop(.55, '#595ab8'); ink.addColorStop(1, '#a04ab4');
-    ctx.strokeStyle = ink; ctx.lineWidth = .65 * dpr; ctx.globalAlpha = .28;
+    ink.addColorStop(0, '#4c72e8'); ink.addColorStop(.55, '#7c6fe8'); ink.addColorStop(1, '#d06bdb');
+    ctx.strokeStyle = ink; ctx.lineWidth = .65 * dpr; ctx.globalAlpha = .42;
     ctx.beginPath();
     for (let i = 0; i < seeds.lines.length; i += 8) {
       const a = project(seeds.lines, i), b = project(seeds.lines, i + 4);
@@ -325,7 +330,7 @@
     }
     ctx.fillStyle = ink;
     bins.forEach((points, index) => {
-      ctx.globalAlpha = [.3, .55, .9][index];
+      ctx.globalAlpha = [.42, .68, .96][index];
       ctx.beginPath();
       points.forEach((point) => {
         const radius = dpr * (point[3] > .965 ? 2.2 : .95) * 4.1 / point[4];
