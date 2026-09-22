@@ -22,7 +22,7 @@ redirect_from:
 <div class="section-divider"></div>
 
 <div class="highlight-box" markdown="1">
-I am a third-year undergraduate at **Xidian University**, majoring in **Software Engineering (Intelligent Direction)**. I rank <span class="academic-emphasis">**1st/335**</span> in all Software Engineering and <span class="academic-emphasis">**1st/1342**</span> in the Computer Category for the 2023-2024 academic year. Additionally, I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
+I am a fourth-year undergraduate at **Xidian University**, majoring in **Software Engineering (Intelligent Direction)**. I rank <span class="academic-emphasis">**1st/335**</span> in all Software Engineering and <span class="academic-emphasis">**1st/1342**</span> in the Computer Category for the 2023-2024 academic year. Additionally, I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
 
 **Research Interests:**
 <span class="tag">Multimodal LLMs</span>
