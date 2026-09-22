@@ -1,9 +1,13 @@
 name: Get Citation Data
 
-on: 
- page_build: 
+on:
+ page_build:
+ workflow_dispatch:
  schedule:
-  - cron:  '0 8 * * *'
+  - cron: '0 8 * * *'
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -16,14 +20,16 @@ jobs:
     - name: Run
       run: |
         cd ./google_scholar_crawler
-        pip3 install -r requirements.txt
+        python3 -m pip install -r requirements.txt
         python3 main.py
         cd ./results
         git init
         git config --local user.name "${GITHUB_ACTOR}"
+        git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         export remote_repo="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
         git add *.json
         git commit -m "Updated Citation Data"
         git push "${remote_repo}" HEAD:google-scholar-stats --force
-      env: 
-        GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+      env:
+        # Public profile ID from _config.yml; Secrets and Variables can override it.
+        GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID || vars.GOOGLE_SCHOLAR_ID || 'UQgYoZ4AAAAJ' }}
