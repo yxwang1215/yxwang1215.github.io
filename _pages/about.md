@@ -43,8 +43,9 @@ I am a fourth-year undergraduate at **Xidian University**, majoring in **Softwar
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" loading="lazy" decoding="async" referrerpolicy="no-referrer">
 <div class="edu-content" markdown="1">
 **[Peking University](https://www.pku.edu.cn/)** · Beijing, China
-<br> *Incoming Ph.D. Student in Computer Science and Technology* &emsp; *2027–Future*
-<br> [School of Computer Science](https://cs.pku.edu.cn/)
+<br> *Incoming Ph.D. Student* &emsp; *2027–Future*
+<br> School: **[School of Computer Science](https://cs.pku.edu.cn/)**
+<br> Major: **Computer Science and Technology**
 <br> Advisor: **[Tong Yang](https://yangtonghome.github.io/)**
 <br> Research interests: **Large Language Models (LLMs)**, **Efficient Methods**, and **Training Methods**.
 </div>
