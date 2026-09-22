@@ -69,7 +69,7 @@
 #research-3d .research-3d__caption { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 32px; padding: 0 0 9px; }
 #research-3d .research-3d__caption > span:first-child { color: var(--r3d-ink); font-size: 11px; font-weight: 600; }
 #research-3d .research-3d__caption > span:last-child { max-width: 54%; color: var(--r3d-muted); font: 8px/1.5 ui-monospace, monospace; text-align: right; }
-#research-3d .research-3d__controls { display: flex; justify-content: space-between; gap: 6px; padding-top: 10px; border-top: 1px solid var(--r3d-line); }
+#research-3d .research-3d__controls { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; padding-top: 10px; border-top: 1px solid var(--r3d-line); }
 #research-3d .research-3d__modes, #research-3d .research-3d__actions { display: flex; gap: 4px; }
 #research-3d button {
   appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
@@ -84,6 +84,8 @@
 #research-3d button:hover { color: var(--r3d-blue); background: #f3f7ff; }
 #research-3d button[aria-pressed='true'] { border-color: #b5c6e4; color: #284f92; background: #f3f7ff; }
 #research-3d .research-3d__actions button { padding: 6px; font-size: 17px; }
+#research-3d .research-3d__actions { margin-left: auto; }
+#research-3d .research-3d__actions [data-r3d-pause] { min-width: 68px; padding: 6px 9px; font-size: 11px; white-space: nowrap; border-color: var(--r3d-line); }
 #research-3d :focus-visible { outline: 2px solid #4773b6; outline-offset: 3px; }
 #research-3d .research-3d__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (min-width: 1400px) { #research-3d .research-3d__stage { height: 325px; } }
