@@ -15,7 +15,9 @@
   const coarse = window.matchMedia('(pointer: coarse)');
   const connection = navigator.connection;
   const lowPower = coarse.matches || (navigator.deviceMemory && navigator.deviceMemory <= 4) || Boolean(connection && connection.saveData);
-  const count = lowPower ? 2600 : 5600;
+  // Leave negative space between particles, especially in the compact KV orbit.
+  const count = lowPower ? 1800 : 3600;
+  const canvasStride = 3;
   const names = ['Neural constellation', 'Acoustic landscape', 'KV-cache orbit'];
   const labels = ['Interactive 3D neural sphere', 'Interactive 3D audio wave landscape', 'Interactive 3D KV-cache-inspired orbit'];
   const storageKey = 'yxw-research-3d-paused';
@@ -54,7 +56,7 @@
     uniform vec3 u_weights;
     uniform vec2 u_rotation;
     uniform vec2 u_cursor;
-    uniform float u_time, u_aspect, u_dpr, u_burst, u_hover, u_halo;
+    uniform float u_time, u_aspect, u_dpr, u_burst, u_hover;
     // Shared uniforms must have identical precision in both shader stages.
     uniform mediump float u_lines;
     varying mediump vec3 v_color;
@@ -100,7 +102,7 @@
       float depth = 4.1 - q.z;
       gl_Position = vec4(q.x * 2.65 / u_aspect, q.y * 2.65, 0.0, depth);
       float sparkle = step(.965, a_seed.z);
-      gl_PointSize = clamp(u_dpr * (1.9 + 2.2 * sparkle) * (4.1 / depth) * (1.0 + 1.5 * u_halo), 1.0, 22.0);
+      gl_PointSize = clamp(u_dpr * (1.75 + 1.55 * sparkle) * (4.1 / depth), 1.0, 14.0);
       float hue = .5 + .5 * sin(angle + v * 2.5 + .3);
       // Editorial blue / periwinkle / orchid, matching Canvas and SVG stops.
       vec3 blue = vec3(76.0, 114.0, 232.0) / 255.0;
@@ -110,10 +112,11 @@
       v_color = mix(v_color, orchid, clamp((hue - .55) / .45, 0.0, 1.0));
       v_color = mix(v_color, vec3(.33, .78, .86), u_weights.y * v * .7);
       float front = smoothstep(-1.4, 1.3, q.z);
-      v_alpha = mix(.42, .94, front);
-      if (ring > .5) v_alpha *= .86;
-      if (u_lines > .5) v_alpha = mix(.14, .34, front);
-      if (u_halo > .5) v_alpha *= .18;
+      v_alpha = mix(.34, .84, front);
+      if (u_lines > .5) v_alpha = mix(.10, .26, front);
+      if (ring > .5) v_alpha *= .80;
+      // The same seeds occupy less screen area in the orbit; lighten overlaps.
+      v_alpha *= mix(1.0, .90, u_weights.z);
     }
   `;
   const fragmentSource = `
@@ -128,7 +131,8 @@
         if (d > 1.0) discard;
         alpha *= 1.0 - smoothstep(.12, 1.0, d);
       }
-      gl_FragColor = vec4(v_color, alpha);
+      // Premultiply once here; the blend function and page compositor agree.
+      gl_FragColor = vec4(v_color * alpha, alpha);
     }
   `;
 
@@ -182,7 +186,7 @@
     const shaders = [];
     const buffers = [];
     try {
-      gl = canvas.getContext('webgl', { alpha: true, antialias: true, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: 'low-power' });
+      gl = canvas.getContext('webgl', { alpha: true, antialias: true, depth: false, stencil: false, premultipliedAlpha: true, powerPreference: 'low-power' });
       if (!gl) return initCanvas();
       for (const [type, source] of [[gl.VERTEX_SHADER, vertexSource], [gl.FRAGMENT_SHADER, fragmentSource]]) {
         const shader = gl.createShader(type);
@@ -201,7 +205,7 @@
       if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program) || 'Shader link failed');
       shaders.forEach((shader) => gl.deleteShader(shader));
       const uniform = {};
-      ['weights', 'rotation', 'cursor', 'time', 'aspect', 'dpr', 'burst', 'hover', 'lines', 'halo'].forEach((name) => {
+      ['weights', 'rotation', 'cursor', 'time', 'aspect', 'dpr', 'burst', 'hover', 'lines'].forEach((name) => {
         uniform[name] = gl.getUniformLocation(program, 'u_' + name);
       });
       const upload = (data) => {
@@ -216,7 +220,9 @@
       gl.useProgram(program);
       gl.enableVertexAttribArray(gpu.attribute);
       gl.enable(gl.BLEND);
-      gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+      // The transparent drawing buffer contains premultiplied RGB. Advertising
+      // straight alpha to the browser would multiply it again and create gray edges.
+      gl.blendFuncSeparate(gl.ONE, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
       gl.disable(gl.DEPTH_TEST);
       gl.clearColor(0, 0, 0, 0);
       canvas.hidden = false;
@@ -256,7 +262,7 @@
     controls.hidden = false;
     if (hadFocus) canvas.focus({ preventScroll: true });
     root.dataset.renderer = 'canvas-2d';
-    root.dataset.particles = String(Math.ceil(count / 4));
+    root.dataset.particles = String(Math.ceil(count / canvasStride));
     $('#research-3d-help').textContent = 'Drag / arrow keys · click to pulse';
     updatePauseUI();
     resize();
@@ -316,7 +322,8 @@
     ctx.clearRect(0, 0, width, height);
     const ink = ctx.createLinearGradient(width * .25, height * .2, width * .8, height * .85);
     ink.addColorStop(0, '#4c72e8'); ink.addColorStop(.55, '#7c6fe8'); ink.addColorStop(1, '#d06bdb');
-    ctx.strokeStyle = ink; ctx.lineWidth = .65 * dpr; ctx.globalAlpha = .42;
+    const densityAlpha = 1 - .10 * weights[2];
+    ctx.strokeStyle = ink; ctx.lineWidth = .65 * dpr; ctx.globalAlpha = .32 * densityAlpha;
     ctx.beginPath();
     for (let i = 0; i < seeds.lines.length; i += 8) {
       const a = project(seeds.lines, i), b = project(seeds.lines, i + 4);
@@ -324,16 +331,16 @@
     }
     ctx.stroke();
     const bins = [[], [], []];
-    for (let i = 0; i < seeds.points.length; i += 16) {
+    for (let i = 0; i < seeds.points.length; i += 4 * canvasStride) {
       const point = project(seeds.points, i);
       bins[point[2] < -.35 ? 0 : point[2] > .35 ? 2 : 1].push(point);
     }
     ctx.fillStyle = ink;
     bins.forEach((points, index) => {
-      ctx.globalAlpha = [.42, .68, .96][index];
+      ctx.globalAlpha = [.30, .52, .78][index] * densityAlpha;
       ctx.beginPath();
       points.forEach((point) => {
-        const radius = dpr * (point[3] > .965 ? 2.2 : .95) * 4.1 / point[4];
+        const radius = dpr * (point[3] > .965 ? 1.7 : .85) * 4.1 / point[4];
         ctx.moveTo(point[0] + radius, point[1]); ctx.arc(point[0], point[1], radius, 0, tau);
       });
       ctx.fill();
@@ -363,15 +370,10 @@
     };
     bind(gpu.lines);
     gl.uniform1f(u.lines, 1);
-    gl.uniform1f(u.halo, 0);
     gl.drawArrays(gl.LINES, 0, seeds.lines.length / 4);
     bind(gpu.points);
     gl.uniform1f(u.lines, 0);
-    if (!lowPower) {
-      gl.uniform1f(u.halo, 1);
-      gl.drawArrays(gl.POINTS, 0, count);
-    }
-    gl.uniform1f(u.halo, 0);
+    // One crisp particle pass: broad overlapping halos darken a white page.
     gl.drawArrays(gl.POINTS, 0, count);
   }
   function resize() {
