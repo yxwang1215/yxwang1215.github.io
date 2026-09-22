@@ -46,7 +46,7 @@ I am a fourth-year undergraduate at **Xidian University**, majoring in **Softwar
 <br> *Incoming Ph.D. Student in Computer Science and Technology* &emsp; *2027–Future*
 <br> [School of Computer Science](https://cs.pku.edu.cn/)
 <br> Advisor: **[Tong Yang](https://yangtonghome.github.io/)**
-<br> Research interests (tentative): **Large Language Models (LLMs), Efficient Methods, and Training Methods**
+<br> Research interests: **Large Language Models (LLMs)**, **Efficient Methods**, and **Training Methods**.
 </div>
 </div>
 
