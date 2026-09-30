@@ -38,6 +38,16 @@ tags:
 《三体Ⅳ·归零》是一部基于《三体》世界观展开的**非官方同人科幻小说**，并非官方续作，也不是刘慈欣作品。这个版本更适合作为一次长篇叙事练习来阅读：尝试在硬科幻的大尺度设定中，重新把人物、行动、代价和关系放回故事中心。
 </div>
 
+
+<div class="diary-note" markdown="1">
+**完整书稿下载**
+
+- [PDF：三体Ⅳ·归零_全书重构扩写稿](https://drive.google.com/file/d/1tTUCBE0JzGETNLZtNZ07TL2xplyMpdFO/view?usp=drivesdk)
+- [Word：三体Ⅳ·归零_全书重构扩写稿](https://docs.google.com/document/d/1THWs8kXLgEqHWcySamnEykiInpsGtXnt/edit?usp=drivesdk&ouid=108757062488905958734&rtpof=true&sd=true)
+
+PDF 为完整固定排版版；Word 为可继续编辑版本。
+</div>
+
 写完以后，我反而不太想给它再加一句宏大的总结。
 
 故事已经在最后一扇门打开的时候结束了。剩下的，让人物自己留在那里。
