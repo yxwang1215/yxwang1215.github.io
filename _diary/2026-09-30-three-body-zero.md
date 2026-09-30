@@ -42,8 +42,8 @@ tags:
 <div class="diary-note" markdown="1">
 **完整书稿下载**
 
-- [PDF：三体Ⅳ·归零_全书重构扩写稿](https://drive.google.com/file/d/1tTUCBE0JzGETNLZtNZ07TL2xplyMpdFO/view?usp=drivesdk)
-- [Word：三体Ⅳ·归零_全书重构扩写稿](https://docs.google.com/document/d/1THWs8kXLgEqHWcySamnEykiInpsGtXnt/edit?usp=drivesdk&ouid=108757062488905958734&rtpof=true&sd=true)
+- [PDF：三体Ⅳ·归零_全书重构扩写稿]({{ '/_pdf/three-body-zero.pdf' | relative_url }})
+- [Word：三体Ⅳ·归零_全书重构扩写稿]({{ '/_pdf/three-body-zero.docx' | relative_url }})
 
 PDF 为完整固定排版版；Word 为可继续编辑版本。
 </div>
