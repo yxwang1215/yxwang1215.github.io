@@ -6,6 +6,9 @@ main:
   - title: "Journal"
     url: "/journal/"
 
+  - title: "Tools"
+    url: "/tools/"
+
   - title: "Education"
     url: "/#educations"
 
