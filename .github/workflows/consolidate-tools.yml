@@ -26,7 +26,16 @@ jobs:
             echo 'Expected the old standalone routes to fail this new test'; exit 1
           fi
       - name: Apply exact reviewed migration
-        run: python scripts/consolidate-tools.py
+        run: |
+          python scripts/consolidate-tools.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tests/unified-documents-e2e.py');s=p.read_text()
+          old="  page.click('#demo');idle();ready('document.querySelectorAll(\".thumb\").length===2')"
+          new="  with fitz.open(OUT/'alpha.pdf') as sample:sample[0].get_pixmap(matrix=fitz.Matrix(2,2)).save(OUT/'display-page.png')\n  page.set_input_files('#fileInput',str(OUT/'display-page.png'));idle();ready('document.querySelectorAll(\".thumb\").length===2')"
+          assert s.count(old)==1
+          p.write_text(s.replace(old,new))
+          PY
       - name: Syntax and all core regressions
         run: |
           node --check tools/studio.mjs
