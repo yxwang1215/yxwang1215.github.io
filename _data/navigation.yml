@@ -3,6 +3,9 @@ main:
   - title: "About"
     url: "/#about-me"
 
+  - title: "Navigation"
+    url: "/navigation/"
+
   - title: "Journal"
     url: "/journal/"
 
