@@ -18,8 +18,8 @@ test('navigation page uses a plain heading without decorative counters or slogan
   assert.ok(!data.includes('eyebrow: "LATEX / ONLINE EDITOR"'));
 });
 
-test('navigation typography uses system fonts and a restrained neutral palette', () => {
-  assert.ok(css.includes('/* Navigation page: neutral site directory'));
+test('navigation typography uses system fonts and three restrained accent colors', () => {
+  assert.ok(css.includes('/* Navigation page: muted editorial palette'));
   assert.ok(css.includes('"PingFang SC"'));
   assert.ok(css.includes('font-size: clamp(1.875rem, 3vw, 2.125rem)'));
   assert.ok(css.includes('font-size: 1.0625rem'));
@@ -27,6 +27,12 @@ test('navigation typography uses system fonts and a restrained neutral palette',
   for (const old of ['#5a52c7', '#4841ac', '#f2f1ff', 'Geist Sans', 'linear-gradient(', 'box-shadow: 0 8px']) {
     assert.ok(!css.includes(old), 'old ornamental styling remains: ' + old);
   }
+  for (const accent of ['#3167a9', '#aa6237', '#a44d68']) {
+    assert.ok(css.includes(accent), 'missing destination accent: ' + accent);
+  }
+  assert.ok(css.includes('--nav-section-soft'));
+  assert.ok(css.includes('background: var(--nav-section-soft);'));
+  assert.ok(css.includes('background: var(--nav-section-accent);'));
   assert.ok(css.includes('body.navigation-page'));
   assert.ok(css.includes(':focus-visible'));
 });
@@ -40,8 +46,12 @@ test('layout preserves responsive group cards, search, and Overleaf as its own c
   assert.ok(script.includes('site-directory__cards--single'));
   assert.ok(page.includes('id="site-directory-search"'));
   assert.ok(page.includes('site-directory__directory--external'));
+  assert.ok(page.includes('site-directory__directory-icon'));
+  assert.ok(page.includes("{% when 'home' %}"));
+  assert.ok(page.includes("{% when 'tools' %}"));
+  assert.ok(page.includes("{% when 'overleaf' %}"));
   assert.ok(layout.includes('navigation-directory.css'));
-  assert.ok(layout.includes('20261016-quiet-directory-v2'));
+  assert.ok(layout.includes('20261016-color-cards-v3'));
 });
 
 test('personal, tools, and Overleaf links remain intact', () => {
