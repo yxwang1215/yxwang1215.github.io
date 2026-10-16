@@ -89,7 +89,7 @@ layout: default
   <section class="journal-resources" aria-labelledby="journal-resources-title">
     <div class="journal-related__heading">
       <span>EXPLORE THE STORY</span>
-      <h2 id="journal-resources-title">《三体Ⅳ·归零》相关资源</h2>
+      <h2 id="journal-resources-title">{{ page.resource_section_title | default: "作品相关资源" }}</h2>
     </div>
     <div class="journal-resources__grid">
       {% for resource in page.related_resources %}
