@@ -67,7 +67,7 @@ directories:
 
   - id: overleaf
     title: "Overleaf"
-    url: "https://overleaf.yxwang1215.top/login"
+    url: "https://overleaf.yxwang1215.top/"
     external: true
     action: "打开 Overleaf"
     description: "在线 LaTeX 编辑、编译与论文协作。"
