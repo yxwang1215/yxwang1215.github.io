@@ -33,7 +33,7 @@ export class PDFWorkspace {
       const isImage=/^image\/(png|jpeg|webp)$/.test(file.type)||/\.(png|jpe?g|webp)$/i.test(file.name);
       if (!isImage && file.type !== 'application/pdf' && !/\.pdf$/i.test(file.name)) { issues.push(`${file.name}：仅支持 PDF、PNG、JPG 和 WebP。`); continue; }
       if (!file.size || file.size > 100 * 1048576) { issues.push(`${file.name}：文件为空或超过 100 MB。`); continue; }
-      if ([...this.sources.values()].reduce((n,s)=>n+s.file.size,0)+file.size>100*1048576) { issues.push('PDF 总导入上限为 100 MB。'); continue; }
+      if ([...new Set(this.pages.map(p=>p.source))].reduce((n,id)=>n+(this.sources.get(id)?.file.size||0),0)+file.size>100*1048576) { issues.push('PDF 总导入上限为 100 MB。'); continue; }
       let source;
       try {
         const buffer = isImage?await imageDocument(file,lib,imageOptions):new Uint8Array(await file.arrayBuffer());

@@ -1,6 +1,6 @@
 import {processPixels, fitSize, makePdf, makeZip, safeName} from './png-to-pdf/core.mjs';
 import {History, PRESETS, uid, sizeLabel, movePage, parseRange} from './studio-utils.mjs';
-import {PDFWorkspace} from './pdf-workspace.mjs';
+import {PDFWorkspace} from './pdf-workspace.mjs?v=20261016-file-manager';
 import {analyzePixels, settingsForMode} from './png-to-pdf/modes.mjs';
 import {installCompressionControls} from './studio-compression.mjs';
 import {resolveRoute, TOOL_ROUTES} from './studio-routing.mjs';
@@ -38,6 +38,7 @@ function refresh() {
   for(const id of ['applyAll','resetImage','startCrop','rotateLeft','rotateRight','flipImage','removeImage','moveLeft','moveRight'])$(id).disabled=s.busy||!current();
   for(const id of ['pdfSelectAll','pdfRotate','pdfDuplicate','pdfDelete','pdfMerge','pdfSplit','pdfCompress','pdfToImages','selectRange','clearPdf'])$(id).disabled=s.busy||!pdf.pages.length;
   $('pdfDelete').disabled=s.busy||!pdf.selected.size;
+  $('pdfAddFiles').disabled=s.busy;
   const p=current();$('activeName').textContent=s.mode==='image'?(p?.name||'未选择文件'):(pdf.pages.length?`${pdf.pages.length} 页`:'未选择文件');
   $('status').textContent=s.busy?'正在处理…':s.mode==='image'?(s.pages.length?`${s.pages.length} 张图片 · 原始文件 ${sizeLabel(s.pages.reduce((n,p)=>n+p.file.size,0))}`:'准备就绪'):(pdf.pages.length?`${pdf.pages.length} 页 · 已选择 ${pdf.selected.size} 页`:'准备就绪');
   const info=p?`${p.width} × ${p.height} px · ${sizeLabel(p.file.size)}`:'尚未选择图片';
@@ -105,6 +106,16 @@ async function importFiles(files){
   await runJob('正在添加文件',async()=>{if(s.mode==='pdf'){const r=await pdf.add(list,mixedPageOptions());toast(`已添加 ${r.added} 页。 ${r.issues.join(' ')}`);}else await importImages(list);});
   $('fileInput').value='';$('cameraInput').value='';
 }
+function removeImageById(id) {
+  if(s.busy)return;
+  const index=s.pages.findIndex(page=>page.id===id);
+  if(index<0)return;
+  history.save(s.pages);
+  s.pages=s.pages.filter(page=>page.id!==id);
+  if(s.active===id){s.active=s.pages[Math.min(index,s.pages.length-1)]?.id||null;stopCrop();}
+  renderImages();refresh();schedulePreview();
+  toast('图片已移除，点击撤销可恢复。');
+}
 function renderImages(){
   const strip=$('filmstrip');strip.replaceChildren();
   if(!s.pages.some(p=>p.id===s.active))s.active=s.pages[0]?.id||null;
@@ -113,11 +124,16 @@ function renderImages(){
     const b=document.createElement('button');b.className=`thumb${p.id===s.active?' active':''}`;b.draggable=!s.busy;b.disabled=s.busy;b.setAttribute('aria-label',`第 ${i+1} 张：${p.name}`);b.setAttribute('aria-pressed',String(p.id===s.active));
     const im=new Image();im.src=p.thumb;im.alt='';const num=document.createElement('span');num.className='thumb-index';num.textContent=i+1;const name=document.createElement('span');name.className='thumb-name';name.textContent=p.name;b.append(im,num,name);
     b.onclick=()=>{stopCrop();s.active=p.id;renderImages();refresh();schedulePreview();};
-    b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=Math.max(0,Math.min(s.pages.length-1,i+(e.key==='ArrowRight'?1:-1)));s.active=s.pages[n].id;renderImages();refresh();schedulePreview();strip.children[n].focus();}};
+    b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=Math.max(0,Math.min(s.pages.length-1,i+(e.key==='ArrowRight'?1:-1)));s.active=s.pages[n].id;renderImages();refresh();schedulePreview();strip.querySelectorAll('.thumb')[n]?.focus();}};
     b.ondragstart=e=>{dragId=p.id;e.dataTransfer.setData('text/plain',p.id);};
-    b.ondragover=e=>{if(dragId)e.preventDefault();};b.ondrop=e=>{if(!dragId||s.busy)return;e.preventDefault();e.stopPropagation();history.save(s.pages);s.pages=movePage(s.pages,dragId,p.id);dragId=null;renderImages();refresh();};b.ondragend=()=>dragId=null;strip.append(b);
+    b.ondragover=e=>{if(dragId)e.preventDefault();};b.ondrop=e=>{if(!dragId||s.busy)return;e.preventDefault();e.stopPropagation();history.save(s.pages);s.pages=movePage(s.pages,dragId,p.id);dragId=null;renderImages();refresh();};b.ondragend=()=>dragId=null;
+    const item=document.createElement('div');item.className='thumb-item';item.append(b);
+    const remove=document.createElement('button');remove.type='button';remove.className='thumb-remove';
+    remove.innerHTML=icon('close');remove.title='移除 '+p.name;remove.setAttribute('aria-label','移除图片：'+p.name);
+    remove.disabled=s.busy;remove.onclick=e=>{e.stopPropagation();removeImageById(p.id);};
+    item.append(remove);strip.append(item);
   }
-  if(s.pages.length){const add=document.createElement('button');add.className='thumb-add';add.innerHTML=icon('plus');add.setAttribute('aria-label','添加图片');add.onclick=()=>$('fileInput').click();add.disabled=s.busy;strip.append(add);}
+  if(s.pages.length){const add=document.createElement('button');add.className='thumb-add';add.innerHTML=icon('plus')+'<span>继续添加</span>';add.setAttribute('aria-label','继续添加图片');add.title='继续追加图片，不会覆盖已有内容';add.onclick=()=>$('fileInput').click();add.disabled=s.busy;strip.append(add);}
 }
 async function sourceCanvas(p,maxSide=1100){
   const im=await decode(p.file);
@@ -241,15 +257,63 @@ function edit(fn){if(!current()||s.busy)return;history.save(s.pages);fn(current(
 function stopCrop(){s.crop=false;s.cropBox=null;cropStart=null;$('cropBox').hidden=true;$('cropActions').hidden=true;$('preview').classList.remove('cropping');$('imageStage').classList.remove('cropping');}
 function startCrop(){if(!current())return;s.crop=true;s.cropBox=null;$('cropActions').hidden=false;$('preview').classList.add('cropping');$('imageStage').classList.add('cropping');setView('processed');closeInspector();toast('在图片上拖动框选；完成后再次打开「裁剪」应用。');}
 function normalizedPoint(e){const r=$('preview').getBoundingClientRect();return {x:Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y:Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))};}
+function removePdfSource(sourceId) {
+  if(s.busy)return;
+  const matched=pdf.pages.filter(p=>p.source===sourceId);
+  if(!matched.length)return;
+  pdfEdit(()=>{pdf.pages=pdf.pages.filter(p=>p.source!==sourceId);});
+  toast(`已移除 ${matched[0].name}（${matched.length} 页），可点击撤销恢复。`);
+}
+function removePdfPage(pageId) {
+  if(s.busy)return;
+  if(!pdf.pages.some(p=>p.id===pageId))return;
+  pdfEdit(()=>{pdf.pages=pdf.pages.filter(p=>p.id!==pageId);});
+  toast('已移除 1 页，可点击撤销恢复。');
+}
 function renderPdf(){
-  $('pdfEmpty').hidden=!!pdf.pages.length;$('pdfGrid').hidden=!pdf.pages.length;$('pdfCount').textContent=pdf.pages.length?`${pdf.pages.length} 页 · 已选择 ${pdf.selected.size} 页`:'尚未添加 PDF';
+  $('pdfEmpty').hidden=!!pdf.pages.length;
+  $('pdfGrid').hidden=!pdf.pages.length;
+  $('pdfCount').textContent=pdf.pages.length?`${pdf.pages.length} 页 · 已选择 ${pdf.selected.size} 页`:'尚未添加 PDF';
+  const grouped=new Map();
+  for(const p of pdf.pages) {
+    if(grouped.has(p.source))grouped.get(p.source).count++;
+    else grouped.set(p.source,{name:pdf.sources.get(p.source)?.file.name||p.name,count:1});
+  }
+  $('pdfFilebar').hidden=!pdf.pages.length;
+  $('pdfFileCount').textContent=`${grouped.size} 份`;
+  $('pdfAddFiles').disabled=s.busy;
+  const fileList=$('pdfFileList');fileList.replaceChildren();
+  for(const [sourceId,file] of grouped) {
+    const chip=document.createElement('div');chip.className='pdf-file-chip';
+    const name=document.createElement('span');name.className='pdf-file-name';name.textContent=file.name;name.title=file.name;
+    const count=document.createElement('small');count.textContent=`${file.count} 页`;
+    const remove=document.createElement('button');remove.type='button';remove.className='pdf-file-remove';
+    remove.innerHTML=icon('close');remove.setAttribute('aria-label',`移除整个文件：${file.name}，${file.count} 页`);
+    remove.title='移除整个文件（包括该文件的所有页面）';remove.disabled=s.busy;
+    remove.onclick=()=>removePdfSource(sourceId);
+    chip.append(name,count,remove);fileList.append(chip);
+  }
   const grid=$('pdfGrid');grid.replaceChildren();
   for(const [i,p]of pdf.pages.entries()){
     const card=document.createElement('div');card.className=`pdf-card${pdf.selected.has(p.id)?' selected':''}`;card.draggable=!s.busy;
-    const head=document.createElement('div');head.className='pdf-card-head';const label=document.createElement('label');label.textContent=`第 ${i+1} 页`;const check=document.createElement('input');check.type='checkbox';check.className='pdf-check';check.checked=pdf.selected.has(p.id);check.disabled=s.busy;check.setAttribute('aria-label',`选择第 ${i+1} 页`);head.append(label,check);
-    const area=document.createElement('div');area.className='pdf-thumb';const im=new Image();im.src=p.thumb;im.alt=`第 ${i+1} 页预览`;im.style.transform=`rotate(${p.rotation}deg)`;if(p.rotation%180)im.style.maxWidth='72%';area.append(im);const name=document.createElement('p');name.className='pdf-card-name';name.textContent=p.name;card.append(head,area,name);
-    const toggle=()=>{if(s.busy)return;pdf.selected.has(p.id)?pdf.selected.delete(p.id):pdf.selected.add(p.id);renderPdf();refresh();};check.onchange=toggle;area.onclick=toggle;label.onclick=toggle;
-    card.ondragstart=e=>{dragId=p.id;e.dataTransfer.setData('text/plain',p.id);};card.ondragover=e=>{if(dragId)e.preventDefault();};card.ondrop=e=>{if(!dragId||s.busy)return;e.preventDefault();e.stopPropagation();pdf.history.save(pdf.pages);pdf.pages=movePage(pdf.pages,dragId,p.id);dragId=null;renderPdf();refresh();};card.ondragend=()=>dragId=null;grid.append(card);
+    const head=document.createElement('div');head.className='pdf-card-head';
+    const label=document.createElement('label');label.textContent=`第 ${i+1} 页`;
+    const remove=document.createElement('button');remove.type='button';remove.className='pdf-page-remove';
+    remove.innerHTML=icon('close');remove.setAttribute('aria-label',`移除第 ${i+1} 页`);remove.title='移除这一页';
+    remove.disabled=s.busy;remove.onclick=e=>{e.stopPropagation();removePdfPage(p.id);};
+    const check=document.createElement('input');check.type='checkbox';check.className='pdf-check';check.checked=pdf.selected.has(p.id);
+    check.disabled=s.busy;check.setAttribute('aria-label',`选择第 ${i+1} 页`);
+    head.append(label,remove,check);
+    const area=document.createElement('div');area.className='pdf-thumb';
+    const im=new Image();im.src=p.thumb;im.alt=`第 ${i+1} 页预览`;im.style.transform=`rotate(${p.rotation}deg)`;
+    if(p.rotation%180)im.style.maxWidth='72%';area.append(im);
+    const name=document.createElement('p');name.className='pdf-card-name';name.textContent=p.name;card.append(head,area,name);
+    const toggle=()=>{if(s.busy)return;pdf.selected.has(p.id)?pdf.selected.delete(p.id):pdf.selected.add(p.id);renderPdf();refresh();};
+    check.onchange=toggle;area.onclick=toggle;label.onclick=toggle;
+    card.ondragstart=e=>{dragId=p.id;e.dataTransfer.setData('text/plain',p.id);};
+    card.ondragover=e=>{if(dragId)e.preventDefault();};
+    card.ondrop=e=>{if(!dragId||s.busy)return;e.preventDefault();e.stopPropagation();pdf.history.save(pdf.pages);pdf.pages=movePage(pdf.pages,dragId,p.id);dragId=null;renderPdf();refresh();};
+    card.ondragend=()=>dragId=null;grid.append(card);
   }
 }
 function pdfEdit(fn){if(s.busy||!pdf.pages.length)return;pdf.history.save(pdf.pages);fn();pdf.selected=new Set([...pdf.selected].filter(id=>pdf.pages.some(p=>p.id===id)));renderPdf();refresh();}
@@ -386,8 +450,8 @@ document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>chooseTool(b.d
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
 document.querySelectorAll('[data-export]').forEach(b=>b.onclick=()=>openExport());
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
-for(const id of ['importFiles','emptyImport','pdfImport'])$(id).onclick=()=>$('fileInput').click();
-$('fileInput').onchange=e=>importFiles(e.target.files);$('camera').onclick=()=>$('cameraInput').click();$('cameraInput').onchange=e=>importFiles(e.target.files);$('demo').onclick=()=>demo().catch(e=>toast(e.message));
+for(const id of ['importFiles','emptyImport','pdfImport','pdfAddFiles'])$(id).onclick=()=>$('fileInput').click();
+$('fileInput').onchange=e=>importFiles(e.target.files);$('fileInput').addEventListener('click',()=>{$('fileInput').value='';});$('camera').onclick=()=>$('cameraInput').click();$('cameraInput').onchange=e=>importFiles(e.target.files);$('demo').onclick=()=>demo().catch(e=>toast(e.message));
 $('openInspector').onclick=openInspector;$('closeInspector').onclick=closeInspector;$('drawerShade').onclick=closeInspector;
 $('help').onclick=()=>$('helpDialog').showModal();$('undo').onclick=()=>undo();$('redo').onclick=()=>undo(true);$('compareRange').oninput=()=>setView('compare');
 $('zoomIn').onclick=()=>stepZoom(1);$('zoomOut').onclick=()=>stepZoom(-1);$('zoomActual').onclick=()=>zoomAt(1);$('zoomFit').onclick=zoomFit;
@@ -402,7 +466,7 @@ $('preview').onpointermove=e=>{if(!s.crop||!cropStart)return;const q=normalizedP
 $('preview').onpointerup=()=>{if(s.crop&&cropStart){cropStart=null;if(matchMedia('(max-width:800px)').matches)openInspector();}};
 $('applyCrop').onclick=()=>{const b=s.cropBox;if(!b||b.w<.015||b.h<.015){toast('请先框选有效区域。');return;}edit(p=>{const c=p.crop;p.crop={x:c.x+b.x*c.w,y:c.y+b.y*c.h,w:c.w*b.w,h:c.h*b.h};});prepareFit();stopCrop();closeInspector();};
 $('rotateLeft').onclick=()=>{stopCrop();prepareFit();edit(p=>{p.rotation=(p.rotation+270)%360;p.crop={x:0,y:0,w:1,h:1};});};$('rotateRight').onclick=()=>{stopCrop();prepareFit();edit(p=>{p.rotation=(p.rotation+90)%360;p.crop={x:0,y:0,w:1,h:1};});};$('flipImage').onclick=()=>{stopCrop();edit(p=>{p.flip=!p.flip;p.crop={x:0,y:0,w:1,h:1};});};
-$('removeImage').onclick=()=>{if(!current()||s.busy)return;history.save(s.pages);s.pages=s.pages.filter(p=>p.id!==s.active);stopCrop();renderImages();refresh();schedulePreview();};
+$('removeImage').onclick=()=>{if(current())removeImageById(s.active);};
 for(const [id,delta]of [['moveLeft',-1],['moveRight',1]])$(id).onclick=()=>{const index=s.pages.findIndex(p=>p.id===s.active),other=s.pages[index+delta];if(!other||s.busy)return;history.save(s.pages);s.pages=movePage(s.pages,s.active,other.id);renderImages();refresh();};
 $('pdfSelectAll').onclick=()=>{pdf.selected=pdf.selected.size===pdf.pages.length?new Set():new Set(pdf.pages.map(p=>p.id));renderPdf();refresh();};
 $('pdfRotate').onclick=()=>pdfEdit(()=>{pdf.targets().forEach(p=>p.rotation=(p.rotation+90)%360);});
