@@ -2,34 +2,6 @@
    Journal navigation, feed and reading shell
    ========================================================================== */
 
-/* Prominent Journal entry on the academic homepage. */
-.masthead__menu-item--journal > a {
-  margin: 0.22rem 0.72rem 0.22rem 0.15rem !important;
-  padding: 0.38rem 0.86rem !important;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #8f6874 0%, #66577f 100%);
-  box-shadow: 0 5px 16px rgba(102, 87, 127, 0.2);
-  color: #fff !important;
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 1.2;
-  white-space: nowrap;
-  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
-}
-
-.greedy-nav .visible-links .masthead__menu-item--journal > a::before {
-  display: none;
-}
-
-.masthead__menu-item--journal > a:hover,
-.masthead__menu-item--journal > a:focus {
-  color: #fff !important;
-  opacity: 0.94;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 21px rgba(102, 87, 127, 0.28);
-}
-
 /* Homepage floating shortcut. */
 .homepage-journal-fab {
   position: fixed;
@@ -808,7 +780,6 @@ body.journal-shell {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .masthead__menu-item--journal > a,
   .homepage-journal-fab,
   .journal-card,
   .journal-card__cover img {
