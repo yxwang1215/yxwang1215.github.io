@@ -30,16 +30,7 @@ server = subprocess.Popen(['python', '-m', 'http.server', '8876', '--bind', '127
 errors, uploads, checks = [], [], []
 
 def page_count(page, expected):
-    try:
-        expect(page.locator('#pageCount')).to_have_text(expected, timeout=15000)
-    except Exception:
-        print('IMPORT DIAGNOSTICS:', json.dumps({
-            'issues': page.locator('#issues').text_content(),
-            'toast': page.locator('#toast').text_content(),
-            'preview': page.locator('#previewMeta').text_content(),
-            'browser_errors': errors}, ensure_ascii=False), flush=True)
-        page.screenshot(path=str(OUT/'import-failure.png'), full_page=True)
-        raise
+    expect(page.locator('#filmstrip .thumb')).to_have_count(int(expected), timeout=30000)
 
 def ready(page):
     for _ in range(300):
@@ -49,8 +40,12 @@ def ready(page):
     raise AssertionError("Editor event handlers did not initialize")
 
 def preview_ready(page):
-    page.wait_for_timeout(220)
-    expect(page.locator("#previewMeta")).to_have_text(re.compile(r"^第 "), timeout=30000)
+    page.wait_for_timeout(250)
+    for _ in range(300):
+        if page.locator('#preview').evaluate("el => !el.hidden && !el.classList.contains('busy-preview')"):
+            return
+        page.wait_for_timeout(100)
+    raise AssertionError('Preview did not finish')
 
 try:
     time.sleep(.6)
@@ -67,6 +62,7 @@ try:
         page_count(page,"01")
         preview_ready(page)
         assert page.locator('[data-preset] canvas').count() == 18
+        page.locator('[data-scan-group="all"]').click()
         modes = page.locator('[data-preset]').evaluate_all('(els)=>els.map(e=>e.dataset.preset)')
         outputs = set()
         for mode in modes:
@@ -80,26 +76,27 @@ try:
             page.locator(f'[data-scan-group="{group}"]').click()
             assert page.locator('[data-preset]:visible').count() == count
         checks.append('all category filters')
-        page.locator('#files').set_input_files([OUT/'input.jpg', OUT/'input.webp'])
+        page.locator('#fileInput').set_input_files([OUT/'input.jpg', OUT/'input.webp'])
         page_count(page,"03")
         preview_ready(page)
         page.locator('[data-preset="comprehensive"]').click()
         preview_ready(page)
         page.locator('#applyAll').click()
         for i in range(3):
-            page.locator('.page-card').nth(i).click()
+            page.locator('#filmstrip .thumb').nth(i).click()
             preview_ready(page)
             assert page.locator('[data-preset="comprehensive"]').get_attribute('aria-pressed') == 'true'
         checks.append('PNG/JPG/WebP import and per-page batch application')
         page.locator('[data-view="compare"]').click()
-        assert page.locator('#compareControl').is_visible()
+        assert page.locator('#compareSlider').is_visible()
         page.locator('[data-view="processed"]').click()
         page.screenshot(path=str(OUT/'desktop.png'), full_page=True)
         # Every export uses the selected mode and the full source, not a preview screenshot.
         for fmt in ['png','jpeg','webp','zip-png','zip-jpeg','zip-webp','pdf']:
-            page.locator('#format').select_option(fmt)
+            page.locator('#openExport').click()
+            page.locator('#exportFormat').select_option(fmt)
             with page.expect_download(timeout=60000) as download:
-                page.locator('#export').click()
+                page.locator('#doExport').click()
             result = download.value
             target = OUT/result.suggested_filename
             result.save_as(target)
@@ -115,7 +112,7 @@ try:
                     assert im.size == (480,620)
             preview_ready(page)
         checks.append('PNG/JPG/WebP, three ZIP variants and three-page PDF exports')
-        page.locator('#reset').click()
+        page.locator('#resetImage').click()
         preview_ready(page)
         assert page.locator('[data-preset="original"]').get_attribute('aria-pressed') == 'true'
         checks.append('reset returns to original')
@@ -126,6 +123,7 @@ try:
         ready(m);m.locator('#demo').click()
         page_count(m,"01")
         preview_ready(m)
+        m.locator('[data-tool="enhance"]').click()
         m.locator('[data-scan-group="repair"]').click()
         m.locator('[data-preset="shadow"]').click();preview_ready(m)
         assert m.locator('[data-preset="shadow"]').get_attribute('aria-pressed') == 'true'
