@@ -64,10 +64,6 @@
 }
 
 @media (max-width: 760px) {
-  .masthead__menu-item--journal > a {
-    margin-right: 0.2rem !important;
-  }
-
   .home-explorer {
     padding: 1.25rem;
     border-radius: 18px;
