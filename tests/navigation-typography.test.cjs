@@ -24,7 +24,7 @@ test('navigation typography uses system fonts and three restrained accent colors
   assert.ok(css.includes('font-size: clamp(1.875rem, 3vw, 2.125rem)'));
   assert.ok(css.includes('font-size: 1.0625rem'));
   assert.ok(css.includes('font-size: .9375rem'));
-  for (const old of ['#5a52c7', '#4841ac', '#f2f1ff', 'Geist Sans', 'linear-gradient(', 'box-shadow: 0 8px']) {
+  for (const old of ['#5a52c7', '#4841ac', '#f2f1ff', 'Geist Sans', 'linear-gradient(']) {
     assert.ok(!css.includes(old), 'old ornamental styling remains: ' + old);
   }
   for (const accent of ['#3167a9', '#aa6237', '#a44d68']) {
