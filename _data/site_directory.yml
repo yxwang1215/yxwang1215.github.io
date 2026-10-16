@@ -1,4 +1,4 @@
-# Two primary navigation groups: Personal and Tools.
+# Three primary navigation groups: Personal, Tools, and Overleaf.
 # Individual pages and their in-page anchors continue to live at their existing URLs.
 directories:
   - id: home
@@ -68,3 +68,14 @@ directories:
       - title: "PNG 转 PDF 兼容版"
         description: "批量 PNG 图片转换与纸张设置"
         url: "/tools/#image/png-to-pdf"
+
+  - id: overleaf
+    number: "03"
+    eyebrow: "LATEX / ONLINE EDITOR"
+    title: "Overleaf"
+    english: "LaTeX Workspace"
+    url: "https://overleaf.yxwang1215.top/login"
+    external: true
+    description: "自建在线 LaTeX 编辑器。登录后编写、编译和协作管理论文、报告及其他 LaTeX 项目。"
+    keywords: "Overleaf LaTeX TeX 在线 编辑器 论文 学术写作 协作 排版 编译 paper collaboration"
+    items: []
