@@ -54,7 +54,7 @@ groups:
         url: "/tools/png-to-pdf/"
         category: LOCAL TOOL
         description: 支持 JPG、PNG、WebP 等图片导入，提供锐化、去灰、裁剪、黑白扫描及 PDF／图片／ZIP 导出。
-        keywords: "JPG JPEG PNG WebP BMP GIF AVIF 扫描 增强 锐化 去灰 crop OCR 图片 PDF ZIP"
+        keywords: "JPG JPEG PNG WebP BMP GIF AVIF 扫描 增强 锐化 去灰 crop 图片 PDF ZIP"
         meta: "扫描件与多格式图片"
 
   - id: sections
