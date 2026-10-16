@@ -45,17 +45,22 @@ test('navigation layout retains responsive cards and search affordances', () => 
   assert.ok(css.includes('.site-directory__search:focus-within'));
   assert.ok(css.includes('overflow-wrap: break-word'));
   assert.ok(layout.includes('navigation-directory.css'));
-  assert.ok(layout.includes('two-groups-v3'));
+  assert.ok(layout.includes('three-groups-v1'));
 });
-test('navigation consolidates four personal sections while retaining routes', () => {
+test('navigation keeps existing sections and adds independent Overleaf entry', () => {
   const data = readFileSync(join(__dirname, '../_data/site_directory.yml'), 'utf8');
   const page = readFileSync(join(__dirname, '../_pages/navigation.html'), 'utf8');
   const script = readFileSync(join(__dirname, '../assets/js/navigation-directory.js'), 'utf8');
-  assert.deepEqual([...data.matchAll(/^  - id: (\w+)$/gm)].map(m => m[1]), ['home', 'tools']);
+  assert.deepEqual([...data.matchAll(/^  - id: (\w+)$/gm)].map(m => m[1]), ['home', 'tools', 'overleaf']);
   for (const link of ['/research/', '/journey/', '/journal/', '/#publications', '/#projects', '/tools/#pdf/organize']) {
     assert.ok(data.includes('url: "' + link + '"'), 'missing original destination: ' + link);
   }
   assert.ok(page.includes('id="research"') && page.includes('id="journey"') && page.includes('id="journal"'));
+  assert.ok(data.includes('url: "https://overleaf.yxwang1215.top/login"'));
+  assert.ok(data.includes('    external: true'));
+  assert.ok(page.includes('site-directory__directory--external'));
+  assert.ok(page.includes('{% if directory.external %}{{ directory.url }}{% else %}{{ directory.url | relative_url }}{% endif %}'));
+  assert.ok(css.includes('grid-column: 1 / -1;'));
   assert.ok(script.includes('site-directory__cards--single'));
   assert.ok(css.includes('grid-template-columns: minmax(0, 1fr)'));
 });
