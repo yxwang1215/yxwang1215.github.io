@@ -20,14 +20,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Preserve the inspected current main revision
+      - name: Preserve the inspected main revision and approved editor entry
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git fetch origin main
-          test "$(git rev-parse origin/main)" = 'ff73275375d46b424e16811043c00696508a5b1c'
-          git merge --no-commit --no-ff origin/main
+          reviewed='20c473b419877b553412c0cc72c9def9ddcdc02a'
+          git show --no-patch --oneline "$reviewed"
+          if ! git merge --no-commit --no-ff "$reviewed"; then
+            test "$(git diff --name-only --diff-filter=U)" = 'tools/index.html'
+            git checkout --ours -- tools/index.html
+            git add tools/index.html
+          fi
       - name: Observe missing gallery integration before patching
         run: |
           if node --test tests/studio-release.test.mjs; then
