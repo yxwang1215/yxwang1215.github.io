@@ -1,11 +1,6 @@
 import {processPixels, fitSize, makePdf, makeZip, safeName} from './core.mjs';
 const $ = id => document.getElementById(id);
-const presets = {
-  original: {mode: 'original', clean: 0, sharpen: 0, contrast: 0, brightness: 0, threshold: 12},
-  color: {mode: 'color', clean: 60, sharpen: 40, contrast: 8, brightness: 0, threshold: 12},
-  gray: {mode: 'gray', clean: 65, sharpen: 40, contrast: 10, brightness: 0, threshold: 12},
-  bw: {mode: 'bw', clean: 30, sharpen: 0, contrast: 0, brightness: 0, threshold: 12}
-};
+import {SCAN_MODES, analyzePixels, settingsForMode} from './modes.mjs';
 const state = {pages: [], selected: null, busy: false, exporting: false, cancel: false, sequence: 0, view: 'processed', cropping: false, cropBox: null, downloadUrl: null};
 const current = () => state.pages.find(p => p.id === state.selected);
 const mb = value => `${(value / 1048576).toFixed(1)} MB`;
@@ -32,7 +27,7 @@ function notify(text) {
 }
 function setBusy(value, exporting = false) {
   state.busy = value; state.exporting = value && exporting;
-  document.querySelectorAll('button,input,select').forEach(el => el.disabled = value);
+  document.querySelectorAll('#scanPanel button,#scanPanel input,#scanPanel select,.tool-tabs button').forEach(el => el.disabled = value);
   if (state.exporting) $('cancelExport').disabled = false;
   if (!value) refreshControls();
 }
@@ -51,10 +46,20 @@ function refreshControls() {
   $('exportLabel').textContent = pdf ? `导出 ${state.pages.length || ''} 页 PDF` : type.startsWith('zip') ? `打包 ${state.pages.length} 页 ZIP` : `导出当前页 ${type === 'jpeg' ? 'JPG' : type.toUpperCase()}`;
 }
 function syncSettings() {
-  const s = current()?.settings || presets.color;
+  const s = current()?.settings || settingsForMode(null,'auto');
   for (const el of document.querySelectorAll('[data-setting]')) { el.value = s[el.dataset.setting]; $(`${el.id}Value`).textContent = el.value; }
-  document.querySelectorAll('[data-preset]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.preset === s.mode)));
+  document.querySelectorAll('[data-preset]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.preset === s.preset)));
+  $('modeSummary').textContent = s.preset === 'custom' ? '自定义参数 · 重新选择模式即可恢复自动设置' : (SCAN_MODES.find(m=>m.id===s.preset)?.hint || '');
+  renderModePreviews();
   refreshControls();
+}
+function renderModePreviews() {
+  const p=current();
+  document.querySelectorAll('[data-preset] canvas').forEach(c=>{
+    if(!p?.modeThumbs) {c.getContext('2d').clearRect(0,0,c.width,c.height);return;}
+    const im=p.modeThumbs[c.parentElement.dataset.preset];
+    c.width=im.width;c.height=im.height;c.getContext('2d').putImageData(im,0,0);
+  });
 }
 function renderQueue() {
   const list = $('pageList'); list.replaceChildren();
@@ -118,7 +123,9 @@ async function addFiles(files) {
         if (image.width * image.height > 40000000) throw new Error('超过单张 4000 万像素上限，请先缩小图片。');
         const [w, h] = fitSize(image.width, image.height, 170), thumb = canvas(w, h), ctx = thumb.getContext('2d');
         ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); ctx.drawImage(image.source || image, 0, 0, w, h);
-        const p = {id: (crypto.randomUUID?.() || Array.from(crypto.getRandomValues(new Uint32Array(4)), n => n.toString(16)).join('-')), file, width: image.width, height: image.height, thumb: thumb.toDataURL('image/jpeg', .65), rotation: 0, crop: {x: 0, y: 0, w: 1, h: 1}, settings: {...presets.color}};
+        const p = {id: (crypto.randomUUID?.() || Array.from(crypto.getRandomValues(new Uint32Array(4)), n => n.toString(16)).join('-')), file, width: image.width, height: image.height, thumb: thumb.toDataURL('image/jpeg', .65), rotation: 0, crop: {x: 0, y: 0, w: 1, h: 1}, settings: {...settingsForMode(null,'auto')}};
+        const pixels=ctx.getImageData(0,0,w,h); p.stats=analyzePixels(pixels.data); p.settings=settingsForMode(p.stats,'auto');
+        p.modeThumbs=Object.fromEntries(SCAN_MODES.map(m=>[m.id,new ImageData(processPixels(pixels.data,w,h,settingsForMode(p.stats,m.id)),w,h)]));
         state.pages.push(p); accepted.push(p.id); thumb.width = thumb.height = 1;
         if (/\.gif$/i.test(file.name) || file.type === 'image/gif') issues.push(`${file.name}：仅导入 GIF 首帧。`);
       } catch (error) { issues.push(`${file.name}：${error.message}`); }
@@ -311,18 +318,18 @@ $('cancelExport').onclick = () => { state.cancel = true; $('cancelExport').disab
 $('choose').onclick = $('emptyChoose').onclick = () => $('files').click();
 $('camera').onclick = () => $('cameraInput').click();
 $('files').onchange = e => addFiles(e.target.files); $('cameraInput').onchange = e => addFiles(e.target.files);
-document.addEventListener('paste', e => { const files = Array.from(e.clipboardData?.files || []); if (files.length && !state.busy) {e.preventDefault(); addFiles(files);} });
+document.addEventListener('paste', e => { const files = Array.from(e.clipboardData?.files || []); if (files.length && !state.busy && !$('scanPanel').hidden) {e.preventDefault(); addFiles(files);} });
 for (const name of ['dragenter', 'dragover']) $('dropzone').addEventListener(name, e => { e.preventDefault(); if (!state.busy && !dragId) $('dropzone').classList.add('dragging'); });
 $('dropzone').addEventListener('dragleave', e => { if (!$('dropzone').contains(e.relatedTarget)) $('dropzone').classList.remove('dragging'); });
 $('dropzone').addEventListener('drop', e => {e.preventDefault(); $('dropzone').classList.remove('dragging'); if (!dragId) addFiles(e.dataTransfer.files);});
 window.addEventListener('dragover', e => { if (e.dataTransfer?.types.includes('Files')) e.preventDefault(); });
 window.addEventListener('drop', e => { if (e.dataTransfer?.types.includes('Files')) e.preventDefault(); });
-document.querySelectorAll('[data-preset]').forEach(el => el.onclick = () => { if (!current() || state.busy) return; current().settings = {...presets[el.dataset.preset]}; syncSettings(); schedulePreview(); });
-document.querySelectorAll('[data-setting]').forEach(el => el.oninput = () => { if (!current() || state.busy) return; current().settings[el.dataset.setting] = Number(el.value); $(`${el.id}Value`).textContent = el.value; schedulePreview(); });
+document.querySelectorAll('[data-preset]').forEach(el => el.onclick = () => { if (!current() || state.busy) return; current().settings = settingsForMode(current().stats,el.dataset.preset); syncSettings(); schedulePreview(); });
+document.querySelectorAll('[data-setting]').forEach(el => el.oninput = () => { if (!current() || state.busy) return; current().settings[el.dataset.setting] = Number(el.value); current().settings.preset='custom'; document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed','false')); $('modeSummary').textContent='自定义参数 · 重新选择模式即可恢复自动设置'; $(`${el.id}Value`).textContent = el.value; schedulePreview(); });
 document.querySelectorAll('[data-view]').forEach(el => el.onclick = () => {cancelCrop(); setView(el.dataset.view);});
 $('compare').oninput = updateView;
-$('reset').onclick = () => { const p = current(); if (!p || state.busy) return; cancelCrop(); p.settings = {...presets.original}; p.rotation = 0; p.crop = {x: 0, y: 0, w: 1, h: 1}; previewCache = null; syncSettings(); schedulePreview(0); notify('已恢复当前页面的原图与原色。'); };
-$('applyAll').onclick = () => { if (!current() || state.busy) return; const s = current().settings; state.pages.forEach(p => p.settings = {...s}); notify(`已将增强参数应用到 ${state.pages.length} 页；裁剪和旋转保持各自设置。`); };
+$('reset').onclick = () => { const p = current(); if (!p || state.busy) return; cancelCrop(); p.settings = {...settingsForMode(null,'original')}; p.rotation = 0; p.crop = {x: 0, y: 0, w: 1, h: 1}; previewCache = null; syncSettings(); schedulePreview(0); notify('已恢复当前页面的原图与原色。'); };
+$('applyAll').onclick = () => { if (!current() || state.busy) return; const s = current().settings; state.pages.forEach(p => p.settings = s.preset==='custom' ? {...s} : settingsForMode(p.stats,s.preset)); notify(`已应用到 ${state.pages.length} 页；每页自动适配明暗，裁剪和旋转保持不变。`); };
 $('rotateLeft').onclick = () => rotate(-90); $('rotateRight').onclick = () => rotate(90);
 $('moveUp').onclick = () => move(-1); $('moveDown').onclick = () => move(1);
 $('remove').onclick = () => { if (state.busy || !current()) return; cancelCrop(); const index = state.pages.findIndex(p => p.id === state.selected); state.pages.splice(index, 1); state.selected = state.pages[Math.min(index, state.pages.length - 1)]?.id || null; previewCache = null; renderQueue(); syncSettings(); schedulePreview(0); };
