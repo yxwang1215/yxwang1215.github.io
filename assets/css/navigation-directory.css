@@ -692,6 +692,55 @@ body.navigation-page {
   text-decoration: underline;
 }
 
+/* A full-width, standalone service card sits beneath Home and Tools. */
+.site-directory__directory--external {
+  grid-column: 1 / -1;
+}
+
+.site-directory__directory--external .site-directory__directory-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, auto);
+  grid-template-areas:
+    "overline action"
+    "heading action"
+    "description action";
+  align-items: center;
+  gap: .4rem 2.3rem;
+  padding: clamp(1.5rem, 2.3vw, 2rem);
+  border-bottom: 0;
+  background: linear-gradient(115deg, #fafafd 0%, #ffffff 100%);
+}
+
+.site-directory__directory--external .site-directory__directory-overline {
+  grid-area: overline;
+}
+
+.site-directory__directory--external .site-directory__directory-heading {
+  grid-area: heading;
+  margin-top: .35rem;
+}
+
+.site-directory__directory--external .site-directory__directory-description {
+  grid-area: description;
+  max-width: 54rem;
+  margin: .35rem 0 0 !important;
+}
+
+.site-directory__directory--external .site-directory__directory-bottom {
+  grid-area: action;
+  justify-self: end;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: .75rem;
+  margin-top: 0;
+}
+
+.site-directory__directory--external .site-directory__directory-bottom code {
+  max-width: 290px;
+  text-align: right;
+}
+
 @media (max-width: 980px) {
   .site-directory__cards,
   .site-directory__cards--single {
@@ -708,6 +757,24 @@ body.navigation-page {
 }
 
 @media (max-width: 760px) {
+  .site-directory__directory--external .site-directory__directory-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .7rem;
+  }
+
+  .site-directory__directory--external .site-directory__directory-bottom {
+    align-items: flex-start;
+    margin-top: .2rem;
+  }
+
+  .site-directory__directory--external .site-directory__directory-bottom code {
+    max-width: 100%;
+    text-align: left;
+  }
+
+
   .navigation-page.subpage-shell #main.wide-shell__main {
     padding: 1.15rem .95rem 3.5rem;
   }
