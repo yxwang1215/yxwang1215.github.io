@@ -1,4 +1,4 @@
-// Show one full directory card for each matching query.
+// Filter the two main navigation groups; a single result expands to the available width.
 (() => {
   "use strict";
   const input = document.getElementById("site-directory-search");
@@ -7,6 +7,7 @@
   const count = document.getElementById("site-directory-count");
   const empty = document.getElementById("site-directory-empty");
   const cards = [...document.querySelectorAll("[data-directory-card]")];
+  const grid = document.getElementById("directory-list");
   if (!input || !count || !empty || !cards.length) return;
 
   const normalize = (value) => value.normalize("NFKC").toLocaleLowerCase();
@@ -25,8 +26,9 @@
       if (matches) visible++;
     }
     count.textContent = query
-      ? "找到 " + visible + " / " + cards.length + " 个目录"
-      : cards.length + " 个目录";
+      ? "找到 " + visible + " / " + cards.length + " 组入口"
+      : cards.length + " 组入口";
+    grid?.classList.toggle("site-directory__cards--single", visible === 1);
     empty.hidden = visible !== 0;
     if (clearButton) clearButton.hidden = !query;
   }

@@ -2,7 +2,7 @@
 layout: default
 permalink: /navigation/
 title: "Navigation"
-excerpt: "Browse the main sections and everything inside them."
+excerpt: "A concise directory with personal content and practical tools side by side."
 author_profile: false
 wide: true
 page_class: "navigation-page"
@@ -21,26 +21,26 @@ page_class: "navigation-page"
     <p class="site-directory__eyebrow"><span class="site-directory__eyebrow-mark" aria-hidden="true"></span> SITE INDEX / 网站导航</p>
     <div class="site-directory__hero-head">
       <div>
-        <h1>每个目录，<span>一目了然。</span></h1>
-        <p class="site-directory__intro">从个人主页、科研与经历，到生活记录和实用工具。每个目录都集中展示包含的内容，直接选择你要去的地方。</p>
+        <h1>常用入口，<span>清晰呈现。</span></h1>
+        <p class="site-directory__intro">个人主页与实用工具并列展示。研究、经历和日志收拢为一组，常用工具集中在另一组。</p>
       </div>
-      <div class="site-directory__hero-count" aria-label="共 {{ directories | size }} 个主要目录">
+      <div class="site-directory__hero-count" aria-label="共 {{ directories | size }} 个主要入口">
         <strong>{{ directories | size | prepend: '0' | slice: -2, 2 }}</strong>
-        <span>MAIN<br>DIRECTORIES</span>
+        <span>MAIN<br>GROUPS</span>
       </div>
     </div>
 
     <nav class="site-directory__jump" aria-label="跳转到目录">
       {% for directory in directories %}
-      <a href="#{{ directory.id }}"><span>{{ directory.number }}</span>{{ directory.english }}<span aria-hidden="true">↘</span></a>
+      <a href="#{{ directory.id }}"><span>{{ directory.number }}</span>{{ directory.title }}<span aria-hidden="true">↘</span></a>
       {% endfor %}
     </nav>
   </header>
 
   <div class="site-directory__toolbar">
     <div class="site-directory__toolbar-title">
-      <strong>目录总览</strong>
-      <span>每张大卡片对应一个独立路径</span>
+      <strong>主要入口</strong>
+      <span>个人主页与 Tools · 两栏即可</span>
     </div>
     <div class="site-directory__search">
       <span aria-hidden="true" class="site-directory__search-symbol">⌕</span>
@@ -51,11 +51,12 @@ page_class: "navigation-page"
     </div>
   </div>
 
-  <p class="site-directory__results" id="site-directory-count" role="status" aria-live="polite">{{ directories | size }} 个目录</p>
+  <p class="site-directory__results" id="site-directory-count" role="status" aria-live="polite">{{ directories | size }} 组入口</p>
 
   <div class="site-directory__cards" id="directory-list">
     {% for directory in directories %}
-    <section id="{{ directory.id }}" class="site-directory__directory{% if directory.layout == 'rows' %} site-directory__directory--rows{% endif %}" data-directory-card data-keywords="{{ directory.keywords | escape }}" aria-labelledby="directory-title-{{ directory.id }}">
+    <section id="{{ directory.id }}" class="site-directory__directory" data-directory-card data-keywords="{{ directory.keywords | escape }}" aria-labelledby="directory-title-{{ directory.id }}">
+      {% if directory.id == 'home' %}<span id="research" class="site-directory__legacy-anchor" aria-hidden="true"></span><span id="journey" class="site-directory__legacy-anchor" aria-hidden="true"></span><span id="journal" class="site-directory__legacy-anchor" aria-hidden="true"></span>{% endif %}
       <div class="site-directory__directory-intro">
         <div class="site-directory__directory-overline">
           <span class="site-directory__directory-number">{{ directory.number }} / {{ directories | size | prepend: '0' | slice: -2, 2 }}</span>
@@ -67,14 +68,14 @@ page_class: "navigation-page"
         </div>
         <p class="site-directory__directory-description">{{ directory.description }}</p>
         <div class="site-directory__directory-bottom">
-          <a class="site-directory__directory-cta" href="{{ directory.url | relative_url }}" aria-label="进入 {{ directory.english }} 目录">进入 {{ directory.english }} <span aria-hidden="true">↗</span></a>
+          <a class="site-directory__directory-cta" href="{{ directory.url | relative_url }}" aria-label="进入{{ directory.title }}">进入{{ directory.title }} <span aria-hidden="true">↗</span></a>
           <code>{{ directory.url }}</code>
         </div>
       </div>
 
       <div class="site-directory__directory-content">
         <div class="site-directory__content-heading">
-          <h3>目录包含</h3>
+          <h3>快捷入口</h3>
           <span>{{ directory.items | size }} 个入口</span>
         </div>
         <div class="site-directory__entries">
@@ -96,7 +97,7 @@ page_class: "navigation-page"
   <div class="site-directory__empty" id="site-directory-empty" hidden>
     <span aria-hidden="true">⌕</span>
     <h2>没有找到匹配的目录</h2>
-    <p>试试 “PDF”、“论文”、“实习” 或 “Journal”。</p>
+    <p>试试“PDF”、“论文”、“项目”或“生活日志”。</p>
     <button id="site-directory-reset" type="button">查看全部目录 <span aria-hidden="true">↗</span></button>
   </div>
 

@@ -37,12 +37,25 @@ test('font scale brings small labels up and large titles down', () => {
 });
 
 test('navigation layout retains responsive cards and search affordances', () => {
-  assert.ok(css.includes('grid-template-columns: minmax(295px, .82fr) minmax(0, 1.55fr)'));
   assert.ok(css.includes('grid-template-columns: repeat(2, minmax(0, 1fr))'));
-  assert.ok(css.includes('@media (max-width: 1040px)'));
+  assert.ok(css.includes('display: flex;\n  flex-direction: column;\n  position: relative;'));
+  assert.ok(css.includes('grid-template-columns: repeat(2, minmax(0, 1fr))'));
+  assert.ok(css.includes('@media (max-width: 980px)'));
   assert.ok(css.includes('@media (max-width: 620px)'));
   assert.ok(css.includes('.site-directory__search:focus-within'));
   assert.ok(css.includes('overflow-wrap: break-word'));
   assert.ok(layout.includes('navigation-directory.css'));
-  assert.ok(layout.includes('nav-neutral-v2'));
+  assert.ok(layout.includes('two-groups-v3'));
+});
+test('navigation consolidates four personal sections while retaining routes', () => {
+  const data = readFileSync(join(__dirname, '../_data/site_directory.yml'), 'utf8');
+  const page = readFileSync(join(__dirname, '../_pages/navigation.html'), 'utf8');
+  const script = readFileSync(join(__dirname, '../assets/js/navigation-directory.js'), 'utf8');
+  assert.deepEqual([...data.matchAll(/^  - id: (\w+)$/gm)].map(m => m[1]), ['home', 'tools']);
+  for (const link of ['/research/', '/journey/', '/journal/', '/#publications', '/#projects', '/tools/#pdf/organize']) {
+    assert.ok(data.includes('url: "' + link + '"'), 'missing original destination: ' + link);
+  }
+  assert.ok(page.includes('id="research"') && page.includes('id="journey"') && page.includes('id="journal"'));
+  assert.ok(script.includes('site-directory__cards--single'));
+  assert.ok(css.includes('grid-template-columns: minmax(0, 1fr)'));
 });
