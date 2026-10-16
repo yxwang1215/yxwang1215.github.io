@@ -1,13 +1,11 @@
-# Three primary navigation groups: Personal, Tools, and Overleaf.
+# Navigation page destinations and their related links.
 # Individual pages and their in-page anchors continue to live at their existing URLs.
 directories:
   - id: home
-    number: "01"
-    eyebrow: "PERSONAL / RESEARCH / JOURNAL"
     title: "个人主页"
-    english: "Home"
     url: "/"
-    description: "个人介绍、论文项目、研究方向，以及成长经历和生活记录，集中在同一栏。"
+    action: "访问个人主页"
+    description: "研究、论文、学习经历和生活记录。"
     keywords: "首页 主页 个人 简介 教育 论文 科研 研究 audio diffusion llm robot robotics medical ultrasound UCLA LEAP EPIC 访学 实习 奖项 荣誉 Journey Research Journal 生活 日志 旅行"
     items:
       - title: "关于我"
@@ -36,12 +34,10 @@ directories:
         url: "/#honors-and-awards"
 
   - id: tools
-    number: "02"
-    eyebrow: "UTILITY / BROWSER TOOLS"
     title: "实用工具"
-    english: "Tools"
     url: "/tools/"
-    description: "图片扫描增强、文件压缩以及 PDF 处理。在浏览器中使用，核心文件处理流程无需上传文件。"
+    action: "打开工具箱"
+    description: "图片处理、扫描增强、PDF 编辑与文件压缩。"
     keywords: "工具 PDF PNG JPG JPEG WEBP 扫描 增强 压缩 合并 拆分 裁剪 图片 文件"
     items:
       - title: "扫描增强与图片转换"
@@ -70,12 +66,10 @@ directories:
         url: "/tools/#image/png-to-pdf"
 
   - id: overleaf
-    number: "03"
-    eyebrow: "LATEX / ONLINE EDITOR"
     title: "Overleaf"
-    english: "LaTeX Workspace"
     url: "https://overleaf.yxwang1215.top/login"
     external: true
-    description: "自建在线 LaTeX 编辑器。登录后编写、编译和协作管理论文、报告及其他 LaTeX 项目。"
+    action: "打开 Overleaf"
+    description: "在线 LaTeX 编辑、编译与论文协作。"
     keywords: "Overleaf LaTeX TeX 在线 编辑器 论文 学术写作 协作 排版 编译 paper collaboration"
     items: []
