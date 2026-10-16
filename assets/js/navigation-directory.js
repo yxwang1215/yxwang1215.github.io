@@ -1,4 +1,4 @@
-// Filter the two main navigation groups; a single result expands to the available width.
+// Filter all navigation groups; a single result expands to the available width.
 (() => {
   "use strict";
   const input = document.getElementById("site-directory-search");
