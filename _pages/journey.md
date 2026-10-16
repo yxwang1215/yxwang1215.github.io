@@ -25,7 +25,7 @@ page_class: "journey-page"
 {% include section-pager.html position="top" previous_url="/research/" previous_label="Research" next_url="/journal/" next_label="Journal" %}
 
 <section class="journey-timeline" aria-label="Education and research timeline">
-  <article class="journey-stop">
+  <article id="high-school" class="journey-stop">
     <div class="journey-stop__date"><span>2020</span><small>Sep</small></div>
     <div class="journey-stop__marker" aria-hidden="true"><i></i></div>
     <div class="journey-stop__body">
@@ -36,7 +36,7 @@ page_class: "journey-page"
     </div>
   </article>
 
-  <article class="journey-stop">
+  <article id="undergraduate" class="journey-stop">
     <div class="journey-stop__date"><span>2023</span><small>Sep</small></div>
     <div class="journey-stop__marker" aria-hidden="true"><i></i></div>
     <div class="journey-stop__body">
@@ -47,7 +47,7 @@ page_class: "journey-page"
     </div>
   </article>
 
-  <article class="journey-stop">
+  <article id="visiting" class="journey-stop">
     <div class="journey-stop__date"><span>2024</span><small>Summer</small></div>
     <div class="journey-stop__marker" aria-hidden="true"><i></i></div>
     <div class="journey-stop__body">
@@ -58,7 +58,7 @@ page_class: "journey-page"
     </div>
   </article>
 
-  <article class="journey-stop">
+  <article id="tsinghua" class="journey-stop">
     <div class="journey-stop__date"><span>2025</span><small>Mar–Sep</small></div>
     <div class="journey-stop__marker" aria-hidden="true"><i></i></div>
     <div class="journey-stop__body">
@@ -69,7 +69,7 @@ page_class: "journey-page"
     </div>
   </article>
 
-  <article class="journey-stop">
+  <article id="sjtu" class="journey-stop">
     <div class="journey-stop__date"><span>2025–26</span><small>Aug–Feb</small></div>
     <div class="journey-stop__marker" aria-hidden="true"><i></i></div>
     <div class="journey-stop__body">
@@ -80,7 +80,7 @@ page_class: "journey-page"
     </div>
   </article>
 
-  <article class="journey-stop journey-stop--current">
+  <article id="current" class="journey-stop journey-stop--current">
     <div class="journey-stop__date"><span>2026</span><small>Now</small></div>
     <div class="journey-stop__marker" aria-hidden="true"><i></i></div>
     <div class="journey-stop__body">
