@@ -1,0 +1,62 @@
+name: Reconcile concurrent PDF tools
+on:
+  push:
+    branches: [feat/tools-compression-modes]
+    paths: [.github/workflows/reconcile-pdf-tools.yml]
+permissions:
+  contents: write
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/tools-compression-modes
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Integrate the inspected concurrent change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = '89922cedfab1509106a3dfd6cf90275d8769a239'
+          if ! git merge --no-commit --no-ff origin/main; then
+            test "$(git diff --name-only --diff-filter=U)" = 'tools/index.html'
+            git checkout --ours -- tools/index.html
+          fi
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/index.html');html=p.read_text()
+          assert 'id="compressionPanel"' in html and 'data-preset="auto"' in html
+          routes=[('mixed-to-pdf','图片与 PDF 合并'),('merge-pdf','PDF 合并'),('split-pdf','PDF 拆分'),('extract-pdf','提取页面'),('organize-pdf','整理页面'),('png-to-pdf-simple','无损 PNG 兼容工具')]
+          links=''.join(f'<a class="button" href="./{route}/">{label} ↗</a>' for route,label in routes)
+          section='<details id="morePdfTools" class="advanced" style="margin-top:25px;padding:16px;border:1px solid #e4e7df;border-radius:8px"><summary>更多 PDF 工具 <span>合并、拆分与页面整理</span></summary><nav aria-label="其他 PDF 工具" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">'+links+'</nav></details>\n'
+          if 'id="morePdfTools"' not in html:
+              assert '<section class="bottom-info">' in html
+              html=html.replace('<section class="bottom-info">',section+'<section class="bottom-info">',1)
+          p.write_text(html)
+          PY
+          git add tools/index.html
+          git diff --check --cached
+      - name: Verify all core tests and retained routes
+        run: node --test tests/scanner-core.test.mjs tests/modes.test.mjs tests/compression.test.mjs tests/pdf-toolkit.test.cjs tests/toolkit-routes.test.cjs tests/png-pdf.test.cjs
+      - name: Verify the unified browser UI and actual outputs
+        run: |
+          python -m pip install playwright pillow pymupdf
+          python tests/unified-e2e.py
+      - name: Commit and push the tested merge without force
+        run: |
+          git commit -m 'Merge concurrent PDF toolkit and retain routes alongside unified scanning and compression'
+          git push origin HEAD:feat/tools-compression-modes
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reconciled-tools-qa
+          path: /tmp/tools-qa
