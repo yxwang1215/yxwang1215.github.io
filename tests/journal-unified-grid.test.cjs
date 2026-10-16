@@ -34,5 +34,5 @@ test("all Journal cards use compact square covers with responsive columns", () =
 
 test("Journal index keeps its cache keys distinct from older CSS", () => {
   assert.match(read("assets/css/site-polish.css"), /site-polish-journal\.css\?v=20261016-unified-journal-grid/);
-  assert.match(read("_includes/head/custom.html"), /site-polish\.css[^"]*20261016-unified-journal-grid/);
+  assert.match(read("_includes/head/custom.html"), /site-polish\.css[^"]*20261016-nav-journal-uniform/);
 });
