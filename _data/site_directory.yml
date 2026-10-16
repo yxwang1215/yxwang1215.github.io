@@ -1,164 +1,138 @@
-# Public, user-facing routes. Add new pages here to update /navigation/ automatically.
-# Do not list Jekyll source folders (_pages, _data, assets) as public destinations.
-groups:
-  - id: pages
-    index: "01"
-    eyebrow: MAIN DESTINATIONS
-    title: 独立页面
-    description: 浏览研究方向、学术经历及生活记录。
-    entries:
-      - title: Home
-        subtitle: 个人主页
-        url: "/"
-        category: PROFILE
-        description: 个人介绍、教育背景、论文、项目、实习经历与荣誉的完整索引。
-        keywords: "首页 主页 profile about me biography"
-        meta: "从这里认识我"
-      - title: Research
-        subtitle: 研究方向
-        url: "/research/"
-        category: ACADEMIC
-        description: 按主题浏览 Diffusion LLM、Audio LLM 与医学机器人相关研究和代表性工作。
-        keywords: "研究 科研 论文 efficient inference diffusion audio llm robotics"
-        meta: "研究主题与成果"
-      - title: Journey
-        subtitle: 学术旅程
-        url: "/journey/"
-        category: TIMELINE
-        description: 沿时间线了解教育经历、科研实践与不同阶段的学习和探索。
-        keywords: "经历 时间线 education experience 学术履历"
-        meta: "教育与科研时间线"
-      - title: Journal
-        subtitle: 日志与随笔
-        url: "/journal/"
-        category: WRITING
-        description: 阅读生活记录、旅行照片和研究之外的随笔，支持按年份和标签查找。
-        keywords: "日志 日记 博客 旅行 生活 diary posts journal"
-        meta: "图文记录与归档"
+# One top-level public route = one large navigation card.
+# Keep section links aligned with actual IDs in their destination pages.
+directories:
+  - id: home
+    number: "01"
+    eyebrow: "PROFILE / OVERVIEW"
+    title: "个人主页"
+    english: "Home"
+    url: "/"
+    description: "个人介绍、教育、论文、项目、实习与荣誉都汇总在主页。适合从这里快速了解我的背景。"
+    keywords: "首页 主页 个人 介绍 学术 简介 about me profile"
+    items:
+      - title: "关于我"
+        description: "个人背景与研究兴趣"
+        url: "/#about-me"
+      - title: "教育经历"
+        description: "学校、学位与导师信息"
+        url: "/#educations"
+      - title: "学术论文"
+        description: "论文、预印本与开源代码"
+        url: "/#publications"
+      - title: "科研项目"
+        description: "代表性项目与研究成果"
+        url: "/#projects"
+      - title: "实习经历"
+        description: "研究助理与产业实践"
+        url: "/#internships"
+      - title: "荣誉奖项"
+        description: "奖学金与竞赛获奖"
+        url: "/#honors-and-awards"
+      - title: "校园活动"
+        description: "社团与学术交流"
+        url: "/#activities"
+      - title: "友情链接"
+        description: "朋友与学术同行的主页"
+        url: "/#friends"
+
+  - id: research
+    number: "02"
+    eyebrow: "ACADEMIC / PROJECTS"
+    title: "科研工作"
+    english: "Research"
+    url: "/research/"
+    description: "按研究主题组织代表性论文、项目、代码与数据集，快速定位到感兴趣的方向。"
+    keywords: "研究 科研 论文 paper research diffusion llm audio kv cache medical ultrasound"
+    layout: rows
+    items:
+      - title: "Diffusion LLM"
+        description: "采样加速、推理与自推测解码"
+        url: "/research/#diffusion-llm"
+      - title: "Audio LLM"
+        description: "长上下文理解、KV Cache 与音频模型效率"
+        url: "/research/#audio-llm"
+      - title: "Medical Robotics"
+        description: "机器人超声、自动导航与探头引导"
+        url: "/research/#medical-robotics"
+
+  - id: journey
+    number: "03"
+    eyebrow: "EXPERIENCE / TIMELINE"
+    title: "成长经历"
+    english: "Journey"
+    url: "/journey/"
+    description: "以时间线呈现求学、访学与科研实践，按阶段浏览每段经历。"
+    keywords: "时间线 经历 教育 求学 研究 实习 timeline xidian UCLA tsinghua sjtu"
+    items:
+      - title: "高中阶段"
+        description: "镇海中学 · 创新班"
+        url: "/journey/#high-school"
+      - title: "本科阶段"
+        description: "西安电子科技大学 · 软件工程"
+        url: "/journey/#undergraduate"
+      - title: "海外访学"
+        description: "UCLA · Summer Session"
+        url: "/journey/#visiting"
+      - title: "清华科研"
+        description: "LEAP Lab · 医学机器人"
+        url: "/journey/#tsinghua"
+      - title: "交大科研"
+        description: "EPIC Lab · 高效大模型"
+        url: "/journey/#sjtu"
+      - title: "当前研究"
+        description: "持续探索高效与多模态 AI"
+        url: "/journey/#current"
+
+  - id: journal
+    number: "04"
+    eyebrow: "LIFE / WRITING"
+    title: "生活日志"
+    english: "Journal"
+    url: "/journal/"
+    description: "照片、日常、旅途与随笔。可以阅读最近记录，也可以按关键词、标签和年份查找。"
+    keywords: "日志 生活 日记 摄影 旅行 随笔 日常 diary journal photos"
+    layout: rows
+    items:
+      - title: "最近更新"
+        description: "从最新一篇图文记录开始阅读"
+        url: "/journal/#latest"
+      - title: "全部文章与标签"
+        description: "按关键词、地点和标签查找"
+        url: "/journal/#all"
+      - title: "按年份归档"
+        description: "沿时间顺序翻阅过往记录"
+        url: "/journal/#archive"
 
   - id: tools
-    index: "02"
-    eyebrow: PRACTICAL UTILITIES
-    title: 实用工具
-    description: 免登录的浏览器工具；文件转换在本地进行，不上传文档内容。
-    entries:
-      - title: Tools
-        subtitle: 文件工具箱
+    number: "05"
+    eyebrow: "UTILITY / BROWSER TOOLS"
+    title: "实用工具"
+    english: "Tools"
+    url: "/tools/"
+    description: "图片扫描增强、文件压缩以及 PDF 处理。在浏览器中使用，核心文件处理流程无需上传文件。"
+    keywords: "工具 PDF PNG JPG JPEG WEBP 扫描 增强 压缩 合并 拆分 裁剪 图片 文件"
+    items:
+      - title: "扫描增强与图片转换"
+        description: "多种预设、锐化、裁剪、PDF／图片导出"
         url: "/tools/"
-        category: LOCAL TOOL
-        description: 合并、拆分、提取与整理 PDF，浏览全部本地文件工具。
-        keywords: "PDF PNG 合并 拆分 页面 工具 tools"
-        meta: "全部文件工具"
-      - title: PNG + PDF Merge
-        subtitle: 图片与 PDF 混合合并
+      - title: "文件压缩"
+        description: "PDF、PNG、JPG、WebP 压缩；进入后切换标签"
+        url: "/tools/"
+      - title: "图片 + PDF 混合合并"
+        description: "不同类型文件按顺序合成 PDF"
         url: "/tools/mixed-to-pdf/"
-        category: LOCAL TOOL
-        description: 按顺序组合 PNG 与 PDF，支持逐文件选页及图片页面设置。
-        keywords: "PNG PDF 图片 混合 合并 插入"
-        meta: "图片与 PDF 组合"
-      - title: PDF Merge
-        subtitle: PDF 合并
+      - title: "PDF 合并"
+        description: "多份 PDF 拼接、排序与选页"
         url: "/tools/merge-pdf/"
-        category: LOCAL TOOL
-        description: 合并多份 PDF，支持排序、旋转与逐文件页码范围。
-        keywords: "PDF 合并 拼接 merge 顺序"
-        meta: "多文件合并"
-      - title: PDF Split
-        subtitle: PDF 拆分
+      - title: "PDF 拆分"
+        description: "按单页、范围或自定义规则拆分"
         url: "/tools/split-pdf/"
-        category: LOCAL TOOL
-        description: 逐页、每 N 页或按自定义范围拆分，多份结果打包 ZIP。
-        keywords: "PDF 拆分 split ZIP 分组"
-        meta: "拆分与打包"
-      - title: PDF Extract
-        subtitle: 提取 PDF 页面
+      - title: "PDF 页面提取"
+        description: "选择需要的页面另存为新 PDF"
         url: "/tools/extract-pdf/"
-        category: LOCAL TOOL
-        description: 按页码范围提取 PDF，支持倒序及重复页。
-        keywords: "PDF 页面 提取 extract 选页"
-        meta: "选取所需页面"
-      - title: PDF Organize
-        subtitle: PDF 页面整理
+      - title: "PDF 页面整理"
+        description: "旋转、删除并调整页面顺序"
         url: "/tools/organize-pdf/"
-        category: LOCAL TOOL
-        description: 按页调整顺序、旋转方向，移除不需要的页面。
-        keywords: "PDF 整理 排序 旋转 删除 organize"
-        meta: "页面重排与旋转"
-      - title: PNG to PDF
-        subtitle: 图片转 PDF
+      - title: "PNG 转 PDF 兼容版"
+        description: "批量 PNG 图片转换与纸张设置"
         url: "/tools/png-to-pdf-simple/"
-        category: LOCAL TOOL
-        description: 将多张 PNG 图片整理成 PDF，支持拖放排序、纸张尺寸、方向及页边距设置。
-        keywords: "PNG PDF 图片 转换 合成 论文截图 工具 tools"
-        meta: "适合 PNG 批量转换"
-      - title: PaperScan
-        subtitle: 扫描增强与多格式导出
-        url: "/tools/png-to-pdf/"
-        category: LOCAL TOOL
-        description: 支持 JPG、PNG、WebP 等图片导入，提供锐化、去灰、裁剪、黑白扫描及 PDF／图片／ZIP 导出。
-        keywords: "JPG JPEG PNG WebP BMP GIF AVIF 扫描 增强 锐化 去灰 crop 图片 PDF ZIP"
-        meta: "扫描件与多格式图片"
-
-  - id: sections
-    index: "03"
-    eyebrow: HOMEPAGE SECTIONS
-    title: 首页栏目
-    description: 这些入口会直接定位到首页对应章节，无需手动滚动查找。
-    compact: true
-    entries:
-      - title: About Me
-        subtitle: 关于我
-        url: "/#about-me"
-        category: HOME SECTION
-        description: 个人背景、研究兴趣和简要介绍。
-        keywords: "个人简介 about profile"
-        meta: "个人介绍"
-      - title: Education
-        subtitle: 教育经历
-        url: "/#educations"
-        category: HOME SECTION
-        description: 学校、学位、访学与导师信息。
-        keywords: "学校 学位 博士 本科 PKU Xidian UCLA"
-        meta: "学习经历"
-      - title: Publications
-        subtitle: 学术论文
-        url: "/#publications"
-        category: HOME SECTION
-        description: 已发表论文及对应的论文、代码链接。
-        keywords: "论文 发表 papers publications arxiv"
-        meta: "论文列表"
-      - title: Projects
-        subtitle: 科研项目
-        url: "/#projects"
-        category: HOME SECTION
-        description: 研究项目、开源实现及相关成果。
-        keywords: "项目 开源 代码 github research"
-        meta: "研究与项目"
-      - title: Internships
-        subtitle: 实习与科研经历
-        url: "/#internships"
-        category: HOME SECTION
-        description: 研究实习、合作实验室与工作内容。
-        keywords: "实习 研究 assistant lab industry"
-        meta: "实践经历"
-      - title: Awards
-        subtitle: 荣誉奖项
-        url: "/#honors-and-awards"
-        category: HOME SECTION
-        description: 奖学金、竞赛和其他荣誉记录。
-        keywords: "奖学金 获奖 荣誉 scholarship honors"
-        meta: "荣誉记录"
-      - title: Activities
-        subtitle: 校园活动
-        url: "/#activities"
-        category: HOME SECTION
-        description: 校园组织、社团活动和交流经历。
-        keywords: "活动 校园 学生组织 club"
-        meta: "校园与社群"
-      - title: Friends
-        subtitle: 友情链接
-        url: "/#friends"
-        category: HOME SECTION
-        description: 朋友与学术同行的个人主页链接。
-        keywords: "朋友 友情链接 colleagues friend links"
-        meta: "朋友与交流"
