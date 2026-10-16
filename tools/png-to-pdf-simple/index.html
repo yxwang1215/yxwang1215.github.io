@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../tools.css">
   <script src="../pdf-engine.js" defer></script>
   <script src="../app.js" defer></script>
-</head>
+<link rel="stylesheet" href="../tool-switcher.css?v=20261016-1"><script defer src="../tool-switcher.js?v=20261016-1"></script></head>
 <body>
   <a class="skip-link" href="#workspace">跳转到转换工具</a>
   <header class="site-header"><div class="header-inner">
@@ -27,7 +27,11 @@
       <div class="badges"><span><i></i> 本地处理</span><span>无需注册</span><span>无水印</span></div></div>
       <div class="hero-note"><span class="note-top">IMAGE IN. DOCUMENT OUT.</span><span class="note-number">01 <span>→</span> ∞</span><span>一张图片，一页 PDF。<br>从截图到讲义，都井井有条。</span></div>
     </section>
-    <section aria-label="扫描增强工具" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;margin-bottom:24px;border:1px solid #cddbc6;border-radius:12px;background:#edf3e7"><div style="min-width:0;flex:1 1 230px"><strong style="display:block;color:#395143;font-size:15px">PaperScan · 扫描增强版</strong><p style="margin:5px 0 0;color:#73816b;font-size:12px;line-height:1.8">文字锐化、纸张去灰、黑白扫描和裁剪。支持 JPG、WebP 等图片，以及 PDF / 图片 / ZIP 导出。</p></div><a href="../png-to-pdf/" class="button primary" style="text-decoration:none;white-space:nowrap">打开扫描增强版 ↗</a></section>
+<div id="tool-directory"><nav class="tool-switcher__fallback" aria-label="工具导航">
+<a href="/tools/#scan">扫描增强</a><a href="/tools/#compress">文件压缩</a><a href="/tools/png-to-pdf-simple/">PNG 转 PDF</a>
+<a href="/tools/mixed-to-pdf/">图片 + PDF 合并</a><a href="/tools/merge-pdf/">PDF 合并</a>
+<a href="/tools/split-pdf/">PDF 拆分</a><a href="/tools/extract-pdf/">提取页面</a>
+<a href="/tools/organize-pdf/">页面整理</a></nav></div>
     <noscript><p class="notice error">此工具需要 JavaScript 才能在浏览器本地转换图片，请启用后重新打开。</p></noscript>
     <div class="workspace" id="workspace">
       <section class="upload-panel" aria-labelledby="files-heading">
