@@ -5,6 +5,7 @@ subtitle: "32章，一次从“宇宙设定史”到“人物故事”的重写�
 excerpt: "把《三体Ⅳ·归零》重新写成一部32章、约24万字的完整同人科幻长篇。真正想解决的不是设定够不够大，而是宏大的宇宙事件里，人物到底在做什么、失去什么，又为什么继续向前。"
 cover: /images/diary/three-body-zero.svg
 cover_alt: "深色宇宙背景上的《三体Ⅳ·归零》标题封面"
+resource_section_title: "《三体Ⅳ·归零》相关资源"
 related_resources:
   - title: "完整书稿 · PDF"
     format: "PDF"
