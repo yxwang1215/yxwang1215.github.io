@@ -1,0 +1,40 @@
+name: Prepare PDF toolkit dependency
+on:
+  push:
+    branches: [feat/pdf-toolkit-20261016]
+    paths: [.github/workflows/pdf-toolkit-vendor.yml]
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Vendor exact pdf-lib release without running package scripts
+        run: |
+          mkdir -p /tmp/pdf-kit-package tools/pdf-kit
+          cd /tmp/pdf-kit-package
+          npm pack pdf-lib@1.17.1 --ignore-scripts
+          tar -xzf pdf-lib-1.17.1.tgz
+          cp package/dist/pdf-lib.min.js "$GITHUB_WORKSPACE/tools/pdf-kit/pdf-lib.min.js"
+          cp package/LICENSE.md "$GITHUB_WORKSPACE/tools/pdf-kit/LICENSE.pdf-lib.md"
+          cd "$GITHUB_WORKSPACE"
+          sha256sum tools/pdf-kit/pdf-lib.min.js > tools/pdf-kit/pdf-lib.sha256
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/pdf-kit
+          git diff --cached --quiet || git commit -m 'Vendor pdf-lib 1.17.1 for same-origin browser PDF tools'
+          git push origin HEAD:feat/pdf-toolkit-20261016
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pdf-toolkit-source
+          path: |
+            tools/
+            tests/
+            _data/navigation.yml
+            _config.yml
+            .github/workflows/site-check.yml
+          retention-days: 3
