@@ -1,0 +1,44 @@
+name: Tools quality
+on:
+  push:
+    branches: [feat/tools-compression-modes]
+    paths: [tools/**, tests/**, .github/workflows/tools-quality.yml]
+  pull_request:
+    paths: [tools/**, tests/**, .github/workflows/tools-quality.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All core regression tests
+        run: node --test tests/*.test.mjs tests/*.test.cjs
+      - name: Browser test dependencies
+        run: |
+          python -m pip install playwright pillow pymupdf
+          python -m playwright install --with-deps chromium
+      - name: Verify checked-in UI without one-time migrations
+        run: |
+          if grep -q 'studio.mjs' tools/index.html; then
+            python tests/browser_check.py
+          else
+            python tests/unified-e2e.py
+          fi
+      - name: Save rendered outputs and test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tools-quality-qa
+          path: |
+            .editor-checks/
+            /tmp/tools-qa
+          include-hidden-files: true
+          retention-days: 7
