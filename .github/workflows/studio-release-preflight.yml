@@ -1,0 +1,81 @@
+name: Studio release preflight
+on:
+  push:
+    branches: [tools-editor-refresh-20261016]
+    paths: [.github/workflows/studio-release-preflight.yml, scripts/finalize-studio-release.py]
+permissions:
+  contents: write
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tools-editor-refresh-20261016
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preserve the inspected current main revision
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = 'ff73275375d46b424e16811043c00696508a5b1c'
+          git merge --no-commit --no-ff origin/main
+      - name: Observe missing gallery integration before patching
+        run: |
+          if node --test tests/studio-release.test.mjs; then
+            echo 'Regression unexpectedly passed before reconciliation'; exit 1
+          fi
+      - name: Apply the reviewed UI and test reconciliation
+        run: |
+          python scripts/finalize-studio-release.py
+          git diff --check
+          node --check tools/studio.mjs
+          node --test tests/*.test.mjs tests/*.test.cjs
+      - name: Browser dependencies
+        run: |
+          python -m pip install playwright==1.64.0 pymupdf==1.28.2 pillow
+          python -m playwright install --with-deps chromium
+      - name: Verify editor, old converter routes, and all scan modes
+        run: |
+          mkdir -p .release-check
+          python tests/browser_check.py > .release-check/editor.log 2>&1
+          TEST_OUTPUT=.release-check/legacy python tests/pdf-toolkit-e2e.py > .release-check/legacy.log 2>&1
+          SCAN_QA_OUTPUT=.release-check/scan python tests/scan-styles-e2e.py > .release-check/scan.log 2>&1
+          tail -n 5 .release-check/editor.log
+          tail -n 5 .release-check/legacy.log
+          tail -n 15 .release-check/scan.log
+      - name: Commit only the tested code reconciliation
+        run: |
+          git add tools/studio.mjs tools/studio-utils.mjs tools/studio.css tests/studio-integration.test.mjs tests/browser_check.py tests/pdf-toolkit-e2e.py tests/scan-styles-e2e.py tests/published_smoke.py
+          git commit -m 'Preserve all 18 scan styles and verify the unified studio for deployment'
+          git push origin HEAD:tools-editor-refresh-20261016
+      - name: Record source snapshot and verification artifacts
+        if: always()
+        run: |
+          mkdir -p .release-check
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+          with zipfile.ZipFile('.release-check/reviewed-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for directory in ['tools','tests']:
+                  for p in Path(directory).rglob('*'):
+                      if p.is_file() and p.suffix not in ['.woff','.woff2','.ttf','.otf']:
+                          z.write(p)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-release-preflight
+          path: |
+            .release-check/
+            .editor-checks/
+          include-hidden-files: true
+          retention-days: 7
