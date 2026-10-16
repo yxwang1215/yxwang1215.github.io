@@ -3,13 +3,13 @@
   'use strict';
   const tools = [
     {id:'scan',title:'扫描增强',detail:'净白、锐化、裁剪与多格式导出',href:'/tools/#image',icon:'scan'},
-    {id:'compress',title:'文件压缩',detail:'图片与 PDF 的原文件压缩',href:'/tools/#compress',icon:'compress'},
-    {id:'png',title:'PNG 转 PDF',detail:'PNG 批量排序、无损像素导出',href:'/tools/png-to-pdf-simple/',icon:'image'},
-    {id:'mixed',title:'图片 + PDF 合并',detail:'PNG 和 PDF 按顺序混合成文档',href:'/tools/mixed-to-pdf/',icon:'layers'},
-    {id:'merge',title:'PDF 合并',detail:'多份 PDF 合为一份，可按范围选页',href:'/tools/merge-pdf/',icon:'merge'},
-    {id:'split',title:'PDF 拆分',detail:'逐页、每 N 页或自定义范围拆分',href:'/tools/split-pdf/',icon:'split'},
-    {id:'extract',title:'提取 PDF 页面',detail:'选出需要的页面，另存为新文件',href:'/tools/extract-pdf/',icon:'extract'},
-    {id:'organize',title:'PDF 页面整理',detail:'调整顺序、旋转与移除页面',href:'/tools/organize-pdf/',icon:'grid'}
+    {id:'compress',title:'文件压缩',detail:'图片与 PDF 的原文件压缩',href:'/tools/#image/compress',icon:'compress'},
+    {id:'png',title:'PNG 转 PDF',detail:'PNG 批量排序、无损像素导出',href:'/tools/#image/png-to-pdf',icon:'image'},
+    {id:'mixed',title:'图片 + PDF 合并',detail:'PNG 和 PDF 按顺序混合成文档',href:'/tools/#pdf/mixed',icon:'layers'},
+    {id:'merge',title:'PDF 合并',detail:'多份 PDF 合为一份，可按范围选页',href:'/tools/#pdf/merge',icon:'merge'},
+    {id:'split',title:'PDF 拆分',detail:'逐页、每 N 页或自定义范围拆分',href:'/tools/#pdf/split',icon:'split'},
+    {id:'extract',title:'提取 PDF 页面',detail:'选出需要的页面，另存为新文件',href:'/tools/#pdf/extract',icon:'extract'},
+    {id:'organize',title:'PDF 页面整理',detail:'调整顺序、旋转与移除页面',href:'/tools/#pdf/organize',icon:'grid'}
   ];
   const shapes = {
     scan:'M7 3H4a1 1 0 0 0-1 1v3m14-4h3a1 1 0 0 1 1 1v3M3 17v3a1 1 0 0 0 1 1h3m10 0h3a1 1 0 0 0 1-1v-3M7 8h10M7 12h10M7 16h6',
@@ -51,29 +51,15 @@
     const body=el('span','ts-link-copy');body.append(el('strong','tool-switcher__item-name',t.title),el('span','tool-switcher__item-detail',t.detail));
     a.append(icon(t.icon),body);nav.append(a);
   }
-  const note=el('p','ts-nav-note','切换独立页面前，请保存处理结果。当前页面的文件不会自动转移。');
+  const note=el('p','ts-nav-note','所有功能都在当前工作台中完成，切换功能不会清空已导入的文件。');
   panel.append(heading,quick,nav,note);menu.append(summary,panel);
   if(studio){
-    document.body.classList.add('ts-studio');
+    document.body.classList.add('ts-unified');
     const brand=document.querySelector('.topbar .brand');
     const group=el('div','ts-brand-group');brand.before(group);group.append(brand,menu);
     document.addEventListener('pointerdown',e=>{if(menu.open&&!menu.contains(e.target))menu.open=false;});
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.open){menu.open=false;summary.focus();}});
-    // Keep deep links from the earlier scanner valid in the unified editor.
-    const openImageTool=(target)=>{
-      const tab=document.getElementById('imageTab'),button=document.querySelector('#imageTools [data-tool="'+target+'"]');
-      if(!tab||!button||tab.disabled||button.disabled)return;
-      tab.click();button.focus();button.click();refresh();
-    };
-    if(initialHash==='#compress'){
-      if(document.readyState==='complete')openImageTool('compress');
-      else window.addEventListener('load',()=>openImageTool('compress'),{once:true});
-    }
-    menu.addEventListener('click',e=>{
-      const a=e.target.closest('a');if(!a)return;
-      if(['compress','scan'].includes(a.dataset.toolTarget)&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();openImageTool(a.dataset.toolTarget==='scan'?'enhance':'compress');}
-      menu.open=false;
-    });
+    menu.addEventListener('click',e=>{if(e.target.closest('a'))menu.open=false;});
     document.querySelector('.app')?.addEventListener('click',()=>queueMicrotask(refresh));
     document.querySelector('.workspace-tabs')?.addEventListener('click',()=>queueMicrotask(refresh));
   }else{

@@ -12,7 +12,7 @@ test('existing compression algorithms are exposed in the shared inspector',()=>{
  const compression=read('tools/studio-compression.mjs');assert.match(compression,/compressFile/);assert.match(compression,/AbortController/);
 });
 test('all seven compatibility routes remain reachable without a tool-card wall',()=>{
- const html=read('tools/index.html');for(const route of ['merge-pdf','mixed-to-pdf','split-pdf','extract-pdf','organize-pdf','png-to-pdf-simple','png-to-pdf'])assert.ok(html.includes('./'+route+'/'),route);
+ const html=read('tools/index.html');for(const route of ['merge-pdf','mixed-to-pdf','split-pdf','extract-pdf','organize-pdf','png-to-pdf-simple','png-to-pdf'])assert.ok(html.includes('/tools/'+({'merge-pdf':'#pdf/merge','mixed-to-pdf':'#pdf/mixed','split-pdf':'#pdf/split','extract-pdf':'#pdf/extract','organize-pdf':'#pdf/organize','png-to-pdf-simple':'#image/png-to-pdf','png-to-pdf':'#image'})[route]),route);
  assert.match(html,/id="compatibilityRoutes"/);
 });
 test('normal browser test keeps site CSP and avoids evaluator wait strings',()=>{
