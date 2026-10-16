@@ -1,6 +1,8 @@
 import {processPixels, fitSize, makePdf, makeZip, safeName} from './png-to-pdf/core.mjs';
 import {History, PRESETS, uid, sizeLabel, movePage, parseRange} from './studio-utils.mjs';
 import {PDFWorkspace} from './pdf-workspace.mjs';
+import {analyzePixels, settingsForMode} from './png-to-pdf/modes.mjs';
+import {installCompressionControls} from './studio-compression.mjs';
 const $ = id => document.getElementById(id);
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 const s = {mode:'image', pages:[], active:null, imageTool:'enhance', pdfTool:'pages', view:'processed', busy:false, cancel:false, seq:0, crop:false, cropBox:null, original:null, lastURL:null};
@@ -78,7 +80,8 @@ async function importImages(files) {
     try{
       im=await decode(file);if(im.width*im.height>40000000)throw new Error('超过 4000 万像素上限。');
       const [w,h]=fitSize(im.width,im.height,160),c=canvas(w,h);c.getContext('2d').drawImage(im.source||im,0,0,w,h);
-      const page={id:uid(),name:file.name,file,width:im.width,height:im.height,thumb:c.toDataURL('image/png'),rotation:0,flip:false,crop:{x:0,y:0,w:1,h:1},preset:'auto',settings:{...PRESETS.auto}};
+      const stats=analyzePixels(c.getContext('2d').getImageData(0,0,w,h).data);
+      const page={id:uid(),stats,name:file.name,file,width:im.width,height:im.height,thumb:c.toDataURL('image/png'),rotation:0,flip:false,crop:{x:0,y:0,w:1,h:1},preset:'auto',settings:settingsForMode(stats,'auto')};
       s.pages.push(page);if(!s.active)s.active=page.id;added++;c.width=c.height=1;
       if(file.type==='image/gif'||/\.gif$/i.test(file.name))issues.push(`${file.name}：仅导入 GIF 首帧。`);
     }catch(e){issues.push(`${file.name}：${e.message}`);}finally{im?.close();}
@@ -139,7 +142,7 @@ function fitPreview(){if(!s.original||s.mode!=='image')return;const rect=$('imag
 function setView(mode){s.view=mode;document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===mode));$('afterCanvas').hidden=mode==='original';$('afterCanvas').style.clipPath=mode==='compare'?`inset(0 0 0 ${$('compareRange').value}%)`:'none';for(const id of ['compareLine','compareSlider','beforeLabel','afterLabel'])$(id).hidden=mode!=='compare'||!current();$('compareLine').style.left=`${$('compareRange').value}%`;}
 function presetThumbnails(source){
   const [w,h]=fitSize(source.width,source.height,120),small=canvas(w,h),ctx=small.getContext('2d',{willReadFrequently:true});ctx.drawImage(source,0,0,w,h);const img=ctx.getImageData(0,0,w,h);
-  for(const [key,settings]of Object.entries(PRESETS)){const holder=document.querySelector(`[data-preset="${key}"] .preset-thumb`),c=canvas(w,h);if(key==='original')c.getContext('2d').drawImage(small,0,0);else c.getContext('2d').putImageData(new ImageData(processPixels(img.data,w,h,settings),w,h),0,0);holder.replaceChildren(c);}
+  for(const [key,settings]of Object.entries(PRESETS)){const holder=document.querySelector(`[data-preset="${key}"] .preset-thumb`),c=canvas(w,h);if(key==='original')c.getContext('2d').drawImage(small,0,0);else c.getContext('2d').putImageData(new ImageData(processPixels(img.data,w,h,settingsForMode(current()?.stats,key==='paper'?'document':key)),w,h),0,0);holder.replaceChildren(c);}
   small.width=small.height=1;
 }
 function edit(fn){if(!current()||s.busy)return;history.save(s.pages);fn(current());refresh();schedulePreview();}
@@ -206,7 +209,7 @@ async function demo(){
 }
 // Build real controls once; current-document thumbnails are rendered after each preview.
 for(const [key,p]of Object.entries(PRESETS)){
-  const b=document.createElement('button');b.className='preset';b.dataset.preset=key;b.innerHTML='<span class="preset-thumb"><span class="skeleton"><i></i><i></i><i></i><i></i></span></span><span class="preset-name"></span>';b.querySelector('.preset-name').textContent=p.label;b.onclick=()=>edit(page=>{page.preset=key;page.settings={...p};});$('presets').append(b);
+  const b=document.createElement('button');b.className='preset';b.dataset.preset=key;b.innerHTML='<span class="preset-thumb"><span class="skeleton"><i></i><i></i><i></i><i></i></span></span><span class="preset-name"></span>';b.querySelector('.preset-name').textContent=p.label;b.onclick=()=>edit(page=>{page.preset=key;page.settings=settingsForMode(page.stats,key==='paper'?'document':key);});$('presets').append(b);
 }
 for(const [key,label,min,max]of [['clean','纸张去灰',0,100],['sharpen','文字锐化',0,150],['contrast','对比度',-50,80],['brightness','亮度',-40,40],['threshold','黑白阈值',2,35]]){
   const wrapper=document.createElement('label');wrapper.className='field';wrapper.innerHTML=`<span>${label}<output id="adjust-${key}Value"></output></span><input type="range" id="adjust-${key}" data-setting="${key}" min="${min}" max="${max}">`;const input=wrapper.querySelector('input');input.addEventListener('change',()=>edit(p=>{p.preset='custom';p.settings[key]=Number(input.value);}));input.addEventListener('input',()=>$(`adjust-${key}Value`).textContent=input.value);$('advancedFields').append(wrapper);
@@ -223,7 +226,7 @@ $('help').onclick=()=>$('helpDialog').showModal();$('undo').onclick=()=>undo();$
 $('openExport').onclick=()=>openExport();$('exportFormat').onchange=exportFormatChanged;$('doExport').onclick=()=>exportFiles();$('sendToPdf').onclick=()=>exportFiles(true);
 $('quality').oninput=()=>$('qualityValue').textContent=`${$('quality').value}%`;$('rasterPdf').onchange=refresh;
 $('resetImage').onclick=()=>{edit(p=>{p.preset='original';p.settings={...PRESETS.original};p.rotation=0;p.flip=false;p.crop={x:0,y:0,w:1,h:1};});stopCrop();};
-$('applyAll').onclick=()=>{if(!current()||s.busy)return;history.save(s.pages);const p=current();s.pages.forEach(page=>{page.settings={...p.settings};page.preset=p.preset;});toast(`已将增强参数应用到全部 ${s.pages.length} 张图片。`);refresh();};
+$('applyAll').onclick=()=>{if(!current()||s.busy)return;history.save(s.pages);const p=current();s.pages.forEach(page=>{page.settings=p.preset==='custom'?{...p.settings}:settingsForMode(page.stats,p.preset==='paper'?'document':p.preset);page.preset=p.preset;});toast(`已将增强参数应用到全部 ${s.pages.length} 张图片。`);refresh();};
 $('startCrop').onclick=startCrop;$('cancelCrop').onclick=stopCrop;
 $('preview').onpointerdown=e=>{if(!s.crop||s.busy)return;cropStart=normalizedPoint(e);s.cropBox=null;$('preview').setPointerCapture(e.pointerId);e.preventDefault();};
 $('preview').onpointermove=e=>{if(!s.crop||!cropStart)return;const q=normalizedPoint(e),b={x:Math.min(q.x,cropStart.x),y:Math.min(q.y,cropStart.y),w:Math.abs(q.x-cropStart.x),h:Math.abs(q.y-cropStart.y)};s.cropBox=b;$('cropBox').hidden=false;Object.assign($('cropBox').style,{left:`${b.x*100}%`,top:`${b.y*100}%`,width:`${b.w*100}%`,height:`${b.h*100}%`});};
@@ -250,5 +253,6 @@ window.addEventListener('beforeunload',e=>{if(s.pages.length||pdf.pages.length){
 window.addEventListener('hashchange',()=>setWorkspace(location.hash==='#pdf'?'pdf':'image'));
 $('inspector').addEventListener('keydown',e=>{if(e.key!=='Tab'||!$('inspector').classList.contains('open'))return;const items=[...$('inspector').querySelectorAll('button,input,select,summary,a[href]')].filter(el=>!el.disabled&&el.getClientRects().length);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}});
 matchMedia('(max-width:800px)').addEventListener('change',()=>closeInspector());
+installCompressionControls({getFiles:mode=>mode==='image'?(current()?[current().file]:[]):[...new Set(pdf.targets().map(p=>p.source))].map(id=>pdf.sources.get(id).file),runJob,saveBlob,toast,isCanceled:()=>s.cancel});
 new ResizeObserver(()=>fitPreview()).observe($('imageStage'));
 setWorkspace(location.hash==='#pdf'?'pdf':'image');renderImages();renderPdf();refresh();

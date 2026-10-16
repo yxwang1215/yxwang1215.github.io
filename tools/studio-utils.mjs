@@ -35,5 +35,6 @@ export const PRESETS = {
   color: {label: '清晰彩色', mode: 'color', clean: 35, sharpen: 40, contrast: 10, brightness: 0, threshold: 12},
   paper: {label: '文档净白', mode: 'color', clean: 95, sharpen: 45, contrast: 15, brightness: 3, threshold: 12},
   gray: {label: '灰度', mode: 'gray', clean: 65, sharpen: 40, contrast: 10, brightness: 0, threshold: 12},
+  photo: {label: '照片增强', mode: 'color', clean: 0, sharpen: 32, contrast: 8, brightness: 0, threshold: 12},
   bw: {label: '黑白扫描', mode: 'bw', clean: 30, sharpen: 0, contrast: 0, brightness: 0, threshold: 12}
 };
