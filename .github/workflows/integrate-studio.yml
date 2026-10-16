@@ -47,8 +47,10 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Real HTTP, worker, PDF and compression tests
         run: python tests/browser_check.py
-      - name: Commit tested merge without force
+      - name: Commit tested application without workflow changes
         run: |
+          # This token has contents scope only. Workflow updates use the repository connector separately.
+          git restore --source=origin/main --staged --worktree .github/workflows/tools-quality.yml
           git commit -m 'Integrate concurrent codecs and adaptive modes into the unified studio'
           git push origin HEAD:tools-editor-refresh-20261016
       - name: Save actual browser screenshots and outputs
