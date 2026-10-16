@@ -1,3 +1,4 @@
+import {SCAN_MODES, settingsForMode} from './png-to-pdf/modes.mjs';
 /** UI-only state helpers. File/Blob objects are retained, never uploaded or rewritten. */
 export function parseRange(text, count) {
   if (!Number.isInteger(count) || count < 1) throw new Error('请先添加 PDF 页面。');
@@ -29,12 +30,4 @@ export function movePage(pages, fromId, toId) {
   if (from < 0 || to < 0 || from === to) return copy;
   copy.splice(to, 0, copy.splice(from, 1)[0]); return copy;
 }
-export const PRESETS = {
-  original: {label: '原图', mode: 'original', clean: 0, sharpen: 0, contrast: 0, brightness: 0, threshold: 12},
-  auto: {label: '自动增强', mode: 'color', clean: 55, sharpen: 35, contrast: 6, brightness: 1, threshold: 12},
-  color: {label: '清晰彩色', mode: 'color', clean: 35, sharpen: 40, contrast: 10, brightness: 0, threshold: 12},
-  paper: {label: '文档净白', mode: 'color', clean: 95, sharpen: 45, contrast: 15, brightness: 3, threshold: 12},
-  gray: {label: '灰度', mode: 'gray', clean: 65, sharpen: 40, contrast: 10, brightness: 0, threshold: 12},
-  photo: {label: '照片增强', mode: 'color', clean: 0, sharpen: 32, contrast: 8, brightness: 0, threshold: 12},
-  bw: {label: '黑白扫描', mode: 'bw', clean: 30, sharpen: 0, contrast: 0, brightness: 0, threshold: 12}
-};
+export const PRESETS = Object.fromEntries(SCAN_MODES.map(m => [m.id === 'document' ? 'paper' : m.id, {...settingsForMode(null, m.id), label:m.name, group:m.group, hint:m.hint}]));

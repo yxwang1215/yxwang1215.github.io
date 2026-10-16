@@ -43,7 +43,7 @@ page_class: "research-map-page"
 </section>
 
 <section class="research-clusters" aria-label="Research areas">
-  <article class="research-cluster">
+  <article id="diffusion-llm" class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">01</span>
       <div>
@@ -84,7 +84,7 @@ page_class: "research-map-page"
     </div>
   </article>
 
-  <article class="research-cluster">
+  <article id="audio-llm" class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">02</span>
       <div>
@@ -118,7 +118,7 @@ page_class: "research-map-page"
     </div>
   </article>
 
-  <article class="research-cluster">
+  <article id="medical-robotics" class="research-cluster">
     <header class="research-cluster__header">
       <span class="research-cluster__number">03</span>
       <div>

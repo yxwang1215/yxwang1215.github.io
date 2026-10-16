@@ -4,7 +4,7 @@ from hashlib import sha256
 from urllib.request import Request, urlopen
 import json, os, time
 ROOT=Path(__file__).resolve().parents[1]
-PATHS=['tools/index.html','tools/studio.css','tools/studio.mjs','tools/studio-utils.mjs','tools/studio-compression.mjs','tools/pdf-workspace.mjs']
+PATHS=['tools/index.html','tools/studio.css','tools/studio.mjs','tools/studio-utils.mjs','tools/studio-compression.mjs','tools/pdf-workspace.mjs','tools/png-to-pdf/core.mjs','tools/png-to-pdf/base-core.mjs','tools/png-to-pdf/scan-effects.mjs','tools/png-to-pdf/modes.mjs']
 base='https://yxwang1215.top/'
 revision=os.environ.get('GITHUB_SHA','studio-release')
 last_error=None

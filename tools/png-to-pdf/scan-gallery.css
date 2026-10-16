@@ -1,0 +1,17 @@
+.scan-gallery-intro{margin:0 0 10px;color:var(--muted,#64716b);font-size:12px;line-height:1.6}
+.scan-filters{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 12px}
+.scan-filters button{border:1px solid #dce3df;border-radius:8px;background:#f7f9f7;color:#536259;padding:7px 10px;min-height:34px;font:inherit;font-size:12px;cursor:pointer}
+.scan-filters button[aria-pressed=true]{background:#244e43;color:#fff;border-color:#244e43}
+.scan-filters button:focus-visible,.presets.scan-gallery button:focus-visible{outline:3px solid #708f7e;outline-offset:2px}
+.presets.scan-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:390px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:3px 5px 3px 3px;margin:0 -3px 10px}
+.presets.scan-gallery button{position:relative;grid-column:auto;min-width:0;min-height:126px;padding:10px 7px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px}
+.presets.scan-gallery button[hidden]{display:none!important}
+.presets.scan-gallery button canvas{width:54px;height:66px;object-fit:contain;flex:none;background:#edece6;border-radius:3px}
+.presets.scan-gallery button strong{font-size:12px;line-height:1.4}
+.presets.scan-gallery button small{font-size:10px;line-height:1.5;white-space:normal;max-width:100%;text-align:center}
+.scan-local-tag{position:absolute;right:5px;top:5px;border-radius:4px;padding:2px 4px;background:#e4eee7;color:#2b5843;font-size:9px;line-height:1.3}
+.scan-capabilities{margin:8px 0 12px;border:1px solid #e0e7e1;border-radius:8px;padding:9px 10px;background:#f7f9f6;color:#58685f;font-size:11px;line-height:1.8}
+.scan-capabilities summary{cursor:pointer;font-size:11px;font-weight:500}
+.scan-capabilities p{margin:8px 0 0}
+@media(max-width:700px){.presets.scan-gallery{grid-template-columns:repeat(3,minmax(0,1fr));max-height:300px}.presets.scan-gallery button{min-height:124px}.scan-filters button{min-height:38px;flex:1;padding:6px 4px}}
+@media(prefers-reduced-motion:reduce){.presets.scan-gallery{scroll-behavior:auto}}

@@ -1,44 +1,34 @@
-// Progressive enhancement for /navigation/: no JavaScript is needed to browse.
+// Show one full directory card for each matching query.
 (() => {
   "use strict";
-  const input = document.querySelector("#site-directory-search");
-  const clearButton = document.querySelector("#site-directory-clear");
-  const resetButton = document.querySelector("#site-directory-reset");
-  const count = document.querySelector("#site-directory-count");
-  const empty = document.querySelector("#site-directory-empty");
-  const groups = [...document.querySelectorAll("[data-directory-group]")];
-  if (!input || !count || !empty || !groups.length) return;
+  const input = document.getElementById("site-directory-search");
+  const clearButton = document.getElementById("site-directory-clear");
+  const resetButton = document.getElementById("site-directory-reset");
+  const count = document.getElementById("site-directory-count");
+  const empty = document.getElementById("site-directory-empty");
+  const cards = [...document.querySelectorAll("[data-directory-card]")];
+  if (!input || !count || !empty || !cards.length) return;
 
-  const sections = groups.map((element) => ({
-    element,
-    cards: [...element.querySelectorAll("[data-directory-card]")].map((node) => ({
-      node,
-      searchable: (node.textContent + " " + (node.dataset.keywords || "")).toLocaleLowerCase()
-    }))
+  const normalize = (value) => value.normalize("NFKC").toLocaleLowerCase();
+  const records = cards.map((card) => ({
+    node: card,
+    searchable: normalize(card.textContent + " " + (card.dataset.keywords || ""))
   }));
-  const total = sections.reduce((sum, section) => sum + section.cards.length, 0);
 
   function filter() {
-    const query = input.value.trim().toLocaleLowerCase();
+    const query = normalize(input.value.trim());
     const terms = query.split(/\s+/).filter(Boolean);
-    let visibleCount = 0;
-
-    for (const section of sections) {
-      let sectionCount = 0;
-      for (const card of section.cards) {
-        const matches = terms.every((term) => card.searchable.includes(term));
-        card.node.hidden = !matches;
-        if (matches) sectionCount++;
-      }
-      section.element.hidden = sectionCount === 0;
-      visibleCount += sectionCount;
+    let visible = 0;
+    for (const record of records) {
+      const matches = terms.every((term) => record.searchable.includes(term));
+      record.node.hidden = !matches;
+      if (matches) visible++;
     }
-
     count.textContent = query
-      ? `找到 ${visibleCount} / ${total} 个入口`
-      : `${total} 个可访问入口`;
-    empty.hidden = visibleCount !== 0;
-    if (clearButton) clearButton.hidden = query.length === 0;
+      ? "找到 " + visible + " / " + cards.length + " 个目录"
+      : cards.length + " 个目录";
+    empty.hidden = visible !== 0;
+    if (clearButton) clearButton.hidden = !query;
   }
 
   function reset() {

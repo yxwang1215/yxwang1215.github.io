@@ -208,8 +208,22 @@ async function demo(){
   const blob=await toBlob(c,'jpeg',.9);await importFiles([new File([blob],'weekly-notes.jpg',{type:'image/jpeg'})]);c.width=c.height=1;
 }
 // Build real controls once; current-document thumbnails are rendered after each preview.
+let scanGroup = 'basic';
+const scanFilters = document.createElement('div');
+scanFilters.className = 'scan-filters'; scanFilters.setAttribute('aria-label','扫描效果分类');
+for (const [group, label] of [['basic','常用'],['repair','修复'],['scene','场景'],['color','色彩'],['all','全部']]) {
+  const button = document.createElement('button'); button.type='button'; button.dataset.scanGroup=group; button.textContent=label;
+  button.setAttribute('aria-pressed',String(group===scanGroup));
+  button.onclick=()=>{
+    scanGroup=group;
+    scanFilters.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scanGroup===group)));
+    document.querySelectorAll('[data-preset]').forEach(b=>b.hidden=group!=='all' && b.dataset.scanCategory!==group);
+  };
+  scanFilters.append(button);
+}
+$('presets').before(scanFilters);
 for(const [key,p]of Object.entries(PRESETS)){
-  const b=document.createElement('button');b.className='preset';b.dataset.preset=key;b.innerHTML='<span class="preset-thumb"><span class="skeleton"><i></i><i></i><i></i><i></i></span></span><span class="preset-name"></span>';b.querySelector('.preset-name').textContent=p.label;b.onclick=()=>edit(page=>{page.preset=key;page.settings=settingsForMode(page.stats,key==='paper'?'document':key);});$('presets').append(b);
+  const b=document.createElement('button');b.className='preset';b.dataset.preset=key;b.dataset.scanCategory=p.group;b.hidden=p.group!==scanGroup;b.title=p.hint;b.innerHTML='<span class="preset-thumb"><span class="skeleton"><i></i><i></i><i></i><i></i></span></span><span class="preset-name"></span>';b.querySelector('.preset-name').textContent=p.label;b.onclick=()=>edit(page=>{page.preset=key;page.settings=settingsForMode(page.stats,key==='paper'?'document':key);});$('presets').append(b);
 }
 for(const [key,label,min,max]of [['clean','纸张去灰',0,100],['sharpen','文字锐化',0,150],['contrast','对比度',-50,80],['brightness','亮度',-40,40],['threshold','黑白阈值',2,35]]){
   const wrapper=document.createElement('label');wrapper.className='field';wrapper.innerHTML=`<span>${label}<output id="adjust-${key}Value"></output></span><input type="range" id="adjust-${key}" data-setting="${key}" min="${min}" max="${max}">`;const input=wrapper.querySelector('input');input.addEventListener('change',()=>edit(p=>{p.preset='custom';p.settings[key]=Number(input.value);}));input.addEventListener('input',()=>$(`adjust-${key}Value`).textContent=input.value);$('advancedFields').append(wrapper);

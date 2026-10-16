@@ -1,0 +1,31 @@
+name: Scan styles checks
+on:
+  push:
+    branches: [main, feat/scan-style-gallery-20261016]
+    paths: [tools/png-to-pdf/**, tests/**, .github/workflows/scan-styles-check.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Core regression suite
+        run: node --test tests/*.test.mjs
+      - name: Browser dependencies
+        run: |
+          python -m pip install playwright pillow pymupdf
+          python -m playwright install --with-deps chromium
+      - name: Scan styles and exports in a real browser
+        run: python tests/scan-styles-e2e.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scan-styles-qa
+          path: /tmp/scan-styles-qa

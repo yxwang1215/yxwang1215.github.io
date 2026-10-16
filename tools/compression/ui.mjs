@@ -7,12 +7,15 @@ function switchTab(name){
  if(document.querySelector('.tool-tabs button:disabled'))return;
  byId('scanPanel').hidden=name!=='scan';byId('compressionPanel').hidden=name!=='compress';
  document.querySelectorAll('[data-tool]').forEach(b=>{const selected=b.dataset.tool===name;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});
+ if(location.hash!=='#'+name)history.replaceState(null,'','#'+name);
+ window.dispatchEvent(new Event('tool-workspace-change'));
 }
 document.querySelectorAll('[data-tool]').forEach(b=>{
  b.onclick=()=>switchTab(b.dataset.tool);
  b.onkeydown=e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();const next=b.dataset.tool==='scan'?'compress':'scan';switchTab(next);document.querySelector(`[data-tool=${next}]`).focus();}};
 });
 if(location.hash==='#compress')switchTab('compress');
+window.addEventListener('hashchange',()=>{if(location.hash==='#compress')switchTab('compress');else if(location.hash==='#scan')switchTab('scan');});
 const status=s=>byId('compressionStatus').textContent=s;
 function cleanupResults(){for(const r of queue){if(r.url)URL.revokeObjectURL(r.url);r.url=null;r.result=null;r.error=null;}if(zipUrl)URL.revokeObjectURL(zipUrl);zipUrl=null;byId('zipAgain').hidden=true;byId('zipAgain').removeAttribute('href');}
 function busy(value){working=value;byId('compressionPanel').setAttribute('aria-busy',String(value));document.querySelectorAll('#compressionPanel button,#compressionPanel input,#compressionPanel select,.tool-tabs button').forEach(b=>b.disabled=value);byId('stopCompress').hidden=!value;byId('stopCompress').disabled=false;if(!value)refresh();}

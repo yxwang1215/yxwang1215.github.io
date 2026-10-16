@@ -92,8 +92,12 @@ try:
     ctx.on('request',lambda r:requests.append((r.method,r.url)))
     ctx.on('page',lambda pg:pg.on('pageerror',lambda e:errors.append(str(e))))
     page=load(ctx,'/tools/')
-    check('hub exposes all seven existing/new tools',page.locator('.tool-card').count()==7)
-    for href in page.locator('.tool-card').evaluate_all('(els)=>els.map(e=>e.getAttribute("href"))'):
+    expected={'./merge-pdf/','./mixed-to-pdf/','./split-pdf/','./extract-pdf/','./organize-pdf/','./png-to-pdf-simple/','./png-to-pdf/'}
+    links=page.locator('#compatibilityRoutes a').evaluate_all('(els)=>els.map(e=>e.getAttribute("href"))')
+    check('editor retains all seven exact compatibility routes',len(links)==7 and set(links)==expected)
+    check('image and PDF share the editor',page.locator('#imageWorkspace').count()==1 and page.locator('#pdfWorkspace').count()==1)
+    check('no independent tool-card wall',page.locator('.tool-card').count()==0)
+    for href in links:
         check('hub link resolves '+href,(ROOT/'tools'/href/'index.html').exists())
     page.screenshot(path=str(OUT/'hub-desktop.png'),full_page=True);page.close()
     page=load(ctx,'/tools/',390);check('mobile hub has no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth'))

@@ -4,7 +4,7 @@ import {readFileSync,existsSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 test('editor retains seven image-dependent scan modes',()=>{
  const app=read('tools/studio.mjs');
- assert.match(app,/settingsForMode/);assert.match(app,/analyzePixels/);assert.match(read('tools/studio-utils.mjs'),/photo:/);
+ assert.match(app,/settingsForMode/);assert.match(app,/analyzePixels/);assert.match(read('tools/studio-utils.mjs'),/SCAN_MODES.map/);
 });
 test('existing compression algorithms are exposed in the shared inspector',()=>{
  const app=read('tools/studio.mjs');assert.match(app,/installCompressionControls/);
