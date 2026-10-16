@@ -2,7 +2,7 @@
 export function mountScanGallery(modes) {
   const grid=document.querySelector('.presets');
   if(!grid||grid.dataset.scanGallery)return;
-  grid.dataset.scanGallery='18';grid.classList.add('scan-gallery');
+  grid.dataset.scanGallery=String(modes.length);grid.classList.add('scan-gallery');
   const style=document.createElement('link');style.rel='stylesheet';
   style.href=new URL('./scan-gallery.css',import.meta.url).href;document.head.append(style);
   const captions={comprehensive:'去阴影 · 校色 · 降噪',auto:'自动适配每一页',document:'白纸黑字更干净',bw:'纯黑白扫描件',original:'保留原始观感',shadow:'均衡光照与底色',sharpen:'强化细字与边缘',faded:'加深淡字与铅笔线',denoise:'柔化细小噪点',receipt:'小票与热敏纸',book:'减轻书页灰底',whiteboard:'白底与彩色笔迹',stamp:'保留红章与蓝字',ink:'浅黑文字 · 少灰底',gray:'保留灰阶层次',color:'温和保留原色',vivid:'图表与插图更鲜明',photo:'提亮照片细节'};
@@ -29,6 +29,8 @@ export function mountScanGallery(modes) {
     b.textContent=label;b.setAttribute('aria-pressed',String(id==='all'));b.onclick=()=>selectGroup(id);filters.append(b);
   }
   grid.before(intro,filters);
+  const explanation=document.querySelector('.bottom-info article:nth-child(2) p');
+  if(explanation)explanation.textContent=`${modes.length} 种一键模式，每页自动分析明暗。局部亮度校正、纸张校色、降噪与文字增强，无需逐个调整参数。`;
   const note=document.createElement('details');note.className='scan-capabilities';
   const summary=document.createElement('summary');summary.textContent='综合修复与 OmniFix 的区别';
   const text=document.createElement('p');text.textContent='综合修复组合本地光照均衡、纸张校色、保边降噪和局部文字增强，不是扫描全能王的 OmniFix，也未接入其专有模型。暂不支持 AI 去摩尔纹、曲面展平、遮挡补全或失焦文字重建。原文件不变，重要材料请使用「前后对比」核对。';
