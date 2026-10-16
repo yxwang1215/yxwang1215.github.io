@@ -18,3 +18,13 @@ test('all seven compatibility routes remain reachable without a tool-card wall',
 test('normal browser test keeps site CSP and avoids evaluator wait strings',()=>{
  const script=read('tests/browser_check.py');assert.doesNotMatch(script,/page\.wait_for_function\(/);assert.doesNotMatch(script,/bypass_csp\s*=\s*True/);
 });
+
+
+test('mobile empty canvas stays scrollable without hiding the artwork',()=>{
+ const css=read('tools/studio-comfort.css');
+ assert.match(css, /#imageStage:not\(\.has-image\),\s*#pdfEmpty\s*\{[^}]*overflow-y:\s*auto;[^}]*touch-action:\s*pan-y;/);
+ assert.match(css, /align-items:\s*safe center;/);
+ assert.match(css, /#imageStage:not\(\.has-image\)\s*~\s*\.canvas-controls/);
+ assert.match(css, /#imageStage:not\(\.has-image\)\s*~\s*\.filmstrip/);
+ assert.match(read('tools/studio.mjs'), /stage\.addEventListener\('pointerdown'/);
+});
