@@ -231,7 +231,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="section-divider"></div>
 
 <div class="friend-card" markdown="1">
-[**Wenhao Zhang**](https://vegebirrd.github.io/), a junior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
+[**Wenhao Zhang**](https://vegebirrd.github.io/), a senior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
 </div>
 <br>
 <!-- <br> -->
