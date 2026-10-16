@@ -142,7 +142,7 @@ async function addFiles(files){
     state.items.push({...meta,file,id:state.next++,range:'',rotation:0,url:URL.createObjectURL(file)});added++;
    }catch(error){if(state.cancelled)throw error;errors.push(file.name+'：'+error.message);}
   }
-  if(mode==='organize')resetPages();
+  if(mode==='organize'&&added)resetPages();
   notice(errors.length?errors.slice(0,6).join('\n')+(errors.length>6?'\n另有 '+(errors.length-6)+' 个文件未添加。':''):'已添加 '+added+' 个文件。请检查顺序与输出设置。',!!errors.length);
  }catch(error){notice(error.message,!state.cancelled);}
  finally{$('file-input').value='';busy(false);renderFiles();renderPages();}

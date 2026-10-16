@@ -159,6 +159,8 @@ try:
     out,_=download(page,'organized.pdf')
     check('organizer removes excluded page and changes order',texts(out)==['ALPHA 3','ALPHA 2'])
     with fitz.open(out) as d:check('organizer changes selected rotation only',d[0].rotation==90 and d[1].rotation==90)
+    add(page,'bad.pdf')
+    check('failed replacement preserves organizer edits',page.locator('#summary').inner_text().startswith('2 页') and page.locator('#page-grid').locator('li').nth(1).get_attribute('data-page')=='2')
     page.locator('#select-none').click();check('organizer refuses an empty PDF',page.locator('#export').is_disabled())
     page.locator('#reset-pages').click();check('reset restores all pages',page.locator('#summary').inner_text().startswith('3 页'))
     page.screenshot(path=str(OUT/'organize-desktop.png'),full_page=True);page.close()
