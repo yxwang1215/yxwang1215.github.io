@@ -60,18 +60,18 @@
     document.addEventListener('pointerdown',e=>{if(menu.open&&!menu.contains(e.target))menu.open=false;});
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.open){menu.open=false;summary.focus();}});
     // Keep deep links from the earlier scanner valid in the unified editor.
-    const openCompression=()=>{
-      const tab=document.getElementById('imageTab'),button=document.querySelector('#imageTools [data-tool="compress"]');
+    const openImageTool=(target)=>{
+      const tab=document.getElementById('imageTab'),button=document.querySelector('#imageTools [data-tool="'+target+'"]');
       if(!tab||!button||tab.disabled||button.disabled)return;
-      tab.click();button.click();refresh();
+      tab.click();button.focus();button.click();refresh();
     };
     if(initialHash==='#compress'){
-      if(document.readyState==='complete')openCompression();
-      else window.addEventListener('load',openCompression,{once:true});
+      if(document.readyState==='complete')openImageTool('compress');
+      else window.addEventListener('load',()=>openImageTool('compress'),{once:true});
     }
     menu.addEventListener('click',e=>{
       const a=e.target.closest('a');if(!a)return;
-      if(a.dataset.toolTarget==='compress'&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();openCompression();}
+      if(['compress','scan'].includes(a.dataset.toolTarget)&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();openImageTool(a.dataset.toolTarget==='scan'?'enhance':'compress');}
       menu.open=false;
     });
     document.querySelector('.app')?.addEventListener('click',()=>queueMicrotask(refresh));

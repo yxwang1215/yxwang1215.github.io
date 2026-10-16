@@ -16,7 +16,7 @@ class Quiet(SimpleHTTPRequestHandler):
     def log_message(self, *args): pass
 server = ThreadingHTTPServer(('127.0.0.1', 0), partial(Quiet, directory=str(ROOT)))
 Thread(target=server.serve_forever, daemon=True).start()
-BASE = f'http://127.0.0.1:{server.server_port}'
+BASE = os.environ.get('TOOLS_UI_BASE_URL', f'http://127.0.0.1:{server.server_port}').rstrip('/')
 results, errors = [], []
 def check(name, ok, detail=None):
     results.append({'name':name, 'passed':bool(ok), 'detail':detail})
@@ -70,6 +70,11 @@ with sync_playwright() as p:
     menu.locator('a[data-tool-target="compress"]').click()
     check('studio: compression menu opens actual inspector',page.locator('#inspectorTitle').inner_text()=='尺寸与压缩')
     check('studio: compression current state is highlighted',menu.locator('a[data-tool-target="compress"][aria-current="page"]').count()==1)
+    menu.locator('summary').click()
+    if OFFLINE:
+        menu.locator('a[data-tool-target="scan"]').evaluate('(a)=>a.addEventListener("click",e=>e.preventDefault(),{once:true})')
+    menu.locator('a[data-tool-target="scan"]').click()
+    check('studio: scan menu returns from compression to enhancement',page.locator('#inspectorTitle').inner_text()=='扫描增强')
     page.click('#imageTools [data-tool="enhance"]')
     menu.locator('summary').click()
     page.keyboard.press('Escape')

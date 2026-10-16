@@ -4,7 +4,7 @@ from hashlib import sha256
 from urllib.request import Request, urlopen
 import json, os, time
 ROOT=Path(__file__).resolve().parents[1]
-PATHS=['tools/index.html','tools/studio.css','tools/studio.mjs','tools/studio-utils.mjs','tools/studio-compression.mjs','tools/pdf-workspace.mjs','tools/png-to-pdf/core.mjs','tools/png-to-pdf/base-core.mjs','tools/png-to-pdf/scan-effects.mjs','tools/png-to-pdf/modes.mjs']
+PATHS=['tools/index.html','tools/tool-switcher.css','tools/tool-switcher.js','tools/studio.css','tools/studio.mjs','tools/studio-utils.mjs','tools/studio-compression.mjs','tools/pdf-workspace.mjs','tools/png-to-pdf/core.mjs','tools/png-to-pdf/base-core.mjs','tools/png-to-pdf/scan-effects.mjs','tools/png-to-pdf/modes.mjs']
 base='https://yxwang1215.top/'
 revision=os.environ.get('GITHUB_SHA','studio-release')
 last_error=None
@@ -17,7 +17,7 @@ for attempt in range(16):
             with urlopen(request,timeout=20) as response:
                 content=response.read();mime=response.headers.get('Content-Type','')
                 assert response.status==200, f'{path}: HTTP {response.status}'
-                if path.endswith('.mjs'):assert 'javascript' in mime,f'{path}: unexpected MIME {mime}'
+                if path.endswith(('.mjs','.js')):assert 'javascript' in mime,f'{path}: unexpected MIME {mime}'
             assert sha256(content).digest()==sha256((ROOT/path).read_bytes()).digest(),f'{path}: old or different published content'
             checked.append(path)
         out=ROOT/'.editor-checks';out.mkdir(exist_ok=True)

@@ -48,6 +48,12 @@ jobs:
       - name: Verify published Pages files
         if: github.ref == 'refs/heads/main'
         run: python tests/published_smoke.py
+      - name: Verify actual public Tools layout
+        if: github.ref == 'refs/heads/main'
+        env:
+          TOOLS_UI_BASE_URL: https://yxwang1215.top
+          TOOLS_UI_OUTPUT: .editor-checks/published-layout
+        run: python tests/tools-ui-layout.py
       - name: Verify actual public-domain browser and exports
         if: github.ref == 'refs/heads/main'
         run: python tests/published_browser.py
