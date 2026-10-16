@@ -42,9 +42,51 @@ groups:
     title: 实用工具
     description: 免登录的浏览器工具；文件转换在本地进行，不上传文档内容。
     entries:
+      - title: Tools
+        subtitle: 文件工具箱
+        url: "/tools/"
+        category: LOCAL TOOL
+        description: 合并、拆分、提取与整理 PDF，浏览全部本地文件工具。
+        keywords: "PDF PNG 合并 拆分 页面 工具 tools"
+        meta: "全部文件工具"
+      - title: PNG + PDF Merge
+        subtitle: 图片与 PDF 混合合并
+        url: "/tools/mixed-to-pdf/"
+        category: LOCAL TOOL
+        description: 按顺序组合 PNG 与 PDF，支持逐文件选页及图片页面设置。
+        keywords: "PNG PDF 图片 混合 合并 插入"
+        meta: "图片与 PDF 组合"
+      - title: PDF Merge
+        subtitle: PDF 合并
+        url: "/tools/merge-pdf/"
+        category: LOCAL TOOL
+        description: 合并多份 PDF，支持排序、旋转与逐文件页码范围。
+        keywords: "PDF 合并 拼接 merge 顺序"
+        meta: "多文件合并"
+      - title: PDF Split
+        subtitle: PDF 拆分
+        url: "/tools/split-pdf/"
+        category: LOCAL TOOL
+        description: 逐页、每 N 页或按自定义范围拆分，多份结果打包 ZIP。
+        keywords: "PDF 拆分 split ZIP 分组"
+        meta: "拆分与打包"
+      - title: PDF Extract
+        subtitle: 提取 PDF 页面
+        url: "/tools/extract-pdf/"
+        category: LOCAL TOOL
+        description: 按页码范围提取 PDF，支持倒序及重复页。
+        keywords: "PDF 页面 提取 extract 选页"
+        meta: "选取所需页面"
+      - title: PDF Organize
+        subtitle: PDF 页面整理
+        url: "/tools/organize-pdf/"
+        category: LOCAL TOOL
+        description: 按页调整顺序、旋转方向，移除不需要的页面。
+        keywords: "PDF 整理 排序 旋转 删除 organize"
+        meta: "页面重排与旋转"
       - title: PNG to PDF
         subtitle: 图片转 PDF
-        url: "/tools/"
+        url: "/tools/png-to-pdf-simple/"
         category: LOCAL TOOL
         description: 将多张 PNG 图片整理成 PDF，支持拖放排序、纸张尺寸、方向及页边距设置。
         keywords: "PNG PDF 图片 转换 合成 论文截图 工具 tools"
