@@ -1,8 +1,8 @@
 ---
 layout: default
 permalink: /navigation/
-title: "Navigation"
-excerpt: "A concise directory with personal content and practical tools side by side."
+title: "网站导航"
+excerpt: "个人主页、工具箱和 Overleaf 的入口。"
 author_profile: false
 wide: true
 page_class: "navigation-page"
@@ -11,74 +11,45 @@ page_class: "navigation-page"
 {% assign directories = site.data.site_directory.directories %}
 
 <div class="site-directory" lang="zh-CN">
-  <nav class="site-directory__breadcrumb" aria-label="面包屑">
-    <a href="{{ '/' | relative_url }}">Yuxuan Wang</a>
+  <nav class="site-directory__breadcrumb" aria-label="当前位置">
+    <a href="{{ '/' | relative_url }}">首页</a>
     <span aria-hidden="true">/</span>
-    <span aria-current="page">Navigation</span>
+    <span aria-current="page">导航</span>
   </nav>
 
   <header class="site-directory__hero">
-    <p class="site-directory__eyebrow"><span class="site-directory__eyebrow-mark" aria-hidden="true"></span> SITE INDEX / 网站导航</p>
-    <div class="site-directory__hero-head">
-      <div>
-        <h1>常用入口，<span>清晰呈现。</span></h1>
-        <p class="site-directory__intro">个人主页、实用工具与在线 LaTeX 工作区各有独立入口。研究内容、文件处理和论文写作清晰分区。</p>
-      </div>
-      <div class="site-directory__hero-count" aria-label="共 {{ directories | size }} 个主要入口">
-        <strong>{{ directories | size | prepend: '0' | slice: -2, 2 }}</strong>
-        <span>MAIN<br>GROUPS</span>
-      </div>
-    </div>
-
-    <nav class="site-directory__jump" aria-label="跳转到目录">
-      {% for directory in directories %}
-      <a href="#{{ directory.id }}"><span>{{ directory.number }}</span>{{ directory.title }}<span aria-hidden="true">↘</span></a>
-      {% endfor %}
-    </nav>
+    <h1>导航</h1>
+    <p class="site-directory__intro">个人主页的各个栏目、实用工具和 Overleaf。</p>
   </header>
 
   <div class="site-directory__toolbar">
-    <div class="site-directory__toolbar-title">
-      <strong>主要入口</strong>
-      <span>个人主页、Tools 与 Overleaf · 独立分区</span>
-    </div>
-    <div class="site-directory__search">
-      <span aria-hidden="true" class="site-directory__search-symbol">⌕</span>
-      <label class="site-directory__sr-only" for="site-directory-search">搜索目录和功能</label>
-      <input type="search" id="site-directory-search" placeholder="搜索目录或功能…" autocomplete="off">
+    <div class="site-directory__search" role="search">
+      <svg class="site-directory__search-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="6.8"></circle>
+        <path d="m16 16 4.3 4.3"></path>
+      </svg>
+      <label class="site-directory__sr-only" for="site-directory-search">搜索页面和工具</label>
+      <input type="search" id="site-directory-search" placeholder="搜索页面或工具" autocomplete="off">
       <button type="button" id="site-directory-clear" hidden>清除</button>
-      <kbd aria-hidden="true">/</kbd>
     </div>
   </div>
 
-  <p class="site-directory__results" id="site-directory-count" role="status" aria-live="polite">{{ directories | size }} 组入口</p>
+  <p class="site-directory__results" id="site-directory-count" role="status" aria-live="polite">{{ directories | size }} 个分类</p>
 
   <div class="site-directory__cards" id="directory-list">
     {% for directory in directories %}
     <section id="{{ directory.id }}" class="site-directory__directory{% if directory.external %} site-directory__directory--external{% endif %}" data-directory-card data-keywords="{{ directory.keywords | escape }}" aria-labelledby="directory-title-{{ directory.id }}">
       {% if directory.id == 'home' %}<span id="research" class="site-directory__legacy-anchor" aria-hidden="true"></span><span id="journey" class="site-directory__legacy-anchor" aria-hidden="true"></span><span id="journal" class="site-directory__legacy-anchor" aria-hidden="true"></span>{% endif %}
       <div class="site-directory__directory-intro">
-        <div class="site-directory__directory-overline">
-          <span class="site-directory__directory-number">{{ directory.number }} / {{ directories | size | prepend: '0' | slice: -2, 2 }}</span>
-          <span>{{ directory.eyebrow }}</span>
-        </div>
-        <div class="site-directory__directory-heading">
-          <span class="site-directory__directory-english">{{ directory.english }}</span>
-          <h2 id="directory-title-{{ directory.id }}">{{ directory.title }}</h2>
-        </div>
+        <h2 id="directory-title-{{ directory.id }}">{{ directory.title }}</h2>
         <p class="site-directory__directory-description">{{ directory.description }}</p>
-        <div class="site-directory__directory-bottom">
-          <a class="site-directory__directory-cta" href="{% if directory.external %}{{ directory.url }}{% else %}{{ directory.url | relative_url }}{% endif %}"{% if directory.external %} target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{% if directory.external %}在新标签页打开{% else %}进入{% endif %}{{ directory.title }}">{% if directory.external %}打开{% else %}进入{% endif %}{{ directory.title }} <span aria-hidden="true">↗</span></a>
-          <code>{{ directory.url }}</code>
-        </div>
+        <a class="site-directory__directory-cta" href="{% if directory.external %}{{ directory.url }}{% else %}{{ directory.url | relative_url }}{% endif %}"{% if directory.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+          {{ directory.action }} <span aria-hidden="true">↗</span>
+        </a>
       </div>
 
       {% if directory.items.size > 0 %}
       <div class="site-directory__directory-content">
-        <div class="site-directory__content-heading">
-          <h3>快捷入口</h3>
-          <span>{{ directory.items | size }} 个入口</span>
-        </div>
         <div class="site-directory__entries">
           {% for item in directory.items %}
           <a class="site-directory__entry" href="{% if directory.external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if directory.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
@@ -97,18 +68,13 @@ page_class: "navigation-page"
   </div>
 
   <div class="site-directory__empty" id="site-directory-empty" hidden>
-    <span aria-hidden="true">⌕</span>
-    <h2>没有找到匹配的目录</h2>
-    <p>试试“Overleaf”、“PDF”、“论文”或“生活日志”。</p>
-    <button id="site-directory-reset" type="button">查看全部目录 <span aria-hidden="true">↗</span></button>
+    <p>没有找到相关入口。可以试试其他关键词。</p>
+    <button id="site-directory-reset" type="button">清除搜索</button>
   </div>
 
   <footer class="site-directory__footer">
-    <div><strong>Yuxuan Wang</strong><span>Everything in its place.</span></div>
-    <div class="site-directory__footer-links">
-      <a href="{{ '/' | relative_url }}">返回主页 ↗</a>
-      <a href="{{ '/tools/' | relative_url }}">打开工具箱 ↗</a>
-      <a href="https://github.com/yxwang1215/yxwang1215.github.io" target="_blank" rel="noopener noreferrer">网站源码 ↗</a>
-    </div>
+    <a href="{{ '/' | relative_url }}">首页</a>
+    <a href="{{ '/tools/' | relative_url }}">工具箱</a>
+    <a href="https://github.com/yxwang1215/yxwang1215.github.io" target="_blank" rel="noopener noreferrer">网站源码 ↗</a>
   </footer>
 </div>
