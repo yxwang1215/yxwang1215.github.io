@@ -1,13 +1,14 @@
 """HTTP-origin integration checks for the actual editor, worker and every export format."""
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import time
 import zipfile
 from PIL import Image, ImageDraw
-import fitz
-from playwright.sync_api import sync_playwright
+import pymupdf as fitz
+from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(os.environ.get('SCAN_QA_OUTPUT', '/tmp/scan-styles-qa'))
@@ -24,11 +25,15 @@ server = subprocess.Popen(['python', '-m', 'http.server', '8876', '--bind', '127
 errors, uploads, checks = [], [], []
 
 def ready(page):
-    page.wait_for_function("document.getElementById('demo').onclick !== null")
+    for _ in range(300):
+        if page.locator("#demo").evaluate("el => typeof el.onclick === 'function'"):
+            return
+        page.wait_for_timeout(100)
+    raise AssertionError("Editor event handlers did not initialize")
 
 def preview_ready(page):
     page.wait_for_timeout(220)
-    page.wait_for_function("document.getElementById('previewMeta').textContent.startsWith('第 ')", timeout=30000)
+    expect(page.locator("#previewMeta")).to_have_text(re.compile(r"^第 "), timeout=30000)
 
 try:
     time.sleep(.6)
@@ -42,7 +47,7 @@ try:
         ready(page)
         assert page.locator('[data-preset]').count() == 18
         page.locator('#demo').click()
-        page.wait_for_function("document.getElementById('pageCount').textContent === '01'")
+        expect(page.locator("#pageCount")).to_have_text("01")
         preview_ready(page)
         assert page.locator('[data-preset] canvas').count() == 18
         modes = page.locator('[data-preset]').evaluate_all('(els)=>els.map(e=>e.dataset.preset)')
@@ -59,7 +64,7 @@ try:
             assert page.locator('[data-preset]:visible').count() == count
         checks.append('all category filters')
         page.locator('#files').set_input_files([OUT/'input.jpg', OUT/'input.webp'])
-        page.wait_for_function("document.getElementById('pageCount').textContent === '03'")
+        expect(page.locator("#pageCount")).to_have_text("03")
         preview_ready(page)
         page.locator('[data-preset="comprehensive"]').click()
         preview_ready(page)
@@ -102,12 +107,12 @@ try:
         m.on('pageerror', lambda e: errors.append(str(e)))
         m.goto('http://127.0.0.1:8876/tools/', wait_until='networkidle')
         ready(m);m.locator('#demo').click()
-        m.wait_for_function("document.getElementById('pageCount').textContent === '01'")
+        expect(m.locator("#pageCount")).to_have_text("01")
         preview_ready(m)
         m.locator('[data-scan-group="repair"]').click()
         m.locator('[data-preset="shadow"]').click();preview_ready(m)
         assert m.locator('[data-preset="shadow"]').get_attribute('aria-pressed') == 'true'
-        assert m.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1')
+        assert m.evaluate('() => document.documentElement.scrollWidth <= window.innerWidth + 1')
         m.screenshot(path=str(OUT/'mobile.png'), full_page=True)
         checks.append('390px mobile layout and touch preset selection')
         assert not errors, errors
