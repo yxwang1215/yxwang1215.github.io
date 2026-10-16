@@ -1,0 +1,122 @@
+# Public, user-facing routes. Add new pages here to update /navigation/ automatically.
+# Do not list Jekyll source folders (_pages, _data, assets) as public destinations.
+groups:
+  - id: pages
+    index: "01"
+    eyebrow: MAIN DESTINATIONS
+    title: 独立页面
+    description: 浏览研究方向、学术经历及生活记录。
+    entries:
+      - title: Home
+        subtitle: 个人主页
+        url: "/"
+        category: PROFILE
+        description: 个人介绍、教育背景、论文、项目、实习经历与荣誉的完整索引。
+        keywords: "首页 主页 profile about me biography"
+        meta: "从这里认识我"
+      - title: Research
+        subtitle: 研究方向
+        url: "/research/"
+        category: ACADEMIC
+        description: 按主题浏览 Diffusion LLM、Audio LLM 与医学机器人相关研究和代表性工作。
+        keywords: "研究 科研 论文 efficient inference diffusion audio llm robotics"
+        meta: "研究主题与成果"
+      - title: Journey
+        subtitle: 学术旅程
+        url: "/journey/"
+        category: TIMELINE
+        description: 沿时间线了解教育经历、科研实践与不同阶段的学习和探索。
+        keywords: "经历 时间线 education experience 学术履历"
+        meta: "教育与科研时间线"
+      - title: Journal
+        subtitle: 日志与随笔
+        url: "/journal/"
+        category: WRITING
+        description: 阅读生活记录、旅行照片和研究之外的随笔，支持按年份和标签查找。
+        keywords: "日志 日记 博客 旅行 生活 diary posts journal"
+        meta: "图文记录与归档"
+
+  - id: tools
+    index: "02"
+    eyebrow: PRACTICAL UTILITIES
+    title: 实用工具
+    description: 免登录的浏览器工具；文件转换在本地进行，不上传文档内容。
+    entries:
+      - title: PNG to PDF
+        subtitle: 图片转 PDF
+        url: "/tools/"
+        category: LOCAL TOOL
+        description: 将多张 PNG 图片整理成 PDF，支持拖放排序、纸张尺寸、方向及页边距设置。
+        keywords: "PNG PDF 图片 转换 合成 论文截图 工具 tools"
+        meta: "适合 PNG 批量转换"
+      - title: PaperScan
+        subtitle: 扫描增强与多格式导出
+        url: "/tools/png-to-pdf/"
+        category: LOCAL TOOL
+        description: 支持 JPG、PNG、WebP 等图片导入，提供锐化、去灰、裁剪、黑白扫描及 PDF／图片／ZIP 导出。
+        keywords: "JPG JPEG PNG WebP BMP GIF AVIF 扫描 增强 锐化 去灰 crop OCR 图片 PDF ZIP"
+        meta: "扫描件与多格式图片"
+
+  - id: sections
+    index: "03"
+    eyebrow: HOMEPAGE SECTIONS
+    title: 首页栏目
+    description: 这些入口会直接定位到首页对应章节，无需手动滚动查找。
+    compact: true
+    entries:
+      - title: About Me
+        subtitle: 关于我
+        url: "/#about-me"
+        category: HOME SECTION
+        description: 个人背景、研究兴趣和简要介绍。
+        keywords: "个人简介 about profile"
+        meta: "个人介绍"
+      - title: Education
+        subtitle: 教育经历
+        url: "/#educations"
+        category: HOME SECTION
+        description: 学校、学位、访学与导师信息。
+        keywords: "学校 学位 博士 本科 PKU Xidian UCLA"
+        meta: "学习经历"
+      - title: Publications
+        subtitle: 学术论文
+        url: "/#publications"
+        category: HOME SECTION
+        description: 已发表论文及对应的论文、代码链接。
+        keywords: "论文 发表 papers publications arxiv"
+        meta: "论文列表"
+      - title: Projects
+        subtitle: 科研项目
+        url: "/#projects"
+        category: HOME SECTION
+        description: 研究项目、开源实现及相关成果。
+        keywords: "项目 开源 代码 github research"
+        meta: "研究与项目"
+      - title: Internships
+        subtitle: 实习与科研经历
+        url: "/#internships"
+        category: HOME SECTION
+        description: 研究实习、合作实验室与工作内容。
+        keywords: "实习 研究 assistant lab industry"
+        meta: "实践经历"
+      - title: Awards
+        subtitle: 荣誉奖项
+        url: "/#honors-and-awards"
+        category: HOME SECTION
+        description: 奖学金、竞赛和其他荣誉记录。
+        keywords: "奖学金 获奖 荣誉 scholarship honors"
+        meta: "荣誉记录"
+      - title: Activities
+        subtitle: 校园活动
+        url: "/#activities"
+        category: HOME SECTION
+        description: 校园组织、社团活动和交流经历。
+        keywords: "活动 校园 学生组织 club"
+        meta: "校园与社群"
+      - title: Friends
+        subtitle: 友情链接
+        url: "/#friends"
+        category: HOME SECTION
+        description: 朋友与学术同行的个人主页链接。
+        keywords: "朋友 友情链接 colleagues friend links"
+        meta: "朋友与交流"
