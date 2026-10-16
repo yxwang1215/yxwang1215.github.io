@@ -22,7 +22,7 @@ page_class: "navigation-page"
     <div class="site-directory__hero-head">
       <div>
         <h1>常用入口，<span>清晰呈现。</span></h1>
-        <p class="site-directory__intro">个人主页与实用工具并列展示。研究、经历和日志收拢为一组，常用工具集中在另一组。</p>
+        <p class="site-directory__intro">个人主页、实用工具与在线 LaTeX 工作区各有独立入口。研究内容、文件处理和论文写作清晰分区。</p>
       </div>
       <div class="site-directory__hero-count" aria-label="共 {{ directories | size }} 个主要入口">
         <strong>{{ directories | size | prepend: '0' | slice: -2, 2 }}</strong>
@@ -40,7 +40,7 @@ page_class: "navigation-page"
   <div class="site-directory__toolbar">
     <div class="site-directory__toolbar-title">
       <strong>主要入口</strong>
-      <span>个人主页与 Tools · 两栏即可</span>
+      <span>个人主页、Tools 与 Overleaf · 独立分区</span>
     </div>
     <div class="site-directory__search">
       <span aria-hidden="true" class="site-directory__search-symbol">⌕</span>
@@ -55,7 +55,7 @@ page_class: "navigation-page"
 
   <div class="site-directory__cards" id="directory-list">
     {% for directory in directories %}
-    <section id="{{ directory.id }}" class="site-directory__directory" data-directory-card data-keywords="{{ directory.keywords | escape }}" aria-labelledby="directory-title-{{ directory.id }}">
+    <section id="{{ directory.id }}" class="site-directory__directory{% if directory.external %} site-directory__directory--external{% endif %}" data-directory-card data-keywords="{{ directory.keywords | escape }}" aria-labelledby="directory-title-{{ directory.id }}">
       {% if directory.id == 'home' %}<span id="research" class="site-directory__legacy-anchor" aria-hidden="true"></span><span id="journey" class="site-directory__legacy-anchor" aria-hidden="true"></span><span id="journal" class="site-directory__legacy-anchor" aria-hidden="true"></span>{% endif %}
       <div class="site-directory__directory-intro">
         <div class="site-directory__directory-overline">
@@ -68,11 +68,12 @@ page_class: "navigation-page"
         </div>
         <p class="site-directory__directory-description">{{ directory.description }}</p>
         <div class="site-directory__directory-bottom">
-          <a class="site-directory__directory-cta" href="{{ directory.url | relative_url }}" aria-label="进入{{ directory.title }}">进入{{ directory.title }} <span aria-hidden="true">↗</span></a>
+          <a class="site-directory__directory-cta" href="{% if directory.external %}{{ directory.url }}{% else %}{{ directory.url | relative_url }}{% endif %}"{% if directory.external %} target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{% if directory.external %}在新标签页打开{% else %}进入{% endif %}{{ directory.title }}">{% if directory.external %}打开{% else %}进入{% endif %}{{ directory.title }} <span aria-hidden="true">↗</span></a>
           <code>{{ directory.url }}</code>
         </div>
       </div>
 
+      {% if directory.items.size > 0 %}
       <div class="site-directory__directory-content">
         <div class="site-directory__content-heading">
           <h3>快捷入口</h3>
@@ -80,7 +81,7 @@ page_class: "navigation-page"
         </div>
         <div class="site-directory__entries">
           {% for item in directory.items %}
-          <a class="site-directory__entry" href="{{ item.url | relative_url }}">
+          <a class="site-directory__entry" href="{% if directory.external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if directory.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
             <span class="site-directory__entry-text">
               <strong>{{ item.title }}</strong>
               <small>{{ item.description }}</small>
@@ -90,6 +91,7 @@ page_class: "navigation-page"
           {% endfor %}
         </div>
       </div>
+      {% endif %}
     </section>
     {% endfor %}
   </div>
@@ -97,7 +99,7 @@ page_class: "navigation-page"
   <div class="site-directory__empty" id="site-directory-empty" hidden>
     <span aria-hidden="true">⌕</span>
     <h2>没有找到匹配的目录</h2>
-    <p>试试“PDF”、“论文”、“项目”或“生活日志”。</p>
+    <p>试试“Overleaf”、“PDF”、“论文”或“生活日志”。</p>
     <button id="site-directory-reset" type="button">查看全部目录 <span aria-hidden="true">↗</span></button>
   </div>
 
