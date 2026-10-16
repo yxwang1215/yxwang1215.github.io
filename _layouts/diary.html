@@ -84,9 +84,41 @@ layout: default
     </div>
   </footer>
 
+
+  {% if page.related_resources and page.related_resources.size > 0 %}
+  <section class="journal-resources" aria-labelledby="journal-resources-title">
+    <div class="journal-related__heading">
+      <span>EXPLORE THE STORY</span>
+      <h2 id="journal-resources-title">《三体Ⅳ·归零》相关资源</h2>
+    </div>
+    <div class="journal-resources__grid">
+      {% for resource in page.related_resources %}
+      <a class="journal-resource-card" href="{{ resource.url | relative_url }}" aria-label="{{ resource.action | default: resource.title | escape }}">
+        <span class="journal-resource-card__art" aria-hidden="true">
+          {% if page.cover %}
+          <img src="{{ journal_cover_url }}" alt="" loading="lazy" decoding="async">
+          {% else %}
+          <span class="journal-resource-card__glyph">✦</span>
+          {% endif %}
+          <span class="journal-resource-card__format">{{ resource.format | default: "FILE" }}</span>
+        </span>
+        <span class="journal-resource-card__body">
+          <span class="journal-resource-card__eyebrow">完整作品 · {{ resource.format | default: "FILE" }}</span>
+          <strong>{{ resource.title }}</strong>
+          <small>{{ resource.description }}</small>
+          <span class="journal-resource-card__action">{{ resource.action | default: "打开资源" }} <span aria-hidden="true">↗</span></span>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {% assign related_count = 0 %}
+  {% assign matched_count = 0 %}
+  {% assign reverse_entries = ordered_entries | reverse %}
   {% capture related_cards %}
-    {% assign reverse_entries = ordered_entries | reverse %}
+    {% comment %}First show posts sharing tags with this article.{% endcomment %}
     {% for candidate in reverse_entries %}
       {% if candidate.url != page.url and related_count < 3 %}
         {% assign shares_tag = false %}
@@ -95,21 +127,41 @@ layout: default
         {% endfor %}
         {% if shares_tag %}
           {% assign related_count = related_count | plus: 1 %}
+          {% assign matched_count = matched_count | plus: 1 %}
           <a class="journal-related__item" href="{{ candidate.url | relative_url }}">
-            <span>{{ candidate.date | date: "%Y.%m.%d" }}</span>
+            <span>同主题 · {{ candidate.date | date: "%Y.%m.%d" }}</span>
             <strong>{{ candidate.title }}</strong>
             <small>{{ candidate.excerpt | default: candidate.content | markdownify | strip_html | strip_newlines | truncate: 72 }}</small>
           </a>
         {% endif %}
       {% endif %}
     {% endfor %}
+    {% comment %}Fill remaining slots with other Journal posts, never claiming tag relevance.{% endcomment %}
+    {% if related_count < 3 %}
+      {% for candidate in reverse_entries %}
+        {% if candidate.url != page.url and related_count < 3 %}
+          {% assign shares_tag = false %}
+          {% for current_tag in page.tags %}
+            {% if candidate.tags contains current_tag %}{% assign shares_tag = true %}{% endif %}
+          {% endfor %}
+          {% unless shares_tag %}
+            {% assign related_count = related_count | plus: 1 %}
+            <a class="journal-related__item" href="{{ candidate.url | relative_url }}">
+              <span>更多记录 · {{ candidate.date | date: "%Y.%m.%d" }}</span>
+              <strong>{{ candidate.title }}</strong>
+              <small>{{ candidate.excerpt | default: candidate.content | markdownify | strip_html | strip_newlines | truncate: 72 }}</small>
+            </a>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   {% endcapture %}
 
   {% if related_count > 0 %}
   <section class="journal-related" aria-labelledby="journal-related-title">
     <div class="journal-related__heading">
       <span>KEEP READING</span>
-      <h2 id="journal-related-title">相似记录</h2>
+      <h2 id="journal-related-title">{% if matched_count > 0 %}延伸阅读{% else %}更多 Journal{% endif %}</h2>
     </div>
     <div class="journal-related__grid">{{ related_cards }}</div>
   </section>
