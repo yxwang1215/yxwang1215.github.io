@@ -10,7 +10,7 @@ redirect_from:
 ---
 
 {% assign diary_entries = site.diary | sort: "date" | reverse %}
-{% assign featured_entry = diary_entries | first %}
+{% assign latest_entry = diary_entries | first %}
 {%- capture journal_tag_string -%}
   {%- for entry in diary_entries -%}
     {%- for tag in entry.tags -%}{{ tag }}|||{%- endfor -%}
@@ -31,61 +31,13 @@ redirect_from:
   <div class="journal-feed-hero__stats" aria-label="Journal statistics">
     <div><strong>{{ diary_entries | size }}</strong><span>篇记录</span></div>
     <div><strong>{{ journal_tags | size }}</strong><span>个标签</span></div>
-    {% if featured_entry %}
-    <div><strong>{{ featured_entry.date | date: "%Y.%m" }}</strong><span>最近更新</span></div>
+    {% if latest_entry %}
+    <div><strong>{{ latest_entry.date | date: "%Y.%m" }}</strong><span>最近更新</span></div>
     {% endif %}
   </div>
 </section>
 
 {% include section-pager.html position="top" previous_url="/journey/" previous_label="Journey" next_url="/research/" next_label="Research" %}
-
-{% if featured_entry %}
-{% capture featured_search_text %}{{ featured_entry.title }} {{ featured_entry.excerpt }} {{ featured_entry.location }} {{ featured_entry.tags | join: " " }}{% endcapture %}
-<section id="latest" class="journal-feature-section" aria-labelledby="journal-feature-title">
-  <div class="journal-section-heading">
-    <div>
-      <p>最新</p>
-      <h2 id="journal-feature-title">最近一篇</h2>
-    </div>
-    <span>{{ featured_entry.date | date: "%Y年%m月%d日" }}</span>
-  </div>
-
-  <article class="journal-featured"
-    data-journal-item
-    data-tags="{{ featured_entry.tags | join: '|' | downcase | escape }}"
-    data-search="{{ featured_search_text | strip_html | strip_newlines | downcase | escape }}">
-    <a class="journal-featured__cover" href="{{ featured_entry.url | relative_url }}" aria-label="阅读：{{ featured_entry.title | escape }}">
-      {% if featured_entry.cover %}
-        {% if featured_entry.cover contains '://' %}
-          {% assign featured_cover_url = featured_entry.cover %}
-        {% else %}
-          {% assign featured_cover_url = featured_entry.cover | relative_url %}
-        {% endif %}
-        <img src="{{ featured_cover_url }}" alt="{{ featured_entry.cover_alt | default: featured_entry.title | escape }}" decoding="async">
-      {% else %}
-        <span class="journal-featured__placeholder" aria-hidden="true">记</span>
-      {% endif %}
-      <span class="journal-featured__date">{{ featured_entry.date | date: "%m.%d" }}</span>
-    </a>
-    <div class="journal-featured__body">
-      <span class="journal-featured__label">最近更新</span>
-      <h2><a href="{{ featured_entry.url | relative_url }}">{{ featured_entry.title }}</a></h2>
-      {% if featured_entry.subtitle %}<p class="journal-featured__subtitle">{{ featured_entry.subtitle }}</p>{% endif %}
-      {% assign featured_excerpt = featured_entry.excerpt | default: featured_entry.content %}
-      <p class="journal-featured__excerpt">{{ featured_excerpt | markdownify | strip_html | strip_newlines | truncate: 180 }}</p>
-      <div class="journal-featured__meta">
-        <span>{% if featured_entry.location %}⌖ {{ featured_entry.location }}{% else %}随笔{% endif %}</span>
-        {% if featured_entry.tags %}
-        <div class="journal-tags" aria-label="标签">
-          {% for tag in featured_entry.tags limit:3 %}<span>#{{ tag }}</span>{% endfor %}
-        </div>
-        {% endif %}
-      </div>
-      <a class="journal-featured__read" href="{{ featured_entry.url | relative_url }}">阅读全文 <span aria-hidden="true">→</span></a>
-    </div>
-  </article>
-</section>
-{% endif %}
 
 {% if diary_entries.size > 0 %}
 <section id="all" class="journal-discovery" data-journal-toolbar aria-labelledby="journal-all-title">
@@ -114,9 +66,8 @@ redirect_from:
   </div>
 </section>
 
-{% if diary_entries.size > 1 %}
-<section class="journal-list journal-list--v2" aria-label="Journal 列表">
-  {% for entry in diary_entries offset:1 %}
+<section id="latest" class="journal-list journal-list--v2" aria-label="Journal 全部文章，按时间倒序">
+  {% for entry in diary_entries %}
   {% capture entry_search_text %}{{ entry.title }} {{ entry.excerpt }} {{ entry.location }} {{ entry.tags | join: " " }}{% endcapture %}
   <article class="journal-card"
     data-journal-item
@@ -129,11 +80,12 @@ redirect_from:
         {% else %}
           {% assign journal_card_cover_url = entry.cover | relative_url %}
         {% endif %}
-      <img src="{{ journal_card_cover_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="lazy" decoding="async">
+      <img src="{{ journal_card_cover_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"{% if forloop.first %} fetchpriority="high"{% endif %} decoding="async">
       {% else %}
       <span class="journal-card__placeholder" aria-hidden="true">记</span>
       {% endif %}
       <span class="journal-card__image-shade" aria-hidden="true"></span>
+      {% if forloop.first %}<span class="journal-card__latest-label">最新</span>{% endif %}
       <time class="journal-card__date-badge" datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%m月%d日" }}</time>
     </a>
 
@@ -153,7 +105,6 @@ redirect_from:
   </article>
   {% endfor %}
 </section>
-{% endif %}
 
 <div class="journal-no-results" data-journal-no-results hidden>
   <span aria-hidden="true">⌕</span>
