@@ -55,3 +55,37 @@
  .thumb-remove{width:26px;height:26px}
  .thumb-add{min-width:88px;padding:6px;font-size:12px}
 }
+
+
+/* Empty canvases remain reachable by touch on short mobile screens.
+   The loaded image deliberately retains touch-action:none for pointer-driven
+   one-finger panning and two-finger zooming. */
+#imageStage:not(.has-image),
+#pdfEmpty {
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+  align-items: safe center;
+  justify-content: safe center;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+#imageStage:not(.has-image) > .empty,
+#pdfEmpty > .empty {
+  width: min(100%, 560px);
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  /* Comparison tools and the empty filmstrip waste valuable preview height
+     until an image has actually been loaded. */
+  #imageStage:not(.has-image) ~ .canvas-controls,
+  #imageStage:not(.has-image) ~ .filmstrip {
+    display: none;
+  }
+  #imageStage:not(.has-image),
+  #pdfEmpty {
+    padding: 16px 12px;
+  }
+}
