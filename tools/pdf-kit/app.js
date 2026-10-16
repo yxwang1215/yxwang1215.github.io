@@ -139,7 +139,7 @@ async function addFiles(files){
     const meta=await rpc('inspect',{buffer,name:file.name,allowPng:mode==='mixed'},[buffer]);checkCancel();
     if((multi?state.items.reduce((n,s)=>n+s.count,0):0)+meta.count>K.LIMITS.pages)throw new Error('输入文件合计不能超过 500 页。');
     if(!multi){state.items.forEach(discard);state.items=[];}
-    state.items.push({...meta,file,id:state.next++,range:'',rotation:0,url:URL.createObjectURL(file)});added++;
+    state.items.push({...meta,file,id:state.next++,range:'',rotation:0,url:URL.createObjectURL(new Blob([file],{type:meta.kind==='pdf'?'application/pdf':'image/png'}))});added++;
    }catch(error){if(state.cancelled)throw error;errors.push(file.name+'：'+error.message);}
   }
   if(mode==='organize'&&added)resetPages();
