@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as modes from '../tools/png-to-pdf/modes.mjs';
 const image = (rgb) => new Uint8ClampedArray(Array.from({length:100},()=>[...rgb,255]).flat());
-test('seven named modes including an unchanged original',()=> {
- assert.equal(modes.SCAN_MODES.length,7);
+test('eighteen named modes including an unchanged original',()=> {
+ assert.equal(modes.SCAN_MODES.length,18);
  const stats=modes.analyzePixels(image([180,180,175]));
  assert.equal(modes.settingsForMode(stats,'original').clean,0);
  assert.equal(modes.settingsForMode(stats,'original').sharpen,0);
