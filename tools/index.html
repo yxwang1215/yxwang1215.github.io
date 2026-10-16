@@ -8,12 +8,17 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244e43'/%3E%3Cpath d='M10 6h9l4 4v16H10z' fill='%23fff'/%3E%3Cpath d='M13 15h7m-7 4h7' stroke='%23244e43' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="./png-to-pdf/style.css?v=20261016-3"><script type="module" src="./png-to-pdf/app.mjs?v=20261016-3"></script>
 <link rel="stylesheet" href="./tools-extra.css?v=20261016-3"><script type="module" src="./compression/ui.mjs?v=20261016-3"></script>
-</head>
+<link rel="stylesheet" href="./tool-switcher.css?v=20261016-1"><script defer src="./tool-switcher.js?v=20261016-1"></script></head>
 <body>
 <a class="skip" href="#workspace">跳转到工作区</a>
 <header class="site-header"><a class="owner" href="/">YW<span>Yuxuan Wang</span></a><nav aria-label="站点路径"><a href="/navigation/">Navigation</a><span>/</span><a href="/tools/">Tools</a><span>/</span><span>PaperScan</span></nav><span class="local-badge"><i></i> 本地处理 · 无需登录</span></header>
 <main>
 <section class="hero"><div><div class="eyebrow">A SMALL TOOL FOR CLEARER DOCUMENTS</div><h1>让每一页，<em>清晰一点。</em></h1><p>一键选择扫描模式，或压缩 PDF、PNG、JPG。所有处理均在你的设备上完成。</p></div><div class="hero-note"><span class="mini-icon">↗</span><div>你的文件，只在你的设备上。<small>不上传 · 无水印 · 本地算法</small></div></div></section>
+<div id="tool-directory"><nav class="tool-switcher__fallback" aria-label="工具导航">
+<a href="/tools/#scan">扫描增强</a><a href="/tools/#compress">文件压缩</a><a href="/tools/png-to-pdf-simple/">PNG 转 PDF</a>
+<a href="/tools/mixed-to-pdf/">图片 + PDF 合并</a><a href="/tools/merge-pdf/">PDF 合并</a>
+<a href="/tools/split-pdf/">PDF 拆分</a><a href="/tools/extract-pdf/">提取页面</a>
+<a href="/tools/organize-pdf/">页面整理</a></nav></div>
 <div class="tool-tabs" role="tablist" aria-label="工具切换"><button role="tab" aria-selected="true" aria-controls="scanPanel" id="scanTab" data-tool="scan">扫描与转换</button><button role="tab" aria-selected="false" aria-controls="compressionPanel" id="compressionTab" data-tool="compress">文件压缩 <small>PDF / PNG / JPG</small></button></div>
 <div id="scanPanel" role="tabpanel" aria-labelledby="scanTab"><section class="importbar" id="dropzone" aria-label="添加图片"><div class="import-copy"><span class="upload-symbol" aria-hidden="true">＋</span><div><strong>拖入图片，开始整理</strong><span>PNG / JPG / WebP / BMP / GIF / AVIF · 也可粘贴图片</span></div></div><div class="import-actions"><button class="text-button" id="demo">试用示例</button><button class="button" id="camera">拍照添加</button><button class="button primary" id="choose">选择图片 <span aria-hidden="true">↗</span></button></div><input type="file" id="files" multiple accept=".png,.jpg,.jpeg,.webp,.bmp,.gif,.avif,image/png,image/jpeg,image/webp,image/bmp,image/gif,image/avif" hidden><input type="file" id="cameraInput" accept="image/*" capture="environment" hidden></section>
 <div id="issues" class="issues" role="status" hidden></div>
@@ -32,7 +37,7 @@
   <div class="compression-notes"><p><strong>PNG</strong> 无损档重新选择行过滤器并进行 DEFLATE 压缩，保留原始像素、透明度和元数据。均衡/更小档减色并可能缩小尺寸，保留透明度；不保留源元数据。动态 PNG 暂不支持，交错 PNG 无损档保留原文件。</p><p><strong>JPG / WebP</strong> 均衡/更小档使用质量控制和尺寸限制进行有损重编码。无损档不重新编码，保留原文件。不会仅修改后缀伪装格式。</p><p><strong>PDF</strong> 保留文字、矢量与原有 OCR 层，不将整页转成图片。无损档只优化结构；有损档压缩兼容的 8-bit RGB/灰度 JPEG 或无预测器 Flate 图像。特殊编码/蒙版图像保持原样，效果可能有限。加密、数字签名和 XFA PDF 暂不处理；本工具不保证 PDF/A 等合规认证。</p></div>
 </div>
 
-<details id="morePdfTools" class="advanced" style="margin-top:25px;padding:16px;border:1px solid #e4e7df;border-radius:8px"><summary>更多 PDF 工具 <span>合并、拆分与页面整理</span></summary><nav aria-label="其他 PDF 工具" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px"><a class="button" href="./mixed-to-pdf/">图片与 PDF 合并 ↗</a><a class="button" href="./merge-pdf/">PDF 合并 ↗</a><a class="button" href="./split-pdf/">PDF 拆分 ↗</a><a class="button" href="./extract-pdf/">提取页面 ↗</a><a class="button" href="./organize-pdf/">整理页面 ↗</a><a class="button" href="./png-to-pdf-simple/">无损 PNG 兼容工具 ↗</a></nav></details>
+
 <section class="bottom-info"><article><span>01 / PRIVATE BY DESIGN</span><h3>文件不离开你的浏览器</h3><p>图片和导出结果只在当前页面内处理，不上传、不保存到账号。刷新或关闭页面后，列表即清空。</p></article><article><span>02 / MADE FOR DOCUMENTS</span><h3>扫描质感，不是简单滤镜</h3><p>七种一键模式，每页自动分析明暗。局部亮度校正、文字锐化与自适应黑白化，无需逐个调整参数。</p></article><article><span>03 / KNOW THE LIMITS</span><h3>清楚说明每一个边界</h3><p>GIF 仅取首帧，AVIF 取决于浏览器。扫描区暂不支持 HEIC、TIFF、PDF 转图片、OCR 或自动透视校正。PDF 压缩请切换「文件压缩」。</p></article></section>
 <footer><a href="/">← 返回 Yuxuan Wang 的主页</a><span>PaperScan · 小工具，认真做。</span><a href="https://github.com/yxwang1215/yxwang1215.github.io/tree/main/tools" target="_blank" rel="noopener noreferrer">查看源码 ↗</a></footer>
 </main><div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
