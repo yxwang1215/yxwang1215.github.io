@@ -1,17 +1,14 @@
-# Tools editor implementation and verification
+# Tools editor release record
 
-The approved light canvas-first editor is implemented at `/tools/#image` and `/tools/#pdf`. Image/PDF sessions persist across tab switches. Reused the existing image engine, image-dependent seven scan modes, PNG/JPEG/WebP/PDF original-file compressors, local pdf-lib and all seven legacy routes.
+The user approved the light canvas-first editor and explicitly requested public deployment. The release uses `/tools/#image` and `/tools/#pdf` in one application, preserving separate in-memory sessions and cross-workspace transfers.
 
-## Verified
-- 66 core/state/codec/legacy-route regression tests passed in GitHub Actions.
-- 33 real HTTP Chromium checks passed: actual imports; worker processing; preset pixels and undo; comparison; crop/rotation; JPG/PNG/WebP/ZIP/PDF downloads; PDF selection, searchable text and rotation preservation; split ZIP; original PDF optimization; explicit raster compression; cross-workspace handoff; mobile viewport and drawer.
-- No page runtime errors during those checks. Screenshots and exported fixtures are retained in the Actions artifacts.
-- Separate local in-memory CPU-fallback checks passed; these were not substituted for normal HTTP/module/worker tests.
+## Reconciliation
+Retained all main-branch changes through 20c473b419877b553412c0cc72c9def9ddcdc02a, including navigation and compatibility-route updates. Preserved all 18 scan recipes by using the existing SCAN_MODES registry and grouped them in the inspector. Retained original-file compressors and all seven compatibility routes. The old tool-card assertion was replaced by exact compatibility-link and shared-workspace assertions; legacy export and security checks were not removed.
 
-The integration verification succeeded in Actions run 38848941542. One earlier integration run passed application tests but its contents-only token could not change a workflow. Workflow changes were therefore handled separately with the repository connector. One-time integration scaffolding is removed from the final tree.
+## Verification
+Studio release preflight run 38851001947 passed: all core tests, 33 editor browser checks, 47 legacy-browser checks, and the full scan-gallery suite covering every mode, batch application, exports and mobile interaction. The new missing-gallery regression failed before reconciliation and passed afterward. A fresh local run against the artifact snapshot passed all 80 core tests.
 
-## Release checks
-Regular PR checks run against the checked-in source without executing the old one-time migration. On main, the editor workflow additionally checks the public Pages HTML and module bytes against the checkout. Publication is only reported after that check or equivalent live verification succeeds.
+Regular checks test the checked-in source without migration scripts. The main-branch editor check additionally compares the public HTML and module hashes with the checkout and exercises actual public-domain image processing, PNG export, PDF import/export, retained workspace state, and mobile layout. Public publication is reported only after those checks pass.
 
 ## Boundaries
-No OCR, HEIC or automatic perspective-correction claims. PDF structural editing does not intentionally rasterize searchable text, but document-level forms/signatures/bookmarks may not survive page assembly. Original-file compression is clearly separated from edited-output export. Mobile testing uses an emulated Chromium viewport; Safari and physical devices are not covered.
+Mobile checks use emulated Chromium viewports, not physical iOS/Safari devices. No OCR, HEIC or automatic perspective-correction claims. Explicit raster compression loses searchable text. Ordinary PDF page copying may lose document-level signatures, forms or bookmarks. Original-file compression is separate from exporting current edits. No independent human code review was performed; automated regression and source inspection were used.
