@@ -4,7 +4,7 @@ from hashlib import sha256
 from urllib.request import Request, urlopen
 import json, os, time
 ROOT=Path(__file__).resolve().parents[1]
-PATHS=['tools/index.html','tools/tool-switcher.css','tools/tool-switcher.js','tools/studio.css','tools/studio.mjs','tools/studio-utils.mjs','tools/studio-compression.mjs','tools/pdf-workspace.mjs','tools/png-to-pdf/core.mjs','tools/png-to-pdf/base-core.mjs','tools/png-to-pdf/scan-effects.mjs','tools/png-to-pdf/modes.mjs']
+PATHS=['tools/studio-comfort.css','tools/studio-routing.mjs','tools/studio-documents.mjs','tools/legacy-route.js','tools/png-to-pdf/index.html','tools/png-to-pdf-simple/index.html','tools/mixed-to-pdf/index.html','tools/merge-pdf/index.html','tools/split-pdf/index.html','tools/extract-pdf/index.html','tools/organize-pdf/index.html','tools/index.html','tools/tool-switcher.css','tools/tool-switcher.js','tools/studio.css','tools/studio.mjs','tools/studio-utils.mjs','tools/studio-compression.mjs','tools/pdf-workspace.mjs','tools/png-to-pdf/core.mjs','tools/png-to-pdf/base-core.mjs','tools/png-to-pdf/scan-effects.mjs','tools/png-to-pdf/modes.mjs']
 base='https://yxwang1215.top/'
 revision=os.environ.get('GITHUB_SHA','studio-release')
 last_error=None

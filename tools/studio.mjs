@@ -3,6 +3,8 @@ import {History, PRESETS, uid, sizeLabel, movePage, parseRange} from './studio-u
 import {PDFWorkspace} from './pdf-workspace.mjs';
 import {analyzePixels, settingsForMode} from './png-to-pdf/modes.mjs';
 import {installCompressionControls} from './studio-compression.mjs';
+import {resolveRoute, TOOL_ROUTES} from './studio-routing.mjs';
+import {originalImagePdf, parsePages} from './studio-documents.mjs';
 const $ = id => document.getElementById(id);
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 const s = {mode:'image', pages:[], active:null, imageTool:'enhance', pdfTool:'pages', view:'processed', busy:false, cancel:false, seq:0, crop:false, cropBox:null, original:null, lastURL:null, zoom:1, zoomMode:'fit', zoomImageId:null, panX:0, panY:0};
@@ -11,6 +13,8 @@ const current = () => s.pages.find(p=>p.id===s.active);
 const tick = () => new Promise(r=>requestAnimationFrame(r));
 let toastTimer, previewTimer, dragId, cropStart, worker, jobId=0;
 const jobs = new Map();
+let routing=false;
+const initialRoute=location.hash;
 try {
   worker = new Worker(new URL('./png-to-pdf/worker.mjs',import.meta.url),{type:'module'});
   worker.onmessage = ({data}) => {const j=jobs.get(data.id);if(!j)return;jobs.delete(data.id);data.error?j.reject(new Error(data.error)):j.resolve(new Uint8ClampedArray(data.buffer));};
@@ -41,6 +45,9 @@ function refresh() {
   for(const [key] of Object.entries(PRESETS)){const b=document.querySelector(`[data-preset="${key}"]`);b.classList.toggle('active',(p?.preset||'auto')===key);b.setAttribute('aria-pressed',String((p?.preset||'auto')===key));b.disabled=s.busy||!p;}
   for(const el of document.querySelectorAll('[data-setting]')){el.disabled=s.busy||!p;el.value=(p?.settings||PRESETS.auto)[el.dataset.setting];$(`${el.id}Value`).textContent=el.value;}
   $('pdfDpi').disabled=!$('rasterPdf').checked||s.busy;
+  for(const id of ['imagePdfExport','imageOriginalPdf'])$(id).disabled=s.busy||!s.pages.length;
+  for(const id of ['splitExport','extractExport','pdfMoveUp','pdfMoveDown'])$(id).disabled=s.busy||!pdf.pages.length;
+  $('addWorkspaceImages').disabled=s.busy||!s.pages.length;
   updateZoomUI();
 }
 function setWorkspace(mode,force=false) {
@@ -50,16 +57,18 @@ function setWorkspace(mode,force=false) {
   $('imageTools').hidden=s.mode!=='image';$('pdfTools').hidden=s.mode!=='pdf';
   document.querySelectorAll('[data-workspace]').forEach(b=>{b.setAttribute('aria-selected',String(b.dataset.workspace===s.mode));b.tabIndex=b.dataset.workspace===s.mode?0:-1;});
   $('workspaceTitle').textContent=s.mode==='image'?'图片工作区':'PDF 工作区';
-  $('fileInput').accept=s.mode==='image'?'image/png,image/jpeg,image/webp,image/bmp,image/gif,image/avif,.png,.jpg,.jpeg,.webp,.bmp,.gif,.avif':'.pdf,application/pdf';
-  window.history.replaceState(null,'',`#${s.mode}`);chooseTool(s.mode==='image'?s.imageTool:s.pdfTool,false);closeInspector();refresh();renderPdf();schedulePreview();
+  $('fileInput').accept=s.mode==='image'?'image/png,image/jpeg,image/webp,image/bmp,image/gif,image/avif,.png,.jpg,.jpeg,.webp,.bmp,.gif,.avif':'.pdf,application/pdf,image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp';
+  chooseTool(s.mode==='image'?s.imageTool:s.pdfTool,false);closeInspector();refresh();renderPdf();schedulePreview();
 }
 function chooseTool(tool,open=true) {
   if(s.mode==='image')s.imageTool=tool;else s.pdfTool=tool;
-  const titles={enhance:'扫描增强',crop:'裁剪与方向',compress:'尺寸与压缩',pages:'页面整理',pdfcompress:'PDF 压缩',convert:'PDF 转图片'};
+  const titles={enhance:'扫描增强',crop:'裁剪与方向',compress:'尺寸与压缩',imagepdf:'图片转 PDF',pages:'页面整理',mixed:'图片与 PDF 合并',split:'PDF 拆分',extract:'提取页面',pdfcompress:'PDF 压缩',convert:'PDF 转图片'};
   $('inspectorTitle').textContent=titles[tool];
   document.querySelectorAll('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==tool);
   document.querySelectorAll('[data-tool]').forEach(b=>{b.classList.toggle('active',b.dataset.tool===tool);b.setAttribute('aria-pressed',String(b.dataset.tool===tool));});
-  if(tool!=='crop')stopCrop();if(open&&matchMedia('(max-width:800px)').matches)openInspector();
+  if(tool!=='crop')stopCrop();
+  if(!routing)writeRoute(TOOL_ROUTES[tool]||'#image');
+  if(open&&matchMedia('(max-width:800px)').matches)openInspector();
 }
 let previousFocus;
 function openInspector(){previousFocus=document.activeElement;$('inspector').classList.add('open');$('drawerShade').classList.add('open');$('openInspector').setAttribute('aria-expanded','true');for(const el of document.querySelectorAll('.topbar,.rail,.center'))el.inert=true;$('closeInspector').focus();}
@@ -93,7 +102,7 @@ async function importImages(files) {
 async function importFiles(files){
   const list=[...files];if(!list.length)return;
   if(s.mode==='image'&&list.every(f=>f.type==='application/pdf'||/\.pdf$/i.test(f.name)))setWorkspace('pdf');
-  await runJob('正在添加文件',async()=>{if(s.mode==='pdf'){const r=await pdf.add(list);toast(`已添加 ${r.added} 页。 ${r.issues.join(' ')}`);}else await importImages(list);});
+  await runJob('正在添加文件',async()=>{if(s.mode==='pdf'){const r=await pdf.add(list,mixedPageOptions());toast(`已添加 ${r.added} 页。 ${r.issues.join(' ')}`);}else await importImages(list);});
   $('fileInput').value='';$('cameraInput').value='';
 }
 function renderImages(){
@@ -249,7 +258,18 @@ function openExport(kind){if(s.busy)return;if(!(s.mode==='image'?s.pages.length:
   $('exportTitle').textContent=s.mode==='image'?'导出图片与文档':'导出 PDF';$('imageExportOptions').hidden=s.mode!=='image';$('pdfExportOptions').hidden=s.mode!=='pdf';$('pdfExportSummary').textContent=`将按当前顺序处理 ${pdf.targets().length} 页。`;
   if(kind)$('pdfExportMode').value=kind;$('exportDescription').textContent=s.mode==='image'?'从原始图片重新处理，并另存为新文件。':'按当前页面顺序导出，不主动栅格化文字和矢量图形。';exportFormatChanged();$('exportDialog').showModal();
 }
-function exportFormatChanged(){const isPdf=s.mode==='image'&&$('exportFormat').value==='pdf';$('imagePdfOptions').hidden=!isPdf;$('sendToPdf').hidden=!isPdf;}
+function exportFormatChanged(){
+ const isPdf=s.mode==='image'&&$('exportFormat').value==='pdf';
+ $('imagePdfOptions').hidden=!isPdf;$('sendToPdf').hidden=!isPdf;
+ const raw=isPdf&&$('imagePdfSource').value==='original';
+ $('imageDpiField').hidden=!raw;$('encoding').disabled=raw;
+ $('paper').querySelector('[value="a5"]').disabled=raw;
+ if(raw&&$('paper').value==='a5')$('paper').value='a4';
+ $('imagePdfNote').textContent=raw?'无损封装未编辑原图：保留原生像素与透明度，不应用增强、裁剪或尺寸压缩。':'使用当前编辑结果；白底图片 PDF 不含可搜索文字。';
+ $('splitExportFields').hidden=s.mode!=='pdf'||$('pdfExportMode').value!=='split';
+ $('extractExportFields').hidden=s.mode!=='pdf'||$('pdfExportMode').value!=='extract';
+ $('splitChunkField').hidden=$('splitMode').value!=='chunks';$('splitRangesField').hidden=$('splitMode').value!=='custom';
+}
 async function toBlob(c,type,quality){return new Promise((resolve,reject)=>c.toBlob(blob=>blob&&blob.type===`image/${type}`?resolve(blob):reject(new Error(`浏览器不支持 ${type.toUpperCase()} 编码。`)),`image/${type}`,quality));}
 function whiteCanvas(source){const c=canvas(source.width,source.height),ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(source,0,0);return c;}
 async function imagePdf(pages){
@@ -268,10 +288,15 @@ function saveBlob(blob,name,inputSize){if(s.lastURL)URL.revokeObjectURL(s.lastUR
 async function exportFiles(toWorkspace=false){
   await runJob('正在导出',async()=>{
     const name=safeName($('exportName').value);
-    if(s.mode==='pdf'){const split=$('pdfExportMode').value==='split',blob=split?await pdf.split(name):await pdf.document(pdf.targets());checkCanceled();saveBlob(blob,`${name}.${split?'zip':'pdf'}`);return;}
+    if(s.mode==='pdf'){
+      const mode=$('pdfExportMode').value,split=mode==='split';
+      const pages=mode==='extract'?parsePages($('extractRange').value,pdf.pages.length).map(i=>pdf.pages[i]):pdf.targets();
+      const blob=split?await pdf.split(name,{mode:$('splitMode').value,text:$('splitRanges').value,chunk:Number($('splitChunk').value)}):await pdf.document(pages);
+      checkCanceled();saveBlob(blob,`${name}.${split?'zip':'pdf'}`);return;
+    }
     const type=$('exportFormat').value;
     if(type==='pdf'){
-      const blob=await imagePdf(s.pages);
+      const blob=$('imagePdfSource').value==='original'?await originalImagePdf(s.pages,rawPageOptions(),{check:checkCanceled,progress}):await imagePdf(s.pages);
       if(toWorkspace){const result=await pdf.add([new File([blob],`${name}.pdf`,{type:'application/pdf'})]);if(result.added){setWorkspace('pdf',true);toast(`已将 ${result.added} 页送入 PDF 工作区。`);}else throw new Error(result.issues.join(' '));}
       else saveBlob(blob,`${name}.pdf`,s.pages.reduce((n,p)=>n+p.file.size,0));return;
     }
@@ -290,6 +315,51 @@ async function demo(){
   ctx.fillStyle='#555858';ctx.font='bold 22px sans-serif';ctx.fillText('02   From scattered pages to a clear story',133,1050);ctx.font='22px sans-serif';ctx.fillStyle='#81847d';ctx.fillText('Your files stay yours. Your workflow stays simple.',133,1108);ctx.fillText('One workspace. Many possibilities.',133,1150);ctx.fillStyle='#a2a19a';ctx.font='18px sans-serif';ctx.fillText('SAMPLE DOCUMENT  /  NOT PERSONAL DATA',133,1280);ctx.fillText('01',911,1280);
   const blob=await toBlob(c,'jpeg',.9);await importFiles([new File([blob],'weekly-notes.jpg',{type:'image/jpeg'})]);c.width=c.height=1;
 }
+
+function writeRoute(hash,replace=false){
+ if(location.hash!==hash)window.history[replace?'replaceState':'pushState'](null,'',hash);
+ window.dispatchEvent(new Event('tool-workspace-change'));
+}
+function navigateHash(hash,replace=false){
+ if(s.busy){writeRoute(TOOL_ROUTES[s.mode==='image'?s.imageTool:s.pdfTool],true);return;}
+ const route=resolveRoute(hash);routing=true;
+ try{
+  if(s.mode!==route.workspace)setWorkspace(route.workspace);
+  else { $('imageWorkspace').hidden=s.mode!=='image';$('pdfWorkspace').hidden=s.mode!=='pdf'; }
+  chooseTool(route.tool,false);$('workspaceTitle').textContent=route.title;
+  if(route.tool==='imagepdf'){$('exportFormat').value='pdf';$('imagePdfSource').value=route.hash==='#image/png-to-pdf'?'original':'processed';}
+  if(route.tool==='split')$('pdfExportMode').value='split';
+  if(route.tool==='extract')$('pdfExportMode').value='extract';
+  closeInspector();refresh();renderPdf();schedulePreview();
+ }finally{routing=false;}
+ writeRoute(route.hash,replace);
+}
+function rawPageOptions(){return {paper:$('paper').value,orientation:$('orientation').value,margin:Number($('margin').value),dpi:Number($('imageDpi').value)};}
+function mixedPageOptions(){return {paper:$('mixedPaper').value,orientation:'auto',margin:Number($('mixedMargin').value),dpi:Number($('mixedDpi').value)};}
+function openImagePdf(original=false){$('exportFormat').value='pdf';$('imagePdfSource').value=original?'original':'processed';openExport();}
+function installDocumentControls(){
+ document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="/tools/#"],a[href^="#image"],a[href^="#pdf"]');
+  if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+  e.preventDefault();if(s.busy){toast('当前操作完成后再切换功能。');return;}
+  navigateHash(new URL(a.href,location.href).hash);a.closest('details')?.removeAttribute('open');
+ });
+ $('imagePdfExport').onclick=()=>openImagePdf(false);$('imageOriginalPdf').onclick=()=>openImagePdf(true);
+ $('imagePdfSource').onchange=exportFormatChanged;$('pdfExportMode').onchange=exportFormatChanged;$('splitMode').onchange=exportFormatChanged;
+ $('splitExport').onclick=()=>openExport('split');$('extractExport').onclick=()=>openExport('extract');
+ $('mixedImport').onclick=()=>$('fileInput').click();
+ $('addWorkspaceImages').onclick=()=>runJob('正在加入图片工作区的原图',async()=>{
+  const result=await pdf.add(s.pages.map(p=>p.file),mixedPageOptions());toast(`已加入 ${result.added} 页。 ${result.issues.join(' ')}`);
+ });
+ for(const [id,delta]of [['pdfMoveUp',-1],['pdfMoveDown',1]])$(id).onclick=()=>{
+  if(!pdf.selected.size){toast('请先选择要移动的页面。');return;}
+  pdfEdit(()=>{
+   const indices=pdf.pages.map((_,i)=>i);if(delta>0)indices.reverse();
+   for(const i of indices){const next=i+delta;if(next>=0&&next<pdf.pages.length&&pdf.selected.has(pdf.pages[i].id)&&!pdf.selected.has(pdf.pages[next].id))[pdf.pages[i],pdf.pages[next]]=[pdf.pages[next],pdf.pages[i]];}
+  });
+ };
+}
+
 // Build real controls once; current-document thumbnails are rendered after each preview.
 let scanGroup = 'basic';
 const scanFilters = document.createElement('div');
@@ -350,9 +420,10 @@ window.addEventListener('paste',e=>{if(s.mode!=='image'||/INPUT|TEXTAREA/.test(d
 window.addEventListener('keydown',e=>{if(e.key==='Escape'){stopCrop();closeInspector();}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();undo(e.shiftKey);}
   if(!e.ctrlKey&&!e.metaKey&&!e.altKey&&!s.crop&&!s.busy&&s.mode==='image'&&current()&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!document.querySelector('dialog[open]')){if(e.key==='+'||e.key==='='){e.preventDefault();stepZoom(1);}else if(e.key==='-'){e.preventDefault();stepZoom(-1);}else if(e.key==='0'){e.preventDefault();zoomFit();}}});
 window.addEventListener('beforeunload',e=>{if(s.pages.length||pdf.pages.length){e.preventDefault();e.returnValue='';}});
-window.addEventListener('hashchange',()=>setWorkspace(location.hash==='#pdf'?'pdf':'image'));
+window.addEventListener('hashchange',()=>navigateHash(location.hash,true));
+window.addEventListener('popstate',()=>navigateHash(location.hash,true));
 $('inspector').addEventListener('keydown',e=>{if(e.key!=='Tab'||!$('inspector').classList.contains('open'))return;const items=[...$('inspector').querySelectorAll('button,input,select,summary,a[href]')].filter(el=>!el.disabled&&el.getClientRects().length);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}});
 matchMedia('(max-width:800px)').addEventListener('change',()=>closeInspector());
 installCompressionControls({getFiles:mode=>mode==='image'?(current()?[current().file]:[]):[...new Set(pdf.targets().map(p=>p.source))].map(id=>pdf.sources.get(id).file),runJob,saveBlob,toast,isCanceled:()=>s.cancel});
 new ResizeObserver(()=>fitPreview()).observe($('imageStage'));
-setWorkspace(location.hash==='#pdf'?'pdf':'image');renderImages();renderPdf();refresh();
+installDocumentControls();navigateHash(initialRoute,true);renderImages();renderPdf();refresh();

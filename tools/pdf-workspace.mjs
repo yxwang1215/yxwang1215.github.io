@@ -1,6 +1,7 @@
 /** Optional PDF bridge. Only library requests leave the browser; files never do. */
 import {History, uid} from './studio-utils.mjs';
 import {makeZip, safeName} from './png-to-pdf/core.mjs';
+import {imageDocument, splitGroups} from './studio-documents.mjs';
 const CDN = 'https://cdn.jsdelivr.net/npm/';
 let libraries;
 async function loadLibraries() {
@@ -23,18 +24,19 @@ export class PDFWorkspace {
   constructor({progress, isCanceled}) { this.pages = []; this.selected = new Set(); this.sources = new Map(); this.history = new History(); this.progress = progress; this.isCanceled = isCanceled; }
   check() { if (this.isCanceled()) throw canceled(); }
   targets() { return this.selected.size ? this.pages.filter(p => this.selected.has(p.id)) : [...this.pages]; }
-  async add(files) {
+  async add(files, imageOptions={}) {
     const {lib, parser} = await loadLibraries();
     const issues = []; let added = 0;
     this.history.save(this.pages);
     for (const file of files) {
       this.check();
-      if (file.type !== 'application/pdf' && !/\.pdf$/i.test(file.name)) { issues.push(`${file.name}：不是 PDF。`); continue; }
+      const isImage=/^image\/(png|jpeg|webp)$/.test(file.type)||/\.(png|jpe?g|webp)$/i.test(file.name);
+      if (!isImage && file.type !== 'application/pdf' && !/\.pdf$/i.test(file.name)) { issues.push(`${file.name}：仅支持 PDF、PNG、JPG 和 WebP。`); continue; }
       if (!file.size || file.size > 100 * 1048576) { issues.push(`${file.name}：文件为空或超过 100 MB。`); continue; }
       if ([...this.sources.values()].reduce((n,s)=>n+s.file.size,0)+file.size>100*1048576) { issues.push('PDF 总导入上限为 100 MB。'); continue; }
       let source;
       try {
-        const buffer = new Uint8Array(await file.arrayBuffer());
+        const buffer = isImage?await imageDocument(file,lib,imageOptions):new Uint8Array(await file.arrayBuffer());
         const doc = await lib.PDFDocument.load(buffer, {ignoreEncryption: false});
         if (doc.isEncrypted) throw new Error('暂不支持密码保护 PDF。');
         if (this.pages.length + doc.getPageCount() > 50) throw new Error('最多同时处理 50 页，请拆分后导入。');
@@ -95,12 +97,13 @@ export class PDFWorkspace {
     }
     return new Blob([await output.save({useObjectStreams:true, addDefaultPage:false})],{type:'application/pdf'});
   }
-  async split(name) {
+  async split(name,{mode='each',text='',chunk=1}={}) {
     const pages = this.targets(), files = [];
     if (!pages.length) throw new Error('请先添加 PDF。');
-    for (let i = 0; i < pages.length; i++) {
-      this.check(); files.push({name:`${safeName(name)}-${String(i+1).padStart(2,'0')}.pdf`,data:await this.document([pages[i]])});
-      this.progress(i+1,pages.length,'正在拆分页面');
+    const groups=splitGroups(pages.length,mode,text,chunk);
+    for (let i = 0; i < groups.length; i++) {
+      this.check(); files.push({name:`${safeName(name)}-${String(i+1).padStart(2,'0')}.pdf`,data:await this.document(groups[i].map(index=>pages[index]))});
+      this.progress(i+1,groups.length,'正在拆分页面');
     }
     return makeZip(files);
   }

@@ -1,4 +1,4 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const root=path.join(__dirname,'..');
 for(const route of ['merge-pdf','mixed-to-pdf','split-pdf','extract-pdf','organize-pdf','png-to-pdf-simple','png-to-pdf'])test('route /tools/'+route+' exists',()=>assert.ok(fs.existsSync(path.join(root,'tools',route,'index.html'))));
-test('hub links all tools',()=>{const html=fs.readFileSync(path.join(root,'tools/index.html'),'utf8');for(const p of ['merge-pdf','mixed-to-pdf','split-pdf','extract-pdf','organize-pdf','png-to-pdf-simple','png-to-pdf'])assert.ok(html.includes('./'+p+'/'),p);});
+test('hub links all tools',()=>{const html=fs.readFileSync(path.join(root,'tools/index.html'),'utf8');for(const p of ['merge-pdf','mixed-to-pdf','split-pdf','extract-pdf','organize-pdf','png-to-pdf-simple','png-to-pdf'])assert.ok(html.includes('/tools/'+({'merge-pdf':'#pdf/merge','mixed-to-pdf':'#pdf/mixed','split-pdf':'#pdf/split','extract-pdf':'#pdf/extract','organize-pdf':'#pdf/organize','png-to-pdf-simple':'#image/png-to-pdf','png-to-pdf':'#image'})[p]),p);});
