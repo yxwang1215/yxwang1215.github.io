@@ -25,6 +25,10 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    {% if page.url == '/navigation/' %}
+      <link rel="stylesheet" href="{{ '/assets/css/navigation-directory.css' | relative_url }}?v=20261016">
+      <script src="{{ '/assets/js/navigation-directory.js' | relative_url }}?v=20261016" defer></script>
+    {% endif %}
     {% if page.url == "/" %}
       <link rel="stylesheet" href="{{ '/assets/css/research-3d.css' | relative_url }}?v=20260922-3">
       <script src="{{ '/assets/js/research-3d.js' | relative_url }}?v=20260922-3" defer></script>
