@@ -58,7 +58,7 @@ test('all existing home, tools, and Overleaf paths still resolve', () => {
     assert.ok(data.includes('url: "' + url + '"'), 'lost destination: ' + url);
   }
   assert.ok(['id="research"','id="journey"','id="journal"'].every(x=>page.includes(x)));
-  assert.ok(data.includes('url: "https://overleaf.yxwang1215.top/login"'));
+  assert.ok(data.includes('url: "https://overleaf.yxwang1215.top/"'));
   assert.ok(data.includes('    external: true'));
   assert.ok(page.includes('href="{{ directory.url }}" target="_blank" rel="noopener noreferrer"'));
   assert.ok(page.includes('href="{{ item.url | relative_url }}"'));
