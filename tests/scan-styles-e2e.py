@@ -13,6 +13,11 @@ from playwright.sync_api import sync_playwright, expect
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(os.environ.get('SCAN_QA_OUTPUT', '/tmp/scan-styles-qa'))
 OUT.mkdir(parents=True, exist_ok=True)
+# Retain the exact public tool sources with QA output for reproducible offline debugging.
+with zipfile.ZipFile(OUT/'tested-tools.zip', 'w', zipfile.ZIP_DEFLATED) as snapshot:
+    for source in (ROOT/'tools').rglob('*'):
+        if source.is_file():
+            snapshot.write(source, source.relative_to(ROOT))
 fixture = Image.new('RGB', (480, 620), (225, 218, 197))
 draw = ImageDraw.Draw(fixture)
 for y in range(70, 540, 35):
@@ -23,6 +28,18 @@ fixture.save(OUT/'input.webp', quality=90)
 server = subprocess.Popen(['python', '-m', 'http.server', '8876', '--bind', '127.0.0.1'], cwd=ROOT,
                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 errors, uploads, checks = [], [], []
+
+def page_count(page, expected):
+    try:
+        expect(page.locator('#pageCount')).to_have_text(expected, timeout=15000)
+    except Exception:
+        print('IMPORT DIAGNOSTICS:', json.dumps({
+            'issues': page.locator('#issues').text_content(),
+            'toast': page.locator('#toast').text_content(),
+            'preview': page.locator('#previewMeta').text_content(),
+            'browser_errors': errors}, ensure_ascii=False), flush=True)
+        page.screenshot(path=str(OUT/'import-failure.png'), full_page=True)
+        raise
 
 def ready(page):
     for _ in range(300):
@@ -47,7 +64,7 @@ try:
         ready(page)
         assert page.locator('[data-preset]').count() == 18
         page.locator('#demo').click()
-        expect(page.locator("#pageCount")).to_have_text("01")
+        page_count(page,"01")
         preview_ready(page)
         assert page.locator('[data-preset] canvas').count() == 18
         modes = page.locator('[data-preset]').evaluate_all('(els)=>els.map(e=>e.dataset.preset)')
@@ -64,7 +81,7 @@ try:
             assert page.locator('[data-preset]:visible').count() == count
         checks.append('all category filters')
         page.locator('#files').set_input_files([OUT/'input.jpg', OUT/'input.webp'])
-        expect(page.locator("#pageCount")).to_have_text("03")
+        page_count(page,"03")
         preview_ready(page)
         page.locator('[data-preset="comprehensive"]').click()
         preview_ready(page)
@@ -107,7 +124,7 @@ try:
         m.on('pageerror', lambda e: errors.append(str(e)))
         m.goto('http://127.0.0.1:8876/tools/', wait_until='networkidle')
         ready(m);m.locator('#demo').click()
-        expect(m.locator("#pageCount")).to_have_text("01")
+        page_count(m,"01")
         preview_ready(m)
         m.locator('[data-scan-group="repair"]').click()
         m.locator('[data-preset="shadow"]').click();preview_ready(m)
