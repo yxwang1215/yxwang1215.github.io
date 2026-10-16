@@ -1,16 +1,13 @@
 name: Tools editor check
-
 on:
   push:
     branches: [tools-editor-refresh-20261016, main]
-    paths: ['tools/**', 'tests/studio.test.mjs', 'tests/browser_check.py', '.github/workflows/tools-editor-check.yml']
+    paths: ['tools/**', 'tests/**', '.github/workflows/tools-editor-check.yml']
   pull_request:
-    paths: ['tools/**', 'tests/studio.test.mjs', 'tests/browser_check.py', '.github/workflows/tools-editor-check.yml']
+    paths: ['tools/**', 'tests/**', '.github/workflows/tools-editor-check.yml']
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -23,18 +20,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Syntax and state regression
+      - name: Syntax and all core regression tests
         run: |
           node --check tools/studio.mjs
           node --check tools/pdf-workspace.mjs
-          node --test tests/studio.test.mjs
-      - name: Install browser test dependencies
+          node --check tools/studio-compression.mjs
+          node --test tests/*.test.mjs tests/*.test.cjs
+      - name: Browser dependencies
         run: |
-          python -m pip install playwright pymupdf
+          python -m pip install playwright==1.64.0 pymupdf==1.28.2
           python -m playwright install --with-deps chromium
-      - name: Real HTTP browser and PDF regression
+      - name: Real HTTP browser, worker and PDF regression
         run: python tests/browser_check.py
-      - name: Save screenshots and exported fixtures
+      - name: Verify published Pages files
+        if: github.ref == 'refs/heads/main'
+        run: python tests/published_smoke.py
+      - name: Save screenshots, outputs and release report
         if: always()
         uses: actions/upload-artifact@v4
         with:

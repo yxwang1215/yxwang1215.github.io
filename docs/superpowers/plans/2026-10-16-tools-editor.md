@@ -1,26 +1,17 @@
-# Tools editor implementation plan
+# Tools editor implementation and verification
 
-**Goal:** Replace the tool landing page with the user-approved light canvas-first image/PDF editor.
+The approved light canvas-first editor is implemented at `/tools/#image` and `/tools/#pdf`. Image/PDF sessions persist across tab switches. Reused the existing image engine, image-dependent seven scan modes, PNG/JPEG/WebP/PDF original-file compressors, local pdf-lib and all seven legacy routes.
 
-**Architecture:** Preserve existing image processing and PDF-kit engines and all legacy routes. Add one shared stateful UI with independently retained image/PDF sessions and contextual controls; lazy-load PDF.js for rendering. No file uploads or server compute.
+## Verified
+- 66 core/state/codec/legacy-route regression tests passed in GitHub Actions.
+- 33 real HTTP Chromium checks passed: actual imports; worker processing; preset pixels and undo; comparison; crop/rotation; JPG/PNG/WebP/ZIP/PDF downloads; PDF selection, searchable text and rotation preservation; split ZIP; original PDF optimization; explicit raster compression; cross-workspace handoff; mobile viewport and drawer.
+- No page runtime errors during those checks. Screenshots and exported fixtures are retained in the Actions artifacts.
+- Separate local in-memory CPU-fallback checks passed; these were not substituted for normal HTTP/module/worker tests.
 
-**Spec:** ../specs/2026-10-16-tools-editor.md
+The integration verification succeeded in Actions run 38848941542. One earlier integration run passed application tests but its contents-only token could not change a workflow. Workflow changes were therefore handled separately with the repository connector. One-time integration scaffolding is removed from the final tree.
 
-## Work completed
-- [x] Read existing repository and detect concurrent PDF-suite update; use latest main tree without overwriting that suite.
-- [x] Implement range parsing and bounded undo/redo history; run failing then passing Node tests.
-- [x] Implement neutral light editor, actual preset previews, export dialog and mobile inspector drawer.
-- [x] Reuse unchanged image engine and test genuine JPG/PNG/WebP/ZIP/PDF outputs in local browser CPU-fallback mode.
-- [x] Add PDF integration with page selection, copying, rotation, extraction, splitting, optional raster compression and image-workspace handoff.
-- [ ] Run normal HTTP/module/worker and PDF regression in GitHub Actions; check legacy site/Jekyll build.
-- [ ] Inspect final diff, merge without force, and verify published entry and assets.
+## Release checks
+Regular PR checks run against the checked-in source without executing the old one-time migration. On main, the editor workflow additionally checks the public Pages HTML and module bytes against the checkout. Publication is only reported after that check or equivalent live verification succeeds.
 
-## Review focus
-1. Do not overwrite concurrent main-branch changes or break existing converter URLs.
-2. PDF structural exports retain searchable page text and rotations; raster exports explicitly lose searchable text.
-3. Switching workspaces retains both file lists, including cross-workspace handoffs.
-4. Mobile drawer remains inside viewport; desktop stays canvas-first without horizontal overflow.
-5. Cancellation is between files/pages; decode/component failures show errors rather than fake success.
-
-## Verification boundaries
-Local browser networking is restricted by the execution environment. Local in-memory tests verify the unchanged CPU fallback and DOM interactions, not HTTP/module loading or remote PDF component loading. A separate normal-HTTP CI run must validate those paths before deployment claims.
+## Boundaries
+No OCR, HEIC or automatic perspective-correction claims. PDF structural editing does not intentionally rasterize searchable text, but document-level forms/signatures/bookmarks may not survive page assembly. Original-file compression is clearly separated from edited-output export. Mobile testing uses an emulated Chromium viewport; Safari and physical devices are not covered.
