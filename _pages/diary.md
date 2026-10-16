@@ -88,7 +88,7 @@ redirect_from:
 {% endif %}
 
 {% if diary_entries.size > 0 %}
-<section class="journal-discovery" data-journal-toolbar aria-labelledby="journal-all-title">
+<section id="all" class="journal-discovery" data-journal-toolbar aria-labelledby="journal-all-title">
   <div class="journal-discovery__heading">
     <div>
       <p>全部记录</p>
