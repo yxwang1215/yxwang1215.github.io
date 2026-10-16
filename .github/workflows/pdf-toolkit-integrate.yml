@@ -1,0 +1,81 @@
+name: Integrate PDF toolkit with current navigation
+on:
+  push:
+    branches: [feat/pdf-toolkit-20261016]
+    paths: [.github/workflows/pdf-toolkit-integrate.yml]
+permissions:
+  contents: write
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Merge current main and retain tool hub at its intended route
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          if ! git merge --no-commit --no-ff origin/main; then
+            conflicts="$(git diff --name-only --diff-filter=U)"
+            test "$conflicts" = 'tools/index.html' || { echo "Unexpected conflicts: $conflicts"; exit 1; }
+            git checkout --ours tools/index.html
+            git add tools/index.html
+          fi
+      - name: Preserve Navigation links and register new tools
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('docs/scripts/build-pdf-toolkit-pages.py')
+          s=p.read_text()
+          anchor='<a class="active" href="{back}">Tools</a>'
+          assert anchor in s
+          if '<a href="/navigation/">Navigation</a>' not in s:
+              p.write_text(s.replace(anchor,'<a href="/navigation/">Navigation</a>'+anchor))
+          p=Path('tools/png-to-pdf-simple/index.html')
+          s=p.read_text()
+          anchor='<a class="active" href="../">Tools</a>'
+          assert anchor in s
+          if 'href="/navigation/"' not in s:
+              p.write_text(s.replace(anchor,'<a href="/navigation/">Navigation</a>'+anchor))
+          p=Path('_data/site_directory.yml')
+          s=p.read_text()
+          before,rest=s.split('  - id: tools\n',1)
+          group,after=rest.split('\n  - id: sections\n',1)
+          group=group.replace('url: "/tools/"','url: "/tools/png-to-pdf-simple/"',1)
+          entries=[
+            ('Tools','文件工具箱','/tools/','合并、拆分、提取与整理 PDF，浏览全部本地文件工具。','PDF PNG 合并 拆分 页面 工具 tools','全部文件工具'),
+            ('PNG + PDF Merge','图片与 PDF 混合合并','/tools/mixed-to-pdf/','按顺序组合 PNG 与 PDF，支持逐文件选页及图片页面设置。','PNG PDF 图片 混合 合并 插入','图片与 PDF 组合'),
+            ('PDF Merge','PDF 合并','/tools/merge-pdf/','合并多份 PDF，支持排序、旋转与逐文件页码范围。','PDF 合并 拼接 merge 顺序','多文件合并'),
+            ('PDF Split','PDF 拆分','/tools/split-pdf/','逐页、每 N 页或按自定义范围拆分，多份结果打包 ZIP。','PDF 拆分 split ZIP 分组','拆分与打包'),
+            ('PDF Extract','提取 PDF 页面','/tools/extract-pdf/','按页码范围提取 PDF，支持倒序及重复页。','PDF 页面 提取 extract 选页','选取所需页面'),
+            ('PDF Organize','PDF 页面整理','/tools/organize-pdf/','按页调整顺序、旋转方向，移除不需要的页面。','PDF 整理 排序 旋转 删除 organize','页面重排与旋转')]
+          added=''
+          for title,subtitle,url,description,keywords,meta in entries:
+              added+=f'      - title: {title}\n        subtitle: {subtitle}\n        url: "{url}"\n        category: LOCAL TOOL\n        description: {description}\n        keywords: "{keywords}"\n        meta: "{meta}"\n'
+          assert 'PDF Organize' not in group
+          group=group.replace('    entries:\n','    entries:\n'+added,1)
+          p.write_text(before+'  - id: tools\n'+group+'\n  - id: sections\n'+after)
+          PY
+          python docs/scripts/build-pdf-toolkit-pages.py
+          node --test tests/pdf-toolkit.test.cjs tests/toolkit-routes.test.cjs tests/png-pdf.test.cjs tests/scanner-core.test.mjs
+      - name: Commit the integrated result on the feature branch
+        run: |
+          git add _data/site_directory.yml docs/scripts/build-pdf-toolkit-pages.py tools/
+          git diff --cached --check
+          git commit -m 'Integrate current homepage navigation and register all PDF tools'
+          git push origin HEAD:feat/pdf-toolkit-20261016
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pdf-toolkit-integrated
+          path: |
+            tools/
+            tests/
+            docs/scripts/build-pdf-toolkit-pages.py
+            docs/pdf-toolkit.md
+            _data/site_directory.yml
+          retention-days: 3
