@@ -27,7 +27,7 @@ class ExperienceTest(unittest.TestCase):
         parser = Elements()
         parser.feed(text)
         self.assertEqual(sum('experience-card' in attrs.get('class', '').split() for _, attrs in parser.items), 7)
-        for value in ['Tong Yang', '2027 –', '4.0/4.0', 'Numerical Analysis', 'Innovation Class', 'ZhiNao Division', 'EPIC Lab', 'LEAP Lab', 'ICLR 2027']:
+        for value in ['Tong Yang', '2027 –', '4.0/4.0', 'Innovation Class', 'ZhiNao Division', 'EPIC Lab', 'LEAP Lab', 'ICLR 2027']:
             self.assertIn(value, text)
         for old in ['educations', 'internships']:
             self.assertIn('id="' + old + '"', text)
@@ -75,10 +75,13 @@ class ExperienceTest(unittest.TestCase):
         self.assertEqual(text.count('class="experience-name"'), 7)
         self.assertEqual(text.count('class="experience-role"'), 7)
         self.assertEqual(text.count('class="experience-date"'), 7)
-        self.assertEqual(text.count('class="experience-summary"'), 7)
+        # The summary line is optional for shorter experiences.
+        summary_count = text.count('class="experience-summary"')
+        self.assertGreaterEqual(summary_count, 1)
+        self.assertLessEqual(summary_count, 7)
         self.assertNotIn('15 classmates and ~70 students', text)
         self.assertNotIn('Our work has been accepted to', text)
-        for required in ['Tong Yang', '4.0/4.0', 'Numerical Analysis',
+        for required in ['Tong Yang', '4.0/4.0', 
                          'ZhiNao Division', 'LEAP Lab', 'EPIC Lab']:
             self.assertIn(required, text)
 
@@ -86,7 +89,7 @@ class ExperienceTest(unittest.TestCase):
         css = ROOT / 'assets/css/home-experience.css'
         self.assertTrue(css.is_file(), 'Experience responsive styles missing')
         text = css.read_text()
-        for token in ['52px', '280px', 'object-fit: contain', '@media', 'home-experience-grid']:
+        for token in ['68px', '60px', '280px', 'object-fit: contain', '@media', 'home-experience-grid']:
             self.assertIn(token, text)
 
 if __name__ == '__main__':

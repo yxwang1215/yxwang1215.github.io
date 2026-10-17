@@ -11,7 +11,7 @@
 
 .home-profile .page__content .experience-card {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-columns: 68px minmax(0, 1fr);
   align-items: start;
   align-self: start;
   gap: 11px;
@@ -37,10 +37,10 @@
 .home-profile .page__content .experience-card .edu-logo,
 .home-profile .page__content .experience-card .intern-logo {
   display: block;
-  width: 52px;
-  height: 52px;
-  max-width: 52px;
-  flex: 0 0 52px;
+  width: 68px;
+  height: 68px;
+  max-width: 68px;
+  flex: 0 0 68px;
   margin: 0;
   padding: 0;
   object-fit: contain;
@@ -141,9 +141,9 @@
 @media (max-width: 740px) {
   .home-profile .home-experience-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .home-profile .home-experience-grid.experience-masonry > .experience-card { grid-column: 1; }
-  .home-profile .page__content .experience-card { padding: 13px; }
+  .home-profile .page__content .experience-card { grid-template-columns: 60px minmax(0, 1fr); padding: 13px; }
   .home-profile .page__content .experience-card .edu-logo,
-  .home-profile .page__content .experience-card .intern-logo { width: 52px; height: 52px; }
+  .home-profile .page__content .experience-card .intern-logo { width: 60px; height: 60px; max-width: 60px; flex-basis: 60px; }
 }
 /* Paper previews are independent of Experience. Keep the original sizing. */
 .home-profile .work-card { grid-template-columns: 280px minmax(0, 1fr); gap: 24px; }
