@@ -1,0 +1,72 @@
+/* Reading scale for the homepage sidebar, Experience and Works controls.
+   Load after the component styles. About, paper content and colors are unchanged.
+   Keep the same readable sizes on phones; wrap content instead of shrinking it. */
+
+.home-profile .sidebar .author__name {
+  font-size: 20px;
+  line-height: 1.45;
+  white-space: normal;
+  word-break: keep-all;
+}
+.home-profile .sidebar .author__bio,
+.home-profile .sidebar .author__urls,
+.home-profile .sidebar .author__urls li,
+.home-profile .sidebar .author__urls li a {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.home-profile .sidebar .author__urls li a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.home-profile .sidebar .author__urls li i {
+  font-size: 16px;
+}
+.home-profile .sidebar .author__urls_sm a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 40px;
+  margin: 0 3px 0 0;
+  font-size: 19px;
+}
+
+/* Intrinsic heights and the existing masonry script handle longer lines. */
+.home-profile .page__content .experience-card .experience-name {
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.home-profile .page__content .experience-card p.experience-role,
+.home-profile .page__content .experience-card p.experience-summary {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.home-profile .page__content .experience-card p.experience-date {
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.home-profile .page__content .work-filters {
+  gap: 9px;
+}
+.home-profile .page__content .work-filters button {
+  min-height: 44px;
+  padding: 8px 13px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.home-profile .page__content .work-filters button span {
+  font-size: 14px;
+}
+.home-profile .page__content .work-note {
+  font-size: 14.5px !important;
+  line-height: 1.55;
+}
+.home-profile .page__content .work-first-key {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+}
