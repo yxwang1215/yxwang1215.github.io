@@ -1,21 +1,21 @@
-/* Primary navigation typography.
-   Use a clean system-font stack so the menu renders quickly without remote
-   font requests.  Intentionally scoped to #site-nav: Journal has its own header. */
+/* Main site navigation. Kalam matches the informal handwritten typography
+   of the visual reference; retain system handwriting fallbacks when offline. */
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
 
 .masthead #site-nav {
-  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Kalam", "Comic Sans MS", "Segoe Print", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .masthead #site-nav .visible-links > li > a {
-  margin: 0 0.52rem;
-  padding: 0.68rem 0;
+  margin: 0 0.46rem;
+  padding: 0.72rem 0;
   font-family: inherit;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.012em;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
 }
 
 .masthead #site-nav .visible-links > li:first-child > a {
@@ -26,34 +26,34 @@
   margin-right: 0;
 }
 
-/* Remove the old oversized gap after Home; let every label breathe evenly. */
+/* Keep Home on the same scale as all other sections. */
 .masthead #site-nav .masthead__menu-item--lg {
-  padding-right: 0.65rem;
+  padding-right: 0.5rem;
 }
 
 .masthead #site-nav .visible-links .masthead__menu-home-item > a {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
 }
 
-/* The overflow menu must not revert to the theme's tiny default text. */
+/* The priority-plus dropdown uses the same typeface and readable sizing. */
 .masthead #site-nav .hidden-links > li > a {
   margin: 0;
-  padding: 0.72rem 1rem;
+  padding: 0.65rem 0.86rem;
   font-family: inherit;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: -0.008em;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
 }
 
-/* Greedy navigation automatically moves links to the dropdown as space shrinks. */
+/* Greedy navigation can move items to the dropdown on narrower screens. */
 @media (max-width: 840px) {
   .masthead #site-nav .visible-links > li > a,
   .masthead #site-nav .visible-links .masthead__menu-home-item > a {
-    margin-right: 0.42rem;
-    margin-left: 0.42rem;
-    font-size: 19px;
+    margin-right: 0.38rem;
+    margin-left: 0.38rem;
+    font-size: 20px;
   }
 
   .masthead #site-nav .visible-links > li:first-child > a {
