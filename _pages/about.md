@@ -13,16 +13,14 @@ redirect_from:
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
-<div class="highlight-box" markdown="1">
-I am a senior at **Xidian University**, majoring in **Software Engineering (Intelligent Direction)**. I rank <span class="academic-emphasis">**1st/335**</span> in all Software Engineering and <span class="academic-emphasis">**1st/1342**</span> in the Computer Category for the 2023-2024 academic year. Additionally, I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
+<div class="highlight-box home-intro" markdown="1">
+I am a senior at [Xidian University](https://www.xidian.edu.cn/), majoring in **Software Engineering (Intelligent Direction)**. I will join the [School of Computer Science](https://cs.pku.edu.cn/) at [Peking University](https://www.pku.edu.cn/) as a Ph.D. student in **2027**, advised by [Prof. Tong Yang](https://yangtonghome.github.io/).
 
-**Research Interests:**
-<span class="tag">Multimodal LLMs</span>
-<span class="tag tag--green">Efficient AI</span>
-<span class="tag tag--orange">Large Language Models</span>
-<span class="tag tag--purple">Omni LLMs</span>
-<span class="tag tag--blue">Token Pruning</span>
-<span class="tag tag--blue">KV Cache Optimization</span>
+I currently intern at [360 Group](https://www.360.cn/) ([ZhiNao Division](https://ai.360.com/)). Previously, I was a research assistant at [EPIC Lab@SJTU](https://epic-lab.github.io/) and [LEAP Lab@Tsinghua University](https://www.leaplab.ai/).
+
+At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
+
+<span class="home-intro__interests"><strong>Research Interests:</strong> Multimodal LLMs · Efficient AI · Large Language Models · Omni LLMs · Token Pruning · KV Cache Optimization</span>
 </div>
 
 <span class='anchor' id='educations'></span>
@@ -114,13 +112,13 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 <div class="section-divider"></div>
 
 <ul class="award-list">
-<li class="award-item"><time class="award-date" datetime="2025-12">2025.12</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">(Top 0.1%) - Issued by Huawei Xi'an Research Institute</span></div></li>
-<li class="award-item"><span class="award-date">2023 - 2025</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">(Twice, 2023-2024, 2024-2025)</span></div></li>
-<li class="award-item"><time class="award-date" datetime="2025-04">2025.04</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
-<li class="award-item"><time class="award-date" datetime="2024-12">2024.12</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">National Undergraduate Mathematical Modeling Contest</span></div></li>
-<li class="award-item"><time class="award-date" datetime="2024-11">2024.11</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">16th National Undergraduate Mathematics Competition</span></div></li>
-<li class="award-item"><time class="award-date" datetime="2024-01">2024.01</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note"><em>Vocabulary Star</em> National English Vocabulary Competition</span></div></li>
-<li class="award-item"><time class="award-date" datetime="2024-01">2024.01</time><div class="award-copy"><strong>Honorable Mention</strong><span class="award-note">Mathematical Contest in Modeling (MCM)</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2025-12">Dec 2025</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">Top 0.1% · Huawei Xi'an Research Institute</span></div></li>
+  <li class="award-item"><span class="award-date">2023–25</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">Twice · 2023–24 and 2024–25</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2025-04">Apr 2025</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2024-12">Dec 2024</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">National Undergraduate Mathematical Modeling Contest</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2024-11">Nov 2024</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">16th National Undergraduate Mathematics Competition</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2024-01">Jan 2024</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note"><em>Vocabulary Star</em> National English Vocabulary Competition</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2024-01">Jan 2024</time><div class="award-copy"><strong>Honorable Mention</strong><span class="award-note">Mathematical Contest in Modeling (MCM)</span></div></li>
 </ul>
 
 <span class='anchor' id='service'></span>
