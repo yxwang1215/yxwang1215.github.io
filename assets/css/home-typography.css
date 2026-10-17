@@ -1,0 +1,237 @@
+/* Homepage typography aligned to Selen Suyue's profile site.
+   Included only for permalink '/', after home-profile.css. */
+.home-profile {
+  --rounded-font: "Arial Rounded MT Bold", Verdana, "Segoe UI", "PingFang SC", sans-serif;
+  --cv-ink: #2d3540;
+  --cv-muted: #65707b;
+  --cv-divider: #e5e5e7;
+  font-family: var(--rounded-font);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.home-profile #main,
+.home-profile .page__content,
+.home-profile .masthead,
+.home-profile .sidebar,
+.home-profile .greedy-nav {
+  font-family: var(--rounded-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
+}
+.home-profile .page__content { font-size: 15px; line-height: 1.65; }
+.home-profile .page__content > h1,
+.home-profile .page__content .home-works h1,
+.home-profile .page__content .work-group-title,
+.home-profile .page__content .work-details h3 {
+  font-family: var(--rounded-font);
+}
+.home-profile .page__content > h1,
+.home-profile .page__content .home-works h1 {
+  font-size: clamp(21px, 2.1vw, 24px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+}
+.home-profile .page__content .highlight-box,
+.home-profile .page__content .highlight-box p {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.home-profile .page__content .tag { font-family: inherit; font-size: 13px; }
+
+/* Make Education and Internships share the Works section's type rhythm.
+   Keep existing responsive layout and compact logo dimensions intact. */
+.home-profile .page__content .edu-card,
+.home-profile .page__content .intern-card,
+.home-profile .page__content .edu-content,
+.home-profile .page__content .intern-content {
+  font-family: var(--rounded-font);
+}
+.home-profile .page__content .edu-content,
+.home-profile .page__content .intern-content {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.home-profile .page__content .edu-content p,
+.home-profile .page__content .intern-content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.home-profile .page__content .edu-content em {
+  color: var(--cv-muted);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-style: italic;
+}
+.home-profile .page__content .intern-org,
+.home-profile .page__content .intern-org a,
+.home-profile .page__content .edu-content > p:first-child a {
+  color: var(--cv-ink) !important;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+.home-profile .page__content .intern-role-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 3px 18px;
+  margin-top: 3px !important;
+}
+.home-profile .page__content .intern-position {
+  color: #46515d;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-style: italic;
+}
+.home-profile .page__content .intern-date {
+  color: #79818b;
+  font-size: 13px;
+  font-weight: 400;
+}
+.home-profile .page__content .intern-description {
+  margin-top: 8px !important;
+  color: #57616b;
+  font-size: 14px !important;
+  line-height: 1.65;
+}
+.home-profile .page__content .intern-acceptance {
+  margin-top: 5px !important;
+  font-size: 13px !important;
+  line-height: 1.6;
+}
+
+/* Awards and Service: the reference site's quiet two-column date list. */
+.home-profile .page__content .award-list,
+.home-profile .page__content .service-list {
+  padding: 0;
+  margin: 0 0 24px;
+  list-style: none;
+  border-top: 1px solid var(--cv-divider);
+}
+.home-profile .page__content .award-item,
+.home-profile .page__content .service-item {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin: 0;
+  padding: 13px 0;
+  list-style: none;
+  border: 0;
+  border-bottom: 1px solid var(--cv-divider);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--rounded-font);
+  font-size: 15px;
+  line-height: 1.55;
+  transition: none;
+}
+.home-profile .page__content .award-item:hover,
+.home-profile .page__content .service-item:hover {
+  padding-left: 0;
+  background: transparent;
+}
+.home-profile .page__content .award-date,
+.home-profile .page__content .service-date {
+  padding-top: 2px;
+  color: #838b94;
+  font-family: var(--rounded-font);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.home-profile .page__content .award-copy,
+.home-profile .page__content .service-copy {
+  min-width: 0;
+}
+.home-profile .page__content .award-copy > strong,
+.home-profile .page__content .service-copy > strong {
+  display: block;
+  color: var(--cv-ink);
+  font-family: var(--rounded-font);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.home-profile .page__content .award-note,
+.home-profile .page__content .service-role,
+.home-profile .page__content .service-note {
+  display: block;
+  margin-top: 3px;
+  color: var(--cv-muted);
+  font-family: var(--rounded-font);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.62;
+}
+.home-profile .page__content .service-note { margin-top: 6px; }
+.home-profile .page__content .service-note em { color: #424c58; font-style: italic; }
+
+/* Friends: readable prose instead of one oversized colored card. */
+.home-profile .page__content .friend-card {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  margin: 0 0 18px;
+  border: 0;
+  border-top: 1px solid var(--cv-divider);
+  border-bottom: 1px solid var(--cv-divider);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--rounded-font);
+  font-size: 15px;
+  line-height: 1.73;
+}
+.home-profile .page__content .friend-card:hover {
+  transform: none;
+  border-color: var(--cv-divider);
+  box-shadow: none;
+}
+.home-profile .page__content .friend-card p {
+  margin: 0;
+  color: #505b65;
+  font-size: 15px;
+  line-height: 1.73;
+}
+.home-profile .page__content .friend-card a,
+.home-profile .page__content .friend-card strong {
+  font-family: inherit;
+  font-weight: 700;
+}
+.home-profile .page__content .last-updated { font-family: var(--rounded-font); font-size: 12.5px; }
+
+/* Sidebar and navigation also use the rounded typeface; icon classes keep theirs. */
+.home-profile .sidebar h3,
+.home-profile .sidebar p,
+.home-profile .sidebar li,
+.home-profile .sidebar .author__urls-wrapper,
+.home-profile .greedy-nav a {
+  font-family: var(--rounded-font);
+}
+.home-profile .sidebar .author__bio,
+.home-profile .sidebar li { font-size: 13px; line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .home-profile .page__content > h1,
+  .home-profile .page__content .home-works h1 { font-size: 22px; }
+  .home-profile .page__content .award-item,
+  .home-profile .page__content .service-item {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .home-profile .page__content .award-date,
+  .home-profile .page__content .service-date { font-size: 12px; }
+  .home-profile .page__content .award-copy > strong,
+  .home-profile .page__content .service-copy > strong { font-size: 14.5px; }
+  .home-profile .page__content .award-note,
+  .home-profile .page__content .service-role,
+  .home-profile .page__content .service-note { font-size: 13px; }
+}

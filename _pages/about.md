@@ -79,32 +79,32 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 <div class="section-divider"></div>
 
 <div class="intern-card">
-<img src="/images/360.svg" alt="360 Group" class="intern-logo">
-<div class="intern-content" markdown="1">
-[**Internet Products Business Group · ZhiNao Division**](https://ai.360.com/) · [**360 Group**](https://www.360.cn/), China.
-<br> *Foundation Model Research Intern* &emsp; *August 2026 - Present*
-<br> Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.
-</div>
-</div>
-
-<div class="intern-card">
-<img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo">
-<div class="intern-content" markdown="1">
-[**EPIC Lab**](https://epic-lab.github.io/), [School of Artificial Intelligence](https://soai.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), China.
-<br> *Research Assistant* &emsp; August 2025 - April 2026
-<br> Developed efficient diffusion LLM inference methods and KV cache eviction techniques for Audio LLMs.
-<br> <span class="publication-status">Our work has been accepted to ICLR 2026 and ACM MM 2026.</span>
-</div>
+  <img src="/images/360.svg" alt="360 Group" class="intern-logo" loading="lazy" decoding="async">
+  <div class="intern-content">
+    <p class="intern-org"><a href="https://ai.360.com/"><strong>Internet Products Business Group · ZhiNao Division</strong></a> · <a href="https://www.360.cn/"><strong>360 Group</strong></a>, China.</p>
+    <p class="intern-role-row"><span class="intern-position">Foundation Model Research Intern</span><span class="intern-date">August 2026 - Present</span></p>
+    <p class="intern-description">Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.</p>
+  </div>
 </div>
 
 <div class="intern-card">
-<img src="/images/tsinghua.png" alt="Tsinghua University" class="intern-logo">
-<div class="intern-content" markdown="1">
-[**LEAP Lab**](https://www.leaplab.ai/), [Department of Automation](https://www.au.tsinghua.edu.cn/index.htm), [Tsinghua University](https://www.tsinghua.edu.cn/), China.
-<br> *Research Assistant* &emsp; March 2025 - September 2025
-<br> Participated in the implementation of autonomous robotic ultrasonography and real-time probe-guidance projects.
-<br> <span class="publication-status">Our work has been accepted to MICCAI 2026 and ICRA 2026.</span>
+  <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo" loading="lazy" decoding="async">
+  <div class="intern-content">
+    <p class="intern-org"><a href="https://epic-lab.github.io/"><strong>EPIC Lab</strong></a>, <a href="https://soai.sjtu.edu.cn/">School of Artificial Intelligence</a>, <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>, China.</p>
+    <p class="intern-role-row"><span class="intern-position">Research Assistant</span><span class="intern-date">August 2025 - April 2026</span></p>
+    <p class="intern-description">Developed efficient diffusion LLM inference methods and KV cache eviction techniques for Audio LLMs.</p>
+    <p class="intern-acceptance"><span class="publication-status">Our work has been accepted to ICLR 2026 and ACM MM 2026.</span></p>
+  </div>
 </div>
+
+<div class="intern-card">
+  <img src="/images/tsinghua.png" alt="Tsinghua University" class="intern-logo" loading="lazy" decoding="async">
+  <div class="intern-content">
+    <p class="intern-org"><a href="https://www.leaplab.ai/"><strong>LEAP Lab</strong></a>, <a href="https://www.au.tsinghua.edu.cn/index.htm">Department of Automation</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, China.</p>
+    <p class="intern-role-row"><span class="intern-position">Research Assistant</span><span class="intern-date">March 2025 - September 2025</span></p>
+    <p class="intern-description">Participated in the implementation of autonomous robotic ultrasonography and real-time probe-guidance projects.</p>
+    <p class="intern-acceptance"><span class="publication-status">Our work has been accepted to MICCAI 2026 and ICRA 2026.</span></p>
+  </div>
 </div>
 
 <span class='anchor' id='honors-and-awards'></span>
@@ -113,42 +113,37 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
-<div class="award-item" markdown="1">
-*2025.12*: **Huawei Scholarship** (Top 0.1%) - Issued by Huawei Xi'an Research Institute
-</div>
-<div class="award-item" markdown="1">
-*2023 - 2025*: **National Scholarship** (Twice, 2023-2024, 2024-2025)
-</div>
-<div class="award-item" markdown="1">
-*2025.04*: **National First Prize**, National English Competition for College Students (NECCS)
-</div>
-<div class="award-item" markdown="1">
-*2024.12*: **First Prize**, National Undergraduate Mathematical Modeling Contest
-</div>
-<div class="award-item" markdown="1">
-*2024.11*: **First Prize**, 16th National Undergraduate Mathematics Competition
-</div>
-<div class="award-item" markdown="1">
-*2024.01*: **National First Prize**, *Vocabulary Star* National English Vocabulary Competition
-</div>
-<div class="award-item" markdown="1">
-*2024.01*: **Honorable Mention**, Mathematical Contest in Modeling (MCM)
-</div>
+<ul class="award-list">
+<li class="award-item"><time class="award-date" datetime="2025-12">2025.12</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">(Top 0.1%) - Issued by Huawei Xi'an Research Institute</span></div></li>
+<li class="award-item"><span class="award-date">2023 - 2025</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">(Twice, 2023-2024, 2024-2025)</span></div></li>
+<li class="award-item"><time class="award-date" datetime="2025-04">2025.04</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
+<li class="award-item"><time class="award-date" datetime="2024-12">2024.12</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">National Undergraduate Mathematical Modeling Contest</span></div></li>
+<li class="award-item"><time class="award-date" datetime="2024-11">2024.11</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">16th National Undergraduate Mathematics Competition</span></div></li>
+<li class="award-item"><time class="award-date" datetime="2024-01">2024.01</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note"><em>Vocabulary Star</em> National English Vocabulary Competition</span></div></li>
+<li class="award-item"><time class="award-date" datetime="2024-01">2024.01</time><div class="award-copy"><strong>Honorable Mention</strong><span class="award-note">Mathematical Contest in Modeling (MCM)</span></div></li>
+</ul>
 
+<span class='anchor' id='service'></span>
 <span class='anchor' id='activities'></span>
 
 # Service
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
-<div class="intern-card" markdown="1">
-**ICLR 2027** · *Reviewer*
-</div>
-
-<div class="intern-card" markdown="1">
-**Xidian Inspur Club**, President (2025 - 2026)
-<br> *Club Management*: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.
-</div>
+<ul class="service-list">
+  <li class="service-item">
+    <time class="service-date" datetime="2027">2027</time>
+    <div class="service-copy"><strong>ICLR 2027</strong><span class="service-role">Reviewer</span></div>
+  </li>
+  <li class="service-item">
+    <span class="service-date">2025 - 2026</span>
+    <div class="service-copy">
+      <strong>Xidian Inspur Club</strong>
+      <span class="service-role">President</span>
+      <span class="service-note"><em>Club Management</em>: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.</span>
+    </div>
+  </li>
+</ul>
 
 # Friends
 {: style="margin-top: 1.2em; margin-bottom: 10px;"}
