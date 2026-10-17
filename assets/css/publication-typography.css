@@ -93,20 +93,20 @@
 }
 
 @media (max-width: 600px) {
-  .page__content .pub-card {
-    font-size: 15px;
-  }
-
-  .page__content .pub-card > p:first-child > a:first-child:not(.btn--research) {
-    font-size: 15.5px;
-  }
-
+  .page__content .pub-card { font-size: 15px; }
+  .page__content .pub-card > p:first-child > a:first-child:not(.btn--research) { font-size: 15.5px; }
   .page__content .pub-card .pub-authors,
-  .page__content .pub-card .pub-meta {
-    font-size: 13.5px;
-  }
-
-  .page__content .pub-card .pub-description {
-    font-size: 14.5px;
-  }
+  .page__content .pub-card .pub-meta { font-size: 13.5px; }
+  .page__content .pub-card .pub-description { font-size: 14.5px; }
 }
+
+/* Retain the concurrent rounded-font update after migrating papers/projects
+   into the new topic catalogue. These selectors bridge both card structures. */
+.home-profile .page__content .work-card {
+  font-family: "Arial Rounded MT Bold", Verdana, "Segoe UI", sans-serif;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.home-profile .page__content .work-authors { font-style: italic; }
+.home-profile .page__content .work-description { font-style: normal; }

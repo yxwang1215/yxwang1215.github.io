@@ -29,37 +29,31 @@
       <link rel="stylesheet" href="{{ '/assets/css/navigation-directory.css' | relative_url }}?v=20261016-shadcn-blue-zinc-v5">
       <script src="{{ '/assets/js/navigation-directory.js' | relative_url }}?v=20261016-shadcn-blue-zinc-v5" defer></script>
     {% endif %}
-    {% if page.url == "/" %}
-      <link rel="stylesheet" href="{{ '/assets/css/research-3d.css' | relative_url }}?v=20260922-3">
-      <script src="{{ '/assets/js/research-3d.js' | relative_url }}?v=20260922-3" defer></script>
+    {% if page.url == '/' %}
+      <link rel="stylesheet" href="{{ '/assets/css/home-profile.css' | relative_url }}?v=20261017-topics-v1">
+      <script src="{{ '/assets/js/home-works.js' | relative_url }}?v=20261017-topics-v1" defer></script>
+      <style>
+        /* Keep the bilingual name together within the compact profile column. */
+        .home-profile .author__name { font-size: 18px; white-space: nowrap; }
+      </style>
     {% endif %}
   </head>
-
   <body class="{{ body_class_list | strip }}">
-
     {% include browser-upgrade.html %}
     {% include masthead.html %}
-
     <div id="main" role="main"{% if is_journal_page %} class="journal-shell__main"{% elsif is_wide_page %} class="wide-shell__main"{% endif %}>
       {% unless is_journal_page or is_wide_page %}
         {% include sidebar.html %}
       {% endunless %}
-
       <article class="page{% if is_journal_page %} page--journal{% endif %}{% if is_wide_page %} page--wide{% endif %}" itemscope itemtype="https://schema.org/CreativeWork">
         {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
         <div class="page__inner-wrap">
           <section class="page__content" itemprop="text">
-            {% if page.url == "/" %}
-              {% include home-explorer.html %}
-              {% include research-3d.html %}
-            {% endif %}
             {{ content }}
           </section>
         </div>
       </article>
     </div>
-
     {% include scripts.html %}
-
   </body>
 </html>

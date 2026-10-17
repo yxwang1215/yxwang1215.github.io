@@ -3,19 +3,11 @@ permalink: /
 title: "Home"
 excerpt: "About me"
 author_profile: true
-redirect_from: 
+page_class: "home-profile"
+redirect_from:
   - /about/
   - /about.html
 ---
-
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
-
-<span class='anchor' id='about-me'></span>
 
 # About Me
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
@@ -39,6 +31,7 @@ I am a senior at **Xidian University**, majoring in **Software Engineering (Inte
 {: style="margin-top: 0.8em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
 
+<div class="home-education-grid" markdown="1">
 <div class="edu-card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" loading="lazy" decoding="async" referrerpolicy="no-referrer">
 <div class="edu-content" markdown="1">
@@ -75,80 +68,9 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 <br> Selected for the *Innovation Class* at Zhejiang's top-ranked high school; 15 classmates and ~70 students school-wide are admitted to **Peking University** or **Tsinghua University** annually.
 </div>
 </div>
-
-<!--
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
--->
-
-<span class='anchor' id='publications'></span>
-
-# Publications
-{: style="margin-top: 0.8em; margin-bottom: 10px;"}
-<div class="section-divider"></div>
-
-<div class="pub-card pub-card--accepted" markdown="1">
-[**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2604.06694)
-<br> <span class="pub-authors"><strong>Y. Wang</strong>, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang</span>
-<br> <span class="pub-meta"><strong>First Author</strong>; <span class="publication-status">Accepted to ACM MM 2026 (CCF-A)</span>.</span>
-<br> <span class="pub-description">Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).</span>
-<br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">Code</a>
 </div>
 
-<div class="pub-card pub-card--accepted" markdown="1">
-[**Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles**](https://arxiv.org/abs/2506.10848)
-<br> <span class="pub-authors">Q. Wei, Y. Zhang, Z. Liu, P. Zeng, <strong>Y. Wang</strong>, D. Liu, L. Zhang</span>
-<br> <span class="pub-meta"><span class="publication-status">Accepted to ICLR 2026 (CCF-A)</span></span>
-<br> <span class="pub-description">Proposed SlowFast Sampling, a dynamic strategy that adaptively alternates between exploratory and accelerated stages based on token certainty, convergence, and positional principles. Achieved 15.63x speedup on LLaDA.</span>
-<br> <a href="https://arxiv.org/abs/2506.10848" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling" class="btn--research btn--code">Code</a>
-</div>
-
-<div class="pub-card pub-card--accepted" markdown="1">
-[**UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography**](https://arxiv.org/abs/2509.13832)
-<br> <span class="pub-authors">T. Wang*, H. Jiang*, <strong>Y. Wang*</strong>, Z. Sun, X. Yan, X. Li, G. Huang (* denotes Equal Contribution)</span>
-<br> <span class="pub-meta"><span class="publication-status">Accepted to ICRA 2026 (CCF-B)</span></span>
-<br> <span class="pub-description">Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.</span>
-<br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/UltraHiT" class="btn--research btn--code">Code</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">Project Page</a>
-</div>
-
-<div class="pub-card pub-card--accepted" markdown="1">
-[**VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance**](https://arxiv.org/abs/2510.06809)
-<br> <span class="pub-authors">T. Wang, H. Jiang, <strong>Y. Wang</strong>, Z. Sun, S. Song, G. Huang</span>
-<br> <span class="pub-meta"><span class="publication-status">Accepted to MICCAI 2026 (CCF-B)</span></span>
-<br> <span class="pub-description">Parameter-efficient Vision-Action Adapter for real-time probe guidance.</span>
-<br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">Code</a>
-</div>
-<span class='anchor' id='projects'></span>
-
-# Projects
-{: style="margin-top: 0.8em; margin-bottom: 10px;"}
-<div class="section-divider"></div>
-
-<div class="pub-card" markdown="1">
-[**Thinking inside the Mask: In-place Prompting in Diffusion LLMs**](https://arxiv.org/abs/2508.10736)
-<br> <span class="pub-authors">X. Jin, <strong>Y. Wang</strong>, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang</span>
-<br> <span class="pub-description">Proposed In-Place Prompting, integrating reasoning chains directly into the mask denoising process for Diffusion LLMs.</span>
-<br> <a href="https://arxiv.org/abs/2508.10736" class="btn--research btn--paper">Paper</a> <a href="https://github.com/Lueci4er/ICE" class="btn--research btn--code">Code</a>
-</div>
-
-<div class="pub-card" markdown="1">
-[**Self Speculative Decoding for Diffusion Large Language Models**](https://arxiv.org/abs/2510.04147)
-<br> <span class="pub-authors">Y. Gao*, Z. Ji*, <strong>Y. Wang</strong>, B. Qi, H. Xu, L. Zhang (* denotes Equal Contribution)</span>
-<br> <span class="pub-description">Developed SSD for Diffusion LLMs, accelerating inference via internal self-drafting and parallel verification.</span>
-<br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">Paper</a> <a class="btn--research btn--code" aria-disabled="true" onclick="return false;" style="cursor: default;">Code</a>
-</div>
-
-<div class="pub-card" markdown="1">
-[**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
-<br> <span class="pub-authors">P. He*, Z. Wen*, Y. Wang*, <strong>Y. Wang</strong>, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, <em>et al.</em> (* denotes Equal Contribution)</span>
-<br> <span class="pub-description">Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency across Audio LLMs.</span>
-<br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
-</div>
-
-<div class="pub-card" markdown="1">
-[**Operating System Review**](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
-<br> <span class="pub-description">Open-source study guide for Xidian Software Engineering students, covering Modern Operating Systems.</span>
-<br> <a href="https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink" class="btn--research btn--project">Read Guide</a>
-</div>
+{% include home-works.html %}
 
 <span class='anchor' id='internships'></span>
 
@@ -213,7 +135,6 @@ My research interest includes neural machine translation and computer vision. I 
 *2024.01*: **Honorable Mention**, Mathematical Contest in Modeling (MCM)
 </div>
 
-<span class='anchor' id='service'></span>
 <span class='anchor' id='activities'></span>
 
 # Service
@@ -229,8 +150,6 @@ My research interest includes neural machine translation and computer vision. I 
 <br> *Club Management*: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.
 </div>
 
-<span class='anchor' id='friends'></span>
-
 # Friends
 {: style="margin-top: 1.2em; margin-bottom: 10px;"}
 <div class="section-divider"></div>
@@ -238,15 +157,7 @@ My research interest includes neural machine translation and computer vision. I 
 <div class="friend-card" markdown="1">
 [**Wenhao Zhang**](https://vegebirrd.github.io/), a senior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
 </div>
-<br>
-<!-- <br> -->
 
 <div class="last-updated">
-  <em>Last updated: 2026/9/22.</em>
+  <em>Last updated: 2026/10/17.</em>
 </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
