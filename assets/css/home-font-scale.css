@@ -85,6 +85,8 @@
     gap: 26px;
   }
   .home-profile .author__name { white-space: normal; }
+}
+@media (min-width: 621px) and (max-width: 1100px) {
   .home-profile .page__content .work-book-caption__title { font-size: 14px; }
 }
 @media (max-width: 900px) {
