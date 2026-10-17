@@ -1,0 +1,62 @@
+/* Primary navigation typography.
+   Use a clean system-font stack so the menu renders quickly without remote
+   font requests.  Intentionally scoped to #site-nav: Journal has its own header. */
+
+.masthead #site-nav {
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.masthead #site-nav .visible-links > li > a {
+  margin: 0 0.6rem;
+  padding: 0.68rem 0;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+}
+
+.masthead #site-nav .visible-links > li:first-child > a {
+  margin-left: 0;
+}
+
+.masthead #site-nav .visible-links > li:last-child > a {
+  margin-right: 0;
+}
+
+/* Remove the old oversized gap after Home; let every label breathe evenly. */
+.masthead #site-nav .masthead__menu-item--lg {
+  padding-right: 0.8rem;
+}
+
+.masthead #site-nav .visible-links .masthead__menu-home-item > a {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* The overflow menu must not revert to the theme's tiny default text. */
+.masthead #site-nav .hidden-links > li > a {
+  margin: 0;
+  padding: 0.72rem 1rem;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.008em;
+}
+
+/* Greedy navigation automatically moves links to the dropdown as space shrinks. */
+@media (max-width: 840px) {
+  .masthead #site-nav .visible-links > li > a,
+  .masthead #site-nav .visible-links .masthead__menu-home-item > a {
+    margin-right: 0.52rem;
+    margin-left: 0.52rem;
+    font-size: 17px;
+  }
+
+  .masthead #site-nav .visible-links > li:first-child > a {
+    margin-left: 0;
+  }
+}
