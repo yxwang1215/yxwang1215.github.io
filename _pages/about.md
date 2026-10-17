@@ -90,7 +90,6 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
       <h3 class="experience-name"><a href="https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981">Zhenhai High School</a></h3>
       <p class="experience-date">Sep 2020 – Jun 2023</p>
       <p class="experience-role">Innovation Class</p>
-      <p class="experience-summary">Ningbo, Zhejiang</p>
     </div>
   </article>
 </div>
