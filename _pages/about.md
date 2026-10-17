@@ -20,7 +20,7 @@ I currently intern at [360 Group](https://www.360.cn/) ([ZhiNao Division](https:
 
 At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
 
-<span class="home-intro__interests"><strong>Research Interests:</strong> Multimodal LLMs · Efficient AI · Large Language Models · Omni LLMs · Token Pruning · KV Cache Optimization</span>
+<span class="home-intro__interests"><strong>Research Interests:</strong> Multimodal LLMs · Efficient AI · Large Language Models · KV Cache Optimization</span>
 </div>
 
 <span class="anchor" id="educations"></span>
@@ -101,28 +101,27 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 <span class='anchor' id='activities'></span>
 
 # Service
-{: style="margin-top: 0.8em; margin-bottom: 10px;"}
+{: .home-compact-heading }
 <div class="section-divider"></div>
 
 <ul class="service-list">
   <li class="service-item">
     <time class="service-date" datetime="2027">2027</time>
-    <div class="service-copy"><strong>ICLR 2027</strong><span class="service-role">Reviewer</span></div>
+    <div class="service-copy"><strong>ICLR 2027</strong><span class="service-subline"><span class="service-role">Reviewer</span></span></div>
   </li>
   <li class="service-item">
     <span class="service-date">2025 - 2026</span>
     <div class="service-copy">
       <strong>Xidian Inspur Club</strong>
-      <span class="service-role">President</span>
-      <span class="service-note"><em>Club Management</em>: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.</span>
+      <span class="service-subline" title="Club Management: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community."><span class="service-role">President</span><span class="service-note"> · Club Management: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.</span></span>
     </div>
   </li>
 </ul>
 
 <span class='anchor' id='honors-and-awards'></span>
 
-# Selected Awards
-{: style="margin-top: 0.8em; margin-bottom: 10px;"}
+# Awards
+{: .home-compact-heading }
 <div class="section-divider"></div>
 
 <ul class="award-list">
@@ -136,11 +135,15 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 </ul>
 
 # Friends
-{: style="margin-top: 1.2em; margin-bottom: 10px;"}
+{: .home-compact-heading }
 <div class="section-divider"></div>
 
-<div class="friend-card" markdown="1">
-[**Wenhao Zhang**](https://vegebirrd.github.io/), a senior at **Peking University** (CS), who plans to apply for a Master's degree in the United States. He learned **Spanish** and **Japanese**, whereas I learned **French**.
+<div class="friend-card">
+  <span class="friend-category">PKU · CS</span>
+  <div class="friend-copy">
+    <a class="friend-name" href="https://vegebirrd.github.io/">Wenhao Zhang</a>
+    <span class="friend-note" title="Senior at Peking University (CS). Plans to apply for a Master's degree in the United States. He learned Spanish and Japanese; I learned French.">Senior at Peking University (CS) · Plans to apply for a Master's degree in the United States · Spanish &amp; Japanese (I study French).</span>
+  </div>
 </div>
 
 <div class="last-updated">

@@ -1,5 +1,6 @@
 """Regression checks for the unified experience section and paper-original covers."""
 import json
+import re
 from pathlib import Path
 import unittest
 from html.parser import HTMLParser
@@ -20,7 +21,9 @@ class ExperienceTest(unittest.TestCase):
         self.assertNotIn('# Internships\n', text)
         self.assertLess(text.index('# Experience'), text.index('{% include home-works.html %}'))
         self.assertLess(text.index('{% include home-works.html %}'), text.index('# Service'))
-        self.assertLess(text.index('# Service'), text.index('# Selected Awards'))
+        awards = re.search(r'^# (?:Selected )?Awards$', text, re.MULTILINE)
+        self.assertIsNotNone(awards, 'Awards section must be preserved')
+        self.assertLess(text.index('# Service'), awards.start())
         parser = Elements()
         parser.feed(text)
         self.assertEqual(sum('experience-card' in attrs.get('class', '').split() for _, attrs in parser.items), 7)
