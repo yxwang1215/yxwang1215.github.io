@@ -46,6 +46,16 @@
 .home-profile .page__content .work-topic-count { font-size: 14px; }
 .home-profile .page__content .work-details { font-size: 17px; }
 .home-profile .page__content .work-details h3 { font-size: 18px; }
+/* The grey author line and research synopsis were still too small. */
+.home-profile .page__content .work-authors {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.home-profile .page__content .work-description {
+  font-size: 19px !important;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
 .home-profile .page__content .work-contribution { font-size: 15.5px; }
 .home-profile .page__content .work-resource-label { font-size: 15px; }
 .home-profile .page__content .work-book-caption__eyebrow { font-size: 11px; }
@@ -106,6 +116,8 @@
   .home-profile .page__content .work-group-title { font-size: 18px; }
   .home-profile .page__content .work-details { font-size: 16.5px; }
   .home-profile .page__content .work-details h3 { font-size: 17.5px; }
+  .home-profile .page__content .work-authors { font-size: 17px; }
+  .home-profile .page__content .work-description { font-size: 18px !important; }
   .home-profile .page__content .work-book-caption__title { font-size: 17px; }
   .home-profile .page__content .award-item,
   .home-profile .page__content .service-item,
