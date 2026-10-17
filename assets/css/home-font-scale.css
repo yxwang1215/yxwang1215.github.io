@@ -46,9 +46,9 @@
 .home-profile .page__content .work-topic-count { font-size: 14px; }
 .home-profile .page__content .work-details { font-size: 17px; }
 .home-profile .page__content .work-details h3 { font-size: 18px; }
-/* The grey author line and research synopsis were still too small. */
+/* Keep author lists more compact than work titles and descriptions. */
 .home-profile .page__content .work-authors {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
 }
 .home-profile .page__content .work-description {
@@ -116,7 +116,7 @@
   .home-profile .page__content .work-group-title { font-size: 18px; }
   .home-profile .page__content .work-details { font-size: 16.5px; }
   .home-profile .page__content .work-details h3 { font-size: 17.5px; }
-  .home-profile .page__content .work-authors { font-size: 17px; }
+  .home-profile .page__content .work-authors { font-size: 15.5px; }
   .home-profile .page__content .work-description { font-size: 18px !important; }
   .home-profile .page__content .work-book-caption__title { font-size: 17px; }
   .home-profile .page__content .award-item,
