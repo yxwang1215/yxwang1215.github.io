@@ -18,7 +18,7 @@ I am a senior at [Xidian University](https://www.xidian.edu.cn/), majoring in **
 
 I currently intern at [360 Group](https://www.360.cn/) ([ZhiNao Division](https://ai.360.com/)). Previously, I was a research assistant at [EPIC Lab@SJTU](https://epic-lab.github.io/) and [LEAP Lab@Tsinghua University](https://www.leaplab.ai/).
 
-At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
+At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (CFT-4 87/100).
 
 <span class="home-intro__interests"><strong class="home-interest-label">Research Interests:</strong><span class="home-interest-chip">Multimodal LLMs</span><span class="home-interest-chip">Efficient AI</span><span class="home-interest-chip">Large Language Models</span><span class="home-interest-chip">KV Cache Optimization</span></span>
 </div>
