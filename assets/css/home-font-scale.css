@@ -1,0 +1,124 @@
+/* Homepage-only two-step typography increase (roughly +2 CSS px).
+   Loaded last so legacy theme and sectional overrides remain intact.
+   Keep colors, font families, weights, and card structure unchanged. */
+
+/* Global rhythm, masthead and profile column. */
+.home-profile { font-size: 17px; }
+.home-profile .page__content { font-size: 17px; }
+.home-profile .greedy-nav a { font-size: 16px; }
+.home-profile .greedy-nav .masthead__menu-home-item a { font-size: 18px; }
+.home-profile .author__name { font-size: 20px; }
+.home-profile .sidebar .author__bio,
+.home-profile .sidebar li,
+.home-profile .sidebar .author__urls li,
+.home-profile .sidebar .author__urls a { font-size: 15px; }
+.home-profile .author__urls { font-size: 16px; }
+
+/* Section headings and introductory text. */
+.home-profile .page__content > h1,
+.home-profile .page__content .home-works h1 {
+  font-size: clamp(23px, 2.2vw, 26px);
+}
+.home-profile .page__content > h1.home-about-heading { font-size: 28px; }
+.home-profile .page__content > h1.home-compact-heading { font-size: 21px; }
+.home-profile .page__content .home-intro { font-size: 19px; }
+.home-profile .page__content .home-intro p { font-size: inherit; }
+.home-profile .page__content .home-intro__interests { font-size: 17px; }
+.home-profile .page__content .home-intro__interests .home-interest-label,
+.home-profile .page__content .home-intro .home-interest-chip { font-size: inherit; }
+.home-profile .page__content .tag { font-size: 15px; }
+.home-profile .page__content .highlight-box,
+.home-profile .page__content .highlight-box p { font-size: inherit; }
+
+/* Experience: all school, role, date and supporting text move together. */
+.home-profile .page__content .edu-content,
+.home-profile .page__content .intern-content,
+.home-profile .page__content .edu-content p,
+.home-profile .page__content .intern-content p { font-size: 17px; }
+.home-profile .page__content .experience-card .experience-name { font-size: 16.5px; }
+.home-profile .page__content .experience-card p.experience-role { font-size: 15px; }
+.home-profile .page__content .experience-card p.experience-date { font-size: 14.3px; }
+.home-profile .page__content .experience-card p.experience-summary { font-size: 14.8px; }
+
+/* Works: match the larger editorial text, including controls and metadata. */
+.home-profile .page__content .work-filters button { font-size: 15px; }
+.home-profile .page__content .work-filters button span { font-size: 13px; }
+.home-profile .page__content .work-note { font-size: 15px !important; }
+.home-profile .page__content .work-group-title { font-size: 18px; }
+.home-profile .page__content .work-topic-count { font-size: 14px; }
+.home-profile .page__content .work-details { font-size: 17px; }
+.home-profile .page__content .work-details h3 { font-size: 18px; }
+.home-profile .page__content .work-contribution { font-size: 15.5px; }
+.home-profile .page__content .work-resource-label { font-size: 15px; }
+.home-profile .page__content .work-book-caption__eyebrow { font-size: 11px; }
+.home-profile .page__content .work-book-caption__title { font-size: 16px; }
+.home-profile .page__content .work-book-caption__school { font-size: 12px; }
+.home-profile .page__content .work-media-hint { font-size: 16px; }
+.home-profile .work-lightbox p { font-size: 15px; }
+
+/* Awards, Service and Friends: enlarge their small captions as well as titles. */
+.home-profile .page__content .award-item,
+.home-profile .page__content .service-item,
+.home-profile .page__content .friend-card {
+  grid-template-columns: 108px minmax(0, 1fr);
+}
+.home-profile .page__content .award-date,
+.home-profile .page__content .service-date,
+.home-profile .page__content .friend-category { font-size: 13.5px; }
+.home-profile .page__content .award-copy > strong,
+.home-profile .page__content .service-copy > strong,
+.home-profile .page__content .friend-name { font-size: 15.8px; }
+.home-profile .page__content .award-note,
+.home-profile .page__content .service-subline,
+.home-profile .page__content .friend-note { font-size: 14px; }
+.home-profile .page__content .service-subline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}
+.home-profile .page__content .friend-note { font-size: 14px; }
+.home-profile .page__content .last-updated { font-size: 14px; }
+
+/* Keep the compact sidebar and book-cover caption readable on mid-size screens. */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .home-profile #main {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 26px;
+  }
+  .home-profile .author__name { white-space: normal; }
+  .home-profile .page__content .work-book-caption__title { font-size: 14px; }
+}
+@media (max-width: 900px) {
+  .home-profile .author__name { white-space: normal; }
+}
+/* Phone layout already stacks the cards; preserve its distinct type hierarchy. */
+@media (max-width: 640px) {
+  .home-profile .page__content { font-size: 17px; }
+  .home-profile .page__content > h1,
+  .home-profile .page__content .home-works h1 { font-size: 24px; }
+  .home-profile .page__content > h1.home-about-heading { font-size: 26px; }
+  .home-profile .page__content > h1.home-compact-heading { font-size: 20px; }
+  .home-profile .page__content .home-intro { font-size: 18px; }
+  .home-profile .page__content .home-intro__interests { font-size: 16px; }
+  .home-profile .page__content .work-filters button { font-size: 14px; }
+  .home-profile .page__content .work-note { font-size: 14.5px !important; }
+  .home-profile .page__content .work-group-title { font-size: 18px; }
+  .home-profile .page__content .work-details { font-size: 16.5px; }
+  .home-profile .page__content .work-details h3 { font-size: 17.5px; }
+  .home-profile .page__content .work-book-caption__title { font-size: 17px; }
+  .home-profile .page__content .award-item,
+  .home-profile .page__content .service-item,
+  .home-profile .page__content .friend-card {
+    grid-template-columns: 94px minmax(0, 1fr);
+  }
+  .home-profile .page__content .award-date,
+  .home-profile .page__content .service-date,
+  .home-profile .page__content .friend-category { font-size: 13px; }
+  .home-profile .page__content .award-copy > strong,
+  .home-profile .page__content .service-copy > strong,
+  .home-profile .page__content .friend-name { font-size: 15px; }
+  .home-profile .page__content .award-note,
+  .home-profile .page__content .service-subline,
+  .home-profile .page__content .friend-note { font-size: 13.5px; }
+}
