@@ -74,7 +74,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
       <h3 class="experience-name"><a href="https://www.xidian.edu.cn/">Xidian University</a></h3>
       <p class="experience-role">B.Eng. · Software Engineering</p>
       <p class="experience-date">Sep 2023 – Jun 2027</p>
-      <p class="experience-summary">GPA 4.0/4.0 · Rank 1/335.</p>
+      <p class="experience-summary">GPA 4.0/4.0 · Rank 1/335 · National Scholarship (3 consecutive years).</p>
     </div>
   </article>
 
@@ -128,7 +128,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 
 <ul class="award-list">
   <li class="award-item"><time class="award-date" datetime="2025-12">Dec 2025</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">Top 0.1% · Huawei Xi'an Research Institute</span></div></li>
-  <li class="award-item"><span class="award-date">2023–25</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">Twice · 2023–24 and 2024–25</span></div></li>
+  <li class="award-item"><span class="award-date">2023–26</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">3 consecutive years · 2023–2026</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-04">Apr 2025</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2024-12">Dec 2024</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">National Undergraduate Mathematical Modeling Contest</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2024-11">Nov 2024</time><div class="award-copy"><strong>First Prize</strong><span class="award-note">16th National Undergraduate Mathematics Competition</span></div></li>
