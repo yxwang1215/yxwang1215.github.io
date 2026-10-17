@@ -102,6 +102,80 @@
 .home-profile .work-media--resource { flex-direction: column; gap: 9px; background: #faf7f4; }
 .home-profile .work-media--resource img { width: 88px; height: 88px; }
 .home-profile .work-resource-label { font-size: 13px; font-weight: 600; color: #82645c; }
+/* Book-based study notes: real edition cover, small campus identity mark. */
+.home-profile .work-media--resource.work-media--book {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: #f5f7fb;
+  border: 1px solid #e5e9f1;
+}
+.home-profile .work-media--book img.work-book-cover {
+  display: block;
+  flex: 0 0 109px;
+  width: 109px;
+  height: 136px;
+  max-width: 109px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #e4e8ef;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(30, 45, 70, .12);
+}
+.home-profile .work-book-caption {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+}
+.home-profile .work-book-caption__eyebrow {
+  color: #77849a;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  line-height: 1.3;
+}
+.home-profile .work-book-caption__title {
+  color: #344361;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+.home-profile .work-book-caption__school {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #737988;
+  font-size: 10px;
+  line-height: 1.3;
+}
+.home-profile .work-media--book .work-book-caption__school img {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  object-fit: contain;
+}
+@media (min-width: 621px) and (max-width: 1100px) {
+  .home-profile .work-media--book img.work-book-cover { flex-basis: 89px; width: 89px; max-width: 89px; height: 118px; }
+  .home-profile .work-media--resource.work-media--book { gap: 9px; padding: 9px; }
+  .home-profile .work-book-caption__title { font-size: 12px; }
+}
+@media (max-width: 620px) {
+  .home-profile .work-media--resource.work-media--book { gap: 16px; padding: 12px; }
+  .home-profile .work-media--book img.work-book-cover { flex-basis: 112px; width: 112px; max-width: 112px; height: 150px; }
+  .home-profile .work-book-caption__title { font-size: 15px; }
+}
+
 .home-profile .work-details { min-width: 0; }
 .home-profile .work-details h3 { margin: 0 0 6px; padding: 0; border: 0; font-family: inherit; font-size: 17px; font-weight: 700; letter-spacing: -.01em; line-height: 1.42; }
 .home-profile .work-details h3 a { color: #30343b; }

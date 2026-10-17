@@ -19,9 +19,18 @@
         <h2 id="works-{{ topic.id }}-title" class="work-group-title"><span class="work-topic-dot" aria-hidden="true"></span>{{ topic.heading | escape }} <span class="work-topic-count">{{ topic_works.size }}</span></h2>
         {% for work in topic_works %}
           <article id="work-{{ work.id }}" class="work-card{% if work.first_author %} work-card--first{% endif %}{% if work.resource %} work-card--resource{% endif %}" data-work-topic="{{ work.topic }}" aria-labelledby="work-{{ work.id }}-title">
-            <a class="work-media{% if work.resource %} work-media--resource{% endif %}" href="{{ work.image | relative_url }}" data-work-image data-work-caption="{{ work.title | escape }}" aria-label="Enlarge illustration: {{ work.title | escape }}">
-              <img src="{{ work.image | relative_url }}" alt="{{ work.alt | escape }}" width="{{ work.width }}" height="{{ work.height }}" loading="lazy" decoding="async">
-              {% if work.resource %}<span class="work-resource-label">Operating Systems</span>{% endif %}
+            <a class="work-media{% if work.resource %} work-media--resource{% endif %}{% if work.cover_url %} work-media--book{% endif %}" href="{% if work.cover_url %}{{ work.cover_url | escape }}{% else %}{{ work.image | relative_url }}{% endif %}" data-work-image data-work-caption="{{ work.title | escape }}" aria-label="Enlarge illustration: {{ work.title | escape }}">
+              {% if work.cover_url %}
+                <img class="work-book-cover" src="{{ work.cover_url | escape }}" alt="{{ work.cover_alt | escape }}" width="140" height="180" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                <span class="work-book-caption" aria-hidden="true">
+                  <span class="work-book-caption__eyebrow">STUDY GUIDE</span>
+                  <span class="work-book-caption__title">Modern<br>Operating Systems</span>
+                  <span class="work-book-caption__school"><img src="{{ work.image | relative_url }}" alt="" width="28" height="28" loading="lazy" decoding="async">Xidian University</span>
+                </span>
+              {% else %}
+                <img src="{{ work.image | relative_url }}" alt="{{ work.alt | escape }}" width="{{ work.width }}" height="{{ work.height }}" loading="lazy" decoding="async">
+                {% if work.resource %}<span class="work-resource-label">Operating Systems</span>{% endif %}
+              {% endif %}
               <span class="work-media-hint" aria-hidden="true">↗</span>
             </a>
             <div class="work-details">
