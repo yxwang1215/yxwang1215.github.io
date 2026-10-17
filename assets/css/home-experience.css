@@ -1,19 +1,20 @@
-/* Unified homepage experience; keep the established rose/gray typography. */
+/* Responsive compact experience cards. Seven existing entries are preserved. */
 .home-profile .home-experience-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   align-items: stretch;
-  margin-bottom: 34px;
+  margin: 0 0 34px;
 }
 .home-profile .page__content .experience-card {
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr);
   align-items: start;
-  gap: 17px;
-  padding: 19px;
+  gap: 13px;
+  padding: 15px;
   margin: 0;
   min-width: 0;
+  min-height: 176px;
   height: 100%;
   box-sizing: border-box;
   border: 1px solid #e9e3e6;
@@ -34,38 +35,105 @@
   border-radius: 0;
   background: transparent;
 }
-.home-profile .experience-card .edu-content,
-.home-profile .experience-card .intern-content {
+.home-profile .page__content .experience-card .edu-content,
+.home-profile .page__content .experience-card .intern-content {
   min-width: 0;
   overflow-wrap: break-word;
+  line-height: 1.45;
 }
-.home-profile .page__content .experience-card .edu-content,
-.home-profile .page__content .experience-card .edu-content p,
-.home-profile .page__content .experience-card .intern-content p {
-  font-size: 14px;
-  line-height: 1.65;
+.home-profile .page__content .experience-card .experience-name {
+  margin: 0 0 6px;
+  padding: 0;
+  border: 0;
+  color: #343c47;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.34;
+  letter-spacing: -.01em;
 }
-.home-profile .experience-card .intern-role-row { gap: 3px 10px; }
-.home-profile .experience-card .intern-date { display: block; flex-basis: 100%; }
-/* Larger, undistorted paper previews; the lightbox retains the original ratio. */
+.home-profile .page__content .experience-card .experience-name a,
+.home-profile .page__content .experience-card .experience-name a:visited {
+  color: #343c47;
+  font-weight: 700;
+}
+.home-profile .page__content .experience-card .experience-name a:hover {
+  color: #a45b65;
+}
+.home-profile .page__content .experience-card p.experience-role,
+.home-profile .page__content .experience-card p.experience-date,
+.home-profile .page__content .experience-card p.experience-summary {
+  margin: 0;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.48;
+}
+.home-profile .page__content .experience-card p.experience-role {
+  color: #505b68;
+  font-size: 13px;
+  font-weight: 600;
+}
+.home-profile .page__content .experience-card p.experience-date {
+  margin-top: 3px;
+  color: #89909a;
+  font-size: 12.3px;
+  font-variant-numeric: tabular-nums;
+}
+.home-profile .page__content .experience-card p.experience-summary {
+  margin-top: 7px;
+  color: #66707b;
+  font-size: 12.8px;
+}
+.home-profile .page__content .experience-card .experience-role a,
+.home-profile .page__content .experience-card .experience-summary a {
+  color: #66707b;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: #d3bcc2;
+}
+.home-profile .page__content .experience-card .experience-role a:hover,
+.home-profile .page__content .experience-card .experience-summary a:hover {
+  color: #a45b65;
+}
+/* The seventh entry becomes a compact full-row history note instead
+   of a lonely single-column card after two complete rows of three. */
+.home-profile .page__content .experience-card--earlier {
+  grid-column: 1 / -1;
+  min-height: 108px;
+  align-items: center;
+}
+.home-profile .page__content .experience-card--earlier .edu-content {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 18px;
+}
+.home-profile .page__content .experience-card--earlier .experience-name,
+.home-profile .page__content .experience-card--earlier p.experience-role,
+.home-profile .page__content .experience-card--earlier p.experience-date,
+.home-profile .page__content .experience-card--earlier p.experience-summary {
+  margin: 0;
+}
+/* Shorter paper metadata does not change illustration sizes or the lightbox. */
 .home-profile .work-card { grid-template-columns: 280px minmax(0, 1fr); gap: 24px; }
 .home-profile .work-media { height: 190px; }
 .home-profile .work-media img { object-fit: contain; }
 .home-profile .work-media--resource img { width: 116px; height: 116px; }
+@media (max-width: 1199px) {
+  .home-profile .home-experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 1100px) {
-  .home-profile .home-experience-grid { grid-template-columns: minmax(0, 1fr); }
   .home-profile .work-card { grid-template-columns: 235px minmax(0, 1fr); gap: 18px; }
   .home-profile .work-media { height: 170px; }
 }
-@media (max-width: 900px) and (min-width: 741px) {
-  .home-profile .home-experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-profile .page__content .experience-card { padding: 15px; gap: 14px; }
-}
 @media (max-width: 740px) {
   .home-profile .home-experience-grid { grid-template-columns: minmax(0, 1fr); gap: 13px; }
-  .home-profile .page__content .experience-card { grid-template-columns: 64px minmax(0, 1fr); gap: 15px; padding: 16px; }
+  .home-profile .page__content .experience-card { grid-template-columns: 64px minmax(0, 1fr); gap: 15px; padding: 16px; min-height: 0; }
   .home-profile .page__content .experience-card .edu-logo,
   .home-profile .page__content .experience-card .intern-logo { width: 64px; height: 64px; flex-basis: 64px; }
+  .home-profile .page__content .experience-card--earlier .edu-content { display: block; }
+  .home-profile .page__content .experience-card--earlier p.experience-date { margin-top: 3px; }
 }
 @media (max-width: 620px) {
   .home-profile .work-card { grid-template-columns: minmax(0, 1fr); gap: 15px; }
