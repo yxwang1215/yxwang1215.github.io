@@ -80,7 +80,8 @@ redirect_from:
         {% else %}
           {% assign journal_card_cover_url = entry.cover | relative_url %}
         {% endif %}
-      <img src="{{ journal_card_cover_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"{% if forloop.first %} fetchpriority="high"{% endif %} decoding="async">
+      <img class="journal-card__cover-backdrop" src="{{ journal_card_cover_url }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="journal-card__cover-image" src="{{ journal_card_cover_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"{% if forloop.first %} fetchpriority="high"{% endif %} decoding="async">
       {% else %}
       <span class="journal-card__placeholder" aria-hidden="true">记</span>
       {% endif %}
