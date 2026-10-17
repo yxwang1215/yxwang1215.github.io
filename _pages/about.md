@@ -100,7 +100,6 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
 
 {% include home-works.html %}
 
-<span class='anchor' id='service'></span>
 <span class='anchor' id='activities'></span>
 
 # Service
