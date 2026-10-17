@@ -243,7 +243,13 @@
   line-height: inherit;
 }
 .home-profile .page__content .service-role { color: #6c6275; font-weight: 650; }
-.home-profile .page__content .friend-note { font-size: 12px; }
+.home-profile .page__content .friend-note {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 12px;
+}
 .home-profile .page__content .friend-card p { margin: 0; }
 .home-profile .page__content .last-updated {
   margin: 8px 0 0;
@@ -298,19 +304,6 @@
 @media (max-width: 640px) {
   .home-profile .page__content > h1,
   .home-profile .page__content .home-works h1 { font-size: 22px; }
-  .home-profile .page__content .award-item,
-  .home-profile .page__content .service-item {
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 12px;
-    padding: 12px 0;
-  }
-  .home-profile .page__content .award-date,
-  .home-profile .page__content .service-date { font-size: 12px; }
-  .home-profile .page__content .award-copy > strong,
-  .home-profile .page__content .service-copy > strong { font-size: 14.5px; }
-  .home-profile .page__content .award-note,
-  .home-profile .page__content .service-role,
-  .home-profile .page__content .service-note { font-size: 13px; }
 }
 
 

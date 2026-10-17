@@ -150,7 +150,7 @@ I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My resear
   <span class="friend-category">PKU · CS</span>
   <div class="friend-copy">
     <a class="friend-name" href="https://vegebirrd.github.io/">Wenhao Zhang</a>
-    <span class="friend-note">Senior at Peking University (CS) · Plans to apply for a Master's degree in the United States · Spanish &amp; Japanese (I study French).</span>
+    <span class="friend-note" title="Senior at Peking University (CS). Plans to apply for a Master's degree in the United States. He learned Spanish and Japanese; I learned French.">Senior at Peking University (CS) · Plans to apply for a Master's degree in the United States · Spanish &amp; Japanese (I study French).</span>
   </div>
 </div>
 
