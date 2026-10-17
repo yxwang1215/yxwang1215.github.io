@@ -8,6 +8,7 @@ const layout = readFileSync(join(__dirname, '../_layouts/default.html'), 'utf8')
 const data = readFileSync(join(__dirname, '../_data/site_directory.yml'), 'utf8');
 const page = readFileSync(join(__dirname, '../_pages/navigation.html'), 'utf8');
 const script = readFileSync(join(__dirname, '../assets/js/navigation-directory.js'), 'utf8');
+const works = readFileSync(join(__dirname, '../_includes/home-works.html'), 'utf8');
 
 test('navigation retains plain title and no decorative counters', () => {
   assert.ok(page.includes('<h1>导航</h1>'));
@@ -50,12 +51,17 @@ test('responsive sections, search affordances, and external workspace', () => {
   assert.ok(layout.includes('20261016-shadcn-blue-zinc-v5'));
 });
 
-test('all existing home, tools, and Overleaf paths still resolve', () => {
+test('unified Works, tools, and Overleaf destinations remain available', () => {
   assert.deepEqual([...data.matchAll(/^  - id: (\w+)$/gm)].map(m => m[1]),
     ['home', 'tools', 'overleaf']);
-  for (const url of ['/research/', '/journey/', '/journal/', '/#publications',
-    '/#projects', '/tools/#pdf/organize']) {
+  for (const url of ['/research/', '/journey/', '/journal/', '/#works',
+    '/#service', '/tools/#pdf/organize']) {
     assert.ok(data.includes('url: "' + url + '"'), 'lost destination: ' + url);
+  }
+  // Publications and Projects now share Works, but incoming old URLs must work.
+  for (const id of ['works', 'publications', 'projects']) {
+    const count = [...works.matchAll(new RegExp('id="' + id + '"', 'g'))].length;
+    assert.equal(count, 1, 'missing or duplicated homepage anchor: ' + id);
   }
   assert.ok(['id="research"','id="journey"','id="journal"'].every(x=>page.includes(x)));
   assert.ok(data.includes('url: "https://overleaf.yxwang1215.top/"'));
