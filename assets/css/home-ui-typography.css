@@ -18,16 +18,16 @@
   gap: 9px;
 }
 .home-profile .page__content .work-filters button {
-  font-size: 16px;
+  font-size: 15px;
   min-height: 44px;
   padding: 8px 13px;
   line-height: 1.35;
 }
 .home-profile .page__content .work-filters button span {
-  font-size: 14px;
+  font-size: 13px;
 }
 .home-profile .page__content .work-note {
-  font-size: 15px !important;
+  font-size: 14px !important;
   line-height: 1.55;
 }
 .home-profile .page__content .work-first-key {
@@ -38,4 +38,34 @@
 /* Retain legible controls on phones rather than shrinking back to 12-14px. */
 @media (max-width: 640px) {
   .home-profile .page__content .work-note { font-size: 14.5px !important; }
+}
+
+/* Works: one-size-smaller typography, independent of Experience and navigation. */
+.home-profile .page__content .home-works h1 { font-size: clamp(22px, 2.2vw, 25px); }
+.home-profile .page__content .work-group-title { font-size: 17px; }
+.home-profile .page__content .work-topic-count { font-size: 13px; }
+.home-profile .page__content .work-details { font-size: 16px; }
+.home-profile .page__content .work-details h3 { font-size: 17px; }
+.home-profile .page__content .work-authors { font-size: 15px; }
+.home-profile .page__content .work-description { font-size: 18px !important; }
+.home-profile .page__content .work-contribution { font-size: 14.5px; }
+.home-profile .page__content .work-resource-label { font-size: 14px; }
+.home-profile .page__content .work-book-caption__title { font-size: 15px; }
+.home-profile .page__content .work-book-caption__school { font-size: 11px; }
+.home-profile .page__content .work-media-hint { font-size: 15px; }
+.home-profile .work-lightbox p { font-size: 14px; }
+
+@media (min-width: 621px) and (max-width: 1100px) {
+  .home-profile .page__content .work-book-caption__title { font-size: 13px; }
+}
+@media (max-width: 640px) {
+  .home-profile .page__content .home-works h1 { font-size: 23px; }
+  .home-profile .page__content .work-filters button { font-size: 15px; }
+  .home-profile .page__content .work-note { font-size: 13.5px !important; }
+  .home-profile .page__content .work-group-title { font-size: 17px; }
+  .home-profile .page__content .work-details { font-size: 15.5px; }
+  .home-profile .page__content .work-details h3 { font-size: 16.5px; }
+  .home-profile .page__content .work-authors { font-size: 14.5px; }
+  .home-profile .page__content .work-description { font-size: 17px !important; }
+  .home-profile .page__content .work-book-caption__title { font-size: 16px; }
 }
