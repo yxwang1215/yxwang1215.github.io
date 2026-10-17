@@ -7,7 +7,10 @@ on:
       - "**.md"
       - "**.yml"
       - "**.yaml"
+      - "_data/**"
       - "assets/**"
+      - "images/works/**"
+      - "tests/test_home_works.py"
       - "Gemfile"
       - "Gemfile.lock"
   workflow_dispatch:
@@ -21,12 +24,20 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
+      - name: Validate homepage work catalogue
+        run: python tests/test_home_works.py
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
           bundler-cache: true
-
       - name: Build Jekyll site
         run: bundle exec jekyll build --trace
+      - name: Validate rendered homepage and image paths
+        run: python tests/test_home_works.py --site _site
+      - name: Save built preview for visual checks
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-preview
+          path: _site/
+          retention-days: 3

@@ -1,0 +1,44 @@
+<!-- Papers and projects share one topic-based catalogue. All work remains visible without JavaScript. -->
+<span class="anchor" id="publications"></span>
+<span class="anchor" id="projects"></span>
+<section id="works" class="home-works" aria-labelledby="works-title">
+  <h1 id="works-title">Works</h1>
+  <div class="work-filters" role="group" aria-label="Filter works by research topic" hidden>
+    <button type="button" data-work-filter="all" aria-pressed="true" aria-controls="work-groups">All <span>{{ site.data.works.items.size }}</span></button>
+    {% for topic in site.data.works.topics %}
+      {% assign topic_works = site.data.works.items | where: "topic", topic.id %}
+      <button type="button" data-work-filter="{{ topic.id }}" aria-pressed="false" aria-controls="work-groups">{{ topic.label | escape }} <span>{{ topic_works.size }}</span></button>
+    {% endfor %}
+  </div>
+  <p class="work-note"><span class="work-first-key" aria-hidden="true"></span> First / equal contribution <span aria-hidden="true">·</span> * Equal contribution</p>
+  <span class="work-sr-only" id="work-status" role="status" aria-live="polite" aria-atomic="true"></span>
+  <div id="work-groups">
+    {% for topic in site.data.works.topics %}
+      {% assign topic_works = site.data.works.items | where: "topic", topic.id %}
+      <section id="works-{{ topic.id }}" class="work-group" data-work-group="{{ topic.id }}" aria-labelledby="works-{{ topic.id }}-title">
+        <h2 id="works-{{ topic.id }}-title" class="work-group-title"><span class="work-topic-dot" aria-hidden="true"></span>{{ topic.heading | escape }} <span class="work-topic-count">{{ topic_works.size }}</span></h2>
+        {% for work in topic_works %}
+          <article id="work-{{ work.id }}" class="work-card{% if work.first_author %} work-card--first{% endif %}{% if work.resource %} work-card--resource{% endif %}" data-work-topic="{{ work.topic }}" aria-labelledby="work-{{ work.id }}-title">
+            <a class="work-media{% if work.resource %} work-media--resource{% endif %}" href="{{ work.image | relative_url }}" data-work-image data-work-caption="{{ work.title | escape }}" aria-label="Enlarge illustration: {{ work.title | escape }}">
+              <img src="{{ work.image | relative_url }}" alt="{{ work.alt | escape }}" width="{{ work.width }}" height="{{ work.height }}" loading="lazy" decoding="async">
+              {% if work.resource %}<span class="work-resource-label">Operating Systems</span>{% endif %}
+              <span class="work-media-hint" aria-hidden="true">↗</span>
+            </a>
+            <div class="work-details">
+              <h3 id="work-{{ work.id }}-title"><a href="{{ work.links.first.url | escape }}">{{ work.title | escape }}</a></h3>
+              <div class="work-authors">{{ work.authors | markdownify }}</div>
+              <p class="work-description">{{ work.description | escape }}</p>
+              <div class="work-meta"><span class="work-venue">{{ work.venue | escape }}</span>{% if work.contribution %}<span class="work-contribution">{{ work.contribution | escape }}</span>{% endif %}</div>
+              <div class="work-links" aria-label="Links for {{ work.title | escape }}">{% for link in work.links %}<a href="{{ link.url | escape }}">[{{ link.label | escape }}]</a>{% endfor %}</div>
+            </div>
+          </article>
+        {% endfor %}
+      </section>
+    {% endfor %}
+  </div>
+</section>
+<dialog class="work-lightbox" aria-label="Work illustration">
+  <button class="work-lightbox-close" type="button" aria-label="Close illustration" autofocus>×</button>
+  <img alt="">
+  <p></p>
+</dialog>
