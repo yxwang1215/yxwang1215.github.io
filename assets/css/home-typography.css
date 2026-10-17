@@ -410,3 +410,30 @@
 @media (prefers-reduced-motion: reduce) {
   .home-profile .page__content .home-intro a { transition: none; }
 }
+
+/* Awards desktop two-column grid (mobile remains single column). */
+@media (min-width: 980px) {
+  .home-profile .page__content .award-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 12px;
+    align-items: stretch;
+  }
+
+  .home-profile .page__content .award-item {
+    grid-template-columns: 74px minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 9px 12px;
+  }
+
+  .home-profile .page__content .award-item:hover {
+    padding: 9px 12px;
+  }
+
+  .home-profile .page__content .award-date {
+    padding-top: 2px;
+  }
+}
