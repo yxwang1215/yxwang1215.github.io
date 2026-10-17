@@ -310,7 +310,7 @@
 /* About-only color treatment, inspired by the supplied reference.
    Keep every rule scoped: the rest of the homepage retains its own palette. */
 .home-profile .page__content > h1.home-about-heading {
-  color: #b96965;
+  color: var(--home-ink, #30343b);
 }
 .home-profile .page__content .home-intro {
   --about-accent: #b15b58;
@@ -318,19 +318,20 @@
   max-width: 880px;
   margin: 0 0 22px;
   font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--home-ink, #30343b);
 }
 .home-profile .page__content .home-intro p {
   margin: 0 0 14px;
-  color: #51555d;
+  color: var(--home-ink, #30343b);
   font-family: inherit;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.75;
 }
 .home-profile .page__content .home-intro strong {
-  color: #40454e;
-  font-weight: 600;
+  color: var(--home-ink, #30343b);
+  font-weight: 650;
 }
 .home-profile .page__content .home-intro a,
 .home-profile .page__content .home-intro a:visited {
@@ -368,13 +369,13 @@
   align-items: baseline;
   gap: 6px 7px;
   margin-top: 2px;
-  color: #5d6068;
+  color: var(--home-ink, #30343b);
   font-size: 13px;
   line-height: 1.5;
 }
 .home-profile .page__content .home-intro__interests .home-interest-label {
   margin-right: 2px;
-  color: #595660;
+  color: var(--home-ink, #30343b);
   font-size: 13px;
   font-weight: 600;
 }
@@ -385,7 +386,7 @@
   border: 1px solid #efd6d5;
   border-radius: 5px;
   background: #fff4f3;
-  color: #995352;
+  color: var(--home-ink, #30343b);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.45;
