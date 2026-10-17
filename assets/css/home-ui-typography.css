@@ -69,3 +69,23 @@
   .home-profile .page__content .work-description { font-size: 14.5px !important; }
   .home-profile .page__content .work-book-caption__title { font-size: 16px; }
 }
+
+/* Consistent Works publication text: 18px body, 16px author list. */
+/* All paper card copy uses one size; the author line is the sole smaller tier.
+   Preserve separate image-caption and filter-control typography. */
+.home-profile .page__content .home-works .work-group-title,
+.home-profile .page__content .home-works .work-details,
+.home-profile .page__content .home-works .work-details h3,
+.home-profile .page__content .home-works .work-meta,
+.home-profile .page__content .home-works .work-venue,
+.home-profile .page__content .home-works .work-links,
+.home-profile .page__content .home-works .work-links a,
+.home-profile .page__content .home-works .work-contribution {
+  font-size: 18px;
+}
+.home-profile .page__content .home-works .work-description {
+  font-size: 18px !important;
+}
+.home-profile .page__content .home-works .work-authors {
+  font-size: 16px;
+}
