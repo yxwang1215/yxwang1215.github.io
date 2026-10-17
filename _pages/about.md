@@ -16,7 +16,7 @@ redirect_from:
 <div class="highlight-box home-intro" markdown="1">
 I am a senior at [Xidian University](https://www.xidian.edu.cn/), majoring in **Software Engineering (Intelligent Direction)**. I will join the [School of Computer Science](https://cs.pku.edu.cn/) at [Peking University](https://www.pku.edu.cn/) as a Ph.D. student in **2027**, advised by [Prof. Tong Yang](https://yangtonghome.github.io/).
 
-I currently intern at [360 Group](https://www.360.cn/) ([ZhiNao Division](https://ai.360.com/)). Previously, I was a research assistant at [EPIC Lab@SJTU](https://epic-lab.github.io/) and [LEAP Lab@Tsinghua University](https://www.leaplab.ai/).
+I currently intern at [360 Group](https://www.360.cn/) ([Foundation Model](https://ai.360.com/)). Previously, I was a research assistant at [EPIC Lab@SJTU](https://epic-lab.github.io/) and [LEAP Lab@Tsinghua University](https://www.leaplab.ai/).
 
 At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (CFT-4 87/100).
 
@@ -41,7 +41,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
   <article class="intern-card experience-card" data-experience-kind="research">
     <img src="/images/360.svg" alt="360 Group" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="intern-content">
-      <h3 class="experience-name"><a href="https://www.360.cn/">360 Group</a> · <a href="https://ai.360.com/">ZhiNao Division</a></h3>
+      <h3 class="experience-name"><a href="https://www.360.cn/">360 Group</a> · <a href="https://ai.360.com/">Foundation Model</a></h3>
       <p class="experience-date">Aug 2026 –</p>
       <p class="experience-role">intern@foundation model</p>
       <p class="experience-summary">Training Methods.</p>
