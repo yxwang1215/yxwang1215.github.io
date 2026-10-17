@@ -196,7 +196,7 @@
 }
 
 /* Equal-sized, photo-first cards instead of a separate latest-post banner.
-   The 1:1 cover and dense content follow the compact social note-card pattern. */
+   The 16:9 landscape cover keeps editorial artwork fully legible. */
 .journal-list.journal-list--v2 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -216,54 +216,38 @@
   break-inside: auto;
 }
 
-/* Override the staggered cover sizes used by the former masonry feed. */
+/* Keep the card images landscape rather than adding artificial backdrops. */
 .journal-list--v2 .journal-card:nth-child(n) .journal-card__cover {
   position: relative;
   display: block;
   flex: 0 0 auto;
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
+  background: transparent;
 }
 
-/* Preserve original artwork and text inside square cards. A softened backdrop
-   fills the space around non-square images without stretching the source. */
-.journal-list--v2 .journal-card__cover img {
+.journal-list--v2 .journal-card__cover img.journal-card__cover-image {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   max-height: none;
-}
-
-.journal-list--v2 .journal-card__cover img.journal-card__cover-backdrop {
-  z-index: 0;
+  margin: 0;
   object-fit: cover;
-  filter: blur(22px) saturate(.82) brightness(.9);
-  opacity: .68;
-  transform: scale(1.18);
-}
-
-.journal-list--v2 .journal-card__cover img.journal-card__cover-image {
-  z-index: 1;
-  object-fit: contain;
   object-position: center center;
   transform: none;
 }
 
-/* Never crop edge-aligned cover headings, even on hover. */
+/* Do not crop edge-aligned cover lettering on hover. */
 .journal-list--v2 .journal-card:hover .journal-card__cover img.journal-card__cover-image {
   transform: none;
 }
 
-.journal-list--v2 .journal-card__image-shade {
-  z-index: 2;
-}
-
 .journal-list--v2 .journal-card__latest-label,
 .journal-list--v2 .journal-card__date-badge {
-  z-index: 3;
+  z-index: 2;
 }
 
 .journal-list--v2 .journal-card__placeholder {
