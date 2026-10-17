@@ -33,7 +33,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <div class="edu-content">
       <h3 class="experience-name"><a href="https://www.pku.edu.cn/">Peking University</a></h3>
-      <p class="experience-date">2027 –</p>
+      <p class="experience-date">Sep 2027 –</p>
       <p class="experience-role">Incoming Ph.D@<a href="https://cs.pku.edu.cn/">PKUCS</a></p>
     </div>
   </article>
