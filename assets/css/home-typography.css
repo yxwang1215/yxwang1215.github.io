@@ -237,8 +237,8 @@
 }
 
 
-/* Selen-inspired opening prose: linked institutions and advisors carry the
-   cool cyan accent, while the surrounding academic text stays restrained. */
+/* Academic links are neutral by default and pick up the site's muted rose
+   accent only on interaction. Avoid bright blue in the About Me introduction. */
 .home-profile .page__content .home-intro {
   max-width: 880px;
   margin: 0 0 22px;
@@ -251,16 +251,20 @@
 }
 .home-profile .page__content .home-intro a,
 .home-profile .page__content .home-intro a:visited {
-  color: #217f9e;
+  color: #3d4650;
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(33, 127, 158, 0.35);
+  border-bottom: 1px solid rgba(164, 91, 101, 0.30);
   transition: color 120ms ease, border-color 120ms ease;
 }
 .home-profile .page__content .home-intro a:hover {
-  color: #175d78;
+  color: #a45b65;
   border-bottom-color: currentColor;
   text-decoration: none;
+}
+.home-profile .page__content .home-intro a strong,
+.home-profile .page__content .home-intro a:visited strong {
+  color: inherit;
 }
 .home-profile .page__content .home-intro strong {
   color: #34404c;
