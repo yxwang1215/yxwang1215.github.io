@@ -84,7 +84,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <div class="edu-content">
       <h3 class="experience-name"><a href="https://www.ucla.edu/">University of California, Los Angeles</a></h3>
       <p class="experience-role">Visiting Student · Summer Session</p>
-      <p class="experience-date">Jun – Aug 2024</p>
+      <p class="experience-date">Jun 2024</p>
       <p class="experience-summary">Numerical Analysis.</p>
     </div>
   </article>
