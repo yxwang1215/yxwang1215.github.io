@@ -9,10 +9,10 @@
 }
 
 .masthead #site-nav .visible-links > li > a {
-  margin: 0 0.6rem;
+  margin: 0 0.52rem;
   padding: 0.68rem 0;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.012em;
@@ -28,7 +28,7 @@
 
 /* Remove the old oversized gap after Home; let every label breathe evenly. */
 .masthead #site-nav .masthead__menu-item--lg {
-  padding-right: 0.8rem;
+  padding-right: 0.65rem;
 }
 
 .masthead #site-nav .visible-links .masthead__menu-home-item > a {
@@ -41,7 +41,7 @@
   margin: 0;
   padding: 0.72rem 1rem;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.008em;
@@ -51,9 +51,9 @@
 @media (max-width: 840px) {
   .masthead #site-nav .visible-links > li > a,
   .masthead #site-nav .visible-links .masthead__menu-home-item > a {
-    margin-right: 0.52rem;
-    margin-left: 0.52rem;
-    font-size: 17px;
+    margin-right: 0.42rem;
+    margin-left: 0.42rem;
+    font-size: 19px;
   }
 
   .masthead #site-nav .visible-links > li:first-child > a {
