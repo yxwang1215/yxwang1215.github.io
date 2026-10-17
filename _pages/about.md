@@ -88,33 +88,33 @@ My research interest includes neural machine translation and computer vision. I 
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**AudioKV: KV Cache Eviction in Efficient Large Audio Language Models**](https://arxiv.org/abs/2604.06694)
-<br> **Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang
-<br> **First Author**; <span class="publication-status">Accepted to ACM MM 2026 (CCF-A)</span>.
-<br> *Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).*
+<br> <span class="pub-authors"><strong>Y. Wang</strong>, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang</span>
+<br> <span class="pub-meta"><strong>First Author</strong>; <span class="publication-status">Accepted to ACM MM 2026 (CCF-A)</span>.</span>
+<br> <span class="pub-description">Proposed AudioKV, prioritizing audio-critical attention heads via semantic-acoustic alignment. Reduces memory overhead by 60% with Spectral Score Smoothing (SSS).</span>
 <br> <a href="https://arxiv.org/abs/2604.06694" class="btn--research btn--paper">Paper</a> <a href="https://github.com/yxwang1215/Audio_kvcache" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles**](https://arxiv.org/abs/2506.10848)
-<br> Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang
-<br> <span class="publication-status">Accepted to ICLR 2026 (CCF-A)</span>
-<br> *Proposed SlowFast Sampling, a dynamic strategy that adaptively alternates between exploratory and accelerated stages based on token certainty, convergence, and positional principles. Achieved 15.63x speedup on LLaDA.*
+<br> <span class="pub-authors">Q. Wei, Y. Zhang, Z. Liu, P. Zeng, <strong>Y. Wang</strong>, D. Liu, L. Zhang</span>
+<br> <span class="pub-meta"><span class="publication-status">Accepted to ICLR 2026 (CCF-A)</span></span>
+<br> <span class="pub-description">Proposed SlowFast Sampling, a dynamic strategy that adaptively alternates between exploratory and accelerated stages based on token certainty, convergence, and positional principles. Achieved 15.63x speedup on LLaDA.</span>
 <br> <a href="https://arxiv.org/abs/2506.10848" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LiangrunFlora/Slow-Fast-Sampling" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography**](https://arxiv.org/abs/2509.13832)
-<br> T. Wang\*, H. Jiang\*, **Y. Wang\***, Z. Sun, X. Yan, X. Li, G. Huang (\* denotes Equal Contribution)
-<br> <span class="publication-status">Accepted to ICRA 2026 (CCF-B)</span>
-<br> *Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.*
+<br> <span class="pub-authors">T. Wang*, H. Jiang*, <strong>Y. Wang*</strong>, Z. Sun, X. Yan, X. Li, G. Huang (* denotes Equal Contribution)</span>
+<br> <span class="pub-meta"><span class="publication-status">Accepted to ICRA 2026 (CCF-B)</span></span>
+<br> <span class="pub-description">Proposed UltraHiT, a hierarchical Transformer for autonomous robotic ultrasonography, significantly improving generalization across diverse ICA anatomies.</span>
 <br> <a href="https://arxiv.org/abs/2509.13832" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/UltraHiT" class="btn--research btn--code">Code</a> <a href="https://yxwang1215.github.io/UltraHiT/" class="btn--research btn--project">Project Page</a>
 </div>
 
 <div class="pub-card pub-card--accepted" markdown="1">
 [**VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance**](https://arxiv.org/abs/2510.06809)
-<br> T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang
-<br> <span class="publication-status">Accepted to MICCAI 2026 (CCF-B)</span>
-<br> *Parameter-efficient Vision-Action Adapter for real-time probe guidance.*
+<br> <span class="pub-authors">T. Wang, H. Jiang, <strong>Y. Wang</strong>, Z. Sun, S. Song, G. Huang</span>
+<br> <span class="pub-meta"><span class="publication-status">Accepted to MICCAI 2026 (CCF-B)</span></span>
+<br> <span class="pub-description">Parameter-efficient Vision-Action Adapter for real-time probe guidance.</span>
 <br> <a href="https://arxiv.org/abs/2510.06809" class="btn--research btn--paper">Paper</a> <a href="https://github.com/LeapLabTHU/VA-Adapter" class="btn--research btn--code">Code</a>
 </div>
 <span class='anchor' id='projects'></span>
@@ -125,28 +125,28 @@ My research interest includes neural machine translation and computer vision. I 
 
 <div class="pub-card" markdown="1">
 [**Thinking inside the Mask: In-place Prompting in Diffusion LLMs**](https://arxiv.org/abs/2508.10736)
-<br> X. Jin, **Y. Wang**, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang
-<br> *Proposed In-Place Prompting, integrating reasoning chains directly into the mask denoising process for Diffusion LLMs.*
+<br> <span class="pub-authors">X. Jin, <strong>Y. Wang</strong>, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang</span>
+<br> <span class="pub-description">Proposed In-Place Prompting, integrating reasoning chains directly into the mask denoising process for Diffusion LLMs.</span>
 <br> <a href="https://arxiv.org/abs/2508.10736" class="btn--research btn--paper">Paper</a> <a href="https://github.com/Lueci4er/ICE" class="btn--research btn--code">Code</a>
 </div>
 
 <div class="pub-card" markdown="1">
 [**Self Speculative Decoding for Diffusion Large Language Models**](https://arxiv.org/abs/2510.04147)
-<br> Y. Gao\*, Z. Ji\*, **Y. Wang**, B. Qi, H. Xu, L. Zhang (\* denotes Equal Contribution)
-<br> *Developed SSD for Diffusion LLMs, accelerating inference via internal self-drafting and parallel verification.*
+<br> <span class="pub-authors">Y. Gao*, Z. Ji*, <strong>Y. Wang</strong>, B. Qi, H. Xu, L. Zhang (* denotes Equal Contribution)</span>
+<br> <span class="pub-description">Developed SSD for Diffusion LLMs, accelerating inference via internal self-drafting and parallel verification.</span>
 <br> <a href="https://arxiv.org/abs/2510.04147" class="btn--research btn--paper">Paper</a> <a class="btn--research btn--code" aria-disabled="true" onclick="return false;" style="cursor: default;">Code</a>
 </div>
 
 <div class="pub-card" markdown="1">
 [**AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs**](https://arxiv.org/abs/2510.07293)
-<br> P. He\*, Z. Wen\*, Y. Wang\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, _et al._ (\* denotes Equal Contribution)
-<br> *Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency across Audio LLMs.*
+<br> <span class="pub-authors">P. He*, Z. Wen*, Y. Wang*, <strong>Y. Wang</strong>, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, <em>et al.</em> (* denotes Equal Contribution)</span>
+<br> <span class="pub-description">Introduced AudioMarathon, a benchmark for evaluating long-context audio understanding and efficiency across Audio LLMs.</span>
 <br> <a href="https://arxiv.org/abs/2510.07293" class="btn--research btn--paper">Paper</a> <a href="https://github.com/DabDans/AudioMarathon" class="btn--research btn--code">Code</a> <a href="https://huggingface.co/datasets/Hezep/AudioMarathon" class="btn--research btn--dataset">Dataset</a>
 </div>
 
 <div class="pub-card" markdown="1">
 [**Operating System Review**](https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink) (June 2025)
-<br> *Open-source study guide for Xidian Software Engineering students, covering Modern Operating Systems.*
+<br> <span class="pub-description">Open-source study guide for Xidian Software Engineering students, covering Modern Operating Systems.</span>
 <br> <a href="https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink" class="btn--research btn--project">Read Guide</a>
 </div>
 
