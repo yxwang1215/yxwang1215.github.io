@@ -44,6 +44,22 @@
 .home-profile .author__urls { font-size: 14px; }
 .home-profile .author__urls a { color: #62616a; }
 .home-profile .author__urls a:hover { color: var(--home-rose); }
+
+/* Sidebar contact icons: restrained, distinct colors inspired by Selen Su's
+   profile. Color glyphs only; keep link labels neutral for readability. */
+.home-profile .author__urls .fa-map-marker,
+.home-profile .author__urls_sm .fa-map-marker { color: #cf5e69; }
+.home-profile .author__urls .fa-envelope,
+.home-profile .author__urls_sm .fa-envelope { color: #d16a54; }
+.home-profile .author__urls .fa-github,
+.home-profile .author__urls_sm .fa-github { color: #735d9e; }
+.home-profile .author__urls .fa-weixin,
+.home-profile .author__urls_sm .fa-weixin { color: #16a765; }
+.home-profile .author__urls .fa-file-alt,
+.home-profile .author__urls_sm .fa-file-alt { color: #bb8441; }
+.home-profile .author__urls .fa-graduation-cap,
+.home-profile .author__urls_sm .fa-graduation-cap { color: #428ddd; }
+
 .home-profile .home-education-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; align-items: start; }
 .home-profile .edu-card, .home-profile .intern-card { border: 1px solid #eeeaec; border-radius: 8px; background: #faf9f9; box-shadow: none; padding: 15px; margin: 0 0 12px; gap: 13px; min-width: 0; }
 .home-profile .home-education-grid .edu-card { margin: 0; height: 100%; box-sizing: border-box; }

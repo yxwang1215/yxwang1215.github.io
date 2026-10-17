@@ -11,7 +11,7 @@
       "title":"Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles",
       "authors":"Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang",
       "description":"Adaptive slow and fast sampling guided by token certainty, convergence, and position for efficient diffusion language-model inference.",
-      "venue":"ICLR 2026 · Accepted · CCF-A",
+      "venue":"ICLR 2026",
       "image":"/images/works/slowfast.webp","alt":"SlowFast sampling: exploratory and accelerated stages of diffusion language-model generation","width":1000,"height":382,
       "links":[{"label":"Paper","url":"https://arxiv.org/abs/2506.10848"},{"label":"Code","url":"https://github.com/LiangrunFlora/Slow-Fast-Sampling"}]
     },
@@ -38,7 +38,7 @@
       "title":"AudioKV: KV Cache Eviction in Efficient Large Audio Language Models",
       "authors":"**Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang",
       "description":"Semantic-acoustic alignment and Spectral Score Smoothing preserve audio-critical KV-cache entries while reducing memory overhead.",
-      "venue":"ACM MM 2026 · Accepted · CCF-A","contribution":"First author",
+      "venue":"ACM MM 2026","contribution":"First author",
       "image":"/images/works/audiokv-figure-3.webp","alt":"Figure 3: Overview of AudioKV (arXiv v2)","width":1599,"height":533,
       "figure_source":"https://arxiv.org/html/2604.06694v2/AudioKV_comparison_fig2_cropped.png",
       "links":[{"label":"Paper","url":"https://arxiv.org/abs/2604.06694"},{"label":"Code","url":"https://github.com/yxwang1215/Audio_kvcache"}]
@@ -58,7 +58,7 @@
       "title":"UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography",
       "authors":"T. Wang\\*, H. Jiang\\*, **Y. Wang\\***, Z. Sun, X. Yan, X. Li, G. Huang",
       "description":"A hierarchical Transformer for autonomous robotic ultrasonography that generalizes across internal-carotid-artery anatomies.",
-      "venue":"ICRA 2026 · Accepted · CCF-B","contribution":"Equal contribution",
+      "venue":"ICRA 2026","contribution":"Equal contribution",
       "image":"/images/works/ultrahit.webp","alt":"UltraHiT robotic ultrasound system and hierarchical Transformer framework","width":1000,"height":596,
       "links":[{"label":"Paper","url":"https://arxiv.org/abs/2509.13832"},{"label":"Code","url":"https://github.com/LeapLabTHU/UltraHiT"},{"label":"Project page","url":"https://yxwang1215.github.io/UltraHiT/"}]
     },
@@ -67,7 +67,7 @@
       "title":"VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance",
       "authors":"T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang",
       "description":"A parameter-efficient vision-action adapter for real-time echocardiography probe guidance.",
-      "venue":"MICCAI 2026 · Accepted · CCF-B",
+      "venue":"MICCAI 2026",
       "image":"/images/works/va-adapter.webp","alt":"VA-Adapter framework adapting an ultrasound foundation model to probe-guidance actions","width":1000,"height":339,
       "links":[{"label":"Paper","url":"https://arxiv.org/abs/2510.06809"},{"label":"Code","url":"https://github.com/LeapLabTHU/VA-Adapter"}]
     },
