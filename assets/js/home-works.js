@@ -53,3 +53,68 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
+/* Content-height masonry for Experience. Retains DOM/read order and degrades
+   to a compact, readable CSS grid when JavaScript is disabled. */
+(function () {
+  'use strict';
+
+  function initExperienceMasonry() {
+    var grid = document.querySelector('.home-experience-grid');
+    if (!grid) return;
+    var cards = Array.from(grid.querySelectorAll(':scope > .experience-card'));
+    if (!cards.length) return;
+    var pending = false;
+
+    function layout() {
+      pending = false;
+      if (!grid.isConnected) return;
+
+      // Measure intrinsic dimensions before assigning grid row spans.
+      cards.forEach(function (card) { card.style.gridRowEnd = 'auto'; });
+      var styles = window.getComputedStyle(grid);
+      var row = parseFloat(styles.gridAutoRows) || 1;
+      var gap = parseFloat(styles.rowGap) || 0;
+      cards.forEach(function (card) {
+        var height = card.getBoundingClientRect().height;
+        var span = Math.max(1, Math.ceil((height + gap) / (row + gap)));
+        card.style.gridRowEnd = 'span ' + span;
+      });
+    }
+
+    function scheduleLayout() {
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(layout);
+    }
+
+    grid.classList.add('experience-masonry');
+    scheduleLayout();
+
+    window.addEventListener('resize', scheduleLayout, { passive: true });
+    if (typeof ResizeObserver !== 'undefined') {
+      var observer = new ResizeObserver(scheduleLayout);
+      cards.forEach(function (card) {
+        var content = card.querySelector('.edu-content, .intern-content');
+        if (content) observer.observe(content);
+      });
+    }
+    cards.forEach(function (card) {
+      var image = card.querySelector('img');
+      if (image && !image.complete) {
+        image.addEventListener('load', scheduleLayout, { once: true });
+        image.addEventListener('error', scheduleLayout, { once: true });
+      }
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(scheduleLayout);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExperienceMasonry);
+  } else {
+    initExperienceMasonry();
+  }
+})();

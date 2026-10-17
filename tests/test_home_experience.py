@@ -56,9 +56,22 @@ class ExperienceTest(unittest.TestCase):
         css = (ROOT / 'assets/css/home-experience.css').read_text()
         text = (ROOT / '_pages/about.md').read_text()
         self.assertIn('repeat(3, minmax(0, 1fr))', css)
-        self.assertIn('@media (max-width: 1199px)', css)
         self.assertIn('@media (max-width: 740px)', css)
+        self.assertIn('@media (min-width: 741px) and (max-width: 1199px)', css)
         self.assertIn('.experience-card--earlier', css)
+        self.assertIn('align-self: start', css)
+        self.assertIn('height: auto', css)
+        self.assertIn('min-height: 0', css)
+        self.assertIn('grid-auto-rows: 1px', css)
+        self.assertIn('grid-auto-flow: row dense', css)
+        self.assertIn('nth-child(3n + 1)', css)
+        self.assertIn('nth-child(2n + 1)', css)
+        self.assertNotIn('min-height: 176px', css)
+        self.assertNotIn('grid-column: 1 / -1', css)
+        js = (ROOT / 'assets/js/home-works.js').read_text()
+        self.assertIn('gridRowEnd', js)
+        self.assertIn('ResizeObserver', js)
+        self.assertIn('experience-masonry', js)
         self.assertEqual(text.count('class="experience-name"'), 7)
         self.assertEqual(text.count('class="experience-role"'), 7)
         self.assertEqual(text.count('class="experience-date"'), 7)
@@ -73,7 +86,7 @@ class ExperienceTest(unittest.TestCase):
         css = ROOT / 'assets/css/home-experience.css'
         self.assertTrue(css.is_file(), 'Experience responsive styles missing')
         text = css.read_text()
-        for token in ['76px', '64px', '280px', 'object-fit: contain', '@media', 'home-experience-grid']:
+        for token in ['52px', '280px', 'object-fit: contain', '@media', 'home-experience-grid']:
             self.assertIn(token, text)
 
 if __name__ == '__main__':
