@@ -52,8 +52,8 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
   <article class="intern-card experience-card" data-experience-kind="research">
     <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="intern-content">
-      <h3 class="experience-name"><a href="https://epic-lab.github.io/">EPIC Lab</a> · <a href="https://en.sjtu.edu.cn/">SJTU</a></h3>
-      <p class="experience-role">Research Assistant</p>
+      <h3 class="experience-name"><a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a></h3>
+      <p class="experience-role">Research Assistant · <a href="https://epic-lab.github.io/">EPIC Lab</a></p>
       <p class="experience-date">Aug 2025 – Apr 2026</p>
       <p class="experience-summary">Diffusion LLM inference and audio KV caching.</p>
     </div>
@@ -80,9 +80,9 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
   </article>
 
   <article class="edu-card experience-card" data-experience-kind="education">
-    <img src="/images/UCLA.png" alt="UCLA" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
+    <img src="/images/UCLA.png" alt="University of California, Los Angeles" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="edu-content">
-      <h3 class="experience-name"><a href="https://www.ucla.edu/">UCLA</a></h3>
+      <h3 class="experience-name"><a href="https://www.ucla.edu/">University of California, Los Angeles</a></h3>
       <p class="experience-role">Visiting Student · Summer Session</p>
       <p class="experience-date">Jun – Aug 2024</p>
       <p class="experience-summary">Numerical Analysis.</p>
