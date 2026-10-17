@@ -20,7 +20,7 @@ I currently intern at [360 Group](https://www.360.cn/) ([ZhiNao Division](https:
 
 At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (College French Test Band 4: Excellence).
 
-<span class="home-intro__interests"><strong>Research Interests:</strong> Multimodal LLMs · Efficient AI · Large Language Models · Omni LLMs · Token Pruning · KV Cache Optimization</span>
+<span class="home-intro__interests"><strong>Research Interests:</strong> Multimodal LLMs · Efficient AI · Large Language Models · KV Cache Optimization</span>
 </div>
 
 <span class='anchor' id='educations'></span>
