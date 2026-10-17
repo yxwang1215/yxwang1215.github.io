@@ -113,7 +113,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <span class="service-date">2025 - 2026</span>
     <div class="service-copy">
       <strong>Xidian Inspur Club</strong>
-      <span class="service-subline" title="Club Management: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community."><span class="service-role">President</span><span class="service-note"> · Club Management: Directed daily operations and spearheaded club recruitment, while organizing academic workshops and orientations to grow the research community.</span></span>
+      <span class="service-subline" title="Club Management: Led club operations, recruitment, and academic workshops."><span class="service-role">President</span><span class="service-note"> · Club Management: Led club operations, recruitment, and academic workshops.</span></span>
     </div>
   </li>
 </ul>
