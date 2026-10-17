@@ -52,6 +52,23 @@ class ExperienceTest(unittest.TestCase):
             self.assertIn('figure-', works[key]['image'])
             self.assertTrue((ROOT / entries[key]['output']).is_file())
 
+    def test_three_column_compact_experience(self):
+        css = (ROOT / 'assets/css/home-experience.css').read_text()
+        text = (ROOT / '_pages/about.md').read_text()
+        self.assertIn('repeat(3, minmax(0, 1fr))', css)
+        self.assertIn('@media (max-width: 1199px)', css)
+        self.assertIn('@media (max-width: 740px)', css)
+        self.assertIn('.experience-card--earlier', css)
+        self.assertEqual(text.count('class="experience-name"'), 7)
+        self.assertEqual(text.count('class="experience-role"'), 7)
+        self.assertEqual(text.count('class="experience-date"'), 7)
+        self.assertEqual(text.count('class="experience-summary"'), 7)
+        self.assertNotIn('15 classmates and ~70 students', text)
+        self.assertNotIn('Our work has been accepted to', text)
+        for required in ['Tong Yang', '4.0/4.0', 'Numerical Analysis',
+                         'ZhiNao Division', 'LEAP Lab', 'EPIC Lab']:
+            self.assertIn(required, text)
+
     def test_readable_logos_and_responsive_media(self):
         css = ROOT / 'assets/css/home-experience.css'
         self.assertTrue(css.is_file(), 'Experience responsive styles missing')
