@@ -27,7 +27,7 @@ class ExperienceTest(unittest.TestCase):
         parser = Elements()
         parser.feed(text)
         self.assertEqual(sum('experience-card' in attrs.get('class', '').split() for _, attrs in parser.items), 7)
-        for value in ['Tong Yang', '2027–Future', '4.0/4.0', 'Numerical Analysis', 'Innovation Class', 'ZhiNao Division', 'EPIC Lab', 'LEAP Lab', 'ICLR 2027']:
+        for value in ['Tong Yang', '2027 –', '4.0/4.0', 'Numerical Analysis', 'Innovation Class', 'ZhiNao Division', 'EPIC Lab', 'LEAP Lab', 'ICLR 2027']:
             self.assertIn(value, text)
         for old in ['educations', 'internships']:
             self.assertIn('id="' + old + '"', text)
