@@ -46,7 +46,7 @@
     {
       "id":"audiomarathon","topic":"audio",
       "title":"AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs",
-      "authors":"P. He\\*, Z. Wen\\*, Y. Wang\\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, *et al.*",
+      "authors":"P. He\\*, Z. Wen\\*, Y. Wang\\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, K. Li, Z. Liu, W. Li, C. Wang, C. He, L. Zhang",
       "description":"A benchmark for long-context audio understanding and efficiency across audio language models.",
       "venue":"arXiv preprint · 2025",
       "image":"/images/works/audiomarathon-figure-1.webp","alt":"Figure 1: Overview of AudioMarathon (arXiv v1)","width":1796,"height":1063,
