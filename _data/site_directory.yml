@@ -1,5 +1,5 @@
 # Navigation page destinations and their related links.
-# Individual pages and their in-page anchors continue to live at their existing URLs.
+# Legacy publication/project anchors remain compatible on the homepage.
 directories:
   - id: home
     title: "个人主页"
@@ -11,12 +11,9 @@ directories:
       - title: "关于我"
         description: "个人背景、教育与研究兴趣"
         url: "/#about-me"
-      - title: "学术论文"
-        description: "会议论文、预印本与开源代码"
-        url: "/#publications"
-      - title: "科研项目"
-        description: "代表性工作及研究成果"
-        url: "/#projects"
+      - title: "论文与项目"
+        description: "按研究主题浏览论文、预印本与学习资料"
+        url: "/#works"
       - title: "教育与实习"
         description: "学校、学位与科研实践"
         url: "/#educations"
@@ -32,6 +29,9 @@ directories:
       - title: "荣誉奖项"
         description: "奖学金、竞赛和校园活动"
         url: "/#honors-and-awards"
+      - title: "学术服务"
+        description: "审稿与社区服务"
+        url: "/#service"
 
   - id: tools
     title: "实用工具"
