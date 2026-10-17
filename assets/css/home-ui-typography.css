@@ -18,26 +18,27 @@
   gap: 9px;
 }
 .home-profile .page__content .work-filters button {
-  font-size: 15px;
-  min-height: 44px;
-  padding: 8px 13px;
+  /* Match the 18px Works paper titles, including the category labels. */
+  font-size: 18px;
+  min-height: 46px;
+  padding: 9px 14px;
   line-height: 1.35;
 }
 .home-profile .page__content .work-filters button span {
-  font-size: 13px;
+  font-size: 18px;
 }
 .home-profile .page__content .work-note {
-  font-size: 13px !important;
+  font-size: 16px !important;
   line-height: 1.55;
 }
 .home-profile .page__content .work-first-key {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 14px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
 }
-/* Retain legible controls on phones rather than shrinking back to 12-14px. */
+/* Keep the 16px contribution legend readable on phones. */
 @media (max-width: 640px) {
-  .home-profile .page__content .work-note { font-size: 13px !important; }
+  .home-profile .page__content .work-note { font-size: 16px !important; }
 }
 
 /* Works: subdued supporting copy stays visibly smaller than paper titles. */
@@ -60,8 +61,8 @@
 }
 @media (max-width: 640px) {
   .home-profile .page__content .home-works h1 { font-size: 23px; }
-  .home-profile .page__content .work-filters button { font-size: 15px; }
-  .home-profile .page__content .work-note { font-size: 13px !important; }
+  .home-profile .page__content .work-filters button { font-size: 18px; }
+  .home-profile .page__content .work-note { font-size: 16px !important; }
   .home-profile .page__content .work-group-title { font-size: 16px; }
   .home-profile .page__content .work-details { font-size: 15.5px; }
   .home-profile .page__content .work-details h3 { font-size: 16.5px; }
@@ -72,7 +73,7 @@
 
 /* Consistent Works publication text: 18px body, 16px author list. */
 /* All paper card copy uses one size; the author line is the sole smaller tier.
-   Preserve separate image-caption and filter-control typography. */
+   Filter controls now match paper titles; the contribution legend remains 16px. */
 .home-profile .page__content .home-works .work-group-title,
 .home-profile .page__content .home-works .work-details,
 .home-profile .page__content .home-works .work-details h3,
