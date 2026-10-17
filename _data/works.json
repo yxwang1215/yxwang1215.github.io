@@ -1,209 +1,86 @@
 {
   "topics": [
-    {
-      "id": "diffusion",
-      "label": "Diffusion LLMs",
-      "heading": "Diffusion language models"
-    },
-    {
-      "id": "audio",
-      "label": "Audio & Multimodal",
-      "heading": "Audio & multimodal intelligence"
-    },
-    {
-      "id": "robotics",
-      "label": "Robotics",
-      "heading": "Robotics & medical imaging"
-    },
-    {
-      "id": "systems",
-      "label": "Systems & Learning",
-      "heading": "Systems & learning resources"
-    }
+    {"id":"diffusion","label":"Diffusion LLMs","heading":"Diffusion language models"},
+    {"id":"audio","label":"Audio & Multimodal","heading":"Audio & multimodal intelligence"},
+    {"id":"robotics","label":"Robotics","heading":"Robotics & medical imaging"},
+    {"id":"systems","label":"Systems & Learning","heading":"Systems & learning resources"}
   ],
   "items": [
     {
-      "id": "slowfast",
-      "topic": "diffusion",
-      "title": "Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles",
-      "authors": "Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang",
-      "description": "Adaptive slow and fast sampling guided by token certainty, convergence, and position for efficient diffusion language-model inference.",
-      "venue": "ICLR 2026",
-      "image": "/images/works/slowfast.webp",
-      "alt": "SlowFast sampling: exploratory and accelerated stages of diffusion language-model generation",
-      "width": 1000,
-      "height": 382,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2506.10848"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/LiangrunFlora/Slow-Fast-Sampling"
-        }
-      ]
+      "id":"slowfast","topic":"diffusion",
+      "title":"Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles",
+      "authors":"Q. Wei, Y. Zhang, Z. Liu, P. Zeng, **Y. Wang**, D. Liu, L. Zhang",
+      "description":"Adaptive slow and fast sampling guided by token certainty, convergence, and position for efficient diffusion language-model inference.",
+      "venue":"ICLR 2026",
+      "image":"/images/works/slowfast.webp","alt":"SlowFast sampling: exploratory and accelerated stages of diffusion language-model generation","width":1000,"height":382,
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2506.10848"},{"label":"Code","url":"https://github.com/LiangrunFlora/Slow-Fast-Sampling"}]
     },
     {
-      "id": "ice",
-      "topic": "diffusion",
-      "title": "Thinking inside the Mask: In-place Prompting in Diffusion LLMs",
-      "authors": "X. Jin, **Y. Wang**, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang",
-      "description": "In-place chain-of-thought prompting embeds reasoning in masked positions, with confidence-aware early exit for faster generation.",
-      "venue": "arXiv preprint · 2025",
-      "image": "/images/works/ice.svg",
-      "alt": "ICE framework: in-place prompting and two-phase decoding with confidence-aware early exit",
-      "width": 698,
-      "height": 349,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2508.10736"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/Lueci4er/ICE"
-        }
-      ]
+      "id":"ice","topic":"diffusion",
+      "title":"Thinking inside the Mask: In-place Prompting in Diffusion LLMs",
+      "authors":"X. Jin, **Y. Wang**, Y. Gao, Z. Wen, B. Qi, D. Liu, L. Zhang",
+      "description":"In-place chain-of-thought prompting embeds reasoning in masked positions, with confidence-aware early exit for faster generation.",
+      "venue":"arXiv preprint · 2025",
+      "image":"/images/works/ice.svg","alt":"ICE framework: in-place prompting and two-phase decoding with confidence-aware early exit","width":698,"height":349,
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2508.10736"},{"label":"Code","url":"https://github.com/Lueci4er/ICE"}]
     },
     {
-      "id": "ssd",
-      "topic": "diffusion",
-      "title": "Self Speculative Decoding for Diffusion Large Language Models",
-      "authors": "Y. Gao\\*, Z. Ji\\*, **Y. Wang**, B. Qi, H. Xu, L. Zhang",
-      "description": "Self-drafting and hierarchical verification accept multiple tokens per iteration to accelerate diffusion language-model decoding.",
-      "venue": "arXiv preprint · 2025",
-      "image": "/images/works/ssd.webp",
-      "alt": "Self speculative decoding compared with stepwise diffusion language-model inference",
-      "width": 439,
-      "height": 352,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2510.04147"
-        }
-      ]
+      "id":"ssd","topic":"diffusion",
+      "title":"Self Speculative Decoding for Diffusion Large Language Models",
+      "authors":"Y. Gao\\*, Z. Ji\\*, **Y. Wang**, B. Qi, H. Xu, L. Zhang",
+      "description":"Self-drafting and hierarchical verification accept multiple tokens per iteration to accelerate diffusion language-model decoding.",
+      "venue":"arXiv preprint · 2025",
+      "image":"/images/works/ssd.webp","alt":"Self speculative decoding compared with stepwise diffusion language-model inference","width":439,"height":352,
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2510.04147"}]
     },
     {
-      "id": "audiokv",
-      "topic": "audio",
-      "first_author": true,
-      "title": "AudioKV: KV Cache Eviction in Efficient Large Audio Language Models",
-      "authors": "**Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang",
-      "description": "Semantic-acoustic alignment and Spectral Score Smoothing preserve audio-critical KV-cache entries while reducing memory overhead.",
-      "venue": "ACM MM 2026",
-      "contribution": "First author",
-      "image": "/images/works/audiokv.webp",
-      "alt": "AudioKV method overview: semantic-acoustic alignment, head selection, and KV-cache eviction",
-      "width": 1000,
-      "height": 503,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2604.06694"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/yxwang1215/Audio_kvcache"
-        }
-      ]
+      "id":"audiokv","topic":"audio","first_author":true,
+      "title":"AudioKV: KV Cache Eviction in Efficient Large Audio Language Models",
+      "authors":"**Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang",
+      "description":"Semantic-acoustic alignment and Spectral Score Smoothing preserve audio-critical KV-cache entries while reducing memory overhead.",
+      "venue":"ACM MM 2026","contribution":"First author",
+      "image":"/images/works/audiokv-figure-3.webp","alt":"Figure 3: Overview of AudioKV (arXiv v2)","width":1599,"height":533,
+      "figure_source":"https://arxiv.org/html/2604.06694v2/AudioKV_comparison_fig2_cropped.png",
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2604.06694"},{"label":"Code","url":"https://github.com/yxwang1215/Audio_kvcache"}]
     },
     {
-      "id": "audiomarathon",
-      "topic": "audio",
-      "title": "AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs",
-      "authors": "P. He\\*, Z. Wen\\*, Y. Wang\\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, *et al.*",
-      "description": "A benchmark for long-context audio understanding and efficiency across audio language models.",
-      "venue": "arXiv preprint · 2025",
-      "image": "/images/works/audiomarathon.webp",
-      "alt": "AudioMarathon benchmark overview for long-context audio understanding and efficiency",
-      "width": 1000,
-      "height": 445,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2510.07293"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/DabDans/AudioMarathon"
-        },
-        {
-          "label": "Dataset",
-          "url": "https://huggingface.co/datasets/Hezep/AudioMarathon"
-        }
-      ]
+      "id":"audiomarathon","topic":"audio",
+      "title":"AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs",
+      "authors":"P. He\\*, Z. Wen\\*, Y. Wang\\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, *et al.*",
+      "description":"A benchmark for long-context audio understanding and efficiency across audio language models.",
+      "venue":"arXiv preprint · 2025",
+      "image":"/images/works/audiomarathon-figure-1.webp","alt":"Figure 1: Overview of AudioMarathon (arXiv v1)","width":1796,"height":1063,
+      "figure_source":"https://arxiv.org/html/2510.07293v1/QA_exp.png",
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2510.07293"},{"label":"Code","url":"https://github.com/DabDans/AudioMarathon"},{"label":"Dataset","url":"https://huggingface.co/datasets/Hezep/AudioMarathon"}]
     },
     {
-      "id": "ultrahit",
-      "topic": "robotics",
-      "first_author": true,
-      "title": "UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography",
-      "authors": "T. Wang\\*, H. Jiang\\*, **Y. Wang\\***, Z. Sun, X. Yan, X. Li, G. Huang",
-      "description": "A hierarchical Transformer for autonomous robotic ultrasonography that generalizes across internal-carotid-artery anatomies.",
-      "venue": "ICRA 2026",
-      "contribution": "Equal contribution",
-      "image": "/images/works/ultrahit.webp",
-      "alt": "UltraHiT robotic ultrasound system and hierarchical Transformer framework",
-      "width": 1000,
-      "height": 596,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2509.13832"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/LeapLabTHU/UltraHiT"
-        },
-        {
-          "label": "Project page",
-          "url": "https://yxwang1215.github.io/UltraHiT/"
-        }
-      ]
+      "id":"ultrahit","topic":"robotics","first_author":true,
+      "title":"UltraHiT: A Hierarchical Transformer Architecture for Generalizable Internal Carotid Artery Robotic Ultrasonography",
+      "authors":"T. Wang\\*, H. Jiang\\*, **Y. Wang\\***, Z. Sun, X. Yan, X. Li, G. Huang",
+      "description":"A hierarchical Transformer for autonomous robotic ultrasonography that generalizes across internal-carotid-artery anatomies.",
+      "venue":"ICRA 2026","contribution":"Equal contribution",
+      "image":"/images/works/ultrahit.webp","alt":"UltraHiT robotic ultrasound system and hierarchical Transformer framework","width":1000,"height":596,
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2509.13832"},{"label":"Code","url":"https://github.com/LeapLabTHU/UltraHiT"},{"label":"Project page","url":"https://yxwang1215.github.io/UltraHiT/"}]
     },
     {
-      "id": "va-adapter",
-      "topic": "robotics",
-      "title": "VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance",
-      "authors": "T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang",
-      "description": "A parameter-efficient vision-action adapter for real-time echocardiography probe guidance.",
-      "venue": "MICCAI 2026",
-      "image": "/images/works/va-adapter.webp",
-      "alt": "VA-Adapter framework adapting an ultrasound foundation model to probe-guidance actions",
-      "width": 1000,
-      "height": 339,
-      "links": [
-        {
-          "label": "Paper",
-          "url": "https://arxiv.org/abs/2510.06809"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/LeapLabTHU/VA-Adapter"
-        }
-      ]
+      "id":"va-adapter","topic":"robotics",
+      "title":"VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance",
+      "authors":"T. Wang, H. Jiang, **Y. Wang**, Z. Sun, S. Song, G. Huang",
+      "description":"A parameter-efficient vision-action adapter for real-time echocardiography probe guidance.",
+      "venue":"MICCAI 2026",
+      "image":"/images/works/va-adapter.webp","alt":"VA-Adapter framework adapting an ultrasound foundation model to probe-guidance actions","width":1000,"height":339,
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2510.06809"},{"label":"Code","url":"https://github.com/LeapLabTHU/VA-Adapter"}]
     },
     {
-      "id": "os-review",
-      "topic": "systems",
-      "resource": true,
-      "title": "Operating System Review",
-      "authors": "Xidian University · Course notes",
-      "description": "An open study guide for Software Engineering students, covering Modern Operating Systems.",
-      "venue": "Learning resource · June 2025",
-      "image": "/images/xidian.png",
-      "alt": "Xidian University emblem for the Operating System Review course-notes project",
-      "width": 200,
-      "height": 200,
-      "links": [
-        {
-          "label": "Read guide",
-          "url": "https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink"
-        }
-      ],
-      "cover_url": "/images/works/modern-operating-systems-4e.webp",
-      "cover_alt": "Cover of Modern Operating Systems, Fourth Edition, by Andrew S. Tanenbaum and Herbert Bos"
+      "id":"os-review","topic":"systems","resource":true,
+      "title":"Operating System Review",
+      "authors":"Xidian University · Course notes",
+      "description":"An open study guide for Software Engineering students, covering Modern Operating Systems.",
+      "venue":"Learning resource · June 2025",
+      "image":"/images/xidian.png","alt":"Xidian University emblem for the Operating System Review course-notes project","width":200,"height":200,
+      "cover_url":"/images/works/modern-operating-systems-4e.webp",
+      "cover_alt":"Cover of Modern Operating Systems, Fourth Edition, by Andrew S. Tanenbaum and Herbert Bos",
+      "links":[{"label":"Read guide","url":"https://aiydpfs7gq6.feishu.cn/docx/Ppa6ddgF4ozcS4xQcMFcbVyAnVh?from=from_copylink"}]
     }
   ]
 }

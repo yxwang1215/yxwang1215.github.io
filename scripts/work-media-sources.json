@@ -1,9 +1,9 @@
 [
-  {"name":"audiokv","source":"https://raw.githubusercontent.com/yxwang1215/Audio_kvcache/6bc7b314e07446f7e4a864f0bcce1e15396b53e8/plot/figure/Main%20Figure.png","sha256":"f57f102be47a0c5fb3df5ec8864166e75905e8d7811c42c1c4d11547e71a3118","output":"images/works/audiokv.webp"},
+  {"name":"audiokv","source":"https://arxiv.org/html/2604.06694v2/AudioKV_comparison_fig2_cropped.png","sha256":"ac435bfab62d18defd97413de68f881dc76176bafb15ccbd4e76c76bca21aa6a","output":"images/works/audiokv-figure-3.webp","max_width":1800,"max_height":1200,"figure":"Figure 3: Overview of AudioKV (arXiv v2)"},
   {"name":"slowfast","source":"https://raw.githubusercontent.com/LiangrunFlora/Slow-Fast-Sampling/e12b9de37fe4ac7762bb3a124daa0bf755548eb5/assets/method.png","sha256":"49ca68531d7309c5d5fc0aae006d2941ef396445bf1275e9319a4fd4321f9431","output":"images/works/slowfast.webp"},
   {"name":"ultrahit","source":"https://raw.githubusercontent.com/LeapLabTHU/UltraHiT/75e3a415b33042b2ea9eccbe2e07494d6fff3278/fig/overall.jpg","sha256":"5f517a3f6ba5e86e81b881e9bab187262c71f9268faee8dbc4280d8f99efc13d","output":"images/works/ultrahit.webp"},
   {"name":"va-adapter","source":"https://raw.githubusercontent.com/LeapLabTHU/VA-Adapter/afaa78594fe426e5803f3e0d7b9324536919c9a3/fig/method.png","sha256":"36c627838457910cffe86884c7942e0483db24121a171e2cdebcc13da2398088","output":"images/works/va-adapter.webp"},
   {"name":"ice","source":"https://arxiv.org/html/2508.10736v1/main.svg","sha256":"e388ddfbb1662858afde1a1a01b32f64703e4fa9803073b9f11ca0a30511ca70","output":"images/works/ice.svg"},
   {"name":"ssd","source":"https://arxiv.org/html/2510.04147v1/dllm-ssd_cropped.png","sha256":"47842c485a57676c5632fb596c7ae09675d69baffd8131475b81273e10462611","output":"images/works/ssd.webp"},
-  {"name":"audiomarathon","source":"https://raw.githubusercontent.com/DabDans/AudioMarathon/c8f49f326271ba8e778801156516964159f39f8d/assets/AudioMarathon_05.png","sha256":"f5a27dca07ccf47a98de4ffafb524e688e804ccc69d1dded1f339a5885add534","output":"images/works/audiomarathon.webp"}
+  {"name":"audiomarathon","source":"https://arxiv.org/html/2510.07293v1/QA_exp.png","sha256":"02e4d1dd609eec6d1bb2c59a867d8d7f2e40b970ec33a7258fd2543b2630f0ee","output":"images/works/audiomarathon-figure-1.webp","max_width":1800,"max_height":1200,"figure":"Figure 1: Overview of AudioMarathon (arXiv v1)"}
 ]

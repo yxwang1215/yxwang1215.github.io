@@ -49,14 +49,18 @@ def main() -> None:
                 raise ValueError("Active SVG content is not permitted")
             target.write_bytes(data)
         else:
+            bounds = (entry.get("max_width", 1000), entry.get("max_height", 700))
+            if any(not isinstance(n, int) or not 1 <= n <= 2400 for n in bounds):
+                raise ValueError("Image bounds must be integers between 1 and 2400")
             with Image.open(io.BytesIO(data)) as image:
                 image.load()
-                image.thumbnail((1000, 700), Image.Resampling.LANCZOS)
+                image.thumbnail(bounds, Image.Resampling.LANCZOS)
                 if image.mode not in ("RGB", "RGBA"):
                     image = image.convert("RGB")
                 image.save(target, "WEBP", quality=88, method=6)
         print(f"{target.relative_to(ROOT)}: {target.stat().st_size:,} bytes")
-        notes.append(f"- {target.name}: {entry['source']}")
+        label = entry.get("figure", target.name)
+        notes.append(f"- {target.name} — {label}: {entry['source']}")
     notes.extend(["", "Regenerate with `python scripts/vendor-work-media.py` after installing the pinned Pillow version.", "Source hashes and revision-pinned URLs are recorded in scripts/work-media-sources.json.", ""])
     (output_dir / "README.md").write_text("\n".join(notes))
 
