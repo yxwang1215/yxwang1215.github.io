@@ -28,72 +28,76 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 
 # Experience
 
-<div class="home-experience-grid" markdown="1">
-<div class="edu-card experience-card" data-experience-kind="education">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-<div class="edu-content" markdown="1">
-**[Peking University](https://www.pku.edu.cn/)** · **[School of Computer Science](https://cs.pku.edu.cn/)**
-<br> *Ph.D. in Computer Science and Technology (incoming)* &emsp; *2027–Future*
+<div class="home-experience-grid">
+  <article class="edu-card experience-card" data-experience-kind="education">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+    <div class="edu-content">
+      <h3 class="experience-name"><a href="https://www.pku.edu.cn/">Peking University</a></h3>
+      <p class="experience-role">Incoming Ph.D. · <a href="https://cs.pku.edu.cn/">Computer Science</a></p>
+      <p class="experience-date">2027–Future</p>
+      <p class="experience-summary">Advisor: <a href="https://yangtonghome.github.io/">Tong Yang</a>.</p>
+    </div>
+  </article>
 
-I will be advised by **[Tong Yang](https://yangtonghome.github.io/)**. My research interests include **large language models (LLMs)**, **efficient methods**, and **training methods**.
-</div>
-</div>
+  <article class="intern-card experience-card" data-experience-kind="research">
+    <img src="/images/360.svg" alt="360 Group" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
+    <div class="intern-content">
+      <h3 class="experience-name"><a href="https://www.360.cn/">360 Group</a> · <a href="https://ai.360.com/">ZhiNao Division</a></h3>
+      <p class="experience-role">Foundation Model Research Intern</p>
+      <p class="experience-date">Aug 2026 – Present</p>
+      <p class="experience-summary">Model distillation · CoT reasoning · agentic coding & security.</p>
+    </div>
+  </article>
 
-<div class="intern-card experience-card" data-experience-kind="research">
-  <img src="/images/360.svg" alt="360 Group" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
-  <div class="intern-content">
-    <p class="intern-org"><a href="https://ai.360.com/"><strong>Internet Products Business Group · ZhiNao Division</strong></a> · <a href="https://www.360.cn/"><strong>360 Group</strong></a>, China.</p>
-    <p class="intern-role-row"><span class="intern-position">Foundation Model Research Intern</span><span class="intern-date">August 2026 - Present</span></p>
-    <p class="intern-description">Research on foundation models, focusing on model distillation, efficient chain-of-thought (CoT) reasoning, agentic coding, and coding security.</p>
-  </div>
-</div>
+  <article class="intern-card experience-card" data-experience-kind="research">
+    <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
+    <div class="intern-content">
+      <h3 class="experience-name"><a href="https://epic-lab.github.io/">EPIC Lab</a> · <a href="https://en.sjtu.edu.cn/">SJTU</a></h3>
+      <p class="experience-role">Research Assistant</p>
+      <p class="experience-date">Aug 2025 – Apr 2026</p>
+      <p class="experience-summary">Diffusion LLM inference and audio KV caching.</p>
+    </div>
+  </article>
 
-<div class="intern-card experience-card" data-experience-kind="research">
-  <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
-  <div class="intern-content">
-    <p class="intern-org"><a href="https://epic-lab.github.io/"><strong>EPIC Lab</strong></a>, <a href="https://soai.sjtu.edu.cn/">School of Artificial Intelligence</a>, <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>, China.</p>
-    <p class="intern-role-row"><span class="intern-position">Research Assistant</span><span class="intern-date">August 2025 - April 2026</span></p>
-    <p class="intern-description">Developed efficient diffusion LLM inference methods and KV cache eviction techniques for Audio LLMs.</p>
-    <p class="intern-acceptance"><span class="publication-status">Our work has been accepted to ICLR 2026 and ACM MM 2026.</span></p>
-  </div>
-</div>
+  <article class="intern-card experience-card" data-experience-kind="research">
+    <img src="/images/tsinghua.png" alt="Tsinghua University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
+    <div class="intern-content">
+      <h3 class="experience-name"><a href="https://www.leaplab.ai/">LEAP Lab</a> · <a href="https://www.tsinghua.edu.cn/">Tsinghua</a></h3>
+      <p class="experience-role">Research Assistant</p>
+      <p class="experience-date">Mar – Sep 2025</p>
+      <p class="experience-summary">Robotic ultrasound and probe guidance.</p>
+    </div>
+  </article>
 
-<div class="intern-card experience-card" data-experience-kind="research">
-  <img src="/images/tsinghua.png" alt="Tsinghua University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
-  <div class="intern-content">
-    <p class="intern-org"><a href="https://www.leaplab.ai/"><strong>LEAP Lab</strong></a>, <a href="https://www.au.tsinghua.edu.cn/index.htm">Department of Automation</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, China.</p>
-    <p class="intern-role-row"><span class="intern-position">Research Assistant</span><span class="intern-date">March 2025 - September 2025</span></p>
-    <p class="intern-description">Participated in the implementation of autonomous robotic ultrasonography and real-time probe-guidance projects.</p>
-    <p class="intern-acceptance"><span class="publication-status">Our work has been accepted to MICCAI 2026 and ICRA 2026.</span></p>
-  </div>
-</div>
+  <article class="edu-card experience-card" data-experience-kind="education">
+    <img src="/images/xidian.png" alt="Xidian University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
+    <div class="edu-content">
+      <h3 class="experience-name"><a href="https://www.xidian.edu.cn/">Xidian University</a></h3>
+      <p class="experience-role">B.Eng. · Software Engineering</p>
+      <p class="experience-date">Sep 2023 – Jun 2027</p>
+      <p class="experience-summary">GPA 4.0/4.0 · Rank 1/335.</p>
+    </div>
+  </article>
 
-<div class="edu-card experience-card" data-experience-kind="education">
-<img src="/images/xidian.png" alt="Xidian University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
-<div class="edu-content" markdown="1">
-**[Xidian University](https://www.xidian.edu.cn/)** · Xi'an, China
-<br> *B.Eng. in Software Engineering* &emsp; *Sep. 2023 - Jun. 2027 (expected)*
-<br> As a top-ranked student with a perfect **GPA of 4.0/4.0**, I have demonstrated consistent academic excellence in core courses such as Physics (99), Programming Design (98), Circuits (98), Discrete Math (98).
-</div>
-</div>
+  <article class="edu-card experience-card" data-experience-kind="education">
+    <img src="/images/UCLA.png" alt="UCLA" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
+    <div class="edu-content">
+      <h3 class="experience-name"><a href="https://www.ucla.edu/">UCLA</a></h3>
+      <p class="experience-role">Visiting Student · Summer Session</p>
+      <p class="experience-date">Jun – Aug 2024</p>
+      <p class="experience-summary">Numerical Analysis.</p>
+    </div>
+  </article>
 
-<div class="edu-card experience-card" data-experience-kind="education">
-<img src="/images/UCLA.png" alt="UCLA" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
-<div class="edu-content" markdown="1">
-**[University of California, Los Angeles](https://www.ucla.edu/)** · Los Angeles, USA
-<br> *Visiting Student, Summer Session* &emsp; *Jun. 2024 - Aug. 2024*
-<br> Mastered mathematical modeling techniques via intensive study in Numerical Analysis.
-</div>
-</div>
-
-<div class="edu-card experience-card" data-experience-kind="education">
-<img src="/images/zhenhai.png" alt="Zhenhai High School" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
-<div class="edu-content" markdown="1">
-**[Zhenhai High School of Ningbo](https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981)** · Ningbo, China
-<br> *Innovation Class (Jiaochuan Academy)* &emsp; *Sep. 2020 - Jun. 2023*
-<br> Selected for the *Innovation Class* at Zhejiang's top-ranked high school; 15 classmates and ~70 students school-wide are admitted to **Peking University** or **Tsinghua University** annually.
-</div>
-</div>
+  <article class="edu-card experience-card experience-card--earlier" data-experience-kind="education">
+    <img src="/images/zhenhai.png" alt="Zhenhai High School" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
+    <div class="edu-content">
+      <h3 class="experience-name"><a href="https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981">Zhenhai High School of Ningbo</a></h3>
+      <p class="experience-role">Innovation Class (Jiaochuan Academy)</p>
+      <p class="experience-date">Sep 2020 – Jun 2023</p>
+      <p class="experience-summary">Ningbo, China.</p>
+    </div>
+  </article>
 </div>
 
 {% include home-works.html %}
