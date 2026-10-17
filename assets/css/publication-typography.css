@@ -1,0 +1,112 @@
+/* Publication typography inspired by Selen Su's Works section.
+   Scoped to this site's publication/project cards on the homepage.
+   Uses the same system-font stack; no proprietary font files are bundled. */
+
+.page__content .pub-card {
+  font-family: "Arial Rounded MT Bold", Verdana, "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
+}
+
+.page__content .pub-card > p {
+  margin: 0;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.62;
+}
+
+/* Titles: bold, rounded and compact, like the reference site's Works list. */
+.page__content .pub-card > p:first-child > a:first-child:not(.btn--research) {
+  color: #222a35 !important;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.48;
+  letter-spacing: -0.012em;
+  text-decoration: none !important;
+}
+
+.page__content .pub-card > p:first-child > a:first-child:not(.btn--research) strong {
+  color: inherit !important;
+  font-weight: 700;
+}
+
+.page__content .pub-card > p:first-child > a:first-child:not(.btn--research):hover {
+  color: #3c6185 !important;
+}
+
+/* Selen's authors use a distinct italic, roughly 13px text line. */
+.page__content .pub-card .pub-authors {
+  color: #56616d;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+.page__content .pub-card .pub-authors strong {
+  color: #303945;
+  font-weight: 700;
+}
+
+/* Venue and contribution note: secondary information, not another title. */
+.page__content .pub-card .pub-meta {
+  color: #59636d;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.page__content .pub-card .pub-meta strong,
+.page__content .pub-card .pub-meta .publication-status {
+  font-size: inherit;
+  font-weight: 700;
+}
+
+/* Descriptions are upright prose, not long italicized paragraphs. */
+.page__content .pub-card .pub-description {
+  color: #49525d;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+.page__content .pub-card a.btn--research {
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+@media (max-width: 600px) {
+  .page__content .pub-card { font-size: 15px; }
+  .page__content .pub-card > p:first-child > a:first-child:not(.btn--research) { font-size: 15.5px; }
+  .page__content .pub-card .pub-authors,
+  .page__content .pub-card .pub-meta { font-size: 13.5px; }
+  .page__content .pub-card .pub-description { font-size: 14.5px; }
+}
+
+/* Retain the concurrent rounded-font update after migrating papers/projects
+   into the new topic catalogue. These selectors bridge both card structures. */
+.home-profile .page__content .work-card {
+  font-family: "Arial Rounded MT Bold", Verdana, "Segoe UI", sans-serif;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.home-profile .page__content .work-authors { font-style: italic; }
+.home-profile .page__content .work-description { font-style: normal; }
