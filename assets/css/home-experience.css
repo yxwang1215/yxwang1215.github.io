@@ -55,7 +55,7 @@
   line-height: 1.47;
 }
 .home-profile .page__content .experience-card .experience-name {
-  margin: 0 0 5px;
+  margin: 0 0 3px;
   padding: 0;
   border: 0;
   color: #30343b;
@@ -89,7 +89,8 @@
   font-weight: 600;
 }
 .home-profile .page__content .experience-card p.experience-date {
-  margin-top: 4px;
+  margin-top: 0;
+  margin-bottom: 4px;
   color: #89909a;
   font-size: 12.3px;
   font-variant-numeric: tabular-nums;
