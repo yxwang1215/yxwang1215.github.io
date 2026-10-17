@@ -1,0 +1,41 @@
+/* Readable Experience and Works controls on the homepage.
+   Load after home-font-scale.css. Preserve the existing About, sidebar,
+   publication typography, colors, logos and intrinsic masonry layout. */
+.home-profile .page__content .experience-card .experience-name {
+  font-size: 17px;
+  line-height: 1.4;
+}
+.home-profile .page__content .experience-card p.experience-role,
+.home-profile .page__content .experience-card p.experience-summary {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.home-profile .page__content .experience-card p.experience-date {
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.home-profile .page__content .work-filters {
+  gap: 9px;
+}
+.home-profile .page__content .work-filters button {
+  font-size: 16px;
+  min-height: 44px;
+  padding: 8px 13px;
+  line-height: 1.35;
+}
+.home-profile .page__content .work-filters button span {
+  font-size: 14px;
+}
+.home-profile .page__content .work-note {
+  font-size: 15px !important;
+  line-height: 1.55;
+}
+.home-profile .page__content .work-first-key {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+}
+/* Retain legible controls on phones rather than shrinking back to 12-14px. */
+@media (max-width: 640px) {
+  .home-profile .page__content .work-note { font-size: 14.5px !important; }
+}
