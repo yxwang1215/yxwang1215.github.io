@@ -63,7 +63,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <div class="intern-content">
       <h3 class="experience-name"><a href="https://www.leaplab.ai/">LEAP Lab</a> · <a href="https://www.tsinghua.edu.cn/">Tsinghua</a></h3>
       <p class="experience-role">Research Assistant</p>
-      <p class="experience-date">Mar – Sep 2025</p>
+      <p class="experience-date">Mar 2025 – Sep 2025</p>
       <p class="experience-summary">Robotic ultrasound and probe guidance.</p>
     </div>
   </article>
