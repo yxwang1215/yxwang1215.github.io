@@ -80,12 +80,10 @@ redirect_from:
         {% else %}
           {% assign journal_card_cover_url = entry.cover | relative_url %}
         {% endif %}
-      <img class="journal-card__cover-backdrop" src="{{ journal_card_cover_url }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <img class="journal-card__cover-image" src="{{ journal_card_cover_url }}" alt="{{ entry.cover_alt | default: entry.title | escape }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"{% if forloop.first %} fetchpriority="high"{% endif %} decoding="async">
       {% else %}
       <span class="journal-card__placeholder" aria-hidden="true">记</span>
       {% endif %}
-      <span class="journal-card__image-shade" aria-hidden="true"></span>
       {% if forloop.first %}<span class="journal-card__latest-label">最新</span>{% endif %}
       <time class="journal-card__date-badge" datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%m月%d日" }}</time>
     </a>
