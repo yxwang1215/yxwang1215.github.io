@@ -71,7 +71,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
       <h3 class="experience-name"><a href="https://www.xidian.edu.cn/">Xidian University</a></h3>
       <p class="experience-date">Sep 2023 – Jun 2027</p>
       <p class="experience-role">B.E@<a href="https://cs.xidian.edu.cn/">SCST</a></p>
-      <p class="experience-summary">GPA 4.0/4.0 · Rank 1/335 · National Scholarship (2023-2026).</p>
+      <p class="experience-summary">GPA 4.0/4.0 · Rank 1/335 · National Scholarship ×3.</p>
     </div>
   </article>
 
