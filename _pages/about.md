@@ -43,7 +43,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <img src="/images/360.svg" alt="360 Group" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="intern-content">
       <h3 class="experience-name"><a href="https://www.360.cn/">360 Group</a> · <a href="https://ai.360.com/">ZhiNao Division</a></h3>
-      <p class="experience-role">Foundation Model Research Intern</p>
+      <p class="experience-role">intern@foundation model</p>
       <p class="experience-date">Aug 2026 – Present</p>
       <p class="experience-summary">Training Methods.</p>
     </div>
