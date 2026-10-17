@@ -37,8 +37,11 @@
               <h3 id="work-{{ work.id }}-title"><a href="{{ work.links.first.url | escape }}">{{ work.title | escape }}</a></h3>
               <div class="work-authors">{{ work.authors | markdownify }}</div>
               <p class="work-description">{{ work.description | escape }}</p>
-              <div class="work-meta"><span class="work-venue">{{ work.venue | escape }}</span>{% if work.contribution %}<span class="work-contribution">{{ work.contribution | escape }}</span>{% endif %}</div>
-              <div class="work-links" aria-label="Links for {{ work.title | escape }}">{% for link in work.links %}<a href="{{ link.url | escape }}">[{{ link.label | escape }}]</a>{% endfor %}</div>
+              <div class="work-meta">
+                <span class="work-venue">{{ work.venue | escape }}</span>
+                <span class="work-links" role="group" aria-label="Links for {{ work.title | escape }}">{% for link in work.links %}<a href="{{ link.url | escape }}">[{{ link.label | escape }}]</a>{% endfor %}</span>
+                {% if work.contribution %}<span class="work-contribution">{{ work.contribution | escape }}</span>{% endif %}
+              </div>
             </div>
           </article>
         {% endfor %}
@@ -51,3 +54,4 @@
   <img alt="">
   <p></p>
 </dialog>
+
