@@ -39,7 +39,8 @@
       "authors":"**Y. Wang**, P. He, X. Gui, X. Liu, J. He, X. Liu, X. Hu, L. Zhang",
       "description":"Semantic-acoustic alignment and Spectral Score Smoothing preserve audio-critical KV-cache entries while reducing memory overhead.",
       "venue":"ACM MM 2026 · Accepted · CCF-A","contribution":"First author",
-      "image":"/images/works/audiokv.webp","alt":"AudioKV method overview: semantic-acoustic alignment, head selection, and KV-cache eviction","width":1000,"height":503,
+      "image":"/images/works/audiokv-figure-3.webp","alt":"Figure 3: Overview of AudioKV (arXiv v2)","width":1599,"height":533,
+      "figure_source":"https://arxiv.org/html/2604.06694v2/AudioKV_comparison_fig2_cropped.png",
       "links":[{"label":"Paper","url":"https://arxiv.org/abs/2604.06694"},{"label":"Code","url":"https://github.com/yxwang1215/Audio_kvcache"}]
     },
     {
@@ -48,7 +49,8 @@
       "authors":"P. He\\*, Z. Wen\\*, Y. Wang\\*, **Y. Wang**, X. Liu, J. Huang, Z. Lei, Z. Gu, X. Jin, J. Yang, *et al.*",
       "description":"A benchmark for long-context audio understanding and efficiency across audio language models.",
       "venue":"arXiv preprint · 2025",
-      "image":"/images/works/audiomarathon.webp","alt":"AudioMarathon benchmark overview for long-context audio understanding and efficiency","width":1000,"height":445,
+      "image":"/images/works/audiomarathon-figure-1.webp","alt":"Figure 1: Overview of AudioMarathon (arXiv v1)","width":1796,"height":1063,
+      "figure_source":"https://arxiv.org/html/2510.07293v1/QA_exp.png",
       "links":[{"label":"Paper","url":"https://arxiv.org/abs/2510.07293"},{"label":"Code","url":"https://github.com/DabDans/AudioMarathon"},{"label":"Dataset","url":"https://huggingface.co/datasets/Hezep/AudioMarathon"}]
     },
     {

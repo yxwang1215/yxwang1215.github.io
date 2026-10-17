@@ -16,7 +16,7 @@ directories:
         url: "/#works"
       - title: "教育与实习"
         description: "学校、学位与科研实践"
-        url: "/#educations"
+        url: "/#experience"
       - title: "研究专题"
         description: "Diffusion LLM、Audio LLM 与机器人"
         url: "/research/"

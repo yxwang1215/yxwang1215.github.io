@@ -11,6 +11,7 @@ on:
       - "assets/**"
       - "images/works/**"
       - "tests/test_home_works.py"
+      - "tests/test_home_experience.py"
       - "Gemfile"
       - "Gemfile.lock"
   workflow_dispatch:
@@ -24,8 +25,10 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Validate homepage work catalogue
-        run: python tests/test_home_works.py
+      - name: Validate homepage work catalogue and experience
+        run: |
+          python tests/test_home_works.py
+          python tests/test_home_experience.py
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
