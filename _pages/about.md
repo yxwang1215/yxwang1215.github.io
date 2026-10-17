@@ -53,8 +53,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <div class="intern-content">
       <h3 class="experience-name"><a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a></h3>
       <p class="experience-date">Aug 2025 – Apr 2026</p>
-      <p class="experience-role">Research Assistant · <a href="https://epic-lab.github.io/">EPIC Lab</a></p>
-      <p class="experience-summary">Diffusion LLM inference and audio KV caching.</p>
+      <p class="experience-role">Research Assistant @ <a href="https://epic-lab.github.io/">EPIC Lab</a></p>
     </div>
   </article>
 
