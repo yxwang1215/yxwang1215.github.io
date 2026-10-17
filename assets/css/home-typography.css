@@ -235,3 +235,117 @@
   .home-profile .page__content .service-role,
   .home-profile .page__content .service-note { font-size: 13px; }
 }
+
+
+/* Selen-inspired opening prose: linked institutions and advisors carry the
+   cool cyan accent, while the surrounding academic text stays restrained. */
+.home-profile .page__content .home-intro {
+  max-width: 880px;
+  margin: 0 0 22px;
+}
+.home-profile .page__content .home-intro p {
+  margin: 0 0 11px;
+  color: #46515e;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.home-profile .page__content .home-intro a,
+.home-profile .page__content .home-intro a:visited {
+  color: #217f9e;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(33, 127, 158, 0.35);
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.home-profile .page__content .home-intro a:hover {
+  color: #175d78;
+  border-bottom-color: currentColor;
+  text-decoration: none;
+}
+.home-profile .page__content .home-intro strong {
+  color: #34404c;
+  font-weight: 700;
+}
+.home-profile .page__content .home-intro .academic-emphasis,
+.home-profile .page__content .home-intro .academic-emphasis strong {
+  color: #ab6070;
+}
+.home-profile .page__content .home-intro__interests {
+  display: block;
+  margin-top: 4px;
+  color: #68737e;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.home-profile .page__content .home-intro__interests strong {
+  color: #485766;
+  font-size: inherit;
+}
+
+/* Selected Awards: three aligned fields on desktop, compact two-line rows
+   on narrow screens. No badges, shaded cards, or nested title/description rows. */
+.home-profile .page__content .award-list {
+  border-top: 0;
+  margin: 0 0 18px;
+}
+.home-profile .page__content .award-item {
+  grid-template-columns: 96px minmax(0, 1fr);
+  column-gap: 16px;
+  row-gap: 0;
+  align-items: baseline;
+  padding: 5px 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  line-height: 1.45;
+}
+.home-profile .page__content .award-item:hover {
+  padding: 5px 0;
+  background: transparent;
+}
+.home-profile .page__content .award-date {
+  padding: 0;
+  color: #7f8993;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.home-profile .page__content .award-copy {
+  display: grid;
+  grid-template-columns: minmax(156px, 0.64fr) minmax(0, 1.36fr);
+  column-gap: 16px;
+  align-items: baseline;
+}
+.home-profile .page__content .award-copy > strong {
+  margin: 0;
+  color: #35404c;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.home-profile .page__content .award-note {
+  display: block;
+  margin: 0;
+  color: #67717c;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+@media (max-width: 640px) {
+  .home-profile .page__content .award-item {
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 10px;
+    padding: 6px 0;
+  }
+  .home-profile .page__content .award-item:hover { padding: 6px 0; }
+  .home-profile .page__content .award-copy { display: block; }
+  .home-profile .page__content .award-copy > strong { font-size: 13.5px; }
+  .home-profile .page__content .award-note {
+    margin-top: 1px;
+    font-size: 12.5px;
+  }
+  .home-profile .page__content .home-intro p { font-size: 14.5px; }
+  .home-profile .page__content .home-intro__interests { font-size: 13px; }
+}
