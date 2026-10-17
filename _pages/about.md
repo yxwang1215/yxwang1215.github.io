@@ -43,7 +43,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <div class="intern-content">
       <h3 class="experience-name"><a href="https://www.360.cn/">360 Group</a></h3>
       <p class="experience-date">Aug 2026 –</p>
-      <p class="experience-role">intern@Zhinao</p>
+      <p class="experience-role">Intern@<a href="https://ai.360.com/">Zhinao</a></p>
     </div>
   </article>
 
