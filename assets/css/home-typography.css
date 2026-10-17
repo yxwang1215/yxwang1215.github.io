@@ -307,57 +307,105 @@
 }
 
 
-/* Academic links are neutral by default and pick up the site's muted rose
-   accent only on interaction. Avoid bright blue in the About Me introduction. */
+/* About-only color treatment, inspired by the supplied reference.
+   Keep every rule scoped: the rest of the homepage retains its own palette. */
+.home-profile .page__content > h1.home-about-heading {
+  color: #b96965;
+}
 .home-profile .page__content .home-intro {
+  --about-accent: #b15b58;
+  --about-accent-hover: #903f43;
   max-width: 880px;
   margin: 0 0 22px;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-weight: 400;
 }
 .home-profile .page__content .home-intro p {
-  margin: 0 0 11px;
-  color: #46515e;
+  margin: 0 0 14px;
+  color: #51555d;
+  font-family: inherit;
   font-size: 15px;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.75;
+}
+.home-profile .page__content .home-intro strong {
+  color: #40454e;
+  font-weight: 600;
 }
 .home-profile .page__content .home-intro a,
 .home-profile .page__content .home-intro a:visited {
-  color: #3d4650;
+  color: var(--about-accent);
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(164, 91, 101, 0.30);
-  transition: color 120ms ease, border-color 120ms ease;
+  border: 0;
+  box-shadow: none;
+  transition: color 140ms ease;
 }
 .home-profile .page__content .home-intro a:hover {
-  color: #a45b65;
-  border-bottom-color: currentColor;
-  text-decoration: none;
+  color: var(--about-accent-hover);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.home-profile .page__content .home-intro a:focus-visible {
+  outline: 2px solid var(--about-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 .home-profile .page__content .home-intro a strong,
 .home-profile .page__content .home-intro a:visited strong {
   color: inherit;
-}
-.home-profile .page__content .home-intro strong {
-  color: #34404c;
-  font-weight: 700;
+  font-weight: inherit;
 }
 .home-profile .page__content .home-intro .academic-emphasis,
 .home-profile .page__content .home-intro .academic-emphasis strong {
-  color: #ab6070;
+  color: #a45570;
+  font-weight: 700;
 }
 .home-profile .page__content .home-intro__interests {
-  display: block;
-  margin-top: 4px;
-  color: #68737e;
-  font-size: 13.5px;
-  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 7px;
+  margin-top: 2px;
+  color: #5d6068;
+  font-size: 13px;
+  line-height: 1.5;
 }
-.home-profile .page__content .home-intro__interests strong {
-  color: #485766;
-  font-size: inherit;
+.home-profile .page__content .home-intro__interests .home-interest-label {
+  margin-right: 2px;
+  color: #595660;
+  font-size: 13px;
+  font-weight: 600;
 }
-
-/* Keep intro copy readable on phones without bloating the compact lists. */
+.home-profile .page__content .home-intro .home-interest-chip {
+  display: inline-block;
+  max-width: 100%;
+  padding: 3px 8px;
+  border: 1px solid #efd6d5;
+  border-radius: 5px;
+  background: #fff4f3;
+  color: #995352;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
 @media (max-width: 640px) {
-  .home-profile .page__content .home-intro p { font-size: 14.5px; }
-  .home-profile .page__content .home-intro__interests { font-size: 13px; }
+  .home-profile .page__content .home-intro p {
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+  .home-profile .page__content .home-intro__interests { gap: 6px; }
+  .home-profile .page__content .home-intro__interests .home-interest-label {
+    flex-basis: 100%;
+  }
+  .home-profile .page__content .home-intro .home-interest-chip {
+    padding: 3px 7px;
+    font-size: 12.5px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-profile .page__content .home-intro a { transition: none; }
 }
