@@ -1,7 +1,7 @@
 name: Prepare publication illustrations
 on:
   push:
-    branches: [feat/homepage-themed-works-20261017]
+    branches: [feat/homepage-themed-works-20261017, feat/experience-paper-figures-20261017]
     paths:
       - scripts/vendor-work-media.py
       - scripts/work-media-sources.json
@@ -35,6 +35,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add images/works/
           if ! git diff --cached --quiet; then
-            git commit -m 'assets: add verified local figures for themed work cards'
+            git commit -m 'assets: use paper-original AudioMarathon Figure 1 and AudioKV Figure 3'
             git push origin "HEAD:$TARGET_BRANCH"
           fi
