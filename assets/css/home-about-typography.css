@@ -1,0 +1,60 @@
+/* Homepage About typography. Load after home-typography.css.
+   Only size, weight and rhythm change; the established colors stay intact. */
+.home-profile .page__content > h1.home-about-heading {
+  font-size: 26px;
+  font-weight: 700;
+}
+.home-profile .page__content .home-intro {
+  font-family: var(--rounded-font);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.home-profile .page__content .home-intro p {
+  margin-bottom: 16px;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.home-profile .page__content .home-intro strong,
+.home-profile .page__content .home-intro b {
+  font-weight: inherit;
+}
+.home-profile .page__content .home-intro a,
+.home-profile .page__content .home-intro a:visited,
+.home-profile .page__content .home-intro .academic-emphasis,
+.home-profile .page__content .home-intro .academic-emphasis strong {
+  font-weight: 600;
+}
+.home-profile .page__content .home-intro__interests {
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.home-profile .page__content .home-intro__interests .home-interest-label {
+  font-size: inherit;
+  font-weight: 600;
+}
+.home-profile .page__content .home-intro .home-interest-chip {
+  padding: 4px 9px;
+  font-size: inherit;
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .home-profile .page__content > h1.home-about-heading {
+    font-size: 24px;
+  }
+  .home-profile .page__content .home-intro {
+    font-size: 16px;
+  }
+  .home-profile .page__content .home-intro p {
+    margin-bottom: 14px;
+  }
+  .home-profile .page__content .home-intro__interests {
+    font-size: 14px;
+  }
+  .home-profile .page__content .home-intro .home-interest-chip {
+    padding: 4px 8px;
+  }
+}
