@@ -331,7 +331,7 @@
 }
 .home-profile .page__content .home-intro strong {
   color: #30343B;
-  font-weight: 650;
+  font-weight: 500;
 }
 .home-profile .page__content .home-intro a,
 .home-profile .page__content .home-intro a:visited {
@@ -377,7 +377,7 @@
   margin-right: 2px;
   color: #30343B;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .home-profile .page__content .home-intro .home-interest-chip {
   display: inline-block;
