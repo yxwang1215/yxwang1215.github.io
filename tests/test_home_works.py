@@ -51,7 +51,7 @@ class HomeWorksTest(unittest.TestCase):
 
     def test_service_and_personal_updates_are_preserved(self):
         text = (ROOT / '_pages/about.md').read_text()
-        for value in ('ICLR 2027', 'Reviewer', 'Wenhao Zhang', 'I am a senior', 'Tong Yang', '2027–Future'):
+        for value in ('ICLR 2027', 'Reviewer', 'Wenhao Zhang', 'I am a senior', 'Tong Yang', '2027 –'):
             self.assertIn(value, text)
         self.assertIn('{% include home-works.html %}', text)
         self.assertNotIn('# Publications', text)
