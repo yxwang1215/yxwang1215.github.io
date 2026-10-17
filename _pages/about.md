@@ -35,7 +35,6 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
       <h3 class="experience-name"><a href="https://www.pku.edu.cn/">Peking University</a></h3>
       <p class="experience-role">Incoming Ph.D. · <a href="https://cs.pku.edu.cn/">Computer Science</a></p>
       <p class="experience-date">2027 –</p>
-      <p class="experience-summary">Advisor: <a href="https://yangtonghome.github.io/">Tong Yang</a>.</p>
     </div>
   </article>
 
