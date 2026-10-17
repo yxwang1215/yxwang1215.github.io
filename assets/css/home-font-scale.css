@@ -27,8 +27,6 @@
 .home-profile .page__content .home-intro__interests .home-interest-label,
 .home-profile .page__content .home-intro .home-interest-chip { font-size: inherit; }
 .home-profile .page__content .tag { font-size: 15px; }
-.home-profile .page__content .highlight-box,
-.home-profile .page__content .highlight-box p { font-size: inherit; }
 
 /* Experience: all school, role, date and supporting text move together. */
 .home-profile .page__content .edu-content,
