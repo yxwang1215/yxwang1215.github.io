@@ -10,6 +10,8 @@ main:
     url: "/tools/"
   - title: "Experience"
     url: "/#experience"
+  - title: "Memories"
+    url: "/memories/"
   - title: "Works"
     url: "/#works"
   - title: "Service"
