@@ -28,7 +28,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 
 <div class="experience-section-heading">
   <h1 id="experience">Experience</h1>
-  <a class="experience-index-link" href="/memories/">All memories <span aria-hidden="true">→</span></a>
+  <a class="experience-index-link" href="/memories/">All memories</a>
 </div>
 
 <div class="home-experience-grid">
