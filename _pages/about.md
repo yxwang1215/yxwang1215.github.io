@@ -16,9 +16,9 @@ redirect_from:
 <div class="highlight-box home-intro" markdown="1">
 I am a senior at [Xidian University](https://www.xidian.edu.cn/), majoring in **Software Engineering (Intelligent Direction)**. I will join the [School of Computer Science](https://cs.pku.edu.cn/) at [Peking University](https://www.pku.edu.cn/) as a Ph.D. student in **2027**, advised by [Prof. Tong Yang](https://yangtonghome.github.io/).
 
-I currently intern at [360 Group](https://www.360.cn/) ([Foundation Model](https://ai.360.com/)). Previously, I was a research intern at [EPIC Lab@SJTU](https://epic-lab.github.io/) and [LEAP Lab@Tsinghua University](https://www.leaplab.ai/).
+I currently intern at [360 Group](https://www.360.cn/) ([Foundation Model](https://ai.360.com/)). Previously, I was a research intern at [EPIC Lab@Shanghai Jiao Tong University](https://epic-lab.github.io/) and [LEAP Lab@Tsinghua University](https://www.leaplab.ai/).
 
-At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591) and **French** (CFT-4 87/100).
+At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span> in Software Engineering and <span class="academic-emphasis"><strong>1st/1342</strong></span> in the Computer Category (2023–2024). I am proficient in **English** (CET-6: 591, IELTS: 7.0) and **French** (CFT-4 87/100).
 
 <span class="home-intro__interests"><strong class="home-interest-label">Research Interests:</strong><span class="home-interest-chip">Multimodal LLMs</span><span class="home-interest-chip">Efficient AI</span><span class="home-interest-chip">Large Language Models</span><span class="home-interest-chip">KV Cache Optimization</span></span>
 </div>
