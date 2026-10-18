@@ -7,50 +7,106 @@ wide: true
 ---
 
 <style>
-.audiokv-poster{max-width:1120px;margin:1rem auto 3rem;color:#193149;font-family:Arial,Helvetica,sans-serif}
-.audiokv-poster *{box-sizing:border-box}
-.audiokv-poster header{background:#13344b;color:#fff;padding:28px 32px;border-radius:12px}
-.audiokv-poster .eyebrow{color:#9bd9de;font-size:13px;letter-spacing:.13em;font-weight:700}
-.audiokv-poster h1{font-size:clamp(25px,3.4vw,44px);line-height:1.15;margin:12px 0}
-.audiokv-poster .authors{font-size:16px;line-height:1.8}
-.audiokv-poster .affils{font-size:12px;opacity:.88;line-height:1.5}
-.audiokv-poster .tagline{font-size:18px;text-align:center;background:#d9f2f4;margin:13px 0;padding:13px;border-radius:7px;font-weight:700}
-.audiokv-poster .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
-.audiokv-poster .stat,.audiokv-poster section{border:1px solid #dce5e9;border-radius:10px;padding:19px;background:#fff}
-.audiokv-poster .stat{text-align:center}
-.audiokv-poster .stat strong{font-size:30px;color:#007986;display:block}
-.audiokv-poster .stat span{font-size:12px;font-weight:700}
-.audiokv-poster h2{font-size:21px;color:#006d77;border-bottom:2px solid #b6dee1;padding-bottom:9px;margin:0 0 12px}
-.audiokv-poster .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
-.audiokv-poster .figure{display:block;width:100%;height:auto;border-radius:5px}
-.audiokv-poster section p,.audiokv-poster section li{line-height:1.55;font-size:15px}
-.audiokv-poster .links{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
-.audiokv-poster .links a{display:inline-block;background:#d8eef0;border-radius:5px;padding:8px 14px;color:#075661;text-decoration:none;font-weight:700}
-.audiokv-poster .takeaways{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.audiokv-poster .takeaways div{background:#e7f4f3;border-radius:6px;padding:15px;line-height:1.45}
-.audiokv-poster footer{text-align:center;margin:20px;font-size:13px;color:#536776}
-@media(max-width:700px){.audiokv-poster .stats{grid-template-columns:repeat(2,1fr)}.audiokv-poster .two,.audiokv-poster .takeaways{grid-template-columns:1fr}.audiokv-poster header{padding:20px}}
-@media print{.masthead,.sidebar,.page__footer,.audiokv-poster .links{display:none!important}.audiokv-poster{max-width:none}.audiokv-poster section{break-inside:avoid}}
+  .audiokv-original-poster {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto 44px;
+  }
+  .audiokv-poster-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 8px 0 20px;
+  }
+  .audiokv-poster-toolbar h1 {
+    font-size: clamp(22px,2.6vw,31px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    margin: 0 0 4px;
+    color: #30343b;
+  }
+  .audiokv-poster-toolbar p {
+    margin: 0;
+    color: #5b6570;
+    font-size: 14px;
+  }
+  .audiokv-poster-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .audiokv-poster-actions a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    padding: 10px 13px;
+    border-radius: 7px;
+    color: #146a76;
+    border: 1px solid #b9dadc;
+    background: #f5fbfb;
+    white-space: nowrap;
+  }
+  .audiokv-poster-actions a:hover,
+  .audiokv-poster-actions a:focus-visible {
+    color: #075661;
+    border-color: #65abae;
+    background: #eaf6f6;
+  }
+  .audiokv-poster-artwork {
+    margin: 0;
+    width: 100%;
+    background: #ffffff;
+  }
+  .audiokv-poster-artwork img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border: 1px solid #e0e6ec;
+    box-shadow: 0 6px 26px rgba(20,45,58,0.07);
+    cursor: zoom-in;
+  }
+  .audiokv-poster-artwork figcaption {
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #697481;
+    text-align: center;
+  }
+  @media (max-width:600px) {
+    .audiokv-poster-toolbar {align-items: flex-start;}
+    .audiokv-poster-toolbar h1 {font-size: 23px;}
+    .audiokv-poster-actions a {font-size:13px;padding:8px 11px;}
+    .audiokv-original-poster {margin-bottom:22px;}
+  }
+  @media print {
+    .audiokv-poster-toolbar, .audiokv-poster-artwork figcaption {display:none;}
+    .audiokv-poster-artwork img {box-shadow:none;border:0;}
+  }
 </style>
-<main class="audiokv-poster">
-<header>
-  <div class="eyebrow">ACM MULTIMEDIA 2026 · RIO DE JANEIRO · NOVEMBER 10–14</div>
-  <h1>AudioKV: KV Cache Eviction in Efficient<br>Large Audio Language Models</h1>
-  <div class="authors"><strong>Yuxuan Wang*</strong>, Peize He, Xiyan Gui, Xiaoqian Liu, Junhao He, Xuyang Liu, Xuming Hu†, Linfeng Zhang†</div>
-  <div class="affils">Xidian University · UESTC · HUST · Northeastern University · Shanghai Jiao Tong University · Sichuan University · HKUST (Guangzhou)<br>* Work conducted during an internship at SJTU. † Corresponding authors.</div>
-  <div class="links"><a href="https://arxiv.org/abs/2604.06694">[Paper]</a><a href="https://github.com/yxwang1215/Audio_kvcache">[Code]</a><a href="https://doi.org/10.1145/3767308.3835763">[DOI]</a></div>
-</header>
-<p class="tagline">Preserve acoustic heads and smooth noisy token scores — aggressive KV compression without long-form ASR collapse.</p>
-<div class="stats"><div class="stat"><strong>40%</strong><span>KV RETAINED<br>60% cache reduction</span></div><div class="stat"><strong>0.45%</strong><span>ABS. ACCURACY DROP<br>Qwen3-Omni-30B</span></div><div class="stat"><strong>5</strong><span>AUDIO-LANGUAGE MODELS<br>Qwen + Gemma</span></div><div class="stat"><strong>11</strong><span>ASR / ST / AQA BENCHMARKS</span></div></div>
-<div class="two">
-<section><h2>Why audio needs its own KV policy</h2><p><strong>Head specialization.</strong> Only a subset of attention heads reliably connects decoded words to audio. Uniform per-head cache budgets are inefficient.</p><p><strong>Temporal continuity.</strong> Raw top-K token selection clusters in narrow time windows and loses global acoustic context.</p></section>
-<section><h2>AudioKV: align, allocate, smooth</h2><p><strong>1. Identify audio-critical heads.</strong> Align word spans using WhisperX and compute per-head top-K attention hit rates.</p><p><strong>2. Allocate cache and apply Spectral Score Smoothing.</strong> Suppress high-frequency score noise with FFT-based global spectral filtering, redistributing selection across the acoustic sequence.</p></section>
-</div>
-<section><h2>Method overview</h2><img class="figure" src="/images/works/audiokv-figure-3.webp" alt="AudioKV attention head identification and spectral score smoothing method overview"></section>
-<div class="two">
-<section><h2>Stable under aggressive compression</h2><p>Across Qwen and Gemma audio-language models, AudioKV preserves performance with KV retention ratios of 80%, 60%, and 40%. At 40% retention, Qwen3-Omni-30B on LibriSpeech-long retains <strong>97.8% accuracy</strong>, compared with 98.3% using the full KV cache.</p><p>Competing cache-selection methods can experience severe degradation in long-form ASR.</p></section>
-<section><h2>Failure mode: repetition collapse</h2><p>On a 232.62-second LibriSpeech sample with a 512-token KV budget, <strong>SnapKV reaches 93.62% WER</strong> while <strong>AudioKV reaches 1.09% WER</strong>.</p><p>Better selection preserves the discourse-level context necessary to avoid repetitive generation.</p></section>
-</div>
-<section><h2>Takeaways</h2><div class="takeaways"><div><strong>01 · Allocate by acoustic relevance.</strong><p>Word-aligned attention hits identify the heads that ground decoded speech.</p></div><div><strong>02 · Smooth globally, not locally.</strong><p>FFT-based SSS suppresses score noise while preserving global semantic trends.</p></div><div><strong>03 · Avoid catastrophic collapse.</strong><p>Tight KV budgets remain viable for reliable long-form audio inference.</p></div></div></section>
-<footer>AudioKV · ACM MM 2026 · <a href="https://github.com/yxwang1215/Audio_kvcache">Source code</a> · <a href="https://doi.org/10.1145/3767308.3835763">DOI</a></footer>
+
+<main class="audiokv-original-poster">
+  <header class="audiokv-poster-toolbar">
+    <div>
+      <h1>AudioKV · ACM MM 2026 Poster</h1>
+      <p>Original A0 portrait poster · unchanged layout and figures</p>
+    </div>
+    <nav class="audiokv-poster-actions" aria-label="Poster links">
+      <a href="/assets/downloads/audiokv-acmmm2026-poster.pdf" target="_blank" rel="noopener">View PDF ↗</a>
+      <a href="/assets/downloads/audiokv-acmmm2026-poster.pdf" download="AudioKV-ACMMM2026-Poster.pdf">Download PDF ↓</a>
+    </nav>
+  </header>
+  <figure class="audiokv-poster-artwork">
+    <a href="/assets/downloads/audiokv-acmmm2026-poster.pdf" target="_blank" rel="noopener" aria-label="Open the original AudioKV poster PDF at full resolution">
+      <img src="/images/works/audiokv-poster-original.jpg"
+           alt="Full original ACM Multimedia 2026 AudioKV research poster, including all results, charts, tables, illustrations, and takeaways"
+           width="2483" height="3510" loading="eager" decoding="async">
+    </a>
+    <figcaption>This is a direct rendering of the original PowerPoint poster, not a redesigned web version. Click the poster to zoom in via the vector PDF.</figcaption>
+  </figure>
 </main>
