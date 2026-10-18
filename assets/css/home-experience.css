@@ -10,6 +10,8 @@
 }
 
 .home-profile .page__content .experience-card {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 68px minmax(0, 1fr);
   align-items: start;
@@ -22,8 +24,8 @@
   margin: 0;
   min-width: 0;
   box-sizing: border-box;
-  background: #fff;
-  border: 1px solid #f0ecee;
+  background: var(--memory-bg, #fff);
+  border: 1px solid var(--memory-border, #f0ecee);
   border-radius: 10px;
   box-shadow: 0 3px 14px rgba(35, 42, 52, .045);
   transition: border-color 160ms ease, box-shadow 160ms ease;
@@ -31,7 +33,7 @@
 }
 .home-profile .page__content .experience-card:hover {
   transform: none;
-  border-color: #e8e0e5;
+  border-color: var(--memory-accent, #e8e0e5);
   box-shadow: 0 5px 18px rgba(35, 42, 52, .075);
 }
 .home-profile .page__content .experience-card .edu-logo,
@@ -97,8 +99,9 @@
 }
 .home-profile .page__content .experience-card p.experience-summary {
   margin-top: 5px;
-  color: #66707b;
+  color: #505b68;
   font-size: 12.8px;
+  font-weight: 600;
 }
 .home-profile .page__content .experience-card .experience-role a,
 .home-profile .page__content .experience-card .experience-summary a {
@@ -162,3 +165,4 @@
 @media (prefers-reduced-motion: reduce) {
   .home-profile .page__content .experience-card { transition: none; }
 }
+

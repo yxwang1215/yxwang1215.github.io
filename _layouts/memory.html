@@ -1,0 +1,70 @@
+---
+layout: default
+---
+{% assign memory = site.data.memories.items | where: 'id', page.memory_id | first %}
+<div class="memory-sheet memory-theme" data-memory="{{ memory.id | escape }}">
+  <nav class="memory-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span>
+    <a href="{{ '/memories/' | relative_url }}">Memories</a><span aria-hidden="true">/</span>
+    <span aria-current="page">{{ memory.short_name | escape }}</span>
+  </nav>
+
+  <header class="memory-header">
+    <img class="memory-logo" src="{{ memory.logo | escape }}" alt="{{ memory.name | escape }}" width="88" height="88" decoding="async" referrerpolicy="no-referrer">
+    <div class="memory-header__copy">
+      <h1>{{ memory.name | escape }}</h1>
+      <p class="memory-date">{{ memory.date | escape }}</p>
+      <p class="memory-role">{{ memory.role | escape }}</p>
+      <p class="memory-place">{{ memory.location | escape }}{% if memory.status == 'Upcoming' or memory.status == 'Current' %}<span class="memory-status">{{ memory.status | escape }}</span>{% endif %}</p>
+    </div>
+    <p class="memory-lead">{{ memory.summary | escape }}</p>
+  </header>
+
+  <div class="memory-columns">
+    <div class="memory-story">
+      {% for section in memory.sections %}
+      <section class="memory-section" aria-labelledby="memory-section-{{ forloop.index }}">
+        <h2 id="memory-section-{{ forloop.index }}">{{ section.title | escape }}</h2>
+        {% for paragraph in section.paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}
+      </section>
+      {% endfor %}
+    </div>
+    <aside class="memory-aside" aria-label="Experience details">
+      {% if memory.facts.size > 0 %}
+      <section class="memory-facts">
+        <h2>At a glance</h2>
+        <dl>{% for fact in memory.facts %}<div><dt>{{ fact.label | escape }}</dt><dd>{{ fact.value | escape }}</dd></div>{% endfor %}</dl>
+      </section>
+      {% endif %}
+      {% if memory.links.size > 0 %}
+      <nav class="memory-resources" aria-label="Related websites">
+        <h2>Links</h2>
+        {% for link in memory.links %}<a href="{{ link.url | escape }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>{% endfor %}
+      </nav>
+      {% endif %}
+    </aside>
+  </div>
+
+  {% if memory.work_ids.size > 0 %}
+  <section class="memory-related" aria-labelledby="memory-related-heading">
+    <h2 id="memory-related-heading">Related work</h2>
+    <div class="memory-work-grid">
+      {% for work_id in memory.work_ids %}
+      {% assign work = site.data.works.items | where: 'id', work_id | first %}
+      {% if work %}
+      <article class="memory-work">
+        <h3><a href="{{ work.links.first.url | escape }}">{{ work.title | escape }}</a></h3>
+        <p>{{ work.description | escape }}</p>
+        <div class="memory-work__links"><span>{{ work.venue | escape }}</span>{% for link in work.links %}<a href="{{ link.url | escape }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>{% endfor %}</div>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <footer class="memory-footer">
+    <a href="{{ '/#experience' | relative_url }}"><span aria-hidden="true">←</span> Back to Experience</a>
+    <a href="{{ '/memories/' | relative_url }}">All memories <span aria-hidden="true">→</span></a>
+  </footer>
+</div>

@@ -29,70 +29,79 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 # Experience
 
 <div class="home-experience-grid">
-  <article class="edu-card experience-card" data-experience-kind="education">
+  <article class="edu-card experience-card memory-theme" data-experience-kind="education" data-memory="pku">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg" alt="Peking University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     <div class="edu-content">
-      <h3 class="experience-name"><a href="https://www.pku.edu.cn/">Peking University</a></h3>
+      <h3 class="experience-name"><a href="/memories/pku/" aria-label="Peking University — view experience">Peking University</a></h3>
       <p class="experience-date">Sep 2027 –</p>
       <p class="experience-role">Incoming Ph.D@<a href="https://cs.pku.edu.cn/">PKUCS</a></p>
     </div>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 
-  <article class="intern-card experience-card" data-experience-kind="research">
+  <article class="intern-card experience-card memory-theme" data-experience-kind="research" data-memory="360">
     <img src="/images/360.svg" alt="360 Group" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="intern-content">
-      <h3 class="experience-name"><a href="https://www.360.cn/">360 Group</a></h3>
+      <h3 class="experience-name"><a href="/memories/360/" aria-label="360 Group — view experience">360 Group</a></h3>
       <p class="experience-date">Aug 2026 –</p>
       <p class="experience-role">Intern@<a href="https://ai.360.com/">Zhinao</a></p>
     </div>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 
-  <article class="intern-card experience-card" data-experience-kind="research">
+  <article class="intern-card experience-card memory-theme" data-experience-kind="research" data-memory="sjtu">
     <img src="/images/SJTU.png" alt="Shanghai Jiao Tong University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="intern-content">
-      <h3 class="experience-name"><a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a></h3>
+      <h3 class="experience-name"><a href="/memories/sjtu/" aria-label="Shanghai Jiao Tong University — view experience">Shanghai Jiao Tong University</a></h3>
       <p class="experience-date">Aug 2025 – Apr 2026</p>
       <p class="experience-role">Intern@<a href="https://epic-lab.github.io/">EPIC Lab</a></p>
     </div>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 
-  <article class="intern-card experience-card" data-experience-kind="research">
+  <article class="intern-card experience-card memory-theme" data-experience-kind="research" data-memory="tsinghua">
     <img src="/images/tsinghua.png" alt="Tsinghua University" class="intern-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="intern-content">
-      <h3 class="experience-name"><a href="https://www.tsinghua.edu.cn/">Tsinghua University</a></h3>
+      <h3 class="experience-name"><a href="/memories/tsinghua/" aria-label="Tsinghua University — view experience">Tsinghua University</a></h3>
       <p class="experience-date">Mar 2025 – Sep 2025</p>
       <p class="experience-role">Intern@<a href="https://www.leaplab.ai/">LEAP LAB</a></p>
     </div>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 
-  <article class="edu-card experience-card" data-experience-kind="education">
+  <article class="edu-card experience-card memory-theme" data-experience-kind="education" data-memory="xidian">
     <img src="/images/xidian.png" alt="Xidian University" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="edu-content">
-      <h3 class="experience-name"><a href="https://www.xidian.edu.cn/">Xidian University</a></h3>
+      <h3 class="experience-name"><a href="/memories/xidian/" aria-label="Xidian University — view experience">Xidian University</a></h3>
       <p class="experience-date">Sep 2023 – Jun 2027</p>
       <p class="experience-role">B.E@<a href="https://cs.xidian.edu.cn/">SCST</a></p>
-      <p class="experience-summary">GPA 4.0/4.0 · Rank 1/335 <span class="experience-award" style="white-space: nowrap;">· National Scholarship ×3</span></p>
     </div>
+    <p class="experience-summary"><span>GPA 4.0/4.0</span><span>Rank 1/335</span><span class="experience-award">National Scholarship ×3</span></p>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 
-  <article class="edu-card experience-card" data-experience-kind="education">
+  <article class="edu-card experience-card memory-theme" data-experience-kind="education" data-memory="ucla">
     <img src="/images/UCLA.png" alt="University of California, Los Angeles" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="edu-content">
-      <h3 class="experience-name"><a href="https://www.ucla.edu/">University of California, Los Angeles</a></h3>
+      <h3 class="experience-name"><a href="/memories/ucla/" aria-label="University of California, Los Angeles — view experience">University of California, Los Angeles</a></h3>
       <p class="experience-date">Jun 2024 - Aug 2024</p>
       <p class="experience-role">Visiting Student</p>
     </div>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 
-  <article class="edu-card experience-card experience-card--earlier" data-experience-kind="education">
+  <article class="edu-card experience-card experience-card--earlier memory-theme" data-experience-kind="education" data-memory="zhenhai">
     <img src="/images/zhenhai.png" alt="Zhenhai High School" class="edu-logo" width="76" height="76" loading="lazy" decoding="async">
     <div class="edu-content">
-      <h3 class="experience-name"><a href="https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981">Zhenhai High School</a></h3>
+      <h3 class="experience-name"><a href="/memories/zhenhai/" aria-label="Zhenhai High School — view experience">Zhenhai High School</a></h3>
       <p class="experience-date">Sep 2020 – Jun 2023</p>
       <p class="experience-role">Innovation Class</p>
     </div>
+    <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 </div>
+
+<p class="experience-index-link"><a href="/memories/">All memories <span aria-hidden="true">→</span></a></p>
 
 {% include home-works.html %}
 
@@ -140,10 +149,11 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
   <span class="friend-category">PKU · CS</span>
   <div class="friend-copy">
     <a class="friend-name" href="https://vegebirrd.github.io/">Wenhao Zhang</a>
-    <span class="friend-note" title="Senior at Peking University (CS). Plans to apply for a Master's degree in the United States. He learned Spanish and Japanese; I learned French.">Senior at Peking University (CS) · Plans to apply for a Master's degree in the United States · Spanish &amp; Japanese (I study French).</span>
+    <span class="friend-note">Senior at Peking University · Plans to apply for a Master's degree in the United States · Spanish &amp; Japanese.</span>
   </div>
 </div>
 
 <div class="last-updated">
-  <em>Last updated: 2026/10/17.</em>
+  <em>Last updated: 2026/10/18.</em>
 </div>
+

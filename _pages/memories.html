@@ -1,0 +1,31 @@
+---
+permalink: /memories/
+title: "Memories"
+excerpt: "My experiences in education and research."
+author_profile: false
+wide: true
+memory_page: true
+page_class: "memory-page"
+---
+<div class="memory-index">
+  <nav class="memory-breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">Memories</span></nav>
+  <header class="memory-index__header">
+    <h1>Memories</h1>
+    <p>Places I have studied, people I have worked with, and the work along the way.</p>
+  </header>
+  <div class="memory-index__grid">
+    {% for memory in site.data.memories.items %}
+    <article class="memory-index-card memory-theme" data-memory="{{ memory.id | escape }}">
+      <img src="{{ memory.logo | escape }}" alt="" width="68" height="68" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <div>
+        <h2><a href="{{ '/memories/' | append: memory.id | append: '/' | relative_url }}">{{ memory.name | escape }}</a></h2>
+        <p class="memory-index-card__date">{{ memory.date | escape }}</p>
+        <p class="memory-index-card__role">{{ memory.role | escape }}</p>
+      </div>
+      <p class="memory-index-card__summary">{{ memory.summary | escape }}</p>
+      <span class="memory-index-card__more">{% if memory.status == 'Upcoming' %}A chapter ahead{% else %}Read this chapter{% endif %} <span aria-hidden="true">→</span></span>
+    </article>
+    {% endfor %}
+  </div>
+  <footer class="memory-footer"><a href="{{ '/#experience' | relative_url }}"><span aria-hidden="true">←</span> Back to Experience</a><a href="{{ '/journal/' | relative_url }}">Journal <span aria-hidden="true">→</span></a></footer>
+</div>

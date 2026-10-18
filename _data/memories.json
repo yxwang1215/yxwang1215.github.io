@@ -1,0 +1,271 @@
+{
+  "items": [
+    {
+      "id": "pku",
+      "name": "Peking University",
+      "short_name": "PKU",
+      "kind": "education",
+      "date": "Sep 2027 –",
+      "role": "Incoming Ph.D. Student, School of Computer Science",
+      "location": "Beijing",
+      "status": "Upcoming",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Peking_University_seal.svg",
+      "summary": "An upcoming Ph.D. at Peking University's School of Computer Science, advised by Prof. Tong Yang.",
+      "sections": [
+        {
+          "title": "Starting in 2027",
+          "paragraphs": [
+            "I will join the School of Computer Science at Peking University as a Ph.D. student in September 2027, advised by Prof. Tong Yang. This is the next planned stage of my education after my undergraduate studies at Xidian University."
+          ]
+        },
+        {
+          "title": "Research interests",
+          "paragraphs": [
+            "My current research interests include multimodal large language models, efficient AI, large language models, and KV cache optimization."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Program", "value": "Ph.D., School of Computer Science"},
+        {"label": "Expected start", "value": "September 2027"},
+        {"label": "Advisor", "value": "Prof. Tong Yang"}
+      ],
+      "links": [
+        {"label": "Peking University", "url": "https://www.pku.edu.cn/"},
+        {"label": "School of Computer Science", "url": "https://cs.pku.edu.cn/"},
+        {"label": "Prof. Tong Yang", "url": "https://yangtonghome.github.io/"}
+      ],
+      "work_ids": []
+    },
+    {
+      "id": "360",
+      "name": "360 Group",
+      "short_name": "360",
+      "kind": "research",
+      "date": "Aug 2026 –",
+      "role": "Intern, Zhinao Foundation Model",
+      "location": "Beijing",
+      "status": "Current",
+      "logo": "/images/360.svg",
+      "summary": "A foundation model internship at Zhinao, with a focus on training methods for large language models.",
+      "sections": [
+        {
+          "title": "Foundation model internship",
+          "paragraphs": [
+            "I joined 360 Group as an intern in August 2026, working with Zhinao in foundation models. The internship follows my research internships at EPIC Lab at Shanghai Jiao Tong University and LEAP Lab at Tsinghua University."
+          ]
+        },
+        {
+          "title": "Training methods",
+          "paragraphs": [
+            "My focus is on training methods for large language models. This work sits alongside my broader research interests in large language models, multimodal intelligence, and efficient AI."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Role", "value": "Intern"},
+        {"label": "Group", "value": "Zhinao · Foundation Model"},
+        {"label": "Focus", "value": "Training methods for large language models"},
+        {"label": "Started", "value": "August 2026"}
+      ],
+      "links": [
+        {"label": "360 Group", "url": "https://www.360.cn/"},
+        {"label": "Zhinao", "url": "https://ai.360.com/"}
+      ],
+      "work_ids": []
+    },
+    {
+      "id": "sjtu",
+      "name": "Shanghai Jiao Tong University",
+      "short_name": "SJTU",
+      "kind": "research",
+      "date": "Aug 2025 – Apr 2026",
+      "role": "Intern, EPIC Lab",
+      "location": "Shanghai",
+      "status": "Completed",
+      "logo": "/images/SJTU.png",
+      "summary": "Research at EPIC Lab on diffusion LLM inference and efficient KV caching for audio language models.",
+      "sections": [
+        {
+          "title": "Efficient inference at EPIC Lab",
+          "paragraphs": [
+            "I was an intern at EPIC Lab at Shanghai Jiao Tong University from August 2025 to April 2026. My research focused on diffusion LLM inference and KV cache eviction for audio language models."
+          ]
+        },
+        {
+          "title": "Diffusion language models",
+          "paragraphs": [
+            "Related research includes in-place prompting and self speculative decoding for diffusion language models. In-place prompting embeds reasoning in masked positions and uses confidence-aware early exit. Self speculative decoding combines self-drafting with hierarchical verification to accept multiple tokens in an iteration."
+          ]
+        },
+        {
+          "title": "Audio language models",
+          "paragraphs": [
+            "AudioKV studies KV cache eviction in large audio language models, using semantic-acoustic alignment and Spectral Score Smoothing to preserve audio-critical cache entries. I am the first author of this ACM MM 2026 paper.",
+            "Another related work, AudioMarathon, provides a benchmark for long-context audio understanding and efficiency across audio language models."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Role", "value": "Intern"},
+        {"label": "Lab", "value": "EPIC Lab"},
+        {"label": "Period", "value": "August 2025 – April 2026"},
+        {"label": "Research", "value": "Diffusion LLM inference · Audio KV caching"}
+      ],
+      "links": [
+        {"label": "Shanghai Jiao Tong University", "url": "https://en.sjtu.edu.cn/"},
+        {"label": "EPIC Lab", "url": "https://epic-lab.github.io/"}
+      ],
+      "work_ids": ["ice", "ssd", "audiokv", "audiomarathon"]
+    },
+    {
+      "id": "tsinghua",
+      "name": "Tsinghua University",
+      "short_name": "Tsinghua",
+      "kind": "research",
+      "date": "Mar 2025 – Sep 2025",
+      "role": "Intern, LEAP Lab",
+      "location": "Beijing",
+      "status": "Completed",
+      "logo": "/images/tsinghua.png",
+      "summary": "An internship at LEAP Lab focused on robotic ultrasound and real-time probe guidance.",
+      "sections": [
+        {
+          "title": "Medical robotics at LEAP Lab",
+          "paragraphs": [
+            "I was an intern at LEAP Lab at Tsinghua University from March to September 2025. My work concerned robotic ultrasonography, including autonomous navigation and real-time probe guidance."
+          ]
+        },
+        {
+          "title": "Robotic ultrasound",
+          "paragraphs": [
+            "The related UltraHiT paper presents a hierarchical Transformer architecture for autonomous internal carotid artery ultrasonography, with an emphasis on generalization across anatomies. I am an equal-contribution author of this ICRA 2026 paper."
+          ]
+        },
+        {
+          "title": "Probe guidance",
+          "paragraphs": [
+            "VA-Adapter adapts an ultrasound foundation model to echocardiography probe guidance through a parameter-efficient vision-action adapter. I am a co-author of this MICCAI 2026 paper."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Role", "value": "Intern"},
+        {"label": "Lab", "value": "LEAP Lab"},
+        {"label": "Period", "value": "March – September 2025"},
+        {"label": "Research", "value": "Robotic ultrasound · Probe guidance"}
+      ],
+      "links": [
+        {"label": "Tsinghua University", "url": "https://www.tsinghua.edu.cn/"},
+        {"label": "LEAP Lab", "url": "https://www.leaplab.ai/"}
+      ],
+      "work_ids": ["ultrahit", "va-adapter"]
+    },
+    {
+      "id": "xidian",
+      "name": "Xidian University",
+      "short_name": "Xidian",
+      "kind": "education",
+      "date": "Sep 2023 – Jun 2027",
+      "role": "B.E. Student in Software Engineering (Intelligent Direction)",
+      "location": "Xi'an",
+      "status": "Current",
+      "logo": "/images/xidian.png",
+      "summary": "Software Engineering (Intelligent Direction), with a 4.0/4.0 GPA and a rank of 1st out of 335.",
+      "sections": [
+        {
+          "title": "Undergraduate study",
+          "paragraphs": [
+            "I began my undergraduate studies at Xidian University in September 2023, majoring in Software Engineering (Intelligent Direction) in the School of Computer Science and Technology. My expected graduation is June 2027.",
+            "My GPA is 4.0/4.0, and I rank 1st out of 335 in Software Engineering. In the Computer Category for 2023–2024, I ranked 1st out of 1,342."
+          ]
+        },
+        {
+          "title": "Scholarships and awards",
+          "paragraphs": [
+            "My awards include three National Scholarships across 2023–2026 and the Huawei Scholarship from Huawei Xi'an Research Institute in December 2025.",
+            "I received a National First Prize in the National English Competition for College Students in April 2025. My 2024 awards include First Prizes in the National Undergraduate Mathematical Modeling Contest and the 16th National Undergraduate Mathematics Competition, a National First Prize in the Vocabulary Star National English Vocabulary Competition, and an Honorable Mention in the Mathematical Contest in Modeling."
+          ]
+        },
+        {
+          "title": "Student service and learning resources",
+          "paragraphs": [
+            "I served as president of the Xidian Inspur Club in 2025–2026, leading club operations, recruitment, and academic workshops.",
+            "The related Operating System Review is an open study guide for Software Engineering students, covering Modern Operating Systems."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Major", "value": "Software Engineering (Intelligent Direction)"},
+        {"label": "GPA", "value": "4.0/4.0"},
+        {"label": "Major rank", "value": "1st / 335"},
+        {"label": "Computer Category rank", "value": "1st / 1,342 · 2023–2024"},
+        {"label": "National Scholarship", "value": "3 consecutive years · 2023–2026"},
+        {"label": "Expected graduation", "value": "June 2027"}
+      ],
+      "links": [
+        {"label": "Xidian University", "url": "https://www.xidian.edu.cn/"},
+        {"label": "School of Computer Science and Technology", "url": "https://cs.xidian.edu.cn/"}
+      ],
+      "work_ids": ["os-review"]
+    },
+    {
+      "id": "ucla",
+      "name": "University of California, Los Angeles",
+      "short_name": "UCLA",
+      "kind": "education",
+      "date": "Jun 2024 - Aug 2024",
+      "role": "Visiting Student",
+      "location": "Los Angeles",
+      "status": "Completed",
+      "logo": "/images/UCLA.png",
+      "summary": "A visiting student at UCLA during the summer of 2024.",
+      "sections": [
+        {
+          "title": "Summer at UCLA",
+          "paragraphs": [
+            "I was a visiting student at the University of California, Los Angeles, from June to August 2024. The visit took place during the summer after my first year at Xidian University."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Role", "value": "Visiting Student"},
+        {"label": "Period", "value": "June – August 2024"},
+        {"label": "Location", "value": "Los Angeles"}
+      ],
+      "links": [
+        {"label": "UCLA", "url": "https://www.ucla.edu/"}
+      ],
+      "work_ids": []
+    },
+    {
+      "id": "zhenhai",
+      "name": "Zhenhai High School",
+      "short_name": "Zhenhai",
+      "kind": "education",
+      "date": "Sep 2020 – Jun 2023",
+      "role": "Innovation Class Student",
+      "location": "Ningbo",
+      "status": "Completed",
+      "logo": "/images/zhenhai.png",
+      "summary": "Innovation Class studies at Zhenhai High School in Ningbo from 2020 to 2023.",
+      "sections": [
+        {
+          "title": "High school in Ningbo",
+          "paragraphs": [
+            "I attended Zhenhai High School in Ningbo from September 2020 to June 2023 as a member of the Innovation Class. After completing high school, I began my undergraduate studies at Xidian University in September 2023."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "Class", "value": "Innovation Class"},
+        {"label": "Period", "value": "September 2020 – June 2023"},
+        {"label": "Location", "value": "Ningbo"}
+      ],
+      "links": [
+        {"label": "School profile", "url": "https://baike.baidu.com/item/%E5%AE%81%E6%B3%A2%E5%B8%82%E9%95%87%E6%B5%B7%E4%B8%AD%E5%AD%A6/8479981"}
+      ],
+      "work_ids": []
+    }
+  ]
+}
