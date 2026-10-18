@@ -10,18 +10,25 @@
     var status = root.querySelector('#work-status');
     var topics = new Set(groups.map(function (group) { return group.dataset.workGroup; }));
     function select(topic) {
-      if (topic !== 'all' && !topics.has(topic)) topic = 'all';
+      if (topic !== 'all' && topic !== 'first-author' && !topics.has(topic)) topic = 'all';
       var count = 0;
       groups.forEach(function (group) {
-        group.hidden = topic !== 'all' && group.dataset.workGroup !== topic;
-        if (!group.hidden) count += group.querySelectorAll('[data-work-topic]').length;
+        var groupCount = 0;
+        group.querySelectorAll('[data-work-topic]').forEach(function (card) {
+          card.hidden = topic === 'first-author' && card.dataset.workFirstAuthor !== 'true';
+          if (!card.hidden) groupCount += 1;
+        });
+        group.hidden = groupCount === 0 || (topic !== 'all' && topic !== 'first-author' && group.dataset.workGroup !== topic);
+        var groupCountLabel = group.querySelector('.work-topic-count');
+        if (groupCountLabel) groupCountLabel.textContent = String(groupCount);
+        if (!group.hidden) count += groupCount;
       });
       buttons.forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.workFilter === topic)); });
       status.textContent = count + (count === 1 ? ' work shown.' : ' works shown.');
     }
     function selectHash() {
       var match = /^#works-([a-z-]+)$/.exec(window.location.hash);
-      select(match && topics.has(match[1]) ? match[1] : 'all');
+      select(match ? match[1] : 'all');
     }
     buttons.forEach(function (button) { button.addEventListener('click', function () { select(button.dataset.workFilter); }); });
     bar.hidden = false;

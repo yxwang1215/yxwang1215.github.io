@@ -3,8 +3,10 @@
 <span class="anchor" id="projects"></span>
 <section id="works" class="home-works" aria-labelledby="works-title">
   <h1 id="works-title">Works</h1>
-  <div class="work-filters" role="group" aria-label="Filter works by research topic" hidden>
+  <div class="work-filters" role="group" aria-label="Filter works by research topic or authorship" hidden>
     <button type="button" data-work-filter="all" aria-pressed="true" aria-controls="work-groups">All <span>{{ site.data.works.items.size }}</span></button>
+    {% assign first_author_works = site.data.works.items | where: "first_author", true %}
+    <button type="button" data-work-filter="first-author" aria-pressed="false" aria-controls="work-groups">Co / First Author <span>{{ first_author_works.size }}</span></button>
     {% for topic in site.data.works.topics %}
       {% assign topic_works = site.data.works.items | where: "topic", topic.id %}
       <button type="button" data-work-filter="{{ topic.id }}" aria-pressed="false" aria-controls="work-groups">{{ topic.label | escape }} <span>{{ topic_works.size }}</span></button>
@@ -18,7 +20,7 @@
       <section id="works-{{ topic.id }}" class="work-group" data-work-group="{{ topic.id }}" aria-labelledby="works-{{ topic.id }}-title">
         <h2 id="works-{{ topic.id }}-title" class="work-group-title"><span class="work-topic-dot" aria-hidden="true"></span>{{ topic.heading | escape }} <span class="work-topic-count">{{ topic_works.size }}</span></h2>
         {% for work in topic_works %}
-          <article id="work-{{ work.id }}" class="work-card{% if work.first_author %} work-card--first{% endif %}{% if work.resource %} work-card--resource{% endif %}" data-work-topic="{{ work.topic }}" aria-labelledby="work-{{ work.id }}-title">
+          <article id="work-{{ work.id }}" class="work-card{% if work.first_author %} work-card--first{% endif %}{% if work.resource %} work-card--resource{% endif %}" data-work-topic="{{ work.topic }}" data-work-first-author="{% if work.first_author %}true{% else %}false{% endif %}" aria-labelledby="work-{{ work.id }}-title">
             <a class="work-media{% if work.resource %} work-media--resource{% endif %}{% if work.cover_url %} work-media--book{% endif %}" href="{% if work.cover_url %}{{ work.cover_url | escape }}{% else %}{{ work.image | relative_url }}{% endif %}" data-work-image data-work-caption="{{ work.title | escape }}" aria-label="Enlarge illustration: {{ work.title | escape }}">
               {% if work.cover_url %}
                 <img class="work-book-cover" src="{{ work.cover_url | escape }}" alt="{{ work.cover_alt | escape }}" width="140" height="180" loading="lazy" decoding="async" referrerpolicy="no-referrer">

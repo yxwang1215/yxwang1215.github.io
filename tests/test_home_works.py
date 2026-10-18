@@ -27,14 +27,14 @@ class HomeWorksTest(unittest.TestCase):
 
     def test_all_original_work_is_retained(self):
         items = self.data()['items']
-        self.assertEqual({x['id'] for x in items}, {'audiokv','slowfast','ultrahit','va-adapter','ice','ssd','audiomarathon','os-review'})
-        self.assertEqual(len(items), 8)
+        self.assertEqual({x['id'] for x in items}, {'srp-sft','audiokv','slowfast','ultrahit','va-adapter','ice','ssd','audiomarathon','os-review'})
+        self.assertEqual(len(items), 9)
 
     def test_topics_are_subjects_not_publication_status(self):
         data = self.data()
-        self.assertEqual({x['id'] for x in data['topics']}, {'diffusion','audio','robotics','systems'})
+        self.assertEqual({x['id'] for x in data['topics']}, {'training','diffusion','audio','robotics','systems'})
         counts = {x['id']: sum(w['topic'] == x['id'] for w in data['items']) for x in data['topics']}
-        self.assertEqual(counts, {'diffusion':3,'audio':2,'robotics':2,'systems':1})
+        self.assertEqual(counts, {'training':1,'diffusion':3,'audio':2,'robotics':2,'systems':1})
 
     def test_each_work_has_local_image_and_real_links(self):
         for work in self.data()['items']:
@@ -71,7 +71,7 @@ class HomeWorksTest(unittest.TestCase):
         source = (SITE / 'index.html').read_text()
         parser = Tags(); parser.feed(source)
         cards = [(t,a) for t,a in parser.tags if 'data-work-topic' in a]
-        self.assertEqual(len(cards), 8)
+        self.assertEqual(len(cards), 9)
         ids = [a['id'] for _,a in parser.tags if 'id' in a]
         for anchor in ('works','publications','projects','about-me','service','activities','friends'):
             self.assertEqual(ids.count(anchor), 1, f'Duplicate or missing anchor: {anchor}')

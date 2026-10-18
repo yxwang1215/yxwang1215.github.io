@@ -1,11 +1,23 @@
 {
   "topics": [
+    {"id":"training","label":"LLM Training","heading":"LLM training & fine-tuning"},
     {"id":"diffusion","label":"Diffusion LLMs","heading":"Diffusion language models"},
     {"id":"audio","label":"Audio & Multimodal","heading":"Audio & multimodal intelligence"},
     {"id":"robotics","label":"Robotics","heading":"Robotics & medical imaging"},
     {"id":"systems","label":"Systems & Learning","heading":"Systems & learning resources"}
   ],
   "items": [
+    {
+      "id":"srp-sft","topic":"training","first_author":true,
+      "title":"Beyond Distribution Matching: Selective Margin Preservation for Supervised Fine-Tuning",
+      "authors":"**Y. Wang\\***, G. Zhao\\*, X. Tan, Y. Han, X. Yin, Z. Wu, X. Zhang, L. Sun, T. Yang",
+      "description":"SRP-SFT preserves selected non-target logit margins during supervised fine-tuning, improving mathematical reasoning and code generation while allowing margin expansion.",
+      "venue":"arXiv preprint · 2026","contribution":"Co-first author",
+      "image":"/images/works/srp-sft-figure-2.webp","alt":"Figure 2: SRP-SFT overview, from reference and student logits to pairwise margin constraints and the training loss","width":2275,"height":1150,
+      "figure_source":"https://arxiv.org/pdf/2610.19685v1#page=4",
+      "figure_page":4,"figure_crop_points":[70,69,525,299],"figure_dpi":360,
+      "links":[{"label":"Paper","url":"https://arxiv.org/abs/2610.19685"}]
+    },
     {
       "id":"slowfast","topic":"diffusion",
       "title":"Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles",
