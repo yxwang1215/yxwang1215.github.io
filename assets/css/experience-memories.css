@@ -7,13 +7,13 @@
   --memory-accent: #536277;
   --memory-link: #354358;
 }
-.memory-theme[data-memory="360"] { --memory-bg: #e6f7ed; --memory-border: #acdec8; --memory-accent: #208368; --memory-link: #1d3b31; }
-.memory-theme[data-memory="pku"] { --memory-bg: #feeaed; --memory-border: #f8bfc8; --memory-accent: #ca244d; --memory-link: #64172b; }
-.memory-theme[data-memory="sjtu"] { --memory-bg: #feebe7; --memory-border: #fdbdaf; --memory-accent: #d13415; --memory-link: #5c271f; }
-.memory-theme[data-memory="tsinghua"] { --memory-bg: #f0f1fe; --memory-border: #cbcdff; --memory-accent: #5753c6; --memory-link: #272962; }
-.memory-theme[data-memory="xidian"] { --memory-bg: #fff7c2; --memory-border: #f3d673; --memory-accent: #ab6400; --memory-link: #4f3422; }
-.memory-theme[data-memory="ucla"] { --memory-bg: #e6f4fe; --memory-border: #acd8fc; --memory-accent: #0d74ce; --memory-link: #113264; }
-.memory-theme[data-memory="zhenhai"] { --memory-bg: #f6edea; --memory-border: #dfcdc5; --memory-accent: #7d5e54; --memory-link: #43302b; }
+.memory-theme[data-memory="360"] { --memory-bg: #f5fbf7; --memory-border: #dceee2; --memory-accent: #66937e; --memory-link: #3e6253; }
+.memory-theme[data-memory="pku"] { --memory-bg: #fdf6f8; --memory-border: #f1dde3; --memory-accent: #b77d8c; --memory-link: #704958; }
+.memory-theme[data-memory="sjtu"] { --memory-bg: #fdf7f5; --memory-border: #f0e1db; --memory-accent: #bd8674; --memory-link: #77564a; }
+.memory-theme[data-memory="tsinghua"] { --memory-bg: #f8f6fd; --memory-border: #e8e0f5; --memory-accent: #8f87b6; --memory-link: #5a5675; }
+.memory-theme[data-memory="xidian"] { --memory-bg: #f7f9fc; --memory-border: #e1e9f2; --memory-accent: #7b92aa; --memory-link: #455f75; }
+.memory-theme[data-memory="ucla"] { --memory-bg: #f4faff; --memory-border: #d9e9f7; --memory-accent: #6395b8; --memory-link: #365f7a; }
+.memory-theme[data-memory="zhenhai"] { --memory-bg: #fbfaf8; --memory-border: #ede6e0; --memory-accent: #9a8276; --memory-link: #6a5147; }
 
 /* Card text has an explicit shared font, including links and award spans.
    This also removes the old weight/color difference in Xidian's summary. */
@@ -102,17 +102,52 @@
   line-height: 1;
   pointer-events: none;
 }
-.home-profile .page__content .experience-index-link {
-  margin: -12px 0 24px;
-  font-family: var(--rounded-font);
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: right;
+/* The archive link shares the Experience heading row instead of
+   reserving an extra line under the seven cards. */
+.home-profile .page__content .experience-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  margin: 32px 0 18px;
 }
-.home-profile .page__content .experience-index-link a {
-  color: #505b68;
+.home-profile .page__content .experience-section-heading h1 {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0;
+  font-family: var(--rounded-font);
+  font-size: clamp(23px, 2.2vw, 26px);
+  font-weight: 700;
+}
+.home-profile .page__content .experience-section-heading > a.experience-index-link {
+  flex: 0 0 auto;
+  margin: 0;
+  color: #59636f;
+  font-family: var(--rounded-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.home-profile .page__content .experience-section-heading > a.experience-index-link:hover {
+  color: #30343b;
+}
+.home-profile .page__content .experience-card:hover {
+  border-color: var(--memory-border);
+  box-shadow: 0 4px 14px rgba(35, 42, 52, .06);
+}
+@media (max-width: 640px) {
+  .home-profile .page__content .experience-section-heading h1 { font-size: 24px; }
+  .home-profile .page__content .experience-section-heading > a.experience-index-link { font-size: 13px; }
+}
+@media (max-width: 360px) {
+  .home-profile .page__content .experience-section-heading { gap: 8px; }
+  .home-profile .page__content .experience-section-heading h1 { font-size: 22px; }
+  .home-profile .page__content .experience-section-heading > a.experience-index-link { font-size: 12px; }
 }
 
 /* A quiet notebook page: a colored bookmark header, readable prose and

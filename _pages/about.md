@@ -26,7 +26,10 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 <span class="anchor" id="educations"></span>
 <span class="anchor" id="internships"></span>
 
-# Experience
+<div class="experience-section-heading">
+  <h1 id="experience">Experience</h1>
+  <a class="experience-index-link" href="/memories/">All memories <span aria-hidden="true">→</span></a>
+</div>
 
 <div class="home-experience-grid">
   <article class="edu-card experience-card memory-theme" data-experience-kind="education" data-memory="pku">
@@ -100,8 +103,6 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <span class="experience-memory-arrow" aria-hidden="true">↗</span>
   </article>
 </div>
-
-<p class="experience-index-link"><a href="/memories/">All memories <span aria-hidden="true">→</span></a></p>
 
 {% include home-works.html %}
 
