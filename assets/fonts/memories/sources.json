@@ -1,0 +1,87 @@
+{
+  "css_source": "https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Nunito+Sans:wght@400..700&display=swap",
+  "font_files": [
+    {
+      "file": "kalam-latin-ext-700.woff2",
+      "family": "Kalam",
+      "style": "normal",
+      "weight": "700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source": "https://fonts.gstatic.com/s/kalam/v18/YA9Qr0Wd4kDdMtDqHTLCkiQ4tg.woff2",
+      "bytes": 12152,
+      "sha256": "1fc176f6b1fbc091d4321ef2c9b683a6f512f645b9f22c460c2e2f3d298fcf74",
+      "fontconfig_metadata": [
+        "Kalam|Bold|200"
+      ]
+    },
+    {
+      "file": "kalam-latin-700.woff2",
+      "family": "Kalam",
+      "style": "normal",
+      "weight": "700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source": "https://fonts.gstatic.com/s/kalam/v18/YA9Qr0Wd4kDdMtDqHTLMkiQ.woff2",
+      "bytes": 22144,
+      "sha256": "252063af6ade8b9a744cde4ddad0fc21ea53b8ba711eed121a0c2e8610ea9c93",
+      "fontconfig_metadata": [
+        "Kalam|Bold|200"
+      ]
+    },
+    {
+      "file": "nunito-sans-latin-ext-400-700.woff2",
+      "family": "Nunito Sans",
+      "style": "normal",
+      "weight": "400 700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source": "https://fonts.gstatic.com/s/nunitosans/v19/pe0TMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp7t7R-tCKQ.woff2",
+      "bytes": 27908,
+      "sha256": "c648ee5bfda70d44b9fb628f4114d1cc4f984d050cbb4881052237ede3638a2e",
+      "fontconfig_metadata": [
+        "Nunito Sans 12pt ExtraLight 12pt|Regular|40",
+        "Nunito Sans 12pt ExtraLight 12pt|Light|50",
+        "Nunito Sans 12pt ExtraLight 12pt|Regular|80",
+        "Nunito Sans 12pt ExtraLight 12pt|Medium|100",
+        "Nunito Sans 12pt ExtraLight 12pt|SemiBold|180",
+        "Nunito Sans 12pt ExtraLight 12pt|Bold|200",
+        "Nunito Sans 12pt ExtraLight 12pt|ExtraBold|205",
+        "Nunito Sans 12pt ExtraLight 12pt|Black|210",
+        "Nunito Sans 12pt ExtraLight 12pt||[40 215]"
+      ]
+    },
+    {
+      "file": "nunito-sans-latin-400-700.woff2",
+      "family": "Nunito Sans",
+      "style": "normal",
+      "weight": "400 700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source": "https://fonts.gstatic.com/s/nunitosans/v19/pe0TMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp7t1R-s.woff2",
+      "bytes": 31076,
+      "sha256": "29e3890496844a9ea81975c52771c587c872b4eb317026422d1995b88d21b57d",
+      "fontconfig_metadata": [
+        "Nunito Sans 12pt ExtraLight 12pt|Regular|40",
+        "Nunito Sans 12pt ExtraLight 12pt|Light|50",
+        "Nunito Sans 12pt ExtraLight 12pt|Regular|80",
+        "Nunito Sans 12pt ExtraLight 12pt|Medium|100",
+        "Nunito Sans 12pt ExtraLight 12pt|SemiBold|180",
+        "Nunito Sans 12pt ExtraLight 12pt|Bold|200",
+        "Nunito Sans 12pt ExtraLight 12pt|ExtraBold|205",
+        "Nunito Sans 12pt ExtraLight 12pt|Black|210",
+        "Nunito Sans 12pt ExtraLight 12pt||[40 215]"
+      ]
+    }
+  ],
+  "licenses": [
+    {
+      "file": "Kalam-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/kalam/OFL.txt"
+    },
+    {
+      "file": "Nunito-Sans-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunitosans/OFL.txt"
+    }
+  ]
+}

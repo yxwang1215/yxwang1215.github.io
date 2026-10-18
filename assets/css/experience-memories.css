@@ -166,13 +166,16 @@
   .home-profile .page__content .experience-section-heading > a.experience-index-link { font-size: 16px; padding: 8px 10px; }
 }
 
-/* A quiet notebook page: a colored bookmark header, readable prose and
-   a narrow column of facts. No modal or JavaScript is needed to read it. */
+/* Memories: Kalam headings and Nunito Sans prose, with fonts served locally.
+   Keep the handwriting in headings and use regular-weight text for reading. */
 .memory-page {
-  --rounded-font: "Arial Rounded MT Bold", Verdana, "Segoe UI", "PingFang SC", sans-serif;
+  --memory-body-font: "Nunito Sans", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --memory-heading-font: "Kalam", "Segoe Print", "PingFang SC", "Microsoft YaHei", cursive;
   color: #30343b;
   background: #fff;
-  font-family: var(--rounded-font);
+  font-family: var(--memory-body-font);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 .memory-page #main {
   display: block;
@@ -192,17 +195,28 @@
 }
 .memory-page .page__content {
   color: #30343b;
-  font-family: var(--rounded-font);
+  font-family: var(--memory-body-font);
   font-size: 18px;
+  font-weight: 400;
   line-height: 1.75;
   overflow-wrap: break-word;
 }
 .memory-page .page__content h1,
 .memory-page .page__content h2,
 .memory-page .page__content h3,
+.memory-page .page__content h4,
+.memory-page .page__content h5,
+.memory-page .page__content h6 {
+  font-family: var(--memory-heading-font);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0;
+}
 .memory-page .page__content p,
 .memory-page .page__content a,
-.memory-page .page__content dl {
+.memory-page .page__content dl,
+.memory-page .page__content dt,
+.memory-page .page__content dd {
   font-family: inherit;
 }
 .memory-page .page__content a {
@@ -254,10 +268,10 @@
   font-size: clamp(25px, 3vw, 32px);
   font-weight: 700;
   line-height: 1.35;
-  letter-spacing: -.02em;
+  letter-spacing: 0;
 }
-.memory-page .memory-date { margin: 8px 0 5px; color: #59616b; font-size: 17px; line-height: 1.5; }
-.memory-page .memory-role { margin: 0; color: #30343b; font-size: 18px; font-weight: 600; line-height: 1.55; }
+.memory-page .memory-date { margin: 8px 0 5px; color: #59616b; font-size: 16px; line-height: 1.5; }
+.memory-page .memory-role { margin: 0; color: #30343b; font-size: 17px; font-weight: 600; line-height: 1.55; }
 .memory-page .memory-place {
   display: flex;
   align-items: center;
@@ -267,7 +281,7 @@
   color: #59616b;
   font-size: 16px;
 }
-.memory-status { color: var(--memory-link); font-size: 14px; font-weight: 700; }
+.memory-status { color: var(--memory-link); font-size: 16px; font-weight: 700; }
 .memory-status::before { content: "·"; margin-right: 10px; }
 .memory-page .memory-lead {
   grid-column: 1 / -1;
@@ -294,20 +308,20 @@
 .memory-page .memory-section p { margin: 0 0 16px; color: #30343b; font-size: 18px; line-height: 1.8; }
 .memory-page .memory-section p:last-child { margin-bottom: 0; }
 .memory-facts { padding: 22px; border: 1px solid var(--memory-border); border-radius: 12px; background: var(--memory-bg); }
-.memory-page .memory-aside h2 { margin: 0 0 16px; padding: 0; border: 0; color: #30343b; font-size: 18px; line-height: 1.4; }
+.memory-page .memory-aside h2 { margin: 0 0 16px; padding: 0; border: 0; color: #30343b; font-size: 19px; line-height: 1.4; }
 .memory-facts dl { margin: 0; font-size: 16px; }
 .memory-facts dl > div + div { margin-top: 16px; }
-.memory-facts dt { margin: 0 0 3px; color: #59616b; font-size: 14px; font-weight: 400; line-height: 1.5; }
-.memory-facts dd { margin: 0; color: #30343b; font-size: 16px; font-weight: 600; line-height: 1.6; }
+.memory-facts dt { margin: 0 0 3px; color: #59616b; font-size: 16px; font-weight: 400; line-height: 1.5; }
+.memory-facts dd { margin: 0; color: #30343b; font-size: 17px; font-weight: 600; line-height: 1.6; }
 .memory-resources { margin-top: 26px; padding: 0 2px; }
 .memory-resources a { display: block; width: fit-content; margin: 9px 0; font-size: 16px; line-height: 1.6; }
 .memory-related { margin-top: 40px; padding-top: 28px; border-top: 1px solid #e7e8eb; }
 .memory-work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
 .memory-work { padding: 22px; border: 1px solid #e4e7ec; border-radius: 12px; }
-.memory-page .memory-work h3 { margin: 0 0 12px; padding: 0; font-size: 18px; font-weight: 700; line-height: 1.6; }
+.memory-page .memory-work h3 { margin: 0 0 12px; padding: 0; font-size: 21px; font-weight: 700; line-height: 1.5; }
 .memory-page .memory-work h3 a { text-decoration: none; }
-.memory-page .memory-work p { margin: 0; color: #30343b; font-size: 17px; line-height: 1.75; }
-.memory-work__links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 13px; margin-top: 15px; font-size: 15px; line-height: 1.6; }
+.memory-page .memory-work p { margin: 0; color: #30343b; font-size: 18px; line-height: 1.75; }
+.memory-work__links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 13px; margin-top: 15px; font-size: 16px; line-height: 1.6; }
 .memory-work__links > span { color: #59616b; }
 .memory-work__links a { font-weight: 600; }
 .memory-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; margin-top: 42px; padding-top: 22px; border-top: 1px solid #e7e8eb; font-size: 16px; font-weight: 600; }
@@ -315,7 +329,7 @@
 
 /* The index is a compact set of chapter cards with the same color mapping. */
 .memory-index__header { margin: 0 0 28px; }
-.memory-page .memory-index__header h1 { margin: 0 0 12px; padding: 0; border: 0; color: #30343b; font-size: 34px; line-height: 1.3; }
+.memory-page .memory-index__header h1 { margin: 0 0 12px; padding: 0; border: 0; color: #30343b; font-size: 38px; line-height: 1.3; }
 .memory-page .memory-index__header p { max-width: 760px; margin: 0; color: #30343b; font-size: 18px; line-height: 1.75; }
 .memory-index__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .memory-index-card {
@@ -334,15 +348,15 @@
 .memory-index-card:hover { box-shadow: 0 6px 20px rgb(35 42 52 / 7%); }
 .memory-index-card > div { min-width: 0; }
 .memory-index-card > img { display: block; width: 68px; height: 68px; margin: 0; object-fit: contain; }
-.memory-page .memory-index-card h2 { margin: 0 0 6px; padding: 0; border: 0; color: #30343b; font-size: 20px; line-height: 1.4; }
+.memory-page .memory-index-card h2 { margin: 0 0 6px; padding: 0; border: 0; color: #30343b; font-size: 24px; line-height: 1.4; }
 .memory-page .memory-index-card h2 a { text-decoration: none; }
 .memory-index-card h2 a::after { content: ""; position: absolute; inset: 0; border-radius: 5px 14px 14px 5px; }
 .memory-page .memory-index-card h2 a:focus-visible { outline: none; }
 .memory-page .memory-index-card h2 a:focus-visible::after { outline: 3px solid var(--memory-accent); outline-offset: 3px; }
-.memory-page .memory-index-card__date { margin: 0 0 5px; color: #59616b; font-size: 15px; line-height: 1.5; }
-.memory-page .memory-index-card__role { margin: 0; color: #30343b; font-size: 16px; font-weight: 600; line-height: 1.55; }
-.memory-page .memory-index-card__summary { grid-column: 1 / -1; margin: 0; color: #30343b; font-size: 17px; line-height: 1.7; }
-.memory-index-card__more { grid-column: 1 / -1; color: var(--memory-link); font-size: 15px; font-weight: 600; line-height: 1.6; }
+.memory-page .memory-index-card__date { margin: 0 0 5px; color: #59616b; font-size: 16px; line-height: 1.5; }
+.memory-page .memory-index-card__role { margin: 0; color: #30343b; font-size: 17px; font-weight: 600; line-height: 1.55; }
+.memory-page .memory-index-card__summary { grid-column: 1 / -1; margin: 0; color: #30343b; font-size: 18px; line-height: 1.7; }
+.memory-index-card__more { grid-column: 1 / -1; color: var(--memory-link); font-size: 16px; font-weight: 600; line-height: 1.6; }
 
 @media (max-width: 820px) {
   .memory-columns { grid-template-columns: minmax(0, 1fr); gap: 28px; }
@@ -352,20 +366,20 @@
 }
 @media (max-width: 540px) {
   .memory-page #main { width: calc(100% - 32px); padding-top: 22px; padding-bottom: 42px; }
-  .memory-breadcrumb { font-size: 15px; margin-bottom: 18px; }
+  .memory-breadcrumb { font-size: 16px; margin-bottom: 18px; }
   .memory-header { grid-template-columns: 62px minmax(0, 1fr); gap: 18px 16px; padding: 20px 18px; }
   .memory-logo { width: 62px; height: 62px; }
-  .memory-page .memory-header h1 { font-size: 23px; }
-  .memory-page .memory-date { font-size: 15px; }
-  .memory-page .memory-role, .memory-page .memory-lead, .memory-page .memory-section p { font-size: 17px; }
-  .memory-page .memory-place { font-size: 15px; }
+  .memory-page .memory-header h1 { font-size: 27px; }
+  .memory-page .memory-date { font-size: 16px; }
+  .memory-page .memory-role { font-size: 17px; }
+  .memory-page .memory-place { font-size: 16px; }
   .memory-page .memory-lead { padding-top: 16px; }
   .memory-aside { grid-template-columns: minmax(0, 1fr); }
   .memory-facts, .memory-work { padding: 20px; }
-  .memory-page .memory-section h2, .memory-page .memory-related > h2 { font-size: 21px; }
-  .memory-page .memory-index__header h1 { font-size: 30px; }
+  .memory-page .memory-section h2, .memory-page .memory-related > h2 { font-size: 22px; }
+  .memory-page .memory-index__header h1 { font-size: 38px; }
   .memory-index-card { grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 20px 18px; }
   .memory-index-card > img { width: 56px; height: 56px; }
-  .memory-page .memory-index-card h2 { font-size: 18px; }
+  .memory-page .memory-index-card h2 { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .memory-index-card { transition: none; } }
