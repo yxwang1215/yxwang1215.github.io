@@ -1,0 +1,72 @@
+---
+layout: default
+permalink: /tests/
+title: "Test Lab"
+excerpt: "An evolving collection of interactive self-reflection assessments."
+author_profile: false
+wide: true
+tests_page: true
+page_class: "tests-hub-page"
+---
+<div class="test-collection" lang="zh-CN">
+  <nav class="ta-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">Test</span>
+  </nav>
+
+  <header class="tl-hero">
+    <div class="tl-hero-copy">
+      <span class="tl-eyebrow"><span class="tl-eyebrow-dot" aria-hidden="true"></span> PERSONAL LAB / TESTS</span>
+      <h1>Test <em>Lab.</em></h1>
+      <p class="tl-hero-lead">A space to explore what makes you, you.</p>
+      <p class="tl-hero-sub">开放式的互动测评收藏。每项测试都独立说明设计依据、适用范围与结果局限；未来会持续增加新的测试。</p>
+    </div>
+    <div class="tl-hero-art" aria-hidden="true">
+      <span class="tl-orbit tl-orbit--a"></span><span class="tl-orbit tl-orbit--b"></span>
+      <span class="tl-orbit tl-orbit--c"></span><span class="tl-orbit-center">T<span>·</span></span>
+    </div>
+  </header>
+
+  <div class="tl-list-heading">
+    <div><span class="tl-small-heading">THE COLLECTION</span><h2>Explore assessments</h2></div>
+    <span class="tl-count">{{ site.data.tests.items | size }} available</span>
+  </div>
+
+  <div class="tl-grid">
+    {% for test in site.data.tests.items %}
+    {% if test.status == "available" %}
+    <article class="tl-test-card">
+      <div class="tl-test-card-main">
+        <div class="tl-test-card-top">
+          <span class="tl-test-symbol" aria-hidden="true">✳</span>
+          <span class="tl-category">{{ test.category | escape }}</span>
+        </div>
+        <div class="tl-test-meta">ASSESSMENT / {{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+        <h3><a href="{{ test.url | relative_url }}">{{ test.title | escape }} <span class="tl-test-arrow" aria-hidden="true">↗</span></a></h3>
+        <p class="tl-card-subtitle">{{ test.title_zh | escape }} · {{ test.tagline | escape }}</p>
+        <p class="tl-test-desc">{{ test.description | escape }}</p>
+        <div class="tl-card-details"><span>◷ {{ test.duration | escape }}</span><span>▦ {{ test.questions | escape }} items</span><span>{{ test.level | escape }}</span></div>
+      </div>
+      <a class="tl-card-action" href="{{ test.url | relative_url }}">开始探索 <span aria-hidden="true">→</span></a>
+    </article>
+    {% endif %}
+    {% endfor %}
+
+    <div class="tl-coming-card" aria-label="More assessments will be added">
+      <span class="tl-coming-icon" aria-hidden="true">+</span>
+      <h3>More to discover.</h3>
+      <p>更多测评正在规划中。所有新测试都会收录在这里，保持统一的入口与交互体验。</p>
+      <span class="tl-coming-label">A GROWING COLLECTION</span>
+    </div>
+  </div>
+
+  <section class="tl-principles" aria-labelledby="tl-principles-title">
+    <span class="tl-small-heading">DESIGN PRINCIPLES</span>
+    <h2 id="tl-principles-title">More thoughtful, less labeling.</h2>
+    <div class="tl-principles-grid">
+      <div><span class="tl-principle-number">01</span><h3>Transparent</h3><p>公开说明题目维度与计分逻辑，不把主观分数包装成客观能力等级。</p></div>
+      <div><span class="tl-principle-number">02</span><h3>Private by design</h3><p>Talent Atlas 在浏览器本地计算。作答信息不会被提交到本站的问卷服务器。</p></div>
+      <div><span class="tl-principle-number">03</span><h3>Useful in practice</h3><p>结果面向行动：发现倾向、提出假设，并通过真实项目继续检验。</p></div>
+    </div>
+  </section>
+  <footer class="tl-footer"><a href="{{ '/' | relative_url }}">← Back to homepage</a><span>Yuxuan Wang · Personal Test Lab</span></footer>
+</div>
