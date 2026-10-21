@@ -16,10 +16,10 @@ class Elements(HTMLParser):
 class ExperienceTest(unittest.TestCase):
     def test_section_order_and_preservation(self):
         text = (ROOT / '_pages/about.md').read_text()
-        self.assertIn('# Experience', text)
+        self.assertIn('id="experience"', text)
         self.assertNotIn('# Education\n', text)
         self.assertNotIn('# Internships\n', text)
-        self.assertLess(text.index('# Experience'), text.index('{% include home-works.html %}'))
+        self.assertLess(text.index('id="experience"'), text.index('{% include home-works.html %}'))
         self.assertLess(text.index('{% include home-works.html %}'), text.index('# Service'))
         awards = re.search(r'^# (?:Selected )?Awards$', text, re.MULTILINE)
         self.assertIsNotNone(awards, 'Awards section must be preserved')
