@@ -8,6 +8,8 @@ main:
     url: "/journal/"
   - title: "Tools"
     url: "/tools/"
+  - title: "Test"
+    url: "/tests/"
   - title: "Experience"
     url: "/#experience"
   - title: "Memories"
