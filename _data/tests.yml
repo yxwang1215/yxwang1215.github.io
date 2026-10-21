@@ -1,0 +1,13 @@
+# Test Lab catalogue. Add future assessments here; cards render automatically.
+items:
+  - id: talent-atlas
+    title: "Talent Atlas"
+    title_zh: "天赋潜能图谱"
+    tagline: "Discover your strengths. Explore what to develop next."
+    description: "从兴趣驱动、自然上手与近期实践三个角度，发现值得继续尝试的个人优势方向。"
+    category: "Strengths"
+    level: "Self-reflection"
+    duration: "8–16 min"
+    questions: "48 / 72"
+    url: "/tests/talent/"
+    status: "available"
