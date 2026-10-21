@@ -27,7 +27,7 @@ class ExperienceTest(unittest.TestCase):
         parser = Elements()
         parser.feed(text)
         self.assertEqual(sum('experience-card' in attrs.get('class', '').split() for _, attrs in parser.items), 7)
-        for value in ['Tong Yang', '2027 –', '4.0/4.0', 'Innovation Class', 'ZhiNao Division', 'EPIC Lab', 'LEAP Lab', 'ICLR 2027']:
+        for value in ['Tong Yang', '2027 –', '4.0/4.0', 'Innovation Class', '360 Group', 'EPIC Lab', 'LEAP Lab', 'ICLR 2027']:
             self.assertIn(value, text)
         for old in ['educations', 'internships']:
             self.assertIn('id="' + old + '"', text)
@@ -82,7 +82,7 @@ class ExperienceTest(unittest.TestCase):
         self.assertNotIn('15 classmates and ~70 students', text)
         self.assertNotIn('Our work has been accepted to', text)
         for required in ['Tong Yang', '4.0/4.0', 
-                         'ZhiNao Division', 'LEAP Lab', 'EPIC Lab']:
+                         '360 Group', 'LEAP Lab', 'EPIC Lab']:
             self.assertIn(required, text)
 
     def test_readable_logos_and_responsive_media(self):
