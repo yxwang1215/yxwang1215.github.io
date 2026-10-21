@@ -1,0 +1,6 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8');
+test('catalogue has three real assessments and independent personality routes',()=>{const d=read('_data/tests.yml');assert.equal((d.match(/status: "available"/g)||[]).length,3);assert.match(d,/\/tests\/personality\//);assert.match(d,/\/tests\/personality\/compass\//);assert.match(read('_pages/tests.html'),/data-test-filter/);});
+test('modern font, large body and options, reduced motion and mobile layouts are scoped',()=>{const css=read('assets/css/test-lab.css');assert.match(css,/font-family:Lab Sans/);assert.match(css,/font-size:19px/);assert.match(css,/font-size:21px/);assert.match(css,/min-height:92px/);assert.match(css,/prefers-reduced-motion/);assert.match(css,/@media\(max-width:760px\)/);assert.doesNotMatch(css,/font-size:10px|font-size:12px|Arial Rounded|Verdana/);});
+test('new scripts have no submission/tracking endpoint or remote dependency',()=>{for(const p of ['assets/js/personality.js','assets/js/personality-data.js','assets/js/test-lab.js']){const s=read(p);assert.doesNotMatch(s,/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/);}});

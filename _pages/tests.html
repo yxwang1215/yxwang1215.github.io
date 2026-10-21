@@ -1,72 +1,34 @@
 ---
 layout: default
 permalink: /tests/
-title: "Test Lab"
-excerpt: "An evolving collection of interactive self-reflection assessments."
+title: "Test | 个人测评"
+excerpt: "天赋探索、大五人格与16型性格探索。无需注册，在浏览器本地计算。"
 author_profile: false
 wide: true
 tests_page: true
 page_class: "tests-hub-page"
 ---
 <div class="test-collection" lang="zh-CN">
-  <nav class="ta-breadcrumb" aria-label="Breadcrumb">
-    <a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">Test</span>
-  </nav>
-
-  <header class="tl-hero">
-    <div class="tl-hero-copy">
-      <span class="tl-eyebrow"><span class="tl-eyebrow-dot" aria-hidden="true"></span> PERSONAL LAB / TESTS</span>
-      <h1>Test <em>Lab.</em></h1>
-      <p class="tl-hero-lead">A space to explore what makes you, you.</p>
-      <p class="tl-hero-sub">开放式的互动测评收藏。每项测试都独立说明设计依据、适用范围与结果局限；未来会持续增加新的测试。</p>
-    </div>
-    <div class="tl-hero-art" aria-hidden="true">
-      <span class="tl-orbit tl-orbit--a"></span><span class="tl-orbit tl-orbit--b"></span>
-      <span class="tl-orbit tl-orbit--c"></span><span class="tl-orbit-center">T<span>·</span></span>
-    </div>
+  <nav class="ta-breadcrumb" aria-label="当前位置"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">Test</span></nav>
+  <header class="lab-collection-hero">
+    <div><span class="lab-kicker">PERSONAL TEST LAB</span><h1>Test <span>个人测评</span></h1><p class="lab-lead">从兴趣、性格到行为偏好，<br class="lab-desktop-break">给认识自己多一个角度。</p></div>
+    <aside class="lab-hero-note"><span class="lab-note-icon" aria-hidden="true">↗</span><strong>结果是线索，不是标签。</strong><p>所有测试免费，无需注册。答案留在你的浏览器，完成后即可查看完整报告。</p></aside>
   </header>
-
-  <div class="tl-list-heading">
-    <div><span class="tl-small-heading">THE COLLECTION</span><h2>Explore assessments</h2></div>
-    <span class="tl-count">{{ site.data.tests.items | size }} available</span>
-  </div>
-
-  <div class="tl-grid">
-    {% for test in site.data.tests.items %}
-    {% if test.status == "available" %}
-    <article class="tl-test-card">
-      <div class="tl-test-card-main">
-        <div class="tl-test-card-top">
-          <span class="tl-test-symbol" aria-hidden="true">✳</span>
-          <span class="tl-category">{{ test.category | escape }}</span>
-        </div>
-        <div class="tl-test-meta">ASSESSMENT / {{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
-        <h3><a href="{{ test.url | relative_url }}">{{ test.title | escape }} <span class="tl-test-arrow" aria-hidden="true">↗</span></a></h3>
-        <p class="tl-card-subtitle">{{ test.title_zh | escape }} · {{ test.tagline | escape }}</p>
-        <p class="tl-test-desc">{{ test.description | escape }}</p>
-        <div class="tl-card-details"><span>◷ {{ test.duration | escape }}</span><span>▦ {{ test.questions | escape }} items</span><span>{{ test.level | escape }}</span></div>
+  <div class="lab-collection-toolbar"><div class="lab-filters" role="group" aria-label="筛选测评"><button type="button" data-test-filter="all" aria-pressed="true">全部测评</button><button type="button" data-test-filter="personality" aria-pressed="false">性格测试</button><button type="button" data-test-filter="talent" aria-pressed="false">天赋探索</button></div><span id="lab-filter-count" role="status">{{ site.data.tests.items | size }} 项测评</span></div>
+  <div class="lab-catalogue">
+    {% for test in site.data.tests.items %}{% if test.status == 'available' %}
+    <article class="lab-test-card" data-test-category="{{ test.category }}" data-inventory-card="{{ test.id }}">
+      <div class="lab-card-top"><span class="lab-card-category">{{ test.category_zh }}</span><span class="lab-card-arrow" aria-hidden="true">↗</span></div>
+      <div class="lab-card-art" aria-hidden="true">
+        {% if test.id == 'bigfive' %}<div class="lab-preview-bars"><span>E<i style="--bar:72%"></i></span><span>A<i style="--bar:58%"></i></span><span>C<i style="--bar:84%"></i></span><span>S<i style="--bar:46%"></i></span><span>O<i style="--bar:66%"></i></span></div>
+        {% elsif test.id == 'compass' %}<div class="lab-preview-pairs"><span><b>E</b><i>I</i></span><span><i>S</i><b>N</b></span><span><b>T</b><i>F</i></span><span><i>J</i><b>P</b></span></div>
+        {% else %}<svg viewBox="0 0 300 150" fill="none"><g stroke="currentColor" opacity=".2"><path d="M150 8 198 27 218 75 198 123 150 142 102 123 82 75 102 27Z"/><path d="M150 30 182 43 195 75 182 107 150 120 118 107 105 75 118 43Z"/><path d="M150 8V142M82 75H218M102 27 198 123M102 123 198 27"/></g><path d="M150 20 187 38 204 75 178 103 150 125 112 113 99 75 120 45Z" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-width="2"/><g fill="currentColor"><circle cx="150" cy="20" r="4"/><circle cx="204" cy="75" r="4"/><circle cx="150" cy="125" r="4"/></g></svg>{% endif %}
       </div>
-      <a class="tl-card-action" href="{{ test.url | relative_url }}">开始探索 <span aria-hidden="true">→</span></a>
-    </article>
-    {% endif %}
-    {% endfor %}
-
-    <div class="tl-coming-card" aria-label="More assessments will be added">
-      <span class="tl-coming-icon" aria-hidden="true">+</span>
-      <h3>More to discover.</h3>
-      <p>更多测评正在规划中。所有新测试都会收录在这里，保持统一的入口与交互体验。</p>
-      <span class="tl-coming-label">A GROWING COLLECTION</span>
-    </div>
+      <div class="lab-card-copy"><span class="lab-card-en">{{ test.title }}</span><h2><a href="{{ test.url | relative_url }}">{{ test.title_zh }}</a></h2><p>{{ test.description }}</p><div class="lab-card-meta"><span>{{ test.questions }} 道题</span><span>{{ test.duration }}</span></div><p class="lab-card-detail">{{ test.detail }}</p></div>
+      <div class="lab-card-bottom"><span>{{ test.basis }}</span><a href="{{ test.url | relative_url }}" aria-label="开始{{ test.title_zh }}">开始测试 <span aria-hidden="true">→</span></a></div>
+    </article>{% endif %}{% endfor %}
   </div>
-
-  <section class="tl-principles" aria-labelledby="tl-principles-title">
-    <span class="tl-small-heading">DESIGN PRINCIPLES</span>
-    <h2 id="tl-principles-title">More thoughtful, less labeling.</h2>
-    <div class="tl-principles-grid">
-      <div><span class="tl-principle-number">01</span><h3>Transparent</h3><p>公开说明题目维度与计分逻辑，不把主观分数包装成客观能力等级。</p></div>
-      <div><span class="tl-principle-number">02</span><h3>Private by design</h3><p>Talent Atlas 在浏览器本地计算。作答信息不会被提交到本站的问卷服务器。</p></div>
-      <div><span class="tl-principle-number">03</span><h3>Useful in practice</h3><p>结果面向行动：发现倾向、提出假设，并通过真实项目继续检验。</p></div>
-    </div>
-  </section>
-  <footer class="tl-footer"><a href="{{ '/' | relative_url }}">← Back to homepage</a><span>Yuxuan Wang · Personal Test Lab</span></footer>
+  <section class="lab-reading-guide" aria-labelledby="lab-guide-heading"><div><span class="lab-kicker">BEFORE YOU BEGIN</span><h2 id="lab-guide-heading">选择适合你的观察方式</h2></div><div><h3>想看连续的人格特征？</h3><p>从大五人格开始。各个维度独立呈现，没有“好人格”或“坏人格”。</p></div><div><h3>想理解生活中的偏好？</h3><p>选择16型性格探索；想探索投入方向，则选择天赋潜能图谱。</p></div></section>
+  <div class="lab-boundary"><strong>使用边界</strong><p>用于自我探索，不用于诊断、招聘或能力排名。题目来源、计分方式和局限在每项测试中单独说明。图案仅为维度示意，不是你的测评结果。</p></div>
+  <footer class="tl-footer"><a href="{{ '/' | relative_url }}">← 返回个人主页</a><span>Yuxuan Wang · Test Lab</span></footer>
 </div>
