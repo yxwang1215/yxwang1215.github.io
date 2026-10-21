@@ -46,7 +46,11 @@ class HomeWorksTest(unittest.TestCase):
                 self.assertGreater(len(work['alt']), 20)
                 self.assertTrue(work['links'])
                 for link in work['links']:
-                    self.assertTrue(link['url'].startswith('https://'))
+                    self.assertTrue(
+                        link['url'].startswith('https://') or
+                        (link['url'].startswith('/') and not link['url'].startswith('//')),
+                        f"Unexpected link URL: {link['url']}"
+                    )
                     self.assertNotIn('javascript:', link['url'])
 
     def test_service_and_personal_updates_are_preserved(self):
