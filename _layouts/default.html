@@ -29,6 +29,14 @@
       <link rel="stylesheet" href="{{ '/assets/css/navigation-directory.css' | relative_url }}?v=20261017-homepage-unified-v1">
       <script src="{{ '/assets/js/navigation-directory.js' | relative_url }}?v=20261016-shadcn-blue-zinc-v5" defer></script>
     {% endif %}
+    {% if page.tests_page %}
+      <link rel="stylesheet" href="{{ '/assets/css/test-lab.css' | relative_url }}?v=20261021-talent-atlas-v1">
+    {% endif %}
+    {% if page.talent_assessment %}
+      <script src="{{ '/assets/js/talent-atlas-data.js' | relative_url }}?v=20261021-v1" defer></script>
+      <script src="{{ '/assets/js/talent-atlas-core.js' | relative_url }}?v=20261021-v1" defer></script>
+      <script src="{{ '/assets/js/talent-atlas-app.js' | relative_url }}?v=20261021-v1" defer></script>
+    {% endif %}
     {% if page.url == '/' %}
       <link rel="stylesheet" href="{{ '/assets/css/home-profile.css' | relative_url }}?v=20261017-compact-works-v2">
       <script src="{{ '/assets/js/home-works.js' | relative_url }}?v=20261018-works-authorship-v1" defer></script>
