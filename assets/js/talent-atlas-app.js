@@ -81,6 +81,7 @@
   }
   function applyLocale() {
     document.documentElement.dataset.talentLanguage = lang;
+    app.lang = lang === "en" ? "en" : "zh-CN";
     $$("[data-zh][data-en]").forEach(node => { node.textContent = node.dataset[lang]; });
     el("ta-language").textContent = lang === "en" ? "中文" : "English";
     el("ta-language").setAttribute("aria-label", lang === "en" ? "Switch to Chinese" : "切换为英语");
