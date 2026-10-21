@@ -36,7 +36,16 @@ with sync_playwright() as p:
         assert response and response.status==200,(kind,'not found')
         page.wait_for_timeout(500)
     def shot(name):page.screenshot(path=str(out/(name+'.png')),full_page=True,animations='disabled')
-    def no_overflow():assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'Horizontal overflow: '+page.url
+    def no_overflow():
+        # Allow the existing greedy navigation's resize handler and font layout to settle.
+        page.wait_for_timeout(400)
+        ok=page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+        if not ok:
+            shot('overflow-failure')
+            detail=page.evaluate("""()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,elements:[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().width>0&&(e.getBoundingClientRect().right>innerWidth+1||e.getBoundingClientRect().left< -1)).map(e=>({tag:e.tagName,id:e.id,cls:e.getAttribute('class'),x:e.getBoundingClientRect().x,width:e.getBoundingClientRect().width,text:e.textContent.slice(0,80)})).slice(0,30)})""")
+            (out/'overflow.json').write_text(json.dumps(detail,ensure_ascii=False,indent=2))
+            print(json.dumps(detail,ensure_ascii=False),flush=True)
+        assert ok,'Horizontal overflow: '+page.url
     visit('catalogue')
     assert page.locator('.lab-test-card').count()==3
     page.locator('[data-test-filter="personality"]').click()
