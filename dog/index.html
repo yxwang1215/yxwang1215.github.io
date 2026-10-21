@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbf7f1">
-  <meta name="description" content="A tiny, joyful corner for good dogs by Yuxuan Wang.">
-  <title>Dog Club · Yuxuan Wang</title>
+  <meta name="description" content="Good Dog Club: a little happy place for dog portraits, tiny adventures, and some very good dog energy.">
+  <title>Good Dog Club — Your daily dose of happy</title>
+  <meta property="og:title" content="Good Dog Club — Your daily dose of happy">
+  <meta property="og:description" content="A little happy corner of the internet, made for very good dogs.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -503,88 +507,411 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
+
+    /* GOOD DOG CLUB · editorial design system, version 2 */
+    :root { --ink:#1c332b; --muted:#61716a; --paper:#fbf9f1; --paper-2:#f3eee3; --mint:#cfe5ce; --mint-deep:#7fae8e; --coral:#ed785e; --yellow:#f3cf75; --lavender:#e1d8eb; --line:rgba(28,51,43,.13); --shadow:0 25px 70px rgba(30,55,44,.14); --max:1280px; }
+    html { scroll-padding-top: 80px; }
+    body { background:var(--paper); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    body::before { z-index:5; opacity:.2; mix-blend-mode:soft-light; }
+    a,button { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--coral); outline-offset:4px; }
+    .site-shell { width:min(var(--max),calc(100% - 88px)); }
+    .topbar { padding:30px 0 20px; gap:20px; align-items:center; z-index:10; }
+    .brand { gap:10px; white-space:nowrap; font-weight:800; }
+    .brand-mark { width:47px; height:47px; background:var(--ink); color:var(--paper); border-radius:15px 15px 15px 4px; transform:rotate(-8deg); box-shadow:none; }
+    .brand-mark svg { width:26px; height:26px; transform:rotate(8deg); }
+    .brand-type { font-family:"Fraunces",Georgia,serif; font-size:1.5rem; letter-spacing:-.07em; line-height:1; }
+    .brand-period,.footer-brand span { color:var(--coral); }
+    .brand-type small { display:block; font-family:"DM Sans",sans-serif; font-size:.55rem; font-weight:800; letter-spacing:.16em; margin-top:7px; color:#8b978e; }
+    .nav { padding:5px; border-radius:18px; background:#f3f0e8; border-color:rgba(28,51,43,.065); gap:0; backdrop-filter:none; }
+    .nav a { font-size:.77rem; letter-spacing:.005em; color:#4e5e56; padding:11px 14px; }
+    .nav a:hover,.nav a:focus-visible { background:white; color:var(--ink); }
+    .mobile-back,.mobile-toggle { display:none !important; }
+    .header-actions { display:flex; align-items:center; }
+    .home-link { display:flex; font-size:.78rem; gap:.45rem; font-weight:700; padding:12px 0 12px 12px; }
+    .home-link span { white-space:nowrap; }
+    h1,h2,h3 { color:var(--ink); }
+    h1,h2 { letter-spacing:-.075em; }
+    .hero { padding:50px 0 95px; grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr); min-height:690px; gap:30px; overflow:visible; }
+    .hero-content { align-self:center; padding-bottom:16px; position:relative; z-index:2; }
+    .eyebrow { color:#61776a; gap:8px; font-size:.69rem; font-weight:800; letter-spacing:.14em; margin-bottom:26px; }
+    .eyebrow::before { display:none; }
+    .eyebrow-star { color:var(--coral); font-size:1.55rem; line-height:0; margin-right:5px; }
+    .hero h1 { font-size:clamp(5.25rem,7.55vw,8.9rem); line-height:.92; font-weight:600; letter-spacing:-.083em; max-width:none; margin-bottom:32px; }
+    .hero h1 .hero-better { font-style:italic; color:#729d77; font-weight:500; }
+    .hero h1 em { color:var(--coral); font-style:italic; }
+    .hero h1 em::after { height:.115em; bottom:-.035em; border-radius:100%; background:var(--yellow); transform:rotate(-2deg); }
+    .hero-copy { font-size:1.08rem; line-height:1.75; max-width:440px; color:#69746c; margin-bottom:30px; }
+    .button { padding:.91rem 1.3rem; min-height:53px; font-size:.84rem; }
+    .button-primary { background:var(--ink); color:white; box-shadow:0 10px 24px rgba(31,60,49,.14); }
+    .button-primary:hover { background:#2e5443; }
+    .button-ghost { background:transparent; border-color:rgba(28,51,43,.21); }
+    .hero-proof { display:flex; align-items:center; gap:14px; margin-top:49px; color:#809087; font-size:.71rem; line-height:1.5; }
+    .hero-proof strong { color:var(--ink); font-weight:800; }
+    .proof-avatars { display:flex; padding-left:5px; }
+    .proof-avatars img { width:37px; height:37px; border-radius:50%; object-fit:cover; border:3px solid var(--paper); margin-left:-7px; background:#e4d5c8; }
+    .hero-art { min-height:615px; transform:translateX(9px); }
+    .hero-art::before { inset:7% -2% 2% 7%; border-radius:48% 48% 28px 28px/34% 34% 28px 28px; background:#d6e8d0; transform:rotate(5deg); }
+    .hero-art::after { background:var(--yellow); width:126px; height:126px; right:-28px; top:2%; box-shadow:0 0 0 15px rgba(243,207,117,.15),0 0 0 29px rgba(243,207,117,.065); }
+    .hero-photo { inset:7.5% 5% 5% 5%; transform:rotate(-2.5deg); border-radius:47% 47% 30px 30px/35% 35% 30px 30px; border:11px solid white; box-shadow:0 25px 65px rgba(34,66,46,.20); }
+    .hero-photo img { object-position:center 47%; transform:scale(1.02); }
+    .hero-sticker { width:121px; height:121px; top:19%; left:auto; right:-5%; background:#f7bd75; border:5px solid var(--paper); outline:1px solid rgba(28,51,43,.05); transform:rotate(13deg); box-shadow:0 13px 28px rgba(123,94,31,.18); padding:.7rem; line-height:1.25; }
+    .hero-sticker span { font-size:.58rem; letter-spacing:.09em; font-weight:800; }
+    .hero-sticker strong { font-size:2rem; letter-spacing:-.09em; margin:2px 0; }
+    .hero-edition { position:absolute; top:3%; left:7%; z-index:3; font-size:.62rem; font-weight:800; letter-spacing:.16em; color:#596d5b; transform:rotate(-7deg); }
+    .dog-card { right:auto; left:-7%; bottom:6%; width:252px; background:rgba(255,255,255,.92); border:5px solid rgba(255,255,255,.9); box-shadow:0 22px 48px rgba(42,64,40,.19); border-radius:20px; transform:rotate(5deg); }
+    .dog-card strong { font-size:1.15rem; }
+    .dog-card small { letter-spacing:.09em; font-size:.61rem; }
+    .dog-card .tag { font-size:.60rem; }
+    .paw { font-family:Georgia,serif; color:var(--coral); }
+    .paw.one { font-size:3.7rem; top:auto; bottom:3%; right:-2%; }
+    .paw.two { color:#8fa78d; top:35%; left:-4%; font-size:2.1rem; }
+    .ticker { background:#263f33; border:0; transform:rotate(-1.1deg) scale(1.03); position:relative; z-index:2; }
+    .ticker-track { color:#f7f5e9; padding:17px 0; font-size:.70rem; letter-spacing:.21em; gap:34px; font-weight:800; }
+    .ticker-track span { gap:34px; }
+    .ticker-track span::after { color:#f6bf82; content:"✳"; font-size:1rem; }
+    section { padding:112px 0; }
+    .section-heading { margin-bottom:42px; }
+    .section-kicker { color:#b16b54; font-size:.66rem; letter-spacing:.2em; font-weight:800; margin-bottom:16px; }
+    h2 { font-size:clamp(3.25rem,5.5vw,5.8rem); line-height:1.01; font-weight:600; letter-spacing:-.075em; }
+    h2 em { font-style:italic; font-weight:500; color:#7a9b79; }
+    .section-note { max-width:275px; font-size:.88rem; line-height:1.75; color:#738078; margin-bottom:6px; }
+    .energy-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:17px; }
+    .energy-card { padding:9px 9px 24px; min-height:0; border-radius:26px; background:#f2ecd9; border:1px solid rgba(28,51,43,.07); box-shadow:none; overflow:hidden; }
+    .energy-card:nth-child(2) { background:#f2e5e1; }
+    .energy-card:nth-child(3) { background:#eae8db; }
+    .energy-card:nth-child(4) { background:#dcebdc; }
+    .energy-card:hover { transform:translateY(-9px); box-shadow:0 25px 34px rgba(30,55,44,.12); }
+    .energy-image { position:relative; height:260px; border-radius:20px; overflow:hidden; background:#d8dfd2; }
+    .energy-image img { width:100%; height:100%; object-fit:cover; transition:transform .55s cubic-bezier(.2,.7,.3,1); }
+    .energy-card:hover .energy-image img { transform:scale(1.075); }
+    .energy-number { right:auto; top:13px; left:13px; color:var(--ink); font-size:.7rem; background:rgba(255,255,255,.89); padding:5px 10px; border-radius:30px; }
+    .energy-detail { padding:21px 14px 0; }
+    .energy-kind { font-size:.59rem; letter-spacing:.13em; font-weight:800; color:#82796d; display:flex; justify-content:space-between; gap:8px; }
+    .energy-kind span { font-size:.9rem; }
+    .energy-card h3 { margin:10px 0 11px; font-size:2.1rem; letter-spacing:-.07em; line-height:1.1; }
+    .energy-card h3 span { color:var(--coral); font-family:"DM Sans",sans-serif; font-size:1.2rem; margin-left:3px; vertical-align:middle; }
+    .energy-card p { line-height:1.65; font-size:.79rem; max-width:220px; color:#66736c; }
+    .daily-layout { grid-template-columns: .99fr 1.01fr; gap:14px; }
+    .daily-image,.daily-copy { min-height:550px; border-radius:27px; }
+    .daily-image { position:relative; background:#d8ddcf; }
+    .daily-image img { min-height:550px; object-position:center center; }
+    .daily-image-badge { position:absolute; left:22px; top:22px; z-index:1; display:block; background:#fff7e7; color:var(--ink); border-radius:15px; padding:14px 18px; font-size:.61rem; font-weight:800; letter-spacing:.12em; line-height:1.6; transform:rotate(-6deg); box-shadow:0 12px 30px rgba(23,40,28,.11); }
+    .daily-image-badge strong { font-size:.84rem; letter-spacing:.09em; }
+    .daily-copy { padding:clamp(31px,4.2vw,67px); background:#213b30; color:#fff; position:relative; overflow:hidden; }
+    .daily-copy::after { content:""; width:230px; height:230px; border:1px solid rgba(255,255,255,.095); position:absolute; top:-160px; right:-72px; border-radius:50%; box-shadow:0 0 0 40px rgba(255,255,255,.02),0 0 0 78px rgba(255,255,255,.018); }
+    .daily-copy .section-kicker { font-size:.65rem; color:#f0c97a; letter-spacing:.14em; }
+    .daily-copy-top { display:flex; align-items:flex-start; justify-content:space-between; gap:25px; }
+    .daily-sun { font-size:3.2rem; line-height:.7; color:#efb46f; }
+    .daily-date { margin-top:48px; margin-bottom:21px; color:#a9c1b0 !important; font-size:.66rem; letter-spacing:.12em; font-weight:800; }
+    .daily-copy h3 { color:#fff; font-size:clamp(2.8rem,4.6vw,5.2rem); letter-spacing:-.075em; max-width:450px; line-height:1; }
+    .daily-copy p#dogDescription { color:#b9c8bf; font-size:.96rem; line-height:1.8; margin-top:23px; }
+    .daily-meta .tag { background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.12); color:#dfece2; font-size:.67rem; }
+    .daily-bottom .button-primary { border-radius:13px; background:var(--yellow); min-height:54px; font-size:.8rem; }
+    .daily-bottom .button-primary:hover { background:#f7d991; }
+    .counter { font-size:.63rem; letter-spacing:.1em; white-space:nowrap; }
+    .gallery { grid-template-columns: 1.08fr .92fr .92fr; grid-auto-rows:225px; gap:15px; }
+    .gallery figure { border-radius:24px; cursor:zoom-in; isolation:isolate; }
+    .gallery figure::after { content:""; position:absolute; bottom:0; left:0; right:0; height:38%; background:linear-gradient(to top,rgba(10,25,14,.53),transparent); z-index:1; pointer-events:none; }
+    .gallery figure:nth-child(4) { grid-column:span 2; }
+    .gallery img { width:100%; height:100%; object-fit:cover; }
+    .gallery figcaption { z-index:2; bottom:16px; left:17px; background:none; backdrop-filter:none; font-size:.74rem; letter-spacing:.01em; padding:0; color:#fff; text-transform:none; }
+    .gallery-bottom-note { text-align:center; color:#98a198; font-size:.62rem; letter-spacing:.21em; font-weight:800; margin:22px 0 0; }
+    .gallery-bottom-note span { color:var(--coral); letter-spacing:.25em; margin-left:8px; }
+    .joy-band { margin-top:22px; background:#f1ad80; padding:85px 0 90px; overflow:hidden; position:relative; }
+    .joy-inner { text-align:center; position:relative; }
+    .joy-mini { display:block; font-size:.66rem; letter-spacing:.22em; font-weight:800; margin-bottom:27px; }
+    .joy-band h2 { font-size:clamp(3.2rem,6.5vw,7.2rem); font-weight:600; line-height:1.04; margin-bottom:36px; color:#233a2f; }
+    .joy-band h2 em { color:#fff9eb; }
+    .joy-button { border:0; border-radius:999px; padding:17px 26px; background:var(--ink); color:#fff; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; gap:24px; box-shadow:0 14px 26px rgba(41,61,43,.14); transition:transform .2s ease; }
+    .joy-button:hover { transform:translateY(-4px); }
+    .joy-button span { font-size:1.2rem; color:#f4cb72; }
+    .joy-doodle { position:absolute; left:3%; top:12%; color:rgba(255,255,255,.85); font-size:6rem; transform:rotate(-19deg); }
+    .quiz { grid-template-columns:.91fr 1.09fr; gap:15px; }
+    .quiz-intro,.quiz-panel { border-radius:27px; min-height:495px; }
+    .quiz-intro { background:#e0eace; padding:clamp(33px,4vw,62px); overflow:hidden; position:relative; }
+    .quiz-intro .section-kicker { color:#567b5b; position:relative; z-index:1; }
+    .quiz-intro h2 { font-size:clamp(3.5rem,5.15vw,6rem); line-height:.98; margin:32px 0; position:relative; z-index:1; }
+    .quiz-intro h2 em { color:#f07858; }
+    .quiz-intro p:not(.section-kicker) { max-width:370px; color:#697767; line-height:1.75; position:relative; z-index:1; }
+    .quiz-deco { position:absolute; top:10px; right:25px; font-size:9rem; color:#c9dcbc; transform:rotate(8deg); pointer-events:none; }
+    .quiz-badge { display:inline-flex; gap:28px; align-items:center; margin-top:24px; font-size:.64rem; font-weight:800; letter-spacing:.12em; background:#fff8e7; border-radius:40px; padding:13px 18px; transform:rotate(-3deg); }
+    .quiz-panel { background:#fffefa; border:1px solid var(--line); padding:clamp(31px,4.1vw,64px); justify-content:flex-start; }
+    .quiz-progress { display:flex; align-items:center; justify-content:space-between; gap:20px; color:#829187; font-size:.64rem; font-weight:800; letter-spacing:.16em; margin-bottom:60px; }
+    .quiz-dots { display:flex; gap:6px; }
+    .quiz-dots span { width:24px; height:6px; border-radius:30px; background:#e4e9e3; transition:background .2s; }
+    .quiz-dots .is-done { background:var(--coral); }
+    .quiz-question { color:var(--ink); font-size:clamp(1.65rem,2.3vw,2.3rem); line-height:1.2; letter-spacing:-.035em; margin-bottom:27px; min-height:2.3em; }
+    .quiz-options { gap:10px; }
+    .quiz-option { display:flex; align-items:center; justify-content:space-between; gap:9px; padding:17px 16px; min-height:65px; background:#f8f7ef; border:1px solid #e4e8dd; border-radius:14px; font-size:.77rem; line-height:1.4; color:#334739; }
+    .quiz-option span { font-size:1rem; color:#a3aca1; }
+    .quiz-option:hover,.quiz-option.active { border-color:var(--coral); background:#fff0e5; color:var(--ink); transform:translateY(-2px); }
+    .quiz-result { color:var(--ink); margin:0; min-height:0; font-family:"DM Sans",sans-serif; }
+    .quiz-result[hidden],.quiz-restart[hidden] { display:none; }
+    .quiz-result-card { display:flex; align-items:center; gap:21px; border-radius:19px; padding:22px; background:#f2f5eb; }
+    .quiz-result-card img { width:110px; height:110px; object-fit:cover; border-radius:18px; }
+    .quiz-result-card h3 { font-family:"Fraunces",Georgia,serif; font-size:2.15rem; line-height:1; margin:0 0 10px; }
+    .quiz-result-card p { font-size:.78rem; line-height:1.6; margin:0; color:#64736a; }
+    .quiz-result-head { font-size:.7rem; letter-spacing:.18em; font-weight:800; color:var(--coral); margin-bottom:18px; }
+    .quiz-restart { display:inline-flex; margin-top:20px; background:#1f382d; color:white; border-radius:40px; }
+    .lightbox { position:fixed; inset:0; background:rgba(14,27,20,.94); z-index:100; display:flex; align-items:center; justify-content:center; padding:55px 90px; }
+    .lightbox[hidden] { display:none !important; }
+    .lightbox figure { margin:0; max-width:min(90vw,920px); text-align:center; }
+    .lightbox img { display:block; max-height:76vh; max-width:100%; margin:auto; border-radius:18px; object-fit:contain; box-shadow:0 25px 70px rgba(0,0,0,.3); }
+    .lightbox figcaption { color:#fff; font-size:.85rem; margin-top:17px; }
+    .lightbox-close,.lightbox-arrow { cursor:pointer; border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.12); color:white; display:grid; place-items:center; width:47px; height:47px; border-radius:50%; }
+    .lightbox-close { position:absolute; top:24px; right:27px; font-size:2rem; line-height:1; }
+    .lightbox-arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:1.4rem; }
+    .lightbox-prev { left:26px; } .lightbox-next { right:26px; }
+    .footer { background:#20392e; color:#ecf2e9; padding:63px 0 20px; border:0; }
+    .footer-inner { align-items:start; gap:30px; }
+    .footer-brand { font-size:2.8rem; font-weight:600; line-height:1; letter-spacing:-.08em; font-family:"Fraunces",Georgia,serif; }
+    .footer-brand small { display:block; font-family:"DM Sans",sans-serif; font-size:.62rem; font-weight:700; color:#97b3a0; letter-spacing:.15em; margin-top:16px; }
+    .footer-center { max-width:330px; line-height:1.85; color:#abc4b2; font-size:.8rem; }
+    .footer-center a { color:#f5d087; text-decoration:underline; text-underline-offset:3px; }
+    .footer-back { font-size:.8rem; white-space:nowrap; background:#34513f; border:1px solid rgba(255,255,255,.1); padding:12px 17px; border-radius:40px; }
+    .footer-back span { color:#f5ce80; margin-left:10px; }
+    .footer-tail { display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.11); padding:23px 0 0; margin-top:62px; color:#9cb5a2; font-size:.59rem; font-weight:800; letter-spacing:.16em; }
+    .confetti { z-index:150; }
+    @media (min-width:1400px) { .hero h1 { font-size:8.5rem; } }
+    @media (max-width:1180px) {
+      .site-shell { width:min(var(--max),calc(100% - 64px)); }
+      .hero h1 { font-size:clamp(4.9rem,8vw,7.4rem); }
+      .nav a { padding:10px; font-size:.71rem; }
+      .hero-art { min-height:545px; }
+      .energy-image { height:230px; }
+      .energy-card h3 { font-size:1.8rem; }
+      .counter { display:none; }
+    }
+    @media (max-width:920px) {
+      .topbar { flex-wrap:wrap; }
+      .hero { grid-template-columns:1fr 1fr; min-height:0; gap:14px; padding:55px 0 85px; }
+      .hero h1 { font-size:clamp(4.1rem,8vw,6.2rem); }
+      .hero-art { min-height:495px; }
+      .hero-sticker { width:96px; height:96px; right:-8%; }
+      .hero-sticker strong { font-size:1.5rem; }
+      .hero-proof { margin-top:27px; }
+      .energy-grid { grid-template-columns:repeat(2,1fr); }
+      .energy-image { height:300px; }
+      .daily-layout,.quiz { grid-template-columns:1fr 1fr; }
+      .daily-copy,.quiz-panel,.quiz-intro { min-height:460px; }
+      .daily-image,.daily-image img { min-height:460px; }
+      .daily-date { margin-top:26px; }
+      .daily-copy h3 { font-size:clamp(2.4rem,5vw,4rem); }
+      .quiz-intro h2 { font-size:clamp(3rem,5vw,4.2rem); }
+      .quiz-panel,.quiz-intro { padding:30px; }
+      .quiz-options { grid-template-columns:1fr; }
+      .quiz-progress { margin-bottom:29px; }
+      .quiz-option { min-height:55px; }
+      .gallery { grid-auto-rows:180px; }
+    }
+    @media (max-width:740px) {
+      .site-shell { width:calc(100% - 42px); }
+      .topbar { flex-wrap:nowrap; padding:19px 0; }
+      .brand-type { font-size:1.35rem; }
+      .brand-mark { width:42px; height:42px; }
+      .header-actions { margin-left:auto; }
+      .home-link { display:none; }
+      .mobile-toggle { display:flex !important; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:44px; height:44px; border:1px solid var(--line); background:#fffdf8; border-radius:13px; cursor:pointer; }
+      .mobile-toggle span { width:18px; height:2px; border-radius:5px; background:var(--ink); transition:transform .2s; }
+      .mobile-toggle[aria-expanded="true"] span:first-child { transform:translateY(7px) rotate(45deg); }
+      .mobile-toggle[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+      .mobile-toggle[aria-expanded="true"] span:last-child { transform:translateY(-7px) rotate(-45deg); }
+      .nav { display:none; position:absolute; left:0; right:0; top:77px; padding:10px; flex-direction:column; border:1px solid var(--line); border-radius:19px; background:#fefcf6; box-shadow:0 19px 45px rgba(28,51,43,.13); gap:2px; }
+      .nav.is-open { display:flex; }
+      .nav a { width:100%; padding:13px 16px; font-size:.89rem; }
+      .nav .mobile-back { display:block !important; color:var(--coral); }
+      .hero { grid-template-columns:1fr; gap:5px; padding:43px 0 70px; }
+      .hero-content { padding:0; }
+      .eyebrow { font-size:.6rem; letter-spacing:.1em; margin-bottom:23px; }
+      .hero h1 { font-size:clamp(4.65rem,12.8vw,7rem); margin-bottom:25px; }
+      .hero-copy { font-size:.99rem; line-height:1.7; max-width:520px; }
+      .hero-proof { margin-top:30px; }
+      .hero-art { min-height:575px; max-width:560px; width:100%; margin:15px auto 0; transform:none; }
+      .hero-sticker { right:0; }
+      .dog-card { left:1%; }
+      section { padding:82px 0; }
+      .section-heading { display:flex; align-items:start; flex-direction:column; gap:16px; margin-bottom:29px; }
+      h2 { font-size:clamp(3.1rem,9vw,4.7rem); }
+      .section-note { margin:0; max-width:450px; }
+      .daily-layout,.quiz { grid-template-columns:1fr; }
+      .daily-image,.daily-image img { min-height:440px; }
+      .daily-copy,.quiz-intro,.quiz-panel { min-height:0; }
+      .daily-copy { gap:35px; padding:42px 35px; }
+      .daily-date { margin-top:37px; }
+      .gallery { grid-template-columns:1fr 1fr; grid-auto-rows:175px; gap:10px; }
+      .gallery figure:nth-child(4) { grid-column:span 2; }
+      .gallery figure:first-child { grid-row:span 2; }
+      .joy-band { padding:75px 0; }
+      .joy-band h2 { font-size:clamp(3.2rem,8.4vw,5.3rem); }
+      .joy-doodle { left:-4%; font-size:4rem; top:8%; opacity:.5; }
+      .quiz { gap:10px; }
+      .quiz-intro,.quiz-panel { padding:36px; }
+      .quiz-intro h2 { font-size:clamp(3.6rem,9vw,5rem); }
+      .quiz-options { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .footer-inner { flex-direction:column; gap:32px; }
+      .footer-tail { margin-top:43px; }
+    }
+    @media (max-width:510px) {
+      .site-shell { width:calc(100% - 32px); }
+      .brand-type small { font-size:.46rem; }
+      .hero { padding-top:32px; }
+      .hero h1 { font-size:clamp(4.05rem,14.1vw,5.6rem); }
+      .hero-art { min-height:415px; }
+      .hero-photo { inset:8% 4% 6% 5%; border-width:7px; }
+      .hero-sticker { width:84px; height:84px; padding:8px; right:-3%; top:13%; }
+      .hero-sticker strong { font-size:1.35rem; }
+      .hero-sticker span { font-size:.48rem; }
+      .hero-edition { font-size:.5rem; left:5%; }
+      .dog-card { width:215px; padding:.6rem; bottom:3%; }
+      .dog-card .tag { font-size:.51rem; }
+      .paw.one { font-size:2.65rem; bottom:0; }
+      .paw.two { left:-1%; }
+      .hero-proof { font-size:.67rem; }
+      .energy-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .energy-card { padding:6px 6px 16px; border-radius:19px; }
+      .energy-image { height:180px; border-radius:14px; }
+      .energy-number { top:8px; left:8px; font-size:.6rem; padding:3px 8px; }
+      .energy-detail { padding:14px 8px 0; }
+      .energy-kind { font-size:.46rem; }
+      .energy-kind span { font-size:.7rem; }
+      .energy-card h3 { font-size:1.5rem; margin:8px 0; }
+      .energy-card h3 span { font-size:.9rem; }
+      .energy-card p { font-size:.69rem; line-height:1.55; }
+      .daily-image,.daily-image img { min-height:365px; }
+      .daily-copy { padding:35px 27px; }
+      .daily-copy h3 { font-size:clamp(2.7rem,10vw,4rem); }
+      .gallery { grid-auto-rows:140px; gap:8px; }
+      .gallery figure { border-radius:15px; }
+      .gallery figcaption { left:9px; bottom:10px; font-size:.59rem; }
+      .quiz-intro,.quiz-panel { padding:30px 23px; }
+      .quiz-options { grid-template-columns:1fr; }
+      .quiz-option { min-height:53px; font-size:.8rem; }
+      .quiz-result-card { flex-direction:column; align-items:flex-start; }
+      .quiz-result-card img { width:100%; height:180px; }
+      .joy-band h2 { font-size:clamp(2.9rem,11vw,4.3rem); }
+      .lightbox { padding:60px 16px; }
+      .lightbox-arrow { top:auto; bottom:15px; transform:none; }
+      .lightbox-close { right:16px; top:14px; }
+      .lightbox-prev { left:24px; }.lightbox-next { right:24px; }
+      .footer-tail { align-items:flex-start; gap:12px; flex-direction:column; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .ticker-track,.confetti { animation:none !important; }
+    }
+
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-shell topbar">
-    <a class="brand" href="#top" aria-label="Dog Club home">
-      <span class="brand-mark">🐾</span>
-      <span>Dog Club</span>
+  <header class="site-shell topbar" id="top">
+    <a class="brand" href="#top" aria-label="Good Dog Club home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" width="28" height="28"><ellipse cx="20" cy="26.2" rx="10.3" ry="7.4" fill="currentColor"/><ellipse cx="9.1" cy="13.5" rx="3.5" ry="5.3" transform="rotate(-18 9.1 13.5)" fill="currentColor"/><ellipse cx="16.3" cy="9.7" rx="3.5" ry="5.3" transform="rotate(-8 16.3 9.7)" fill="currentColor"/><ellipse cx="24.2" cy="9.8" rx="3.5" ry="5.3" transform="rotate(9 24.2 9.8)" fill="currentColor"/><ellipse cx="31.5" cy="13.7" rx="3.5" ry="5.3" transform="rotate(22 31.5 13.7)" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-type">gooddog<span class="brand-period">.</span><small>THE HAPPIEST LITTLE CORNER</small></span>
     </a>
-    <nav class="nav" aria-label="Dog Club navigation">
-      <a href="#daily">Today’s dog</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#quiz">Quiz</a>
+    <nav class="nav" id="dogNav" aria-label="Dog Club navigation">
+      <a href="#energies">The pack</a>
+      <a href="#daily">Dog of the day</a>
+      <a href="#gallery">Pawtraits</a>
+      <a href="#quiz">The dog quiz</a>
+      <a class="mobile-back" href="/">↖ Back to Yuxuan</a>
     </nav>
-    <a class="home-link" href="https://yxwang1215.top/">Back to Yuxuan ↗</a>
+    <div class="header-actions">
+      <a class="home-link" href="/">← <span>Yuxuan's site</span></a>
+      <button class="mobile-toggle" type="button" id="mobileMenu" aria-controls="dogNav" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
   </header>
 
   <main id="main">
-    <section class="site-shell hero" id="top">
-      <div>
-        <p class="eyebrow">The good dog society</p>
-        <h1>A little corner for <em>good dogs.</em></h1>
-        <p class="hero-copy">A soft, sunny place for wagging tails, muddy paws, and the tiny moments that make an ordinary day feel like the best day.</p>
+    <section class="site-shell hero" id="welcome">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-star" aria-hidden="true">✳</span> AN INTERNET HAPPY PLACE · EST. 2026</p>
+        <h1>Life is<br><span class="hero-better">better</span> with<br>a <em>dog.</em></h1>
+        <p class="hero-copy">A little sunshine for your screen. Come for the floppy ears, stay for the wagging tails, and leave with a smile.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#daily">Meet today’s dog <span aria-hidden="true">↘</span></a>
-          <button class="button button-ghost" id="heroBoop" type="button">Boop the nose <span aria-hidden="true">✦</span></button>
+          <a class="button button-primary" href="#daily">Meet the good dogs <span aria-hidden="true">↗</span></a>
+          <button class="button button-ghost" id="heroBoop" type="button">Send a boop <span aria-hidden="true">♡</span></button>
+        </div>
+        <div class="hero-proof">
+          <span class="proof-avatars" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&amp;fit=crop&amp;w=90&amp;q=75" alt="">
+            <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&amp;fit=crop&amp;w=90&amp;q=75" alt="">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&amp;fit=crop&amp;w=90&amp;q=75" alt="">
+          </span>
+          <span><strong>All pups welcome.</strong><br>The good side of the internet starts here.</span>
         </div>
       </div>
-
-      <div class="hero-art" aria-label="A happy golden dog">
-        <div class="hero-photo">
-          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=88" alt="A happy dog looking at the camera">
-        </div>
-        <div class="hero-sticker"><strong>100%</strong>good dog energy</div>
+      <div class="hero-art" aria-label="Golden retriever enjoying a perfect afternoon">
+        <span class="hero-edition">ISSUE NO. 001 / JUST FOR FUN</span>
+        <div class="hero-photo"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Happy golden retriever with bright eyes and a friendly smile" fetchpriority="high"></div>
+        <div class="hero-sticker"><span>OFFICIALLY</span><strong>100%</strong><span>GOOD DOG</span></div>
         <div class="dog-card">
           <div class="dog-card-top">
-            <div class="dog-card-avatar"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=160&q=84" alt=""></div>
-            <div><small>Currently dreaming of</small><strong>treats</strong></div>
+            <div class="dog-card-avatar"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&amp;fit=crop&amp;w=160&amp;q=80" alt=""></div>
+            <div><small>Current occupation</small><strong>heart stealer</strong></div>
           </div>
-          <div class="dog-card-meta"><span class="tag">sunny</span><span class="tag coral">very soft</span></div>
+          <div class="dog-card-meta"><span class="tag">♡ highly lovable</span><span class="tag coral">good vibes</span></div>
         </div>
-        <span class="paw one" aria-hidden="true">🐾</span>
-        <span class="paw two" aria-hidden="true">✦</span>
+        <span class="paw one" aria-hidden="true">✳</span><span class="paw two" aria-hidden="true">✷</span>
       </div>
     </section>
 
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>more walks</span><span>less scrolling</span><span>extra belly rubs</span><span>tiny adventures</span><span>more walks</span><span>less scrolling</span><span>extra belly rubs</span><span>tiny adventures</span>
+        <span>LESS SCROLLING, MORE STROLLING</span><span>ALL DOGS ARE GOOD DOGS</span><span>STAY PAWSITIVE</span><span>HAPPINESS HAS FOUR PAWS</span>
+        <span>LESS SCROLLING, MORE STROLLING</span><span>ALL DOGS ARE GOOD DOGS</span><span>STAY PAWSITIVE</span><span>HAPPINESS HAS FOUR PAWS</span>
       </div>
+    </div>
     </div>
 
     <section class="site-shell" id="energies">
       <div class="section-heading">
-        <div><p class="section-kicker">Choose your mood</p><h2>What kind of<br>dog day is it?</h2></div>
-        <p class="section-note">Every dog has a little weather system inside. Pick a forecast and follow the tail wags.</p>
+        <div><p class="section-kicker">01 / MEET THE PACK</p><h2>Different moods.<br><em>Same good dogs.</em></h2></div>
+        <p class="section-note">Four personalities. A million reasons to love them. Which one feels like you today?</p>
       </div>
       <div class="energy-grid">
-        <article class="energy-card"><span class="energy-number">01</span><span class="energy-icon" aria-hidden="true">☀️</span><h3>Sunny</h3><p>Bright eyes, open windows, and a walk that turns into an adventure.</p></article>
-        <article class="energy-card"><span class="energy-number">02</span><span class="energy-icon" aria-hidden="true">🧸</span><h3>Cuddly</h3><p>Blanket forts, sleepy paws, and a very serious nap schedule.</p></article>
-        <article class="energy-card"><span class="energy-number">03</span><span class="energy-icon" aria-hidden="true">🔎</span><h3>Curious</h3><p>Sniff every corner. Inspect every box. Ask excellent questions.</p></article>
-        <article class="energy-card"><span class="energy-number">04</span><span class="energy-icon" aria-hidden="true">⚡</span><h3>Zoomie</h3><p>A small blur with a big heart and absolutely no interest in slowing down.</p></article>
+        <article class="energy-card">
+          <div class="energy-image"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&amp;fit=crop&amp;w=680&amp;q=83" alt="Cheerful golden retriever in the sun" loading="lazy"><span class="energy-number">01</span></div>
+          <div class="energy-detail"><span class="energy-kind">THE RAY OF SUNSHINE <span aria-hidden="true">↗</span></span><h3>Sunny <span aria-hidden="true">☀</span></h3><p>Sees the bright side of literally everything. Especially snacks.</p></div>
+        </article>
+        <article class="energy-card">
+          <div class="energy-image"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&amp;fit=crop&amp;w=680&amp;q=83" alt="Small fluffy dog ready for a cuddle" loading="lazy"><span class="energy-number">02</span></div>
+          <div class="energy-detail"><span class="energy-kind">THE PROFESSIONAL NAPPER <span aria-hidden="true">↗</span></span><h3>Cuddly <span aria-hidden="true">♡</span></h3><p>Soft blankets, warm hugs, and absolutely zero urgent plans.</p></div>
+        </article>
+        <article class="energy-card">
+          <div class="energy-image"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&amp;fit=crop&amp;w=680&amp;q=83" alt="Inquisitive dog looking to the side" loading="lazy"><span class="energy-number">03</span></div>
+          <div class="energy-detail"><span class="energy-kind">THE LITTLE EXPLORER <span aria-hidden="true">↗</span></span><h3>Curious <span aria-hidden="true">✳</span></h3><p>Every corner is a mystery. Every leaf deserves a sniff.</p></div>
+        </article>
+        <article class="energy-card">
+          <div class="energy-image"><img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&amp;fit=crop&amp;w=680&amp;q=83" alt="Energetic dog enjoying the outdoors" loading="lazy"><span class="energy-number">04</span></div>
+          <div class="energy-detail"><span class="energy-kind">THE CHAOS COORDINATOR <span aria-hidden="true">↗</span></span><h3>Zoomie <span aria-hidden="true">↝</span></h3><p>Runs on excitement, good intentions, and approximately no brakes.</p></div>
+        </article>
       </div>
     </section>
 
     <section class="site-shell" id="daily">
       <div class="section-heading">
-        <div><p class="section-kicker">A daily dose of dog</p><h2>Meet the<br>good one.</h2></div>
-        <p class="section-note">A rotating little portrait for the days when you need a friend with four paws.</p>
+        <div><p class="section-kicker">02 / IN THE SPOTLIGHT</p><h2>Today's <em>very</em><br>good dog.</h2></div>
+        <p class="section-note">Meet a new furry friend. There is always room for one more good dog in your day.</p>
       </div>
       <div class="daily-layout">
-        <div class="daily-image"><img id="dailyImage" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=88" alt="A golden retriever sitting outdoors"></div>
+        <div class="daily-image">
+          <img id="dailyImage" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&amp;fit=crop&amp;w=1050&amp;q=88" alt="A relaxed dog outside" loading="lazy">
+          <span class="daily-image-badge" aria-hidden="true">THE DAILY<br><strong>GOOD BOY</strong> ↗</span>
+        </div>
         <div class="daily-copy">
           <div>
-            <p class="section-kicker">Today’s dog · <span id="dogDate">October 21</span></p>
+            <div class="daily-copy-top"><span class="section-kicker">A DOG A DAY KEEPS THE BLUES AWAY</span><span class="daily-sun" aria-hidden="true">✺</span></div>
+            <p class="daily-date">YOUR PUP OF THE DAY · <span id="dogDate">TODAY</span></p>
             <h3 id="dogName">Miso is ready for a walk.</h3>
             <p id="dogDescription">Miso believes every good day starts with a little sunshine, a long sniff, and someone who says “who’s a good dog?” like they really mean it.</p>
             <div class="daily-meta" id="dogTags"><span class="tag">golden hour</span><span class="tag">professional cuddler</span><span class="tag">treat motivated</span></div>
           </div>
           <div class="daily-bottom">
-            <button class="button button-primary" id="anotherDog" type="button">Give me another dog <span aria-hidden="true">↻</span></button>
-            <span class="counter" id="dogCounter">dog joy served: 001</span>
+            <button class="button button-primary" id="anotherDog" type="button">Meet another pup <span aria-hidden="true">↗</span></button>
+            <span class="counter" id="dogCounter">ONE VERY GOOD DOG AT A TIME</span>
           </div>
         </div>
       </div>
@@ -592,123 +919,294 @@
 
     <section class="site-shell" id="gallery">
       <div class="section-heading">
-        <div><p class="section-kicker">The gallery</p><h2>Good faces,<br>great stories.</h2></div>
-        <p class="section-note">The best kind of gallery is the one where every face makes you pause.</p>
+        <div><p class="section-kicker">03 / THE HAPPY ARCHIVE</p><h2>A gallery of<br><em>good faces.</em></h2></div>
+        <p class="section-note">A collection of very photogenic friends. Tap a photo to take a closer look.</p>
       </div>
-      <div class="gallery">
-        <figure><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=900&q=84" alt="A corgi sitting on a green lawn"><figcaption>the little loaf</figcaption></figure>
-        <figure><img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=700&q=84" alt="A small dog with fluffy fur"><figcaption>tiny cloud</figcaption></figure>
-        <figure><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=700&q=84" alt="A dog looking to the side"><figcaption>deep thoughts</figcaption></figure>
-        <figure><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=84" alt="Two dogs enjoying a walk"><figcaption>best friends club</figcaption></figure>
-        <figure><img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=700&q=84" alt="A happy dog outdoors"><figcaption>full speed ahead</figcaption></figure>
+      <div class="gallery" id="photoGallery" aria-label="Dog portrait photo gallery">
+        <figure tabindex="0" role="button" aria-label="Open photo: the little loaf"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&amp;fit=crop&amp;w=960&amp;q=84" alt="Playful corgi posing for the camera" loading="lazy"><figcaption>01 — the little loaf ↗</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Open photo: hello sunshine"><img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&amp;fit=crop&amp;w=760&amp;q=84" alt="Adorable dog with a sweet, fluffy face" loading="lazy"><figcaption>02 — hello sunshine ↗</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Open photo: deep thoughts"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&amp;fit=crop&amp;w=760&amp;q=84" alt="Thoughtful dog in profile" loading="lazy"><figcaption>03 — deep thoughts ↗</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Open photo: best friends club"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&amp;fit=crop&amp;w=1100&amp;q=84" alt="Two canine best friends walking together" loading="lazy"><figcaption>04 — best friends club ↗</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Open photo: catch me if you can"><img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&amp;fit=crop&amp;w=760&amp;q=84" alt="Friendly dog exploring outside" loading="lazy"><figcaption>05 — catch me if you can ↗</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Open photo: one little question"><img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&amp;fit=crop&amp;w=760&amp;q=84" alt="Alert dog staring into the camera" loading="lazy"><figcaption>06 — one little question ↗</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Open photo: the sweetest face"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&amp;fit=crop&amp;w=760&amp;q=84" alt="Cute dog in a portrait photo" loading="lazy"><figcaption>07 — the sweetest face ↗</figcaption></figure>
+      </div>
+      <p class="gallery-bottom-note">PLEASE ADMIRE RESPONSIBLY <span aria-hidden="true">♡♡♡</span></p>
+    </section>
+    <section class="joy-band" aria-labelledby="joy-title">
+      <div class="site-shell joy-inner">
+        <span class="joy-mini">A FRIENDLY REMINDER FROM THE CLUB</span>
+        <h2 id="joy-title">Some happiness<br>comes with <em>four paws.</em></h2>
+        <button type="button" class="joy-button" id="joyButton">Send a little love <span aria-hidden="true">♥</span></button>
+        <span class="joy-doodle" aria-hidden="true">✳</span>
       </div>
     </section>
 
     <section class="site-shell" id="quiz">
+      <div class="section-heading">
+        <div><p class="section-kicker">04 / JUST FOR FUN</p><h2>One last <em>little</em> thing.</h2></div>
+        <p class="section-note">Three questions, four possible personalities, one scientifically unserious diagnosis.</p>
+      </div>
       <div class="quiz">
-        <div class="quiz-intro"><p class="section-kicker">A very serious quiz</p><h2>Which dog energy are you?</h2><p>There are no wrong answers. There are only different ways to need a snack and a nap.</p></div>
+        <div class="quiz-intro">
+          <div class="quiz-deco" aria-hidden="true">✳</div>
+          <p class="section-kicker">THE VERY OFFICIAL DOG TEST</p>
+          <h2>What's your<br><em>dog energy?</em></h2>
+          <p>You might be a cuddle enthusiast, a curious explorer, or a professional zoomie. Only one way to find out.</p>
+          <div class="quiz-badge">100% FOR FUN <span aria-hidden="true">↗</span></div>
+        </div>
         <div class="quiz-panel">
-          <div class="quiz-question">It’s a free afternoon. You…</div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-result="You are Sunny: open the windows and make a playlist.">find the nearest sunny patch</button>
-            <button class="quiz-option" data-result="You are Cuddly: cancel everything, bring the blanket.">build a blanket nest</button>
-            <button class="quiz-option" data-result="You are Curious: let’s see where this path goes.">take the long way home</button>
-            <button class="quiz-option" data-result="You are Zoomie: three, two, one… go!">run for absolutely no reason</button>
+          <div class="quiz-progress"><span id="quizProgressLabel">QUESTION 01 / 03</span><div class="quiz-dots" id="quizDots" aria-hidden="true"><span class="is-done"></span><span></span><span></span></div></div>
+          <div class="quiz-question" id="quizQuestion">It’s finally the weekend. Your ideal plan?</div>
+          <div class="quiz-options" id="quizOptions">
+            <button class="quiz-option" type="button" data-energy="sunny">Some fresh air and sunshine <span>↗</span></button>
+            <button class="quiz-option" type="button" data-energy="cuddly">A glorious, uninterrupted nap <span>↗</span></button>
+            <button class="quiz-option" type="button" data-energy="curious">Getting lost somewhere new <span>↗</span></button>
+            <button class="quiz-option" type="button" data-energy="zoomie">Doing ALL the things <span>↗</span></button>
           </div>
-          <p class="quiz-result" id="quizResult" aria-live="polite">Choose an answer to reveal your dog energy.</p>
+          <div class="quiz-result" id="quizResult" aria-live="polite" hidden></div>
+          <button class="button quiz-restart" type="button" id="quizRestart" hidden>Try again <span aria-hidden="true">↻</span></button>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-shell footer">
-    <div class="footer-inner">
-      <p>Made with curiosity, CSS, and an unreasonable number of dog photos.</p>
-      <div class="footer-mark" aria-label="paw prints">🐾 ✦ 🐾</div>
-      <p><a href="https://yxwang1215.top/">yxwang1215.top ↗</a></p>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Dog portrait viewer" hidden>
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photo viewer">×</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous photo">←</button>
+    <figure><img id="lightboxImage" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button" aria-label="Next photo">→</button>
+  </div>
+  <footer class="footer">
+    <div class="site-shell footer-inner">
+      <div class="footer-brand">gooddog<span>.</span><small>JUST A LITTLE INTERNET SUNSHINE.</small></div>
+      <div class="footer-center">Made with ♡, a few lines of code, and an unreasonable love for dogs.<br><a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Photos via Unsplash ↗</a></div>
+      <a class="footer-back" href="/">Back to Yuxuan's homepage <span aria-hidden="true">↗</span></a>
     </div>
+    <div class="site-shell footer-tail"><span>© <span id="copyrightYear">2026</span> GOOD DOG CLUB</span><span>STAY PAWSITIVE, ALWAYS ✳</span></div>
   </footer>
 
   <script>
-    const dogs = [
-      {
-        name: "Miso is ready for a walk.",
-        description: "Miso believes every good day starts with a little sunshine, a long sniff, and someone who says “who’s a good dog?” like they really mean it.",
-        image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=88",
-        alt: "A golden retriever sitting outdoors",
-        tags: ["golden hour", "professional cuddler", "treat motivated"]
-      },
-      {
-        name: "Biscuit found the coziest spot.",
-        description: "Biscuit has investigated every cushion in the house and would like the record to show that this one is, in fact, perfect.",
-        image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=88",
-        alt: "A fluffy dog resting indoors",
-        tags: ["soft launch", "nap expert", "blanket approved"]
-      },
-      {
-        name: "Pip has a very important plan.",
-        description: "Pip’s plan contains one part exploring, two parts snacks, and an exciting possibility involving that suspicious cardboard box.",
-        image: "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1000&q=88",
-        alt: "A curious dog looking at the camera",
-        tags: ["curious", "box inspector", "small but mighty"]
-      }
-    ];
-    let dogIndex = 0;
-    let dogCount = 1;
-    const dailyImage = document.getElementById("dailyImage");
-    const dogName = document.getElementById("dogName");
-    const dogDescription = document.getElementById("dogDescription");
-    const dogTags = document.getElementById("dogTags");
-    const dogCounter = document.getElementById("dogCounter");
-    const anotherDog = document.getElementById("anotherDog");
+    (function () {
+      "use strict";
+      const dogs = [
+        { name:"Miso is ready for a walk.", description:"Miso believes every good day begins with a little sunshine, a long sniff, and someone who says “who’s a good dog?” like they really mean it.", image:"https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1050&q=86", alt:"Friendly golden dog sitting outdoors", tags:["golden hour","professional cuddler","treat motivated"] },
+        { name:"Biscuit found the coziest spot.", description:"Biscuit has investigated every cushion in the house and would like the record to show that this particular one is, in fact, perfect.", image:"https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1050&q=86", alt:"Small fluffy dog relaxing at home", tags:["nap expert","blanket approved","sweet little face"] },
+        { name:"Pip is up to something.", description:"Pip’s plan contains one part exploring, two parts snacks, and an exciting possibility involving that suspicious cardboard box.", image:"https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1050&q=86", alt:"Curious dog inspecting the world", tags:["detective","chief investigator","small but mighty"] },
+        { name:"Tofu has a very big smile.", description:"Tofu is almost certain that a ball is about to be thrown. It is a wonderful day to be Tofu, and Tofu would like everyone to know it.", image:"https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1050&q=86", alt:"Happy dog smiling at the camera", tags:["optimist","belly rub enthusiast","sunshine"] },
+        { name:"Noodle runs this entire park.", description:"Noodle is here for speed, suspicious leaves, excellent sticks, and the joy of doing absolutely everything at once.", image:"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1050&q=86", alt:"Playful dog out enjoying the day", tags:["zoomies","stick collector","best energy"] }
+      ];
+      const dailyImage = document.getElementById("dailyImage");
+      const dogName = document.getElementById("dogName");
+      const dogDescription = document.getElementById("dogDescription");
+      const dogTags = document.getElementById("dogTags");
+      const dogCounter = document.getElementById("dogCounter");
+      const anotherDog = document.getElementById("anotherDog");
+      const now = new Date();
+      let dogIndex = (now.getFullYear() + now.getMonth() * 31 + now.getDate()) % dogs.length;
+      let dogCount = 0;
 
-    function showDog(index) {
-      const dog = dogs[index];
-      dailyImage.style.opacity = "0";
-      setTimeout(function() {
-        dailyImage.src = dog.image;
+      function showDog(index, animate) {
+        const dog = dogs[index];
         dailyImage.alt = dog.alt;
-        dailyImage.style.opacity = "1";
-      }, 140);
-      dogName.textContent = dog.name;
-      dogDescription.textContent = dog.description;
-      dogTags.innerHTML = dog.tags.map(function(tag) { return '<span class="tag">' + tag + '</span>'; }).join("");
-      dogCount += 1;
-      dogCounter.textContent = "dog joy served: " + String(dogCount).padStart(3, "0");
-    }
-    anotherDog.addEventListener("click", function() {
-      dogIndex = (dogIndex + 1) % dogs.length;
-      showDog(dogIndex);
-      burst(anotherDog);
-    });
-
-    function burst(origin) {
-      const rect = origin.getBoundingClientRect();
-      const icons = ["🐾", "✦", "♥", "✺", "·"];
-      for (let i = 0; i < 9; i += 1) {
-        const spark = document.createElement("span");
-        spark.className = "confetti";
-        spark.textContent = icons[Math.floor(Math.random() * icons.length)];
-        spark.style.left = (rect.left + rect.width / 2) + "px";
-        spark.style.top = (rect.top + rect.height / 2) + "px";
-        spark.style.color = i % 2 ? "#f47d66" : "#f7c86b";
-        spark.style.setProperty("--x", ((Math.random() - .5) * 210) + "px");
-        spark.style.setProperty("--y", ((Math.random() - .7) * 180) + "px");
-        document.body.appendChild(spark);
-        setTimeout(function() { spark.remove(); }, 1200);
+        if (animate) { dailyImage.style.opacity = "0.3"; }
+        const loader = new Image();
+        loader.onload = function () { dailyImage.src = dog.image; dailyImage.style.opacity = "1"; };
+        loader.onerror = function () { dailyImage.src = dog.image; dailyImage.style.opacity = "1"; };
+        loader.src = dog.image;
+        dogName.textContent = dog.name;
+        dogDescription.textContent = dog.description;
+        dogTags.replaceChildren();
+        dog.tags.forEach(function (tagText) {
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = tagText;
+          dogTags.appendChild(tag);
+        });
+        dogCount += 1;
+        dogCounter.textContent = "GOOD DOGS MET: " + String(dogCount).padStart(2,"0");
       }
-    }
-
-    document.getElementById("heroBoop").addEventListener("click", function() { burst(this); });
-    document.querySelectorAll(".quiz-option").forEach(function(option) {
-      option.addEventListener("click", function() {
-        document.querySelectorAll(".quiz-option").forEach(function(item) { item.classList.remove("active"); });
-        option.classList.add("active");
-        document.getElementById("quizResult").textContent = option.dataset.result;
-        burst(option);
+      showDog(dogIndex, false);
+      document.getElementById("dogDate").textContent = new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric"}).format(now).toUpperCase();
+      anotherDog.addEventListener("click", function () {
+        dogIndex = (dogIndex + 1) % dogs.length;
+        showDog(dogIndex, true);
+        burst(anotherDog);
       });
-    });
-    document.getElementById("dogDate").textContent = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric" }).format(new Date());
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      function burst(origin) {
+        if (reduceMotion) return;
+        const rect = origin.getBoundingClientRect();
+        const icons = ["♥","✳","✦","♡","✷"];
+        for (let i=0;i<11;i++) {
+          const spark = document.createElement("span");
+          spark.className = "confetti";
+          spark.textContent = icons[i % icons.length];
+          spark.style.left = (rect.left + rect.width / 2) + "px";
+          spark.style.top = (rect.top + rect.height / 2) + "px";
+          spark.style.color = i % 2 ? "#f07858" : "#efc973";
+          spark.style.setProperty("--x",((Math.random()-.5)*250)+"px");
+          spark.style.setProperty("--y",((Math.random()-.65)*195)+"px");
+          document.body.appendChild(spark);
+          setTimeout(function () {spark.remove();},1200);
+        }
+      }
+      document.getElementById("heroBoop").addEventListener("click",function () {burst(this);});
+      document.getElementById("joyButton").addEventListener("click",function () {burst(this);});
+
+      const mobileToggle = document.getElementById("mobileMenu");
+      const dogNav = document.getElementById("dogNav");
+      mobileToggle.addEventListener("click",function () {
+        const isOpen = mobileToggle.getAttribute("aria-expanded") === "true";
+        mobileToggle.setAttribute("aria-expanded",String(!isOpen));
+        dogNav.classList.toggle("is-open",!isOpen);
+      });
+      dogNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click",function () {
+          dogNav.classList.remove("is-open");
+          mobileToggle.setAttribute("aria-expanded","false");
+        });
+      });
+
+      const galleryItems = Array.from(document.querySelectorAll("#photoGallery figure"));
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const lightboxCaption = document.getElementById("lightboxCaption");
+      const lightboxClose = document.getElementById("lightboxClose");
+      let lightboxIndex = 0;
+      let returnFocus = null;
+      function showPhoto(index) {
+        lightboxIndex = (index + galleryItems.length) % galleryItems.length;
+        const item = galleryItems[lightboxIndex];
+        const img = item.querySelector("img");
+        const photo = img.src.replace(/([?&])w=\d+/, "$1w=1500");
+        lightboxImage.src = photo;
+        lightboxImage.alt = img.alt;
+        lightboxCaption.textContent = item.querySelector("figcaption").textContent.replace(" ↗","");
+      }
+      function openPhoto(index) {
+        returnFocus = document.activeElement;
+        showPhoto(index);
+        lightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+        lightboxClose.focus();
+      }
+      function closePhoto() {
+        lightbox.hidden = true;
+        document.body.style.overflow = "";
+        if (returnFocus && typeof returnFocus.focus === "function") returnFocus.focus();
+      }
+      galleryItems.forEach(function (item,index) {
+        item.addEventListener("click",function () {openPhoto(index);});
+        item.addEventListener("keydown",function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();openPhoto(index);
+          }
+        });
+      });
+      lightboxClose.addEventListener("click",closePhoto);
+      document.getElementById("lightboxPrev").addEventListener("click",function () {showPhoto(lightboxIndex-1);});
+      document.getElementById("lightboxNext").addEventListener("click",function () {showPhoto(lightboxIndex+1);});
+      lightbox.addEventListener("click",function (event) {if(event.target===lightbox) closePhoto();});
+      document.addEventListener("keydown",function (event) {
+        if (event.key==="Escape") {
+          if (!lightbox.hidden) closePhoto();
+          dogNav.classList.remove("is-open");
+          mobileToggle.setAttribute("aria-expanded","false");
+        }
+        if (!lightbox.hidden && event.key === "ArrowRight") showPhoto(lightboxIndex+1);
+        if (!lightbox.hidden && event.key === "ArrowLeft") showPhoto(lightboxIndex-1);
+      });
+
+      const quizQuestions = [
+        {q:"It’s finally the weekend. Your ideal plan?", choices:[
+          ["Some fresh air and sunshine","sunny"],["A glorious, uninterrupted nap","cuddly"],["Getting lost somewhere new","curious"],["Doing ALL the things","zoomie"]]},
+        {q:"Someone gives you an unexpected gift. You...", choices:[
+          ["Smile at everyone in the room","sunny"],["Hug the person immediately","cuddly"],["Examine every little detail","curious"],["Rip it open in 0.2 seconds","zoomie"]]},
+        {q:"Pick your ultimate happy place.", choices:[
+          ["A sun-drenched meadow","sunny"],["The comfiest corner of the couch","cuddly"],["A winding forest trail","curious"],["A wide-open beach at full speed","zoomie"]]}
+      ];
+      const quizTypes = {
+        sunny:{title:"Sunny",text:"You're the golden hour in everyone's day. Your superpower is finding joy in the little things.",photo:"https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=340&q=80"},
+        cuddly:{title:"Cuddly",text:"You make the world feel like a soft blanket. Hugs, naps, and warm company are your specialties.",photo:"https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=340&q=80"},
+        curious:{title:"Curious",text:"An adventurer at heart. The world is full of interesting corners, and you want to discover them all.",photo:"https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=340&q=80"},
+        zoomie:{title:"Zoomie",text:"You are pure electric joy. Big energy, bigger heart, and a talent for making ordinary days exciting.",photo:"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=340&q=80"}
+      };
+      const quizQuestion = document.getElementById("quizQuestion");
+      const quizOptions = document.getElementById("quizOptions");
+      const quizResult = document.getElementById("quizResult");
+      const quizRestart = document.getElementById("quizRestart");
+      const quizProgressLabel = document.getElementById("quizProgressLabel");
+      const quizDots = document.getElementById("quizDots");
+      let quizStep = 0;
+      let quizAnswers = [];
+      function drawQuiz() {
+        const current = quizQuestions[quizStep];
+        quizProgressLabel.textContent = "QUESTION " + String(quizStep+1).padStart(2,"0") + " / 03";
+        quizDots.replaceChildren();
+        quizQuestions.forEach(function (_,i) {
+          const dot = document.createElement("span");
+          if (i<=quizStep) dot.classList.add("is-done");
+          quizDots.appendChild(dot);
+        });
+        quizQuestion.textContent = current.q;
+        quizOptions.hidden = false;
+        quizResult.hidden = true;
+        quizRestart.hidden = true;
+        quizOptions.replaceChildren();
+        current.choices.forEach(function (choice) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "quiz-option";
+          btn.textContent = choice[0];
+          const arrow = document.createElement("span");
+          arrow.setAttribute("aria-hidden","true");
+          arrow.textContent = "↗";
+          btn.appendChild(arrow);
+          btn.addEventListener("click",function () {
+            quizAnswers.push(choice[1]);
+            burst(btn);
+            quizStep += 1;
+            if (quizStep === quizQuestions.length) finishQuiz();
+            else drawQuiz();
+          });
+          quizOptions.appendChild(btn);
+        });
+      }
+      function finishQuiz() {
+        const scores = {sunny:0,cuddly:0,curious:0,zoomie:0};
+        quizAnswers.forEach(function (answer){ scores[answer] += 1; });
+        const winner = Object.keys(scores).sort(function (a,b){return scores[b]-scores[a];})[0];
+        const result = quizTypes[winner];
+        quizQuestion.textContent = "It's official. You're...";
+        quizProgressLabel.textContent = "RESULT / GOOD DOG ENERGY";
+        quizOptions.hidden = true;
+        quizResult.replaceChildren();
+        const head = document.createElement("p");
+        head.className = "quiz-result-head";
+        head.textContent = "✳ CERTIFIED GOOD DOG ENERGY";
+        const card = document.createElement("div");
+        card.className = "quiz-result-card";
+        const photo = document.createElement("img");
+        photo.src = result.photo;
+        photo.alt = "A dog representing the "+result.title+" personality";
+        photo.loading = "lazy";
+        const copy = document.createElement("div");
+        const title = document.createElement("h3");
+        title.textContent = result.title+"!";
+        const detail = document.createElement("p");
+        detail.textContent = result.text;
+        copy.append(title,detail);
+        card.append(photo,copy);
+        quizResult.append(head,card);
+        quizResult.hidden = false;
+        quizRestart.hidden = false;
+      }
+      quizRestart.addEventListener("click",function(){quizStep=0;quizAnswers=[];drawQuiz();});
+      drawQuiz();
+      document.getElementById("copyrightYear").textContent = String(now.getFullYear());
+    })();
   </script>
 </body>
 </html>
