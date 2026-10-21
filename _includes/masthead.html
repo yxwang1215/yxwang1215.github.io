@@ -33,6 +33,9 @@
             {% if page.url == link.url %}
               {% assign link_is_active = true %}
             {% endif %}
+            {% if link.url == '/tests/' and page.url contains '/tests/' %}
+              {% assign link_is_active = true %}
+            {% endif %}
             <li class="masthead__menu-item">
               <a href="{{ link.url | relative_url }}"{% if link_is_active %} class="is-active" aria-current="page"{% endif %}>{{ link.title }}</a>
             </li>

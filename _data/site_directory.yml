@@ -65,6 +65,17 @@ directories:
         description: "批量 PNG 图片转换与纸张设置"
         url: "/tools/#image/png-to-pdf"
 
+  - id: tests
+    title: "互动测试"
+    url: "/tests/"
+    action: "进入 Test Lab"
+    description: "原创的自我探索与能力倾向测评，未来还将增加更多测试。"
+    keywords: "测试 Test Tests Talent Atlas 天赋 优势 潜能 兴趣 测评 个人 职业 测试题"
+    items:
+      - title: "Talent Atlas · 天赋潜能图谱"
+        description: "八维潜能探索：兴趣驱动、自然上手与近期实践"
+        url: "/tests/talent/"
+
   - id: overleaf
     title: "Overleaf"
     url: "https://overleaf.yxwang1215.top/"

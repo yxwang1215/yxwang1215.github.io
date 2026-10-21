@@ -1,0 +1,176 @@
+---
+layout: default
+permalink: /tests/talent/
+title: "Talent Atlas | 天赋潜能图谱"
+excerpt: "An original, exploratory strengths assessment."
+author_profile: false
+wide: true
+tests_page: true
+talent_assessment: true
+page_class: "talent-atlas-page"
+---
+<div id="talent-atlas" class="talent-app" lang="zh-CN">
+  <div class="ta-page-top">
+    <nav class="ta-breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ '/tests/' | relative_url }}">Test</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Talent Atlas</span>
+    </nav>
+    <button class="ta-language-switch" type="button" id="ta-language" aria-label="Switch language">English</button>
+  </div>
+
+  <header class="ta-hero">
+    <div class="ta-hero-copy">
+      <span class="tl-eyebrow"><span class="tl-eyebrow-dot" aria-hidden="true"></span> TEST LAB / 001 · TALENT ATLAS</span>
+      <h1 data-zh="找到你的优势方向。" data-en="Find your strengths.">找到你的优势方向。</h1>
+      <p class="ta-hero-title-en">Discover what energizes you, what comes naturally, and what you have practiced.</p>
+      <p class="ta-hero-description" data-zh="不是给你贴上“天才”或“普通”的标签，而是从三个角度整理个人优势线索，找到下一步值得投入的事情。" data-en="Not a label for innate talent. Explore three signals of your strengths and decide what to try next.">不是给你贴上“天才”或“普通”的标签，而是从三个角度整理个人优势线索，找到下一步值得投入的事情。</p>
+      <div class="ta-hero-stats" aria-label="Test overview">
+        <span><strong>08</strong><small data-zh="探索维度" data-en="Dimensions">探索维度</small></span>
+        <span><strong>03</strong><small data-zh="证据信号" data-en="Signal types">证据信号</small></span>
+        <span><strong>48 / 72</strong><small data-zh="原创题目" data-en="Original items">原创题目</small></span>
+      </div>
+    </div>
+    <div class="ta-hero-illustration" aria-hidden="true">
+      <div class="ta-atlas-ring ta-atlas-ring--outer"></div>
+      <div class="ta-atlas-ring ta-atlas-ring--middle"></div>
+      <div class="ta-atlas-ring ta-atlas-ring--inner"></div>
+      <span class="ta-atlas-point ta-atlas-point--a"></span>
+      <span class="ta-atlas-point ta-atlas-point--b"></span>
+      <span class="ta-atlas-point ta-atlas-point--c"></span>
+      <span class="ta-atlas-point ta-atlas-point--d"></span>
+      <span class="ta-atlas-glyph">✳</span>
+    </div>
+  </header>
+
+  <div class="ta-content">
+    <section id="ta-intro" class="ta-stage" aria-labelledby="ta-intro-title">
+      <div class="ta-section-header">
+        <div><span class="tl-small-heading">START YOUR EXPLORATION</span>
+          <h2 id="ta-intro-title" data-zh="选择你的探索深度" data-en="Choose your pace">选择你的探索深度</h2>
+        </div>
+        <p data-zh="没有正确答案，按真实经历作答即可。" data-en="No correct answers. Reflect on your actual experience.">没有正确答案，按真实经历作答即可。</p>
+      </div>
+      <div class="ta-intro-columns">
+        <div class="ta-mode-stack">
+          <button type="button" data-start-mode="full" class="ta-mode-card ta-mode-card--recommended">
+            <span class="ta-mode-top"><span class="ta-recommended" data-zh="推荐 · 更完整" data-en="Recommended · In depth">推荐 · 更完整</span><span class="ta-mode-numeral">01</span></span>
+            <strong data-zh="完整探索" data-en="Full assessment">完整探索</strong>
+            <span class="ta-mode-description" data-zh="72 个情境陈述 · 每种信号包含更多问题，有利于降低单题偶然影响。" data-en="72 statements · More items per signal to reduce the impact of any one answer.">72 个情境陈述 · 每种信号包含更多问题，有利于降低单题偶然影响。</span>
+            <span class="ta-mode-bottom"><span data-zh="预计 12–16 分钟" data-en="About 12–16 minutes">预计 12–16 分钟</span><span class="ta-mode-arrow">→</span></span>
+          </button>
+          <button type="button" data-start-mode="quick" class="ta-mode-card">
+            <span class="ta-mode-top"><span class="ta-quick-label" data-zh="轻量体验" data-en="A shorter introduction">轻量体验</span><span class="ta-mode-numeral">02</span></span>
+            <strong data-zh="快速探索" data-en="Quick assessment">快速探索</strong>
+            <span class="ta-mode-description" data-zh="48 个情境陈述 · 覆盖同样八个维度，结果更适合初步自我观察。" data-en="48 statements · Covers the same eight dimensions for an initial reflection.">48 个情境陈述 · 覆盖同样八个维度，结果更适合初步自我观察。</span>
+            <span class="ta-mode-bottom"><span data-zh="预计 8–10 分钟" data-en="About 8–10 minutes">预计 8–10 分钟</span><span class="ta-mode-arrow">→</span></span>
+          </button>
+          <div class="ta-resume" id="ta-resume" hidden>
+            <span class="ta-resume-spark" aria-hidden="true">↺</span>
+            <span id="ta-resume-text">上次的进度保存在本地。</span>
+            <button type="button" id="ta-resume-button">继续测试</button>
+            <button type="button" id="ta-clear" class="ta-resume-clear" data-zh="清除" data-en="Delete">清除</button>
+          </div>
+        </div>
+        <aside class="ta-explainer">
+          <span class="tl-small-heading">HOW IT WORKS</span>
+          <h3 data-zh="三个视角，比一个标签更有意义。" data-en="Three lenses. More than one label.">三个视角，比一个标签更有意义。</h3>
+          <div class="ta-signal"><span class="ta-signal-icon ta-signal-icon--pink">01</span>
+            <div><strong data-zh="兴趣驱动" data-en="Motivation">兴趣驱动</strong><p data-zh="哪些活动会让你愿意投入时间？" data-en="What activities make you want to invest time?">哪些活动会让你愿意投入时间？</p></div>
+          </div>
+          <div class="ta-signal"><span class="ta-signal-icon ta-signal-icon--blue">02</span>
+            <div><strong data-zh="自然上手" data-en="Perceived ease">自然上手</strong><p data-zh="你感觉哪些事情比较容易开始和处理？" data-en="What tasks feel easier to start and handle?">你感觉哪些事情比较容易开始和处理？</p></div>
+          </div>
+          <div class="ta-signal"><span class="ta-signal-icon ta-signal-icon--green">03</span>
+            <div><strong data-zh="近期实践" data-en="Recent practice">近期实践</strong><p data-zh="过去六个月，你实际做过什么？" data-en="What have you actually done in the past six months?">过去六个月，你实际做过什么？</p></div>
+          </div>
+          <div class="ta-notice"><span aria-hidden="true">ⓘ</span><p data-zh="仅供自我探索：尚未经过独立样本的信效度验证，不适用于招聘筛选、诊断或高风险决策。分数不是人群百分位。" data-en="For self-reflection only. Not psychometrically validated in an independent sample; do not use for hiring, diagnosis, or high-stakes decisions. Scores are not percentiles.">仅供自我探索：尚未经过独立样本的信效度验证，不适用于招聘筛选、诊断或高风险决策。分数不是人群百分位。</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="ta-quiz" class="ta-stage" hidden aria-labelledby="ta-quiz-heading">
+      <div class="ta-quiz-header">
+        <button type="button" id="ta-exit" class="ta-text-button" data-zh="← 保存并退出" data-en="← Save & exit">← 保存并退出</button>
+        <span class="tl-small-heading">TALENT ATLAS · ASSESSMENT</span>
+      </div>
+      <div class="ta-quiz-title-row">
+        <div><h2 id="ta-quiz-heading" tabindex="-1">深入探索你的优势</h2>
+          <p data-zh="按你通常的真实状态作答，而不是你希望自己成为的样子。" data-en="Answer based on your usual behavior, not the person you hope to be.">按你通常的真实状态作答，而不是你希望自己成为的样子。</p></div>
+        <span id="ta-page-count" class="ta-page-count">1 / 12</span>
+      </div>
+      <div id="ta-progress" class="ta-progress" role="progressbar" aria-label="Assessment completion" aria-valuemin="0" aria-valuemax="72" aria-valuenow="0"><div id="ta-progress-value"></div></div>
+      <div id="ta-counter" class="ta-counter" aria-live="polite">已回答 0 / 72 题</div>
+      <form id="ta-form" autocomplete="off" aria-label="Talent Atlas items"><div id="ta-question-list" class="ta-question-list"></div></form>
+      <div class="ta-quiz-actions">
+        <button type="button" id="ta-previous" class="ta-button ta-button--secondary">← <span data-zh="上一页" data-en="Previous">上一页</span></button>
+        <p id="ta-next-hint" class="ta-next-hint" aria-live="polite"></p>
+        <button type="button" id="ta-next" class="ta-button ta-button--primary" disabled>继续下一页 →</button>
+      </div>
+      <p class="ta-quiz-privacy" data-zh="答案自动保存在当前浏览器；不需要注册或填写个人信息。" data-en="Answers are saved in this browser. No account or personal details required.">答案自动保存在当前浏览器；不需要注册或填写个人信息。</p>
+    </section>
+
+    <section id="ta-results" class="ta-stage" hidden aria-labelledby="ta-result-title">
+      <div class="ta-result-hero">
+        <span class="tl-small-heading">YOUR EXPLORATION REPORT · V1.0</span>
+        <h2 id="ta-result-title" tabindex="-1">你的天赋探索图谱</h2>
+        <p id="ta-result-summary"></p>
+        <span id="ta-result-pill" class="ta-result-pill"></span>
+      </div>
+      <div class="ta-report-grid">
+        <section class="ta-chart-panel" aria-labelledby="ta-radar-title">
+          <div class="ta-panel-header"><div><span class="tl-small-heading">PROFILE</span>
+            <h3 id="ta-radar-title" data-zh="八维优势图谱" data-en="Your eight dimensions">八维优势图谱</h3></div></div>
+          <div id="ta-radar"></div>
+          <p class="ta-chart-caption" data-zh="图形表示本次主观评分的相对分布。每个数值为 1–5 评分转换后的 0–100 分，不是百分位排名。" data-en="The chart shows your self-ratings. Values are 1–5 item means rescaled to 0–100, not percentile ranks.">图形表示本次主观评分的相对分布。每个数值为 1–5 评分转换后的 0–100 分，不是百分位排名。</p>
+        </section>
+        <section class="ta-scores-panel" aria-labelledby="ta-score-title">
+          <div class="ta-panel-header"><div><span class="tl-small-heading">SCORE BREAKDOWN</span>
+            <h3 id="ta-score-title" data-zh="各维度得分" data-en="Dimension scores">各维度得分</h3></div></div>
+          <div id="ta-scores" class="ta-score-list"></div>
+        </section>
+      </div>
+
+      <section class="ta-results-interpretation" aria-labelledby="ta-interpret-title">
+        <span class="tl-small-heading">INTERPRETATION</span>
+        <h3 id="ta-interpret-title" data-zh="如何理解这些分数？" data-en="How should you read this?">如何理解这些分数？</h3>
+        <p id="ta-comparison"></p>
+        <p id="ta-growth"></p>
+        <p id="ta-quality" class="ta-quality" hidden></p>
+        <p data-zh="综合分 = 兴趣驱动 × 40% + 自然上手 × 30% + 近期实践 × 30%。权重为探索性设计选择，未进行人群校准；不代表智力、资质或未来成功概率。" data-en="Composite = 40% motivation + 30% perceived ease + 30% recent practice. These exploratory weights have not been calibrated and do not indicate intelligence, aptitude, or future success.">综合分 = 兴趣驱动 × 40% + 自然上手 × 30% + 近期实践 × 30%。权重为探索性设计选择，未进行人群校准；不代表智力、资质或未来成功概率。</p>
+      </section>
+
+      <section class="ta-next-steps" aria-labelledby="ta-steps-title">
+        <span class="tl-small-heading">TURN INSIGHT INTO ACTION</span>
+        <h3 id="ta-steps-title" data-zh="为排名靠前的方向做一次小实验" data-en="Test your leading directions in the real world">为排名靠前的方向做一次小实验</h3>
+        <p data-zh="这些建议是小规模验证任务。完成后可以对照投入感、作品质量与他人反馈，而不是只依赖问卷。" data-en="Use small experiments to compare engagement, work quality, and external feedback—rather than relying only on a questionnaire.">这些建议是小规模验证任务。完成后可以对照投入感、作品质量与他人反馈，而不是只依赖问卷。</p>
+        <div id="ta-experiments" class="ta-experiment-grid"></div>
+      </section>
+      <div class="ta-result-actions">
+        <button type="button" id="ta-save-json" class="ta-button ta-button--secondary" data-zh="↓ 保存报告数据" data-en="↓ Export report JSON">↓ 保存报告数据</button>
+        <button type="button" id="ta-copy" class="ta-button ta-button--secondary" data-zh="复制摘要" data-en="Copy summary">复制摘要</button>
+        <button type="button" id="ta-print" class="ta-button ta-button--secondary" data-zh="打印 / 导出 PDF" data-en="Print / Save PDF">打印 / 导出 PDF</button>
+        <button type="button" id="ta-restart" class="ta-button ta-button--text" data-zh="重新测试 ↻" data-en="Start over ↻">重新测试 ↻</button>
+      </div>
+      <p class="ta-report-privacy" data-zh="导出的 JSON 仅包含汇总分数，不包含逐题回答。结果也会暂存于本浏览器；回到测试首页后可手动删除。" data-en="Exported JSON includes aggregate scores, not item-level answers. Local progress can be deleted from the assessment start screen.">导出的 JSON 仅包含汇总分数，不包含逐题回答。结果也会暂存于本浏览器；回到测试首页后可手动删除。</p>
+    </section>
+  </div>
+
+  <section class="ta-methodology" aria-labelledby="ta-method-title">
+    <div><span class="tl-small-heading">METHODOLOGY & SOURCES</span>
+      <h2 id="ta-method-title" data-zh="设计依据与边界" data-en="Methods & limitations">设计依据与边界</h2>
+      <p data-zh="原创测评，借鉴经典研究的设计思想，不复制或冒用任何机构的正式量表。八个维度为本项目的探索性分类，不是经过统计验证的潜在因子。" data-en="An original exploratory questionnaire inspired by established research, not a reproduction of any official assessment. The eight dimensions are conceptual categories, not validated latent factors.">原创测评，借鉴经典研究的设计思想，不复制或冒用任何机构的正式量表。八个维度为本项目的探索性分类，不是经过统计验证的潜在因子。</p>
+      <p data-zh="题目作答、进度保存及报告计算均在本地浏览器执行，不设置问卷上传接口。站点通用的访问统计若启用，仍可能记录页面访问。" data-en="Responses, progress and scoring are handled locally; there is no answer-submission endpoint. General site analytics, if enabled, may still record page visits.">题目作答、进度保存及报告计算均在本地浏览器执行，不设置问卷上传接口。站点通用的访问统计若启用，仍可能记录页面访问。</p>
+    </div>
+    <div class="ta-source-box"><span class="tl-small-heading">BACKGROUND READING ↗</span>
+      <a href="https://www.onetcenter.org/reports/IP_Manual.html" target="_blank" rel="noopener noreferrer">O*NET Interest Profiler · vocational interests</a>
+      <a href="https://www.gallup.com/cliftonstrengths/en/253715/cliftonstrengths-how-it-works.aspx" target="_blank" rel="noopener noreferrer">Gallup CliftonStrengths · talent themes</a>
+      <a href="https://www.viacharacter.org/researchers/assessments/guidelines" target="_blank" rel="noopener noreferrer">VIA · character strengths</a>
+      <a href="https://ipip.ori.org/" target="_blank" rel="noopener noreferrer">IPIP · personality item pool</a>
+      <a href="https://www.apa.org/practice/guidelines/psychological-evaluations.html" target="_blank" rel="noopener noreferrer">APA · validity and reliability</a>
+    </div>
+  </section>
+  <footer class="tl-footer"><a href="{{ '/tests/' | relative_url }}">← All tests</a><span>Talent Atlas v1.0 · An exploratory self-reflection tool</span></footer>
+</div>
