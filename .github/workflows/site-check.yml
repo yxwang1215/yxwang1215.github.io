@@ -12,6 +12,7 @@ on:
       - "images/works/**"
       - "tests/test_home_works.py"
       - "tests/test_home_experience.py"
+      - "tests/talent-atlas.test.cjs"
       - "Gemfile"
       - "Gemfile.lock"
   workflow_dispatch:
@@ -29,6 +30,7 @@ jobs:
         run: |
           python tests/test_home_works.py
           python tests/test_home_experience.py
+          node --test tests/talent-atlas.test.cjs
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
