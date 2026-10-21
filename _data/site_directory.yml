@@ -76,6 +76,26 @@ directories:
         description: "八维潜能探索：兴趣驱动、自然上手与近期实践"
         url: "/tests/talent/"
 
+  - id: dog
+    title: "Good Dog Club"
+    url: "/dog/"
+    action: "进入狗狗乐园"
+    description: "一个阳光、可爱又有设计感的狗狗主题小站：狗狗写真、每日萌犬、照片墙和性格测试。"
+    keywords: "Dog dog 狗 狗狗 可爱 宠物 摄影 puppy puppies cute paw good dog club gallery 萌犬 测试"
+    items:
+      - title: "Good Dog Club · 狗狗乐园"
+        description: "独立设计的狗狗主题首页"
+        url: "/dog/"
+      - title: "每日狗狗 · Pup of the Day"
+        description: "认识今天的快乐小狗"
+        url: "/dog/#daily"
+      - title: "狗狗照片墙 · Pawtraits"
+        description: "点击浏览可爱的狗狗写真"
+        url: "/dog/#gallery"
+      - title: "狗狗性格测试"
+        description: "3 题测出你的 Dog Energy"
+        url: "/dog/#quiz"
+
   - id: overleaf
     title: "Overleaf"
     url: "https://overleaf.yxwang1215.top/"
