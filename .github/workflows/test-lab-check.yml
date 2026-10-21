@@ -1,0 +1,50 @@
+name: Test Lab check
+on:
+  pull_request:
+    paths:
+      - '_pages/**'
+      - '_includes/personality-assessment.html'
+      - '_layouts/default.html'
+      - '_data/tests.yml'
+      - 'assets/css/test-lab.css'
+      - 'assets/js/personality*.js'
+      - 'assets/js/test-lab.js'
+      - 'tests/**'
+      - '.github/workflows/test-lab-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run all JavaScript regression tests
+        run: node --test tests/*.test.cjs tests/*.test.mjs
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Build the real Jekyll site
+        run: bundle exec jekyll build --trace
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser testing dependencies
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Complete all assessment flows and responsive checks
+        run: python tests/test-lab-e2e.py _site
+      - name: Save reports and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-lab-verification
+          path: artifacts/test-lab/
+          retention-days: 7

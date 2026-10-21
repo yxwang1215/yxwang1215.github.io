@@ -1,0 +1,6 @@
+<div id="personality-app" class="personality-app" data-inventory="{{ page.inventory }}" lang="zh-CN">
+  <nav class="ta-breadcrumb" aria-label="当前位置"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><a href="{{ '/tests/' | relative_url }}">Test</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.assessment_name }}</span></nav>
+  <div id="personality-view"><p>正在准备测评内容…</p></div>
+  <noscript><p>这项测试需要启用 JavaScript 才能本地计分。答案不会提交到服务器。</p></noscript>
+  <footer class="tl-footer"><a href="{{ '/tests/' | relative_url }}">← 返回全部测评</a><a href="{{ '/tests/talent/' | relative_url }}">天赋潜能图谱 ↗</a><span>自我探索工具 · 非临床测评</span></footer>
+</div>
