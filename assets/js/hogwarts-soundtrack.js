@@ -22,6 +22,13 @@
       file: "chamber-of-secrets.mp3"
     },
     {
+      path: "/hogwarts/sorting-ceremony/",
+      title: "Entry into the Great Hall and the Banquet",
+      composer: "John Williams · Philosopher's Stone (2001)",
+      spotify: "0UDSwgomgI5bK1x1eYeBez",
+      file: "sorting-ceremony.mp3"
+    },
+    {
       path: "/hogwarts/great-hall/",
       title: "Entry into the Great Hall and the Banquet",
       composer: "John Williams · Philosopher's Stone (2001)",
