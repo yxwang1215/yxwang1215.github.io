@@ -1,0 +1,32 @@
+/* Responsive AI scene photography. Original entrances, walls and hidden interaction surfaces are retained. */
+.hgw-scene[data-room],.hgw-castle-scene[data-room]{isolation:isolate}
+.hgw-scene[data-room]::before,.hgw-castle-scene[data-room]::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background-image:var(--cinema-image,none);background-position:center;background-size:cover;background-repeat:no-repeat;filter:saturate(.91) brightness(.8)}
+.hgw-scene[data-room="gate"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
+.hgw-scene[data-room="entry"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/entrance-hall.webp")}
+.hgw-scene[data-room="great"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/great-hall.webp")}
+.hgw-scene[data-room="staircase"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/grand-staircase.webp")}
+.hgw-scene[data-room="astrStair"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/grand-staircase.webp")}
+.hgw-scene[data-room="library"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/library.webp")}
+.hgw-scene[data-room="oldArchive"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/library.webp")}
+.hgw-scene[data-room="vault"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/library.webp")}
+.hgw-scene[data-room="potions"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/potions.webp")}
+.hgw-scene[data-room="pantry"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/potions.webp")}
+.hgw-scene[data-room="bathroom"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/myrtles-bathroom.webp")}
+.hgw-scene[data-room="baths"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/myrtles-bathroom.webp")}
+.hgw-scene[data-room="astrTower"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/astronomy-tower.webp")}
+.hgw-scene[data-room="owlery"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/astronomy-tower.webp")}
+.hgw-scene[data-room="ramparts"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/astronomy-tower.webp")}
+.hgw-scene[data-room="forest"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
+.hgw-scene[data-room="clearing"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
+.hgw-scene[data-room="hut"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
+.hgw-scene[data-room="paddock"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
+.hgw-scene[data-room="quidditch"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/quidditch.webp")}
+.hgw-scene[data-room="flying"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/quidditch.webp")}
+.hgw-scene[data-room="chamber"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/chamber-of-secrets.webp")}
+.hgw-scene[data-room="sluice"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/chamber-of-secrets.webp")}
+.hgw-scene[data-room="sanctum"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/chamber-of-secrets.webp")}
+.hgw-scene[data-room] .hgw-door,.hgw-scene[data-room] .hgw-secret-target,.hgw-scene[data-room] .hgw-prop--sorting-hat,.hgw-castle-scene[data-room] .hgw-castle-threshold{z-index:25}
+.hgw-scene[data-room] .hgw-decoration{z-index:21}
+.hgw-scene[data-room] .hgw-dust{z-index:24}
+.hgw-scene[data-room] .hgw-door::before{opacity:.75}
+.hgw-scene[data-room] .hgw-door--s::before{opacity:.3}
