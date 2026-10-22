@@ -7,7 +7,9 @@ on:
       - "_includes/hogwarts-explorer.html"
       - "assets/js/hogwarts-*.js"
       - "assets/css/hogwarts-explore.css"
+      - "assets/css/hogwarts-map.css"
       - "tests/hogwarts-maze-check.mjs"
+      - "tests/hogwarts-map-check.mjs"
       - ".github/workflows/hogwarts-maze-check.yml"
   pull_request:
     paths:
@@ -15,7 +17,9 @@ on:
       - "_includes/hogwarts-explorer.html"
       - "assets/js/hogwarts-*.js"
       - "assets/css/hogwarts-explore.css"
+      - "assets/css/hogwarts-map.css"
       - "tests/hogwarts-maze-check.mjs"
+      - "tests/hogwarts-map-check.mjs"
       - ".github/workflows/hogwarts-maze-check.yml"
   workflow_dispatch:
 
@@ -31,3 +35,5 @@ jobs:
           node-version: "20"
       - name: Check route graph and static pages
         run: node tests/hogwarts-maze-check.mjs
+      - name: Check Hogwarts parchment map
+        run: node tests/hogwarts-map-check.mjs

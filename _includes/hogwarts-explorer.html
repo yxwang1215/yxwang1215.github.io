@@ -52,13 +52,21 @@
   <link rel="stylesheet" href="/assets/css/hogwarts-cinematic.css?v=20261022-bright-day-8">
   <script src="/assets/js/hogwarts-explore.js?v=20261022-scenes-v1" defer></script>
   <link rel="stylesheet" href="/assets/css/hogwarts-soundtrack.css?v=20261022-maze-v3">
+  <link rel="stylesheet" href="/assets/css/hogwarts-map.css?v=20261022-map-v1">
+  <script src="/assets/js/hogwarts-map.js?v=20261022-map-v1" defer></script>
 </head>
 <body class="hgw-body">
   <a class="hgw-skip" href="#hgw-stage">Skip to the castle</a>
   <div id="hgw-shell" class="hgw-shell">
     <header class="hgw-mast">
       <div class="hgw-brand"><span class="hgw-brand-symbol" aria-hidden="true">✧</span><span>HOGWARTS · THE UNMAPPED WORLD</span></div>
-      <div class="hgw-mast-note">Wanderings <span id="hgw-visited">01 / 49</span></div>
+      <div class="hgw-mast-tools">
+  <div class="hgw-mast-note">Wanderings <span id="hgw-visited">01 / 49</span></div>
+  <button type="button" id="hmap-trigger" class="hmap-trigger" aria-controls="hmap-dialog" aria-haspopup="dialog" aria-expanded="false" title="Unfold the Hogwarts map (M)">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 7l9-3 9 4 8-3v20l-8 3-9-4-9 3z"/><path d="M12 4v20m9-16v20M12 17l4-5 4 7m-4-7v8"/></svg>
+    <span>THE MAP</span>
+  </button>
+</div>
     </header>
     <main class="hgw-layout" id="welcome">
       <section class="hgw-copy" aria-label="A room in the castle">
@@ -82,6 +90,54 @@
     </footer>
     <div id="hgw-announce" class="hgw-sr" aria-live="polite" aria-atomic="true"></div>
   </div>
+<div id="hmap-dialog" class="hmap-overlay" role="dialog" aria-modal="true" aria-labelledby="hmap-heading" aria-describedby="hmap-intro" hidden>
+  <div class="hmap-frame">
+    <header class="hmap-head">
+      <div class="hmap-seal" aria-hidden="true">✣</div>
+      <div>
+        <div class="hmap-eyebrow">Hogwarts · An explorer's chart</div>
+        <h2 class="hmap-heading" id="hmap-heading">The <em>Marauder's Map</em></h2>
+        <p class="hmap-intro" id="hmap-intro">The parchment remembers where your feet have been.</p>
+      </div>
+      <button type="button" class="hmap-close" id="hmap-close" aria-label="Fold the map" title="Close map (Esc)">×</button>
+    </header>
+    <div class="hmap-body">
+      <section class="hmap-main" aria-label="Hogwarts map">
+        <div class="hmap-chart-top">
+          <div><h3 class="hmap-area-title" id="hmap-area-title">The Grounds</h3>
+            <p class="hmap-area-subtitle" id="hmap-area-subtitle"></p></div>
+          <span class="hmap-area-count" id="hmap-progress"></span>
+        </div>
+        <div class="hmap-tabs" id="hmap-tabs" role="tablist" aria-label="Hogwarts map areas"></div>
+        <div class="hmap-scroll" id="hmap-scroll" role="tabpanel" tabindex="0" aria-label="Scroll the parchment map to explore locations">
+          <div class="hmap-canvas" id="hmap-canvas">
+            <svg class="hmap-illustration" id="hmap-illustration" viewBox="0 0 1000 640" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <svg class="hmap-paths" id="hmap-paths" viewBox="0 0 1000 640" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <div class="hmap-points" id="hmap-points"></div>
+          </div>
+        </div>
+        <div class="hmap-legend">
+          <span><i class="hmap-swatch is-here"></i>You are here</span>
+          <span><i class="hmap-swatch"></i>Explored</span>
+          <span><i class="hmap-swatch is-unknown"></i>Unexplored passage</span>
+          <span class="hmap-footnote">The chart cannot take you through a door.</span>
+        </div>
+      </section>
+      <aside class="hmap-info" aria-label="Selected location details">
+        <div class="hmap-info-top"><span class="hmap-info-number">FOOTPRINTS IN INK</span><span class="hmap-info-rosette" aria-hidden="true">✣</span></div>
+        <span class="hmap-smallcap" id="hmap-room-subtitle"></span>
+        <h3 class="hmap-room-title" id="hmap-room-title">Uncharted territory</h3>
+        <p class="hmap-room-text" id="hmap-room-description"></p>
+        <div class="hmap-divider" aria-hidden="true"><i>✣</i></div>
+        <p class="hmap-room-route" id="hmap-room-steps"></p>
+        <p class="hmap-room-neighbours" id="hmap-room-neighbours"></p>
+        <button type="button" class="hmap-locate" id="hmap-locate">FIND MY FOOTSTEPS</button>
+      </aside>
+    </div>
+    <footer class="hmap-footer"><span>Not every corridor appears before you walk it.</span>
+      <span><kbd>M</kbd> to open or fold · <kbd>Esc</kbd> to close</span></footer>
+  </div>
+</div>
   <script src="/assets/js/hogwarts-soundtrack.js?v=20261022-maze-v3" defer></script>
 </body>
 </html>
