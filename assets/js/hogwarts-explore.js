@@ -19,7 +19,7 @@
   var castleArtwork="<svg class=\"hgw-castle-svg\" aria-hidden=\"true\" viewBox=\"0 0 1440 650\" xmlns=\"http://www.w3.org/2000/svg\">\n        <defs>\n          <linearGradient id=\"hill\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop stop-color=\"#152730\"/><stop offset=\"1\" stop-color=\"#081219\"/></linearGradient>\n          <linearGradient id=\"tower\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop stop-color=\"#21343a\"/><stop offset=\"1\" stop-color=\"#09151e\"/></linearGradient>\n          <linearGradient id=\"water\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop stop-color=\"#29444a\"/><stop offset=\"1\" stop-color=\"#07131b\"/></linearGradient>\n          <filter id=\"window-glow\"><feGaussianBlur stdDeviation=\"3\"/></filter>\n        </defs>\n        <path d=\"M0 410Q180 360 350 415T700 405T1100 393T1440 420V650H0Z\" fill=\"#17262b\" opacity=\".75\"/>\n        <path d=\"M0 507Q210 445 375 470Q555 410 760 462Q985 395 1160 467Q1285 441 1440 486V650H0Z\" fill=\"url(#hill)\"/>\n        <path d=\"M405 459L473 412L552 430L618 384L704 411L767 372L868 408L955 379L1049 434L1088 445L1068 526H397Z\" fill=\"#0b161c\"/>\n        <g fill=\"url(#tower)\" stroke=\"#314247\" stroke-width=\"2\">\n          <path d=\"M487 311h111v209H487zM480 311l62-66 63 66z\"/>\n          <path d=\"M610 270h116v252H610zM601 270l67-80 67 80z\"/>\n          <path d=\"M733 321h150v200H733zM719 321l89-75 89 75z\"/>\n          <path d=\"M893 258h78v260h-78zM885 258l47-100 47 100z\"/>\n          <path d=\"M1003 352h67v170h-67zM995 352l41-80 42 80z\"/>\n          <path d=\"M410 369h62v147h-62zM402 369l39-72 39 72z\"/>\n          <path d=\"M553 374h48v151h-48zM544 374l33-81 33 81z\"/>\n          <path d=\"M810 218h55v290h-55zM798 218l39-102 40 102z\"/>\n          <path d=\"M649 155h39v356h-39zM639 155l29-99 29 99z\"/>\n        </g>\n        <g fill=\"#131e22\" stroke=\"#344547\" stroke-width=\"2\">\n          <rect x=\"481\" y=\"393\" width=\"410\" height=\"126\"/>\n          <path d=\"M478 392l66-55 68 55 64-50 57 50 74-61 86 61z\"/>\n        </g>\n        <g fill=\"#e5bc73\">\n          <rect x=\"656\" y=\"180\" width=\"8\" height=\"19\" rx=\"4\"/><rect x=\"673\" y=\"180\" width=\"8\" height=\"19\" rx=\"4\"/>\n          <rect x=\"822\" y=\"256\" width=\"8\" height=\"19\" rx=\"4\"/><rect x=\"845\" y=\"256\" width=\"8\" height=\"19\" rx=\"4\"/>\n          <rect x=\"919\" y=\"303\" width=\"9\" height=\"22\" rx=\"4\"/><rect x=\"941\" y=\"303\" width=\"9\" height=\"22\" rx=\"4\"/>\n          <rect x=\"515\" y=\"337\" width=\"8\" height=\"18\" rx=\"4\"/><rect x=\"555\" y=\"337\" width=\"8\" height=\"18\" rx=\"4\"/>\n          <rect x=\"640\" y=\"305\" width=\"9\" height=\"19\" rx=\"4\"/><rect x=\"685\" y=\"305\" width=\"9\" height=\"19\" rx=\"4\"/>\n          <rect x=\"760\" y=\"345\" width=\"11\" height=\"22\" rx=\"5\"/><rect x=\"791\" y=\"345\" width=\"11\" height=\"22\" rx=\"5\"/><rect x=\"834\" y=\"345\" width=\"11\" height=\"22\" rx=\"5\"/>\n          <rect x=\"422\" y=\"389\" width=\"9\" height=\"20\" rx=\"4\"/><rect x=\"448\" y=\"389\" width=\"9\" height=\"20\" rx=\"4\"/>\n          <rect x=\"1019\" y=\"383\" width=\"8\" height=\"19\" rx=\"4\"/><rect x=\"1043\" y=\"383\" width=\"8\" height=\"19\" rx=\"4\"/>\n          <rect x=\"510\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/><rect x=\"546\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/><rect x=\"584\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/>\n          <rect x=\"634\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/><rect x=\"670\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/><rect x=\"706\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/>\n          <rect x=\"759\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/><rect x=\"795\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/><rect x=\"831\" y=\"415\" width=\"10\" height=\"23\" rx=\"4\"/>\n          <rect x=\"546\" y=\"463\" width=\"9\" height=\"18\" rx=\"4\"/><rect x=\"590\" y=\"463\" width=\"9\" height=\"18\" rx=\"4\"/><rect x=\"634\" y=\"463\" width=\"9\" height=\"18\" rx=\"4\"/><rect x=\"677\" y=\"463\" width=\"9\" height=\"18\" rx=\"4\"/><rect x=\"775\" y=\"463\" width=\"9\" height=\"18\" rx=\"4\"/><rect x=\"820\" y=\"463\" width=\"9\" height=\"18\" rx=\"4\"/>\n        </g>\n        <g filter=\"url(#window-glow)\" opacity=\".46\" fill=\"#f2c57e\">\n          <ellipse cx=\"665\" cy=\"190\" rx=\"12\" ry=\"18\"/><ellipse cx=\"837\" cy=\"265\" rx=\"22\" ry=\"20\"/><ellipse cx=\"932\" cy=\"311\" rx=\"22\" ry=\"20\"/><ellipse cx=\"669\" cy=\"427\" rx=\"38\" ry=\"19\"/><ellipse cx=\"801\" cy=\"430\" rx=\"55\" ry=\"18\"/>\n        </g>\n        <path d=\"M0 520Q310 498 640 521T1440 518V650H0Z\" fill=\"url(#water)\" opacity=\".9\"/>\n        <g fill=\"#d9b47a\" opacity=\".12\"><path d=\"M610 540h125l-28 85h-70z\"/><path d=\"M798 533h81l-13 77h-62z\"/><path d=\"M897 537h76l-12 66h-52z\"/></g>\n        <path d=\"M0 604Q240 580 470 603T900 602T1440 608V650H0Z\" fill=\"#071219\"/>\n        <path d=\"M87 590q27-22 52 0q-21-8-34 7zM1106 574q38-32 76 0q-33-11-51 9z\" fill=\"#101f25\"/>\n      </svg>";
   var outsideKinds=["exterior","grounds","bridge","lake","forest","hut","quidditch","greenhouse","herbology"];
   var names={n:"north",e:"east",s:"south",w:"west"};
-  var current=null,avatar={x:50,y:84},walkTarget=null,frame=null,busy=false,remembered={};
+  var current=null,avatar={x:50,y:84},walkTarget=null,frame=null,busy=false,remembered={},ceremonyArmed=false;
   function safe(value){
     return String(value==null?"":value).replace(/[&<>"']/g,function(ch){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
@@ -148,7 +148,7 @@
   function enterRoom(id,opts){
     opts=opts||{};
     var room=atlas.rooms[id];if(!room)return;
-    stopWalk();current=room;busy=false;
+    stopWalk();current=room;busy=false;ceremonyArmed=false;
     avatar=opts.spawn||{x:50,y:room.id==="gate"?92:73};
     var region=room.path.indexOf("/grounds/")>=0?"THE GROUNDS":
       room.path.indexOf("/dungeons/")>=0?"BENEATH THE CASTLE":
@@ -213,7 +213,7 @@
       }));
       persist();
     }catch(error){
-      busy=false;
+      busy=false;ceremonyArmed=false;
       observation.textContent="The ancient door cannot open without browser session storage.";
       observation.classList.add("is-visible");
       return false;
@@ -225,8 +225,8 @@
     return true;
   }
   function checkCeremony(){
-    return !!(current&&current.id==="great"&&
-      Math.hypot(avatar.x-50,avatar.y-58)<=9&&visitSortingCeremony());
+    return !!(ceremonyArmed&&current&&current.id==="great"&&
+      Math.hypot(avatar.x-65,avatar.y-67)<=7&&visitSortingCeremony());
   }
   function ambientLine(){
     if(!current||remembered[current.id])return;
@@ -259,7 +259,7 @@
   }
   function move(dx,dy){
     if(busy||!current)return;
-    stopWalk();
+    stopWalk();ceremonyArmed=true;
     avatar.x=Math.max(7,Math.min(93,avatar.x+dx));
     avatar.y=Math.max(23,Math.min(93,avatar.y+dy));
     syncAvatar(true);
@@ -284,9 +284,9 @@
     ambientLine();
     frame=window.requestAnimationFrame(tickAuto);
   }
-  function goTo(x,y){
+  function goTo(x,y,ceremony){
     if(busy)return;
-    stopWalk();walkTarget={x:Math.max(7,Math.min(93,x)),y:Math.max(23,Math.min(93,y))};
+    stopWalk();ceremonyArmed=!!ceremony;walkTarget={x:Math.max(7,Math.min(93,x)),y:Math.max(23,Math.min(93,y))};
     frame=window.requestAnimationFrame(tickAuto);
   }
   function clickOnScene(event){
@@ -305,13 +305,13 @@
     }
     var ceremony=event.target.closest("[data-ceremony]");
     if(ceremony&&host.contains(ceremony)&&current.id==="great"){
-      goTo(50,58);return;
+      goTo(65,67,true);return;
     }
     var rect=host.getBoundingClientRect();
     if(rect.width<1||rect.height<1)return;
     var x=100*(event.clientX-rect.left)/rect.width;
     var y=100*(event.clientY-rect.top)/rect.height;
-    goTo(x,y);
+    goTo(x,y,current.id==="great"&&Math.hypot(x-65,y-67)<=7);
   }
   host.addEventListener("click",clickOnScene);
   host.addEventListener("keydown",function(event){
