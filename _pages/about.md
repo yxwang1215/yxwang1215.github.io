@@ -156,5 +156,71 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 
 <div class="last-updated">
   <em>Last updated: 2026/10/18.</em>
+  <a class="home-platform-portal" href="{{ '/hogwarts/' | relative_url }}" aria-label="Enter the hidden Platform nine and three quarters" title="There is something between nine and ten">9<sup>¾</sup></a>
 </div>
+<style>
+  /* An intentionally quiet Easter egg, never part of the public navigation. */
+  .last-updated .home-platform-portal {
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 13px;
+    padding: 5px 7px;
+    font: 500 13px/1 Georgia, serif;
+    color: #b19b77;
+    opacity: .29;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    border-radius: 2px;
+    vertical-align: middle;
+    transition: opacity .28s ease, transform .28s ease, border-color .28s ease;
+  }
+  .last-updated .home-platform-portal sup {
+    position: relative;
+    top: -.2em;
+    margin-left: 1px;
+    font-size: .64em;
+  }
+  .last-updated .home-platform-portal:hover,
+  .last-updated .home-platform-portal:focus-visible {
+    opacity: 1;
+    border-bottom-color: currentColor;
+    transform: translateY(-2px);
+  }
+  @media (max-width: 640px) {
+    .last-updated .home-platform-portal { opacity: .45; padding: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .last-updated .home-platform-portal { transition: none; }
+  }
+</style>
+<script>
+  (function () {
+    var portal = document.querySelector('.home-platform-portal');
+    if (!portal) return;
+    var code = '';
+    function leaveForPlatform() {
+      var curtain = document.createElement('div');
+      curtain.setAttribute('aria-hidden', 'true');
+      curtain.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#0b0f17;opacity:0;pointer-events:none;transition:opacity .45s ease';
+      document.body.appendChild(curtain);
+      requestAnimationFrame(function () {
+        curtain.style.opacity = '1';
+        window.setTimeout(function () { window.location.assign(portal.href); }, 470);
+      });
+    }
+    portal.addEventListener('click', function (event) {
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) window.location.assign(portal.href);
+      else leaveForPlatform();
+    });
+    document.addEventListener('keydown', function (event) {
+      var target = event.target;
+      if (event.altKey || event.ctrlKey || event.metaKey || event.repeat || (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))) return;
+      if (!/^[0-9]$/.test(event.key)) { code = ''; return; }
+      code = (code + event.key).slice(-3);
+      if (code === '934') { code = ''; leaveForPlatform(); }
+    });
+  })();
+</script>
 
