@@ -23,7 +23,7 @@ sitemap: false
         window.sessionStorage.removeItem(key);
         var ticket=raw?JSON.parse(raw):null;
         var age=ticket?Date.now()-ticket.at:-1;
-        allowed=!!(ticket&&ticket.from==="/platform-934/"&&typeof ticket.at==="number"&&
+        allowed=!!(ticket&&(ticket.from==="/platform-934/"||ticket.from==="/hogwarts/sorting-ceremony/")&&typeof ticket.at==="number"&&
           age>=0&&age<=60000&&typeof ticket.nonce==="string"&&/^[0-9a-f]{32}$/.test(ticket.nonce));
       }catch(error){allowed=false}
       if(!allowed){window.location.replace("/");return}
@@ -35,6 +35,12 @@ sitemap: false
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/hogwarts-portal.css?v=20261022-2">
+  <style>
+    #great-hall-entrance{cursor:pointer}
+    #great-hall-entrance:focus-visible .hall-door{stroke:#f3daa7;stroke-width:4px}
+    .world.crossing-hall{filter:brightness(.03);transition:filter .65s ease}
+    @media(prefers-reduced-motion:reduce){.world.crossing-hall{transition:none}}
+  </style>
   <link rel="stylesheet" href="/assets/css/hogwarts-soundtrack.css?v=20261022-1">
 </head>
 <body>
@@ -47,7 +53,7 @@ sitemap: false
     <div class="world-hero">
       <div class="starfield world-stars" data-stars="world" aria-hidden="true"></div>
       <div class="moon" aria-hidden="true"></div>
-      <svg class="castle" aria-hidden="true" viewBox="0 0 1440 650" xmlns="http://www.w3.org/2000/svg">
+      <svg class="castle" role="group" aria-label="A castle overlooking a lake" viewBox="0 0 1440 650" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#152730"/><stop offset="1" stop-color="#081219"/></linearGradient>
           <linearGradient id="tower" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343a"/><stop offset="1" stop-color="#09151e"/></linearGradient>
@@ -93,6 +99,15 @@ sitemap: false
         <g fill="#d9b47a" opacity=".12"><path d="M610 540h125l-28 85h-70z"/><path d="M798 533h81l-13 77h-62z"/><path d="M897 537h76l-12 66h-52z"/></g>
         <path d="M0 604Q240 580 470 603T900 602T1440 608V650H0Z" fill="#071219"/>
         <path d="M87 590q27-22 52 0q-21-8-34 7zM1106 574q38-32 76 0q-33-11-51 9z" fill="#101f25"/>
+        <!-- A real door in the castle, not a navigation card: a secret for explorers. -->
+        <a id="great-hall-entrance" href="/hogwarts/sorting-ceremony/" aria-label="Walk through the Great Hall door">
+          <path class="hall-door" d="M714 518v-38a27 27 0 0 1 54 0v38z" fill="#16181a" stroke="#7d6346" stroke-width="2.4"/>
+          <path d="M725 516v-35a16 16 0 0 1 32 0v35" fill="none" stroke="#3d3932" stroke-width="2"/>
+          <path d="M741 462v56" stroke="#594736" stroke-width="1.5" opacity=".75"/>
+          <circle cx="750" cy="497" r="1.9" fill="#bc9260"/>
+          <path d="M711 520h60" stroke="#57452f" stroke-width="3"/>
+          <rect x="700" y="446" width="80" height="84" fill="transparent" pointer-events="all"/>
+        </a>
       </svg>
       <div class="world-heading"><div class="eyebrow">Your journey begins</div><h1>Hogwarts.</h1><p>The world was always a little more magical than it seemed.</p></div>
       <a class="world-scroll" href="#welcome">Explore the grounds</a>
@@ -147,6 +162,27 @@ sitemap: false
       }
     }
     stars(document.querySelector('[data-stars="world"]'),95,934);
+    var greatHallDoor=document.getElementById("great-hall-entrance");
+    var hallCrossing=false;
+    greatHallDoor.addEventListener("click",function(event){
+      event.preventDefault();
+      if(hallCrossing)return;
+      try{
+        var bytes=new Uint8Array(16);
+        window.crypto.getRandomValues(bytes);
+        var nonce=Array.from(bytes,function(x){return x.toString(16).padStart(2,"0")}).join("");
+        window.sessionStorage.setItem("hogwarts:sorting:pass:v1",JSON.stringify({
+          from:"/hogwarts/",at:Date.now(),nonce:nonce
+        }));
+      }catch(error){
+        greatHallDoor.setAttribute("aria-label","Session storage is required to enter the Great Hall");
+        return;
+      }
+      hallCrossing=true;
+      document.getElementById("world").classList.add("crossing-hall");
+      var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.setTimeout(function(){window.location.assign("/hogwarts/sorting-ceremony/");},reduced?0:630);
+    });
     var letterButton=document.getElementById("open-letter");
     var letter=document.getElementById("letter");
     var fortune=document.getElementById("fortune");
