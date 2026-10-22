@@ -13,7 +13,7 @@ const atlas = context.window.HogwartsAtlas;
 const map = context.window.HogwartsMapModel;
 assert.ok(atlas && map, 'Map model must use the existing Hogwarts room graph');
 assert.equal(map.sections.length, 6, 'The map should have five public regions and one secret region');
-const coords = map.sections.flatMap(zone => Object.entries(zone.coords).map(([id, xy]) => ({id, xy, zone: zone.id})));
+const coords = Array.from(map.sections).flatMap(zone => Object.entries(zone.coords).map(([id, xy]) => ({id, xy, zone: zone.id})));
 assert.equal(coords.length, 49, 'Every Hogwarts location must have one mapped position');
 assert.equal(new Set(coords.map(x => x.id)).size, 49, 'Map must not duplicate locations');
 assert.deepEqual(coords.map(x=>x.id).sort(), Object.keys(atlas.rooms).sort(), 'Map rooms must match the URL maze exactly');
