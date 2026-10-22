@@ -118,7 +118,7 @@
     return html;
   }
   function castleScene(room){
-    var html='<div class="hgw-scene hgw-castle-scene" data-kind="exterior">'+
+    var html='<div class="hgw-scene hgw-castle-scene" data-kind="exterior" data-room="gate">'+
       '<div class="hgw-stars">'+sparkles(60,934,"hgw-star")+'</div>'+
       '<div class="hgw-moon"></div>'+
       castleArtwork+
@@ -132,7 +132,7 @@
   function roomScene(room){
     if(room.id==="gate")return castleScene(room);
     var outside=outsideKinds.indexOf(room.kind)>=0;
-    var content='<div class="hgw-scene hgw-scene--'+safe(room.kind)+' '+(outside?'hgw-scene--outdoor':'hgw-scene--interior')+'">'+
+    var content='<div class="hgw-scene hgw-scene--'+safe(room.kind)+' '+(outside?'hgw-scene--outdoor':'hgw-scene--interior')+'" data-room="'+safe(room.id)+'">'+
       (outside?
         '<div class="hgw-groundscape"><div class="hgw-sky"></div><div class="hgw-stars">'+sparkles(52,1492,"hgw-star")+'</div><div class="hgw-moon"></div>'+outdoorSVG(room.kind)+'<div class="hgw-outdoor-ground"></div></div>':
         '<div class="hgw-ceiling"></div><div class="hgw-backwall"></div><div class="hgw-leftwall"></div><div class="hgw-rightwall"></div><div class="hgw-floor"></div><div class="hgw-torch hgw-torch--l"></div><div class="hgw-torch hgw-torch--r"></div>')+
