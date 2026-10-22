@@ -3,6 +3,7 @@
 
   var hall = document.getElementById("great-hall");
   var intro = document.getElementById("entry-stage");
+  var heading = document.getElementById("ceremony-heading");
   var hat = document.getElementById("hat-trigger");
   var questionsStage = document.getElementById("whisper-stage");
   var resultStage = document.getElementById("result-stage");
@@ -217,6 +218,7 @@
     scores = { gryffindor: 0, hufflepuff: 0, ravenclaw: 0, slytherin: 0 };
     hall.removeAttribute("data-house");
     intro.hidden = true;
+    heading.hidden = true;
     resultStage.hidden = true;
     questionsStage.hidden = false;
     renderQuestion();
@@ -279,6 +281,7 @@
     questionsStage.hidden = true;
     resultStage.hidden = true;
     intro.hidden = false;
+    heading.hidden = false;
     hall.removeAttribute("data-house");
     hat.focus();
     hat.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
