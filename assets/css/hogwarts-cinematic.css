@@ -41,3 +41,15 @@
 .hgw-scene[data-room="crypt"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forgotten-crypt.webp")}
 .hgw-scene[data-room="slytherin"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/green-lantern-passage.webp")}
 .hgw-scene[data-room="reservoir"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/underground-reservoir.webp")}
+
+/* Distinct cinematic backdrops for the ten castle rooms and classes. */
+.hgw-scene[data-room="kitchens"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/castle-kitchens.webp")}
+.hgw-scene[data-room="gallery"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/portrait-gallery.webp")}
+.hgw-scene[data-room="armoury"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/armoury.webp")}
+.hgw-scene[data-room="cloister"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/east-cloister.webp")}
+.hgw-scene[data-room="hospital"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/hospital-wing.webp")}
+.hgw-scene[data-room="transfig"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/transfiguration.webp")}
+.hgw-scene[data-room="history"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/history-of-magic.webp")}
+.hgw-scene[data-room="corridor"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/enchanted-corridor.webp")}
+.hgw-scene[data-room="charms"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/charms.webp")}
+.hgw-scene[data-room="defense"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/defence-against-dark-arts.webp")}
