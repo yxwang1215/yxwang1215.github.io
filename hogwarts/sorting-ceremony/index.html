@@ -1,0 +1,158 @@
+---
+layout: null
+permalink: /hogwarts/sorting-ceremony/
+sitemap: false
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#090d19">
+  <meta name="description" content="A secret sorting ceremony awaits beyond the Great Hall doors.">
+  <title>The Sorting Ceremony · Hogwarts</title>
+  <style>html:not([data-sorting-granted="true"]){visibility:hidden}</style>
+  <script>
+    (function(){
+      "use strict";
+      var allowed = false;
+      try {
+        var key = "hogwarts:sorting:pass:v1";
+        var raw = window.sessionStorage.getItem(key);
+        window.sessionStorage.removeItem(key);
+        var ticket = raw ? JSON.parse(raw) : null;
+        var age = ticket ? Date.now() - ticket.at : -1;
+        allowed = !!(ticket && ticket.from === "/hogwarts/" &&
+          typeof ticket.at === "number" && age >= 0 && age <= 60000 &&
+          typeof ticket.nonce === "string" && /^[0-9a-f]{32}$/.test(ticket.nonce));
+      } catch (error) { allowed = false; }
+      if (!allowed) { window.location.replace("/"); return; }
+      document.documentElement.setAttribute("data-sorting-granted", "true");
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=/"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/hogwarts-sorting.css?v=20261022-1">
+  <script defer src="/assets/js/hogwarts-sorting.js?v=20261022-1"></script>
+</head>
+<body>
+  <a class="skip" href="#ceremony">Skip to the ceremony</a>
+  <div class="hall" id="great-hall">
+    <div class="hall-vault" aria-hidden="true"></div>
+    <div class="hall-columns" aria-hidden="true"></div>
+    <div class="glass-window glass-window--left" aria-hidden="true"></div>
+    <div class="glass-window glass-window--center" aria-hidden="true"></div>
+    <div class="glass-window glass-window--right" aria-hidden="true"></div>
+    <div class="hall-light" aria-hidden="true"></div>
+    <div class="hall-dust" id="hall-dust" aria-hidden="true"></div>
+    <div class="floating-candles" aria-hidden="true">
+      <i class="candle" style="--x:9%;--y:21%;--s:.85;--duration:5.4s;--delay:-1.3s"></i>
+      <i class="candle" style="--x:16%;--y:46%;--s:.55;--duration:7.2s;--delay:-2.5s"></i>
+      <i class="candle" style="--x:24%;--y:14%;--s:.67;--duration:6.1s;--delay:-4.2s"></i>
+      <i class="candle" style="--x:31%;--y:37%;--s:.55;--duration:5.8s;--delay:-2.1s"></i>
+      <i class="candle" style="--x:39%;--y:11%;--s:.75;--duration:7.3s;--delay:-1.8s"></i>
+      <i class="candle" style="--x:44%;--y:29%;--s:.48;--duration:6.4s;--delay:-2.9s"></i>
+      <i class="candle" style="--x:53%;--y:16%;--s:.56;--duration:6.9s;--delay:-4.4s"></i>
+      <i class="candle" style="--x:60%;--y:36%;--s:.65;--duration:5.5s;--delay:-2.7s"></i>
+      <i class="candle" style="--x:67%;--y:13%;--s:.81;--duration:7.2s;--delay:-3.1s"></i>
+      <i class="candle" style="--x:75%;--y:38%;--s:.65;--duration:5.9s;--delay:-1.7s"></i>
+      <i class="candle" style="--x:83%;--y:20%;--s:.92;--duration:6.8s;--delay:-5.1s"></i>
+      <i class="candle" style="--x:90%;--y:49%;--s:.56;--duration:5.5s;--delay:-3.6s"></i>
+      <i class="candle" style="--x:12%;--y:66%;--s:.54;--duration:6.5s;--delay:-2s"></i>
+      <i class="candle" style="--x:22%;--y:73%;--s:.47;--duration:6.1s;--delay:-3.3s"></i>
+      <i class="candle" style="--x:79%;--y:71%;--s:.55;--duration:5.7s;--delay:-2.2s"></i>
+      <i class="candle" style="--x:93%;--y:67%;--s:.61;--duration:7s;--delay:-4.5s"></i>
+    </div>
+    <header class="hall-header">
+      <span class="school-mark">HOGWARTS <span aria-hidden="true">·</span> THE HIDDEN WORLD</span>
+      <a href="/hogwarts/" class="corridor" data-return-castle>← The corridor</a>
+    </header>
+    <main class="hall-main" id="ceremony">
+      <div class="hall-overline">Beneath the enchanted ceiling</div>
+      <div id="ceremony-heading">
+        <h1><span>The Sorting</span><em>Ceremony.</em></h1>
+        <p class="hall-intro">Four houses. One enchanted hat.<br>And a place in the castle <strong>waiting for you.</strong></p>
+      </div>
+      <section class="entry-stage" id="entry-stage" aria-label="The Sorting Hat is waiting">
+        <p class="entry-caption">AN OLD FRIEND WITH A VERY LONG MEMORY</p>
+        <button class="hat-trigger" id="hat-trigger" type="button" aria-label="Place the Sorting Hat on your head to begin">
+          <svg viewBox="0 0 560 390" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hat-crown" x1="0" y1="0" x2=".91" y2="1">
+                <stop offset="0" stop-color="#ad8960"/>
+                <stop offset=".32" stop-color="#70583e"/>
+                <stop offset=".67" stop-color="#3b332c"/>
+                <stop offset="1" stop-color="#191d1e"/>
+              </linearGradient>
+              <linearGradient id="hat-brim" x1="0" y1="0" x2="1" y2=".65">
+                <stop offset="0" stop-color="#866947"/>
+                <stop offset=".38" stop-color="#514433"/>
+                <stop offset=".75" stop-color="#322c2a"/>
+                <stop offset="1" stop-color="#191e1e"/>
+              </linearGradient>
+              <radialGradient id="hat-aura">
+                <stop offset="0" stop-color="#e1a968" stop-opacity=".32"/>
+                <stop offset="1" stop-color="#e1a968" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="281" cy="293" rx="221" ry="80" fill="url(#hat-aura)"/>
+            <ellipse cx="281" cy="334" rx="169" ry="22" fill="#08090d" opacity=".57"/>
+            <path d="M146 282C162 262 174 211 188 157C204 99 219 88 244 71C272 52 287 25 304 28C308 50 313 61 301 87C291 107 273 116 257 125C303 105 334 111 348 132C359 148 347 169 354 188C361 213 383 252 409 283L411 308C330 331 217 323 142 304Z" fill="url(#hat-crown)" stroke="#201d1c" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M239 88Q289 79 304 28Q321 61 293 95Q266 119 254 131" fill="none" stroke="#d6ab6b" stroke-width="4" stroke-linecap="round" opacity=".42"/>
+            <path d="M175 263C199 244 201 218 232 205Q272 191 311 208C326 216 333 229 348 237" fill="none" stroke="#a78b60" stroke-width="6" opacity=".23"/>
+            <path d="M174 170Q216 144 259 156M261 154Q298 154 329 175" fill="none" stroke="#d0a879" stroke-width="7" opacity=".22"/>
+            <path d="M195 234Q237 208 258 236Q274 217 311 227" fill="none" stroke="#1b1b1a" stroke-width="13" stroke-linecap="round"/>
+            <path d="M197 224Q233 198 260 228Q276 202 311 217" fill="none" stroke="#ae8558" stroke-width="5" opacity=".62"/>
+            <path d="M230 263Q276 280 324 255Q302 302 263 298Q239 286 230 263Z" fill="#171919" stroke="#5d4938" stroke-width="5"/>
+            <path d="M245 275Q278 284 307 270" fill="none" stroke="#a0815b" stroke-width="4" opacity=".65"/>
+            <path d="M204 205Q193 181 200 164M345 204Q352 182 335 158" fill="none" stroke="#241f1b" stroke-width="10" opacity=".65"/>
+            <path d="M91 286C123 267 157 278 179 287C208 304 327 316 402 292C433 280 460 284 494 298C470 329 410 333 350 337C260 353 167 332 115 323C92 319 68 314 65 300Z" fill="url(#hat-brim)" stroke="#292321" stroke-width="7"/>
+            <path d="M77 301C139 316 191 339 278 340C371 344 443 316 485 303" fill="none" stroke="#b49163" stroke-width="5" opacity=".45"/>
+            <path d="M148 287C221 307 353 317 418 294" fill="none" stroke="#e1bc78" stroke-width="3" opacity=".26"/>
+            <path d="M170 299L178 306M194 306L203 312M225 313L233 316M357 317L365 312M380 310L386 306" fill="none" stroke="#9f805b" stroke-width="3" opacity=".7"/>
+            <path class="hat-gold" d="M302 116l4 8 8 4-8 3-4 9-4-9-8-3 8-4Z" fill="#f2d295" opacity=".35"/>
+          </svg>
+        </button>
+        <p class="hat-line">“Hmm. Difficult. Very difficult…”</p>
+      </section>
+      <section class="whisper-stage" id="whisper-stage" aria-label="Questions from the Sorting Hat" hidden>
+        <div class="whisper-top"><span>THE HAT IS LISTENING</span><span id="question-counter" aria-live="polite">01 / 07</span></div>
+        <div class="runes" id="runes" aria-label="Progress through the ceremony"></div>
+        <p class="hat-speaks" id="question-preface"></p>
+        <h2 id="question-title" tabindex="-1"></h2>
+        <div class="choice-grid" id="choice-grid" role="group" aria-labelledby="question-title"></div>
+        <p class="whisper-foot">There are no perfect answers. Only yours.</p>
+      </section>
+      <section class="result-stage" id="result-stage" aria-label="Your Hogwarts house" aria-live="polite" hidden>
+        <p class="result-overline">THE HAT HAS MADE ITS CHOICE</p>
+        <div class="house-crest" aria-hidden="true">
+          <svg viewBox="0 0 160 178" xmlns="http://www.w3.org/2000/svg">
+            <path d="M80 8L146 28V97C146 129 123 151 80 171C37 151 14 129 14 97V28Z" fill="#101521" stroke="var(--house)" stroke-width="3"/>
+            <path d="M80 20L133 36V94C133 120 116 138 80 155C44 138 27 120 27 94V36Z" fill="none" stroke="var(--house)" stroke-width="1.6" opacity=".48"/>
+            <path d="M80 30V145M36 88H124" stroke="var(--house)" stroke-width=".9" opacity=".18"/>
+            <path d="M80 34L84 40L80 46L76 40Z" fill="var(--house)"/>
+            <text id="crest-letter" x="80" y="117" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="81" font-weight="500" fill="var(--house)">?</text>
+          </svg>
+        </div>
+        <p class="result-announcement">The Sorting Hat declares...</p>
+        <h2 id="result-title" tabindex="-1"></h2>
+        <p class="result-motto" id="result-motto"></p>
+        <p class="result-description" id="result-description"></p>
+        <div class="result-attributes" id="result-attributes"></div>
+        <div class="after-links">
+          <a href="/hogwarts/" data-return-castle>Follow the corridor home ↗</a>
+          <button type="button" id="try-again">Hear the hat again</button>
+        </div>
+      </section>
+    </main>
+    <footer class="hall-footer">
+      <span>FOUR HOUSES · ONE CASTLE</span>
+      <span>✧ &nbsp; SOME DOORS APPEAR ONLY TO THE CURIOUS &nbsp; ✧</span>
+    </footer>
+    <p id="navigation-status" role="status" style="position:absolute;left:-9999px"></p>
+  </div>
+</body>
+</html>
