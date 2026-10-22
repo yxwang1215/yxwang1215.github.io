@@ -104,7 +104,9 @@ assert.ok(shell.includes("roomId") && shell.includes("passKey"),
 assert.ok(shell.includes("sessionStorage"), "Access must be scoped to an explorer session");
 console.log("Hogwarts maze checks passed");
 console.log("Rooms: " + entries.length);
-console.log("Bidirectional corridors: " + Object.values(rooms)
-  .reduce((n, r) => n + Object.keys(r.exits).length, 0) / 2 + " (including secret return passages)");
+const ordinaryCorridors = (Object.values(rooms)
+  .reduce((n, r) => n + Object.keys(r.exits).length, 0) - oneWayArrivals.size) / 2;
+assert.equal(ordinaryCorridors, 58, "An ordinary corridor was added or removed");
+console.log("Ordinary bidirectional corridors: " + ordinaryCorridors);
 console.log("Secret entrances: " + hidden.length);
 console.log("BFS/DFS visited: " + bfs.length + "/" + dfs.length);
