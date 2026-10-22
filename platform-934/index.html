@@ -7,100 +7,274 @@ sitemap: false
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#090d15">
-  <meta name="description" content="Some doors are not on the map.">
-  <title>Platform 9¾ · The Unmarked Platform</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#111821">
+  <meta name="description" content="London King's Cross. Every journey begins somewhere.">
+  <title>King's Cross · London Departures</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-portal.css?v=20261022-2">
-  <link rel="stylesheet" href="/assets/css/hogwarts-soundtrack.css?v=20261022-1">
+  <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--paper:#f4eee2;--gold:#dfc6a0;--ink:#101720;--rail:#133252;--quiet:rgba(240,234,224,.7)}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;min-width:320px;min-height:100%;background:#101720}
+    body{color:var(--paper);font-family:"DM Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    button,a{-webkit-tap-highlight-color:transparent}
+    button{font:inherit}
+    a{color:inherit}
+    :focus-visible{outline:2px solid #f6e9c7;outline-offset:6px}
+    .skip{position:fixed;top:-200px;left:24px;z-index:100;background:#f2dfb5;color:#162232;padding:13px 18px;font-size:14px}
+    .skip:focus{top:16px}
+    .experience{position:relative;isolation:isolate;min-height:740px;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse at 60% 25%,#34444a 0,#18222b 48%,#0b111a 100%)}
+    .experience:after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.14;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.63' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E")}
+    .scene{position:absolute;inset:0;z-index:1;visibility:hidden;opacity:0;pointer-events:none;transition:opacity 1050ms ease,visibility 1050ms}
+    .scene.is-current{visibility:visible;opacity:1;pointer-events:auto;z-index:2}
+    .scene.is-outgoing{visibility:visible;opacity:0;z-index:2}
+    .scene-photo{position:absolute;inset:-2.5%;width:105%;height:105%;display:block;object-fit:cover;transform:translate3d(var(--move-x,0px),var(--move-y,0px),0) scale(1.015);filter:saturate(.82) contrast(1.07) brightness(.79);transition:transform 1.1s cubic-bezier(.19,1,.22,1);user-select:none;pointer-events:none}
+    .scene--concourse .scene-photo{object-position:50% 51%;filter:saturate(.79) brightness(.78) contrast(1.07)}
+    .scene--gates .scene-photo{object-position:50% 48%;filter:saturate(.77) brightness(.73) contrast(1.10)}
+    .scene--brick .scene-photo{object-position:50% 53%;filter:saturate(.73) brightness(.73) contrast(1.12)}
+    .scene-glass{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(9,15,23,.9) 0%,rgba(9,15,23,.72) 24%,rgba(11,15,20,.35) 53%,rgba(10,13,18,.07) 79%),linear-gradient(180deg,rgba(6,11,18,.48) 0%,transparent 23%,transparent 63%,rgba(6,11,17,.89) 100%)}
+    .scene--gates .scene-glass{background:linear-gradient(90deg,rgba(8,15,25,.85),rgba(8,15,25,.48) 41%,rgba(8,15,25,.16) 75%),linear-gradient(180deg,rgba(7,10,16,.45),transparent 30%,rgba(7,12,18,.82))}
+    .scene--brick .scene-glass{background:linear-gradient(90deg,rgba(8,12,17,.9),rgba(8,12,17,.57) 39%,rgba(8,12,17,.15) 76%),linear-gradient(180deg,rgba(7,11,17,.53),transparent 32%,rgba(7,11,17,.88))}
+    .scene:before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;box-shadow:inset 0 0 175px 30px rgba(0,0,0,.43)}
+    .station-top{position:absolute;z-index:12;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(23px,3.3vw,52px) clamp(24px,5.3vw,92px);pointer-events:none}
+    .brand{display:flex;align-items:center;gap:14px;letter-spacing:.22em;font-family:"Barlow Condensed",sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;text-shadow:0 2px 12px #0c1119}
+    .brand-mark{display:grid;place-items:center;position:relative;width:42px;height:42px;border:1px solid rgba(242,233,208,.7);border-radius:50%;font-family:Georgia,serif;font-size:25px;letter-spacing:0}
+    .brand-mark:after{content:"";position:absolute;left:7px;right:7px;top:20px;border-top:1px solid rgba(242,233,208,.8)}
+    .station-top a{pointer-events:auto;text-decoration:none}
+    .top-right{display:flex;gap:clamp(14px,2.5vw,38px);align-items:center;font:600 13px "Barlow Condensed",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,238,226,.85)}
+    .london-time{font-size:16px;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .leave{opacity:.75;transition:opacity .2s}
+    .leave:hover{opacity:1}
+    .narrative{position:absolute;z-index:10;left:clamp(24px,6.4vw,116px);top:clamp(180px,27.5vh,310px);max-width:min(620px,70vw);pointer-events:none;transition:opacity .37s ease,transform .55s ease}
+    .experience.is-changing .narrative{opacity:0;transform:translateY(18px)}
+    .narrative-kicker{display:flex;align-items:center;gap:17px;margin:0 0 20px;font-size:clamp(12px,1vw,15px);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#e4c99f}
+    .narrative-kicker:before{content:"";width:34px;height:1px;background:#e5c99a}
+    .narrative h1{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(86px,10vw,172px);font-weight:500;letter-spacing:-.045em;line-height:.74;text-shadow:0 6px 40px rgba(0,0,0,.36)}
+    .narrative h1 .second{display:block;font-weight:400;font-style:italic;margin-left:clamp(22px,4vw,65px);margin-top:.08em;color:#f2dbb6}
+    .narrative-description{font-size:clamp(15px,1.15vw,18px);line-height:1.85;letter-spacing:.01em;max-width:365px;margin:37px 0 0;color:rgba(242,234,219,.82);text-shadow:0 2px 14px #131820}
+    .rail-sign{position:absolute;z-index:8;right:clamp(36px,9vw,170px);bottom:clamp(160px,20vh,215px);display:flex;align-items:center;justify-content:space-between;gap:28px;min-width:260px;padding:15px 21px 17px 19px;border:0;border-top:5px solid #dbdbd2;background:#17365c;box-shadow:0 16px 52px rgba(0,0,0,.45);color:#fff;font:600 24px "Barlow Condensed",sans-serif;letter-spacing:.018em;text-align:left;cursor:default}
+    .rail-sign .rail-icon{margin-right:5px;font:500 20px Georgia,serif;white-space:nowrap}
+    .rail-sign .rail-arrow{font-size:31px;font-weight:400}
+    .rail-sign:focus-visible{outline-offset:8px}
+    .hit-area{position:absolute;z-index:8;padding:0;border:0;background:transparent;color:transparent;cursor:default;-webkit-appearance:none;appearance:none}
+    .hit-area--gates{left:36%;top:29%;width:48%;height:64%}
+    .hit-area--brick{right:5%;top:18%;width:23%;height:72%}
+    .hit-area:focus-visible{outline:2px dashed #f5e8cd;outline-offset:0}
+    .scene-caption{position:absolute;z-index:10;right:clamp(24px,5vw,85px);bottom:clamp(25px,4vw,57px);font:600 12px "Barlow Condensed",sans-serif;letter-spacing:.17em;text-transform:uppercase;text-align:right;color:#f1e8d5;opacity:.66;pointer-events:none}
+    .bottom-bar{position:absolute;bottom:0;left:0;right:0;z-index:12;display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;padding:26px clamp(24px,5.3vw,92px) clamp(24px,3.5vw,52px);border-top:1px solid rgba(240,232,214,.19);background:linear-gradient(180deg,rgba(7,12,18,0),rgba(7,12,18,.25));pointer-events:none}
+    .bottom-bar > *{pointer-events:auto}
+    .location{display:flex;align-items:center;gap:15px;color:rgba(245,236,222,.79);font-size:12px;font-weight:600;letter-spacing:.19em;text-transform:uppercase}
+    .location .point{height:7px;width:7px;background:#e4c69b;border-radius:50%;box-shadow:0 0 12px rgba(236,189,111,.48)}
+    .photo-credit{max-width:380px;color:rgba(235,226,216,.69);font-size:11px;line-height:1.6;text-align:right;text-decoration:none}
+    .photo-credit:hover{text-decoration:underline;color:#fff}
+    .corner-rules{position:absolute;inset:0;z-index:6;pointer-events:none}
+    .corner-rules:before,.corner-rules:after{content:"";position:absolute;top:50%;width:26px;height:1px;background:rgba(240,224,196,.29)}
+    .corner-rules:before{left:2%}
+    .corner-rules:after{right:2%}
+    .portal-curtain{position:fixed;z-index:40;inset:0;pointer-events:none;opacity:0;visibility:hidden;background:radial-gradient(ellipse at 73% 44%,rgba(203,175,117,.46) 0%,rgba(22,24,27,.85) 21%,#020509 63%);transition:opacity 1.1s ease,visibility 1.1s}
+    .portal-curtain:before{content:"";position:absolute;top:-15%;bottom:-15%;left:73%;width:1px;transform:rotate(8deg) scaleY(0);background:rgba(255,237,189,.64);box-shadow:0 0 25px 3px rgba(231,204,143,.5);transition:transform .75s}
+    .portal-curtain.is-open{opacity:1;visibility:visible}
+    .portal-curtain.is-open:before{transform:rotate(8deg) scaleY(1)}
+    .noscript-notice{position:absolute;bottom:125px;left:7%;font-size:14px;color:#eacb9c}
+    @media(max-width:900px){
+      .narrative{top:26vh;max-width:76vw}
+      .narrative h1{font-size:clamp(74px,12vw,110px)}
+      .rail-sign{right:6vw;bottom:20vh}
+      .scene--gates .scene-photo{object-position:58% 48%}
+      .scene--brick .scene-photo{object-position:70% 50%}
+      .hit-area--brick{right:3%;width:31%}
+    }
+    @media(max-width:640px){
+      .experience{min-height:670px;min-height:100svh}
+      .station-top{padding:24px 23px}
+      .brand{gap:10px;font-size:13px;letter-spacing:.11em}
+      .brand-mark{height:36px;width:36px;font-size:23px}
+      .brand-mark:after{top:17px}
+      .top-right{gap:13px;font-size:12px}
+      .london-time{font-size:14px}
+      .leave{font-size:11px}
+      .scene--concourse .scene-photo{object-position:54% 48%}
+      .scene--gates .scene-photo{object-position:54% 47%}
+      .scene--brick .scene-photo{object-position:84% 49%}
+      .scene-glass,.scene--gates .scene-glass,.scene--brick .scene-glass{background:linear-gradient(180deg,rgba(9,14,19,.43),rgba(9,14,19,.28) 23%,rgba(9,14,19,.18) 43%,rgba(9,14,19,.58) 78%,rgba(9,14,19,.87))}
+      .narrative{top:18vh;left:24px;max-width:calc(100% - 48px)}
+      .narrative-kicker{font-size:11px;letter-spacing:.22em;margin-bottom:16px}
+      .narrative-kicker:before{width:21px}
+      .narrative h1{font-size:clamp(70px,16vw,116px);line-height:.77}
+      .narrative h1 .second{margin-left:30px}
+      .narrative-description{font-size:15px;line-height:1.6;margin-top:28px;max-width:300px}
+      .rail-sign{bottom:23%;right:8%;min-width:216px;padding:13px 15px 14px;font-size:22px}
+      .rail-sign .rail-icon{font-size:17px}
+      .rail-sign .rail-arrow{font-size:25px}
+      .hit-area--gates{left:20%;top:33%;width:74%;height:58%}
+      .hit-area--brick{left:49%;right:1%;top:29%;width:48%;height:56%}
+      .bottom-bar{padding:20px 23px 25px;grid-template-columns:1fr;gap:9px}
+      .photo-credit{max-width:100%;text-align:left;font-size:10px}
+      .location{font-size:11px}
+      .scene-caption{right:24px;bottom:110px;font-size:10px}
+    }
+    @media(max-width:390px){
+      .brand-text{max-width:90px;line-height:1.13}
+      .top-right{gap:10px}
+      .narrative h1{font-size:66px}
+      .rail-sign{bottom:25%}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*:before,*:after{transition-duration:.01ms!important;animation:none!important;scroll-behavior:auto!important}
+      .scene-photo{transform:none!important}
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#station-main">Skip to content</a>
-  <div class="transition-overlay" id="transition" aria-hidden="true">
-    <div class="transition-inner"><span class="transition-symbol">✦</span><span class="transition-label">Beyond the ordinary</span></div>
-  </div>
-  <section class="station" id="station" aria-label="The secret entrance">
-    <div class="starfield" data-stars="station" aria-hidden="true"></div>
-    <div class="station-haze" aria-hidden="true"></div>
-    <header class="topbar">
-      <span class="wordmark"><span class="mark" aria-hidden="true">✧</span> THE UNMARKED PLATFORM</span>
-      <a class="return" href="/" aria-label="Return to Yuxuan Wang's homepage"><span aria-hidden="true">←</span> Ordinary world</a>
-    </header>
-    <main class="station-layout" id="station-main">
-      <div class="station-copy">
-        <div class="eyebrow">King's Cross · Somewhere between 9 &amp; 10</div>
-        <h1>Some doors<br>aren't <em>on<br>the map.</em></h1>
-        <p class="station-description">You noticed something most people walk past. A small crack in the ordinary. A platform that doesn't quite exist. Perhaps you were meant to find it.</p>
-
-      </div>
-      <div class="scene" aria-label="An old brick wall bearing the mysterious sign for Platform nine and three quarters">
-        <div class="lamp lamp-left" aria-hidden="true"></div>
-        <div class="lamp lamp-right" aria-hidden="true"></div>
-        <div class="station-arch" id="brick-wall" role="button" tabindex="0" aria-label="Explore the brick wall">
-          <div class="platform-plaque" aria-hidden="true">
-            <span class="plaque-top">PLATFORM</span>
-            <span class="plaque-number">9<sup>¾</sup></span>
-            <span class="plaque-bottom">DEPARTURES</span>
-          </div>
-        </div>
-        <div class="arch-floor" aria-hidden="true"></div>
-        <div class="luggage" aria-hidden="true"><div class="case case-one"></div><div class="case case-two"></div></div>
-        <div class="ticket" aria-hidden="true"><div class="ticket-label">ONE-WAY TICKET</div><div class="ticket-main">9¾</div><div class="ticket-sub">DESTINATION · UNKNOWN</div></div>
-      </div>
-    </main>
-    <footer class="station-bottom"><span>Departure · Unscheduled</span><span class="thin-rule"></span><span>Not every journey needs a map</span></footer>
+<a class="skip" href="#main-content">Skip to station content</a>
+<main class="experience" id="main-content" aria-label="King's Cross railway station, London">
+  <section class="scene scene--concourse is-current" data-scene="0" aria-hidden="false" aria-label="King's Cross western concourse at night">
+    <img class="scene-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/King%27s_Cross_railway_station_MMB_C4.jpg/1920px-King%27s_Cross_railway_station_MMB_C4.jpg" width="1920" height="1315" alt="Authentic photograph of London's King's Cross Western Concourse after dark, with its distinctive station canopy" fetchpriority="high" draggable="false">
+    <div class="scene-glass" aria-hidden="true"></div>
+    <button class="rail-sign" type="button" data-route="1" aria-label="Follow the ordinary station signs toward platforms 9 to 11">
+      <span class="rail-icon" aria-hidden="true">▥</span><span>Platforms 9–11</span><span class="rail-arrow" aria-hidden="true">→</span>
+    </button>
   </section>
-  <script>
-  (function(){
-    "use strict";
-    var wall=document.getElementById("brick-wall");
-    var curtain=document.getElementById("transition");
-    var busy=false;
-    var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var PASS_KEY="hogwarts:platform934:pass:v1";
-    
-    function stars(element,number,seed){
-      if(!element)return;
-      for(var i=0;i<number;i++){
-        seed=(seed*16807)%2147483647;var x=(seed%10000)/100;
-        seed=(seed*16807)%2147483647;var y=(seed%10000)/100;
-        seed=(seed*16807)%2147483647;var opacity=.18+((seed%65)/100);
-        var s=document.createElement("span");s.className="star";
-        s.style.left=x+"%";s.style.top=y+"%";
-        s.style.setProperty("--opacity",opacity.toFixed(2));
-        s.style.setProperty("--duration",(3+(i%6))+"s");
-        s.style.setProperty("--delay",(-(i%9))+"s");element.appendChild(s);
-      }
+  <section class="scene scene--gates" data-scene="1" aria-hidden="true" inert aria-label="Entrance to the suburban platforms">
+    <img class="scene-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/King%27s_Cross_stn_platforms_9-11_entrance_from_new_concourse_2012.JPG/1920px-King%27s_Cross_stn_platforms_9-11_entrance_from_new_concourse_2012.JPG" width="1920" height="1440" alt="Authentic photograph showing King's Cross ticket barriers and signage for platforms 9 to 11" loading="lazy" draggable="false">
+    <div class="scene-glass" aria-hidden="true"></div>
+    <button class="hit-area hit-area--gates" type="button" data-route="2" aria-label="Walk through the ticket gates into the train shed"></button>
+  </section>
+  <section class="scene scene--brick" data-scene="2" aria-hidden="true" inert aria-label="Victorian brick arches in the King's Cross train shed">
+    <img class="scene-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Kings_Cross_Railway_Station_Platforms_5_to_8%2C_London%2C_UK_-_Diliff.jpg/1920px-Kings_Cross_Railway_Station_Platforms_5_to_8%2C_London%2C_UK_-_Diliff.jpg" width="1920" height="1169" alt="Authentic photograph of the historic King's Cross train shed and brick arches, taken by David Iliff" loading="lazy" draggable="false">
+    <div class="scene-glass" aria-hidden="true"></div>
+    <button class="hit-area hit-area--brick" type="button" data-route="portal" aria-label="Examine the brickwork at the edge of the station"></button>
+  </section>
+  <div class="corner-rules" aria-hidden="true"></div>
+  <header class="station-top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✣</span><span class="brand-text">London · King's Cross</span></div>
+    <div class="top-right"><span class="london-time" id="london-time" aria-label="Current time in London">--:--</span><a class="leave" href="/" aria-label="Return to the homepage">← Leave station</a></div>
+  </header>
+  <section class="narrative" aria-live="polite" aria-atomic="true">
+    <p class="narrative-kicker" id="chapter">London / East Coast</p>
+    <h1 id="scene-heading">King's<span class="second">Cross.</span></h1>
+    <p class="narrative-description" id="scene-description">The city moves on. The station never stops.</p>
+  </section>
+  <div class="scene-caption" id="scene-caption" aria-hidden="true">Western concourse</div>
+  <footer class="bottom-bar">
+    <div class="location"><span class="point" aria-hidden="true"></span><span id="location-name">KING'S CROSS · LONDON N1C</span></div>
+    <a class="photo-credit" id="photo-credit" href="https://commons.wikimedia.org/wiki/File:King%27s_Cross_railway_station_MMB_C4.jpg" target="_blank" rel="noopener noreferrer" title="Real photography from Wikimedia Commons. Framing and tones altered for this page.">Real photograph © Matt Buck · CC BY-SA 3.0 · Cropped/toned ↗</a>
+  </footer>
+  <div class="portal-curtain" id="portal-curtain" aria-hidden="true"></div>
+  <noscript><p class="noscript-notice">JavaScript is required to explore this station.</p></noscript>
+</main>
+<script>
+(function(){
+  "use strict";
+  var views=Array.from(document.querySelectorAll(".scene"));
+  var heading=document.getElementById("scene-heading");
+  var chapter=document.getElementById("chapter");
+  var description=document.getElementById("scene-description");
+  var caption=document.getElementById("scene-caption");
+  var locationText=document.getElementById("location-name");
+  var photo=document.getElementById("photo-credit");
+  var root=document.getElementById("main-content");
+  var current=0,changing=false,exiting=false;
+  var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine=window.matchMedia("(pointer: fine)").matches;
+  var key="hogwarts:platform934:pass:v1";
+  var chapters=[
+    {kicker:"London / East Coast",title:"King's",second:"Cross.",body:"The city moves on. The station never stops.",label:"Western concourse",location:"KING'S CROSS · LONDON N1C",credit:"Real photograph © Matt Buck · CC BY-SA 3.0 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:King%27s_Cross_railway_station_MMB_C4.jpg"},
+    {kicker:"King's Cross / Departures",title:"The",second:"Platforms.",body:"Just another afternoon among the departures.",label:"Suburban platforms · 9–11",location:"KING'S CROSS · SUBURBAN PLATFORMS",credit:"Real photograph © Sunil060902 · CC BY-SA 3.0 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:King%27s_Cross_stn_platforms_9-11_entrance_from_new_concourse_2012.JPG"},
+    {kicker:"King's Cross / Train shed",title:"The",second:"Old Walls.",body:"Steel, glass and London brick. The trains still come and go.",label:"Historic train shed",location:"KING'S CROSS · HISTORIC TRAIN SHED",credit:"Real photograph © David Iliff · CC BY-SA 3.0 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:Kings_Cross_Railway_Station_Platforms_5_to_8%2C_London%2C_UK_-_Diliff.jpg"}
+  ];
+  function londonClock(){
+    try{
+      var value=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/London",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());
+      document.getElementById("london-time").textContent=value;
+    }catch(error){document.getElementById("london-time").textContent="LONDON";}
+  }
+  londonClock();
+  window.setInterval(londonClock,60000);
+  function copyFor(index){
+    var entry=chapters[index];
+    heading.textContent="";
+    heading.appendChild(document.createTextNode(entry.title));
+    var small=document.createElement("span");
+    small.className="second";
+    small.textContent=entry.second;
+    heading.appendChild(small);
+    chapter.textContent=entry.kicker;
+    description.textContent=entry.body;
+    caption.textContent=entry.label;
+    locationText.textContent=entry.location;
+    photo.textContent=entry.credit;
+    photo.href=entry.source;
+  }
+  function switchTo(index){
+    if(changing||exiting||index===current||index<0||index>=views.length)return;
+    changing=true;
+    root.classList.add("is-changing");
+    var prior=current;
+    var delay=reduced?0:330;
+    window.setTimeout(function(){
+      views[prior].classList.remove("is-current");
+      views[prior].setAttribute("aria-hidden","true");
+      views[prior].inert=true;
+      current=index;
+      views[current].classList.add("is-current");
+      views[current].removeAttribute("inert");
+      views[current].setAttribute("aria-hidden","false");
+      copyFor(current);
+      window.setTimeout(function(){
+        root.classList.remove("is-changing");
+        changing=false;
+      },reduced?0:160);
+    },delay);
+  }
+  function cross(){
+    if(changing||exiting||current!==2)return;
+    exiting=true;
+    try{
+      var bytes=new Uint8Array(16);
+      window.crypto.getRandomValues(bytes);
+      var nonce=Array.from(bytes,function(x){return x.toString(16).padStart(2,"0");}).join("");
+      window.sessionStorage.setItem(key,JSON.stringify({from:"/platform-934/",at:Date.now(),nonce:nonce}));
+    }catch(error){
+      exiting=false;
+      return;
     }
-    stars(document.querySelector('[data-stars="station"]'),48,921);
-    function cross(){
-      if(busy)return;
-      busy=true;
-      try{
-        var bytes=new Uint8Array(16);
-        window.crypto.getRandomValues(bytes);
-        var nonce=Array.from(bytes,function(x){return x.toString(16).padStart(2,"0")}).join("");
-        window.sessionStorage.setItem(PASS_KEY,JSON.stringify({
-          from:"/platform-934/",at:Date.now(),nonce:nonce
-        }));
-      }catch(error){
-        busy=false;
-        wall.setAttribute("aria-label","Your browser must allow session storage to use this passage");
-        return;
-      }
-      curtain.classList.add("is-active");
-      window.setTimeout(function(){window.location.assign("/hogwarts/");},reduced?0:740);
-    }
-    wall.addEventListener("click",cross);
-    wall.addEventListener("keydown",function(event){
-      if(event.key==="Enter"||event.key===" "){event.preventDefault();cross()}
+    document.getElementById("portal-curtain").classList.add("is-open");
+    window.setTimeout(function(){window.location.assign("/hogwarts/");},reduced?40:1150);
+  }
+  views.forEach(function(view){
+    var target=view.querySelector("[data-route]");
+    if(!target)return;
+    target.addEventListener("click",function(){
+      if(target.getAttribute("data-route")==="portal")cross();
+      else switchTo(Number(target.getAttribute("data-route")));
     });
-  })();
-  </script>
-  <script src="/assets/js/hogwarts-soundtrack.js?v=20261022-1" defer></script>
+  });
+  if(fine&&!reduced){
+    root.addEventListener("pointermove",function(event){
+      if(changing||exiting)return;
+      var dx=((event.clientX/window.innerWidth)-.5)*-12;
+      var dy=((event.clientY/window.innerHeight)-.5)*-9;
+      views[current].style.setProperty("--move-x",dx.toFixed(1)+"px");
+      views[current].style.setProperty("--move-y",dy.toFixed(1)+"px");
+    },{passive:true});
+  }
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape"&&current>0&&!changing&&!exiting){
+      switchTo(current-1);
+    }
+  });
+  window.addEventListener("pageshow",function(event){
+    if(event.persisted&&exiting){
+      exiting=false;
+      document.getElementById("portal-curtain").classList.remove("is-open");
+    }
+  });
+})();
+</script>
 </body>
 </html>
