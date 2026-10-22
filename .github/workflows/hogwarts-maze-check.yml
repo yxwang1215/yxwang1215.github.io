@@ -1,0 +1,33 @@
+name: Hogwarts maze integrity
+
+on:
+  push:
+    paths:
+      - "hogwarts/**"
+      - "_includes/hogwarts-explorer.html"
+      - "assets/js/hogwarts-*.js"
+      - "assets/css/hogwarts-explore.css"
+      - "tests/hogwarts-maze-check.mjs"
+      - ".github/workflows/hogwarts-maze-check.yml"
+  pull_request:
+    paths:
+      - "hogwarts/**"
+      - "_includes/hogwarts-explorer.html"
+      - "assets/js/hogwarts-*.js"
+      - "assets/css/hogwarts-explore.css"
+      - "tests/hogwarts-maze-check.mjs"
+      - ".github/workflows/hogwarts-maze-check.yml"
+  workflow_dispatch:
+
+jobs:
+  graph-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check route graph and static pages
+        run: node tests/hogwarts-maze-check.mjs

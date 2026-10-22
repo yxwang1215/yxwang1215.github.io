@@ -259,3 +259,17 @@ body.hgw-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-in
 .hgw-prop--sorting-hat::after{content:"";position:absolute;left:5px;right:5px;bottom:6px;height:17px;border:2px solid #71583f;border-radius:50%;background:linear-gradient(100deg,#8c6c44,#483a2a 60%,#251f1e);transform:rotate(-5deg);box-shadow:0 7px 9px #0406089a}
 .hgw-prop--sorting-hat:focus-visible{outline:2px dotted #ddc69d;outline-offset:7px}
 .hgw-secret-target{pointer-events:auto}
+
+
+/* Ambient motion belongs to the environment, never to a doorway target. */
+.hgw-scene--forest .hgw-prop--tree::after,
+.hgw-scene--hut .hgw-prop--tree::after {
+  transform-origin: 50% 95%;
+  animation: hgw-leaves-breathe 7.5s ease-in-out infinite alternate;
+}
+.hgw-scene--forest .hgw-prop--tree-b::after,
+.hgw-scene--hut .hgw-prop--tree-b::after { animation-delay: -3.8s; animation-duration: 10s; }
+@keyframes hgw-leaves-breathe {
+  from { transform: rotate(-2.4deg) scaleX(.985); }
+  to { transform: rotate(2deg) scaleX(1.02); }
+}
