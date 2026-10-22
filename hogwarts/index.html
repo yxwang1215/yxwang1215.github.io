@@ -1,6 +1,5 @@
 ---
 layout: null
-permalink: /hogwarts/
 sitemap: false
 ---
 <!doctype html>
@@ -9,208 +8,73 @@ sitemap: false
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#090d15">
-  <meta name="description" content="The other side of the wall.">
-  <title>Hogwarts · The Hidden World</title>
-  <style>html:not([data-portal-granted="true"]){visibility:hidden}</style>
+  <meta name="theme-color" content="#0b141b">
+  <meta name="description" content="Something waits at the end of the next passage.">
+  <title>Hogwarts · The Unmapped World</title>
+  <style>html:not([data-hgw-authorized="true"]){visibility:hidden;background:#0b141b}</style>
   <script>
     (function(){
       "use strict";
-      var key="hogwarts:platform934:pass:v1";
+      var passKey="hogwarts:platform934:pass:v1";
+      var sessionKey="hogwarts:session:v2";
+      var path=window.location.pathname.replace(/\/+$/,"")+"/";
       var allowed=false;
       try{
-        var raw=window.sessionStorage.getItem(key);
-        window.sessionStorage.removeItem(key);
-        var ticket=raw?JSON.parse(raw):null;
-        var age=ticket?Date.now()-ticket.at:-1;
-        allowed=!!(ticket&&(ticket.from==="/platform-934/"||ticket.from==="/hogwarts/sorting-ceremony/")&&typeof ticket.at==="number"&&
-          age>=0&&age<=60000&&typeof ticket.nonce==="string"&&/^[0-9a-f]{32}$/.test(ticket.nonce));
+        var raw=window.sessionStorage.getItem(passKey);
+        window.sessionStorage.removeItem(passKey);
+        if(path==="/hogwarts/"&&raw){
+          var ticket=JSON.parse(raw);
+          var age=Date.now()-ticket.at;
+          if(ticket&&ticket.from==="/platform-934/"&&
+              typeof ticket.at==="number"&&age>=0&&age<=60000&&
+              typeof ticket.nonce==="string"&&/^[a-f0-9]{32}$/.test(ticket.nonce)){
+            window.sessionStorage.setItem(sessionKey,JSON.stringify({
+              id:ticket.nonce,issued:Date.now(),current:path,visited:[]
+            }));
+            allowed=true;
+          }
+        }
       }catch(error){allowed=false}
       if(!allowed){window.location.replace("/");return}
-      document.documentElement.setAttribute("data-portal-granted","true");
+      document.documentElement.setAttribute("data-hgw-authorized","true");
     })();
   </script>
   <noscript><meta http-equiv="refresh" content="0;url=/"></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-portal.css?v=20261022-2">
-  <style>
-    #great-hall-entrance{cursor:pointer}
-    #great-hall-entrance:focus-visible .hall-door{stroke:#f3daa7;stroke-width:4px}
-    .world.crossing-hall{filter:brightness(.03);transition:filter .65s ease}
-    @media(prefers-reduced-motion:reduce){.world.crossing-hall{transition:none}}
-  </style>
-  <link rel="stylesheet" href="/assets/css/hogwarts-soundtrack.css?v=20261022-1">
+  <link rel="stylesheet" href="/assets/css/hogwarts-explore.css?v=20261022-maze-v1">
+  <script src="/assets/js/hogwarts-atlas.js?v=20261022-maze-v1" defer></script>
+  <script src="/assets/js/hogwarts-explore.js?v=20261022-maze-v1" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#welcome">Skip to content</a>
-  <section class="world" id="world" aria-label="The hidden magical world">
-    <header class="topbar">
-      <span class="wordmark"><span class="mark" aria-hidden="true">✧</span> THE OTHER SIDE</span>
-      <a class="return" href="/platform-934/"><span aria-hidden="true">←</span> Back to the platform</a>
+<body class="hgw-body">
+  <a class="hgw-skip" href="#hgw-stage">Skip to the castle</a>
+  <div id="hgw-shell" class="hgw-shell">
+    <header class="hgw-mast">
+      <div class="hgw-brand"><span class="hgw-brand-symbol" aria-hidden="true">✧</span><span>HOGWARTS · THE UNMAPPED WORLD</span></div>
+      <div class="hgw-mast-note">Wanderings <span id="hgw-visited">01 / 49</span></div>
     </header>
-    <div class="world-hero">
-      <div class="starfield world-stars" data-stars="world" aria-hidden="true"></div>
-      <div class="moon" aria-hidden="true"></div>
-      <svg class="castle" role="group" aria-label="A castle overlooking a lake" viewBox="0 0 1440 650" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#152730"/><stop offset="1" stop-color="#081219"/></linearGradient>
-          <linearGradient id="tower" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343a"/><stop offset="1" stop-color="#09151e"/></linearGradient>
-          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#29444a"/><stop offset="1" stop-color="#07131b"/></linearGradient>
-          <filter id="window-glow"><feGaussianBlur stdDeviation="3"/></filter>
-        </defs>
-        <path d="M0 410Q180 360 350 415T700 405T1100 393T1440 420V650H0Z" fill="#17262b" opacity=".75"/>
-        <path d="M0 507Q210 445 375 470Q555 410 760 462Q985 395 1160 467Q1285 441 1440 486V650H0Z" fill="url(#hill)"/>
-        <path d="M405 459L473 412L552 430L618 384L704 411L767 372L868 408L955 379L1049 434L1088 445L1068 526H397Z" fill="#0b161c"/>
-        <g fill="url(#tower)" stroke="#314247" stroke-width="2">
-          <path d="M487 311h111v209H487zM480 311l62-66 63 66z"/>
-          <path d="M610 270h116v252H610zM601 270l67-80 67 80z"/>
-          <path d="M733 321h150v200H733zM719 321l89-75 89 75z"/>
-          <path d="M893 258h78v260h-78zM885 258l47-100 47 100z"/>
-          <path d="M1003 352h67v170h-67zM995 352l41-80 42 80z"/>
-          <path d="M410 369h62v147h-62zM402 369l39-72 39 72z"/>
-          <path d="M553 374h48v151h-48zM544 374l33-81 33 81z"/>
-          <path d="M810 218h55v290h-55zM798 218l39-102 40 102z"/>
-          <path d="M649 155h39v356h-39zM639 155l29-99 29 99z"/>
-        </g>
-        <g fill="#131e22" stroke="#344547" stroke-width="2">
-          <rect x="481" y="393" width="410" height="126"/>
-          <path d="M478 392l66-55 68 55 64-50 57 50 74-61 86 61z"/>
-        </g>
-        <g fill="#e5bc73">
-          <rect x="656" y="180" width="8" height="19" rx="4"/><rect x="673" y="180" width="8" height="19" rx="4"/>
-          <rect x="822" y="256" width="8" height="19" rx="4"/><rect x="845" y="256" width="8" height="19" rx="4"/>
-          <rect x="919" y="303" width="9" height="22" rx="4"/><rect x="941" y="303" width="9" height="22" rx="4"/>
-          <rect x="515" y="337" width="8" height="18" rx="4"/><rect x="555" y="337" width="8" height="18" rx="4"/>
-          <rect x="640" y="305" width="9" height="19" rx="4"/><rect x="685" y="305" width="9" height="19" rx="4"/>
-          <rect x="760" y="345" width="11" height="22" rx="5"/><rect x="791" y="345" width="11" height="22" rx="5"/><rect x="834" y="345" width="11" height="22" rx="5"/>
-          <rect x="422" y="389" width="9" height="20" rx="4"/><rect x="448" y="389" width="9" height="20" rx="4"/>
-          <rect x="1019" y="383" width="8" height="19" rx="4"/><rect x="1043" y="383" width="8" height="19" rx="4"/>
-          <rect x="510" y="415" width="10" height="23" rx="4"/><rect x="546" y="415" width="10" height="23" rx="4"/><rect x="584" y="415" width="10" height="23" rx="4"/>
-          <rect x="634" y="415" width="10" height="23" rx="4"/><rect x="670" y="415" width="10" height="23" rx="4"/><rect x="706" y="415" width="10" height="23" rx="4"/>
-          <rect x="759" y="415" width="10" height="23" rx="4"/><rect x="795" y="415" width="10" height="23" rx="4"/><rect x="831" y="415" width="10" height="23" rx="4"/>
-          <rect x="546" y="463" width="9" height="18" rx="4"/><rect x="590" y="463" width="9" height="18" rx="4"/><rect x="634" y="463" width="9" height="18" rx="4"/><rect x="677" y="463" width="9" height="18" rx="4"/><rect x="775" y="463" width="9" height="18" rx="4"/><rect x="820" y="463" width="9" height="18" rx="4"/>
-        </g>
-        <g filter="url(#window-glow)" opacity=".46" fill="#f2c57e">
-          <ellipse cx="665" cy="190" rx="12" ry="18"/><ellipse cx="837" cy="265" rx="22" ry="20"/><ellipse cx="932" cy="311" rx="22" ry="20"/><ellipse cx="669" cy="427" rx="38" ry="19"/><ellipse cx="801" cy="430" rx="55" ry="18"/>
-        </g>
-        <path d="M0 520Q310 498 640 521T1440 518V650H0Z" fill="url(#water)" opacity=".9"/>
-        <g fill="#d9b47a" opacity=".12"><path d="M610 540h125l-28 85h-70z"/><path d="M798 533h81l-13 77h-62z"/><path d="M897 537h76l-12 66h-52z"/></g>
-        <path d="M0 604Q240 580 470 603T900 602T1440 608V650H0Z" fill="#071219"/>
-        <path d="M87 590q27-22 52 0q-21-8-34 7zM1106 574q38-32 76 0q-33-11-51 9z" fill="#101f25"/>
-        <!-- A real door in the castle, not a navigation card: a secret for explorers. -->
-        <a id="great-hall-entrance" href="/hogwarts/sorting-ceremony/" aria-label="Walk through the Great Hall door">
-          <path class="hall-door" d="M714 518v-38a27 27 0 0 1 54 0v38z" fill="#16181a" stroke="#7d6346" stroke-width="2.4"/>
-          <path d="M725 516v-35a16 16 0 0 1 32 0v35" fill="none" stroke="#3d3932" stroke-width="2"/>
-          <path d="M741 462v56" stroke="#594736" stroke-width="1.5" opacity=".75"/>
-          <circle cx="750" cy="497" r="1.9" fill="#bc9260"/>
-          <path d="M711 520h60" stroke="#57452f" stroke-width="3"/>
-          <rect x="700" y="446" width="80" height="84" fill="transparent" pointer-events="all"/>
-        </a>
-      </svg>
-      <div class="world-heading"><div class="eyebrow">Your journey begins</div><h1>Hogwarts.</h1><p>The world was always a little more magical than it seemed.</p></div>
-      <a class="world-scroll" href="#welcome">Explore the grounds</a>
-    </div>
-    <main class="world-content" id="welcome">
-      <div class="world-kicker">✦ &nbsp; A place for the curious &nbsp; ✦</div>
-      <h2>Welcome to the other side.</h2>
-      <p class="world-lede">You've found a corner of the internet that was never meant to be on the map. Stay for a moment. There are still a few things worth believing in.</p>
-      <div class="world-panels">
-        <section class="magic-panel" aria-labelledby="letter-title">
-          <div class="panel-symbol" aria-hidden="true">✉</div>
-          <div class="panel-number">01 / AN UNEXPECTED DELIVERY</div>
-          <h3 id="letter-title">A letter, just for you.</h3>
-          <p>Some invitations are not delivered by post. This one was waiting for someone who knew where to look.</p>
-          <button class="panel-button" type="button" id="open-letter" aria-expanded="false" aria-controls="letter">Break the seal ↗</button>
-          <div class="letter" id="letter" hidden>
-            <p>Dear curious traveler,</p>
-            <p>Most people see a wall and turn away. You saw a possibility. May that curiosity take you farther than any train ever could.</p>
-            <p>Yours in wonder, ✦</p>
-          </div>
-        </section>
-        <section class="magic-panel" aria-labelledby="stars-title">
-          <div class="panel-symbol" aria-hidden="true">✧</div>
-          <div class="panel-number">02 / THE OBSERVATORY</div>
-          <h3 id="stars-title">Ask the night sky.</h3>
-          <p>Every great adventure starts with a question. The stars have a thought to share with you.</p>
-          <p class="fortune" id="fortune" aria-live="polite">“Even in the dark, there are things worth finding.”</p>
-          <button class="panel-button" type="button" id="ask-stars">Consult the stars ↗</button>
-        </section>
-      </div>
+    <main class="hgw-layout">
+      <section class="hgw-copy" aria-label="A room in the castle">
+        <p id="hgw-overline" class="hgw-overline">A place between worlds</p>
+        <h1 id="hgw-title" class="hgw-title">Hogwarts.</h1>
+        <div class="hgw-rule" aria-hidden="true"></div>
+        <p id="hgw-summary" class="hgw-summary">A castle waits beyond the night.</p>
+        <div id="hgw-teacher" class="hgw-teacher" hidden></div>
+        <p id="hgw-observation" class="hgw-observation" aria-live="polite"></p>
+      </section>
+      <section class="hgw-stage-holder" aria-label="Explorable location">
+        <div class="hgw-stage-frame">
+          <div id="hgw-stage" class="hgw-stage" tabindex="0" role="application" aria-label="Explore this place. Walk using arrow keys or W A S D, swipe or touch a location to move. Doors are discovered by walking to them."></div>
+        </div>
+      </section>
     </main>
-    <footer class="world-footer">
-      <span>9¾ · A secret made for those who explore</span>
-      <span><a href="/">Back to Yuxuan's world ↗</a></span>
+    <footer class="hgw-footer">
+      <span>A secret found beyond Platform 9¾</span>
+      <span class="hgw-footer-line"></span>
+      <span id="hgw-location">The castle, after dusk</span>
     </footer>
-  </section>
-  <script>
-  (function(){
-    "use strict";
-    
-    function stars(element,number,seed){
-      if(!element)return;
-      for(var i=0;i<number;i++){
-        seed=(seed*16807)%2147483647;var x=(seed%10000)/100;
-        seed=(seed*16807)%2147483647;var y=(seed%10000)/100;
-        seed=(seed*16807)%2147483647;var opacity=.18+((seed%65)/100);
-        var s=document.createElement("span");s.className="star";
-        s.style.left=x+"%";s.style.top=y+"%";
-        s.style.setProperty("--opacity",opacity.toFixed(2));
-        s.style.setProperty("--duration",(3+(i%6))+"s");
-        s.style.setProperty("--delay",(-(i%9))+"s");element.appendChild(s);
-      }
-    }
-    stars(document.querySelector('[data-stars="world"]'),95,934);
-    var greatHallDoor=document.getElementById("great-hall-entrance");
-    var hallCrossing=false;
-    greatHallDoor.addEventListener("click",function(event){
-      event.preventDefault();
-      if(hallCrossing)return;
-      try{
-        var bytes=new Uint8Array(16);
-        window.crypto.getRandomValues(bytes);
-        var nonce=Array.from(bytes,function(x){return x.toString(16).padStart(2,"0")}).join("");
-        window.sessionStorage.setItem("hogwarts:sorting:pass:v1",JSON.stringify({
-          from:"/hogwarts/",at:Date.now(),nonce:nonce
-        }));
-      }catch(error){
-        greatHallDoor.setAttribute("aria-label","Session storage is required to enter the Great Hall");
-        return;
-      }
-      hallCrossing=true;
-      document.getElementById("world").classList.add("crossing-hall");
-      var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.setTimeout(function(){window.location.assign("/hogwarts/sorting-ceremony/");},reduced?0:630);
-    });
-    var letterButton=document.getElementById("open-letter");
-    var letter=document.getElementById("letter");
-    var fortune=document.getElementById("fortune");
-    var starButton=document.getElementById("ask-stars");
-    letterButton.addEventListener("click",function(){
-      var expanded=letterButton.getAttribute("aria-expanded")==="true";
-      letter.hidden=expanded;
-      letterButton.setAttribute("aria-expanded",String(!expanded));
-      letterButton.textContent=expanded?"Break the seal ↗":"Fold the letter ↗";
-    });
-    var messages=[
-      "“The best discoveries begin with an unexpected question.”",
-      "“Curiosity is a kind of magic that never wears off.”",
-      "“Not every closed door is locked.”",
-      "“Sometimes the smallest clue leads to the greatest journey.”",
-      "“An unfinished experiment can still contain a little wonder.”",
-      "“There is more to the world than the things we already know.”",
-      "“The night rewards those who keep looking.”"
-    ];
-    var last=-1;
-    starButton.addEventListener("click",function(){
-      var next=Math.floor(Math.random()*messages.length);
-      if(next===last)next=(next+1)%messages.length;
-      last=next;
-      fortune.textContent=messages[next];
-    });
-  })();
-  </script>
-  <script src="/assets/js/hogwarts-soundtrack.js?v=20261022-1" defer></script>
+    <div id="hgw-announce" class="hgw-sr" aria-live="polite" aria-atomic="true"></div>
+  </div>
 </body>
 </html>
