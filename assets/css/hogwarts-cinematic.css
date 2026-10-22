@@ -63,3 +63,19 @@
 .hgw-scene[data-room="dock"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/old-pier.webp")}
 .hgw-scene[data-room="greenhouse"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/glass-passage.webp")}
 .hgw-scene[data-room="herbology"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/herbology-lesson.webp")}
+
+/* Dedicated location artwork; preserve existing scene effects and walkable door targets. */
+.hgw-scene[data-room="gate"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/hogwarts-entrance.webp")}
+.hgw-scene[data-room="pantry"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/copper-pantry.webp")}
+.hgw-scene[data-room="baths"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/forgotten-washroom.webp")}
+.hgw-scene[data-room="astrStair"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/spiral-ascent.webp")}
+.hgw-scene[data-room="owlery"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/owlery.webp")}
+.hgw-scene[data-room="ramparts"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/north-battlements.webp")}
+.hgw-scene[data-room="oldArchive"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/forgotten-archive.webp")}
+.hgw-scene[data-room="vault"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/old-storeroom.webp")}
+.hgw-scene[data-room="clearing"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/ancient-clearing.webp")}
+.hgw-scene[data-room="hut"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/hagrids-hut.webp")}
+.hgw-scene[data-room="paddock"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/creature-paddock.webp")}
+.hgw-scene[data-room="flying"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/flying-lesson.webp")}
+.hgw-scene[data-room="sluice"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/serpents-descent.webp")}
+.hgw-scene[data-room="sanctum"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/serpent-sanctum.webp")}
