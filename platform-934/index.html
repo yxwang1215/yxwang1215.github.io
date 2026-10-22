@@ -69,6 +69,9 @@ sitemap: false
     .bottom-bar > *{pointer-events:auto}
     .location{display:flex;align-items:center;gap:15px;color:rgba(245,236,222,.79);font-size:12px;font-weight:600;letter-spacing:.19em;text-transform:uppercase}
     .location .point{height:7px;width:7px;background:#e4c69b;border-radius:50%;box-shadow:0 0 12px rgba(236,189,111,.48)}
+    .photo-credit-wrap{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+    .photo-license{font-size:11px;text-decoration:none;color:rgba(235,226,216,.69);white-space:nowrap}
+    .photo-license:hover{text-decoration:underline;color:#fff}
     .photo-credit{max-width:380px;color:rgba(235,226,216,.69);font-size:11px;line-height:1.6;text-align:right;text-decoration:none}
     .photo-credit:hover{text-decoration:underline;color:#fff}
     .corner-rules{position:absolute;inset:0;z-index:6;pointer-events:none}
@@ -113,7 +116,8 @@ sitemap: false
       .hit-area--gates{left:20%;top:33%;width:74%;height:58%}
       .hit-area--brick{left:49%;right:1%;top:29%;width:48%;height:56%}
       .bottom-bar{padding:20px 23px 25px;grid-template-columns:1fr;gap:9px}
-      .photo-credit{max-width:100%;text-align:left;font-size:10px}
+      .photo-credit-wrap{justify-content:flex-start}
+      .photo-credit,.photo-license{max-width:100%;text-align:left;font-size:10px}
       .location{font-size:11px}
       .scene-caption{right:24px;bottom:110px;font-size:10px}
     }
@@ -163,7 +167,7 @@ sitemap: false
   <div class="scene-caption" id="scene-caption" aria-hidden="true">Western concourse</div>
   <footer class="bottom-bar">
     <div class="location"><span class="point" aria-hidden="true"></span><span id="location-name">KING'S CROSS · LONDON N1C</span></div>
-    <a class="photo-credit" id="photo-credit" href="https://commons.wikimedia.org/wiki/File:King%27s_Cross_railway_station_MMB_C4.jpg" target="_blank" rel="noopener noreferrer" title="Real photography from Wikimedia Commons. Framing and tones altered for this page.">Real photograph © Matt Buck · CC BY-SA 3.0 · Cropped/toned ↗</a>
+    <div class="photo-credit-wrap"><a class="photo-credit" id="photo-credit" href="https://commons.wikimedia.org/wiki/File:King%27s_Cross_railway_station_MMB_C4.jpg" target="_blank" rel="noopener noreferrer" title="Real Wikimedia Commons photography. Cropped and colour-toned for this page.">Photograph © Matt Buck · Cropped/toned ↗</a><a class="photo-license" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0 ↗</a></div>
   </footer>
   <div class="portal-curtain" id="portal-curtain" aria-hidden="true"></div>
   <noscript><p class="noscript-notice">JavaScript is required to explore this station.</p></noscript>
@@ -184,9 +188,9 @@ sitemap: false
   var fine=window.matchMedia("(pointer: fine)").matches;
   var key="hogwarts:platform934:pass:v1";
   var chapters=[
-    {kicker:"London / East Coast",title:"King's",second:"Cross.",body:"The city moves on. The station never stops.",label:"Western concourse",location:"KING'S CROSS · LONDON N1C",credit:"Real photograph © Matt Buck · CC BY-SA 3.0 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:King%27s_Cross_railway_station_MMB_C4.jpg"},
-    {kicker:"King's Cross / Departures",title:"The",second:"Platforms.",body:"Just another afternoon among the departures.",label:"Suburban platforms · 9–11",location:"KING'S CROSS · SUBURBAN PLATFORMS",credit:"Real photograph © Sunil060902 · CC BY-SA 3.0 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:King%27s_Cross_stn_platforms_9-11_entrance_from_new_concourse_2012.JPG"},
-    {kicker:"King's Cross / Train shed",title:"The",second:"Old Walls.",body:"Steel, glass and London brick. The trains still come and go.",label:"Historic train shed",location:"KING'S CROSS · HISTORIC TRAIN SHED",credit:"Real photograph © David Iliff · CC BY-SA 3.0 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:Kings_Cross_Railway_Station_Platforms_5_to_8%2C_London%2C_UK_-_Diliff.jpg"}
+    {kicker:"London / East Coast",title:"King's",second:"Cross.",body:"The city moves on. The station never stops.",label:"Western concourse",location:"KING'S CROSS · LONDON N1C",credit:"Real photograph © Matt Buck · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:King%27s_Cross_railway_station_MMB_C4.jpg"},
+    {kicker:"King's Cross / Departures",title:"The",second:"Platforms.",body:"Just another afternoon among the departures.",label:"Suburban platforms · 9–11",location:"KING'S CROSS · SUBURBAN PLATFORMS",credit:"Real photograph © Sunil060902 · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:King%27s_Cross_stn_platforms_9-11_entrance_from_new_concourse_2012.JPG"},
+    {kicker:"King's Cross / Train shed",title:"The",second:"Old Walls.",body:"Steel, glass and London brick. The trains still come and go.",label:"Historic train shed",location:"KING'S CROSS · HISTORIC TRAIN SHED",credit:"Real photograph © David Iliff · Cropped/toned ↗",source:"https://commons.wikimedia.org/wiki/File:Kings_Cross_Railway_Station_Platforms_5_to_8%2C_London%2C_UK_-_Diliff.jpg"}
   ];
   function londonClock(){
     try{
