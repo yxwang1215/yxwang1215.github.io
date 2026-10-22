@@ -156,7 +156,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 
 <div class="last-updated">
   <em>Last updated: 2026/10/18.</em>
-  <a class="home-platform-portal" href="{{ '/hogwarts/' | relative_url }}" aria-label="Enter the hidden Platform nine and three quarters" title="There is something between nine and ten">9<sup>¾</sup></a>
+  <a class="home-platform-portal" href="{{ '/platform-934/' | relative_url }}" aria-label="Enter the hidden Platform nine and three quarters">9<sup>¾</sup></a>
 </div>
 <style>
   /* An intentionally quiet Easter egg, never part of the public navigation. */

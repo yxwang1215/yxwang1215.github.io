@@ -1,0 +1,104 @@
+---
+layout: null
+permalink: /platform-934/
+sitemap: false
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#090d15">
+  <meta name="description" content="Some doors are not on the map.">
+  <title>Platform 9¾ · The Unmarked Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/hogwarts-portal.css?v=20261022-2">
+</head>
+<body>
+  <a class="skip-link" href="#station-main">Skip to content</a>
+  <div class="transition-overlay" id="transition" aria-hidden="true">
+    <div class="transition-inner"><span class="transition-symbol">✦</span><span class="transition-label">Beyond the ordinary</span></div>
+  </div>
+  <section class="station" id="station" aria-label="The secret entrance">
+    <div class="starfield" data-stars="station" aria-hidden="true"></div>
+    <div class="station-haze" aria-hidden="true"></div>
+    <header class="topbar">
+      <span class="wordmark"><span class="mark" aria-hidden="true">✧</span> THE UNMARKED PLATFORM</span>
+      <a class="return" href="/" aria-label="Return to Yuxuan Wang's homepage"><span aria-hidden="true">←</span> Ordinary world</a>
+    </header>
+    <main class="station-layout" id="station-main">
+      <div class="station-copy">
+        <div class="eyebrow">King's Cross · Somewhere between 9 &amp; 10</div>
+        <h1>Some doors<br>aren't <em>on<br>the map.</em></h1>
+        <p class="station-description">You noticed something most people walk past. A small crack in the ordinary. A platform that doesn't quite exist. Perhaps you were meant to find it.</p>
+
+      </div>
+      <div class="scene" aria-label="An old brick wall bearing the mysterious sign for Platform nine and three quarters">
+        <div class="lamp lamp-left" aria-hidden="true"></div>
+        <div class="lamp lamp-right" aria-hidden="true"></div>
+        <div class="station-arch" id="brick-wall" role="button" tabindex="0" aria-label="Explore the brick wall">
+          <div class="platform-plaque" aria-hidden="true">
+            <span class="plaque-top">PLATFORM</span>
+            <span class="plaque-number">9<sup>¾</sup></span>
+            <span class="plaque-bottom">DEPARTURES</span>
+          </div>
+        </div>
+        <div class="arch-floor" aria-hidden="true"></div>
+        <div class="luggage" aria-hidden="true"><div class="case case-one"></div><div class="case case-two"></div></div>
+        <div class="ticket" aria-hidden="true"><div class="ticket-label">ONE-WAY TICKET</div><div class="ticket-main">9¾</div><div class="ticket-sub">DESTINATION · UNKNOWN</div></div>
+      </div>
+    </main>
+    <footer class="station-bottom"><span>Departure · Unscheduled</span><span class="thin-rule"></span><span>Not every journey needs a map</span></footer>
+  </section>
+  <script>
+  (function(){
+    "use strict";
+    var wall=document.getElementById("brick-wall");
+    var curtain=document.getElementById("transition");
+    var busy=false;
+    var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var PASS_KEY="hogwarts:platform934:pass:v1";
+    
+    function stars(element,number,seed){
+      if(!element)return;
+      for(var i=0;i<number;i++){
+        seed=(seed*16807)%2147483647;var x=(seed%10000)/100;
+        seed=(seed*16807)%2147483647;var y=(seed%10000)/100;
+        seed=(seed*16807)%2147483647;var opacity=.18+((seed%65)/100);
+        var s=document.createElement("span");s.className="star";
+        s.style.left=x+"%";s.style.top=y+"%";
+        s.style.setProperty("--opacity",opacity.toFixed(2));
+        s.style.setProperty("--duration",(3+(i%6))+"s");
+        s.style.setProperty("--delay",(-(i%9))+"s");element.appendChild(s);
+      }
+    }
+    stars(document.querySelector('[data-stars="station"]'),48,921);
+    function cross(){
+      if(busy)return;
+      busy=true;
+      try{
+        var bytes=new Uint8Array(16);
+        window.crypto.getRandomValues(bytes);
+        var nonce=Array.from(bytes,function(x){return x.toString(16).padStart(2,"0")}).join("");
+        window.sessionStorage.setItem(PASS_KEY,JSON.stringify({
+          from:"/platform-934/",at:Date.now(),nonce:nonce
+        }));
+      }catch(error){
+        busy=false;
+        wall.setAttribute("aria-label","Your browser must allow session storage to use this passage");
+        return;
+      }
+      curtain.classList.add("is-active");
+      window.setTimeout(function(){window.location.assign("/hogwarts/");},reduced?0:740);
+    }
+    wall.addEventListener("click",cross);
+    wall.addEventListener("keydown",function(event){
+      if(event.key==="Enter"||event.key===" "){event.preventDefault();cross()}
+    });
+  })();
+  </script>
+</body>
+</html>
