@@ -80,7 +80,8 @@
       html+='<div class="hgw-banner hgw-banner--l"></div><div class="hgw-banner hgw-banner--r"></div>';
     }
     if(id==="great"){
-      html+='<div class="hgw-candles">'+Array(11).fill("<i></i>").join("")+'</div><div class="hgw-tables"><i></i><i></i><i></i><i></i></div>';
+      html+='<div class="hgw-candles">'+Array(11).fill("<i></i>").join("")+'</div><div class="hgw-tables"><i></i><i></i><i></i><i></i></div>'+
+        '<div class="hgw-prop--sorting-hat" tabindex="0" role="link" data-ceremony aria-label="Examine the old hat resting on the dais"></div>';
     }
     if(["library","oldArchive"].indexOf(id)>=0){
       html+='<div class="hgw-books"><i></i><i></i><i></i></div>';
@@ -200,6 +201,33 @@
     }
     return false;
   }
+  function visitSortingCeremony(){
+    if(busy||!current||current.id!=="great")return false;
+    busy=true;stopWalk();
+    try{
+      var bytes=new Uint8Array(16);
+      window.crypto.getRandomValues(bytes);
+      var nonce=Array.from(bytes,function(value){return value.toString(16).padStart(2,"0")}).join("");
+      window.sessionStorage.setItem("hogwarts:sorting:pass:v1",JSON.stringify({
+        from:"/hogwarts/",at:Date.now(),nonce:nonce
+      }));
+      persist();
+    }catch(error){
+      busy=false;
+      observation.textContent="The ancient door cannot open without browser session storage.";
+      observation.classList.add("is-visible");
+      return false;
+    }
+    shell.classList.add("is-transitioning");
+    window.setTimeout(function(){
+      window.location.assign("/hogwarts/sorting-ceremony/");
+    },reduced?0:480);
+    return true;
+  }
+  function checkCeremony(){
+    return !!(current&&current.id==="great"&&
+      Math.hypot(avatar.x-50,avatar.y-58)<=9&&visitSortingCeremony());
+  }
   function ambientLine(){
     if(!current||remembered[current.id])return;
     var line="";
@@ -226,6 +254,7 @@
       var room=atlas.rooms[to];
       window.history.pushState({hogwarts:true,room:to},"",room.path);
       enterRoom(to,{spawn:spawn});
+      window.dispatchEvent(new Event("hogwarts:scenechange"));
     },reduced?20:405);
   }
   function move(dx,dy){
@@ -236,7 +265,7 @@
     syncAvatar(true);
     var direction=findExit();
     if(direction){changeRoom(current.exits[direction],direction);return}
-    if(checkSecret())return;
+    if(checkSecret()||checkCeremony())return;
     ambientLine();
   }
   function tickAuto(){
@@ -244,14 +273,14 @@
     if(busy||!walkTarget)return;
     var dx=walkTarget.x-avatar.x,dy=walkTarget.y-avatar.y;
     var dist=Math.hypot(dx,dy);
-    if(dist<=1.7){syncAvatar(false);walkTarget=null;return}
+    if(dist<=1.7){syncAvatar(false);walkTarget=null;checkSecret()||checkCeremony();return}
     var speed=1.8;
     avatar.x=Math.max(7,Math.min(93,avatar.x+(dx/dist)*speed));
     avatar.y=Math.max(23,Math.min(93,avatar.y+(dy/dist)*speed));
     syncAvatar(true);
     var direction=findExit();
     if(direction){changeRoom(current.exits[direction],direction);return}
-    if(checkSecret())return;
+    if(checkSecret()||checkCeremony())return;
     ambientLine();
     frame=window.requestAnimationFrame(tickAuto);
   }
@@ -274,6 +303,10 @@
     if(secret&&host.contains(secret)&&current.secret){
       goTo(current.secret.x,current.secret.y);return;
     }
+    var ceremony=event.target.closest("[data-ceremony]");
+    if(ceremony&&host.contains(ceremony)&&current.id==="great"){
+      goTo(50,58);return;
+    }
     var rect=host.getBoundingClientRect();
     if(rect.width<1||rect.height<1)return;
     var x=100*(event.clientX-rect.left)/rect.width;
@@ -283,7 +316,7 @@
   host.addEventListener("click",clickOnScene);
   host.addEventListener("keydown",function(event){
     if(event.target!==host&&(event.key==="Enter"||event.key===" ")){
-      var action=event.target.closest("[data-door],[data-secret]");
+      var action=event.target.closest("[data-door],[data-secret],[data-ceremony]");
       if(action){event.preventDefault();action.click();return}
     }
   });
@@ -317,6 +350,7 @@
     var id=atlas.byPath[pathFromLocation()];
     if(!id||!session.visited.includes(id)){window.location.replace("/");return}
     enterRoom(id,{spawn:{x:50,y:76}});
+    window.dispatchEvent(new Event("hogwarts:scenechange"));
   });
   window.history.replaceState({hogwarts:true,room:atlas.byPath[pathFromLocation()]},"",window.location.pathname);
   enterRoom(atlas.byPath[pathFromLocation()]);

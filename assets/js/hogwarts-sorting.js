@@ -262,16 +262,16 @@
   function returnToCastle(event) {
     event.preventDefault();
     try {
-      window.sessionStorage.setItem("hogwarts:platform934:pass:v1", JSON.stringify({
-        from: "/hogwarts/sorting-ceremony/",
-        at: Date.now(),
-        nonce: makeNonce()
-      }));
-      window.location.assign("/hogwarts/");
+      var session=JSON.parse(window.sessionStorage.getItem("hogwarts:session:v2")||"null");
+      var age=session?Date.now()-session.issued:-1;
+      if(session&&typeof session.issued==="number"&&age>=0&&age<=21600000&&
+         Array.isArray(session.visited)&&session.visited.indexOf("great")!==-1){
+        window.location.assign("/hogwarts/castle/keep/ground-floor/great-hall/");
+      }else{
+        window.location.assign("/platform-934/");
+      }
     } catch (error) {
-      // A denied browser storage permission must not create a false open route.
-      var status = document.getElementById("navigation-status");
-      if (status) status.textContent = "Please enable session storage to cross back through the castle.";
+      window.location.assign("/platform-934/");
     }
   }
 

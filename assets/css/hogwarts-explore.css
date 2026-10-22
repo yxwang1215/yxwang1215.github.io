@@ -252,3 +252,10 @@ body.hgw-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-in
 .hgw-title--long{font-size:clamp(50px,5.05vw,82px)}
 .hgw-title--very-long{font-size:clamp(43px,4.35vw,69px);line-height:.98}
 @media(max-width:600px){.hgw-title--long{font-size:clamp(45px,9.5vw,61px)}.hgw-title--very-long{font-size:clamp(39px,9vw,56px)}}
+
+/* The Great Hall's old hat is part of the scenery, never a bright navigation card. */
+.hgw-prop--sorting-hat{position:absolute;z-index:18;left:calc(50% - 37px);top:50%;width:74px;height:75px;cursor:default;pointer-events:auto;outline:none}
+.hgw-prop--sorting-hat::before{content:"";position:absolute;inset:3px 15px 12px 15px;background:linear-gradient(130deg,#71543a,#3a302c 63%,#17181c);clip-path:polygon(48% 0,69% 22%,78% 47%,94% 95%,4% 95%,29% 43%);border-radius:15px 11px 5px 5px;filter:drop-shadow(0 2px 8px #05070a)}
+.hgw-prop--sorting-hat::after{content:"";position:absolute;left:5px;right:5px;bottom:6px;height:17px;border:2px solid #71583f;border-radius:50%;background:linear-gradient(100deg,#8c6c44,#483a2a 60%,#251f1e);transform:rotate(-5deg);box-shadow:0 7px 9px #0406089a}
+.hgw-prop--sorting-hat:focus-visible{outline:2px dotted #ddc69d;outline-offset:7px}
+.hgw-secret-target{pointer-events:auto}

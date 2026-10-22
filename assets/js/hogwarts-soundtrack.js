@@ -117,6 +117,30 @@
       var scene = hash.slice(2).replace(/^hogwarts\//i, "");
       path = normalize("/hogwarts/" + scene);
     }
+    // Match rooms in the nested URL maze to their location-specific licensed score.
+    var atlas=window.HogwartsAtlas;
+    var id=atlas&&atlas.byPath[path];
+    var aliases={
+      great:"/hogwarts/great-hall/",
+      chamber:"/hogwarts/chamber-of-secrets/",
+      sanctum:"/hogwarts/chamber-of-secrets/",
+      sluice:"/hogwarts/chamber-of-secrets/",
+      staircase:"/hogwarts/staircases/",
+      astrStair:"/hogwarts/staircases/",
+      astrTower:"/hogwarts/astronomy-tower/",
+      divination:"/hogwarts/astronomy-tower/",
+      potions:"/hogwarts/potions/",
+      quidditch:"/hogwarts/quidditch/",
+      flying:"/hogwarts/quidditch/",
+      lake:"/hogwarts/grounds/",
+      forest:"/hogwarts/grounds/",
+      hut:"/hogwarts/grounds/",
+      paddock:"/hogwarts/grounds/",
+      courtyard:"/hogwarts/grounds/",
+      herbology:"/hogwarts/grounds/",
+      greenhouse:"/hogwarts/grounds/"
+    };
+    if(id&&aliases[id])path=aliases[id];
     var best = null;
     score.forEach(function (item) {
       if (path.indexOf(item.path) === 0 &&
