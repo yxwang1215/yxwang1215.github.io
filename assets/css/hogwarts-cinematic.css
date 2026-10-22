@@ -32,3 +32,12 @@
 .hgw-scene[data-room] .hgw-door--s::before{opacity:.3}
 
 .hgw-scene[data-room] .hgw-vignette{z-index:20}
+
+/* Scene-specific AI-generated environments. Keep interactive doors and hidden targets above the imagery. */
+.hgw-scene[data-room="office"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/headmasters-office.webp")}
+.hgw-scene[data-room="divination"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/divination-classroom.webp")}
+.hgw-scene[data-room="requirement"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/room-of-requirement.webp")}
+.hgw-scene[data-room="dungeonSteps"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/dungeon-stairwell.webp")}
+.hgw-scene[data-room="crypt"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forgotten-crypt.webp")}
+.hgw-scene[data-room="slytherin"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/green-lantern-passage.webp")}
+.hgw-scene[data-room="reservoir"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/underground-reservoir.webp")}
