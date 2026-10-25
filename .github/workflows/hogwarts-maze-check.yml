@@ -10,6 +10,7 @@ on:
       - "assets/css/hogwarts-map.css"
       - "tests/hogwarts-maze-check.mjs"
       - "tests/hogwarts-map-check.mjs"
+      - "tests/hogwarts-soundtrack-check.mjs"
       - ".github/workflows/hogwarts-maze-check.yml"
   pull_request:
     paths:
@@ -20,6 +21,7 @@ on:
       - "assets/css/hogwarts-map.css"
       - "tests/hogwarts-maze-check.mjs"
       - "tests/hogwarts-map-check.mjs"
+      - "tests/hogwarts-soundtrack-check.mjs"
       - ".github/workflows/hogwarts-maze-check.yml"
   workflow_dispatch:
 
@@ -37,3 +39,5 @@ jobs:
         run: node tests/hogwarts-maze-check.mjs
       - name: Check Hogwarts parchment map
         run: node tests/hogwarts-map-check.mjs
+      - name: Check soundtrack routes and scene transitions
+        run: node tests/hogwarts-soundtrack-check.mjs

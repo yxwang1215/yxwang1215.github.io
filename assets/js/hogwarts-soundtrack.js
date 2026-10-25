@@ -8,83 +8,122 @@
 
   var score = [
     {
-      path: "/platform-934/",
+      id: "platform",
       title: "Platform Nine-and-Three-Quarters and the Journey to Hogwarts",
       composer: "John Williams · Philosopher's Stone (2001)",
       spotify: "72SmD8s1DYkwUhoEkGlnyV",
       file: "platform-934.mp3"
     },
     {
-      path: "/hogwarts/chamber-of-secrets/",
+      id: "chamber",
       title: "The Chamber of Secrets",
       composer: "John Williams · Chamber of Secrets (2002)",
       spotify: "0go4boa9hw472v8dFpRI5V",
       file: "chamber-of-secrets.mp3"
     },
     {
-      path: "/hogwarts/sorting-ceremony/",
+      id: "sorting",
       title: "Entry into the Great Hall and the Banquet",
       composer: "John Williams · Philosopher's Stone (2001)",
       spotify: "0UDSwgomgI5bK1x1eYeBez",
       file: "sorting-ceremony.mp3"
     },
     {
-      path: "/hogwarts/great-hall/",
+      id: "great",
       title: "Entry into the Great Hall and the Banquet",
       composer: "John Williams · Philosopher's Stone (2001)",
       spotify: "0UDSwgomgI5bK1x1eYeBez",
       file: "great-hall.mp3"
     },
     {
-      path: "/hogwarts/staircases/",
+      id: "staircases",
       title: "Hogwarts Forever! and the Moving Stairs",
       composer: "John Williams · Philosopher's Stone (2001)",
       spotify: "0pyKuk3bYFSzPIysym8ioN",
       file: "staircases.mp3"
     },
     {
-      path: "/hogwarts/quidditch/",
+      id: "quidditch",
       title: "The Quidditch Match",
       composer: "John Williams · Philosopher's Stone (2001)",
       spotify: "4aL5x9pzbU5PTLca3oJjo3",
       file: "quidditch.mp3"
     },
     {
-      path: "/hogwarts/hogsmeade/",
+      id: "memory",
       title: "A Window to the Past",
       composer: "John Williams · Prisoner of Azkaban (2004)",
       spotify: "1PPTlPJqKuL0fdoTmzwXJy",
       file: "hogsmeade.mp3"
     },
     {
-      path: "/hogwarts/astronomy-tower/",
+      id: "tower",
       title: "Dumbledore's Farewell",
       composer: "Nicholas Hooper · Half-Blood Prince (2009)",
       spotify: "0bmb8jg6ljmt8qBmIsMNvL",
       file: "astronomy-tower.mp3"
     },
     {
-      path: "/hogwarts/potions/",
+      id: "potions",
       title: "Polyjuice Potion",
       composer: "John Williams · Chamber of Secrets (2002)",
       spotify: "23UVS3PRoBNUwWio4aqPId",
       file: "potions.mp3"
     },
     {
-      path: "/hogwarts/grounds/",
+      id: "grounds",
       title: "Harry's Wondrous World",
       composer: "John Williams · Chamber of Secrets (2002)",
       spotify: "5qWvQZewRB57giOKgvUE3F",
       file: "grounds.mp3"
     },
     {
-      path: "/hogwarts/",
+      id: "hedwig",
       title: "Hedwig's Theme",
       composer: "John Williams · Philosopher's Stone (2001)",
       spotify: "1n8NKQRg8LVHy7oUhUgbFF",
       file: "hedwigs-theme.mp3"
     }
   ];
+
+  // The atlas owns room URLs. Soundtrack routing only refers to stable room IDs
+  // and semantic kinds, never to a second, independently maintained path list.
+  var byTrack = Object.create(null);
+  score.forEach(function (track) { byTrack[track.id] = track; });
+
+  var roomOverrides = {
+    gate: "hedwig",              // Keep the castle entrance iconic, not generic outdoor music.
+    great: "great",
+    divination: "tower",
+    ramparts: "tower"
+  };
+  var kindTracks = {
+    exterior: "grounds",
+    grounds: "grounds",
+    bridge: "grounds",
+    lake: "grounds",
+    forest: "grounds",
+    hut: "grounds",
+    greenhouse: "grounds",
+    herbology: "grounds",
+    quidditch: "quidditch",
+    hall: "hedwig",
+    kitchen: "hedwig",
+    classroom: "hedwig",
+    bathroom: "hedwig",
+    portrait: "memory",
+    hospital: "memory",
+    library: "memory",
+    study: "memory",
+    requirement: "memory",
+    stair: "staircases",
+    observatory: "tower",
+    dungeon: "potions",
+    potions: "potions",
+    water: "chamber",
+    sewers: "chamber",
+    chamber: "chamber"
+  };
 
   var routePrefix = /^\/(hogwarts|platform-934)(\/|$)/;
   if (!routePrefix.test(window.location.pathname)) return;
@@ -106,47 +145,42 @@
   var reducedMotion = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Hash-router compatibility: /hogwarts/#/chamber-of-secrets/ is also supported.
+  // Legacy hash scenes resolve through the atlas too. A unique leaf slug
+  // (e.g. #/chamber-of-secrets/) stays compatible without duplicating room URLs.
   function normalize(path) {
-    return path.replace(/index\.html$/i, "").replace(/\/+$/, "") + "/";
+    return String(path || "/").replace(/index\.html$/i, "").replace(/\/+$/, "") + "/";
+  }
+  function pathFromLocation() {
+    var path = normalize(window.location.pathname);
+    var hash = window.location.hash || "";
+    if (path !== "/hogwarts/" || !/^#\/[a-z0-9/_-]+\/?$/i.test(hash)) return path;
+    var candidate = normalize("/hogwarts/" + hash.slice(2).replace(/^hogwarts\//i, ""));
+    var atlas = window.HogwartsAtlas;
+    if (!atlas || !atlas.rooms) return path;
+    if (atlas.byPath[candidate]) return candidate;
+    var leaf = candidate.split("/").filter(Boolean).pop();
+    var matching = Object.keys(atlas.rooms).filter(function (id) {
+      return atlas.rooms[id].path.split("/").filter(Boolean).pop() === leaf;
+    });
+    return matching.length === 1 ? atlas.rooms[matching[0]].path : path;
+  }
+  function selectForPath(path) {
+    path = normalize(path);
+    if (path === "/platform-934/") return byTrack.platform;
+    if (path === "/hogwarts/sorting-ceremony/") return byTrack.sorting;
+
+    var atlas = window.HogwartsAtlas;
+    var id = atlas && atlas.byPath && atlas.byPath[path];
+    if (id && atlas.rooms[id]) {
+      var room = atlas.rooms[id];
+      var trackId = roomOverrides[id] || kindTracks[room.kind];
+      return byTrack[trackId] || byTrack.hedwig;
+    }
+    // An unknown/non-maze Hogwarts page uses the general theme.
+    return byTrack.hedwig;
   }
   function routeFromLocation() {
-    var path = normalize(window.location.pathname);
-    var hash = window.location.hash;
-    if (path === "/hogwarts/" && /^#\/[a-z0-9/_-]+$/i.test(hash)) {
-      var scene = hash.slice(2).replace(/^hogwarts\//i, "");
-      path = normalize("/hogwarts/" + scene);
-    }
-    // Match rooms in the nested URL maze to their location-specific licensed score.
-    var atlas=window.HogwartsAtlas;
-    var id=atlas&&atlas.byPath[path];
-    var aliases={
-      great:"/hogwarts/great-hall/",
-      chamber:"/hogwarts/chamber-of-secrets/",
-      sanctum:"/hogwarts/chamber-of-secrets/",
-      sluice:"/hogwarts/chamber-of-secrets/",
-      staircase:"/hogwarts/staircases/",
-      astrStair:"/hogwarts/staircases/",
-      astrTower:"/hogwarts/astronomy-tower/",
-      divination:"/hogwarts/astronomy-tower/",
-      potions:"/hogwarts/potions/",
-      quidditch:"/hogwarts/quidditch/",
-      flying:"/hogwarts/quidditch/",
-      lake:"/hogwarts/grounds/",
-      forest:"/hogwarts/grounds/",
-      hut:"/hogwarts/grounds/",
-      paddock:"/hogwarts/grounds/",
-      courtyard:"/hogwarts/grounds/",
-      herbology:"/hogwarts/grounds/",
-      greenhouse:"/hogwarts/grounds/"
-    };
-    if(id&&aliases[id])path=aliases[id];
-    var best = null;
-    score.forEach(function (item) {
-      if (path.indexOf(item.path) === 0 &&
-        (!best || item.path.length > best.path.length)) best = item;
-    });
-    return best || score[score.length - 1];
+    return selectForPath(pathFromLocation());
   }
 
   var root = document.createElement("aside");
@@ -299,7 +333,7 @@
   }
   function sync() {
     var next = routeFromLocation();
-    if (current && current.path === next.path) return;
+    if (current && current.id === next.id) return;
     current = next;
     title.textContent = next.title;
     composer.textContent = next.composer;
@@ -358,6 +392,6 @@
   window.addEventListener("pagehide", function () {
     if (audio) audio.pause();
   });
-  window.HogwartsSoundtrack = { sync: sync };
+  window.HogwartsSoundtrack = { sync: sync, selectForPath: selectForPath };
   sync();
 })();
