@@ -148,13 +148,13 @@
   // Legacy hash scenes resolve through the atlas too. A unique leaf slug
   // (e.g. #/chamber-of-secrets/) stays compatible without duplicating room URLs.
   function normalize(path) {
-    return String(path || "/").replace(/index\\.html$/i, "").replace(/\\/+$/, "") + "/";
+    return String(path || "/").replace(/index\.html$/i, "").replace(/\/+$/, "") + "/";
   }
   function pathFromLocation() {
     var path = normalize(window.location.pathname);
     var hash = window.location.hash || "";
-    if (path !== "/hogwarts/" || !/^#\\/[a-z0-9/_-]+\\/?$/i.test(hash)) return path;
-    var candidate = normalize("/hogwarts/" + hash.slice(2).replace(/^hogwarts\\//i, ""));
+    if (path !== "/hogwarts/" || !/^#\/[a-z0-9/_-]+\/?$/i.test(hash)) return path;
+    var candidate = normalize("/hogwarts/" + hash.slice(2).replace(/^hogwarts\//i, ""));
     var atlas = window.HogwartsAtlas;
     if (!atlas || !atlas.rooms) return path;
     if (atlas.byPath[candidate]) return candidate;
