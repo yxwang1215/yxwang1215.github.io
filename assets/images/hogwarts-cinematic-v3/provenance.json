@@ -336,6 +336,134 @@
       },
       "bytes": 564918,
       "sha256": "f64f82f19d661af3540e524add378d43b8066ddef05032322d2490605bb81460"
+    },
+    {
+      "asset": "stone-viaduct.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one complete full-bleed landscape scene background for an immersive Hogwarts exploration website, 16:9, native 2560x1440 pixels or higher.\nPrimary request: the Stone Viaduct on the Hogwarts grounds, viewed from ON the bridge at human eye level, in the authentic medieval Gothic stone architecture and tangible cinematic realism of the Harry Potter films. The viewer stands on a broad walkable cobbled stone bridge near its junction with the castle grounds. A central bridge path with detailed Gothic stone parapets leads straight ahead into a clear forest approach in the middle distance. Hogwarts castle sits behind and to the LEFT, partly visible; the lake is clearly visible to the RIGHT, with distant Scottish mountains.\nComposition: human standing eye height, wide 24mm architectural view with coherent perspective and believable construction. Foreground cobbles and parapets have precise natural surface detail. Show three clear natural walking choices: straight ahead toward the forest near the center; a LEFT paved return branch through a stone arch toward the castle courtyard; and a RIGHT path or short stone stair at this near-shore bridge junction descending naturally toward the lakeshore. All paths must be physically supported by land or believable masonry; no floating paths. The broad central bridge remains unobstructed. Frame a complete environment edge to edge, without any blank or white strips.\nLighting: clear natural daylight, balanced exposure, gentle warm sun, readable shadows, natural grey and warm stone, green trees and clear blue-grey lake. Deep focus throughout, crisp high-frequency texture in the foreground and middle distance; fine individual cobbles, masonry joints, weathering, moss and woodlands. Photographic optical clarity and restrained cinematic color, not an illustration.\nConstraints: no people or creatures, no UI, text, signs, logos, watermarks, borders, frames, panels or white margins. No blur, bokeh, soft focus, smeared details, painterly shapes, oversharpened halos, thick fog, heavy haze, excessive bloom or artificial geometric scenery.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 306706,
+      "sha256": "9af0ee0e5e1ee0e572e7015d9448a8b28d37418adb21b8c2a2fa25c64b760e08"
+    },
+    {
+      "asset": "lantern-path.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Create a crisp realistic architectural photograph of a Scottish stone walkway at blue hour, with warm brass lanterns leading toward a distant medieval Gothic castle gateway. This is a standalone architectural landscape, with natural stonework, cobbles, grassy banks and mature trees. A visible side path branches to the RIGHT into a stone courtyard. The main path runs from the lower foreground toward the gateway in the central middle distance. Human eye-level wide 24mm view with believable construction and natural proportions, fine detailed cobbles and masonry, deep focus, clear air, readable blue-hour shadows balanced with warm lantern light. Landscape 16:9, native 2560x1440 pixels or higher. Full-bleed environment fills the image edge to edge. No people, text, signs, logos, UI, borders, frames, blank strips, blur, soft focus, bokeh, painted shapes, heavy haze or exaggerated glow.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 327424,
+      "sha256": "ad65e8939e59f106475043241d2a33a55cf3892151b290219b652d35d6cf700b"
+    },
+    {
+      "asset": "boathouse.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one full-bleed 16:9 landscape background for a Hogwarts exploration website. Generate at native 2560x1440 pixels or higher.\nPrimary request: the Hogwarts lakeside boathouse, an old timber-and-stone building with Gothic structural details, a dark slate roof, open boat bays, and a few realistic wooden rowing boats resting naturally in calm water. It has the authentic practical-set craftsmanship and cinematic photographic realism of the Harry Potter films. The Black Lake and distant Scottish hills are visible beyond the boathouse.\nComposition: standing at human eye level on the shore approach, looking toward the boathouse and lake, with a broad unobstructed stone-and-weathered-timber walkway occupying the lower CENTER foreground. This foreground walkway is the single clear walking route back toward the shore and the viewer; it must remain empty and visually distinct. The boats sit beside the walkway and within the water bays, never blocking the return route. Coherent realistic construction, natural scale and perspective, sharp architectural details. No extra side roads or competing passageways. Complete environment fills the entire image edge to edge, no white strips or margins.\nLighting: clear natural early-evening daylight with subtle warm lanterns under the eaves, readable wood grain, weathered stone, slate, rope and calm water reflections. Deep focus and crisp optical clarity throughout, restrained natural color, no haze covering detail.\nConstraints: no people or creatures, no UI, text, signs, lettering, logos, watermarks, borders, frames or panels. No blur, bokeh, smeared details, painterly shapes, heavy fog, artificial scenery, excessive glow or bloom.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 206566,
+      "sha256": "9aff8e8890a4fd013aeee0964c867e2544c7c6210ddb2282aa04f83cf932d6c0"
+    },
+    {
+      "asset": "herbology-lesson.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: one final cinematic background image for an explorable Hogwarts Herbology classroom. Generate a native 2560x1440 or larger image in a 16:9 landscape composition. Primary scene: the interior of a large, richly detailed glass-and-iron Hogwarts greenhouse classroom, photographed as a convincing practical film set at human eye level. Long wooden potting benches hold weathered earthenware mandrake pots; the mandrakes have whimsical, expressive branching roots and leafy crowns but remain botanical plants. Include a few gardening gloves, small hand trowels, potting soil, and healthy plants arranged naturally on the benches. Sunlight passes through the high glass roof and iron framework; Hogwarts Gothic stone architecture is clearly visible outside. Composition: wide interior view with deep focus, realistic perspective and crisp material detail throughout. A clearly visible open doorway on the LEFT leads into the adjoining Glasshouse Passage; the open threshold and traversable path are unobstructed and visibly connect to the classroom floor. The doorway is genuine greenhouse architecture, not a drawn navigation frame. Warm sunlight and gentle interior fill light keep plants, benches and walking surfaces readable. Detailed real wood grain, terracotta, soil, leaves, antique iron and slightly weathered glazing. Fill the entire image edge to edge with the photographed environment; the first and last columns must contain real scene detail, without any artificial white strip or empty margin. No people, no text, no logos, no watermark, no UI, no borders, no framing overlay, no painted or cartoon styling, no flat vector shapes, no artificial blur, no excessive mist, and no low-resolution textures. The entire output is one full-bleed scene.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 748612,
+      "sha256": "1bfa9ca1068302e0761f5f444c7e6e5a45a4fc4dc5fbd0c12ef55bd83d6f2453"
+    },
+    {
+      "asset": "glass-passage.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: one final cinematic background image for the explorable Glasshouse Passage at Hogwarts. Generate a native 2560x1440 or larger image in a 16:9 landscape composition. Scene: an eye-level interior view along a beautiful practical-film-set greenhouse corridor, built from finely detailed aged iron and clear glass, with tall arched glazed roofing, healthy climbing plants, ferns and potted greenery. Bright natural daylight, realistic sunlight on old paving, crisp fine textures and deep focus across the entire scene. Make two real traversable exits clearly visible: on the LEFT, a fully open passage leads back into a recognizable Gothic stone cloister, with a continuous flagstone threshold; on the RIGHT, a fully open glass-and-iron doorway leads into a Herbology greenhouse classroom with wooden potting benches and healthy plants beyond it. Both open doors and their floor paths must be unobstructed and easy to recognize as connected physical architecture. Compose the two openings in the left and right thirds of the image while retaining a coherent central corridor, real camera perspective and usable walking space in the foreground. Natural rich green foliage, warm aged stone, dark patinated iron, clear glass with restrained reflections; bright but balanced exposure and no blown-out blank areas. Photograph a believable Hogwarts film-set environment, not a painting. Fill the image edge to edge with real environment detail, including the first and last columns: no empty white margin or strip. No people, no text, no labels, no signs, no logos, no watermark, no UI, no borders, no framing overlays, no artificial navigation frames, no cartoon or painterly styling, no flat vector shapes, no artificial blur, no excessive haze, and no low-resolution textures. The entire output is the scene itself.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 849322,
+      "sha256": "cdf92f4d1d3b653a5963837d3c0a82e0798e07029d1eda6a61337c28bf26d90b"
+    },
+    {
+      "asset": "south-courtyard.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Create ONE finished full-bleed scenic architectural photograph, landscape 16:9, requested native 2560×1440 or higher. This is a final detailed scene image for an explorable ancient Scottish fantasy-school castle website. Natural practical-set photography with excellent deep focus, crisp small material detail at the native pixel level, coherent human-scale architecture and believable paths. Clear balanced daylight and natural colors. Full composition edge to edge: absolutely no white bars or white margins at any edge, no border, no collage, no image fragments, no frame, no text, no symbols, no logo, no watermark, no UI, no people, no illustration, no painted effect, no artificial blur or glow. Produce a new image with individually resolved fine textures, not a blurred or enlarged-looking thumbnail. Subject: a sunlit medieval Gothic stone courtyard in a grand Scottish castle. Human eye-level 28mm wide architectural view into a broad courtyard with sharply detailed worn limestone paving, a modest weathered central stone fountain, clipped grass and a few mature trees along the sides. Restrained carved Gothic cloisters and tall castle walls enclose the space, with several visible natural passageways. An open arch on the left leads back to a lantern-lined outdoor path; a central rear arch leads north into the covered cloister; an open arcade on the right leads toward a stone viaduct. The broad clear foreground paving continues toward open castle grounds behind the camera. Keep all three pictured passages unobstructed and connected by walkable paving. Authentic rough stone, moss in mortar, slate roofs and clear wood/metal door details, beautiful warm late-morning sunlight with readable shaded arches. The entire scene must be a continuous photograph without inset pictures or edge bands.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 807560,
+      "sha256": "21a10f8f58675180e7157b54ac677e159c23c6f04ec5c9d1d118b8163622a544"
+    },
+    {
+      "asset": "black-lake.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Create ONE finished full-bleed scenic architectural photograph, landscape 16:9, requested native 2560×1440 or higher. This is a final detailed scene image for an explorable ancient Scottish fantasy-school castle website. Natural practical-set photography with excellent deep focus, crisp small material detail at the native pixel level, coherent human-scale architecture and believable paths. Clear balanced daylight and natural colors. Full composition edge to edge: absolutely no white bars or white margins at any edge, no border, no collage, no image fragments, no frame, no text, no symbols, no logo, no watermark, no UI, no people, no illustration, no painted effect, no artificial blur or glow. Produce a new image with individually resolved fine textures, not a blurred or enlarged-looking thumbnail. Subject: an eye-level view from the shore of a large Scottish lake beside a fantastical Gothic castle, on a bright clear morning. The lake has finely resolved natural ripples and rich blue-green reflections, with forested rocky hills beyond and the castle visible in the middle distance. Compose a clearly walkable pebbled and weathered-stone shore across the foreground, with a main shore path continuing into the center distance toward a small medieval timber boathouse. A branch of the trail visibly runs off to the left toward a stone bridge; the near foreground route continues behind the camera toward a wooden pier. The path follows the water naturally and never points into open water. Deep focus, tactile stones, individual grass tufts and leaves, accurate water reflections, crisp distant architecture without over-sharpening. No nearby blank wall or tall object framing an edge. A coherent full photographic landscape, serene and expansive, with clearly readable natural shore routes.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 777874,
+      "sha256": "8f70a847c80e4b8cadb23ed3562cc0e356b87cc0f1068f85065d6e7dac62051c"
+    },
+    {
+      "asset": "old-pier.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Create ONE finished full-bleed scenic architectural photograph, landscape 16:9, requested native 2560×1440 or higher. This is a final detailed scene image for an explorable ancient Scottish fantasy-school castle website. Natural practical-set photography with excellent deep focus, crisp small material detail at the native pixel level, coherent human-scale architecture and believable paths. Clear balanced daylight and natural colors. Full composition edge to edge: absolutely no white bars or white margins at any edge, no border, no collage, no image fragments, no frame, no text, no symbols, no logo, no watermark, no UI, no people, no illustration, no painted effect, no artificial blur or glow. Produce a new image with individually resolved fine textures, not a blurred or enlarged-looking thumbnail. Subject: a weathered wooden lake pier and shoreline boardwalk at a grand old Scottish Gothic school castle, photographed at human eye level on a bright quiet morning. A broad walkable wooden boardwalk occupies the foreground, with individual aged planks, wood grain, iron nails, thick mooring posts, natural ropes, and a brass lantern. Calm rippled lake water borders part of the pier and reflects nearby green hills. The composition must include the shore connection rather than only a dead-end jetty: straight ahead in the middle distance, the pier meets a clear gravel lakeshore path leading north; a distinct right-hand path or boardwalk branch leads east toward an open grassy flying field. These actual routes are clearly visible and connected to the foreground walkway. A few modest distant castle turrets may appear above the trees. Crisp deep focus across the entire scene, realistic practical construction and perspective, natural warm daylight and readable shadows. No boats blocking the paths and no white strip or frame around the photograph.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 659288,
+      "sha256": "80e4196ef3db8946e1091785b701f862abaa62f3a294bb0cddb8cd4569c3a380"
     }
   ]
 }

@@ -24,22 +24,22 @@
     }
   },
   "forecourt": {
-    "src": "/assets/images/hogwarts-cinematic/lantern-path-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/lantern-path.webp",
     "width": 1672,
     "height": 941,
     "alt": "The Lantern Path — a cinematic view of Hogwarts",
     "exits": {
       "n": [
-        51,
-        56,
-        16,
+        41,
+        47,
+        14,
         24
       ],
       "e": [
-        89,
-        77,
-        22,
-        30
+        90,
+        64,
+        18,
+        32
       ]
     }
   },
@@ -776,120 +776,120 @@
     }
   },
   "courtyard": {
-    "src": "/assets/images/hogwarts-cinematic/south-courtyard-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/south-courtyard.webp",
     "width": 1672,
     "height": 941,
     "alt": "South Courtyard — a cinematic view of Hogwarts",
     "exits": {
       "w": [
-        9,
-        78,
-        18,
-        35
+        12,
+        48,
+        14,
+        32
       ],
       "n": [
+        53,
         49,
-        58,
-        18,
-        26
+        8,
+        20
       ],
       "e": [
-        91,
-        78,
-        18,
-        35
+        93,
+        50,
+        12,
+        30
       ],
       "s": [
         50,
-        92,
+        91,
         30,
-        16
+        18
       ]
     }
   },
   "bridge": {
-    "src": "/assets/images/hogwarts-cinematic/stone-viaduct-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/stone-viaduct.webp",
     "width": 1672,
     "height": 941,
     "alt": "Stone Viaduct — a cinematic view of Hogwarts",
     "exits": {
       "w": [
-        10,
-        80,
-        20,
-        32
-      ],
-      "e": [
-        90,
-        71,
-        20,
-        35
+        9,
+        40,
+        15,
+        26
       ],
       "n": [
-        65,
-        49,
-        15,
-        20
+        50,
+        48,
+        17,
+        25
+      ],
+      "e": [
+        85,
+        77,
+        21,
+        26
       ]
     }
   },
   "lake": {
-    "src": "/assets/images/hogwarts-cinematic/black-lake-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/black-lake.webp",
     "width": 1672,
     "height": 941,
     "alt": "Black Lake — a cinematic view of Hogwarts",
     "exits": {
       "w": [
-        9,
-        75,
-        18,
-        36
+        15,
+        53,
+        14,
+        18
       ],
       "n": [
-        78,
-        51,
-        18,
-        22
+        44.5,
+        43.5,
+        10,
+        16
       ],
       "s": [
-        50,
-        92,
-        30,
-        16
+        29,
+        91,
+        28,
+        18
       ]
     }
   },
   "boathouse": {
-    "src": "/assets/images/hogwarts-cinematic/boathouse-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/boathouse.webp",
     "width": 1672,
     "height": 941,
     "alt": "The Boathouse — a cinematic view of Hogwarts",
     "exits": {
       "s": [
-        66,
-        90,
-        30,
-        20
+        50,
+        91,
+        34,
+        18
       ]
     }
   },
   "dock": {
-    "src": "/assets/images/hogwarts-cinematic/old-pier-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/old-pier.webp",
     "width": 1672,
     "height": 941,
     "alt": "Old Pier — a cinematic view of Hogwarts",
     "exits": {
       "n": [
-        60,
-        48,
-        17,
-        24
+        55,
+        51,
+        14,
+        22
       ],
       "e": [
-        91,
-        84,
-        18,
-        28
+        80,
+        54,
+        17,
+        23
       ]
     }
   },
@@ -1000,36 +1000,36 @@
     }
   },
   "greenhouse": {
-    "src": "/assets/images/hogwarts-cinematic/glass-passage-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/glass-passage.webp",
     "width": 1672,
     "height": 941,
     "alt": "Glasshouse Passage — a cinematic view of Hogwarts",
     "exits": {
       "w": [
-        9,
-        79,
+        12,
+        56,
         18,
-        34
+        38
       ],
       "e": [
-        60,
-        60,
-        16,
-        30
+        87,
+        57,
+        18,
+        44
       ]
     }
   },
   "herbology": {
-    "src": "/assets/images/hogwarts-cinematic/herbology-lesson-day.webp",
+    "src": "/assets/images/hogwarts-cinematic-v3/herbology-lesson.webp",
     "width": 1672,
     "height": 941,
     "alt": "Herbology — a cinematic view of Hogwarts",
     "exits": {
       "w": [
         10,
-        78,
-        20,
-        36
+        47,
+        15,
+        42
       ]
     }
   },

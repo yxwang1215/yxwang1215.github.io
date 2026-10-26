@@ -20,8 +20,13 @@ image stays visible on desktop and mobile. Synthetic scenery, opaque doorway
 frames, extra darkening, grain, and blur transitions are removed. Only subtle
 movement feedback and discoverable, transparent interaction targets remain.
 
-Twenty-one scenes were regenerated: all seven 960×720 sources and all fourteen
-1440×810 sources. All 49 active backgrounds now have a native width of 1672
+Twenty-nine scenes were regenerated: all seven 960×720 sources, all fourteen
+1440×810 sources, and eight outdoor views whose 1672-pixel files still contained
+soft detail or baked-in white margins. The latter batch covers the lantern path,
+south courtyard, stone viaduct, lake, boathouse, pier, glasshouse passage, and
+herbology lesson. Visual review caught these source-image defects after the
+dimension checks; they were replaced with new full-bleed compositions.
+All 49 active backgrounds now have a native width of 1672
 pixels. The new images are 1672×940 or 1672×941; they are **not 4K** and have not
 been upscaled. The generator did not deliver the larger requested dimensions.
 
