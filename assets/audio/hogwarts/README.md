@@ -1,7 +1,8 @@
 # Hogwarts scene soundtracks
 
-The site uses **official Spotify track embeds** for film-score playback. It does
-not bundle, redistribute, or host any Harry Potter soundtrack recordings.
+The site plays the original film cues through **Spotify's official iFrame API**.
+It does not bundle or host Harry Potter soundtrack recordings. There are no local
+MP3s in this directory, and the soundtrack no longer requests nonexistent files.
 
 ## Routing: the atlas is the source of truth
 
@@ -48,34 +49,52 @@ It also dispatches the same event after restoring a room with `popstate`.
 The soundtrack handles `hogwarts:scenechange`, `popstate`, and `hashchange`.
 You can also call `window.HogwartsSoundtrack.sync()` explicitly.
 
-When two rooms share a track, the current Spotify iframe is kept. When a
-transition changes tracks, the old embed is removed (stopping that player);
-if the panel is open, an iframe for the new track is created.
+The player API is loaded immediately on entry, including deep links. One
+controller persists through room changes. A new cue is sent through
+`loadEntity()`; rooms sharing one recording leave playback uninterrupted.
+Opening or closing the small music panel does not pause or recreate the player.
 
-Spotify embeds require the listener to press Play: they cannot be made to
-autoplay programmatically, and browser/Spotify playback policies still apply.
+## Playback and visitor preferences
 
-## Optional native audio — only with the required licenses
+After Spotify's `ready` event, the page requests `play()`. If playback has not
+started, a click, touch release or keyboard interaction requests `resume()`
+synchronously during that gesture. The player is loaded eagerly so this does not
+depend on a later missing-file request or on first opening the music panel.
 
-If you hold **separate, appropriate online distribution and playback rights**
-for particular recordings, the script can also use local MP3s placed in this
-directory with these filenames:
+Autoplay is an attempt, not a guarantee. Spotify documents that programmatic
+playback depends on the browser and the listener. The visible state follows
+`playback_started` and `playback_update`, never the mere fact that `play()` was
+called. If playback is not confirmed, the panel presents a Play control and the
+original Spotify player. If the API fails to load, a standard Spotify embed and
+a direct track link remain available. Spotify may provide a preview depending
+on browser support and the listener's playback availability.
 
-- `platform-934.mp3`
-- `hedwigs-theme.mp3`
-- `great-hall.mp3`
-- `staircases.mp3`
-- `quidditch.mp3`
-- `chamber-of-secrets.mp3`
-- `hogsmeade.mp3` (A Window to the Past)
-- `astronomy-tower.mp3`
-- `potions.mp3`
-- `grounds.mp3`
-- `sorting-ceremony.mp3`
+The **Mute soundtrack** control saves `hogwarts:score:enabled:v1 = off`.
+Navigation, later gestures and page restoration honor that choice. Pausing
+within Spotify's own controls also saves the preference; using Play there enables
+sound again. A page lifecycle pause is temporary and does not change the saved
+preference. A zero-volume choice from the former native player is migrated to
+muted. Volume is controlled through Spotify or the device: the iFrame API does
+not expose a volume method, so the page does not present an ineffective slider.
 
-None of these MP3s are included in the public repository. Owning a purchased
-track or accessing it on Spotify does **not** grant the rights needed to
-redistribute the original recording on a public website.
+For browser diagnosis, `window.HogwartsSoundtrack.getState()` returns
+`{ track, state, enabled, ready }`. The small music control also has a `data-state`
+attribute. `playing` means Spotify reported playback; `waiting` means the page
+has not received confirmation, and `unavailable` means automatic control failed.
+At a reported terminal position the state becomes `ended`, even if Spotify's
+preview player leaves `isPaused` false. If no fresh playback confirmation arrives
+for 15 seconds, the indication becomes `unconfirmed`; this does not assert that
+audio has stopped. Neither state changes the saved sound preference, pauses the
+provider, or restarts playback on incidental scene clicks. The explicit Play
+control can replay an ended cue or resume an unconfirmed player. A new provider
+confirmation restores the playing indication.
+
+Reference documentation:
+
+- [Spotify iFrame API, events and autoplay notes](https://developer.spotify.com/documentation/embeds/references/iframe-api)
+- [Spotify embed troubleshooting and preview limitations](https://developer.spotify.com/documentation/embeds/tutorials/troubleshooting)
+- [Chrome autoplay policy](https://developer.chrome.com/blog/autoplay/)
+- [MDN autoplay guide](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay)
 
 ## Verification
 
@@ -87,6 +106,10 @@ Run these dependency-free Node tests at the repository root:
 
 The soundtrack test asserts an explicit expected cue for **every one of the 49
 atlas rooms**, verifies that the expected set exactly matches the atlas,
-and exercises normal movement, browser Back/Forward, both hidden passages, hash
-navigation, and the official Spotify iframe URLs. These checks run in the
-`Hogwarts maze integrity` GitHub Actions workflow.
+and exercises normal movement, browser Back/Forward, both hidden passages and
+hash navigation. Playback checks cover eager loading, ready and gesture attempts,
+confirmed playback state, one persistent controller, failed cue changes, saved
+mute, late provider events, page restoration and the standard-player fallback.
+Spotify is the external test boundary; these tests do not claim that every
+listener's browser or account can stream a full recording. These checks run in
+the `Hogwarts maze integrity` GitHub Actions workflow.

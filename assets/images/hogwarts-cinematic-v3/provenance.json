@@ -1,0 +1,341 @@
+{
+  "note": "Requested 2560x1440 or higher; actual native tool output is recorded below. Delivery encoding does not resize the images.",
+  "assets": [
+    {
+      "asset": "headmasters-office.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a final full-bleed cinematic background photograph for an explorable Hogwarts room. Generate a single image, wide 16:9 landscape, requested native output 2560×1440 or higher. It must have exceptionally crisp, fine architectural and material detail at full resolution; natural camera perspective, coherent physically believable construction, readable lighting and deep focus across the room. Photograph of a lavish practical fantasy film set, not a painting or vector illustration. No UI, no text, no letters or labels, no watermark, no border, no foreground navigation panels, no foreground arch framing the image, no artificial blur, no heavy bloom, no fog obscuring texture, no cartoon objects, no people. Keep the main location recognizable in a center crop, with the important room features in the central two thirds. Primary request: Dumbledore's Headmaster's Office in Hogwarts, a tall circular Gothic study with finely carved dark oak bookcases following the curved stone walls, graceful pointed windows, a magnificent but believable antique wooden desk, polished brass astronomical instruments and delicate silver magical instruments on side tables. A quiet phoenix with deep red and golden plumage rests on a sculpted stand beside the desk. A small warm fireplace and soft afternoon light from tall leaded windows illuminate old books, scratched leather, wax, stone joints, and wood grain. Elegant upper gallery and an inviting open aisle in the foreground. View at human eye level from inside the room, natural wide-angle 28mm lens, balanced composition, rich warm amber wood with cool daylight highlights. Clear textures and individual objects, restrained magic.",
+      "native_width": 1672,
+      "native_height": 940,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 621634,
+      "sha256": "d84ed66e72d3c40554fa8062d8899b9297467a54eb18b9ff4859370827b077ab"
+    },
+    {
+      "asset": "divination-classroom.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a final full-bleed cinematic background photograph for an explorable Hogwarts room. Generate a single image, wide 16:9 landscape, requested native output 2560×1440 or higher. It must have exceptionally crisp, fine architectural and material detail at full resolution; natural camera perspective, coherent physically believable construction, readable lighting and deep focus across the room. Photograph of a lavish practical fantasy film set, not a painting or vector illustration. No UI, no text, no letters or labels, no watermark, no border, no foreground navigation panels, no foreground arch framing the image, no artificial blur, no heavy bloom, no fog obscuring texture, no cartoon objects, no people. Keep the main location recognizable in a center crop, with the important room features in the central two thirds. Primary request: the Divination classroom at Hogwarts, a richly furnished circular attic room inside an old castle tower. Low carved wooden tea tables and mismatched upholstered chairs sit on layered patterned Persian rugs; glazed porcelain tea cups and a modest transparent crystal ball rest on the central table. Worn velvet curtains in burgundy and dusty aubergine partly reveal small Gothic windows, with antique shelves of cups, brass lamps, bundles of dried herbs and sloping dark wooden roof beams. Warm late-afternoon light and gentle lamplight make the room inviting, and every tapestry thread, worn fabric and aged timber surface is distinctly sharp. Human eye-level wide interior shot with a central open aisle, intimate convincing scale, film-set realism, no smoke cloud, no large glowing sphere, no magical symbols or writing.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 669940,
+      "sha256": "4b00938348bec11b0d0f40974ee5d1085dfd021347295e149fca3b9e0ea09623"
+    },
+    {
+      "asset": "room-of-requirement.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a final full-bleed cinematic background photograph for an explorable Hogwarts room. Generate a single image, wide 16:9 landscape, requested native output 2560×1440 or higher. It must have exceptionally crisp, fine architectural and material detail at full resolution; natural camera perspective, coherent physically believable construction, readable lighting and deep focus across the room. Photograph of a lavish practical fantasy film set, not a painting or vector illustration. No UI, no text, no letters or labels, no watermark, no border, no foreground navigation panels, no foreground arch framing the image, no artificial blur, no heavy bloom, no fog obscuring texture, no cartoon objects, no people. Keep the main location recognizable in a center crop, with the important room features in the central two thirds. Primary request: the Room of Requirement at Hogwarts revealed as a vast secret room of forgotten objects. Towering Gothic stone vaults, beams of clear pale daylight from high arched windows, ranks of old wooden wardrobes, intricate cabinets, book stacks, rolled rugs, brass lamps and antique trunks extend into deep architectural space. An orderly but mysterious open stone aisle leads through the center toward a distant natural doorway. Objects are physically supported and logically stacked, with rich individual materials: polished worn wood, patinated brass, cracked leather, rough limestone. Balanced warm lantern highlights and cool daylight with readable shadows. Wide human-eye-level architectural photograph, dramatic but not dark, enormous coherent perspective, no floating debris, no person, no artificial haze or painted look.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 647790,
+      "sha256": "b92a7c327d54f057b29d6e375674cd7d51030d7bcbfdbac2c87f7e1d56135ca4"
+    },
+    {
+      "asset": "dungeon-stairwell.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a final full-bleed cinematic background photograph for an explorable Hogwarts room. Generate a single image, wide 16:9 landscape, requested native output 2560×1440 or higher. It must have exceptionally crisp, fine architectural and material detail at full resolution; natural camera perspective, coherent physically believable construction, readable lighting and deep focus across the room. Photograph of a lavish practical fantasy film set, not a painting or vector illustration. No UI, no text, no letters or labels, no watermark, no border, no foreground navigation panels, no foreground arch framing the image, no artificial blur, no heavy bloom, no fog obscuring texture, no cartoon objects, no people. Keep the main location recognizable in a center crop, with the important room features in the central two thirds. Primary request: the Dungeon Stairwell beneath Hogwarts, a spacious ancient stone spiral stair descending into the castle foundations. Human eye-level viewpoint from a broad landing looking across and slightly down the curved stairway; worn individual granite treads, a sturdy carved stone balustrade, thick cylindrical stone walls, Gothic recesses and iron lantern sconces. A softly illuminated arched passage is visible at the far lower landing. Cool greenish reflected light from below mixes with warm golden lanterns, bringing out chiseled stone texture, aged mortar, modest damp reflections and oxidized iron. Atmospheric and mysterious but fully readable, crisp realistic geometry and deep focus, safe broad foreground landing, no pitch-black surfaces, no smoke, no extreme fisheye distortion. Full-bleed image with no nearest doorway framing its edges.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 621830,
+      "sha256": "0df35862533e88a2d3fc1931538fe4513c54548f9c0432ac7c6c294baedda1d0"
+    },
+    {
+      "asset": "hagrids-hut.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: full-screen background plate for an immersive Hogwarts exploration website, one complete scene, landscape 16:9. Generate at native 2560x1440 pixels or higher.\nPrimary request: Hagrid's hut and pumpkin garden on the Hogwarts grounds, with the authentic old Scottish medieval stone-and-timber architecture and tangible cinematic realism of the Harry Potter films.\nComposition: standing eye-level view with a broad 24mm architectural lens. The rustic round stone hut with a tall conical slate roof and warm window is clearly on the LEFT half. A winding walkable dirt footpath begins in the foreground and runs through a garden of large orange pumpkins. On the RIGHT, a visibly open weathered wooden garden gate is centered near 82 percent across and 60 percent down the image. The path leads naturally to the gate. Dense dark forest in the distance; hut and garden fully visible. No characters.\nLighting: bright late-afternoon natural sunlight, soft shadows, legible details throughout. Crisp weathered stone, distinct roof slates, timber grain, textured pumpkins and earth, natural greens and warm stone. Deep focus from foreground through background, high-frequency photographic detail and restrained film color.\nConstraints: a finished high-resolution realistic architectural image with coherent geometry. No text, symbols presented as labels, UI, buttons, borders, frames, logos, watermarks, blur, bokeh, smeared brushstrokes, flat painted shapes, cartoon styling, heavy fog, bloom or vignette.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 767226,
+      "sha256": "5e2c854ad2f1c07086f2fd526559e324da69610b0779964af6d14dde93620dbd"
+    },
+    {
+      "asset": "forgotten-crypt.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: full-screen background plate for an immersive Hogwarts exploration website, one complete scene, landscape 16:9. Generate at native 2560x1440 pixels or higher.\nPrimary request: the Forgotten Crypt underneath Hogwarts, an ancient vaulted crypt built in the tangible medieval Gothic castle architecture of the Harry Potter films. Massive ribbed stone vaults, clustered stone columns, several old stone tombs, worn inscriptions carved into the stone but no legible words or signage.\nComposition: standing eye-level wide 24mm architectural view with coherent deep perspective. A clearly visible arched side doorway on the LEFT opens to a dim adjoining corridor. An unobstructed worn flagstone return path begins across the center foreground and leads into the crypt. The tombs sit along the sides so the floor route remains clear. Empty scene with no people or creatures.\nLighting: cool natural stone tones, dim but sufficiently illuminated to read every architectural surface, a few small warm lanterns provide subtle pools of light. Crisp masonry joints, chipped stone edges, carved relief, dust and aged patina, deep focus across the entire scene. Restrained cinematic realism, fine detail at full-screen size.\nConstraints: high-resolution realistic architectural photography, natural scale and believable structural geometry. No modern objects, no readable text, UI, buttons, borders, frames, logos, watermarks, blur, bokeh, soft-focus haze, painterly shapes, cartoon illustration, overdone green glow or excessive darkness.",
+      "native_width": 1672,
+      "native_height": 940,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 585744,
+      "sha256": "5628638a2f5bd56fdd1605b89bc88e52c18b455042ed02178f73d6d6d5140308"
+    },
+    {
+      "asset": "green-lantern-passage.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: full-screen background plate for an immersive Hogwarts exploration website, one complete scene, landscape 16:9. Generate at native 2560x1440 pixels or higher.\nPrimary request: the Green Lantern Passage beneath Hogwarts, a serpentine medieval castle stone corridor with authentic Harry Potter film Gothic architecture. Heavy ribbed vaulting, cool dark slate flagstones, aged limestone walls, antique wall-mounted lamps glowing deep emerald green, and subtle finely carved serpents on a few stone capitals.\nComposition: standing eye-level 24mm architectural view. The corridor curves gently into the distance. A clearly visible arched side passage branches LEFT in the middle ground, and another clearly visible open arch branches RIGHT. Central walkable floor stays broad and unobstructed. No figures or creatures.\nLighting: green lantern light gives modest emerald reflections on the stone while preserving natural grey material detail. Readable exposure, realistic restrained contrast, crisp textured stone, finely defined carved details, dust and worn floor edges. Deep focus from foreground through the distant arch; rich cinematic architectural realism.\nConstraints: finished high-resolution realistic environment with precise coherent masonry and no flat painted shapes. No text, signs, UI, buttons, borders, frames, logos, watermarks, blur, bokeh, smeared detail, neon strips, excessive glow, thick fog, modern objects or cartoon styling.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 560684,
+      "sha256": "f7bd4a951b729bc0527ee1c07c0334a7fe845eecee4ebaab2dafebf352243dc4"
+    },
+    {
+      "asset": "underground-reservoir.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: full-screen background plate for an immersive Hogwarts exploration website, one complete scene, landscape 16:9. Generate at native 2560x1440 pixels or higher.\nPrimary request: an ancient underground reservoir below Hogwarts, enormous Gothic subterranean stone vaults and slender medieval columns reflected in still deep water, in the tangible cinematic castle architecture of the Harry Potter films. A narrow but clearly walkable stone bridge and catwalk crosses the water from the foreground toward a distant center passage.\nComposition: standing eye-level wide 24mm architectural view. A clearly visible carved stone doorway sits on the LEFT, reachable by a stone walkway at the edge of the pool. The main bridge draws the eye toward a smaller illuminated arched passage in the CENTER distance. Calm reflections show the overhead arches; coherent geometry and believable human scale. Empty scene, no people or creatures.\nLighting: cool blue-grey ambient light from high openings mixed with sparse warm antique lanterns. Readable shadow detail, crisp weathered masonry, subtle damp highlights, clear water reflections, detailed floor flagstones. Deep focus across near walkway and distant stone arches, restrained cinematic atmosphere and photographic realism.\nConstraints: finished high-resolution scene, no text, signs, UI, buttons, borders, frames, logos, watermarks, blur, bokeh, painterly shapes, low-resolution textures, thick fog, excessive bloom, modern rails or electric fixtures.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 671968,
+      "sha256": "60b29e7fc93f690d7d28bcf0f78e7ea0039ec445d63adcb598086f49de2d1978"
+    },
+    {
+      "asset": "hogwarts-entrance.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "A single photorealistic wide landscape image of an ancient Scottish Gothic castle used as a fantastical school, at blue-hour dusk. Natural gray sandstone, steep dark slate roofs, irregular medieval towers, warm amber windows, a broad cobbled approach leading to a clearly visible central entrance. Human eye-level camera at the end of the approach, 28mm lens, deep focus, crisp stone and timber, balanced readable exposure. No people, text, logos, labels, interface, border, fog or blur. A finished cinematic architectural photograph, landscape 16:9, requested native 2560x1440 or larger.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 571406,
+      "sha256": "7fdd8381f3405a901054f1813c3c44de89058a028fc4425400f8bc212941cdf9"
+    },
+    {
+      "asset": "copper-pantry.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a single full-bleed final scenic background photograph for a Hogwarts castle exploration website. Generate one wide landscape 16:9 image at native 2560×1440 or higher if available. Photograph of a richly detailed practical fantasy movie set, coherent architecture and human scale, exceptionally crisp fine material texture, balanced readable illumination and deep focus from foreground to background. No UI, text, lettering, logos, watermarks, border, navigation graphics, oversized foreground doorframe, drawn illustration, cartoon geometry, painted effect, artificial blur, heavy bloom or atmospheric haze that obscures details. No people. Full image is visible in the site, so compose a complete location with real walking space and natural architectural passages. Primary request: the Copper Pantry inside Hogwarts, an intimate medieval castle kitchen storage room with warm grey stone walls, thick timber ceiling beams, orderly wooden shelves of hanging polished and aged copper pans, bronze kettles, ceramic jars, small sacks of flour, herbs and baskets of bread. Distinct copper pots catch warm light from practical lamps; diffuse light enters a small leaded window. A spacious clear worn flagstone floor in the foreground leads between the shelves, with a modest open stone doorway toward the far end. Eye-level architectural interior photo with believable scale, tactile copper patina, sharp ceramic glazes, wood grain and mortar joints. Warm welcoming atmosphere, a little magical in its craftsmanship, but no animated objects or floating utensils. No labels or readable writing.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 666988,
+      "sha256": "2e4f337c870b31c4e1ef211987026ad1d519d689506703af9662446df586207b"
+    },
+    {
+      "asset": "forgotten-archive.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a single full-bleed final scenic background photograph for a Hogwarts castle exploration website. Generate one wide landscape 16:9 image at native 2560×1440 or higher if available. Photograph of a richly detailed practical fantasy movie set, coherent architecture and human scale, exceptionally crisp fine material texture, balanced readable illumination and deep focus from foreground to background. No UI, text, lettering, logos, watermarks, border, navigation graphics, oversized foreground doorframe, drawn illustration, cartoon geometry, painted effect, artificial blur, heavy bloom or atmospheric haze that obscures details. No people. Full image is visible in the site, so compose a complete location with real walking space and natural architectural passages. Primary request: the Forgotten Archive beneath Hogwarts, an ancient Gothic archive with tall arched stone vaults, dark oak shelving filled with old leather-bound volumes, tied parchment bundles, wooden document drawers, and an old librarian's worktable set off to one side. A clear stone aisle runs through the center; natural open stone passageways at the left and right rear connect to other castle corridors. Subdued warm lamps and cool soft light from a high small pointed window make the setting shadowy yet legible. Fine distinct leather cracks, curled parchment edges, patterned book spines with no writing, scratched oak and aged stonework. Architectural film-set photograph at human eye level, deep coherent space and crisp small details, restrained dust only, no smoke, no clutter blocking the aisle.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 569428,
+      "sha256": "d93d3b62422677b40b361f1d7a6153a66efbc2fe4ce68db34cbcfe5914f21b30"
+    },
+    {
+      "asset": "old-storeroom.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a single full-bleed final scenic background photograph for a Hogwarts castle exploration website. Generate one wide landscape 16:9 image at native 2560×1440 or higher if available. Photograph of a richly detailed practical fantasy movie set, coherent architecture and human scale, exceptionally crisp fine material texture, balanced readable illumination and deep focus from foreground to background. No UI, text, lettering, logos, watermarks, border, navigation graphics, oversized foreground doorframe, drawn illustration, cartoon geometry, painted effect, artificial blur, heavy bloom or atmospheric haze that obscures details. No people. Full image is visible in the site, so compose a complete location with real walking space and natural architectural passages. Primary request: the Old Storeroom in Hogwarts castle foundations, a rustic practical stone storeroom containing weathered wooden crates, old leather travel trunks, folded heavy rugs, spare carved wooden chairs, brass lamps and a few carefully stacked antique objects. Objects rest naturally on the floor or stout shelves. Clear rough flagstone floor spans the lower foreground and leads to a visible open stone doorway on the right side of the back wall, around x78%, y55%, with a softly lit corridor beyond. Thick irregular stone blocks, oak beams, iron hinges, aged leather and rope show very sharp authentic texture. Warm lamplight with gentle cool reflected light in the doorway; readable shadows. Natural human-eye-level wide interior photography, coherent restrained composition, no treasure heaps, no floating objects, no lettering.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 609272,
+      "sha256": "7f8dc5fdf3b4dc93358b926a4a29fa176a0054abd2c9cdde94ace5923f10e6db"
+    },
+    {
+      "asset": "spiral-ascent.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: a single full-bleed final scenic background photograph for a Hogwarts castle exploration website. Generate one wide landscape 16:9 image at native 2560×1440 or higher if available. Photograph of a richly detailed practical fantasy movie set, coherent architecture and human scale, exceptionally crisp fine material texture, balanced readable illumination and deep focus from foreground to background. No UI, text, lettering, logos, watermarks, border, navigation graphics, oversized foreground doorframe, drawn illustration, cartoon geometry, painted effect, artificial blur, heavy bloom or atmospheric haze that obscures details. No people. Full image is visible in the site, so compose a complete location with real walking space and natural architectural passages. Primary request: the Spiral Ascent high inside a medieval Hogwarts tower, a tall stone spiral staircase rising gracefully around a central masonry column. View from a broad small landing: individual worn stone steps and a sturdy carved stone balustrade curve upward toward the right, with a clear ascending passage around x72%, y51% of the composition. Narrow pointed tower windows cast soft cool daylight across the stairs; warm bronze lanterns reveal chiselled limestone, aged mortar joints and the polished edge of countless footsteps. The upper curvature and tower height are visible, while the foreground landing remains clear and readable. Photograph of a believable Gothic film set, elegant practical construction, human scale, consistent stair geometry, deep focus and fine texture. No moving stair graphic, floating step, painted effect, dramatic fisheye or dark obscuring haze.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 583150,
+      "sha256": "c3d58077485990e12e62325fb40542887e7e1b579262a69bed4f5c1f36114860"
+    },
+    {
+      "asset": "owlery.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one complete landscape scene background for an immersive Hogwarts exploration website, 16:9, native 2560x1440 pixels or higher.\nPrimary request: the Hogwarts Owlery, in the authentic practical-set medieval Gothic architecture and cinematic realism of the Harry Potter films. A tall circular rough-stone tower interior with large open Gothic arches, weathered timber roosting beams, and several realistic owls naturally perched on the beams. The owls are integrated at believable scale, each anatomically clear. Through an open arch is a distant part of Hogwarts castle in clear moonlight.\nComposition: standing eye-level 24mm architectural view, broad walkable worn flagstone floor in the foreground. A clearly accessible arched exit on the LEFT near 13 percent across and 62 percent down. Lower foreground is an unobstructed return path. Show enough of the circular wall and open arches to make the tower recognizable, with natural coherent stonework and perspective.\nLighting: cool clear moonlight balanced with warm antique lanterns, richly detailed yet readable shadows. Deep focus throughout; crisp stone joints, wood grain, individual feathers and weathered floor texture. Restrained cinematic color and photographic realism.\nConstraints: no people, no UI, text, lettering, logos, watermarks, borders or frames; no heavy fog, blur, bokeh, smeared textures, painterly or artificial flat shapes, excessive glow or cartoon anatomy.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 181224,
+      "sha256": "b040d99bf6778892c4965d206361853c98712045de9a1cf0b5a7e354251be013"
+    },
+    {
+      "asset": "north-battlements.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one complete landscape scene background for an immersive Hogwarts exploration website, 16:9, native 2560x1440 pixels or higher.\nPrimary request: the North Battlements of Hogwarts, medieval crenellated stone ramparts with the authentic castle architecture, slate-roofed turrets, aged masonry and tangible cinematic realism of the Harry Potter films. A broad walkable flagstone path follows the parapets, with Hogwarts turrets nearby and an expansive Scottish mountain valley beyond.\nComposition: standing eye-level 24mm architectural view. The visible walkway runs from the foreground toward the middle distance; a stone tower doorway on the LEFT and another clear walkable continuation or arch on the RIGHT provide natural passage choices. Crenellations frame the valley without blocking the path. Coherent Gothic structures at believable scale, no people.\nLighting: clear early evening with remaining pale warm daylight, subtle warm torchlight illuminating detailed stone edges, readable cool shadows. No fog covering the architecture. Deep focus and crisp natural textures throughout, photographic materials, restrained film color.\nConstraints: high-resolution cinematic architectural photograph; no UI, signs, letters, text, logos, watermarks, borders or frames; no blur, bokeh, flat painted shapes, thick haze, artificial neon or excessive bloom.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 207668,
+      "sha256": "6256fdf28a4665feb145fe268d1c0e1bcdc677a24bf4bdc2585d7c636d83ab87"
+    },
+    {
+      "asset": "ancient-clearing.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one complete landscape scene background for an immersive Hogwarts exploration website, 16:9, native 2560x1440 pixels or higher.\nPrimary request: an ancient clearing in the Forbidden Forest on the Hogwarts grounds, with the tangible cinematic woodland realism of the Harry Potter films. Huge old trees loosely encircle a quiet natural moss-covered forest floor. A subtle shy ring of small pale mushrooms appears among the roots and soft moss, believable woodland growth rather than a bright graphic symbol. A distinct accessible earth path leaves the clearing on the RIGHT near 84 percent across and 64 percent down.\nComposition: standing eye-level wide 24mm view, open walkable foreground leading into the clearing, towering trunks framing the scene and layered natural woodland in the distance. Precise organic bark, individual fern fronds, moss and roots with coherent realistic scale. No people, creatures, houses or extra objects.\nLighting: natural dappled dawn sunlight through leaves, gentle warm shafts with clear air, rich natural greens and brown bark, readable shaded woodland. Deep focus across foreground detail and distant trees; detailed cinematic photography.\nConstraints: high-resolution realistic scene, no UI, text, lettering, logos, watermarks, borders or frames; no heavy fog, smeared brushstrokes, blur, bokeh, cartoon vegetation, flat painted shapes, glowing mushrooms or excessive bloom.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 361958,
+      "sha256": "2364ba9243066ac325a539d30463a7f1b5ac64e7fec4d466f388dbc19507d101"
+    },
+    {
+      "asset": "creature-paddock.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one complete landscape scene background for an immersive Hogwarts exploration website, 16:9, native 2560x1440 pixels or higher.\nPrimary request: Hagrid's Creature Paddock on the Hogwarts grounds, an authentic weathered wooden fenced pasture with one believable hippogriff standing beside an old timber shelter, matching the practical creature and castle realism of the Harry Potter films. The hippogriff has a natural eagle head, feathered neck and chest, folded wings, strong eagle forelegs, and a coherent horse hindbody and hindlegs, beautifully detailed but not posed as a portrait. Hogwarts castle is visible beyond the grounds in the distance.\nComposition: standing eye-level wide 24mm environmental view. A visibly open wooden gate is on the LEFT near 13 percent across and 65 percent down, connected to an unobstructed dirt walkway across the foreground. A clear continuing path on the RIGHT near 87 percent across and 65 percent down leads out between fences. Hippogriff and shelter occupy the middle ground without blocking either passage. No humans.\nLighting: warm natural afternoon daylight, soft realistic shadows and readable textures, natural green pasture and weathered brown timber. Deep focus with crisp feather detail, rough wooden grain, stone, grass and earth; restrained photographic color, cinematic realism.\nConstraints: high-resolution complete scene, no UI, text, lettering, logos, watermarks, borders or frames; no heavy fog, blur, bokeh, flat painted shapes, cartoon creature, extra limbs, excessive glow or artificial geometric scenery.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 330688,
+      "sha256": "57e9e40ba4f760f1fabeddf816ce34ef917ccf0ac27f9eb4a16ab75ec507dcd7"
+    },
+    {
+      "asset": "flying-lesson.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution cinematic background for an explorable Hogwarts scene. Create one native 2560x1440 or larger image in a 16:9 landscape composition. Scene: a sunny Hogwarts flying-lesson training courtyard and broad grassy pitch, convincingly photographed on a real film set. Authentic towering Hogwarts castle architecture stands in the middle distance beneath a clear, softly clouded sky. A few weathered broomsticks rest naturally against a low stone wall. Quidditch hoops are visible far away. Composition: eye-level wide camera, spacious detailed foreground, a broad clearly walkable path opening centrally toward the training ground and another natural path to the left. The paths must be part of the real landscape, with no portals or drawn navigation devices. Deep focus and crisp detail throughout; realistic grass, mortar, weathered limestone, timber, and broom bristles. Warm daylight with natural shadows, balanced exposure, grounded cinematic color grading. No people. No text, logos, watermark, signs, UI, borders, navigation frames, graphic overlays, cartoon styling, painterly surfaces, flat vector shapes, artificial blur, low-resolution texture, or excessive haze. The entire output is the scene itself, without a surrounding frame.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 656536,
+      "sha256": "034ad3b66f62b17cff38e9bb58dfdf80b3f0c90fc0a00d46f019c8caf4f1c199"
+    },
+    {
+      "asset": "serpents-descent.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution cinematic background for an explorable Hogwarts scene. Create one native 2560x1440 or larger image in a 16:9 landscape composition. Scene: a hidden wet medieval sewer staircase beneath Hogwarts, a believable practical movie set photographed with detailed real stonework. A central serpent-carved stone arch opens onto a staircase descending into a deeper passage. The carving is aged architectural ornament, not a living creature. Damp stairs, rough worn limestone blocks, shallow runoff channels, subtle reflections on wet paving, and ancient vaulted stonework are sharply visible. Composition: eye-level wide establishing view, central descending staircase and arch are the unmistakable usable passage, foreground paving remains navigable with visible detail to the image edges. Low teal-green torch illumination with a small warm practical-light accent; dim and mysterious but clearly readable, balanced exposure and natural contrast. Deep focus, fine material detail, realistic cinematic atmosphere, no thick fog. No people. No text, logo, watermark, UI, borders, navigation frames, glowing portal outlines, graphic overlays, cartoon styling, painted flat shapes, neon, artificial blur, or low-resolution texture. The entire output is the architectural scene itself.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 669320,
+      "sha256": "b2bde693ee27902270f52175086e5357e6c1a546d5c5a5c9109e1075a9299869"
+    },
+    {
+      "asset": "serpent-sanctum.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution cinematic background for an explorable Hogwarts scene. Create one native 2560x1440 or larger image in a 16:9 landscape composition. Scene: an ancient secret underground sanctum beneath Hogwarts, constructed as a monumental realistic stone movie set. A great stone serpent head is carved into the far wall as inert ancient architecture, with eroded fangs, scales, and masonry. A shallow water channel runs through the chamber beneath a practical stone floor bridge. Real aged stone vaults support the chamber, with worn paving and moisture marks. Composition: wide eye-level establishing view with deep focus, the bridge and central aisle give a clear continuous walking route into the scene, and architectural side recesses reveal its depth. Subtle muted neutral-green lamps illuminate the stone; the chamber is mysterious yet every navigable surface remains readable. Fine detail, tactile stone, physically realistic reflections and lighting, cinematic live-action photography. No live monster, no people, no neon, no magical portal, no text, logos, watermark, UI, borders, navigation frames, graphic overlays, cartoon rendering, painterly flat shapes, excessive haze, artificial blur, or low-resolution texture. The entire output is the photographed scene, with no surrounding frame.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 598384,
+      "sha256": "a5cc182787af21d4193053c4f77bdc6fc58878c3451cf360c3115f761364b58e"
+    },
+    {
+      "asset": "forgotten-washroom.webp",
+      "generator": "Built-in image_gen.imagegen",
+      "date": "2026-10-26",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution cinematic background for an explorable Hogwarts scene. Create one native 2560x1440 or larger image in a 16:9 landscape composition. Scene: an abandoned Gothic washroom at Hogwarts, an authentic practical movie-set interior. Rows of old stone washbasins with aged brass taps, tall cracked and foxed mirrors, high stone Gothic arches, worn flagstone floor, and a softly illuminated mullioned window create a detailed lived-in magical-school environment. All surfaces have credible material texture, moisture stains, and restrained age. Composition: an eye-level wide interior photograph with a clear central aisle running into the depth of the washroom, plus a visibly walkable side passage on the right framed only by the building's genuine architecture. Deep focus and crisp readable detail across the full scene. Soft cool window light and subtle warm practical illumination balance the exposure; atmospheric and deserted without being pitch-black. No people, no ghosts, no text, logos, watermark, signs, UI, borders, navigation frames, artificial portal outlines, graphic overlays, cartoon rendering, painterly flat shapes, heavy fog, artificial blur, or low-resolution texture. The output is the complete scene itself, without a surrounding frame.",
+      "native_width": 1672,
+      "native_height": 941,
+      "upscaled": false,
+      "encoding": {
+        "format": "WebP",
+        "quality": 94,
+        "method": 6
+      },
+      "bytes": 564918,
+      "sha256": "f64f82f19d661af3540e524add378d43b8066ddef05032322d2490605bb81460"
+    }
+  ]
+}

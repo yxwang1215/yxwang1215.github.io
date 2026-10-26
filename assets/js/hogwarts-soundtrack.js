@@ -1,88 +1,77 @@
-/* Hogwarts scene soundtracks.
- * Official recordings play through Spotify's licensed Embed.
- * If properly licensed local MP3s are added to /assets/audio/hogwarts/,
- * the same routes can also play native, low-volume audio in-page.
+/* Hogwarts scene soundtracks: one official Spotify player follows the atlas.
+ * Playback is requested on entry and retried during visitor interaction.
+ * Only Spotify playback events can confirm that the score is actually playing.
  */
 (function () {
   "use strict";
+  if (window.HogwartsSoundtrack) return;
 
   var score = [
     {
       id: "platform",
       title: "Platform Nine-and-Three-Quarters and the Journey to Hogwarts",
       composer: "John Williams · Philosopher's Stone (2001)",
-      spotify: "72SmD8s1DYkwUhoEkGlnyV",
-      file: "platform-934.mp3"
+      spotify: "72SmD8s1DYkwUhoEkGlnyV"
     },
     {
       id: "chamber",
       title: "The Chamber of Secrets",
       composer: "John Williams · Chamber of Secrets (2002)",
-      spotify: "0go4boa9hw472v8dFpRI5V",
-      file: "chamber-of-secrets.mp3"
+      spotify: "0go4boa9hw472v8dFpRI5V"
     },
     {
       id: "sorting",
       title: "Entry into the Great Hall and the Banquet",
       composer: "John Williams · Philosopher's Stone (2001)",
-      spotify: "0UDSwgomgI5bK1x1eYeBez",
-      file: "sorting-ceremony.mp3"
+      spotify: "0UDSwgomgI5bK1x1eYeBez"
     },
     {
       id: "great",
       title: "Entry into the Great Hall and the Banquet",
       composer: "John Williams · Philosopher's Stone (2001)",
-      spotify: "0UDSwgomgI5bK1x1eYeBez",
-      file: "great-hall.mp3"
+      spotify: "0UDSwgomgI5bK1x1eYeBez"
     },
     {
       id: "staircases",
       title: "Hogwarts Forever! and the Moving Stairs",
       composer: "John Williams · Philosopher's Stone (2001)",
-      spotify: "0pyKuk3bYFSzPIysym8ioN",
-      file: "staircases.mp3"
+      spotify: "0pyKuk3bYFSzPIysym8ioN"
     },
     {
       id: "quidditch",
       title: "The Quidditch Match",
       composer: "John Williams · Philosopher's Stone (2001)",
-      spotify: "4aL5x9pzbU5PTLca3oJjo3",
-      file: "quidditch.mp3"
+      spotify: "4aL5x9pzbU5PTLca3oJjo3"
     },
     {
       id: "memory",
       title: "A Window to the Past",
       composer: "John Williams · Prisoner of Azkaban (2004)",
-      spotify: "1PPTlPJqKuL0fdoTmzwXJy",
-      file: "hogsmeade.mp3"
+      spotify: "1PPTlPJqKuL0fdoTmzwXJy"
     },
     {
       id: "tower",
       title: "Dumbledore's Farewell",
       composer: "Nicholas Hooper · Half-Blood Prince (2009)",
-      spotify: "0bmb8jg6ljmt8qBmIsMNvL",
-      file: "astronomy-tower.mp3"
+      spotify: "0bmb8jg6ljmt8qBmIsMNvL"
     },
     {
       id: "potions",
       title: "Polyjuice Potion",
       composer: "John Williams · Chamber of Secrets (2002)",
-      spotify: "23UVS3PRoBNUwWio4aqPId",
-      file: "potions.mp3"
+      spotify: "23UVS3PRoBNUwWio4aqPId"
     },
     {
       id: "grounds",
       title: "Harry's Wondrous World",
       composer: "John Williams · Chamber of Secrets (2002)",
-      spotify: "5qWvQZewRB57giOKgvUE3F",
-      file: "grounds.mp3"
+      spotify: "5qWvQZewRB57giOKgvUE3F"
     },
     {
       id: "hedwig",
       title: "Hedwig's Theme",
       composer: "John Williams · Philosopher's Stone (2001)",
-      spotify: "1n8NKQRg8LVHy7oUhUgbFF",
-      file: "hedwigs-theme.mp3"
+      spotify: "1n8NKQRg8LVHy7oUhUgbFF"
     }
   ];
 
@@ -137,13 +126,14 @@
     }
   };
   var preferenceKey = "hogwarts:score:enabled:v1";
-  var volumeKey = "hogwarts:score:volume:v1";
   var enabled = storage.get(preferenceKey) !== "off";
-  var savedVolume = Number(storage.get(volumeKey));
-  var volume = Number.isFinite(savedVolume) && savedVolume > 0 && savedVolume <= 1
-    ? savedVolume : 0.24;
-  var reducedMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Preserve a zero-volume choice from the old optional native-audio control.
+  // Spotify exposes no volume API; its own player/device handles volume now.
+  if (storage.get("hogwarts:score:volume:v1") === "0") {
+    enabled = false;
+    storage.set(preferenceKey, "off");
+    storage.set("hogwarts:score:volume:v1", "0.24");
+  }
 
   // Legacy hash scenes resolve through the atlas too. A unique leaf slug
   // (e.g. #/chamber-of-secrets/) stays compatible without duplicating room URLs.
@@ -196,13 +186,11 @@
       '<h2 class="hw-score__title"></h2>' +
       '<p class="hw-score__composer"></p>' +
       '<div class="hw-score__embed" aria-label="Official Spotify soundtrack player"></div>' +
-      '<div class="hw-score__local" hidden>' +
-        '<button type="button" class="hw-score__local-toggle" aria-pressed="false">Play in-page soundtrack</button>' +
-        '<label class="hw-score__volume-label">Volume ' +
-          '<input class="hw-score__volume" type="range" min="0" max="100" value="24" ' +
-          'aria-label="In-page soundtrack volume"></label>' +
+      '<div class="hw-score__local">' +
+        '<button type="button" class="hw-score__local-toggle" aria-pressed="false">Mute soundtrack</button>' +
+        '<button type="button" class="hw-score__local-toggle hw-score__play" hidden>Play soundtrack</button>' +
       '</div>' +
-      '<p class="hw-score__note">Official Spotify player · press play to listen.</p>' +
+      '<p class="hw-score__note" role="status" aria-live="polite">Loading the official film score…</p>' +
       '<a class="hw-score__link" target="_blank" rel="noopener noreferrer">Listen on Spotify ↗</a>' +
     '</section>';
   document.body.appendChild(root);
@@ -212,175 +200,342 @@
   var title = root.querySelector(".hw-score__title");
   var composer = root.querySelector(".hw-score__composer");
   var embed = root.querySelector(".hw-score__embed");
-  var localControls = root.querySelector(".hw-score__local");
   var localToggle = root.querySelector(".hw-score__local-toggle");
-  var volumeControl = root.querySelector(".hw-score__volume");
+  var playButton = root.querySelector(".hw-score__play");
+  var note = root.querySelector(".hw-score__note");
   var officialLink = root.querySelector(".hw-score__link");
-
-  volumeControl.value = String(Math.round(volume * 100));
   var current = null;
-  var audio = null;
-  var loadToken = 0;
   var isPanelOpen = false;
-  var fadeToken = 0;
+  var controller = null;
+  var controllerReady = false;
+  var controllerPending = false;
+  var controllerGeneration = 0;
+  var loadedUri = "";
+  var apiFailed = false;
+  var apiTimer = null;
+  var playbackTimer = null;
+  var playbackAttempt = 0;
+  var confirmationTimer = null;
+  var confirmationRevision = 0;
+  var state = "loading";
+  var hasRequestedCurrent = false;
+  var hasPlayedCurrent = false;
+  var pausePending = false;
+  var suspendedForPage = false;
 
-  function stopAudio() {
-    fadeToken += 1;
-    if (!audio) return;
-    audio.pause();
-    audio.removeAttribute("src");
-    audio.load();
-    audio = null;
+  function uriFor(item) { return "spotify:track:" + item.spotify; }
+  function rememberEnabled(value) {
+    enabled = value;
+    storage.set(preferenceKey, value ? "on" : "off");
   }
-  function refreshLocalControls() {
-    localControls.hidden = !audio;
-    localToggle.textContent = audio && !audio.paused ? "Pause in-page soundtrack" :
-      "Play in-page soundtrack";
-    localToggle.setAttribute("aria-pressed", String(!!audio && !audio.paused));
+  function clearPlaybackTimer() {
+    playbackAttempt += 1;
+    if (playbackTimer !== null) window.clearTimeout(playbackTimer);
+    playbackTimer = null;
   }
-  function fadeIn(element) {
-    var token = ++fadeToken;
-    if (reducedMotion) {
-      element.volume = volume;
-      return;
+  function clearConfirmationTimer() {
+    confirmationRevision += 1;
+    if (confirmationTimer !== null) window.clearTimeout(confirmationTimer);
+    confirmationTimer = null;
+  }
+  function confirmPlayback() {
+    clearConfirmationTimer();
+    var revision = confirmationRevision;
+    confirmationTimer = window.setTimeout(function () {
+      // No new provider event means unknown, not proof that the audio stopped.
+      // In particular, preview players can stop without a final paused event.
+      if (revision === confirmationRevision && state === "playing") setState("unconfirmed");
+    }, 15000);
+  }
+  function refreshControls() {
+    root.setAttribute("data-state", state);
+    root.setAttribute("data-enabled", String(enabled));
+    localToggle.textContent = enabled ? "Mute soundtrack" : "Enable soundtrack";
+    localToggle.setAttribute("aria-pressed", String(enabled));
+    playButton.hidden = !enabled || ["waiting", "unavailable", "ended", "unconfirmed"].indexOf(state) < 0;
+    var messages = {
+      loading: "Loading the official film score…",
+      starting: "Starting the original film score…",
+      buffering: "The official soundtrack is buffering…",
+      playing: "Playing the original film score on Spotify.",
+      ended: "This Spotify playback has ended. Play again here or continue listening on Spotify.",
+      unconfirmed: "Playback status is unconfirmed. Check the Spotify player below or press Play to continue.",
+      waiting: "Press Play here or in the Spotify player to start the score.",
+      paused: "Sound is muted. Enable the soundtrack to listen.",
+      suspended: "The soundtrack is paused while you are away.",
+      unavailable: "Automatic playback is unavailable. Use Play in the Spotify player or listen on Spotify."
+    };
+    note.textContent = messages[state] || messages.waiting;
+    if (current) {
+      var status = state === "playing" ? "Playing" : enabled ? "Soundtrack" : "Muted soundtrack";
+      seal.setAttribute("aria-label", status + ": " + current.title + ". Open sound controls");
+      seal.title = status + ": " + current.title;
     }
-    element.volume = 0;
-    var start = window.performance.now();
-    function frame(time) {
-      if (token !== fadeToken || audio !== element || element.paused) return;
-      var fraction = Math.min(1, (time - start) / 1900);
-      element.volume = Math.min(1, volume * fraction);
-      if (fraction < 1) window.requestAnimationFrame(frame);
-    }
-    window.requestAnimationFrame(frame);
   }
-  function playLocal() {
-    if (!audio || !enabled) return;
-    if (!audio.paused) return;
-    var candidate = audio;
-    // Never play the in-page recording over the Spotify embed.
-    if (isPanelOpen && embed.firstChild) {
-      embed.replaceChildren();
-    }
-    var promise = candidate.play();
-    if (promise && typeof promise.then === "function") {
-      promise.then(function () {
-        if (candidate === audio) fadeIn(candidate);
-        refreshLocalControls();
-      }).catch(function () { refreshLocalControls(); });
-    } else {
-      fadeIn(candidate);
-      refreshLocalControls();
-    }
+  function setState(next) {
+    if (next !== "playing") clearConfirmationTimer();
+    state = next;
+    refreshControls();
   }
-  function inspectLocalFile(item) {
-    var token = ++loadToken;
-    stopAudio();
-    refreshLocalControls();
-    var url = "/assets/audio/hogwarts/" + item.file;
-    // MP3 files are intentionally not included: soundtrack recordings require
-    // permission to distribute publicly. The official Spotify embed works now.
-    window.fetch(url, { method: "HEAD", cache: "force-cache" }).then(function (response) {
-      if (!response.ok || token !== loadToken) return;
-      var element = new Audio(url);
-      element.loop = true;
-      element.preload = "auto";
-      element.volume = volume;
-      element.addEventListener("play", refreshLocalControls);
-      element.addEventListener("pause", refreshLocalControls);
-      element.addEventListener("error", function () {
-        if (element !== audio) return;
-        stopAudio();
-        refreshLocalControls();
-      });
-      audio = element;
-      refreshLocalControls();
-      if (enabled && !isPanelOpen) playLocal();
-    }).catch(function () {});
-  }
-  function clearEmbed() {
-    while (embed.firstChild) embed.removeChild(embed.firstChild);
-  }
-  function makeEmbed() {
-    if (!current || embed.firstChild) return;
-    var frame = document.createElement("iframe");
+  function styleFrame() {
+    var frame = embed.querySelector("iframe");
+    if (!frame) return;
     frame.className = "hw-score__spotify";
     frame.title = "Spotify: " + current.title;
+    frame.loading = "eager";
+    frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+    frame.referrerPolicy = "strict-origin-when-cross-origin";
+  }
+  function fallbackEmbed() {
+    if (controller || controllerPending) return;
+    embed.replaceChildren();
+    var frame = document.createElement("iframe");
     frame.src = "https://open.spotify.com/embed/track/" + current.spotify + "?theme=0";
     frame.width = "100%";
     frame.height = "152";
-    frame.loading = "lazy";
-    frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-    frame.referrerPolicy = "strict-origin-when-cross-origin";
     frame.setAttribute("allowfullscreen", "");
     embed.appendChild(frame);
+    styleFrame();
+  }
+  function playerUnavailable() {
+    if (controllerReady || apiFailed) return;
+    if (apiTimer !== null) window.clearTimeout(apiTimer);
+    apiTimer = null;
+    apiFailed = true;
+    clearPlaybackTimer();
+    // A script can load successfully while createController (or its ready event)
+    // never completes. Retire that attempt before replacing its mount.
+    controllerGeneration += 1;
+    controllerPending = false;
+    var retired = controller;
+    controller = null;
+    loadedUri = "";
+    if (retired) {
+      try { retired.destroy(); } catch (error) {}
+    }
+    fallbackEmbed();
+    setState("unavailable");
+  }
+  function requestPlayback(explicit) {
+    if (!enabled || suspendedForPage || state === "playing") return;
+    if (state === "ended" || state === "unconfirmed") {
+      if (explicit !== true) return;
+      if (state === "ended") hasRequestedCurrent = false;
+    }
+    if (!controllerReady || !loadCurrentCue()) return;
+    clearPlaybackTimer();
+    var attempt = playbackAttempt;
+    pausePending = false;
+    setState("starting");
+    try {
+      // resume() retries a blocked or paused player without restarting its cue.
+      // Keep this call synchronous when invoked from a visitor gesture.
+      var result = hasRequestedCurrent ? controller.resume() : controller.play();
+      hasRequestedCurrent = true;
+      if (result && typeof result.catch === "function") {
+        result.catch(function () {
+          if (attempt === playbackAttempt && enabled) setState("waiting");
+        });
+      }
+      playbackTimer = window.setTimeout(function () {
+        if (attempt === playbackAttempt && (state === "starting" || state === "buffering")) {
+          setState("waiting");
+        }
+      }, 5000);
+    } catch (error) {
+      setState("waiting");
+    }
+  }
+  function pausePlayback() {
+    clearPlaybackTimer();
+    pausePending = true;
+    if (controller) {
+      try { controller.pause(); } catch (error) {}
+    } else if (apiFailed) {
+      fallbackEmbed(); // Removing an uncontrolled fallback also stops its audio.
+    }
+    setState(apiFailed ? "unavailable" : suspendedForPage ? "suspended" : "paused");
+  }
+  function playbackUpdate(event) {
+    var data = event && event.data;
+    if (!data || (data.playingURI && data.playingURI !== uriFor(current))) return;
+    if (suspendedForPage) {
+      if (!data.isPaused && controller) controller.pause();
+      return;
+    }
+    // A start can arrive after the visitor has already muted a pending request.
+    if (!enabled && pausePending && !data.isPaused) {
+      controller.pause();
+      return;
+    }
+    if (data.isBuffering) {
+      if (enabled) setState("buffering");
+      return;
+    }
+    clearPlaybackTimer();
+    var ended = data.duration > 0 && data.position >= data.duration - 250;
+    if (ended) {
+      hasPlayedCurrent = false;
+      pausePending = false;
+      setState(enabled ? "ended" : "paused");
+      return;
+    }
+    if (data.isPaused === false) {
+      pausePending = false;
+      hasPlayedCurrent = true;
+      if (!enabled) rememberEnabled(true); // The visitor used Spotify's own Play.
+      setState("playing");
+      confirmPlayback();
+    } else if (data.isPaused === true) {
+      if (hasPlayedCurrent && (state === "playing" || state === "buffering") && !pausePending && !ended) {
+        rememberEnabled(false);
+      }
+      pausePending = false;
+      setState(enabled ? "waiting" : "paused");
+    }
+  }
+  function loadCurrentCue() {
+    var nextUri = uriFor(current);
+    if (!controllerReady) return false;
+    if (loadedUri === nextUri) return true;
+    hasPlayedCurrent = false;
+    hasRequestedCurrent = false;
+    try {
+      controller.loadEntity(nextUri);
+      loadedUri = nextUri;
+      styleFrame();
+      return true;
+    } catch (error) {
+      setState("unavailable");
+      return false;
+    }
+  }
+  function initializeController(api) {
+    if (controller || controllerPending) return;
+    controllerPending = true;
+    var generation = ++controllerGeneration;
+    apiFailed = false;
+    if (apiTimer === null) apiTimer = window.setTimeout(playerUnavailable, 15000);
+    embed.replaceChildren();
+    var mount = document.createElement("div");
+    embed.appendChild(mount);
+    var initialUri = uriFor(current);
+    try {
+      api.createController(mount, { uri: initialUri, width: "100%", height: 152 }, function (player) {
+        if (generation !== controllerGeneration) {
+          try { player.destroy(); } catch (error) {}
+          return;
+        }
+        controller = player;
+        controllerPending = false;
+        loadedUri = initialUri;
+        styleFrame();
+        player.addListener("ready", function () {
+          if (generation !== controllerGeneration) return;
+          controllerReady = true;
+          apiFailed = false;
+          if (apiTimer !== null) window.clearTimeout(apiTimer);
+          if (!loadCurrentCue()) return; // The visitor may have moved while Spotify loaded.
+          setState(enabled ? "waiting" : "paused");
+          if (enabled) requestPlayback();
+          else pausePlayback();
+        });
+        player.addListener("playback_update", function (event) {
+          if (generation === controllerGeneration) playbackUpdate(event);
+        });
+        player.addListener("playback_started", function (event) {
+          if (generation !== controllerGeneration) return;
+          playbackUpdate({ data: {
+            playingURI: event && event.data && event.data.playingURI,
+            isPaused: false,
+            isBuffering: false
+          } });
+        });
+      });
+    } catch (error) {
+      controllerPending = false;
+      playerUnavailable();
+    }
+  }
+  function loadSpotifyApi() {
+    var previousReady = window.onSpotifyIframeApiReady;
+    window.onSpotifyIframeApiReady = function (api) {
+      if (typeof previousReady === "function") {
+        try { previousReady(api); } catch (error) {}
+      }
+      initializeController(api);
+    };
+    var script = document.createElement("script");
+    script.src = "https://open.spotify.com/embed/iframe-api/v1";
+    script.async = true;
+    script.addEventListener("error", playerUnavailable);
+    apiTimer = window.setTimeout(playerUnavailable, 15000);
+    document.body.appendChild(script);
   }
   function openPanel() {
     isPanelOpen = true;
     panel.hidden = false;
     seal.setAttribute("aria-expanded", "true");
-    if (audio) audio.pause();
-    makeEmbed();
-    refreshLocalControls();
   }
   function closePanel() {
     isPanelOpen = false;
     panel.hidden = true;
     seal.setAttribute("aria-expanded", "false");
-    clearEmbed(); // Also stops playback when the official player is closed.
-    if (enabled) playLocal();
-    refreshLocalControls();
   }
   function sync() {
     var next = routeFromLocation();
     if (current && current.id === next.id) return;
+    var sameRecording = current && current.spotify === next.spotify;
     current = next;
     title.textContent = next.title;
     composer.textContent = next.composer;
-    seal.setAttribute("aria-label", "Soundtrack: " + next.title + ". Open player");
-    seal.title = next.title;
     officialLink.href = "https://open.spotify.com/track/" + next.spotify;
-    clearEmbed();
-    if (isPanelOpen) makeEmbed();
-    inspectLocalFile(next);
+    if (!sameRecording) {
+      clearPlaybackTimer();
+      hasPlayedCurrent = false;
+      hasRequestedCurrent = false;
+      setState(enabled ? "loading" : "paused");
+      if (controllerReady) {
+        if (loadCurrentCue() && enabled) requestPlayback();
+      } else if (apiFailed) {
+        fallbackEmbed();
+        setState("unavailable");
+      }
+    }
+    refreshControls();
   }
 
   seal.addEventListener("click", function () {
     if (isPanelOpen) closePanel();
-    else openPanel();
+    else {
+      openPanel();
+      requestPlayback();
+    }
   });
   localToggle.addEventListener("click", function () {
-    if (!audio) return;
-    if (!audio.paused) {
-      enabled = false;
-      storage.set(preferenceKey, "off");
-      fadeToken += 1;
-      audio.pause();
-    } else {
-      enabled = true;
-      storage.set(preferenceKey, "on");
-      playLocal();
-    }
-    refreshLocalControls();
+    rememberEnabled(!enabled);
+    if (enabled) requestPlayback();
+    else pausePlayback();
+    refreshControls();
   });
-  volumeControl.addEventListener("input", function () {
-    volume = Math.min(1, Math.max(0, Number(volumeControl.value) / 100));
-    storage.set(volumeKey, String(volume));
-    if (audio && !audio.paused) {
-      fadeToken += 1;
-      audio.volume = volume;
-    }
+  playButton.addEventListener("click", function () {
+    openPanel();
+    requestPlayback(true);
   });
-  document.addEventListener("pointerdown", function (event) {
-    if (root.contains(event.target) || isPanelOpen) return;
-    // Site interaction can unlock playback under the browser's autoplay rules.
-    if (enabled && audio && audio.paused) playLocal();
-    if (isPanelOpen && !panel.contains(event.target)) closePanel();
-  }, { passive: true });
+  function unlockFromInteraction(event) {
+    if (root.contains(event.target) || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.type === "keydown" && (event.repeat || event.key === "Escape" || event.key === "Tab")) return;
+    requestPlayback();
+  }
+  // click is the cross-browser activation path; touchend and keyboard movement
+  // cover the explorer's other entry interactions. No missing-file fetch awaits it.
+  document.addEventListener("touchend", unlockFromInteraction, { passive: true });
   document.addEventListener("click", function (event) {
+    unlockFromInteraction(event);
     if (isPanelOpen && !root.contains(event.target)) closePanel();
   });
   document.addEventListener("keydown", function (event) {
+    unlockFromInteraction(event);
     if (event.key === "Escape" && isPanelOpen) {
       closePanel();
       seal.focus();
@@ -390,8 +545,23 @@
   window.addEventListener("popstate", sync);
   window.addEventListener("hogwarts:scenechange", sync);
   window.addEventListener("pagehide", function () {
-    if (audio) audio.pause();
+    suspendedForPage = true;
+    pausePlayback();
   });
-  window.HogwartsSoundtrack = { sync: sync, selectForPath: selectForPath };
+  window.addEventListener("pageshow", function () {
+    if (!suspendedForPage) return;
+    suspendedForPage = false;
+    pausePending = false;
+    setState(enabled ? "waiting" : "paused");
+    requestPlayback();
+  });
+  window.HogwartsSoundtrack = {
+    sync: sync,
+    selectForPath: selectForPath,
+    getState: function () {
+      return { track: current && current.id, state: state, enabled: enabled, ready: controllerReady };
+    }
+  };
   sync();
+  loadSpotifyApi();
 })();

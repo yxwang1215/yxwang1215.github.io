@@ -1,9 +1,12 @@
-// Dependency-free integration tests for the real atlas, explorer and Spotify UI.
+// Dependency-free integration tests for the real atlas, explorer and soundtrack.
+// Spotify is an external boundary: the fixture implements its documented event
+// payloads while assertions exercise our loading, playback and preference logic.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
 
 const atlasSource = readFileSync("assets/js/hogwarts-atlas.js", "utf8");
+const scenesSource = readFileSync("assets/js/hogwarts-scenes.js", "utf8");
 const exploreSource = readFileSync("assets/js/hogwarts-explore.js", "utf8");
 const soundtrackSource = readFileSync("assets/js/hogwarts-soundtrack.js", "utf8");
 
@@ -20,7 +23,16 @@ class Element {
     this.style = { setProperty() {} };
     this.classList = { add() {}, remove() {}, toggle() {} };
   }
-  set innerHTML(html) { this.html = html; this.children = []; }
+  set innerHTML(html) {
+    this.html = html;
+    this.children = [];
+    // Materialize the explorer's interactive targets from its rendered markup.
+    for (const match of html.matchAll(/<div[^>]*\s(data-(?:door|secret|ceremony))(?:="([^"]*)")?[^>]*>/g)) {
+      const element = new Element();
+      element.setAttribute(match[1], match[2] || "");
+      this.appendChild(element);
+    }
+  }
   get innerHTML() { return this.html || ""; }
   get firstChild() { return this.children[0] || null; }
   appendChild(element) { this.children.push(element); element.parent = this; return element; }
@@ -28,6 +40,11 @@ class Element {
     const i = this.children.indexOf(element);
     if (i >= 0) this.children.splice(i, 1);
     return element;
+  }
+  replaceChild(replacement, element) {
+    const i = this.children.indexOf(element);
+    if (i >= 0) this.children.splice(i, 1, replacement);
+    replacement.parent = this;
   }
   replaceChildren(...elements) { this.children = elements; }
   setAttribute(name, value) { this.attributes[name] = String(value); }
@@ -40,11 +57,26 @@ class Element {
     for (const listener of this.events[type] || []) listener(event);
   }
   querySelector(selector) {
-    if (!this.queries.has(selector)) this.queries.set(selector, new Element());
+    if (selector === "iframe") {
+      return this.children.find(child => child.tagName === "IFRAME") || null;
+    }
+    if (selector.startsWith("[data-")) {
+      return this.children.find(child => child.closest(selector) === child) || null;
+    }
+    if (!this.queries.has(selector)) {
+      const element = new Element();
+      this.queries.set(selector, element);
+      this.appendChild(element);
+    }
     return this.queries.get(selector);
   }
   contains(element) {
     return element === this || this.children.some(child => child.contains(element));
+  }
+  closest(selector) {
+    const names = selector.split(",").map(part => part.slice(1, -1));
+    if (names.some(name => Object.hasOwn(this.attributes, name))) return this;
+    return this.parent ? this.parent.closest(selector) : null;
   }
   focus() {}
 }
@@ -55,7 +87,7 @@ function harness(start, options = {}) {
     assign(url) { this.assigned = url; } };
   const listeners = Object.create(null);
   const sessionValues = new Map();
-  const localValues = new Map();
+  const localValues = new Map(Object.entries(options.storage || {}));
   const store = values => ({
     getItem(key) { return values.get(key) ?? null; },
     setItem(key, value) { values.set(key, String(value)); },
@@ -64,8 +96,8 @@ function harness(start, options = {}) {
   const sessionStorage = store(sessionValues);
   const historyPaths = [start];
   let position = 0;
-  function emit(type) {
-    for (const listener of listeners[type] || []) listener({ type });
+  function emit(type, data = {}) {
+    for (const listener of listeners[type] || []) listener({ type, ...data });
   }
   const history = {
     pushState(_state, _title, url) {
@@ -93,6 +125,10 @@ function harness(start, options = {}) {
   };
   const body = new Element("body");
   const domById = new Map();
+  const documentEvents = Object.create(null);
+  const timers = new Map();
+  const fetches = [];
+  let timerId = 0;
   const document = {
     body,
     title: "",
@@ -101,16 +137,25 @@ function harness(start, options = {}) {
       if (!domById.has(id)) domById.set(id, new Element());
       return domById.get(id);
     },
-    addEventListener() {}
+    addEventListener(type, listener) { (documentEvents[type] ||= []).push(listener); },
+    emit(type, event = {}) {
+      for (const listener of documentEvents[type] || []) listener({ type, target: body, ...event });
+    }
   };
   const window = {
     location, history, sessionStorage, localStorage: store(localValues),
     performance: { now() { return 0; } },
     matchMedia() { return { matches: true }; },
-    setTimeout(callback) { callback(); return 1; },
-    requestAnimationFrame() { return 1; },
+    setTimeout(callback, delay = 0) {
+      const id = ++timerId;
+      if (delay < 1000) callback();
+      else timers.set(id, callback);
+      return id;
+    },
+    clearTimeout(id) { timers.delete(id); },
+    requestAnimationFrame(callback) { callback(0); return 1; },
     cancelAnimationFrame() {},
-    fetch() { return Promise.resolve({ ok: false }); },
+    fetch(url) { fetches.push(url); return Promise.resolve({ ok: false }); },
     addEventListener(type, listener) {
       (listeners[type] ||= []).push(listener);
     },
@@ -119,10 +164,20 @@ function harness(start, options = {}) {
   const context = vm.createContext({
     window, document, sessionStorage,
     Event: class { constructor(type) { this.type = type; } },
+    Image: class {
+      set src(value) {
+        this.url = value;
+        this.complete = true;
+        this.naturalWidth = 1920;
+        if (this.onload) this.onload();
+      }
+    },
+    cancelAnimationFrame: window.cancelAnimationFrame,
     Audio: class {}, console
   });
   if (options.maze !== false) {
     vm.runInContext(atlasSource, context, { filename: "hogwarts-atlas.js", timeout: 1000 });
+    vm.runInContext(scenesSource, context, { filename: "hogwarts-scenes.js", timeout: 1000 });
     const roomId = window.HogwartsAtlas.byPath[start];
     assert.ok(roomId, "Test harness needs a real room URL: " + start);
     sessionStorage.setItem("hogwarts:session:v2", JSON.stringify({
@@ -136,10 +191,97 @@ function harness(start, options = {}) {
   const seal = root.querySelector(".hw-score__seal");
   const embed = root.querySelector(".hw-score__embed");
   const title = root.querySelector(".hw-score__title");
-  return {
-    window, location, history, seal, embed, title,
+  const note = root.querySelector(".hw-score__note");
+  const toggle = root.querySelector(".hw-score__local-toggle");
+  const calls = [];
+  let controller = null;
+  let pendingControllerCallback = null;
+  const api = {
+    createController(mount, settings, callback) {
+      calls.push(["create", settings]);
+      function finishController() {
+      const frame = new Element("iframe");
+      const initial = settings.uri || settings.url;
+      function frameUrl(entity) {
+        const id = entity.startsWith("spotify:") ? entity.split(":").pop() : new URL(entity).pathname.split("/").pop();
+        return "https://open.spotify.com/embed/track/" + id + "?theme=0";
+      }
+      frame.src = frameUrl(initial);
+      mount.parent.replaceChild(frame, mount);
+      const eventHandlers = Object.create(null);
+      controller = {
+        addListener(type, handler) { (eventHandlers[type] ||= []).push(handler); },
+        emit(type, data = {}) {
+          for (const handler of eventHandlers[type] || []) handler({ data });
+        },
+        play() { calls.push(["play"]); },
+        resume() { calls.push(["resume"]); },
+        pause() { calls.push(["pause"]); },
+        loadEntity(entity) {
+          calls.push(["load", entity]);
+          if (options.failCueLoad) throw new Error("Provider could not load this cue");
+          frame.src = frameUrl(entity);
+        },
+        destroy() {
+          calls.push(["destroy"]);
+          if (frame.parent) frame.parent.removeChild(frame);
+        }
+      };
+      callback(controller);
+      }
+      if (options.deferControllerCallback) pendingControllerCallback = finishController;
+      else finishController();
+    }
+  };
+  const result = {
+    window, location, history, seal, embed, title, root, note, toggle,
+    document, calls, fetches, localValues,
+    get controller() { return controller; },
     soundtrack: window.HogwartsSoundtrack,
+    apiReady() {
+      if (typeof window.onSpotifyIframeApiReady === "function") {
+        window.onSpotifyIframeApiReady(api);
+        if (controller && !options.deferPlayerReady) controller.emit("ready");
+      }
+    },
+    resolveController() {
+      if (pendingControllerCallback) {
+        const callback = pendingControllerCallback;
+        pendingControllerCallback = null;
+        callback();
+      }
+      if (controller) controller.emit("ready");
+    },
+    playback(data) {
+      controller.emit("playback_update", {
+        playingURI: "spotify:track:" + result.soundtrack.selectForPath(location.pathname).spotify,
+        isPaused: false, isBuffering: false, duration: 180000, position: 1200,
+        ...data
+      });
+    },
+    expireTimers() {
+      const pending = [...timers.values()];
+      timers.clear();
+      pending.forEach(callback => callback());
+    },
+    emit,
+    async walkThrough(key) {
+      const before = location.pathname;
+      for (let i = 0; i < 40 && location.pathname === before; i++) {
+        result.key(key);
+        await Promise.resolve();
+      }
+      assert.notEqual(location.pathname, before, "Keyboard movement did not cross the passage");
+    },
+    async activateSecret() {
+      const host = document.getElementById("hgw-stage");
+      const target = host.querySelector("[data-secret]");
+      assert.ok(target, "The room must render an interactive secret target");
+      host.emit("click", { target, preventDefault() {}, stopImmediatePropagation() {} });
+      await Promise.resolve();
+    },
     key(key) {
+      document.emit("keydown", { key, altKey: false, ctrlKey: false, metaKey: false });
       for (const listener of listeners.keydown || []) {
         listener({
           key,
@@ -150,11 +292,27 @@ function harness(start, options = {}) {
       }
     },
     changeHash(hash) { location.hash = hash; emit("hashchange"); },
-    openScore() { seal.emit("click"); }
+    openScore() { seal.emit("click"); },
+    toggleScore() { toggle.emit("click"); },
+    playScore() { root.querySelector(".hw-score__play").emit("click"); }
   };
+  if (options.api !== false) result.apiReady();
+  return result;
 }
 
 const world = harness("/hogwarts/");
+assert.ok(world.document.body.children.some(element =>
+  element.src === "https://open.spotify.com/embed/iframe-api/v1"),
+"The official player API must load on entry, before opening the music panel");
+assert.equal(world.fetches.length, 0,
+  "Scene music must not depend on HEAD requests for MP3s absent from the site");
+assert.ok(world.calls.some(call => call[0] === "play" || call[0] === "resume"),
+  "A ready official player must attempt playback when sound is enabled");
+assert.notEqual(world.root.getAttribute("data-state"), "playing",
+  "A playback attempt alone is not evidence that music has started");
+world.playback({});
+assert.equal(world.root.getAttribute("data-state"), "playing",
+  "The playing state must follow the official player's playback event");
 const atlas = world.window.HogwartsAtlas;
 const actualIds = Object.keys(atlas.rooms);
 assert.equal(actualIds.length, 49, "Room count unexpectedly changed");
@@ -192,20 +350,23 @@ assert.equal(world.soundtrack.selectForPath("/hogwarts/unknown-location/").id, "
 assert.equal(harness("/platform-934/", { maze: false }).soundtrack.selectForPath("/platform-934/").id, "platform");
 assert.equal(harness("/hogwarts/sorting-ceremony/", { maze: false }).soundtrack.selectForPath("/hogwarts/sorting-ceremony/").id, "sorting");
 
-// A normal passage changes the URL, then emits hogwarts:scenechange; transitions
-// within one score family should NOT recreate the playing Spotify iframe.
+// A normal passage changes the URL, then emits hogwarts:scenechange. One player
+// survives every passage; cue changes are sent to the official controller.
 world.openScore();
 let themeFrame = world.embed.firstChild;
 assert.match(themeFrame.src, /^https:\/\/open\.spotify\.com\/embed\/track\//);
-for (let i = 0; i < 3; ++i) world.key("ArrowUp");
+await world.walkThrough("ArrowUp");
 assert.equal(world.location.pathname, atlas.rooms.entry.path);
 assert.equal(world.embed.firstChild, themeFrame,
   "Passing between rooms with one score should preserve the current player");
-for (let i = 0; i < 10; ++i) world.key("ArrowUp");
+await world.walkThrough("ArrowUp");
 assert.equal(world.location.pathname, atlas.rooms.great.path);
 assert.equal(world.embed.firstChild.src,
   "https://open.spotify.com/embed/track/" + world.soundtrack.selectForPath(atlas.rooms.great.path).spotify + "?theme=0");
-assert.notEqual(world.embed.firstChild, themeFrame, "Great Hall must replace the theme player");
+assert.equal(world.embed.firstChild, themeFrame,
+  "Great Hall must load its cue without replacing the initialized player");
+assert.ok(world.calls.some(call => call[0] === "load" &&
+  /0UDSwgomgI5bK1x1eYeBez/.test(call[1])), "Great Hall cue was not loaded");
 world.history.back();
 assert.equal(world.location.pathname, atlas.rooms.entry.path);
 assert.equal(world.title.textContent, "Hedwig's Theme", "Back did not update the score");
@@ -218,11 +379,11 @@ assert.equal(world.title.textContent, "Entry into the Great Hall and the Banquet
 const basin = harness(atlas.rooms.bathroom.path);
 basin.openScore();
 const beforeSecret = basin.embed.firstChild;
-for (let i = 0; i < 5; ++i) basin.key("ArrowRight");
-for (let i = 0; i < 5; ++i) basin.key("ArrowUp");
+await basin.activateSecret();
 assert.equal(basin.location.pathname, atlas.rooms.sluice.path,
   "The concealed basin entrance did not navigate to the sewers");
-assert.notEqual(basin.embed.firstChild, beforeSecret);
+assert.equal(basin.embed.firstChild, beforeSecret,
+  "The secret passage must retain the initialized player");
 assert.equal(basin.title.textContent, "The Chamber of Secrets");
 basin.history.back();
 assert.equal(basin.location.pathname, atlas.rooms.bathroom.path);
@@ -233,8 +394,7 @@ assert.equal(basin.title.textContent, "The Chamber of Secrets");
 // The other concealed passage must also refresh its score on entry and history traversal.
 const tapestry = harness(atlas.rooms.corridor.path);
 tapestry.openScore();
-for (let i = 0; i < 3; ++i) tapestry.key("ArrowLeft");
-for (let i = 0; i < 6; ++i) tapestry.key("ArrowUp");
+await tapestry.activateSecret();
 assert.equal(tapestry.location.pathname, atlas.rooms.requirement.path);
 assert.equal(tapestry.title.textContent, "A Window to the Past");
 tapestry.history.back();
@@ -250,4 +410,190 @@ assert.equal(hashed.title.textContent, "Entry into the Great Hall and the Banque
 hashed.changeHash("#/castle/upper-keep/astronomy-tower/");
 assert.equal(hashed.title.textContent, "Dumbledore's Farewell");
 
-console.log("Hogwarts soundtrack checks passed: 49 room routes, nine score groups, normal/history/secret/hash transitions, official embeds.");
+// A provider that has not confirmed playback must not be presented as playing.
+// Every supported visitor gesture retries synchronously, without another fetch.
+const waiting = harness(atlas.rooms.paddock.path);
+waiting.expireTimers();
+assert.equal(waiting.root.getAttribute("data-state"), "waiting");
+for (const [type, event] of [["click", {}], ["touchend", {}],
+  ["keydown", { key: "ArrowUp" }]]) {
+  const before = waiting.calls.filter(call => ["play", "resume"].includes(call[0])).length;
+  waiting.document.emit(type, event);
+  assert.ok(waiting.calls.filter(call => ["play", "resume"].includes(call[0])).length > before,
+    type + " must retry blocked playback directly in the gesture handler");
+}
+waiting.playback({ isBuffering: true });
+assert.notEqual(waiting.root.getAttribute("data-state"), "playing");
+waiting.expireTimers();
+assert.equal(waiting.root.getAttribute("data-state"), "waiting",
+  "A stalled buffer must offer a manual retry instead of waiting forever");
+waiting.playback({});
+assert.equal(waiting.root.getAttribute("data-state"), "playing");
+const playingCalls = waiting.calls.length;
+waiting.document.emit("click");
+assert.equal(waiting.calls.length, playingCalls, "Routine movement must not restart playing music");
+
+// Showing and hiding settings must preserve playback and the initialized iframe.
+const stableFrame = waiting.embed.firstChild;
+waiting.openScore();
+waiting.openScore();
+assert.equal(waiting.embed.firstChild, stableFrame);
+assert.equal(waiting.calls.length, playingCalls, "Closing the panel must not stop the music");
+
+// A visitor's pause persists through input, scene changes, page restoration and reload.
+waiting.toggleScore();
+assert.equal(waiting.localValues.get("hogwarts:score:enabled:v1"), "off");
+assert.ok(waiting.calls.some(call => call[0] === "pause"));
+const afterPause = waiting.calls.filter(call => ["play", "resume"].includes(call[0])).length;
+waiting.document.emit("click");
+waiting.document.emit("keydown", { key: "ArrowUp" });
+waiting.location.pathname = atlas.rooms.library.path;
+waiting.soundtrack.sync();
+waiting.emit("pageshow", { persisted: true });
+assert.equal(waiting.calls.filter(call => ["play", "resume"].includes(call[0])).length, afterPause,
+  "Navigation and gestures must not undo a visitor's pause");
+const muted = harness(atlas.rooms.paddock.path, {
+  storage: { "hogwarts:score:enabled:v1": "off" }
+});
+assert.equal(muted.calls.filter(call => ["play", "resume"].includes(call[0])).length, 0);
+muted.document.emit("click");
+assert.equal(muted.calls.filter(call => ["play", "resume"].includes(call[0])).length, 0);
+muted.toggleScore();
+assert.equal(muted.localValues.get("hogwarts:score:enabled:v1"), "on");
+assert.ok(muted.calls.some(call => ["play", "resume"].includes(call[0])));
+
+// A pause made in Spotify's own controls is also a visitor preference.
+const embeddedPause = harness(atlas.rooms.paddock.path);
+embeddedPause.playback({});
+embeddedPause.playback({ isPaused: true, position: 3400 });
+assert.equal(embeddedPause.localValues.get("hogwarts:score:enabled:v1"), "off");
+const pausedCalls = embeddedPause.calls.length;
+embeddedPause.document.emit("click");
+assert.equal(embeddedPause.calls.length, pausedCalls);
+embeddedPause.playback({ isPaused: false, position: 3500 });
+assert.equal(embeddedPause.localValues.get("hogwarts:score:enabled:v1"), "on",
+  "Play in Spotify's controls should restore the enabled preference");
+
+// Buffering after playback has begun must not erase a visitor's later Pause.
+const bufferedPause = harness(atlas.rooms.paddock.path);
+bufferedPause.playback({});
+bufferedPause.playback({ isBuffering: true, position: 3400 });
+bufferedPause.playback({ isPaused: true, position: 3400 });
+assert.equal(bufferedPause.localValues.get("hogwarts:score:enabled:v1"), "off",
+  "A pause from the buffering state must be saved as the visitor's preference");
+const bufferedPauseCalls = bufferedPause.calls.length;
+bufferedPause.document.emit("click");
+assert.equal(bufferedPause.calls.length, bufferedPauseCalls,
+  "Scene interaction must not resume a soundtrack paused while buffering");
+
+// Some Spotify previews finish with a terminal position but isPaused:false.
+// A natural end preserves the preference and requires an explicit replay.
+const endedPreview = harness(atlas.rooms.paddock.path);
+endedPreview.playback({ duration: 30000, position: 1200 });
+endedPreview.playback({ duration: 30000, position: 30000, isPaused: false });
+assert.equal(endedPreview.soundtrack.getState().state, "ended",
+  "The end of a preview must not remain marked as playing");
+assert.equal(endedPreview.soundtrack.getState().enabled, true);
+const endedCalls = endedPreview.calls.length;
+endedPreview.document.emit("click");
+endedPreview.openScore();
+assert.equal(endedPreview.calls.length, endedCalls,
+  "An incidental click or panel opening must not restart a finished preview");
+endedPreview.playScore();
+assert.equal(endedPreview.calls.at(-1)[0], "play",
+  "The explicit Play action may replay a finished preview");
+
+// If the provider stops sending events, its last playing report must expire
+// into an unknown state, without asserting that audio stopped or changing mute.
+const stalePlayback = harness(atlas.rooms.paddock.path);
+stalePlayback.playback({ duration: 180000, position: 29000 });
+const beforeStale = stalePlayback.calls.length;
+stalePlayback.expireTimers();
+assert.equal(stalePlayback.soundtrack.getState().state, "unconfirmed");
+assert.equal(stalePlayback.soundtrack.getState().enabled, true);
+stalePlayback.document.emit("click");
+assert.equal(stalePlayback.calls.length, beforeStale,
+  "Missing confirmations must not pause or resume the provider automatically");
+stalePlayback.playback({ duration: 180000, position: 46000 });
+assert.equal(stalePlayback.soundtrack.getState().state, "playing",
+  "A fresh provider confirmation must restore the playing indication");
+
+// Back/forward cache restoration resumes only a soundtrack that was enabled.
+const restored = harness(atlas.rooms.paddock.path);
+restored.playback({});
+restored.emit("pagehide", { persisted: true });
+assert.equal(restored.calls.at(-1)[0], "pause");
+restored.playback({ isPaused: true });
+assert.notEqual(restored.localValues.get("hogwarts:score:enabled:v1"), "off",
+  "A lifecycle pause must not be saved as the visitor's mute preference");
+restored.emit("pageshow", { persisted: true });
+assert.ok(["play", "resume"].includes(restored.calls.at(-1)[0]));
+restored.playback({ isPaused: true });
+assert.notEqual(restored.localValues.get("hogwarts:score:enabled:v1"), "off",
+  "A late lifecycle pause after page restore must not override the requested resume");
+
+const lateStart = harness(atlas.rooms.paddock.path);
+lateStart.toggleScore();
+lateStart.playback({ isPaused: false });
+assert.equal(lateStart.localValues.get("hogwarts:score:enabled:v1"), "off");
+assert.equal(lateStart.calls.at(-1)[0], "pause",
+  "A late provider start must be stopped after the visitor mutes");
+
+const zeroVolume = harness(atlas.rooms.paddock.path, {
+  storage: { "hogwarts:score:volume:v1": "0" }
+});
+assert.equal(zeroVolume.calls.filter(call => ["play", "resume"].includes(call[0])).length, 0,
+  "A saved zero-volume preference must not become audible after the upgrade");
+
+const failedCue = harness(atlas.rooms.paddock.path, { failCueLoad: true });
+const beforeFailure = failedCue.calls.filter(call => ["play", "resume"].includes(call[0])).length;
+failedCue.location.pathname = atlas.rooms.library.path;
+failedCue.soundtrack.sync();
+assert.equal(failedCue.calls.filter(call => ["play", "resume"].includes(call[0])).length, beforeFailure,
+  "A failed cue change must not play the previous room's recording");
+
+// Slow API arrival and late playback events must not restore the departed cue.
+const delayed = harness("/hogwarts/", { api: false });
+delayed.location.pathname = atlas.rooms.paddock.path;
+delayed.soundtrack.sync();
+delayed.apiReady();
+const created = delayed.calls.find(call => call[0] === "create")[1];
+assert.match(created.uri || created.url, /5qWvQZewRB57giOKgvUE3F/);
+delayed.playback({ playingURI: "spotify:track:1n8NKQRg8LVHy7oUhUgbFF" });
+assert.notEqual(delayed.root.getAttribute("data-state"), "playing",
+  "A late event for the departed track must not confirm the new scene's playback");
+
+// If the controller script is blocked, the visitor still gets an official player.
+const unavailable = harness(atlas.rooms.paddock.path, { api: false });
+unavailable.document.body.children.find(element =>
+  element.src === "https://open.spotify.com/embed/iframe-api/v1").emit("error");
+assert.match(unavailable.embed.firstChild.src,
+  /^https:\/\/open\.spotify\.com\/embed\/track\/5qWvQZewRB57giOKgvUE3F/);
+assert.equal(unavailable.root.getAttribute("data-state"), "unavailable");
+assert.notEqual(unavailable.note.textContent, "");
+const fallbackFrame = unavailable.embed.firstChild;
+unavailable.expireTimers();
+assert.equal(unavailable.embed.firstChild, fallbackFrame,
+  "A pending API timeout must not replace a fallback the visitor may be playing");
+
+// A loaded API can still stall while creating its controller. Retire that
+// attempt before mounting a standard player, including any late callbacks.
+for (const options of [{ deferControllerCallback: true }, { deferPlayerReady: true }]) {
+  const stalledController = harness(atlas.rooms.paddock.path, options);
+  stalledController.expireTimers();
+  assert.equal(stalledController.embed.firstChild.tagName, "IFRAME",
+    "Controller initialization timeout must leave a usable standard Spotify iframe");
+  assert.match(stalledController.embed.firstChild.src,
+    /^https:\/\/open\.spotify\.com\/embed\/track\/5qWvQZewRB57giOKgvUE3F/);
+  assert.equal(stalledController.root.getAttribute("data-state"), "unavailable");
+  const retainedFallback = stalledController.embed.firstChild;
+  stalledController.resolveController();
+  assert.equal(stalledController.embed.firstChild, retainedFallback,
+    "A late controller callback must not replace the visitor's fallback player");
+  assert.equal(stalledController.soundtrack.getState().ready, false,
+    "A retired controller's late ready event must be ignored");
+  assert.equal(stalledController.calls.filter(call => ["play", "resume"].includes(call[0])).length, 0,
+    "A retired controller must never start a second soundtrack");
+}
+
+console.log("Hogwarts soundtrack checks passed: 49 atlas routes; stable Spotify controller; ready/gesture playback; truthful state; pause persistence; panel, history and lifecycle continuity; provider fallback.");

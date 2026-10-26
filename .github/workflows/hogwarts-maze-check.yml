@@ -7,10 +7,16 @@ on:
       - "_includes/hogwarts-explorer.html"
       - "assets/js/hogwarts-*.js"
       - "assets/css/hogwarts-explore.css"
+      - "assets/css/hogwarts-cinematic.css"
+      - "assets/css/hogwarts-soundtrack.css"
+      - "assets/images/hogwarts-cinematic*/**"
+      - "platform-934/**"
       - "assets/css/hogwarts-map.css"
       - "tests/hogwarts-maze-check.mjs"
       - "tests/hogwarts-map-check.mjs"
       - "tests/hogwarts-soundtrack-check.mjs"
+      - "tests/hogwarts-scenes-check.mjs"
+      - "tests/hogwarts-explorer-check.mjs"
       - ".github/workflows/hogwarts-maze-check.yml"
   pull_request:
     paths:
@@ -18,10 +24,16 @@ on:
       - "_includes/hogwarts-explorer.html"
       - "assets/js/hogwarts-*.js"
       - "assets/css/hogwarts-explore.css"
+      - "assets/css/hogwarts-cinematic.css"
+      - "assets/css/hogwarts-soundtrack.css"
+      - "assets/images/hogwarts-cinematic*/**"
+      - "platform-934/**"
       - "assets/css/hogwarts-map.css"
       - "tests/hogwarts-maze-check.mjs"
       - "tests/hogwarts-map-check.mjs"
       - "tests/hogwarts-soundtrack-check.mjs"
+      - "tests/hogwarts-scenes-check.mjs"
+      - "tests/hogwarts-explorer-check.mjs"
       - ".github/workflows/hogwarts-maze-check.yml"
   workflow_dispatch:
 
@@ -41,3 +53,7 @@ jobs:
         run: node tests/hogwarts-map-check.mjs
       - name: Check soundtrack routes and scene transitions
         run: node tests/hogwarts-soundtrack-check.mjs
+      - name: Check actual scene assets and passage coordinates
+        run: node tests/hogwarts-scenes-check.mjs
+      - name: Check explorer movement, secrets and image recovery
+        run: node tests/hogwarts-explorer-check.mjs

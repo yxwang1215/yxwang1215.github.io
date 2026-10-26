@@ -1,83 +1,52 @@
-/* Responsive AI scene photography. Original entrances, walls and hidden interaction surfaces are retained. */
-.hgw-scene[data-room],.hgw-castle-scene[data-room]{isolation:isolate}
-.hgw-scene[data-room]::before,.hgw-castle-scene[data-room]::before{content:"";position:absolute;inset:0;z-index:18;pointer-events:none;background-image:var(--cinema-image,none);background-position:center;background-size:cover;background-repeat:no-repeat;filter:saturate(.91) brightness(.8)}
-.hgw-scene[data-room="gate"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
-.hgw-scene[data-room="entry"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/entrance-hall.webp")}
-.hgw-scene[data-room="great"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/great-hall.webp")}
-.hgw-scene[data-room="staircase"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/grand-staircase.webp")}
-.hgw-scene[data-room="astrStair"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/grand-staircase.webp")}
-.hgw-scene[data-room="library"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/library.webp")}
-.hgw-scene[data-room="oldArchive"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/library.webp")}
-.hgw-scene[data-room="vault"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/library.webp")}
-.hgw-scene[data-room="potions"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/potions.webp")}
-.hgw-scene[data-room="pantry"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/potions.webp")}
-.hgw-scene[data-room="bathroom"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/myrtles-bathroom.webp")}
-.hgw-scene[data-room="baths"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/myrtles-bathroom.webp")}
-.hgw-scene[data-room="astrTower"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/astronomy-tower.webp")}
-.hgw-scene[data-room="owlery"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/astronomy-tower.webp")}
-.hgw-scene[data-room="ramparts"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/astronomy-tower.webp")}
-.hgw-scene[data-room="forest"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
-.hgw-scene[data-room="clearing"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
-.hgw-scene[data-room="hut"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
-.hgw-scene[data-room="paddock"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forbidden-forest.webp")}
-.hgw-scene[data-room="quidditch"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/quidditch.webp")}
-.hgw-scene[data-room="flying"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/quidditch.webp")}
-.hgw-scene[data-room="chamber"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/chamber-of-secrets.webp")}
-.hgw-scene[data-room="sluice"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/chamber-of-secrets.webp")}
-.hgw-scene[data-room="sanctum"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/chamber-of-secrets.webp")}
-.hgw-scene[data-room] .hgw-door,.hgw-scene[data-room] .hgw-secret-target,.hgw-scene[data-room] .hgw-prop--sorting-hat,.hgw-castle-scene[data-room] .hgw-castle-threshold{z-index:25}
-.hgw-scene[data-room] .hgw-decoration{z-index:21}
-.hgw-scene[data-room] .hgw-dust{z-index:24}
-.hgw-scene[data-room] .hgw-door::before{opacity:.48}
-.hgw-scene[data-room] .hgw-door--s::before{opacity:.3}
-
-.hgw-scene[data-room] .hgw-vignette{z-index:20}
-
-/* Scene-specific AI-generated environments. Keep interactive doors and hidden targets above the imagery. */
-.hgw-scene[data-room="office"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/headmasters-office.webp")}
-.hgw-scene[data-room="divination"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/divination-classroom.webp")}
-.hgw-scene[data-room="requirement"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/room-of-requirement.webp")}
-.hgw-scene[data-room="dungeonSteps"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/dungeon-stairwell.webp")}
-.hgw-scene[data-room="crypt"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/forgotten-crypt.webp")}
-.hgw-scene[data-room="slytherin"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/green-lantern-passage.webp")}
-.hgw-scene[data-room="reservoir"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/underground-reservoir.webp")}
-
-/* Distinct cinematic backdrops for the ten castle rooms and classes. */
-.hgw-scene[data-room="kitchens"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/castle-kitchens.webp")}
-.hgw-scene[data-room="gallery"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/portrait-gallery.webp")}
-.hgw-scene[data-room="armoury"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/armoury.webp")}
-.hgw-scene[data-room="cloister"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/east-cloister.webp")}
-.hgw-scene[data-room="hospital"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/hospital-wing.webp")}
-.hgw-scene[data-room="transfig"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/transfiguration.webp")}
-.hgw-scene[data-room="history"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/history-of-magic.webp")}
-.hgw-scene[data-room="corridor"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/enchanted-corridor.webp")}
-.hgw-scene[data-room="charms"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/charms.webp")}
-.hgw-scene[data-room="defense"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/defence-against-dark-arts.webp")}
-
-/* Individually generated Hogwarts grounds scenes. Clickable exits remain above this layer. */
-.hgw-scene[data-room="forecourt"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/lantern-path-day.webp")}
-.hgw-scene[data-room="courtyard"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/south-courtyard-day.webp")}
-.hgw-scene[data-room="bridge"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/stone-viaduct-day.webp")}
-.hgw-scene[data-room="lake"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/black-lake-day.webp")}
-.hgw-scene[data-room="boathouse"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/boathouse-day.webp")}
-.hgw-scene[data-room="dock"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/old-pier-day.webp")}
-.hgw-scene[data-room="greenhouse"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/glass-passage-day.webp")}
-.hgw-scene[data-room="herbology"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic/herbology-lesson-day.webp")}
-
-/* Dedicated location artwork; preserve existing scene effects and walkable door targets. */
-.hgw-scene[data-room="gate"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/hogwarts-entrance.webp")}
-.hgw-scene[data-room="pantry"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/copper-pantry.webp")}
-.hgw-scene[data-room="baths"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/forgotten-washroom.webp")}
-.hgw-scene[data-room="astrStair"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/spiral-ascent.webp")}
-.hgw-scene[data-room="owlery"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/owlery.webp")}
-.hgw-scene[data-room="ramparts"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/north-battlements.webp")}
-.hgw-scene[data-room="oldArchive"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/forgotten-archive.webp")}
-.hgw-scene[data-room="vault"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/old-storeroom.webp")}
-.hgw-scene[data-room="clearing"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/ancient-clearing.webp")}
-.hgw-scene[data-room="hut"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/hagrids-hut.webp")}
-.hgw-scene[data-room="paddock"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/creature-paddock.webp")}
-.hgw-scene[data-room="flying"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/flying-lesson.webp")}
-.hgw-scene[data-room="sluice"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/serpents-descent.webp")}
-.hgw-scene[data-room="sanctum"]::before{--cinema-image:url("/assets/images/hogwarts-cinematic-v2/serpent-sanctum.webp")}
-/* Bright daylight exterior treatment only; castle rooms retain their original grading. */
-.hgw-scene[data-room="forecourt"]::before,.hgw-scene[data-room="courtyard"]::before,.hgw-scene[data-room="bridge"]::before,.hgw-scene[data-room="lake"]::before,.hgw-scene[data-room="boathouse"]::before,.hgw-scene[data-room="dock"]::before,.hgw-scene[data-room="greenhouse"]::before,.hgw-scene[data-room="herbology"]::before{filter:saturate(1.09) brightness(1.02)}
+/* Full scene images and their passages share one coordinate system.
+   No cover crop, synthetic architecture, painted doorway or blur layer. */
+body.hgw-body::before{content:none}
+.hgw-layout{grid-template-columns:minmax(255px,.62fr) minmax(0,1.85fr);gap:clamp(26px,3.4vw,62px)}
+.hgw-stage{height:auto;min-height:0;aspect-ratio:16/9;background:#111b20;touch-action:pan-y}
+.hgw-stage-frame{padding:4px;border-color:rgba(221,183,117,.13);background:none;box-shadow:0 22px 60px rgba(0,0,0,.22)}
+.hgw-stage-frame::before,.hgw-stage-frame::after{content:none}
+.hgw-load-error{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;padding:24px;text-align:center;color:#e9dfca;font:16px/1.6 var(--ui)}
+.hgw-load-error button{border:1px solid #b99b6b;background:transparent;color:#e9dfca;font:inherit;padding:8px 18px;border-radius:3px;cursor:pointer}
+.hgw-scene{background:#111b20}
+.hgw-scene::before,.hgw-scene::after{content:none}
+.hgw-scene-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;filter:none;pointer-events:none;user-select:none}
+.hgw-door,.hgw-secret-target,.hgw-ceremony-target{position:absolute;z-index:25;margin:0;padding:0;border:0;background:transparent;box-shadow:none;transform:none;right:auto;bottom:auto;cursor:pointer;outline:none;touch-action:manipulation;border-radius:50%}
+.hgw-door::before{content:"";position:absolute;inset:0;border:0;border-radius:50%;background:radial-gradient(ellipse,rgba(255,231,173,.22),rgba(255,231,173,.05) 43%,transparent 72%);box-shadow:none;opacity:0;transition:opacity .25s ease}
+.hgw-door::after{content:none}
+.hgw-door:focus-visible,.hgw-secret-target:focus-visible,.hgw-ceremony-target:focus-visible{outline:2px dotted rgba(255,235,185,.8);outline-offset:1px;background:rgba(255,231,173,.06)}
+.hgw-door:focus-visible::before{opacity:1}
+@media(hover:hover){.hgw-door:hover::before{opacity:.72}}
+.hgw-dust{z-index:21;opacity:.35}
+.hgw-stage-note{z-index:24;bottom:13px;left:17px;right:17px;font-size:11px;letter-spacing:.13em;color:#f3ead7;text-shadow:0 1px 4px #000,0 2px 12px #000}
+.hgw-stage-note .hgw-seal{font-size:18px}
+/* A brief trace of footsteps provides movement feedback without a flat figure. */
+.hgw-walker{width:15px;height:8px;opacity:0;filter:none;transition:left .14s linear,top .14s linear,opacity .45s;transform-origin:center}
+.hgw-walker::before{inset:0;width:auto;height:auto;border-radius:50%;clip-path:none;background:radial-gradient(ellipse,rgba(255,236,191,.7),transparent 72%)}
+.hgw-walker::after,.hgw-walker .hgw-shadow{display:none}
+.hgw-walker.is-walking{opacity:.65;animation:none}
+.hgw-shell.is-transitioning .hgw-stage{animation:hgw-photo-exit .26s ease-in both}
+.hgw-shell.is-arriving .hgw-stage{animation:hgw-photo-enter .38s ease-out both}
+.hgw-shell.is-preparing .hgw-stage{cursor:progress}
+@keyframes hgw-photo-exit{from{opacity:1}to{opacity:0}}
+@keyframes hgw-photo-enter{from{opacity:0}to{opacity:1}}
+@media(max-width:1100px){.hgw-layout{grid-template-columns:minmax(240px,.6fr) minmax(0,1.5fr);gap:25px}}
+@media(max-width:900px){
+  .hgw-layout{display:flex;gap:18px}
+  .hgw-stage-holder{order:0}
+  .hgw-copy{padding-top:7px}
+  .hgw-observation:not(.is-visible){display:none}
+  .hgw-title{font-size:clamp(54px,8vw,82px)}
+}
+@media(max-width:600px){
+  .hgw-stage-frame{padding:2px}
+  .hgw-stage-note{left:10px;right:10px;bottom:8px;font-size:9px;letter-spacing:.06em}
+  .hgw-stage-note .hgw-seal{font-size:13px}
+  .hgw-title{font-size:clamp(46px,12vw,65px)}
+  .hgw-title--long{font-size:clamp(39px,10vw,55px)}
+  .hgw-title--very-long{font-size:clamp(33px,8.8vw,48px)}
+  .hgw-mast{padding-inline:17px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hgw-shell.is-arriving .hgw-stage,.hgw-shell.is-transitioning .hgw-stage{animation:none}
+  .hgw-door::before,.hgw-walker{transition:none}
+}
