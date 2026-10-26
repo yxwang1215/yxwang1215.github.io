@@ -14,7 +14,7 @@ sitemap: false
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-atlas-overview.css?v=20261026-geography-v1">
+  <link rel="stylesheet" href="/assets/css/hogwarts-atlas-overview.css?v=20261026-geography-v2">
   <script src="/assets/js/hogwarts-atlas.js?v=20261026-geography-v1" defer></script>
   <script src="/assets/js/hogwarts-scenes.js?v=20261026-geography-v1" defer></script>
   <script src="/assets/js/hogwarts-geography.js?v=20261026-geography-v1" defer></script>
@@ -25,7 +25,7 @@ sitemap: false
   <div class="ga-page">
     <header class="ga-mast">
       <a href="/platform-934/" class="ga-brand"><span aria-hidden="true">✧</span> HOGWARTS <i>FIELD ATLAS</i></a>
-      <nav aria-label="图谱导航"><a href="#atlas-map">关系图</a><a href="#canon-notes">原著核对</a><a href="#url-directory">URL 目录</a></nav>
+      <nav aria-label="图谱导航"><a href="#atlas-map">关系图</a><a href="#passage-rules">通行规则</a><a href="#canon-notes">原著核对</a><a href="#url-directory">URL 目录</a></nav>
     </header>
     <main>
       <section class="ga-intro" aria-labelledby="page-title">
@@ -64,8 +64,18 @@ sitemap: false
         </div>
       </section>
 
+      <section class="ga-passage-rules" id="passage-rules" aria-labelledby="passage-rules-title">
+        <div class="ga-section-head"><div><p class="ga-eyebrow">02 / WALK THE WORLD</p><h2 id="passage-rules-title">通行规则</h2></div><p>看见通路，选择出口，再动身。</p></div>
+        <ol class="ga-rule-list">
+          <li><span class="ga-card-no" aria-hidden="true">01</span><div><h3>从门、路与开口通行</h3><p>出口贴合画面里可通过的门洞、拱门、楼梯、活板门或小路。指向出口可查看目的地；点击桌椅、南瓜、栏杆或水面不会切换房间。返回时，沿标出的来路走。</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">02</span><div><h3>先显露入口，再进入</h3><p>秘密机关只负责打开入口。等画面中出现真正的门或管道开口，再单独点击进入；本次探索中返回时，已经打开的入口会保留。</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">03</span><div><h3>键盘先选择，再确认</h3><p>用 <kbd>Tab</kbd> 聚焦出口，或用方向键、<kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 选择方向；按 <kbd>Enter</kbd> 或空格确认通行。长按确认键不会连续穿过多个场景。</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">04</span><div><h3>手机上可放大查看</h3><p>画面完整显示，点击范围随图片一起缩放。遇到窄门或较远的入口，可双指放大后点选。滑动不会自动通行；要进入下一处，需另行点选出口。</p></div></li>
+        </ol>
+      </section>
+
       <section class="ga-evidence" id="canon-notes" aria-labelledby="canon-title">
-        <div class="ga-section-head"><div><p class="ga-eyebrow">02 / BOOKS, PASSAGES & INTERPRETATION</p><h2 id="canon-title">哪些有依据，哪些是重建</h2></div><p>小说线索优先，未定的连接明确标为重建。</p></div>
+        <div class="ga-section-head"><div><p class="ga-eyebrow">03 / BOOKS, PASSAGES & INTERPRETATION</p><h2 id="canon-title">哪些有依据，哪些是重建</h2></div><p>小说线索优先，未定的连接明确标为重建。</p></div>
         <div class="ga-evidence-intro"><p>本轮按七部小说的章节索引与官方资料交叉核对。<strong>地点在原著中存在，不代表图上的每一扇相邻门都有原著依据。</strong>节点与连线分别标注证据；学校未被完整描写的通道，用清楚标注的重建补齐。</p><p>楼层采用英国用法：<em>Ground floor</em> 是入口层，<em>First floor</em> 是其上一层。部分旧 URL 中的楼层片段为兼容旧链接而保留，位置以这里的说明为准。</p></div>
         <div class="ga-evidence-cards">
           <article><span class="ga-card-no">I</span><h3>厨房在礼堂下方</h3><p>门厅 → 下行阶梯 → 地下水果画廊 → 打开的画门 → 厨房。取消礼堂直接穿入厨房的侧门连接。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/dungeons/kitchens/" target="_blank" rel="noopener noreferrer">《火焰杯》第21章 · 章节索引 ↗</a></article>
@@ -77,7 +87,7 @@ sitemap: false
         <div class="ga-caveat"><h3>保留不确定性</h3><p>校医院和校长办公室的入口楼层在不同卷的路线描述中并不完全一致；变形术教室的确切楼层未被固定。本站作了可行的安排，并在对应地点注明。石桥、回廊、储物间、蓄水池等扩展场景也明确标为重建或创作，不作为原著地名。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/hogwarts-third-floor/hospital-wing/" target="_blank" rel="noopener noreferrer">校医院楼层资料 ↗</a> <a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/transfiguration-classroom/" target="_blank" rel="noopener noreferrer">变形术教室资料 ↗</a></div>
       </section>
 
-      <section id="url-directory" aria-labelledby="directory-title"><div class="ga-section-head"><div><p class="ga-eyebrow">03 / EVERY PLACE HAS AN ADDRESS</p><h2 id="directory-title">地点与 URL 目录</h2></div><p>与上方查找和剧透设置同步。</p></div><p class="ga-directory-note">URL 标识地点，不绕过探索过程。新访客仍需从站台进入；图谱选择地点只显示关系，不会解锁房间。</p><div class="ga-table-wrap"><table><thead><tr><th scope="col">地点</th><th scope="col">位置与依据</th><th scope="col">URL</th></tr></thead><tbody id="ga-directory"></tbody></table></div><noscript><p>交互关系图与完整目录需要 JavaScript。上方的原著说明和来源仍可阅读。</p></noscript></section>
+      <section id="url-directory" aria-labelledby="directory-title"><div class="ga-section-head"><div><p class="ga-eyebrow">04 / EVERY PLACE HAS AN ADDRESS</p><h2 id="directory-title">地点与 URL 目录</h2></div><p>与上方查找和剧透设置同步。</p></div><p class="ga-directory-note">URL 标识地点，不绕过探索过程。新访客仍需从站台进入；图谱选择地点只显示关系，不会解锁房间。</p><div class="ga-table-wrap"><table><thead><tr><th scope="col">地点</th><th scope="col">位置与依据</th><th scope="col">URL</th></tr></thead><tbody id="ga-directory"></tbody></table></div><noscript><p>交互关系图与完整目录需要 JavaScript。上方的原著说明和来源仍可阅读。</p></noscript></section>
       <details class="ga-bibliography"><summary>资料目录与章节缩写</summary><p>PS《魔法石》 · CS《密室》 · PA《阿兹卡班的囚徒》 · GF《火焰杯》 · OP《凤凰社》 · HBP《混血王子》 · DH《死亡圣器》。数字为章号。Harry Potter Lexicon 为按章节编排的二手索引；官方百科与作者补充另行标记。</p><ol id="ga-bibliography"></ol></details>
     </main>
     <footer class="ga-footer"><span>HOGWARTS · THE UNMAPPED WORLD</span><p>原著线索为经，合理通路为纬。<br><small>非官方同人场景 · 关系图不按比例</small></p><a href="/platform-934/">回到 9¾ 站台 ↗</a></footer>
