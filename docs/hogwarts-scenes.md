@@ -26,7 +26,7 @@ soft detail or baked-in white margins. The latter batch covers the lantern path,
 south courtyard, stone viaduct, lake, boathouse, pier, glasshouse passage, and
 herbology lesson. Visual review caught these source-image defects after the
 dimension checks; they were replaced with new full-bleed compositions.
-All 49 active backgrounds now have a native width of 1672
+At that first repair, all 49 active backgrounds had a native width of 1672
 pixels. The new images are 1672×940 or 1672×941; they are **not 4K** and have not
 been upscaled. The generator did not deliver the larger requested dimensions.
 
@@ -36,26 +36,40 @@ encoding (quality 94, method 6). This keeps fine detail while avoiding the much
 larger lossless delivery files. Original generated PNGs are not shipped as
 unused website assets.
 
+The subsequent geography and passage repair expands the world to 53 places.
+It replaces 15 existing views, adds four corridor/landing views, and supplies
+two matched views of opened secret entrances: 21 generated assets in
+`assets/images/hogwarts-cinematic-v4/`. These are native 1672×941, without
+upscaling. All 53 base views and both revealed states now use native-width
+1672-pixel images. The v4 provenance file records the final circular Divination
+hatch edit as well as the other generation/edit prompts and file hashes.
+See `docs/hogwarts-geography.md` for the revised connections and canon evidence.
+
 ## Passage behavior
 
-Each room has explicit `[centerX, centerY, width, height]` exit regions in full
-image percentages. The clickable region and picture therefore scale together.
-The garden's wooden gate, office staircase, dungeon arch, tapestry, and carved
-washbasin use the corresponding pictured feature. Borderless targets show only
-a faint radial light on hover; keyboard focus remains visible. Destination
-names appear in the existing scene caption when a passage is focused.
+Each passage has an explicit polygon and an interior activation point in full
+image percentages. CSS clipping makes the active hit region follow the actual
+open door, arch, stair, hatch, pipe or unobstructed path. The polygon and image
+scale together; only a faint outline appears on hover or keyboard focus.
+Destination names appear in the existing scene caption when a passage is focused.
 
-Clicking a passage preserves that chosen destination throughout the walk,
-preventing another exit from intercepting the route. Arrow keys, WASD, touch
-movement, browser history, both hidden passages, and the sorting ceremony remain
-available. The ceremony requires deliberate target activation; simply walking
-north through the Great Hall no longer opens it.
+Clicking a passage preserves that chosen destination throughout the walk.
+Arrows, WASD and swipes select a pictured passage; Enter, Space or a direct
+passage click activates it. Background clicks, arbitrary image edges, held keys
+and proximity to other passages cannot travel. Browser history and the explicit
+sorting ceremony remain available. Native pinch zoom remains allowed.
+
+Both secret mechanisms require two separate actions. The first reveals a real
+opening in a matched AI-generated image without changing the URL, visit count or
+soundtrack. Only activating the newly visible opening travels. The serpent tap
+and blank wall are inspection mechanisms, not room links. Reveal-image failures,
+timeouts and stale loads keep the original room and allow a safe retry.
 
 The current view remains visible while the destination image loads. A failed
 load or timeout leaves the visitor in the current room and permits retrying.
 A missing scene catalog shows a reload control without discarding the visit.
-The Platform 9¾ entry condition, room URLs, graph, and map discovery rules stay
-intact.
+The Platform 9¾ entry condition, all 49 original room URLs and map discovery
+rules remain intact. Four new connector URLs complete the revised graph.
 
 ## Verification
 
@@ -64,16 +78,18 @@ Run these checks at the repository root:
 ```sh
 node tests/hogwarts-maze-check.mjs
 node tests/hogwarts-map-check.mjs
+node tests/hogwarts-geography-check.mjs
 node tests/hogwarts-scenes-check.mjs
 node tests/hogwarts-explorer-check.mjs
 node tests/hogwarts-soundtrack-check.mjs
 ```
 
 The scene check reads WebP headers and compares their encoded dimensions with
-the manifest. The runtime explorer check covers all 49 room renders, intended
+the manifest, validates polygon geometry, and checks generated-image hashes.
+The runtime explorer check covers all 53 room renders, intended
 passage clicks, arrows/WASD, browser history, hidden passages, explicit ceremony
 activation, missing catalogs, image errors, and timeout recovery. The soundtrack
-check covers all 49 route mappings, confirmed playback state, visitor pause,
+check covers all 53 route mappings, confirmed playback state, visitor pause,
 scene continuity, lifecycle restoration, and failed provider initialization.
 
 These checks run in the Hogwarts maze workflow; the Site check workflow builds

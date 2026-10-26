@@ -27,9 +27,12 @@ class Element {
     this.html = html;
     this.children = [];
     // Materialize the explorer's interactive targets from its rendered markup.
-    for (const match of html.matchAll(/<div[^>]*\s(data-(?:door|secret|ceremony))(?:="([^"]*)")?[^>]*>/g)) {
-      const element = new Element();
-      element.setAttribute(match[1], match[2] || "");
+    for (const match of html.matchAll(/<(div|button|a)\b[^>]*\s(data-(?:door|secret|ceremony))(?:="([^"]*)")?[^>]*>/g)) {
+      const element = new Element(match[1]);
+      for (const attribute of match[0].matchAll(/([a-z][\w-]*)="([^"]*)"/g)) {
+        element.setAttribute(attribute[1], attribute[2]);
+      }
+      element.setAttribute(match[2], match[3] || "");
       this.appendChild(element);
     }
   }
@@ -49,7 +52,9 @@ class Element {
   replaceChildren(...elements) { this.children = elements; }
   setAttribute(name, value) { this.attributes[name] = String(value); }
   removeAttribute(name) { delete this.attributes[name]; }
-  getAttribute(name) { return this.attributes[name] || null; }
+  getAttribute(name) {
+    return Object.hasOwn(this.attributes, name) ? this.attributes[name] : null;
+  }
   addEventListener(type, listener) {
     (this.events[type] ||= []).push(listener);
   }
@@ -61,7 +66,7 @@ class Element {
       return this.children.find(child => child.tagName === "IFRAME") || null;
     }
     if (selector.startsWith("[data-")) {
-      return this.children.find(child => child.closest(selector) === child) || null;
+      return this.querySelectorAll(selector)[0] || null;
     }
     if (!this.queries.has(selector)) {
       const element = new Element();
@@ -70,12 +75,23 @@ class Element {
     }
     return this.queries.get(selector);
   }
+  matches(selector) {
+    return selector.split(",").some(part => {
+      const match = part.trim().match(/^\[([^=\]\s]+)(?:="([^"]*)")?\]$/);
+      return match && Object.hasOwn(this.attributes, match[1]) &&
+        (match[2] === undefined || this.attributes[match[1]] === match[2]);
+    });
+  }
+  querySelectorAll(selector) {
+    return this.children.flatMap(child => [
+      ...(child.matches(selector) ? [child] : []), ...child.querySelectorAll(selector)
+    ]);
+  }
   contains(element) {
     return element === this || this.children.some(child => child.contains(element));
   }
   closest(selector) {
-    const names = selector.split(",").map(part => part.slice(1, -1));
-    if (names.some(name => Object.hasOwn(this.attributes, name))) return this;
+    if (this.matches(selector)) return this;
     return this.parent ? this.parent.closest(selector) : null;
   }
   focus() {}
@@ -265,18 +281,25 @@ function harness(start, options = {}) {
       pending.forEach(callback => callback());
     },
     emit,
-    async walkThrough(key) {
+    async walkThrough(direction) {
       const before = location.pathname;
-      for (let i = 0; i < 40 && location.pathname === before; i++) {
-        result.key(key);
-        await Promise.resolve();
-      }
-      assert.notEqual(location.pathname, before, "Keyboard movement did not cross the passage");
+      const atlas = window.HogwartsAtlas;
+      const destination = atlas.rooms[atlas.byPath[before]].exits[direction];
+      assert.ok(destination, "The current room must have the requested passage");
+      const host = document.getElementById("hgw-stage");
+      const target = host.querySelector('[data-door="' + direction + '"]');
+      assert.ok(target, "The real scene must render the requested passage target");
+      host.emit("click", { target, preventDefault() {}, stopImmediatePropagation() {} });
+      await Promise.resolve();
+      assert.equal(location.pathname, atlas.rooms[destination].path,
+        "An intentional click on the rendered passage must reach its atlas destination");
     },
-    async activateSecret() {
+    async activateSecret(expectedRole) {
       const host = document.getElementById("hgw-stage");
       const target = host.querySelector("[data-secret]");
       assert.ok(target, "The room must render an interactive secret target");
+      assert.equal(target.getAttribute("role"), expectedRole,
+        "Secret discovery must be a local button before it becomes a traversable opening");
       host.emit("click", { target, preventDefault() {}, stopImmediatePropagation() {} });
       await Promise.resolve();
     },
@@ -315,18 +338,19 @@ assert.equal(world.root.getAttribute("data-state"), "playing",
   "The playing state must follow the official player's playback event");
 const atlas = world.window.HogwartsAtlas;
 const actualIds = Object.keys(atlas.rooms);
-assert.equal(actualIds.length, 49, "Room count unexpectedly changed");
+assert.equal(actualIds.length, 53, "Room count unexpectedly changed");
 
 const expected = {
   hedwig: ["gate", "entry", "kitchens", "pantry", "cloister", "transfig",
-    "baths", "bathroom", "history", "corridor", "charms", "defense"],
+    "baths", "bathroom", "history", "corridor", "charms", "defense",
+    "basementPassage", "firstFloorJunction"],
   grounds: ["forecourt", "courtyard", "bridge", "lake", "boathouse", "dock",
     "forest", "clearing", "hut", "paddock", "greenhouse", "herbology"],
   great: ["great"],
   memory: ["gallery", "armoury", "hospital", "library", "office",
     "oldArchive", "vault", "requirement"],
-  staircases: ["staircase", "astrStair"],
-  tower: ["astrTower", "divination", "owlery", "ramparts"],
+  staircases: ["staircase", "astrStair", "midFloorStair"],
+  tower: ["astrTower", "divination", "owlery", "ramparts", "northTowerLanding"],
   potions: ["dungeonSteps", "potions", "crypt", "slytherin"],
   chamber: ["reservoir", "sluice", "chamber", "sanctum"],
   quidditch: ["quidditch", "flying"]
@@ -355,11 +379,11 @@ assert.equal(harness("/hogwarts/sorting-ceremony/", { maze: false }).soundtrack.
 world.openScore();
 let themeFrame = world.embed.firstChild;
 assert.match(themeFrame.src, /^https:\/\/open\.spotify\.com\/embed\/track\//);
-await world.walkThrough("ArrowUp");
+await world.walkThrough("n");
 assert.equal(world.location.pathname, atlas.rooms.entry.path);
 assert.equal(world.embed.firstChild, themeFrame,
   "Passing between rooms with one score should preserve the current player");
-await world.walkThrough("ArrowUp");
+await world.walkThrough("n");
 assert.equal(world.location.pathname, atlas.rooms.great.path);
 assert.equal(world.embed.firstChild.src,
   "https://open.spotify.com/embed/track/" + world.soundtrack.selectForPath(atlas.rooms.great.path).spotify + "?theme=0");
@@ -375,13 +399,28 @@ assert.equal(world.location.pathname, atlas.rooms.great.path);
 assert.equal(world.title.textContent, "Entry into the Great Hall and the Banquet",
   "Forward did not restore the Great Hall score");
 
-// Secret basin passage must switch from regular interior ambience to the Chamber score.
+// Revealing the basin changes only the local picture. The separate, deliberate
+// click on the open pipe changes rooms and switches to the Chamber score.
 const basin = harness(atlas.rooms.bathroom.path);
 basin.openScore();
 const beforeSecret = basin.embed.firstChild;
-await basin.activateSecret();
+const basinController = basin.controller;
+const basinScore = basin.title.textContent;
+const basinLoads = basin.calls.filter(call => call[0] === "load").length;
+await basin.activateSecret("button");
+assert.equal(basin.location.pathname, atlas.rooms.bathroom.path,
+  "Revealing the basin must stay in the bathroom until the open pipe is activated");
+assert.equal(basin.title.textContent, basinScore,
+  "Revealing a hidden opening must not change the room's score");
+assert.equal(basin.embed.firstChild, beforeSecret,
+  "The local reveal must preserve the initialized player iframe");
+assert.equal(basin.controller, basinController,
+  "The local reveal must preserve the initialized Spotify controller");
+assert.equal(basin.calls.filter(call => call[0] === "load").length, basinLoads,
+  "A local reveal must not load a different recording");
+await basin.activateSecret("link");
 assert.equal(basin.location.pathname, atlas.rooms.sluice.path,
-  "The concealed basin entrance did not navigate to the sewers");
+  "The visibly open pipe did not navigate to the sewers");
 assert.equal(basin.embed.firstChild, beforeSecret,
   "The secret passage must retain the initialized player");
 assert.equal(basin.title.textContent, "The Chamber of Secrets");
@@ -391,16 +430,33 @@ assert.equal(basin.title.textContent, "Hedwig's Theme");
 basin.history.forward();
 assert.equal(basin.title.textContent, "The Chamber of Secrets");
 
-// The other concealed passage must also refresh its score on entry and history traversal.
-const tapestry = harness(atlas.rooms.corridor.path);
-tapestry.openScore();
-await tapestry.activateSecret();
-assert.equal(tapestry.location.pathname, atlas.rooms.requirement.path);
-assert.equal(tapestry.title.textContent, "A Window to the Past");
-tapestry.history.back();
-assert.equal(tapestry.title.textContent, "Hedwig's Theme");
-tapestry.history.forward();
-assert.equal(tapestry.title.textContent, "A Window to the Past");
+// The wall opposite the tapestry first reveals a door. Its subsequent entry
+// must refresh the score, with the same history and player continuity.
+const wall = harness(atlas.rooms.corridor.path);
+wall.openScore();
+const wallFrame = wall.embed.firstChild;
+const wallController = wall.controller;
+const wallScore = wall.title.textContent;
+const wallLoads = wall.calls.filter(call => call[0] === "load").length;
+await wall.activateSecret("button");
+assert.equal(wall.location.pathname, atlas.rooms.corridor.path,
+  "Revealing the Room of Requirement door must stay in the corridor");
+assert.equal(wall.title.textContent, wallScore,
+  "The wall reveal must preserve the corridor's score");
+assert.equal(wall.embed.firstChild, wallFrame);
+assert.equal(wall.controller, wallController);
+assert.equal(wall.calls.filter(call => call[0] === "load").length, wallLoads,
+  "The wall reveal must not load a different recording");
+await wall.activateSecret("link");
+assert.equal(wall.location.pathname, atlas.rooms.requirement.path);
+assert.equal(wall.embed.firstChild, wallFrame,
+  "Entering the revealed door must retain the initialized player");
+assert.equal(wall.controller, wallController);
+assert.equal(wall.title.textContent, "A Window to the Past");
+wall.history.back();
+assert.equal(wall.title.textContent, "Hedwig's Theme");
+wall.history.forward();
+assert.equal(wall.title.textContent, "A Window to the Past");
 
 // Compatibility with legacy hash links is derived from atlas path segments.
 const hashed = harness("/hogwarts/", { hash: "#/chamber-of-secrets/" });
@@ -596,4 +652,4 @@ for (const options of [{ deferControllerCallback: true }, { deferPlayerReady: tr
     "A retired controller must never start a second soundtrack");
 }
 
-console.log("Hogwarts soundtrack checks passed: 49 atlas routes; stable Spotify controller; ready/gesture playback; truthful state; pause persistence; panel, history and lifecycle continuity; provider fallback.");
+console.log("Hogwarts soundtrack checks passed: 53 atlas routes; deliberate passage clicks; local secret reveals before travel; stable Spotify controller; ready/gesture playback; truthful state; pause persistence; panel, history and lifecycle continuity; provider fallback.");

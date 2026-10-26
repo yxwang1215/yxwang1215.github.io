@@ -1,10 +1,11 @@
 /* Hogwarts explorer: tactile, URL-addressed labyrinth without navigation buttons.
-   Rooms are a cyclic graph; keyboard/point/touch movement intersects actual doors.
+   Rooms form a cyclic graph; explicit activation uses pictured passage polygons.
    Designed as an original fan-made website experience, not a replacement for server access control. */
 (function(){
   "use strict";
   var atlas=window.HogwartsAtlas;
   var scenes=window.HogwartsScenes||{};
+  var geography=window.HogwartsGeography;
   var host=document.getElementById("hgw-stage");
   var title=document.getElementById("hgw-title");
   var overline=document.getElementById("hgw-overline");
@@ -17,9 +18,8 @@
   var shell=document.getElementById("hgw-shell");
   var sessionKey="hogwarts:session:v2";
   var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var names={n:"north",e:"east",s:"south",w:"west"};
   var current=null,avatar={x:50,y:84},walkTarget=null,frame=null,busy=false,remembered={},ceremonyArmed=false,transitionId=0;
-  var imageLoads=Object.create(null);
+  var imageLoads=Object.create(null),revealedSecrets=Object.create(null),selectedPassage=null,secretOpen=false;
   function safe(value){
     return String(value==null?"":value).replace(/[&<>"']/g,function(ch){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
@@ -36,10 +36,19 @@
   if(!session||!atlas||!atlas.byPath[pathFromLocation()]){
     window.location.replace("/");return;
   }
+  // A previously visited hidden neighbor proves this opening was already used.
+  // A successful reveal also remains visible while revisiting this journey.
+  Object.keys(atlas.rooms).forEach(function(id){
+    var secret=atlas.rooms[id].secret;
+    if(secret&&session.visited.includes(secret.to))revealedSecrets[id]=true;
+  });
   function hasScene(id){
     var scene=scenes[id],room=atlas.rooms[id];
     return !!(scene&&room&&scene.src&&scene.width>0&&scene.height>0&&scene.exits&&
-      Object.keys(room.exits).every(function(dir){return Array.isArray(scene.exits[dir])&&scene.exits[dir].length===4}));
+      Object.keys(room.exits).every(function(dir){
+        var passage=scene.exits[dir];
+        return passage&&Array.isArray(passage.polygon)&&passage.polygon.length>=3&&Array.isArray(passage.point);
+      }));
   }
   if(!hasScene(atlas.byPath[pathFromLocation()])){
     title.textContent=atlas.rooms[atlas.byPath[pathFromLocation()]].name;
@@ -53,13 +62,13 @@
   }
   function approachOf(direction){
     var point=scenes[current.id].exits[direction];
-    return {x:point[0],y:point[1]};
+    return {x:point.point?point.point[0]:point[0],y:point.point?point.point[1]:point[1]};
   }
   function spawnAfter(direction,room){
     var reverse={n:"s",s:"n",e:"w",w:"e"}[direction];
     var point=scenes[room.id].exits[reverse];
     if(!point)return {x:50,y:78};
-    // Arrive just inside the destination passage, away from its trigger.
+    point=point.point||point;
     return {x:Math.max(15,Math.min(85,point[0]+(50-point[0])*.36)),
       y:Math.max(40,Math.min(82,point[1]+(65-point[1])*.55))};
   }
@@ -72,61 +81,85 @@
     }
     return html;
   }
-  function regionStyle(point){
-    return 'left:'+(point[0]-point[2]/2)+'%;top:'+(point[1]-point[3]/2)+'%;width:'+point[2]+'%;height:'+point[3]+'%;';
+  function regionBounds(region){
+    var xs=region.polygon.map(function(p){return p[0]}),ys=region.polygon.map(function(p){return p[1]});
+    var left=Math.min.apply(null,xs),top=Math.min.apply(null,ys);
+    return {left:left,top:top,width:Math.max.apply(null,xs)-left,height:Math.max.apply(null,ys)-top};
+  }
+  function regionStyle(region){
+    var box=regionBounds(region);
+    var polygon=region.polygon.map(function(p){return ((p[0]-box.left)/box.width*100)+'% '+((p[1]-box.top)/box.height*100)+'%'}).join(',');
+    return 'left:'+box.left+'%;top:'+box.top+'%;width:'+box.width+'%;height:'+box.height+'%;clip-path:polygon('+polygon+');';
+  }
+  function targetMarkup(region,cssName,attribute,label,role){
+    var box=regionBounds(region);
+    return '<div class="'+cssName+'" style="'+regionStyle(region)+'" tabindex="0" role="'+(role||'link')+'" '+attribute+' aria-label="'+safe(label)+'">'+
+      '<svg viewBox="'+box.left+' '+box.top+' '+box.width+' '+box.height+'" preserveAspectRatio="none" aria-hidden="true"><polygon points="'+
+      region.polygon.map(function(p){return p.join(',')}).join(' ')+'"></polygon></svg></div>';
   }
   function doorMarkup(room){
     var html="",scene=scenes[room.id];
     Object.keys(room.exits).forEach(function(dir){
-      var next=atlas.rooms[room.exits[dir]],point=scene.exits[dir];
-      if(!next||!point)return;
-      html+='<div class="hgw-door hgw-door--'+dir+'" style="'+regionStyle(point)+'" tabindex="0" role="link" data-door="'+dir+'" aria-label="Walk '+safe(names[dir])+' to '+safe(next.name)+'"></div>';
+      var next=atlas.rooms[room.exits[dir]],region=scene.exits[dir];
+      if(!next||!region)return;
+      html+=targetMarkup(region,'hgw-door','data-door="'+safe(dir)+'"',region.label||'Walk to '+next.name);
     });
     return html;
   }
   function roomScene(room){
-    var scene=scenes[room.id];
+    var scene=scenes[room.id],view=secretOpen&&scene.secret?scene.secret.open:scene;
     var content='<div class="hgw-scene" data-room="'+safe(room.id)+'">'+
-      '<img class="hgw-scene-image" src="'+safe(scene.src)+'" width="'+scene.width+'" height="'+scene.height+'" alt="'+safe(scene.alt)+'" decoding="async" fetchpriority="high" draggable="false">'+
+      '<img class="hgw-scene-image" src="'+safe(view.src)+'" width="'+scene.width+'" height="'+scene.height+'" alt="'+safe(view.alt||scene.alt)+'" decoding="async" fetchpriority="high" draggable="false">'+
       doorMarkup(room);
     if(room.secret&&scene.secret){
-      content+='<div class="hgw-secret-target" style="'+regionStyle(scene.secret)+'" tabindex="0" role="link" data-secret="'+safe(room.secret.type)+'" aria-label="Examine the '+(room.secret.type==="basin"?"serpent carved into the washbasin":"old tapestry")+'"></div>';
+      var secretRegion=secretOpen?scene.secret.open:scene.secret.trigger;
+      content+=targetMarkup(secretRegion,'hgw-secret-target'+(secretOpen?' is-open':''),'data-secret="'+safe(room.secret.type)+'"',secretRegion.label,secretOpen?'link':'button');
     }
     if(scene.ceremony){
-      content+='<div class="hgw-ceremony-target" style="'+regionStyle(scene.ceremony)+'" tabindex="0" role="link" data-ceremony aria-label="Approach the high table for the Sorting Ceremony"></div>';
+      content+=targetMarkup(scene.ceremony,'hgw-ceremony-target','data-ceremony',scene.ceremony.label||'Walk along the aisle to attend the Sorting Ceremony','button');
     }
     return content+'<div class="hgw-dust" aria-hidden="true">'+sparkles(10,1244+room.name.length,"hgw-particle")+'</div></div>';
   }
-  function loadImage(id){
-    if(imageLoads[id])return imageLoads[id];
-    imageLoads[id]=new Promise(function(resolve,reject){
+  function loadSource(src){
+    if(imageLoads[src])return imageLoads[src];
+    imageLoads[src]=new Promise(function(resolve,reject){
       var image=new Image(),done=false;
       var timer=window.setTimeout(function(){finish(false)},10000);
       function finish(ok){
         if(done)return;done=true;window.clearTimeout(timer);
         image.onload=null;image.onerror=null;
-        if(ok)resolve();else{delete imageLoads[id];reject(new Error("Scene image unavailable"))}
+        if(ok)resolve();else{delete imageLoads[src];reject(new Error("Scene image unavailable"))}
       }
       image.onload=function(){finish(true)};
       image.onerror=function(){finish(false)};
-      image.src=scenes[id].src;
+      image.src=src;
       if(image.complete&&image.naturalWidth)finish(true);
     });
-    return imageLoads[id];
+    return imageLoads[src];
+  }
+  function loadImage(id){
+    var scene=scenes[id],view=revealedSecrets[id]&&scene.secret?scene.secret.open:scene;
+    return loadSource(view.src);
   }
   function walkerMarkup(){
     return '<div id="hgw-walker" class="hgw-walker" aria-hidden="true"><span class="hgw-shadow"></span></div>';
+  }
+  function renderStage(room){
+    host.innerHTML=roomScene(room)+walkerMarkup()+
+      '<div class="hgw-stage-note" aria-hidden="true"><span>'+safe(room.kicker)+'</span><span class="hgw-seal">✦</span></div>';
   }
   function enterRoom(id,opts){
     opts=opts||{};
     var room=atlas.rooms[id];if(!room)return;
     stopWalk();current=room;busy=false;ceremonyArmed=false;transitionId++;
+    selectedPassage=null;secretOpen=!!revealedSecrets[id];
     avatar=opts.spawn||{x:50,y:83};
     var region=room.path.indexOf("/grounds/")>=0?"THE GROUNDS":
       room.path.indexOf("/dungeons/")>=0?"BENEATH THE CASTLE":
       room.path.indexOf("/under-castle/")>=0?"THE UNCHARTED DEPTHS":
       room.path.indexOf("/upper-keep/")>=0?"THE UPPER TOWERS":
       room.path.indexOf("/academic-wing/")>=0?"THE ACADEMIC WING":"THE ANCIENT KEEP";
+    if(geography&&geography.nodes[room.id])region=geography.nodes[room.id].floor;
     if(room.id==="gate")region="A PLACE BETWEEN WORLDS";
     overline.textContent=region;
     title.textContent=room.name;
@@ -139,8 +172,7 @@
     }else teacher.innerHTML="";
     observation.classList.remove("is-visible");observation.textContent="";
     host.style.aspectRatio=scenes[id].width+" / "+scenes[id].height;
-    host.innerHTML=roomScene(room)+walkerMarkup()+
-      '<div class="hgw-stage-note" aria-hidden="true"><span>'+safe(room.kicker)+'</span><span class="hgw-seal">✦</span></div>';
+    renderStage(room);
     var sceneImage=host.querySelector(".hgw-scene-image");
     if(sceneImage)sceneImage.addEventListener("error",function(){
       observation.textContent="This view could not load. Move to another passage or refresh to try again.";
@@ -162,49 +194,91 @@
     walker.style.transform="translate(-50%,-88%) scale("+(0.57+avatar.y/180).toFixed(3)+")";
     walker.classList.toggle("is-walking",!!walking);
   }
-  function findExit(){
-    // Keyboard movement continues through the edge of the scene. A targeted
-    // click uses its selected passage instead, even if the walk crosses another.
-    if(current.exits.n&&avatar.y<=24)return "n";
-    if(current.exits.s&&avatar.y>=92)return "s";
-    if(current.exits.w&&avatar.x<=8)return "w";
-    if(current.exits.e&&avatar.x>=92)return "e";
-    return null;
+  function passagePoint(element){
+    var scene=scenes[current.id],dir=element.getAttribute("data-door");
+    var region=dir?scene.exits[dir]:element.getAttribute("data-secret")!==null?
+      (secretOpen&&scene.secret.open?scene.secret.open:scene.secret.trigger||scene.secret):scene.ceremony;
+    return region&&(region.point||region);
   }
-  function checkSecret(){
-    if(!current||!current.secret)return false;
-    var spot=scenes[current.id].secret;
-    if(spot&&Math.hypot(avatar.x-spot[0],avatar.y-spot[1])<=5){
-      changeRoom(current.secret.to,null);return true;
+  function selectPassage(dx,dy){
+    if(busy||!current)return;
+    var options=Array.from(host.querySelectorAll("[data-door],[data-secret],[data-ceremony]"));
+    var origin=selectedPassage&&host.contains(selectedPassage)?passagePoint(selectedPassage):[50,65];
+    var best=null,bestScore=Infinity;
+    options.forEach(function(element){
+      if(element===selectedPassage)return;
+      var point=passagePoint(element);if(!point)return;
+      var x=point[0]-origin[0],y=point[1]-origin[1],forward=x*dx+y*dy;
+      if(forward<=.1)return;
+      var score=Math.abs(x*dy-y*dx)*2+Math.hypot(x,y);
+      if(score<bestScore){best=element;bestScore=score}
+    });
+    if(!best&&!selectedPassage){
+      options.forEach(function(element){
+        var point=passagePoint(element);if(!point)return;
+        var score=-(point[0]*dx+point[1]*dy);
+        if(score<bestScore){best=element;bestScore=score}
+      });
     }
-    return false;
+    if(best){
+      if(selectedPassage)selectedPassage.classList.remove("is-selected");
+      selectedPassage=best;best.classList.add("is-selected");best.focus();
+      describePassage({target:best});
+    }
+  }
+  function revealSecret(){
+    if(busy||!current.secret)return;
+    if(secretOpen){changeRoom(current.secret.to,null);return}
+    var secret=scenes[current.id].secret;
+    if(!secret||!secret.open||!secret.open.src)return;
+    busy=true;stopWalk();
+    var token=++transitionId;
+    shell.classList.add("is-preparing");
+    loadSource(secret.open.src).then(function(){
+      if(token!==transitionId)return;
+      secretOpen=true;revealedSecrets[current.id]=true;busy=false;selectedPassage=null;
+      renderStage(current);syncAvatar();
+      shell.classList.remove("is-preparing");
+      observation.textContent=secret.note||"An entrance has opened. Approach the opening when you are ready.";
+      observation.classList.add("is-visible");
+      announce.textContent=observation.textContent;
+      var opening=host.querySelector("[data-secret]");
+      if(opening){opening.focus();selectedPassage=opening;opening.classList.add("is-selected")}
+    }).catch(function(){
+      if(token!==transitionId)return;
+      busy=false;shell.classList.remove("is-preparing");
+      observation.textContent="The hidden opening could not be revealed. Examine it again to retry.";
+      observation.classList.add("is-visible");
+    });
   }
   function visitSortingCeremony(){
     if(busy||!current||current.id!=="great")return false;
     busy=true;stopWalk();
-    try{
-      var bytes=new Uint8Array(16);
-      window.crypto.getRandomValues(bytes);
-      var nonce=Array.from(bytes,function(value){return value.toString(16).padStart(2,"0")}).join("");
-      window.sessionStorage.setItem("hogwarts:sorting:pass:v1",JSON.stringify({
-        from:"/hogwarts/",at:Date.now(),nonce:nonce
-      }));
-      persist();
-    }catch(error){
-      busy=false;ceremonyArmed=false;
-      observation.textContent="The ancient door cannot open without browser session storage.";
-      observation.classList.add("is-visible");
-      return false;
-    }
+    var token=++transitionId;
     shell.classList.add("is-transitioning");
     window.setTimeout(function(){
+      if(token!==transitionId||!current||current.id!=="great")return;
+      try{
+        var bytes=new Uint8Array(16);
+        window.crypto.getRandomValues(bytes);
+        var nonce=Array.from(bytes,function(value){return value.toString(16).padStart(2,"0")}).join("");
+        window.sessionStorage.setItem("hogwarts:sorting:pass:v1",JSON.stringify({
+          from:"/hogwarts/",at:Date.now(),nonce:nonce
+        }));
+        persist();
+      }catch(error){
+        busy=false;ceremonyArmed=false;shell.classList.remove("is-transitioning");
+        observation.textContent="The ancient door cannot open without browser session storage.";
+        observation.classList.add("is-visible");
+        return;
+      }
       window.location.assign("/hogwarts/sorting-ceremony/");
     },reduced?0:480);
     return true;
   }
   function checkCeremony(){
     return !!(ceremonyArmed&&current&&current.id==="great"&&
-      Math.hypot(avatar.x-scenes.great.ceremony[0],avatar.y-scenes.great.ceremony[1])<=5&&visitSortingCeremony());
+      Math.hypot(avatar.x-scenes.great.ceremony.point[0],avatar.y-scenes.great.ceremony.point[1])<=5&&visitSortingCeremony());
   }
   function ambientLine(){
     if(!current||remembered[current.id])return;
@@ -219,8 +293,8 @@
     else if(current.id==="transfig"&&avatar.y<59)line="The tabby cat blinks, and the professor smiles very slightly.";
     else if(current.id==="history"&&avatar.y<59)line="Professor Binns floats through the desk without pausing his lecture.";
     else if(current.id==="herbology"&&avatar.y<58)line="A mandrake curls one leaf around the rim of its pot.";
-    else if(current.id==="bathroom"&&avatar.x>60&&avatar.y<60)line="One brass tap bears a carved serpent instead of a letter.";
-    else if(current.id==="corridor"&&avatar.x<33&&avatar.y<59)line="The tapestry's edge moves, though there is no wind.";
+    else if(current.id==="bathroom"&&avatar.x>60&&avatar.y<60)line="One copper tap bears a carved serpent instead of a letter.";
+    else if(current.id==="corridor"&&avatar.x<33&&avatar.y<59)line="The blank wall opposite the tapestry seems to be waiting for a need.";
     if(line){remembered[current.id]=true;observation.textContent=line;observation.classList.add("is-visible")}
   }
   function changeRoom(to,direction){
@@ -251,17 +325,7 @@
       observation.classList.add("is-visible");
     });
   }
-  function move(dx,dy){
-    if(busy||!current)return;
-    stopWalk();ceremonyArmed=false;
-    avatar.x=Math.max(7,Math.min(93,avatar.x+dx));
-    avatar.y=Math.max(23,Math.min(93,avatar.y+dy));
-    syncAvatar(true);
-    var direction=findExit();
-    if(direction){changeRoom(current.exits[direction],direction);return}
-    if(checkSecret()||checkCeremony())return;
-    ambientLine();
-  }
+  function move(dx,dy){selectPassage(dx,dy)}
   function tickAuto(){
     frame=null;
     if(busy||!walkTarget)return;
@@ -271,18 +335,13 @@
       var arrived=walkTarget;avatar.x=arrived.x;avatar.y=arrived.y;
       syncAvatar(false);walkTarget=null;
       if(arrived.exit){changeRoom(current.exits[arrived.exit],arrived.exit);return}
-      checkSecret()||checkCeremony();return;
+      if(arrived.secret){revealSecret();return}
+      checkCeremony();return;
     }
     var speed=1.8;
-    avatar.x=Math.max(7,Math.min(93,avatar.x+(dx/dist)*speed));
-    avatar.y=Math.max(23,Math.min(93,avatar.y+(dy/dist)*speed));
+    avatar.x=Math.max(0,Math.min(100,avatar.x+(dx/dist)*speed));
+    avatar.y=Math.max(0,Math.min(100,avatar.y+(dy/dist)*speed));
     syncAvatar(true);
-    // A chosen destination wins over incidental intersections along the walk.
-    if(!walkTarget.exit&&!walkTarget.secret&&!walkTarget.ceremony){
-      var direction=findExit();
-      if(direction){changeRoom(current.exits[direction],direction);return}
-      if(checkSecret()||checkCeremony())return;
-    }
     ambientLine();
     frame=window.requestAnimationFrame(tickAuto);
   }
@@ -290,7 +349,7 @@
     if(busy)return;
     options=options||{};
     stopWalk();ceremonyArmed=!!options.ceremony;
-    walkTarget={x:Math.max(7,Math.min(93,x)),y:Math.max(23,Math.min(93,y)),
+    walkTarget={x:Math.max(0,Math.min(100,x)),y:Math.max(0,Math.min(100,y)),
       exit:options.exit,secret:options.secret,ceremony:options.ceremony};
     frame=window.requestAnimationFrame(tickAuto);
   }
@@ -305,33 +364,31 @@
     }
     var secret=event.target.closest("[data-secret]");
     if(secret&&host.contains(secret)&&current.secret){
-      var spot=scenes[current.id].secret;
+      var secretData=scenes[current.id].secret;
+      var spot=(secretOpen?secretData.open:secretData.trigger).point;
       goTo(spot[0],spot[1],{secret:true});return;
     }
     var ceremony=event.target.closest("[data-ceremony]");
     if(ceremony&&host.contains(ceremony)&&current.id==="great"){
-      var dais=scenes.great.ceremony;
+      var dais=scenes.great.ceremony.point;
       goTo(dais[0],dais[1],{ceremony:true});return;
     }
-    var rect=host.getBoundingClientRect();
-    if(rect.width<1||rect.height<1)return;
-    var x=100*(event.clientX-rect.left)/rect.width;
-    var y=100*(event.clientY-rect.top)/rect.height;
-    goTo(x,y,{ceremony:current.id==="great"&&Math.hypot(x-scenes.great.ceremony[0],y-scenes.great.ceremony[1])<=5});
+    // A background click is observation, never permission to leave the scene.
+    // In particular, walking toward an image edge cannot invent a doorway.
+
   }
   host.addEventListener("click",clickOnScene);
   host.addEventListener("keydown",function(event){
     if(event.target!==host&&(event.key==="Enter"||event.key===" ")){
       var action=event.target.closest("[data-door],[data-secret],[data-ceremony]");
-      if(action){event.preventDefault();action.click();return}
+      if(action){event.preventDefault();if(!event.repeat)action.click();return}
     }
   });
   function describePassage(event){
-    var passage=event.target.closest("[data-door]");
-    if(!passage)return;
-    var next=atlas.rooms[current.exits[passage.getAttribute("data-door")]];
+    var passage=event.target.closest("[data-door],[data-secret],[data-ceremony]");
+    if(!passage||!host.contains(passage))return;
     var caption=host.querySelector(".hgw-stage-note span");
-    if(caption&&next)caption.textContent=next.name;
+    if(caption)caption.textContent=passage.getAttribute("aria-label");
   }
   function restoreCaption(){
     var caption=host.querySelector(".hgw-stage-note span");
@@ -366,6 +423,9 @@
     var key=event.key.toLowerCase();
     var dir={"arrowup":[0,-5],w:[0,-5],"arrowdown":[0,5],s:[0,5],"arrowleft":[-5,0],a:[-5,0],"arrowright":[5,0],d:[5,0]}[key];
     if(dir){event.preventDefault();move(dir[0],dir[1])}
+    else if((key==="enter"||key===" ")&&selectedPassage&&host.contains(selectedPassage)&&event.target===host){
+      event.preventDefault();if(!event.repeat)selectedPassage.click();
+    }
   });
   window.addEventListener("popstate",function(){
     var id=atlas.byPath[pathFromLocation()];

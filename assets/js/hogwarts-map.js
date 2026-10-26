@@ -8,31 +8,10 @@
   var atlas = window.HogwartsAtlas;
   if (!atlas || !atlas.rooms) return;
 
-  // Coordinates are hand-laid on five illustrated floor plans, never derived
-  // from URL paths. Secret places have their own page, unlocked by exploration.
-  var sections = [
-    { id: "grounds", title: "The Grounds", subtitle: "Lake · paths · greenhouses",
-      coords: {gate:[260,205], forecourt:[205,352], courtyard:[415,358], bridge:[608,376],
-        lake:[777,448], boathouse:[747,569], dock:[921,530], forest:[626,171],
-        clearing:[490,88], hut:[779,95], paddock:[898,186], quidditch:[380,512],
-        greenhouse:[437,216], herbology:[286,105], flying:[180,576]} },
-    { id: "keep", title: "The Keep", subtitle: "Halls · kitchens · portraits",
-      coords: {entry:[468,510], great:[467,307], kitchens:[691,333], pantry:[720,151],
-        gallery:[229,300], armoury:[462,117], cloister:[745,515], hospital:[840,250]} },
-    { id: "academic", title: "Academic Wing", subtitle: "Classes · corridors · library",
-      coords: {staircase:[175,474], corridor:[300,302], library:[513,301],
-        transfig:[700,349], baths:[505,517], bathroom:[824,526], history:[859,303],
-        charms:[305,118], defense:[815,114]} },
-    { id: "towers", title: "Upper Towers", subtitle: "High places · old secrets",
-      coords: {office:[410,404], astrStair:[202,268], astrTower:[764,179],
-        divination:[499,109], owlery:[427,196], ramparts:[745,465]} },
-    { id: "dungeons", title: "Dungeons", subtitle: "Stone · lanterns · deep water",
-      coords: {dungeonSteps:[443,313], potions:[442,493], oldArchive:[458,112],
-        crypt:[188,317], slytherin:[754,155], reservoir:[749,489], vault:[199,112]} },
-    { id: "unmapped", title: "Uncharted", subtitle: "Revealed only to the curious",
-      coords: {requirement:[257,327], sluice:[703,501], chamber:[695,313], sanctum:[692,128]},
-      secret: true }
-  ];
+  // Corrected geographical groups are shared with the standalone reference atlas.
+  var geography=window.HogwartsGeography;
+  if(!geography||!geography.sections)return;
+  var sections=geography.sections;
 
   var roomSection = Object.create(null);
   sections.forEach(function (section) {
@@ -84,7 +63,7 @@
     return path.reverse();
   }
   function availableSections(visited) {
-    var hiddenDiscovered = Object.keys(sections[5].coords).some(function (id) { return visited.has(id); });
+    var hiddenDiscovered = Object.keys(sections.find(function(section){return section.secret}).coords).some(function (id) { return visited.has(id); });
     return sections.filter(function (section) { return !section.secret || hiddenDiscovered; });
   }
 
@@ -180,11 +159,11 @@
       '<path class="hmap-compass-lines" d="M50 50h900v540H50z"/>' +
       '<path class="hmap-compass-lines" d="M50 75h900M50 565h900M75 50v540M925 50v540"/>' +
       '<text x="500" y="607" class="hmap-engraving" text-anchor="middle">' +
-      ({grounds:"SCHOOL GROUNDS",keep:"THE ANCIENT KEEP",academic:"THE SCHOLAR'S WING",towers:"THE WATCHTOWERS",dungeons:"BELOW THE STONES",unmapped:"HERE BE UNSPOKEN THINGS"}[section.id]) +
+      ({grounds:"SCHOOL GROUNDS",keep:"ENTRANCE AND MAIN STAIRS",teaching:"FIRST-FLOOR RECONSTRUCTION",academic:"THE SCHOLAR'S WING",towers:"THE WATCHTOWERS",dungeons:"BELOW THE STONES",unmapped:"HERE BE UNSPOKEN THINGS"}[section.id]) +
       '</text>' +
       '<g class="hmap-compass" transform="translate(933 91)"><circle r="29"/>' +
-      '<path d="M0-26V26M-26 0H26M0-22l5 22-5-3-5 3z"/><text x="0" y="-36" text-anchor="middle">N</text></g>' +
-      illustrations[section.id];
+      '<path d="M0-26V26M-26 0H26M0-22l5 22-5-3-5 3z"/><text x="0" y="-36" text-anchor="middle">✦</text></g>' +
+      (illustrations[section.id]||illustrations.academic);
   }
 
   function svgPath(d, className) {
@@ -297,6 +276,7 @@
     roomSubtitle.textContent = (selected === where ? "YOU ARE HERE · " : "DISCOVERED · ") + room.kicker;
     roomTitle.textContent = room.name;
     roomDetail.textContent = room.description;
+    if(geography.nodes[room.id])roomDetail.textContent += " "+geography.nodes[room.id].floor+".";
     var route = routeBetween(where, selected, visited);
     if (selected === where) {
       roomSteps.textContent = "Your footsteps are marked by the red seal.";
