@@ -84,6 +84,7 @@
     gate: "hedwig",              // Keep the castle entrance iconic, not generic outdoor music.
     great: "great",
     divination: "tower",
+    northTowerLanding: "tower",
     ramparts: "tower"
   };
   var kindTracks = {

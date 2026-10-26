@@ -1,41 +1,86 @@
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const atlasText = readFileSync('assets/js/hogwarts-atlas.js', 'utf8');
+const geographyText = readFileSync('assets/js/hogwarts-geography.js', 'utf8');
 const mapText = readFileSync('assets/js/hogwarts-map.js', 'utf8');
 const shell = readFileSync('_includes/hogwarts-explorer.html', 'utf8');
 const css = readFileSync('assets/css/hogwarts-map.css', 'utf8');
 const context = { window: {}, document: { getElementById: () => null } };
-vm.runInNewContext(atlasText, context, {timeout: 1000});
-vm.runInNewContext(mapText, context, {timeout: 1000});
-const atlas = context.window.HogwartsAtlas;
-const map = context.window.HogwartsMapModel;
-assert.ok(atlas && map, 'Map model must use the existing Hogwarts room graph');
-assert.equal(map.sections.length, 6, 'The map should have five public regions and one secret region');
-const coords = Array.from(map.sections).flatMap(zone => Object.entries(zone.coords).map(([id, xy]) => ({id, xy, zone: zone.id})));
-assert.equal(coords.length, 49, 'Every Hogwarts location must have one mapped position');
-assert.equal(new Set(coords.map(x => x.id)).size, 49, 'Map must not duplicate locations');
-assert.deepEqual(coords.map(x=>x.id).sort(), Object.keys(atlas.rooms).sort(), 'Map rooms must match the URL maze exactly');
-for (const {id,xy,zone} of coords) {
-  assert.ok(Number.isFinite(xy[0]) && Number.isFinite(xy[1]), 'Non-numeric map coordinate: ' + id);
-  assert.ok(xy[0]>60 && xy[0]<950 && xy[1]>50 && xy[1]<610, 'Map coordinate out of frame: '+id);
-  assert.equal(map.zoneOf(id), zone);
+for (const [name, script] of [['atlas', atlasText], ['geography', geographyText], ['map', mapText]]) {
+  vm.runInNewContext(script, context, { filename: 'hogwarts-' + name + '.js', timeout: 1000 });
 }
-const seen = new Set(['gate','entry','great','kitchens','pantry']);
-assert.deepEqual(Array.from(map.routeBetween('gate','pantry',seen)), ['gate','entry','great','kitchens','pantry']);
-assert.equal(map.routeBetween('gate','chamber',seen), null, 'Unexplored rooms cannot be used in suggested routes');
-assert.ok(!map.availableSections(seen).some(z => z.id === 'unmapped'), 'Hidden floor must not be revealed early');
-const withSecret = new Set(['bathroom','sluice','chamber']);
-assert.ok(map.availableSections(withSecret).some(z => z.id === 'unmapped'), 'Exploring a hidden passage should reveal the hidden page');
-assert.deepEqual(Array.from(map.routeBetween('bathroom','chamber',withSecret)), ['bathroom','sluice','chamber']);
-assert.deepEqual(Array.from(map.routeBetween('corridor','requirement',new Set(['corridor','requirement']))), ['corridor','requirement']);
-assert.ok(shell.includes('data-hgw-authorized'), 'Original secret station gate must remain');
-assert.ok(shell.includes('id="hmap-trigger"') && shell.includes('id="hmap-dialog"'), 'Map interface must be mounted on each room');
-assert.ok(shell.includes('/assets/js/hogwarts-map.js') && shell.includes('/assets/css/hogwarts-map.css'), 'Map assets must be loaded');
-assert.ok(mapText.includes('hogwarts:scenechange'), 'Map must refresh when the explorer moves');
-assert.ok(mapText.includes('event.stopImmediatePropagation()'), 'Map keyboard shortcuts must not move the avatar');
-assert.ok(mapText.includes('visited.has(room.secret.to)'), 'Secret edges must stay concealed until visited');
-assert.ok(!mapText.includes('window.location.assign(') && !mapText.includes('history.pushState('), 'The map must not teleport between rooms');
-assert.ok(css.includes('prefers-reduced-motion') && css.includes('hmap-point:focus-visible'), 'Map needs reduced-motion and keyboard focus styles');
-console.log('Hogwarts map checks passed: ' + coords.length + ' rooms, ' + map.sections.length + ' floors, no secret leaks.');
+const atlas = context.window.HogwartsAtlas;
+const geography = context.window.HogwartsGeography;
+const map = context.window.HogwartsMapModel;
+assert.ok(atlas && geography && map, 'Map model must use the shared room graph and geographic groups');
+assert.equal(map.sections, geography.sections, 'Private and public maps must share geographic groups');
+assert.equal(map.sections.length, 7, 'Six public regions and one concealed section are expected');
+const coords = Array.from(map.sections).flatMap(section =>
+  Object.entries(section.coords).map(([id, xy]) => ({ id, xy, section: section.id })));
+assert.equal(coords.length, 53, 'Every scene needs one map position');
+assert.equal(new Set(coords.map(item => item.id)).size, 53, 'Map must not duplicate scenes');
+assert.deepEqual(coords.map(item => item.id).sort(), Object.keys(atlas.rooms).sort());
+for (const { id, xy, section } of coords) {
+  assert.equal(xy.length, 2);
+  assert.ok(Number.isFinite(xy[0]) && Number.isFinite(xy[1]), 'Non-numeric position: ' + id);
+  assert.ok(xy[0] > 60 && xy[0] < 950 && xy[1] > 50 && xy[1] < 610, 'Position outside frame: ' + id);
+  assert.equal(map.zoneOf(id), section);
+  assert.equal(geography.nodes[id].group, section);
+}
+assert.equal(map.zoneOf('missing-room'), null);
+
+const pantryPath = ['gate', 'entry', 'basementPassage', 'kitchens', 'pantry'];
+const visited = new Set(pantryPath);
+assert.deepEqual(Array.from(map.routeBetween('gate', 'pantry', visited)), pantryPath,
+  'Kitchen route must use the basement passage rather than the Great Hall');
+assert.deepEqual(Array.from(map.routeBetween('pantry', 'gate', visited)), pantryPath.slice().reverse());
+assert.deepEqual(Array.from(map.routeBetween('pantry', 'pantry', visited)), ['pantry']);
+assert.equal(map.routeBetween('gate', 'chamber', visited), null, 'Cannot route through an unexplored destination');
+assert.equal(map.routeBetween('missing-room', 'gate', visited), null);
+const missingIntermediate = new Set(visited);
+missingIntermediate.delete('basementPassage');
+assert.equal(map.routeBetween('gate', 'pantry', missingIntermediate), null,
+  'Visited endpoints cannot reveal a path through an unvisited intermediate scene');
+
+const hiddenSection = map.sections.find(section => section.secret);
+assert.ok(hiddenSection, 'Concealed section is identified by metadata, not array position');
+assert.deepEqual(Object.keys(hiddenSection.coords).sort(), ['chamber', 'requirement', 'sanctum', 'sluice']);
+assert.equal(map.availableSections(visited).length, 6);
+assert.ok(!map.availableSections(visited).some(section => section.secret));
+for (const id of Object.keys(hiddenSection.coords)) {
+  assert.ok(map.availableSections(new Set([...visited, id])).some(section => section.secret),
+    'Discovering any concealed scene should reveal its section: ' + id);
+}
+const secretIndex = map.sections.indexOf(hiddenSection);
+map.sections.splice(secretIndex, 1);
+map.sections.unshift(hiddenSection);
+assert.ok(!map.availableSections(visited).some(section => section.secret), 'Section order must not leak secrets');
+assert.ok(map.availableSections(new Set(['requirement'])).some(section => section.secret));
+map.sections.shift();
+map.sections.splice(secretIndex, 0, hiddenSection);
+
+const withChamber = new Set(['bathroom', 'sluice', 'chamber']);
+assert.deepEqual(Array.from(map.routeBetween('bathroom', 'chamber', withChamber)), ['bathroom', 'sluice', 'chamber']);
+assert.deepEqual(Array.from(map.routeBetween('chamber', 'bathroom', withChamber)), ['chamber', 'sluice', 'bathroom']);
+assert.equal(map.routeBetween('bathroom', 'sluice', new Set(['bathroom'])), null,
+  'Knowing the bathroom does not disclose the concealed pipe route');
+assert.deepEqual(Array.from(map.routeBetween('corridor', 'requirement', new Set(['corridor', 'requirement']))),
+  ['corridor', 'requirement']);
+
+assert.ok(shell.includes('data-hgw-authorized'), 'Station-origin gate must remain');
+assert.ok(shell.includes('id="hmap-trigger"') && shell.includes('id="hmap-dialog"'), 'Private map controls must remain mounted');
+assert.ok(shell.includes('/assets/css/hogwarts-map.css'));
+const geographyLoad = shell.indexOf('/assets/js/hogwarts-geography.js');
+const mapLoad = shell.indexOf('/assets/js/hogwarts-map.js');
+assert.ok(geographyLoad >= 0 && mapLoad > geographyLoad, 'Load shared geography before the private map');
+assert.ok(mapText.includes('hogwarts:scenechange'), 'Map must refresh after exploration');
+assert.ok(mapText.includes('event.stopImmediatePropagation()'), 'Map keyboard use must not move the explorer');
+assert.doesNotMatch(mapText, /(?:sessionStorage|localStorage)\s*\.\s*(?:setItem|removeItem|clear)\s*\(/,
+  'Map may read visits but cannot grant or erase them');
+assert.doesNotMatch(mapText, /(?:location\s*\.\s*(?:assign|replace)|history\s*\.\s*pushState)\s*\(/,
+  'Map cannot teleport between rooms');
+assert.ok(css.includes('prefers-reduced-motion') && css.includes('hmap-point:focus-visible'),
+  'Private map needs reduced-motion and keyboard focus styles');
+console.log('Hogwarts map checks passed: 53 scenes, seven shared regions, visited-only routes and concealed sections.');

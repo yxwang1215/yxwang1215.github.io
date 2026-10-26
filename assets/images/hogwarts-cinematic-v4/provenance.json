@@ -1,0 +1,264 @@
+{
+  "created": "2026-10-26",
+  "generator": "Built-in image_gen.imagegen",
+  "delivery": {
+    "format": "WebP",
+    "quality": 94,
+    "nativeDimensionsPreserved": true
+  },
+  "purpose": "Visible physical passage repair and four geographically necessary connector scenes",
+  "images": [
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/entrance-hall.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: full-bleed background for an immersive Hogwarts castle exploration scene. Create a new physically plausible cinematic Entrance Hall in the same visual family as richly detailed live-action Hogwarts interiors: weathered Gothic sandstone, ribbed vaults, old oak, candle sconces, warm torchlight and cool evening exterior light, realistic photography, exquisite stone and wood textures. Landscape 16:9, native 1920x1080 or higher, wide architectural photograph at human eye level.\nThe essential purpose is four clearly distinguishable actual traversable routes, all physically reached from one unobstructed continuous foreground floor: (1) at the far left, a large OPEN exterior double doorway revealing an exterior cobbled terrace at the same floor level, wood leaves swung to the sides; (2) straight ahead, a large OPEN arched double doorway into the Great Hall, a glimpse of floating candles and long tables beyond but an empty threshold; (3) on the right, an obvious broad ascending stone staircase through an open arch, its first ten treads clearly visible and touching the current hall floor; (4) at center-left, well separate from the exterior door, a clearly visible stairwell descending to the basement, framed by a low side rail but NO rail across the entrance, with exposed first descending treads and warm lamps illuminating the lower arch.\nCompose the four passage mouths approximately at x18%, x40%, x59%, x82% of the image width, with center-left basement at x40% and ahead Great Hall at x59%. Keep all thresholds and first treads at y55–80%, readily visible. Foreground is empty walkable polished stone to the bottom edge. Large generous passage openings. Staircases connect correctly to floors; this is real coherent architecture, not impossible stairs. Avoid furniture, statues, carpets or ornamental barriers in any path; a few heraldic banners may be high on walls. No people. No text, letters, signs, labels, numbers, UI, diagrams, overlays, watermark, panels, borders or framing. Do not represent a route with a window or a tapestry. Keep sufficient exposure to see all passage floors clearly.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "7dfecba6bf5b348c6e9df28fb86b6bbe20730c0417afce17c5766b6cb324bcdb",
+      "webpSha256": "ff559a80402f0db22a00307422f48bbb5c37afefe711b0b39e70187e17b86226",
+      "bytes": 536284
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/grand-staircase.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: cinematic immersive Hogwarts Grand Staircase scene, a full-frame photoreal architectural background. Native 1920x1080 or higher, landscape 16:9. Build a magnificent Gothic stone staircase hall with moving-staircase atmosphere, candlelit arches and many old framed portraits. Human eye level on a wide open central stone landing. Rich amber light, deep but readable shadows, authentic aged sandstone, restrained cool light from tall closed windows; cinematic live-action realism.\nCRITICAL spatial layout: the viewer stands ON a real continuous spacious landing. There are exactly THREE separate immediately accessible stair mouths touching this same landing, plus a clear open return walkway running to the bottom edge. On the left at x22%, a broad staircase DESCENDS through an arch to a lower floor; the first descending treads are visible from the current landing, with side balustrades only. Straight ahead at x52%, a broad staircase ASCENDS into a visible arch to the next floor; first several treads begin directly on the landing at y70%. On the right at x81%, another distinct stair ASCENDS around a curve through a different arch, with wide readable treads and its first step also touching the landing. Show appropriate changes of level with coherent perspective. All three passage mouths roughly y52–76%; foreground stone floor is unobstructed and reaches bottom edge. Every route must be reachable without crossing a railing, gap, pit, balustrade or another staircase. No foreground balustrade across the screen; only side rails where necessary. No distant floating stairs as substitutes for the three accessible mouths. Avoid clutter, people, armor or tables blocking routes. A few distant upper stair galleries can provide scale but should be visually secondary and not appear to be extra exits. No text, signs, labels, UI, arrows, symbols, watermark, frames or border. Maximum clarity of real traversable architecture.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "2130d5d7120050586c683728e7e1e21ad1da2978ae183f167ac96354c4207f76",
+      "webpSha256": "e7417653d26fb3d54931caad89538a386e359f529e46b0ea5e49214da1f5e0cc",
+      "bytes": 475996
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/east-cloister.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: immersive Hogwarts exploration scene, full-frame cinematic photoreal medieval East Cloister. Native 1920x1080 or higher, landscape 16:9 architectural photograph at eye level. Weathered Gothic stone arches, ribbed vaulting, subtle ivy climbing columns, afternoon-to-evening light mixed with warm hanging lanterns, polished damp stone paving and rich natural texture.\nThis is a small physically coherent two-route cloister junction. Show two large OPEN FLOOR-LEVEL archways reached from one broad unblocked foreground floor: left-center arch at x30% reveals a sunlit stone courtyard with a clear flat path outside; right-center arch at x72% reveals a paved route continuing toward a glass greenhouse visible at the far end. Each arch is open fully to the floor and visibly wide enough to walk through; stones of the current floor continue without interruption through each threshold. Both thresholds should be prominent in the lower-middle image around y65–78%. There must be NO sill, balustrade, low wall, plants, fountain, furniture, bench, railing or ivy curtain across either opening. Ivy and lanterns remain only on columns and above the routes. Foreground floor empty and walkable to bottom edge. Other architectural openings, if present, must be closed high windows rather than additional competing exits. Preserve majestic Hogwarts castle character while making the two separate passable openings unmistakable. No people. No text, signs, labels, UI, symbols, arrows, frames, collage panels, watermark or border.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "273a4d14dcfb006b982f9fa13b5753f0436d5b90ec02105a0f8d93519381ebf9",
+      "webpSha256": "c472e2724354ac7eb7252e74cb00ccc48b52e4a8d41158968e86fdbdfd7a1460",
+      "bytes": 639606
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/transfiguration-classroom.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: immersive Hogwarts Transfiguration classroom scene, cinematic full-bleed photographic background. Native 1920x1080 or higher, landscape 16:9. A convincing richly detailed Gothic magical classroom with weathered stone, tall mullioned windows, warm candles, old wood desks, bookcases, dark chalkboard bearing only vague animal sketches without readable writing, a few glass domes and small animal transformation props, one calm tabby cat on a side desk. Match cinematic live-action Hogwarts interiors with real architectural perspective and tactile materials, warm amber and soft cool daylight.\nCRITICAL navigation composition: the viewer is standing in an EMPTY broad central aisle. Show ONE large unmistakable OPEN arched wooden exit doorway on the far-left-to-center wall at x26%, with a clear stone threshold at y70%, wooden leaf visibly swung aside, and a warmly lit stone corridor continuing beyond. This is the sole exit. The continuous walkable aisle must start broad at the bottom center of the image and clearly lead to that doorway, with no chair, desk, person, book pile, cat or furniture occupying or crossing it. Put desks along the left and right edges and place teaching desk and chalkboard on the right rear wall; do not fill the foreground with a desk. Preserve a large visible foreground floor area and open passage sufficiently large to be clicked precisely. No extra doors or stairs. No people needed. No readable text, labels, arrows, UI, watermark, border or frames around the image. The door aperture and its floor must be exposed and physically reachable, not a dark cupboard or bookshelf arch.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "3d4e38a08ff99c14dd6ea4a19ce28a970a71aa496106b366671f8f0dd352f3c8",
+      "webpSha256": "098d503ca6bf2e2658419fefd3c46c5b880935c23e0e94015f407472a8797985",
+      "bytes": 490258
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/charms-classroom.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: immersive Hogwarts Charms classroom scene, full-frame cinematic photographic environment. Native 1920x1080 or higher, landscape 16:9. A magical Gothic stone classroom with warm candle chandeliers, tall closed mullioned windows, aged wood desks with wands and quills, a few levitating feathers and teacups overhead, shelves with books, teacher's platform at right background. Rich realistic materials, cozy amber illumination with soft evening window light, live-action film realism, carefully composed wide architectural camera at human eye level.\nCRITICAL scene geometry: ONE very clear OPEN wooden exit doorway in a Gothic arch at the left-center background, around x28%, with its bottom threshold around y71%. The door is swung fully aside, exposing a warmly lit empty stone corridor beyond, and is visibly a passage rather than a cupboard. A generous unobstructed curved central aisle of stone floor connects from the bottom-center foreground directly through this doorway. All desks, chairs, books, levitating objects and teacher props remain to the sides of this aisle. Do not put any desk across the bottom edge; ensure at least half the lower frame is visibly walkable floor. No children or people blocking the passage. This room is a leaf with only one exterior connection; no other door or stair. Match Hogwarts atmosphere without sacrificing believable floor continuity. No readable text or lettering, no signs, UI, labels, arrows, overlays, watermark, panels or border.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "cc7adb25b31e7ac91eaae56a40adcc1f121760b755c11878fd3e4133eb419051",
+      "webpSha256": "2ad1d6768aa3a2f267486b27bc74f666cd1006122e0f9b7b901407fd803e0f8e",
+      "bytes": 501384
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/divination-classroom.webp",
+      "prompt": "Use case: precise-object-edit. Asset type: consistency correction to a first-person Hogwarts Divination classroom photograph.\nImage 1 is the EDIT TARGET: the cozy Divination classroom with burgundy drapery, tea tables and an open rectangular floor hatch. Image 2 is REFERENCE ONLY for the other end of this same passage: the North Tower landing has a ROUND CIRCULAR CEILING HATCH and a SILVER METAL LADDER.\nEdit ONLY the floor trapdoor and its raised lid in Image 1. Replace the rectangular opening with a genuinely CIRCULAR, HUMAN-PASSABLE FLOOR TRAPDOOR, seen as a perspective ellipse in this camera. Replace its raised rectangular wooden lid with a MATCHING ROUND WOODEN LID, circular in its own plane and elliptical in perspective, hinged up at the far edge. The open aperture should occupy approximately the same front-left-to-center region as before, preserving the existing clear approach from the bottom foreground.\nKeep the shaft visibly open and deep, with the silver metal ladder clearly descending through it to the same warmly lit lower stone landing. Match the round dark timber hatch rim and silver curved ladder rails visible in Image 2. There must be no rectangular corners remaining in either the hatch cutout or its lid. This is a real opening in the wood floor, not a closed disk, table, rug or magical portal. The ladder is accessible from the near edge of the opening and has coherent rails and rungs continuing downward.\nINVARIANTS: Keep Image 1's exact camera, crop, native 16:9 aspect ratio, room architecture, windows, ceiling, lamps, tables, teacups, crystal balls, chairs, draperies, rugs, warm lighting and all other furnishings unchanged. Do not use the landing image as a new room composition. Change only the local hatch geometry, lid shape, rim and ladder connection as needed. No people, no extra entrances, no labels, no text, arrows, UI, watermark or graphic overlays. Preserve native resolution at least 1600 pixels wide.",
+      "mode": "edit",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "c4ead5895ee84f3c506d2f9b8dca7b83955c2cabe0d7033a36feabeee5d12b5c",
+      "webpSha256": "15f7adad3737480e9766e5dc84fc9902fd064ec1001486325ce70bf30d6aad47",
+      "bytes": 461596
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/second-floor-corridor.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: full-frame cinematic Hogwarts exploration scene. Create a quiet old second-floor bathroom corridor in a Gothic castle, photorealistic live-action architecture, native 1920x1080 or higher, landscape 16:9. Aged sandstone, arched vault, faint damp patches, a few warm wall candles, cool evening light from one high closed leaded window, empty and atmospheric but clearly exposed.\nExactly TWO real navigable passages, both directly connected to the same clear stone floor. On the left around x27%, a wide OPEN arched stairwell mouth with stone steps DESCENDING to a lit lower landing; show first treads from the current floor, side rail only, no rail blocking entrance. On the right around x74%, a large OPEN Gothic wooden bathroom door with the leaf swung aside, revealing a little tiled wall and the edge of an old washbasin far inside while keeping the actual floor threshold unobstructed. A clear broad stone hallway floor connects both openings and extends to the bottom edge; no furniture, columns or objects blocking either route. Both passage thresholds should be prominent around y60–78%. The bathroom doorway is the sole room door; the stairwell is the sole return route. No visible hidden portals or other entrances. No people or ghost. No text, numbers, signs, labels, symbols, UI, arrows, watermark, frames or border. Strong readable silhouettes and realistic architectural continuity.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "9faae7fb1402036e7648ef9cbd1a6cfa69e0de5e59ba5c4b7ffc0f91a2c40d23",
+      "webpSha256": "1d42cbfa0c0abff2eeb438064d28dc5094be298028ff1019aad325f334a382f8",
+      "bytes": 494910
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/hagrids-garden.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution first-person Hogwarts exploration game background, a clean full-bleed native 16:9 photograph, at least 1920 pixels wide.\nPrimary request: a believable Hagrid's garden beside a SMALL RUSTIC WOODEN HOUSE as described in the Harry Potter novels, not a stone cottage. Photoreal cinematic live-action materials, realistic timber planks, pumpkin garden, Scottish highland trees, soft bright daylight, no people, no text, no UI, no labels.\nCritical camera/navigation composition: human eye height at a compact THREE-WAY DIRT PATH JUNCTION. All three paths must visibly meet on continuous dry ground in the foreground. A broad dirt approach comes out of the bottom center edge toward the viewer (return toward the stone bridge). A distinct left dirt trail bends toward the dark forest through a wide clear gap in the trees at roughly 15% across and 58% down. A distinct right dirt path leads through a fully OPEN wooden gate at roughly 82% across and 61% down into a meadow paddock. Show the EMPTY OPEN GAP between the gateposts with the actual gate leaf swung entirely aside, and show walkable dirt through it. No fence, furniture, plants, rocks or water across any path.\nPlace the small timber cabin and pumpkin patch as scenic elements away from these paths, at left middle distance; show the cabin side with a lit small window but keep its entry door OUTSIDE THE VIEW so there are exactly three navigable branches. Make path openings large and clearly separate, grounded in correct perspective; show a distant hint of Hogwarts above the hillside. No painted markings, no arrows, no text, no invented UI. Wide 16:9 composition, native high resolution, photographic rather than illustration.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "f7de8c0d0c85b156b4d560933c98872a92424867a577aaa3ee15f899628ef9e8",
+      "webpSha256": "133773cdb18ff4ad4426b35a4a7d59e7e956a6d8662c11210121461721695967",
+      "bytes": 738770
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/black-lake.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution first-person Hogwarts exploration background. Produce a native 16:9 wide photograph at least 1920 pixels across.\nPrimary request: the Black Lake shore at Hogwarts in clear gentle daylight, with Hogwarts castle far across the water and a small timber boathouse nearby. Photoreal live-action cinematic textures, quiet water reflections, Scottish hills, no people, no text, no UI.\nCritical physical navigation: foreground is a WIDE DRY SHORE PATH JUNCTION on the same continuous piece of land. Exactly three clear walkable routes connect visibly at this junction. (1) A broad dry stone-and-dirt shore path extends from the BOTTOM CENTER edge toward the camera, the return route to the bridge. (2) LEFT-MIDDLE a separate dry path branches from the foreground junction, curves a short distance to the boathouse, and visibly joins the threshold of its LARGE OPEN WALK-IN DOOR at about 30% across and 53% down. The boathouse door must be approachable ON FOOT on dry ground; show an actual plank landing/floor just inside. Keep its water-facing boat slips on the far unseen side. No rocks, vegetation, fences or water may sever this walking connection. (3) RIGHT-MIDDLE a separate wooden footpath branches visibly from the same foreground junction and continues onto a substantial dry wooden pier along the near shore at about 78% across and 67% down, clearly accessible via joined planks without rope across its entrance. The pier is the route to the Old Pier scene.\nThe three branch approaches are broad, distinct, separated by scenic grasses but joined at their foreground origins. Lake water lies beyond the walking routes, never between viewer and a clickable entrance. Avoid extra doorways or unconnected islands. No arrows, signs, labels, painted paths, code or graphics. Human eye-level wide-angle photographic view, 16:9 native high resolution.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "a9abeb97874e7b85ddf7021d705328a67fb227f1a72c7213deec6da791da34a4",
+      "webpSha256": "3c921b237e82186e2bf0bf7f3d4be23b044f404a38c51d267c94dbafaa2d8293",
+      "bytes": 755218
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/myrtles-bathroom.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution first-person Hogwarts exploration background. Native 16:9 landscape photograph, at least 1920 pixels wide.\nPrimary request: Moaning Myrtle's gloomy old girls' bathroom at Hogwarts as described in the novels: a ROW OF OLD WHITE PORCELAIN WASHBASINS beneath a row of CLOUDY CRACKED MIRRORS, aged stone walls, worn pale stone tile floor, some gloomy closed toilet cubicles along the distant side. Realistic live-action cinematic photograph, dim soft daylight from a high small gothic window, subtle warm candle/torch light, no characters, no text, no UI.\nCompose for a precise two-state hidden-passage interaction. The camera is fixed at human eye height facing the row of basins, with broad clear floor in the foreground. Place one distinctive single white basin at roughly 68% image width, its old brass tap around 62% image height. Put a TINY SUBTLE ENGRAVED SERPENT ON THE SIDE OF THAT TAP, visible on closer inspection. The selected basin stands on a modest pedestal against the mirror wall and has enough empty floor around it that it could slide aside later, revealing a human-sized floor pipe opening. IN THIS BASE IMAGE the basin remains in its ordinary closed position; absolutely NO visible tunnel, hole or pipe opening yet.\nAt LEFT around 17% across, show ONE LARGE OPEN ORDINARY EXIT DOOR with a clean unobstructed stone threshold and a short corridor visible beyond. This is the only normal room exit, clearly approachable along the same foreground floor; the door leaf is swung entirely aside. Keep the ordinary exit far from the selected basin. All other side features are wall, high window or closed cubicle partitions, not extra exits. Keep foreground free of objects. Preserve generous space between basin and door for later editing. Absolutely no floating UI, no arrows, no painted circles, no lettering, no watermark. Photographic 16:9 native high resolution.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "1f0e90e1361fb94d150e9191fbca55ef78ffa16321422ab0e056f00d4f58f664",
+      "webpSha256": "9085146627d433029990c7c1f2b9770d49889175b4d0e63d67e9b345fbebc713",
+      "bytes": 469256
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/quidditch-pitch.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution Hogwarts first-person exploration game scene. Native wide 16:9 cinematic live-action photograph, at least 1920 pixels wide.\nPrimary request: a richly atmospheric Quidditch pitch at Hogwarts, viewed from ground level on a wide dry grassy/packed-earth apron just INSIDE the near stadium boundary, with the pitch and tall goal hoops visible beyond and castle towers in the distance. Realistic wood stadium stands, banners without lettering, late-afternoon daylight, no players or crowd, no UI or text.\nCritical composition: THREE LARGE DISTINCT OPEN EXIT ARCHWAYS/TUNNELS built into the NEAR STADIUM BOUNDARY around the camera, each visibly reachable by a continuous broad dry path from the same unobstructed foreground apron. Left at about 17% across and 58% down: an open timber player tunnel whose floor leads toward a path and wooded paddock outside. Right at about 84% across and 58% down: a broad open timber gate whose floor leads to a sunlit flying-practice lawn outside. Center-left or center at about 49% across and 68% down: a clearly separate open gateway/arched passage in a nearby return stand wall leading to a stone courtyard approach. Use an angled stadium boundary arrangement so all three openings are shown physically, with the actual empty interior aperture and ground through them; they must not overlap or hide one another, and no fence crosses any opening. The pitch and goal hoops are scenic background visible through the large open interior of the field, not travel targets. The three openings can be in three angled near boundary sections surrounding the forecourt with clear routes.\nGround paths visibly connect in foreground. Large readable doorway shapes in perspective, each at least a person's width, no furniture, no closed bars, no opaque fence panel mistaken for a door. Avoid magic portals and water. No diagrams, labels, arrows, painted circles or text. Native 16:9 photographic resolution.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "3944beacb5935aa917c284bd1c0c20d23bb7551a3a489c870b5f3b4d2f5d3d0d",
+      "webpSha256": "28beb9e53bf11c6929245793aa32f5eae81ee59880608f2e2152ca2a08bf1426",
+      "bytes": 607576
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/serpents-descent.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution first-person Hogwarts exploration background. Create a native 16:9 cinematic photograph at least 1920 pixels wide.\nPrimary request: the secret underground passage beneath Hogwarts, the route from Myrtle's bathroom to the Chamber of Secrets. Damp old stone, serpent-carved architecture, dim green-grey ambient light, realistically wet stone texture but DRY WALKING SURFACES, no people, no text, no UI.\nPhysical navigation is essential. The camera stands on a BROAD DRY STONE LANDING visibly connected to TWO separate passages. On the RIGHT around 76% across, a tall OPEN SERPENT-CARVED STONE DOORWAY/ARCH reveals a DRY STONE CORRIDOR leading forward toward the Chamber of Secrets. The dry path continues unbroken from foreground through the open aperture; no water or rubble blocks it.\nOn the LEFT around 24% across, show the LARGE OPEN CIRCULAR MOUTH OF A SMOOTH OLD PIPE, human-sized, at least two metres diameter. This is the bottom mouth of the pipe back up to the bathroom. Its lip meets the dry landing at ground level and its dark smooth interior visibly angles steeply upward out of view, showing it is a vertical ascent rather than a normal horizontal hallway. Faint warm golden phoenix-inspired light rises up inside this shaft, suggesting a magical assisted return; do not draw a phoenix body, ladder, stairs, rope, lift or signs. The entire opening must be clearly accessible from the dry platform. Only the actual empty pipe aperture is the intended target, never a serpent sculpture or tap.\nKeep shallow drainage water confined to narrow side channels behind low stone edges, never across the platform or either route. Provide clear separation between the left round pipe and right tall serpent arch, both large enough for precise navigation. Photoreal live-action wide-angle, legible highlights, no painted glow rings, no symbols, no arrows, no labels. Native 16:9 high resolution.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "c7ded0996b7b2282f0d064a2a9ac19ad6600ec30695580e10871b6615175c39c",
+      "webpSha256": "d72e67e47824449c99ec155f80c9a5b7cb17a0064de2a216d4e82345913a632d",
+      "bytes": 551850
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/chamber-of-secrets.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: high-resolution first-person Hogwarts exploration game background. Native 16:9 wide cinematic photograph at least 1920 pixels wide.\nPrimary request: the enormous Chamber of Secrets beneath Hogwarts, with towering stone columns carved with snakes, pools and dripping masonry at the SIDES, and a monumental ancient STATUE OF SALAZAR SLYTHERIN at the far end, seen through eerie green-grey light and torch glow. No people, no text, no UI, photographic live-action quality.\nCritical walkable composition: a BROAD RAISED DRY CENTRAL STONE CAUSEWAY, at least four metres wide, runs continuously from the BOTTOM CENTER frame edge all the way to a dry set of broad stairs and a dry platform at the far statue. Its top surface is clearly above the side water and visibly unbroken. No flooded gaps, submerged stones, stepping-stone puzzles or railings across the route. The camera stands on this causeway facing the statue. At about 50% across and 59% down, clearly show the dry stairs and platform where the viewer can walk closer to the statue, treated as a farther location; the statue's face/mouth is scenic stone, not a magic portal or transport trigger. The near foreground causeway reaches out of the image bottom for the explicit return toward the serpent doorway behind the camera.\nWater belongs solely to deep side basins separated from the walkway by low stone curbs; serpent sculptures are at the sides, never blocking walking space. If a basilisk shape is suggested, it is a very subtle distant reflection or side sculpture only, not a central creature or path obstruction. Make the dry navigation route extremely clear while maintaining dramatic architecture. Wide eye-level perspective, realistic carved stone, sharp enough to delineate walkway boundaries. No extra side exits, no painted trails, arrows or overlays. Native 16:9 high resolution.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "1d043c31e018b086dfcdad4c2b26b5df22ef9b1eaf09a6ff8a3bbd42853369bd",
+      "webpSha256": "f2c5b19060f0abb340001a2f5d713f24c4db2f8b866636a9f50357287b800c81",
+      "bytes": 589842
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/myrtles-bathroom-open.webp",
+      "prompt": "Use case: precise-object-edit. Asset type: second revealed state of an existing first-person Hogwarts bathroom game scene.\nInput image 1 is the EDIT TARGET. Keep this exact camera, crop, 16:9 aspect ratio, dimensions, lighting, stone walls, cracked mirrors, normal left doorway and all its threshold geometry, row of other basins and distant cubicles unchanged. Make one localized architectural edit only: the NEAREST LARGE WHITE PORCELAIN BASIN (the foreground basin on the right, around 68% width) has magically SLID ASIDE toward the far right, exposing the hidden entrance beneath its former position.\nThe exposed entrance is a LARGE HUMAN-SIZED OPEN ROUND PIPE in the FLOOR, not a wall window or magic portal. Its smooth circular stone/metal rim is flush with or slightly above the same dry stone floor, around 66% across and 76% down, roughly 1.5 metres in diameter. Show a broad dark OPEN SHAFT interior curving steeply downward into depth; slight grey-green reflected light at depth makes it an actual hollow tube, not a flat black disk. It must be wide enough for a person to climb/slide through. No water fills the pipe and no objects block its accessible near rim. The nearest displaced basin should remain recognizably intact off to its right, with original old brass tap; preserve all farther basins. Only the original nearest-basin area and adjoining floor should change. Keep the ordinary open EXIT DOOR on the far left EXACTLY where it is, unobstructed, and keep all other architectural content fixed.\nThe image must clearly convey that moving the washbasin has uncovered a physical hidden pipe descent, and the visitor can step across the existing clear floor to its mouth. No ladders, stairs, rope, people, phoenix, graphics, arrows, colored outlines, text, labels, UI or watermark. Photoreal live-action texture. Preserve original image's native high resolution at least 1600 pixels wide; no camera movement or broad restyling.",
+      "mode": "edit",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "62496b58f81f11c7db22711093962233c41cd765d492e274c4c87a85b60ee4eb",
+      "webpSha256": "6502304e449c16c8e50a9606d95cf1b419b760f3db3be95073a1427c2bd839a9",
+      "bytes": 432316
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/basement-passage.webp",
+      "prompt": "Use case: historical-scene. Asset: a photorealistic cinematic Hogwarts point-and-click exploration background. Generate one single seamless 16:9 landscape image at native 2048x1152 resolution or larger, with no borders. Eye-level human viewpoint, real limestone blocks, worn slate flagstones, oak details, amber lantern light balanced with cool blue dusk from distant openings, subtle atmospheric depth, physically convincing architecture, exceptional tactile detail. Match a richly photographed medieval castle interior rather than illustration or a videogame render. The paths must be real architectural openings with continuous reachable floor or visible stairs, large enough for a human, never decorative niches mistaken for exits. No visible people, no captions, no numbers, no arrows, no UI, no logos, no watermarks, no floating selection frames. Create the broad stone basement corridor below Hogwarts Great Hall, a warm service area decorated with paintings of food. There are exactly THREE clearly separated usable routes in this one view. At the left, an open wide stone arch contains steps visibly ascending toward the Entrance Hall. In the middle-right, a full-height hinged painting of a large bowl of fruit including one conspicuous green pear has swung partly open like a door, revealing a real warmly lit kitchen entrance and a small glimpse of copper pots beyond; the painting itself remains visible on the angled hinged panel, and its floor-level opening is large enough to enter. At the far right, a distinct narrow arch contains stairs visibly descending to the cooler dungeon passage. Keep the entire walking floor between these three routes clear and connected. The kitchen must be accessed through the fruit picture, not through a random doorway beside it. The two stair routes and the kitchen portrait-door must not overlap. Rich warm practical lighting, old oil paintings, a few discreet copper objects, no furniture blocking paths.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "645ba44e820b54a5284602ac19bf16965973409b361569f700c256cb7bae2da4",
+      "webpSha256": "dbdcf22ea7085158d4c5ba64f0f3c3fb20e57b7abc6aebe330a44e4eba3460c1",
+      "bytes": 551236
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/first-floor-junction.webp",
+      "prompt": "Use case: historical-scene. Asset: a photorealistic cinematic Hogwarts point-and-click exploration background. Generate one single seamless 16:9 landscape image at native 2048x1152 resolution or larger, with no borders. Eye-level human viewpoint, real limestone blocks, worn slate flagstones, oak details, amber lantern light balanced with cool blue dusk from distant openings, subtle atmospheric depth, physically convincing architecture, exceptional tactile detail. Match a richly photographed medieval castle interior rather than illustration or a videogame render. The paths must be real architectural openings with continuous reachable floor or visible stairs, large enough for a human, never decorative niches mistaken for exits. No visible people, no captions, no numbers, no arrows, no UI, no logos, no watermarks, no floating selection frames. Create a generous first-floor teaching corridor junction in Hogwarts. A wide clear semicircular landing shows exactly FIVE distinct navigable routes in the architecture, each separated by substantial stone piers and visible connected flagstone floor. Arrange left to right: one open arch with a clearly descending stone staircase returning toward the main staircase; a broad pair of open oak doors with a soft glimpse of white hospital curtains beyond; a plain open oak classroom doorway with a blackboard deep beyond; another distinct open oak classroom doorway with old desks deep beyond; and a final open arch leading along a short lit teaching passage with its own open threshold. All FIVE entries must be visible at the same time and each must have room to click inside its actual doorway. Use variation in architectural shape and subtle light to distinguish them, not painted labels or signs. No extra exits, no false painted doors, no decorative portal or fake insert panel, no text. Avoid auditorium seating; this is a stone corridor connecting separate rooms.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "018d5b1b518be6b222a706765b68daa62c84e46620e1e46b1f97e7f142420512",
+      "webpSha256": "64e12fcdcde856028487f279a2635278e527fbac7101fc134f8c54eff4d175ad",
+      "bytes": 540636
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/mid-floor-stair.webp",
+      "prompt": "Use case: historical-scene. Asset: a photorealistic cinematic Hogwarts point-and-click exploration background. Generate one single seamless 16:9 landscape image at native 2048x1152 resolution or larger, with no borders. Eye-level human viewpoint, real limestone blocks, worn slate flagstones, oak details, amber lantern light balanced with cool blue dusk from distant openings, subtle atmospheric depth, physically convincing architecture, exceptional tactile detail. Match a richly photographed medieval castle interior rather than illustration or a videogame render. The paths must be real architectural openings with continuous reachable floor or visible stairs, large enough for a human, never decorative niches mistaken for exits. No visible people, no captions, no numbers, no arrows, no UI, no logos, no watermarks, no floating selection frames. Create a readable multilevel Hogwarts stair hall linking the second, third and fourth floors. There must be exactly FIVE visibly usable routes, clearly separated in one continuous convincing architecture. A central broad staircase in the lower foreground visibly descends toward the main staircase. A different shorter stair branch on the left descends only to a nearby lower landing with a clear open corridor arch (the second-floor bathroom approach). On the current third-floor landing there are TWO separate open corridor doorways, one left-middle with a glimpse of armour farther down a corridor and one right-middle with warm classroom light; these do not connect through a classroom. At upper right, a complete visible stair flight climbs to a fourth-floor portrait-lined gallery with a clear open arch. Show the walking surfaces connecting the current landing to all branches; do not place railings across usable paths. The two descending paths must have different destinations and stay visibly distinct. Stone banisters, tall vaults, portraits on solid walls, warm lanterns. All five path mouths are large enough to select in the scene. No floating disconnected stairs, no impossible Escher intersections, no labels or text.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "f3d7ec2a33a0c9c10a9da98137b1911bd30a3f40232ed2442748ea4028d5ee9b",
+      "webpSha256": "8eb900713ff18df4dfb6d5c3090bb28ed3b10cb610c00e5f457962c1b68fe449",
+      "bytes": 555230
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/north-tower-landing.webp",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the stone staircase visible inside the LEFT arch of this image. Preserve the camera, framing, native resolution, circular ceiling trapdoor, full silver ladder, window, lantern, every stone pillar and every other region exactly. The current left stair reads as ascending away from this landing. Correct it so it clearly DESCENDS AWAY from the landing down into the tower: first tread begins level with the present landing, successive treads fall lower as they recede into the dark arch, a side handrail slopes downward into the distance, lower steps vanish around the tower curve below the floor. Keep this a real unobstructed human-size return passage. Do not create any additional exits or alter the silver ladder, which must still ascend into the circular ceiling hatch. No new text, icons, glowing selection effects or frames. Same photorealistic warm stone style.",
+      "mode": "edit",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "360e5d425d4293914894b041edd115b4bc677eb857d4847e6a9d6a515633ac9e",
+      "webpSha256": "ff1712ec9c261a421b6904328125f2fb93a461bedf9accda3a10835240ffaf8c",
+      "bytes": 470192
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/seventh-floor-corridor.webp",
+      "prompt": "Use case: historical-scene. Asset: photorealistic cinematic Hogwarts point-and-click exploration background, one seamless 16:9 image at native 2048x1152 or larger. This is the SEVENTH-FLOOR CORRIDOR outside the Room of Requirement. Create a coherent long, broad Gothic stone corridor viewed obliquely down its length; warm amber wall-lanterns, richly detailed worn stone, muted tapestries, cool blue dusk glimpses. Clearly show FOUR and only four NORMAL traversable route openings, all linked by uninterrupted stone floor: at the far left foreground a large open arch containing stairs descending back toward the main staircase; farther along the left side an open alcove with a stone gargoyle moved to one side and a clearly visible rising spiral stair behind it leading to the Head office; near the central vanishing point an open arch with a narrow ascending stair passage toward the North Tower; and slightly to its right a separate open arch leading onto outdoor battlements with an unmistakable dry parapet walkway and blue dusk. IMPORTANT: On the LEFT wall is a large faded woven tapestry showing a foolish medieval wizard teaching several trolls to dance ballet. DIRECTLY OPPOSITE this tapestry, on the RIGHT foreground wall, leave a large clear uninterrupted human-height panel of ordinary stone masonry; NO door, NO seams outlining a door, NO portal, NO glowing glyphs. This right wall is for a later secret-door edit, so make it plainly visible, unobstructed and broad enough for one full-size doorway. The tapestry is a tapestry hanging flat against its own wall, NOT an entrance. All four ordinary route openings must be separated from the blank right-wall panel and must be visible simultaneously. No people in the corridor, no text, no signs, no labels, no UI, no symbols marking interactables, no artificial frames around openings. Photograph-like rather than illustration, same warm natural stone cinematic style as the existing Hogwarts series.",
+      "mode": "generate",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "18a582e8541730c6a6398bf015b08f4c8da4d562fe5018be48f27d8d49e38cb1",
+      "webpSha256": "975975339c4293d5f6120106b48a4b35509c640abac87962b221bcad8e5c94c9",
+      "bytes": 577480
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/seventh-floor-corridor-open.webp",
+      "prompt": "Use case: precise-object-edit. Input image is the EXACT base frame to preserve. Change ONLY the clear blank masonry panel on the RIGHT FOREGROUND wall directly opposite the large LEFT tapestry. In that blank panel make one full human-height aged dark oak doorway appear and stand open, with a real dark threshold and a restrained warm-lit glimpse of shelves inside the Room of Requirement. The door belongs flush in the existing right wall, obeys its perspective, and opens inward so it does not block the corridor. Place the door entirely in the blank right wall near the right side of the frame, roughly between 85% and 99% of image width; its lower threshold meets the existing stone floor. Keep all FOUR normal routes EXACTLY unchanged: left foreground descending arch, gargoyle spiral stair, central narrow ascending stair, and outdoor battlement arch. Keep the left Barnabas tapestry exactly where it is and unaltered; the secret doorway is OPPOSITE it, never behind or through it. Keep camera, framing, architecture outside the small edited wall region, all lanterns, color, floor, and resolution unchanged. No glow, vortex, portal effect, UI label, text, outline or selection marker. It must look like an ordinary wooden door that has appeared in an otherwise unbroken stone wall. Photorealistic same cinematic texture. This is an edit, not a redesigned scene.",
+      "mode": "edit",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "845fe717485ff194290bbc7c83f9c4d5f97cdd1fd25bea85bd0d456e15db7b5c",
+      "webpSha256": "16f5e58853fa9d7965df77ef7bf220a22beeb8e93a36184eea4a01fccd84511e",
+      "bytes": 495840
+    },
+    {
+      "asset": "/assets/images/hogwarts-cinematic-v4/chamber-far-end.webp",
+      "prompt": "Use case: precise-object-edit. Use the input main Chamber of Secrets image as the structural and visual continuity reference. Create a second viewpoint within the VERY SAME hall: move the camera straight forward along the existing dry central causeway to the far-end platform, much closer to the same colossal grey-green human statue of the ancient bearded wizard Salazar Slytherin. Preserve the recognizably same full-body HUMAN wizard statue, its robe, beard and serpent details, same grey-green stone, huge snake-carved pillars, dim torchlit atmosphere and same architecture; this is not a new separate temple or a snake-mouth portal. The statue remains recognizably human, never a cobra head. Compose a 16:9 cinematic photorealistic closer view at native width at least 1600 pixels. Include the entire main upper figure and enough base to read the platform. Keep a broad continuous DRY walking surface from the statue platform to the bottom center foreground; it is the one clear return route back along the same chamber aisle. If water is visible, it is ONLY in side channels outside the dry walkway. No new doors, no additional route through the statue, no extra chambers, no standing people, no text, UI, labels, arrows, frames or glow effects.",
+      "mode": "edit",
+      "nativeSize": [
+        1672,
+        941
+      ],
+      "nativeSha256": "aedf7a5b76dd0b83310c46b12977df8f773a9838bdf9607b7927d7822f95c02d",
+      "webpSha256": "40ee65a04bd34964e17bc80cf5f27788a412afb0fcd35413f44767cc2b6b1e44",
+      "bytes": 576558
+    }
+  ]
+}

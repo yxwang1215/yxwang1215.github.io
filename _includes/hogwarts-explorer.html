@@ -8,7 +8,7 @@
   <meta name="description" content="Something waits at the end of the next passage.">
   <title>Hogwarts · The Unmapped World</title>
   <style>html:not([data-hgw-authorized="true"]){visibility:hidden;background:#0b141b}</style>
-  <script src="/assets/js/hogwarts-atlas.js?v=20261026-immersive-v1"></script>
+  <script src="/assets/js/hogwarts-atlas.js?v=20261026-geography-v1"></script>
   <script>
     (function(){
       "use strict";
@@ -47,14 +47,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-explore.css?v=20261026-immersive-v1">
+  <link rel="stylesheet" href="/assets/css/hogwarts-explore.css?v=20261026-geography-v1">
   
-  <link rel="stylesheet" href="/assets/css/hogwarts-cinematic.css?v=20261026-immersive-v1">
-  <script src="/assets/js/hogwarts-scenes.js?v=20261026-immersive-v2" defer></script>
-  <script src="/assets/js/hogwarts-explore.js?v=20261026-immersive-v1" defer></script>
-  <link rel="stylesheet" href="/assets/css/hogwarts-soundtrack.css?v=20261026-player-v2">
-  <link rel="stylesheet" href="/assets/css/hogwarts-map.css?v=20261022-map-v1">
-  <script src="/assets/js/hogwarts-map.js?v=20261022-map-v1" defer></script>
+  <link rel="stylesheet" href="/assets/css/hogwarts-cinematic.css?v=20261026-geography-v1">
+  <script src="/assets/js/hogwarts-scenes.js?v=20261026-geography-v1" defer></script>
+  <script src="/assets/js/hogwarts-geography.js?v=20261026-geography-v1" defer></script>
+  <script src="/assets/js/hogwarts-explore.js?v=20261026-geography-v1" defer></script>
+  <link rel="stylesheet" href="/assets/css/hogwarts-soundtrack.css?v=20261026-player-v3">
+  <link rel="stylesheet" href="/assets/css/hogwarts-map.css?v=20261026-geography-v1">
+  <script src="/assets/js/hogwarts-map.js?v=20261026-geography-v1" defer></script>
 </head>
 <body class="hgw-body">
   <a class="hgw-skip" href="#hgw-stage">Skip to the castle</a>
@@ -62,7 +63,7 @@
     <header class="hgw-mast">
       <div class="hgw-brand"><span class="hgw-brand-symbol" aria-hidden="true">✧</span><span>HOGWARTS · THE UNMAPPED WORLD</span></div>
       <div class="hgw-mast-tools">
-  <div class="hgw-mast-note">Wanderings <span id="hgw-visited">01 / 49</span></div>
+  <div class="hgw-mast-note">Wanderings <span id="hgw-visited">01 / 53</span></div>
   <button type="button" id="hmap-trigger" class="hmap-trigger" aria-controls="hmap-dialog" aria-haspopup="dialog" aria-expanded="false" title="Unfold the Hogwarts map (M)">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 7l9-3 9 4 8-3v20l-8 3-9-4-9 3z"/><path d="M12 4v20m9-16v20M12 17l4-5 4 7m-4-7v8"/></svg>
     <span>THE MAP</span>
@@ -80,12 +81,12 @@
       </section>
       <section class="hgw-stage-holder" aria-label="Explorable location">
         <div class="hgw-stage-frame">
-          <div id="hgw-stage" class="hgw-stage" tabindex="0" role="application" aria-label="Explore this place. Walk using arrow keys or W A S D, swipe or touch a location to move. Doors are discovered by walking to them."></div>
+          <div id="hgw-stage" class="hgw-stage" tabindex="0" role="application" aria-label="Explore this place. Select a visible passage with Tab, arrow keys or W A S D, then press Enter. Click or tap only a door, path, stair or hatch to travel."></div>
         </div>
       </section>
     </main>
     <footer class="hgw-footer">
-      <span>A secret found beyond Platform 9¾</span>
+      <span>A secret found beyond Platform 9¾ · <a href="/hogwarts/atlas/">Atlas &amp; book notes</a></span>
       <span class="hgw-footer-line"></span>
       <span id="hgw-location">The castle, after dusk</span>
     </footer>
@@ -135,10 +136,10 @@
         <button type="button" class="hmap-locate" id="hmap-locate">FIND MY FOOTSTEPS</button>
       </aside>
     </div>
-    <footer class="hmap-footer"><span>Not every corridor appears before you walk it.</span>
+    <footer class="hmap-footer"><span>Not every corridor appears before you walk it. <a href="/hogwarts/atlas/">Full atlas &amp; book notes ↗</a></span>
       <span><kbd>M</kbd> to open or fold · <kbd>Esc</kbd> to close</span></footer>
   </div>
 </div>
-  <script src="/assets/js/hogwarts-soundtrack.js?v=20261026-player-v2" defer></script>
+  <script src="/assets/js/hogwarts-soundtrack.js?v=20261026-player-v3" defer></script>
 </body>
 </html>
