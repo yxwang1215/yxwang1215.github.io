@@ -33,7 +33,7 @@
 - [x] 3. Revise `assets/js/hogwarts-atlas.js`, `assets/js/hogwarts-scenes.js` and necessary scene assets; verify reachability, reversible ordinary routes and destination-room constraints.
 - [x] 4. Add `assets/js/hogwarts-geography.js`, the independent `/hogwarts/atlas/` page, overview logic/style and references; update the existing explorer map to the same geographical grouping.
 - [x] 5. Verify graph, runtime, image and overview behavior; independently review desktop and mobile controls.
-- [ ] 6. Run the hosted Jekyll build, publish and confirm the live site.
+- [x] 6. Run the hosted Jekyll build, publish and confirm the live site.
 
 ## Progress
 
@@ -43,4 +43,6 @@
 - Integrated result: 53 nodes, 52 ordinary edges, two secret edges, 106 normal passage polygons, 21 newly generated WebP assets (15 replacements, four connectors, two reveal variants).
 - Six local integrity suites passed, including 44 runtime regressions, 834 independent shortest-path checks, all source/evidence records, exact native image dimensions and 50 generation-provenance hashes.
 - Browser review covered the standalone page, 390-pixel mobile layout, genuine chart zoom (850 to 977.5 pixels at 115%), image-to-passage alignment and non-passage clicks. Rendered diagram edges cross zero unrelated node labels.
-- Independent review found and resolved held-key secret entry, revealed-state returns, canceled ceremony callbacks, mobile zoom and regional keyboard-focus issues. Final code verdict: ready to merge. Publication remains a separate external verification step.
+- Independent review found and resolved held-key secret entry, revealed-state returns, canceled ceremony callbacks, mobile zoom and regional keyboard-focus issues.
+- Published in [PR #36](https://github.com/yxwang1215/yxwang1215.github.io/pull/36), merge `45801970b0f0d629baa29f391a34e85f9a97e263`. The hosted Jekyll build and [Pages build/deployment](https://github.com/yxwang1215/yxwang1215.github.io/actions/runs/40302323745) succeeded. All 84 live checks passed: 53 room pages, the atlas page, nine JavaScript/CSS files and 21 new WebP assets matched the release.
+- Completion follow-up: add an accessible Chinese passage-rules section and navigation anchor to the public atlas, explaining visible exits, revealed secret openings, deliberate keyboard activation and mobile zoom.
