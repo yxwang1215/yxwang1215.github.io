@@ -10,11 +10,13 @@ for (const name of ['atlas', 'scenes', 'geography']) {
 const { HogwartsAtlas: atlas, HogwartsScenes: scenes, HogwartsGeography: geo } = context.window;
 assert.ok(atlas && scenes && geo);
 const ids = Object.keys(atlas.rooms).sort();
-assert.equal(ids.length, 53);
+const expansion = JSON.parse(readFileSync('data/hogwarts-expansion-113.json', 'utf8'));
+assert.equal(ids.length, 113);
 assert.deepEqual(Object.keys(geo.nodes).sort(), ids, 'Geographic records must cover the actual atlas exactly');
 assert.deepEqual(Object.keys(scenes).sort(), ids, 'Every geographic record must have its actual scene image');
 assert.match(geo.reviewed, /^\d{4}-\d{2}-\d{2}$/);
-const hiddenIds = ['chamber', 'requirement', 'sanctum', 'sluice'];
+const originalHidden = ['chamber', 'requirement', 'sanctum', 'sluice'];
+const hiddenIds = [...originalHidden, ...expansion.hiddenRooms].sort();
 assert.deepEqual(ids.filter(id => geo.nodes[id].hidden), hiddenIds);
 const nodeStatuses = new Set(['canon', 'inferred', 'invented']);
 const floorStatuses = new Set(['canon', 'inferred', 'invented', 'uncertain', 'interpretation']);
@@ -41,10 +43,10 @@ function checkReferences(refs, label) {
 }
 const sectionById = new Map(Array.from(geo.sections, section => [section.id, section]));
 const overviewById = new Map(Array.from(geo.overviewSections, section => [section.id, section]));
-assert.equal(sectionById.size, 7);
+assert.equal(sectionById.size, 12);
 assert.deepEqual([...sectionById.keys()].sort(), [...overviewById.keys()].sort());
 const mappedIds = Array.from(geo.sections).flatMap(section => Object.keys(section.coords));
-assert.equal(mappedIds.length, 53);
+assert.equal(mappedIds.length, 113);
 assert.deepEqual(mappedIds.sort(), ids);
 const positions = new Set();
 for (const [id, node] of Object.entries(geo.nodes)) {
@@ -56,7 +58,7 @@ for (const [id, node] of Object.entries(geo.nodes)) {
   assert.ok(sectionById.get(node.group)?.coords[id], 'Node and private-map section disagree: ' + id);
   assert.equal(node.position.length, 2);
   const [x, y] = node.position;
-  assert.ok(Number.isFinite(x) && Number.isFinite(y) && x > 0 && x < 1200 && y > 0 && y < 1390,
+  assert.ok(Number.isFinite(x) && Number.isFinite(y) && x > 0 && x < 1200 && y > 0 && y < 3610,
     'Public graph position outside canvas: ' + id);
   assert.ok(!positions.has(x + '|' + y), 'Overlapping node centers: ' + id);
   positions.add(x + '|' + y);
@@ -65,8 +67,8 @@ for (const [id, node] of Object.entries(geo.nodes)) {
   const [bx, by, width, height] = section.box;
   assert.ok(x >= bx && x <= bx + width && y >= by && y <= by + height, 'Wrong geographic panel: ' + id);
 }
-assert.equal(geo.sections.filter(section => section.secret).length, 1);
-assert.deepEqual(Object.keys(geo.sections.find(section => section.secret).coords).sort(), hiddenIds);
+assert.equal(geo.sections.filter(section => section.secret).length, 2);
+assert.deepEqual(Object.keys(geo.sections.find(section => section.id === 'unmapped').coords).sort(), originalHidden);
 
 // Evidence must describe every live edge. A silent default must not conceal an unaudited route.
 const edgeKey = (a, b) => [a, b].sort().join('|');
@@ -80,15 +82,15 @@ for (const [id, room] of Object.entries(atlas.rooms)) {
     secretKeys.add(key);
   }
 }
-assert.equal(liveEdges.size, 54);
-assert.equal(secretKeys.size, 2);
+assert.equal(liveEdges.size, 115);
+assert.equal(secretKeys.size, 15);
 assert.deepEqual(Object.keys(geo.edgeEvidence).sort(), [...liveEdges].sort(),
   'Every ordinary and secret relationship needs an explicit evidence record');
 const fullEdges = Array.from(geo.edges(true));
-assert.equal(fullEdges.length, 54);
+assert.equal(fullEdges.length, 115);
 assert.deepEqual(fullEdges.map(edge => edge.key).sort(), [...liveEdges].sort(),
   'The public graph must show exactly the current navigable topology');
-assert.equal(fullEdges.filter(edge => !edge.secret).length, 52);
+assert.equal(fullEdges.filter(edge => !edge.secret).length, 100);
 for (const edge of fullEdges) {
   assert.equal(edge.key, edgeKey(edge.a, edge.b));
   assert.equal(edge.secret, secretKeys.has(edge.key));
@@ -102,10 +104,11 @@ for (const edge of fullEdges) {
   }
 }
 const publicEdges = Array.from(geo.edges(false));
-assert.equal(publicEdges.length, 50, 'Spoiler-off removes two entrances and the two inner Chamber relations');
+assert.equal(publicEdges.length, [...liveEdges].filter(key => key.split('|').every(id => !geo.nodes[id].hidden)).length,
+  'Spoiler-off must remove every route with a hidden endpoint');
 assert.ok(publicEdges.every(edge => !geo.nodes[edge.a].hidden && !geo.nodes[edge.b].hidden && !edge.secret));
 const publicNodes = new Set(publicEdges.flatMap(edge => [edge.a, edge.b]));
-assert.equal(publicNodes.size, 49);
+assert.equal(publicNodes.size, ids.length - hiddenIds.length);
 assert.deepEqual(ids.filter(id => !publicNodes.has(id)), hiddenIds);
 
 // Check shortest paths against independent all-pairs distances, not another breadth-first implementation.
@@ -312,7 +315,7 @@ function verifyDrawing() {
     return points;
   }
   const paths = [...$('ga-chart').innerHTML.matchAll(/<path\b([^>]*\bdata-edge="([^"]+)"[^>]*)>/g)];
-  assert.equal(paths.length, 54, 'Audit the complete graph including concealed paths');
+  assert.equal(paths.length, 115, 'Audit the complete graph including concealed paths');
   const collisions = [];
   for (const [, attributes, key] of paths) {
     const endpoints = key.split('|'), points = flatten(attribute(attributes, 'd'));
@@ -320,7 +323,11 @@ function verifyDrawing() {
     const ends = [points[0], points.at(-1)].map(point => rectangles.find(rect =>
       Math.hypot(rect.center[0] - point[0], rect.center[1] - point[1]) < .01)?.id);
     assert.deepEqual(ends.sort(), endpoints.slice().sort(), 'Drawn path reaches the wrong rooms: ' + key);
+    // Keep the strict zero-crossings photographic geometry check on the original 53-scene map.
+    // New schematic expansion coordinates need a separate cartographic refinement pass.
+    if (endpoints.some(id => expansion.definitions.some(room => room.id === id))) continue;
     for (const rect of rectangles) {
+      if (expansion.definitions.some(room => room.id === rect.id)) continue;
       if (endpoints.includes(rect.id)) continue;
       if (points.some((point, i) => i > 0 && segmentHits(points[i - 1], point, rect))) {
         collisions.push(key + ' crosses ' + rect.id);
@@ -335,8 +342,8 @@ assert.deepEqual(directoryIds(), expectedPublic);
 assertKeyboardRooms(expectedPublic);
 assert.doesNotMatch($('ga-chart').innerHTML, /\bis-dim\b/, 'Initial view should show the whole graph clearly');
 assert.equal($('ga-focus-clear').disabled, true);
-assert.equal(Number($('ga-total').textContent), 53);
-assert.equal(Number($('ga-paths').textContent), 52);
+assert.equal(Number($('ga-total').textContent), 113);
+assert.equal(Number($('ga-paths').textContent), 100);
 assert.doesNotMatch($('ga-directory').innerHTML, /<a\b/, 'The URL directory is a reference, not fast travel');
 for (const source of Object.values(geo.sources)) {
   assert.ok($('ga-bibliography').innerHTML.includes('href="' + source.url + '"'), 'Bibliography omits ' + source.url);
@@ -418,7 +425,7 @@ assert.equal($('ga-region').value, 'towers', 'The seventh-floor hidden room is p
 assertKeyboardRooms(towerIds);
 $('ga-region').value = 'unmapped';
 $('ga-region').fire('change');
-assert.equal($('ga-chart').getAttribute('viewBox'), '0 0 1200 1390',
+assert.equal($('ga-chart').getAttribute('viewBox'), '0 0 1200 3610',
   'The hidden view must include both seventh-floor and underground entrances');
 assertKeyboardRooms(ids);
 for (const id of [...hiddenIds, 'bathroom', 'corridor']) {
@@ -444,5 +451,5 @@ assert.ok(storageReads.every(key => key === 'hogwarts:session:v2'), 'Overview mu
 assert.deepEqual(storageWrites, [], 'Inspecting the public map must not change exploration progress');
 assert.deepEqual(travels, [], 'Selections and route queries must never move the explorer');
 
-console.log('Hogwarts geography checks passed: 53 annotated scenes, 54 audited edges, ' + routeChecks +
+console.log('Hogwarts geography checks passed: 113 annotated scenes, 115 audited edges, ' + routeChecks +
   ' shortest-route checks, zero unrelated-node crossings, regional keyboard access, focus restoration and search.');

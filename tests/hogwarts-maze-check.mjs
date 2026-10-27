@@ -189,18 +189,23 @@ assert.ok(atlas, "Atlas must register on window");
 assert.equal(atlas.start, "gate");
 const rooms = atlas.rooms;
 const ids = Object.keys(rooms);
-assert.equal(ids.length, 53, "Keep all 49 legacy scenes and four connecting scenes");
+const expansion = JSON.parse(readFileSync('data/hogwarts-expansion-113.json', 'utf8'));
+assert.equal(expansion.definitions.length, 60);
+assert.equal(ids.length, 113, "Keep 53 original rooms and introduce 60 expansion rooms");
 assert.equal(Object.keys(legacyPaths).length, 49);
-assert.deepEqual(ids.slice().sort(), Object.keys({ ...legacyPaths, ...connectorPaths }).sort());
+assert.ok(Object.keys({ ...legacyPaths, ...connectorPaths }).every(id => rooms[id]), 'Original room IDs must be stable');
+for (const added of expansion.definitions) assert.equal(rooms[added.id].path, added.path, 'New scene URL changed: ' + added.id);
 for (const [id, expected] of Object.entries({ ...legacyPaths, ...connectorPaths })) {
   assert.equal(rooms[id].path, expected, "Stable URL changed for " + id);
 }
 
 const edgeKey = (a, b) => [a, b].sort().join("|");
 const secrets = Object.entries(rooms).filter(([, room]) => room.secret);
-assert.deepEqual(secrets.map(([id, room]) => [id, room.secret.to, room.secret.type]).sort(), [
-  ["bathroom", "sluice", "basin"], ["corridor", "requirement", "wall"]
-].sort(), "Only the basin and opposite-wall entrances are concealed");
+assert.deepEqual(
+  secrets.map(([id, room]) => [id, room.secret.to, room.secret.type]).sort(),
+  [["bathroom", "sluice", "basin"], ["corridor", "requirement", "wall"], ...expansion.hiddenEntrances].sort(),
+  "Existing secret puzzles and all new discoveries must be registered"
+);
 const secretKeys = new Set(secrets.map(([id, room]) => edgeKey(id, room.secret.to)));
 const ordinaryKeys = new Set();
 const paths = new Set();
@@ -236,8 +241,8 @@ for (const [id, room] of Object.entries(rooms)) {
     assert.ok(Object.values(rooms[room.secret.to].exits).includes(id), "Secret branch has no return");
   }
 }
-assert.equal(ordinaryKeys.size, 52, "Ordinary route count changed");
-assert.equal(secretKeys.size, 2);
+assert.equal(ordinaryKeys.size, 100, "Expanded ordinary route count changed");
+assert.equal(secretKeys.size, 15);
 const allKeys = new Set([...ordinaryKeys, ...secretKeys]);
 for (const [a, b] of removedTeleports) {
   assert.ok(!allKeys.has(edgeKey(a, b)), "Removed unsafe shortcut was restored: " + a + " <-> " + b);
@@ -246,8 +251,8 @@ for (const [a, b] of removedTeleports) {
 const leaves = {
   great: "entry", hospital: "firstFloorJunction", history: "firstFloorJunction",
   defense: "firstFloorJunction", transfig: "firstFloorJunction", library: "gallery",
-  armoury: "midFloorStair", charms: "midFloorStair", office: "corridor",
-  divination: "northTowerLanding", astrTower: "astrStair", owlery: "ramparts",
+  charms: "midFloorStair", office: "corridor",
+  divination: "northTowerLanding", astrTower: "astrStair",
   potions: "slytherin", herbology: "greenhouse"
 };
 for (const [id, approach] of Object.entries(leaves)) {
@@ -276,12 +281,13 @@ function traverse(includeSecrets, depthFirst = false) {
   return order;
 }
 const bfs = traverse(true), dfs = traverse(true, true);
-assert.equal(bfs.length, 53, "A scene is unreachable");
-assert.equal(dfs.length, 53);
+assert.equal(bfs.length, 113, "An expanded scene is unreachable");
+assert.equal(dfs.length, 113);
 assert.notDeepEqual(bfs, dfs, "Both traversal orders should be exercised");
 assert.deepEqual(ids.filter(id => !traverse(false).includes(id)).sort(),
-  ["chamber", "requirement", "sanctum", "sluice"], "Hidden rooms must require a concealed entrance");
-assert.equal(allKeys.size - ids.length + 1, 2, "The connected graph must retain both exploration loops");
+  ["chamber", "requirement", "sanctum", "sluice", ...expansion.hiddenRooms].sort(),
+  "Hidden rooms must require a concealed entrance");
+assert.equal(allKeys.size - ids.length + 1, 3, "Expansion adds one further exploration loop");
 for (const teacher of [
   "Minerva McGonagall", "Filius Flitwick", "Severus Snape", "Pomona Sprout",
   "Remus Lupin", "Sybill Trelawney", "Rubeus Hagrid", "Aurora Sinistra", "Rolanda Hooch"
@@ -333,4 +339,4 @@ session.issued = now - 21_600_001;
 assert.equal(runGate(rooms.library.path, { [sessionKey]: JSON.stringify(session) }).authorized, false,
   "Expired journeys must not unlock room URLs");
 
-console.log("Hogwarts maze checks passed: 53 rooms, 49 legacy URLs, 52 ordinary routes, 2 secrets, 2 cycles; session gates preserved.");
+console.log("Hogwarts maze checks passed: 113 rooms, 49 original legacy URLs, 100 ordinary routes, 15 secrets, 3 cycles; session gates preserved.");

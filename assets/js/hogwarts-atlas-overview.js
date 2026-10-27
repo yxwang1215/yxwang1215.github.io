@@ -17,8 +17,8 @@
   }
   function routePairs(){var pairs=new Set();if(state.route)for(var i=1;i<state.route.length;i++)pairs.add(geo.edgeKey(state.route[i-1],state.route[i]));return pairs}
   function diagramBox(){
-    if(state.region==='all'||state.region==='unmapped')return [0,0,1200,1390];
-    return (geo.overviewSections.find(function(section){return section.id===state.region})||{}).box||[0,0,1200,1390];
+    if(state.region==='all'||state.region==='unmapped')return [0,0,1200,3610];
+    return (geo.overviewSections.find(function(section){return section.id===state.region})||{}).box||[0,0,1200,3610];
   }
   function insideBox(id,box){
     var point=geo.nodes[id].position;
@@ -73,7 +73,7 @@
     chart.innerHTML=html;
     chart.setAttribute('viewBox',box.join(' '));
     chart.style.aspectRatio=box[2]+" / "+box[3];
-    var baseline=state.region==='all'||state.region==='unmapped'?850:540;
+    var baseline=state.region==='all'||state.region==='unmapped'?1100:540;
     chart.style.minWidth='0';
     chart.style.width='calc(max(100%, '+baseline+'px) * '+state.zoom+')';
     $("ga-zoom-reset").textContent=Math.round(state.zoom*100)+'%';
@@ -150,8 +150,8 @@
   $("ga-secrets").addEventListener('change',function(){
     state.secrets=this.checked;
     if(!state.secrets&&geo.nodes[state.selected].hidden)state.selected='gate';
-    if(!state.secrets&&state.region==='unmapped'){state.region='all';$("ga-region").value='all'}
-    var option=$("ga-region").querySelector('[value="unmapped"]');option.hidden=!state.secrets;option.disabled=!state.secrets;
+    if(!state.secrets&&geo.sections.some(function(section){return section.secret&&section.id===state.region})){state.region='all';$("ga-region").value='all'}
+    geo.sections.filter(function(section){return section.secret}).forEach(function(section){var option=$("ga-region").querySelector('[value="'+section.id+'"]');if(option){option.hidden=!state.secrets;option.disabled=!state.secrets}});
     if(state.route&&state.route.some(function(id){return !state.secrets&&geo.nodes[id].hidden}))state.route=null;
     renderGraph();renderDetail();renderDirectory();renderRouteOptions();renderRoute();
   });
@@ -175,6 +175,7 @@
     link.href=url;link.download='hogwarts-atlas-'+state.region+'.svg';document.body.appendChild(link);link.click();link.remove();window.setTimeout(function(){URL.revokeObjectURL(url)},1000);
   });
   $("ga-total").textContent=Object.keys(atlas.rooms).length;
+  $("ga-secret-total").textContent=Object.values(atlas.rooms).filter(function(room){return !!room.secret}).length;
   $("ga-paths").textContent=geo.edges(true).filter(function(edge){return !edge.secret}).length;
   $("ga-bibliography").innerHTML=Object.keys(geo.sources).map(function(key){var source=geo.sources[key];return '<li>'+sourceLink(key)+'<small>'+safe(sourceTiers[source.tier]||source.tier)+'</small></li>'}).join('');
   try{

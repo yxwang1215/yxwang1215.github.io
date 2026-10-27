@@ -29,7 +29,9 @@
     "exits": {
       "n": "gate",
       "e": "courtyard",
-      "s": "flying"
+      "s": "flying",
+      "w": "hogsRoad",
+      "a": "outerSlope"
     }
   },
   {
@@ -45,7 +47,8 @@
       "s": "gate",
       "n": "great",
       "w": "staircase",
-      "e": "basementPassage"
+      "e": "basementPassage",
+      "a": "antechamber"
     }
   },
   {
@@ -72,7 +75,8 @@
     "description": "Copper pans line the basement kitchen. The tables stand directly beneath the Great Hall above; the way out leads through the fruit-portrait passage.",
     "exits": {
       "w": "basementPassage",
-      "n": "pantry"
+      "n": "pantry",
+      "e": "commonHuffle"
     }
   },
   {
@@ -99,7 +103,12 @@
     "description": "Portraits watch over the fourth-floor approach. The stairs lead back down, and the passage ahead continues toward the library.",
     "exits": {
       "s": "midFloorStair",
-      "n": "library"
+      "n": "library",
+      "e": "commonGryff"
+    },
+    "secret": {
+      "to": "mirrorChamber",
+      "type": "mirror"
     }
   },
   {
@@ -112,7 +121,12 @@
     "subject": "",
     "description": "Suits of armour keep watch over the third-floor gallery. The clear central aisle returns to the middle landings.",
     "exits": {
-      "s": "midFloorStair"
+      "s": "midFloorStair",
+      "n": "trophy"
+    },
+    "secret": {
+      "to": "forgottenArmory",
+      "type": "armour"
     }
   },
   {
@@ -166,7 +180,12 @@
     "description": "A disused bathroom opens off this stone corridor. The stairs return to the middle landings.",
     "exits": {
       "s": "midFloorStair",
-      "n": "bathroom"
+      "n": "bathroom",
+      "e": "prefectsBath"
+    },
+    "secret": {
+      "to": "oneEyedTunnel",
+      "type": "statue"
     }
   },
   {
@@ -246,6 +265,10 @@
     "description": "The old volumes are catalogued by subjects that do not appear in ordinary schools.",
     "exits": {
       "s": "gallery"
+    },
+    "secret": {
+      "to": "restrictedStacks",
+      "type": "books"
     }
   },
   {
@@ -337,7 +360,8 @@
     "subject": "",
     "description": "Owls watch the sky through unglazed windows. The tower stairs lead back toward the battlements.",
     "exits": {
-      "s": "ramparts"
+      "s": "ramparts",
+      "n": "owlDrop"
     }
   },
   {
@@ -352,7 +376,9 @@
     "exits": {
       "s": "corridor",
       "w": "owlery",
-      "e": "astrStair"
+      "e": "astrStair",
+      "n": "clockTower",
+      "a": "commonRaven"
     }
   },
   {
@@ -395,6 +421,10 @@
       "s": "slytherin",
       "w": "crypt",
       "e": "vault"
+    },
+    "secret": {
+      "to": "trapdoorChamber",
+      "type": "hatch"
     }
   },
   {
@@ -408,6 +438,10 @@
     "description": "Names worn smooth by time disappear into the stone.",
     "exits": {
       "s": "oldArchive"
+    },
+    "secret": {
+      "to": "whisperingCrypt",
+      "type": "whisper"
     }
   },
   {
@@ -424,6 +458,10 @@
       "w": "potions",
       "n": "oldArchive",
       "e": "reservoir"
+    },
+    "secret": {
+      "to": "serpentDoor",
+      "type": "rune"
     }
   },
   {
@@ -465,7 +503,8 @@
       "w": "forecourt",
       "n": "cloister",
       "e": "bridge",
-      "s": "quidditch"
+      "s": "quidditch",
+      "a": "willowRoots"
     }
   },
   {
@@ -480,7 +519,8 @@
     "exits": {
       "w": "courtyard",
       "e": "lake",
-      "n": "hut"
+      "n": "hut",
+      "s": "coveredBridge"
     }
   },
   {
@@ -508,7 +548,8 @@
     "subject": "",
     "description": "The boats are tied to their posts, though the lake is perfectly still.",
     "exits": {
-      "s": "lake"
+      "s": "lake",
+      "n": "boatLaunch"
     }
   },
   {
@@ -522,6 +563,10 @@
     "description": "A wet lantern makes one small golden circle on the black water.",
     "exits": {
       "s": "lake"
+    },
+    "secret": {
+      "to": "lakeShallows",
+      "type": "reflection"
     }
   },
   {
@@ -535,7 +580,8 @@
     "description": "A muddy trail leads deeper toward a clearing. The way back follows the same path to Hagrid's garden at the forest edge.",
     "exits": {
       "s": "hut",
-      "n": "clearing"
+      "n": "clearing",
+      "e": "acromantulaDen"
     }
   },
   {
@@ -548,7 +594,8 @@
     "subject": "",
     "description": "Pale mushrooms outline a ring where the wind never quite reaches.",
     "exits": {
-      "s": "forest"
+      "s": "forest",
+      "n": "centaurGrove"
     }
   },
   {
@@ -592,7 +639,13 @@
     "exits": {
       "n": "courtyard",
       "w": "paddock",
-      "s": "flying"
+      "s": "flying",
+      "e": "quidStands",
+      "a": "quidGoals"
+    },
+    "secret": {
+      "to": "quidReferee",
+      "type": "banner"
     }
   },
   {
@@ -606,7 +659,8 @@
     "description": "The windows are fogged from inside. Something leaf-shaped taps on the panes.",
     "exits": {
       "w": "cloister",
-      "e": "herbology"
+      "e": "herbology",
+      "n": "herbCourt"
     }
   },
   {
@@ -633,7 +687,8 @@
     "description": "The open lawn gives first-time flyers space to practise. Its paths return to the approach and continue toward the Quidditch pitch.",
     "exits": {
       "n": "quidditch",
-      "s": "forecourt"
+      "s": "forecourt",
+      "e": "flyingShed"
     }
   },
   {
@@ -687,7 +742,11 @@
     "subject": "",
     "description": "The room has become a storehouse of forgotten things. Its doorway returns to the seventh-floor corridor where it appeared.",
     "exits": {
-      "s": "corridor"
+      "s": "corridor",
+      "n": "roRThings",
+      "e": "roRDA",
+      "w": "roRDiadem",
+      "a": "roRArchive"
     }
   },
   {
@@ -751,6 +810,828 @@
     "exits": {
       "s": "corridor",
       "n": "divination"
+    }
+  },
+  {
+    "id": "hogsRoad",
+    "path": "/hogwarts/hogsmeade/hill-road/",
+    "name": "Hogsmeade Hill Road",
+    "kind": "grounds",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "A steep lane descends through pine trees toward the village lights.",
+    "exits": {
+      "n": "forecourt",
+      "e": "hogsStation",
+      "s": "shriekingShack"
+    }
+  },
+  {
+    "id": "hogsStation",
+    "path": "/hogwarts/hogsmeade/station/",
+    "name": "Hogsmeade Station",
+    "kind": "hall",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "A quiet platform, dark rails and an old clock under the lanterns.",
+    "exits": {
+      "n": "hogsRoad",
+      "e": "hogsBridge"
+    }
+  },
+  {
+    "id": "hogsBridge",
+    "path": "/hogwarts/hogsmeade/station/wooden-bridge/",
+    "name": "Station Wooden Bridge",
+    "kind": "bridge",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Timber planks cross the narrow stream below the station.",
+    "exits": {
+      "n": "hogsStation",
+      "e": "hogsSquare"
+    }
+  },
+  {
+    "id": "hogsSquare",
+    "path": "/hogwarts/hogsmeade/village-square/",
+    "name": "Hogsmeade Village Square",
+    "kind": "grounds",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Warm shop windows surround a cobbled square beneath snowy gables.",
+    "exits": {
+      "n": "hogsBridge",
+      "e": "hogsHigh",
+      "s": "puddifoot",
+      "w": "postOffice"
+    }
+  },
+  {
+    "id": "hogsHigh",
+    "path": "/hogwarts/hogsmeade/high-street/",
+    "name": "Hogsmeade High Street",
+    "kind": "grounds",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Shop signs and crooked chimneys crowd the main street.",
+    "exits": {
+      "n": "hogsSquare",
+      "e": "broomsPorch",
+      "s": "hogsHeadPorch",
+      "w": "honeydukes",
+      "a": "zonkos",
+      "b": "scribbulus",
+      "c": "gladrags",
+      "d": "dervish"
+    }
+  },
+  {
+    "id": "broomsPorch",
+    "path": "/hogwarts/hogsmeade/three-broomsticks/porch/",
+    "name": "Three Broomsticks Porch",
+    "kind": "hall",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Laughter and lamplight spill out across the threshold.",
+    "exits": {
+      "n": "hogsHigh",
+      "e": "broomsPub"
+    }
+  },
+  {
+    "id": "broomsPub",
+    "path": "/hogwarts/hogsmeade/three-broomsticks/",
+    "name": "The Three Broomsticks",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "An inviting public house of honey-coloured wood and blazing hearths.",
+    "exits": {
+      "n": "broomsPorch"
+    }
+  },
+  {
+    "id": "hogsHeadPorch",
+    "path": "/hogwarts/hogsmeade/hogs-head/porch/",
+    "name": "Hog's Head Porch",
+    "kind": "hall",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "The weathered inn sign creaks above a shadowed doorway.",
+    "exits": {
+      "n": "hogsHigh",
+      "e": "hogsHead"
+    }
+  },
+  {
+    "id": "hogsHead",
+    "path": "/hogwarts/hogsmeade/hogs-head/",
+    "name": "The Hog's Head",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "A gloomy bar with old bottles, dust and a watchful portrait.",
+    "exits": {
+      "n": "hogsHeadPorch"
+    },
+    "secret": {
+      "to": "hogsCellar",
+      "type": "bottle"
+    }
+  },
+  {
+    "id": "hogsCellar",
+    "path": "/hogwarts/hogsmeade/hogs-head/cellar/",
+    "name": "Hog's Head Cellar",
+    "kind": "dungeon",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "The cellar is crowded with forgotten casks and a suspicious stone statue.",
+    "exits": {
+      "n": "hogsHead"
+    },
+    "secret": {
+      "to": "humpbackTunnel",
+      "type": "statue"
+    }
+  },
+  {
+    "id": "honeydukes",
+    "path": "/hogwarts/hogsmeade/honeydukes/",
+    "name": "Honeydukes",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Glass jars gleam with sweets in every colour imaginable.",
+    "exits": {
+      "n": "hogsHigh"
+    },
+    "secret": {
+      "to": "honeyCellar",
+      "type": "trapdoor"
+    }
+  },
+  {
+    "id": "zonkos",
+    "path": "/hogwarts/hogsmeade/zonkos/",
+    "name": "Zonko's Joke Shop",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Mechanical marvels and mischief crowd the shelves.",
+    "exits": {
+      "n": "hogsHigh"
+    }
+  },
+  {
+    "id": "scribbulus",
+    "path": "/hogwarts/hogsmeade/scribbulus/",
+    "name": "Scrivenshaft's Quill Shop",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Quills and enchanted inks cover a polished writing desk.",
+    "exits": {
+      "n": "hogsHigh"
+    }
+  },
+  {
+    "id": "gladrags",
+    "path": "/hogwarts/hogsmeade/gladrags/",
+    "name": "Gladrags Wizardwear",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Robes and hats hang behind tall leaded shop windows.",
+    "exits": {
+      "n": "hogsHigh"
+    }
+  },
+  {
+    "id": "dervish",
+    "path": "/hogwarts/hogsmeade/dervish-and-banges/",
+    "name": "Dervish and Banges",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Magical instruments tick, spin and murmur from brass cabinets.",
+    "exits": {
+      "n": "hogsHigh"
+    }
+  },
+  {
+    "id": "puddifoot",
+    "path": "/hogwarts/hogsmeade/madam-puddifoot/",
+    "name": "Madam Puddifoot's Tea Shop",
+    "kind": "study",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Tiny tea tables crowd a room steeped in rose-coloured steam.",
+    "exits": {
+      "n": "hogsSquare"
+    }
+  },
+  {
+    "id": "postOffice",
+    "path": "/hogwarts/hogsmeade/post-office/",
+    "name": "Hogsmeade Post Office",
+    "kind": "hall",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "Owls settle above a counter crowded with parcels and stamps.",
+    "exits": {
+      "n": "hogsSquare"
+    }
+  },
+  {
+    "id": "shriekingShack",
+    "path": "/hogwarts/hogsmeade/shrieking-shack/",
+    "name": "The Shrieking Shack",
+    "kind": "exterior",
+    "kicker": "霍格莫德村",
+    "teacher": "",
+    "subject": "",
+    "description": "A shuttered house stands alone where the village path ends.",
+    "exits": {
+      "n": "hogsRoad"
+    }
+  },
+  {
+    "id": "antechamber",
+    "path": "/hogwarts/castle/keep/ground-floor/great-hall-antechamber/",
+    "name": "Great Hall Antechamber",
+    "kind": "hall",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Torchlight gilds the stone antechamber outside the Great Hall.",
+    "exits": {
+      "n": "entry"
+    }
+  },
+  {
+    "id": "trophy",
+    "path": "/hogwarts/castle/keep/third-floor/trophy-gallery/",
+    "name": "Trophy Gallery",
+    "kind": "portrait",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Names engraved in silver catch the light among old shields.",
+    "exits": {
+      "n": "armoury"
+    },
+    "secret": {
+      "to": "mapNook",
+      "type": "map"
+    }
+  },
+  {
+    "id": "clockTower",
+    "path": "/hogwarts/castle/upper-keep/clock-tower/",
+    "name": "Clock Tower",
+    "kind": "observatory",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Enormous clockworks turn above the cloisters.",
+    "exits": {
+      "n": "ramparts"
+    }
+  },
+  {
+    "id": "prefectsBath",
+    "path": "/hogwarts/castle/keep/fifth-floor/prefects-bathroom/",
+    "name": "Prefects' Bathroom",
+    "kind": "bathroom",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Coloured taps surround a vast marble bath.",
+    "exits": {
+      "n": "baths"
+    }
+  },
+  {
+    "id": "commonGryff",
+    "path": "/hogwarts/castle/residences/gryffindor-common-room/",
+    "name": "Gryffindor Common Room",
+    "kind": "study",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Red hangings and a warm fireplace welcome tired students.",
+    "exits": {
+      "n": "gallery"
+    }
+  },
+  {
+    "id": "commonRaven",
+    "path": "/hogwarts/castle/residences/ravenclaw-common-room/",
+    "name": "Ravenclaw Common Room",
+    "kind": "study",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Blue windows frame the night sky above shelves of books.",
+    "exits": {
+      "n": "ramparts"
+    }
+  },
+  {
+    "id": "commonHuffle",
+    "path": "/hogwarts/castle/residences/hufflepuff-common-room/",
+    "name": "Hufflepuff Common Room",
+    "kind": "study",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Round windows and copper lamps brighten a snug underground room.",
+    "exits": {
+      "n": "kitchens"
+    }
+  },
+  {
+    "id": "commonSlytherin",
+    "path": "/hogwarts/castle/residences/slytherin-common-room/",
+    "name": "Slytherin Common Room",
+    "kind": "dungeon",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Greenish light ripples through windows below the water.",
+    "exits": {
+      "n": "serpentDoor"
+    }
+  },
+  {
+    "id": "roRThings",
+    "path": "/hogwarts/castle/academic-wing/room-of-requirement/hidden-things/",
+    "name": "Room of Hidden Things",
+    "kind": "requirement",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Towering heaps of lost objects form paths through the changing room.",
+    "exits": {
+      "n": "requirement"
+    }
+  },
+  {
+    "id": "roRDA",
+    "path": "/hogwarts/castle/academic-wing/room-of-requirement/da-training/",
+    "name": "D.A. Training Room",
+    "kind": "requirement",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Practice dummies and spell marks line a responsive training hall.",
+    "exits": {
+      "n": "requirement"
+    }
+  },
+  {
+    "id": "roRDiadem",
+    "path": "/hogwarts/castle/academic-wing/room-of-requirement/diadem-niche/",
+    "name": "Diadem Niche",
+    "kind": "requirement",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "A dusty niche lies among stacks of forgotten furniture.",
+    "exits": {
+      "n": "requirement"
+    }
+  },
+  {
+    "id": "roRArchive",
+    "path": "/hogwarts/castle/academic-wing/room-of-requirement/living-archive/",
+    "name": "Living Archive",
+    "kind": "requirement",
+    "kicker": "城堡新翼与有求必应屋",
+    "teacher": "",
+    "subject": "",
+    "description": "Folio pages shuffle by themselves as shelves continually rearrange.",
+    "exits": {
+      "n": "requirement"
+    }
+  },
+  {
+    "id": "lakeShallows",
+    "path": "/hogwarts/grounds/black-lake/shallow-water/",
+    "name": "Black Lake Shallows",
+    "kind": "lake",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Moonlight wrinkles across the narrow strip of shallows.",
+    "exits": {
+      "n": "lakeIslet",
+      "e": "lakeCave",
+      "s": "dock"
+    }
+  },
+  {
+    "id": "boatLaunch",
+    "path": "/hogwarts/grounds/black-lake/boat-launch/",
+    "name": "Boathouse Launch",
+    "kind": "lake",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Small boats rock against the timber landing.",
+    "exits": {
+      "n": "boathouse"
+    }
+  },
+  {
+    "id": "lakeCave",
+    "path": "/hogwarts/grounds/black-lake/underwater-cave/",
+    "name": "Black Lake Underwater Cave",
+    "kind": "water",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Blue light filters through the roof of a submerged cavern.",
+    "exits": {
+      "n": "lakeShallows",
+      "e": "merVillage"
+    }
+  },
+  {
+    "id": "merVillage",
+    "path": "/hogwarts/grounds/black-lake/merpeople-village/",
+    "name": "Merpeople Village",
+    "kind": "water",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Submerged stone dwellings rise around an ancient plaza.",
+    "exits": {
+      "n": "lakeCave"
+    }
+  },
+  {
+    "id": "lakeIslet",
+    "path": "/hogwarts/grounds/black-lake/islet/",
+    "name": "Black Lake Islet",
+    "kind": "lake",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "A lonely island breaks the smooth surface of the lake.",
+    "exits": {
+      "n": "lakeShallows"
+    }
+  },
+  {
+    "id": "willowRoots",
+    "path": "/hogwarts/grounds/whomping-willow/roots/",
+    "name": "Whomping Willow Roots",
+    "kind": "forest",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Enormous roots press against the earth beside an agitated trunk.",
+    "exits": {
+      "n": "courtyard"
+    }
+  },
+  {
+    "id": "centaurGrove",
+    "path": "/hogwarts/grounds/forbidden-forest/centaur-grove/",
+    "name": "Centaur Grove",
+    "kind": "forest",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "A circle of old trees opens beneath the stars.",
+    "exits": {
+      "n": "clearing",
+      "e": "unicornGlade"
+    }
+  },
+  {
+    "id": "unicornGlade",
+    "path": "/hogwarts/grounds/forbidden-forest/unicorn-glade/",
+    "name": "Unicorn Glade",
+    "kind": "forest",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Silver tracks wind between ferns and moonlit birches.",
+    "exits": {
+      "n": "centaurGrove"
+    }
+  },
+  {
+    "id": "acromantulaDen",
+    "path": "/hogwarts/grounds/forbidden-forest/acromantula-den/",
+    "name": "Acromantula Den",
+    "kind": "forest",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Heavy webs hang between black trunks.",
+    "exits": {
+      "n": "forest"
+    }
+  },
+  {
+    "id": "coveredBridge",
+    "path": "/hogwarts/grounds/covered-bridge/",
+    "name": "Covered Bridge",
+    "kind": "bridge",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "A timber roof spans the ravine beneath the castle.",
+    "exits": {
+      "n": "bridge"
+    }
+  },
+  {
+    "id": "herbCourt",
+    "path": "/hogwarts/grounds/greenhouses/herbology-courtyard/",
+    "name": "Herbology Courtyard",
+    "kind": "greenhouse",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Clay pots and damp seedlings crowd the walled garden.",
+    "exits": {
+      "n": "greenhouse"
+    }
+  },
+  {
+    "id": "outerSlope",
+    "path": "/hogwarts/grounds/castle-outer-slope/",
+    "name": "Castle Outer Slope",
+    "kind": "grounds",
+    "kicker": "湖底、禁林与校地外围",
+    "teacher": "",
+    "subject": "",
+    "description": "Wind moves through the grass below the high walls.",
+    "exits": {
+      "n": "forecourt"
+    }
+  },
+  {
+    "id": "quidStands",
+    "path": "/hogwarts/grounds/quidditch/stands/",
+    "name": "Quidditch Stands",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "High wooden terraces rise above the green pitch.",
+    "exits": {
+      "n": "quidditch",
+      "e": "quidChanging"
+    }
+  },
+  {
+    "id": "quidChanging",
+    "path": "/hogwarts/grounds/quidditch/changing-rooms/",
+    "name": "Quidditch Changing Rooms",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "House colours hang from the rafters beside lockers.",
+    "exits": {
+      "n": "quidStands",
+      "e": "quidKit"
+    }
+  },
+  {
+    "id": "quidKit",
+    "path": "/hogwarts/grounds/quidditch/equipment-store/",
+    "name": "Quidditch Equipment Store",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "Brooms, bats and training balls wait behind barred shelves.",
+    "exits": {
+      "n": "quidChanging"
+    }
+  },
+  {
+    "id": "quidReferee",
+    "path": "/hogwarts/grounds/quidditch/referee-tower/",
+    "name": "Quidditch Referee Tower",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "A private staircase climbs to the flags above the field.",
+    "exits": {
+      "n": "quidditch"
+    }
+  },
+  {
+    "id": "quidGoals",
+    "path": "/hogwarts/grounds/quidditch/goal-hoops/",
+    "name": "Quidditch Goal Hoops",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "Three hoops cast long shadows over a bright green pitch.",
+    "exits": {
+      "n": "quidditch",
+      "e": "quidTrophies"
+    }
+  },
+  {
+    "id": "quidTrophies",
+    "path": "/hogwarts/grounds/quidditch/trophy-walk/",
+    "name": "Quidditch Trophy Walk",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "Team pennants and battered cups line a short arcade.",
+    "exits": {
+      "n": "quidGoals"
+    }
+  },
+  {
+    "id": "flyingShed",
+    "path": "/hogwarts/grounds/quidditch/flying-equipment-shed/",
+    "name": "Flying Lesson Equipment Shed",
+    "kind": "quidditch",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "Practice brooms lean against a low timber wall.",
+    "exits": {
+      "n": "flying"
+    }
+  },
+  {
+    "id": "owlDrop",
+    "path": "/hogwarts/grounds/quidditch/owl-delivery-ledge/",
+    "name": "Owl Delivery Ledge",
+    "kind": "grounds",
+    "kicker": "魁地奇与飞行区域",
+    "teacher": "",
+    "subject": "",
+    "description": "Owl perches overlook the grounds from a sheltered ledge.",
+    "exits": {
+      "n": "owlery"
+    }
+  },
+  {
+    "id": "humpbackTunnel",
+    "path": "/hogwarts/under-castle/humpbacked-witch-passage/",
+    "name": "Humpbacked Witch Passage",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "A narrow carved passage vanishes under the hillside.",
+    "exits": {
+      "n": "hogsCellar"
+    }
+  },
+  {
+    "id": "serpentDoor",
+    "path": "/hogwarts/castle/dungeons/serpent-door/",
+    "name": "Serpent Door",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "A carved serpent coils around a door of dark stone.",
+    "exits": {
+      "n": "commonSlytherin",
+      "e": "slytherin"
+    }
+  },
+  {
+    "id": "trapdoorChamber",
+    "path": "/hogwarts/castle/dungeons/hidden-trapdoor/",
+    "name": "Trapdoor Chamber",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "A hidden hatch opens onto forgotten masonry.",
+    "exits": {
+      "n": "oldArchive"
+    }
+  },
+  {
+    "id": "mirrorChamber",
+    "path": "/hogwarts/castle/keep/mirror-of-erised-chamber/",
+    "name": "Mirror of Erised Chamber",
+    "kind": "portrait",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "An ornate mirror waits alone under a faded curtain.",
+    "exits": {
+      "n": "gallery"
+    }
+  },
+  {
+    "id": "mapNook",
+    "path": "/hogwarts/castle/keep/marauders-map-nook/",
+    "name": "Marauder's Map Nook",
+    "kind": "study",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "Old parchment shows a shifting maze of corridors.",
+    "exits": {
+      "n": "trophy"
+    }
+  },
+  {
+    "id": "restrictedStacks",
+    "path": "/hogwarts/castle/academic-wing/first-floor/restricted-section/",
+    "name": "Library Restricted Section",
+    "kind": "library",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "Darkened shelves stand beyond a screened doorway.",
+    "exits": {
+      "n": "library"
+    }
+  },
+  {
+    "id": "oneEyedTunnel",
+    "path": "/hogwarts/under-castle/one-eyed-witch-tunnel/",
+    "name": "One-Eyed Witch Tunnel",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "Stone steps wind toward an old confectioner's cellar.",
+    "exits": {
+      "n": "honeyCellar",
+      "e": "baths"
+    }
+  },
+  {
+    "id": "honeyCellar",
+    "path": "/hogwarts/hogsmeade/honeydukes/cellar/",
+    "name": "Honeydukes Cellar",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "The sweet shop's cellar hides a stair under barrels.",
+    "exits": {
+      "n": "oneEyedTunnel",
+      "e": "honeydukes"
+    }
+  },
+  {
+    "id": "whisperingCrypt",
+    "path": "/hogwarts/castle/dungeons/whispering-crypt/",
+    "name": "Whispering Crypt",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "Indistinct voices drift between memorial stones.",
+    "exits": {
+      "n": "crypt"
+    }
+  },
+  {
+    "id": "forgottenArmory",
+    "path": "/hogwarts/castle/keep/forgotten-armory/",
+    "name": "Forgotten Armoury",
+    "kind": "dungeon",
+    "kicker": "隐秘通道与失落房间",
+    "teacher": "",
+    "subject": "",
+    "description": "Old shields guard a sealed passage behind the gallery.",
+    "exits": {
+      "n": "armoury"
     }
   }
 ];

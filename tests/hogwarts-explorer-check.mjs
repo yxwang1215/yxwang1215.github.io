@@ -330,9 +330,9 @@ async function harness(startId, options = {}) {
   return run;
 }
 
-test("all 53 rooms render one dedicated native image with clipped, accessible passage targets", async () => {
+test("all 113 rooms render one dedicated native image with clipped, accessible passage targets", async () => {
   const catalog = (await harness("gate")).atlas.rooms;
-  assert.equal(Object.keys(catalog).length, 53);
+  assert.equal(Object.keys(catalog).length, 113);
   const sources = new Set();
   for (const id of Object.keys(catalog)) {
     const run = await harness(id), scene = run.scenes[id], images = run.stage.querySelectorAll("img");
@@ -354,7 +354,7 @@ test("all 53 rooms render one dedicated native image with clipped, accessible pa
     }
     sources.add(run.image.src);
   }
-  assert.equal(sources.size, 53, "Every room requires distinct scene artwork");
+  assert.equal(sources.size, 113, "Every room requires distinct scene artwork");
 });
 
 test("every normal passage's actual image point reaches its declared destination at narrow and wide viewports", async () => {
@@ -695,7 +695,10 @@ for (const response of ["load", "error"]) {
     assert.equal(run.roomId, "baths");
     assert.equal(run.image.src, run.scenes.baths.src);
     assert.equal(run.changes.length, changesBefore);
-    assert.equal(run.stage.querySelector("[data-secret]"), null);
+    // The expanded bathroom corridor also has its own unopened witch-statue secret.
+    // A stale bathroom image load must not reveal or remove this independent puzzle.
+    assert.equal(run.stage.querySelector("[data-secret]")?.getAttribute("data-secret"), "statue");
+    assert.equal(run.stage.querySelector("[data-secret]")?.getAttribute("role"), "button");
     assert.equal(run.document.getElementById("hgw-observation").classList.contains("is-visible"), false);
     await run.travelTo("bathroom");
     assert.equal(run.roomId, "bathroom", "Stale callbacks must not leave navigation busy");

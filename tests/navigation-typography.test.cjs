@@ -43,7 +43,7 @@ test("responsive grid, search, and external workspace remain supported", () => {
 
 test("Works, Tools, Test Lab, and Overleaf destinations remain discoverable", () => {
   assert.deepEqual([...data.matchAll(/^  - id: (\w+)$/gm)].map(m => m[1]),
-    ["home", "tools", "tests", "overleaf"]);
+    ["home", "tools", "tests", "dog", "overleaf"]);
   for (const url of ["/research/", "/journey/", "/journal/", "/#works", "/#service",
                      "/tools/#pdf/organize", "/tests/talent/"]) {
     assert.ok(data.includes('url: "' + url + '"'), "Lost destination: " + url);

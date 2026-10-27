@@ -16,11 +16,11 @@ const geography = context.window.HogwartsGeography;
 const map = context.window.HogwartsMapModel;
 assert.ok(atlas && geography && map, 'Map model must use the shared room graph and geographic groups');
 assert.equal(map.sections, geography.sections, 'Private and public maps must share geographic groups');
-assert.equal(map.sections.length, 7, 'Six public regions and one concealed section are expected');
+assert.equal(map.sections.length, 12, 'Ten public regions and two concealed sections are expected');
 const coords = Array.from(map.sections).flatMap(section =>
   Object.entries(section.coords).map(([id, xy]) => ({ id, xy, section: section.id })));
-assert.equal(coords.length, 53, 'Every scene needs one map position');
-assert.equal(new Set(coords.map(item => item.id)).size, 53, 'Map must not duplicate scenes');
+assert.equal(coords.length, 113, 'Every scene needs one map position');
+assert.equal(new Set(coords.map(item => item.id)).size, 113, 'Map must not duplicate scenes');
 assert.deepEqual(coords.map(item => item.id).sort(), Object.keys(atlas.rooms).sort());
 for (const { id, xy, section } of coords) {
   assert.equal(xy.length, 2);
@@ -47,7 +47,7 @@ assert.equal(map.routeBetween('gate', 'pantry', missingIntermediate), null,
 const hiddenSection = map.sections.find(section => section.secret);
 assert.ok(hiddenSection, 'Concealed section is identified by metadata, not array position');
 assert.deepEqual(Object.keys(hiddenSection.coords).sort(), ['chamber', 'requirement', 'sanctum', 'sluice']);
-assert.equal(map.availableSections(visited).length, 6);
+assert.equal(map.availableSections(visited).length, 10);
 assert.ok(!map.availableSections(visited).some(section => section.secret));
 for (const id of Object.keys(hiddenSection.coords)) {
   assert.ok(map.availableSections(new Set([...visited, id])).some(section => section.secret),
@@ -83,4 +83,4 @@ assert.doesNotMatch(mapText, /(?:location\s*\.\s*(?:assign|replace)|history\s*\.
   'Map cannot teleport between rooms');
 assert.ok(css.includes('prefers-reduced-motion') && css.includes('hmap-point:focus-visible'),
   'Private map needs reduced-motion and keyboard focus styles');
-console.log('Hogwarts map checks passed: 53 scenes, seven shared regions, visited-only routes and concealed sections.');
+console.log('Hogwarts map checks passed: 113 scenes, twelve shared regions, visited-only routes and concealed sections.');

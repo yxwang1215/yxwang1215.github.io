@@ -63,8 +63,7 @@
     return path.reverse();
   }
   function availableSections(visited) {
-    var hiddenDiscovered = Object.keys(sections.find(function(section){return section.secret}).coords).some(function (id) { return visited.has(id); });
-    return sections.filter(function (section) { return !section.secret || hiddenDiscovered; });
+    return sections.filter(function (section) { return !section.secret || Object.keys(section.coords).some(function (id) { return visited.has(id); }); });
   }
 
   // Pure model is exposed for the map's regression test and future extensions.
@@ -159,11 +158,11 @@
       '<path class="hmap-compass-lines" d="M50 50h900v540H50z"/>' +
       '<path class="hmap-compass-lines" d="M50 75h900M50 565h900M75 50v540M925 50v540"/>' +
       '<text x="500" y="607" class="hmap-engraving" text-anchor="middle">' +
-      ({grounds:"SCHOOL GROUNDS",keep:"ENTRANCE AND MAIN STAIRS",teaching:"FIRST-FLOOR RECONSTRUCTION",academic:"THE SCHOLAR'S WING",towers:"THE WATCHTOWERS",dungeons:"BELOW THE STONES",unmapped:"HERE BE UNSPOKEN THINGS"}[section.id]) +
+      ({grounds:"SCHOOL GROUNDS",keep:"ENTRANCE AND MAIN STAIRS",teaching:"FIRST-FLOOR RECONSTRUCTION",academic:"THE SCHOLAR'S WING",towers:"THE WATCHTOWERS",dungeons:"BELOW THE STONES",unmapped:"HERE BE UNSPOKEN THINGS",hogsmeade:"HOGSMEADE VILLAGE",outerGrounds:"LAKE AND FOREST",quidditchGrounds:"QUIDDITCH GROUNDS",hiddenAnnex:"HIDDEN PASSAGES",castleAnnex:"THE CASTLE ANNEX"}[section.id]) +
       '</text>' +
       '<g class="hmap-compass" transform="translate(933 91)"><circle r="29"/>' +
       '<path d="M0-26V26M-26 0H26M0-22l5 22-5-3-5 3z"/><text x="0" y="-36" text-anchor="middle">✦</text></g>' +
-      (illustrations[section.id]||illustrations.academic);
+      (illustrations[section.id]||illustrations[section.id==="hogsmeade"?"grounds":section.id==="outerGrounds"?"grounds":section.id==="quidditchGrounds"?"grounds":section.id==="castleAnnex"?"keep":"unmapped"]);
   }
 
   function svgPath(d, className) {
