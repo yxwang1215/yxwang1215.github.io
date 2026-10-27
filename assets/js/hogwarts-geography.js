@@ -2,7 +2,7 @@
 (function(){
   "use strict";
   var data={
-  "reviewed": "2026-10-26",
+  "reviewed": "2026-10-27",
   "nodes": {
     "gate": {
       "label": "城堡大门",
@@ -852,6 +852,846 @@
         105
       ],
       "hidden": false
+    },
+    "hogsRoad": {
+      "label": "霍格莫德山路",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "霍格莫德山路：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        1510
+      ],
+      "hidden": false
+    },
+    "hogsStation": {
+      "label": "霍格莫德车站",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "霍格莫德车站：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        1510
+      ],
+      "hidden": false
+    },
+    "hogsBridge": {
+      "label": "车站木桥",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "车站木桥：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        1510
+      ],
+      "hidden": false
+    },
+    "hogsSquare": {
+      "label": "霍格莫德村广场",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "霍格莫德村广场：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        1510
+      ],
+      "hidden": false
+    },
+    "hogsHigh": {
+      "label": "霍格莫德高街",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "霍格莫德高街：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        1610
+      ],
+      "hidden": false
+    },
+    "broomsPorch": {
+      "label": "三把扫帚门廊",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "三把扫帚门廊：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        1610
+      ],
+      "hidden": false
+    },
+    "broomsPub": {
+      "label": "三把扫帚酒吧",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "三把扫帚酒吧：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        1610
+      ],
+      "hidden": false
+    },
+    "hogsHeadPorch": {
+      "label": "猪头酒吧门廊",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "猪头酒吧门廊：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        1610
+      ],
+      "hidden": false
+    },
+    "hogsHead": {
+      "label": "猪头酒吧",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "猪头酒吧：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        1710
+      ],
+      "hidden": false
+    },
+    "hogsCellar": {
+      "label": "猪头酒吧地窖",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "猪头酒吧地窖：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        1710
+      ],
+      "hidden": true
+    },
+    "honeydukes": {
+      "label": "蜂蜜公爵",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "蜂蜜公爵：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        1710
+      ],
+      "hidden": false
+    },
+    "zonkos": {
+      "label": "佐科笑话商店",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "佐科笑话商店：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        1710
+      ],
+      "hidden": false
+    },
+    "scribbulus": {
+      "label": "斯克里文沙夫羽毛笔店",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "斯克里文沙夫羽毛笔店：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        1810
+      ],
+      "hidden": false
+    },
+    "gladrags": {
+      "label": "格拉德拉格斯巫师服装店",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "格拉德拉格斯巫师服装店：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        1810
+      ],
+      "hidden": false
+    },
+    "dervish": {
+      "label": "德维什与班吉",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "德维什与班吉：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        1810
+      ],
+      "hidden": false
+    },
+    "puddifoot": {
+      "label": "帕笛芙夫人茶馆",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "帕笛芙夫人茶馆：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        1810
+      ],
+      "hidden": false
+    },
+    "postOffice": {
+      "label": "霍格莫德邮局",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "霍格莫德邮局：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        1910
+      ],
+      "hidden": false
+    },
+    "shriekingShack": {
+      "label": "尖叫棚屋",
+      "floor": "霍格莫德村",
+      "group": "hogsmeade",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "尖叫棚屋：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        1910
+      ],
+      "hidden": false
+    },
+    "lakeShallows": {
+      "label": "黑湖浅水线",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "黑湖浅水线：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2100
+      ],
+      "hidden": true
+    },
+    "boatLaunch": {
+      "label": "船屋下水处",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "船屋下水处：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2100
+      ],
+      "hidden": false
+    },
+    "lakeCave": {
+      "label": "黑湖水下洞穴",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "黑湖水下洞穴：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2100
+      ],
+      "hidden": true
+    },
+    "merVillage": {
+      "label": "人鱼居所",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "人鱼居所：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2100
+      ],
+      "hidden": true
+    },
+    "lakeIslet": {
+      "label": "黑湖小岛",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "黑湖小岛：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2210
+      ],
+      "hidden": true
+    },
+    "willowRoots": {
+      "label": "打人柳树根",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "打人柳树根：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2210
+      ],
+      "hidden": false
+    },
+    "centaurGrove": {
+      "label": "人马林间空地",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "人马林间空地：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2210
+      ],
+      "hidden": false
+    },
+    "unicornGlade": {
+      "label": "独角兽林",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "独角兽林：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2210
+      ],
+      "hidden": false
+    },
+    "acromantulaDen": {
+      "label": "八眼巨蛛巢穴",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "八眼巨蛛巢穴：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2320
+      ],
+      "hidden": false
+    },
+    "coveredBridge": {
+      "label": "有顶桥",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "有顶桥：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2320
+      ],
+      "hidden": false
+    },
+    "herbCourt": {
+      "label": "草药学庭院",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "草药学庭院：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2320
+      ],
+      "hidden": false
+    },
+    "outerSlope": {
+      "label": "城堡外草坡",
+      "floor": "湖底、禁林与校地外围",
+      "group": "outerGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "城堡外草坡：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2320
+      ],
+      "hidden": false
+    },
+    "quidStands": {
+      "label": "魁地奇看台",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "魁地奇看台：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2520
+      ],
+      "hidden": false
+    },
+    "quidChanging": {
+      "label": "魁地奇更衣室",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "魁地奇更衣室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2520
+      ],
+      "hidden": false
+    },
+    "quidKit": {
+      "label": "魁地奇器材库",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "魁地奇器材库：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2520
+      ],
+      "hidden": false
+    },
+    "quidReferee": {
+      "label": "魁地奇裁判塔",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "魁地奇裁判塔：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2520
+      ],
+      "hidden": true
+    },
+    "quidGoals": {
+      "label": "魁地奇球门区",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "魁地奇球门区：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2630
+      ],
+      "hidden": false
+    },
+    "quidTrophies": {
+      "label": "魁地奇奖杯廊",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "魁地奇奖杯廊：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2630
+      ],
+      "hidden": false
+    },
+    "flyingShed": {
+      "label": "飞行课器材棚",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "飞行课器材棚：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2630
+      ],
+      "hidden": false
+    },
+    "owlDrop": {
+      "label": "猫头鹰投递台",
+      "floor": "魁地奇与飞行区域",
+      "group": "quidditchGrounds",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "猫头鹰投递台：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2630
+      ],
+      "hidden": false
+    },
+    "humpbackTunnel": {
+      "label": "驼背女巫通道",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "驼背女巫通道：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2850
+      ],
+      "hidden": true
+    },
+    "serpentDoor": {
+      "label": "斯莱特林蛇门",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "斯莱特林蛇门：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2850
+      ],
+      "hidden": true
+    },
+    "trapdoorChamber": {
+      "label": "活板门密室",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "活板门密室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2850
+      ],
+      "hidden": true
+    },
+    "mirrorChamber": {
+      "label": "厄里斯魔镜室",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "厄里斯魔镜室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2850
+      ],
+      "hidden": true
+    },
+    "mapNook": {
+      "label": "活点地图密室",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "活点地图密室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        2960
+      ],
+      "hidden": true
+    },
+    "restrictedStacks": {
+      "label": "图书馆禁书区",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "图书馆禁书区：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        2960
+      ],
+      "hidden": true
+    },
+    "oneEyedTunnel": {
+      "label": "独眼女巫通道",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "独眼女巫通道：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        2960
+      ],
+      "hidden": true
+    },
+    "honeyCellar": {
+      "label": "蜂蜜公爵地窖",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "蜂蜜公爵地窖：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        2960
+      ],
+      "hidden": true
+    },
+    "whisperingCrypt": {
+      "label": "低语墓室",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "低语墓室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        3070
+      ],
+      "hidden": true
+    },
+    "forgottenArmory": {
+      "label": "遗忘军械室",
+      "floor": "隐秘通道与失落房间",
+      "group": "hiddenAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "遗忘军械室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        3070
+      ],
+      "hidden": true
+    },
+    "antechamber": {
+      "label": "礼堂前厅",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "礼堂前厅：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        3260
+      ],
+      "hidden": false
+    },
+    "trophy": {
+      "label": "奖品陈列室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "奖品陈列室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        3260
+      ],
+      "hidden": false
+    },
+    "clockTower": {
+      "label": "钟楼",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "钟楼：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        3260
+      ],
+      "hidden": false
+    },
+    "prefectsBath": {
+      "label": "级长盥洗室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "级长盥洗室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        3260
+      ],
+      "hidden": false
+    },
+    "commonGryff": {
+      "label": "格兰芬多公共休息室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "格兰芬多公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        3370
+      ],
+      "hidden": false
+    },
+    "commonRaven": {
+      "label": "拉文克劳公共休息室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "拉文克劳公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        3370
+      ],
+      "hidden": false
+    },
+    "commonHuffle": {
+      "label": "赫奇帕奇公共休息室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "赫奇帕奇公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        3370
+      ],
+      "hidden": false
+    },
+    "commonSlytherin": {
+      "label": "斯莱特林公共休息室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "inferred",
+      "floorStatus": "interpretation",
+      "note": "斯莱特林公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        3370
+      ],
+      "hidden": true
+    },
+    "roRThings": {
+      "label": "万物之室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "万物之室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        150,
+        3480
+      ],
+      "hidden": true
+    },
+    "roRDA": {
+      "label": "邓布利多军训练室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "邓布利多军训练室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        430,
+        3480
+      ],
+      "hidden": true
+    },
+    "roRDiadem": {
+      "label": "失踪王冠壁龛",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "失踪王冠壁龛：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        710,
+        3480
+      ],
+      "hidden": true
+    },
+    "roRArchive": {
+      "label": "活体档案室",
+      "floor": "城堡新翼与有求必应屋",
+      "group": "castleAnnex",
+      "status": "invented",
+      "floorStatus": "interpretation",
+      "note": "活体档案室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "sources": [],
+      "position": [
+        990,
+        3480
+      ],
+      "hidden": true
     }
   },
   "sections": [
@@ -1123,6 +1963,287 @@
         ]
       },
       "secret": true
+    },
+    {
+      "id": "hogsmeade",
+      "title": "霍格莫德村",
+      "zh": "霍格莫德村",
+      "subtitle": "山路、车站、酒馆与商店",
+      "coords": {
+        "hogsRoad": [
+          140,
+          95
+        ],
+        "hogsStation": [
+          370,
+          95
+        ],
+        "hogsBridge": [
+          600,
+          95
+        ],
+        "hogsSquare": [
+          830,
+          95
+        ],
+        "hogsHigh": [
+          140,
+          205
+        ],
+        "broomsPorch": [
+          370,
+          205
+        ],
+        "broomsPub": [
+          600,
+          205
+        ],
+        "hogsHeadPorch": [
+          830,
+          205
+        ],
+        "hogsHead": [
+          140,
+          315
+        ],
+        "hogsCellar": [
+          370,
+          315
+        ],
+        "honeydukes": [
+          600,
+          315
+        ],
+        "zonkos": [
+          830,
+          315
+        ],
+        "scribbulus": [
+          140,
+          425
+        ],
+        "gladrags": [
+          370,
+          425
+        ],
+        "dervish": [
+          600,
+          425
+        ],
+        "puddifoot": [
+          830,
+          425
+        ],
+        "postOffice": [
+          140,
+          535
+        ],
+        "shriekingShack": [
+          370,
+          535
+        ]
+      }
+    },
+    {
+      "id": "outerGrounds",
+      "title": "湖底、禁林与校地外围",
+      "zh": "湖底、禁林与校地外围",
+      "subtitle": "水路、古树与草药学庭院",
+      "coords": {
+        "lakeShallows": [
+          140,
+          145
+        ],
+        "boatLaunch": [
+          370,
+          145
+        ],
+        "lakeCave": [
+          600,
+          145
+        ],
+        "merVillage": [
+          830,
+          145
+        ],
+        "lakeIslet": [
+          140,
+          305
+        ],
+        "willowRoots": [
+          370,
+          305
+        ],
+        "centaurGrove": [
+          600,
+          305
+        ],
+        "unicornGlade": [
+          830,
+          305
+        ],
+        "acromantulaDen": [
+          140,
+          465
+        ],
+        "coveredBridge": [
+          370,
+          465
+        ],
+        "herbCourt": [
+          600,
+          465
+        ],
+        "outerSlope": [
+          830,
+          465
+        ]
+      }
+    },
+    {
+      "id": "quidditchGrounds",
+      "title": "魁地奇与飞行区域",
+      "zh": "魁地奇与飞行区域",
+      "subtitle": "球场设施、看台与天空路线",
+      "coords": {
+        "quidStands": [
+          140,
+          205
+        ],
+        "quidChanging": [
+          370,
+          205
+        ],
+        "quidKit": [
+          600,
+          205
+        ],
+        "quidReferee": [
+          830,
+          205
+        ],
+        "quidGoals": [
+          140,
+          425
+        ],
+        "quidTrophies": [
+          370,
+          425
+        ],
+        "flyingShed": [
+          600,
+          425
+        ],
+        "owlDrop": [
+          830,
+          425
+        ]
+      }
+    },
+    {
+      "id": "hiddenAnnex",
+      "title": "隐秘通道与失落房间",
+      "zh": "隐秘通道与失落房间",
+      "subtitle": "需发现机关后才能抵达",
+      "coords": {
+        "humpbackTunnel": [
+          140,
+          145
+        ],
+        "serpentDoor": [
+          370,
+          145
+        ],
+        "trapdoorChamber": [
+          600,
+          145
+        ],
+        "mirrorChamber": [
+          830,
+          145
+        ],
+        "mapNook": [
+          140,
+          305
+        ],
+        "restrictedStacks": [
+          370,
+          305
+        ],
+        "oneEyedTunnel": [
+          600,
+          305
+        ],
+        "honeyCellar": [
+          830,
+          305
+        ],
+        "whisperingCrypt": [
+          140,
+          465
+        ],
+        "forgottenArmory": [
+          370,
+          465
+        ]
+      },
+      "secret": true
+    },
+    {
+      "id": "castleAnnex",
+      "title": "城堡新翼与有求必应屋",
+      "zh": "城堡新翼与有求必应屋",
+      "subtitle": "公共休息室、奖品陈列与可变空间",
+      "coords": {
+        "antechamber": [
+          140,
+          145
+        ],
+        "trophy": [
+          370,
+          145
+        ],
+        "clockTower": [
+          600,
+          145
+        ],
+        "prefectsBath": [
+          830,
+          145
+        ],
+        "commonGryff": [
+          140,
+          305
+        ],
+        "commonRaven": [
+          370,
+          305
+        ],
+        "commonHuffle": [
+          600,
+          305
+        ],
+        "commonSlytherin": [
+          830,
+          305
+        ],
+        "roRThings": [
+          140,
+          465
+        ],
+        "roRDA": [
+          370,
+          465
+        ],
+        "roRDiadem": [
+          600,
+          465
+        ],
+        "roRArchive": [
+          830,
+          465
+        ]
+      }
     }
   ],
   "overviewSections": [
@@ -1202,6 +2323,61 @@
         145
       ],
       "secret": true
+    },
+    {
+      "id": "hogsmeade",
+      "title": "霍格莫德村",
+      "box": [
+        25,
+        1425,
+        1150,
+        570
+      ],
+      "secret": false
+    },
+    {
+      "id": "outerGrounds",
+      "title": "湖底、禁林与校地外围",
+      "box": [
+        25,
+        2015,
+        1150,
+        400
+      ],
+      "secret": false
+    },
+    {
+      "id": "quidditchGrounds",
+      "title": "魁地奇与飞行区域",
+      "box": [
+        25,
+        2435,
+        1150,
+        310
+      ],
+      "secret": false
+    },
+    {
+      "id": "hiddenAnnex",
+      "title": "隐秘通道与失落房间",
+      "box": [
+        25,
+        2765,
+        1150,
+        390
+      ],
+      "secret": true
+    },
+    {
+      "id": "castleAnnex",
+      "title": "城堡新翼与有求必应屋",
+      "box": [
+        25,
+        3175,
+        1150,
+        400
+      ],
+      "secret": false
     }
   ],
   "sources": {
@@ -1772,6 +2948,250 @@
       "sources": [
         "requirement"
       ]
+    },
+    "forecourt|hogsRoad": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsRoad|hogsStation": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsBridge|hogsStation": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsBridge|hogsSquare": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsHigh|hogsSquare": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "broomsPorch|hogsHigh": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "broomsPorch|broomsPub": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsHeadPorch|hogsHigh": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsHead|hogsHeadPorch": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsHigh|honeydukes": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsHigh|zonkos": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsHigh|scribbulus": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "gladrags|hogsHigh": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "dervish|hogsHigh": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsSquare|puddifoot": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsSquare|postOffice": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsRoad|shriekingShack": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "antechamber|entry": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "armoury|trophy": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "clockTower|ramparts": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "baths|prefectsBath": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "commonGryff|gallery": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "commonRaven|ramparts": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "commonHuffle|kitchens": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "commonSlytherin|serpentDoor": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "requirement|roRThings": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "requirement|roRDA": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "requirement|roRDiadem": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "requirement|roRArchive": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "boatLaunch|boathouse": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "lakeIslet|lakeShallows": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "lakeCave|lakeShallows": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "lakeCave|merVillage": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "courtyard|willowRoots": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "centaurGrove|clearing": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "centaurGrove|unicornGlade": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "acromantulaDen|forest": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "bridge|coveredBridge": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "greenhouse|herbCourt": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "forecourt|outerSlope": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "quidStands|quidditch": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "quidChanging|quidStands": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "quidChanging|quidKit": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "quidGoals|quidditch": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "quidGoals|quidTrophies": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "flying|flyingShed": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "owlDrop|owlery": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "honeyCellar|oneEyedTunnel": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsCellar|hogsHead": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "hogsCellar|humpbackTunnel": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "serpentDoor|slytherin": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "oldArchive|trapdoorChamber": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "gallery|mirrorChamber": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "mapNook|trophy": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "library|restrictedStacks": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "baths|oneEyedTunnel": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "honeyCellar|honeydukes": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "crypt|whisperingCrypt": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "armoury|forgottenArmory": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "quidReferee|quidditch": {
+      "status": "interpretation",
+      "sources": []
+    },
+    "dock|lakeShallows": {
+      "status": "interpretation",
+      "sources": []
     }
   }
 };

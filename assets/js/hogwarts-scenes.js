@@ -185,6 +185,60 @@
         "label": "Turn back along the clear path to Flying-lesson Lawn",
         "evidence": "Main cobbled approach also continues out the bottom edge; no current graph node represents the station approach.",
         "turnBack": true
+      },
+      "w": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Hogsmeade Hill Road",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+      },
+      "a": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Castle Outer Slope",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -345,6 +399,33 @@
         "kind": "stair",
         "label": "Follow the stairs to Grand Staircase",
         "evidence": "Broad right staircase joins the room floor; shape follows stone treads inside rails."
+      },
+      "a": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Great Hall Antechamber",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -495,6 +576,33 @@
         "label": "Turn back along the clear path to Basement Passage",
         "evidence": "A narrow gap between foreground food tables remains stone floor all the way to the bottom edge.",
         "turnBack": true
+      },
+      "e": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Hufflepuff Common Room",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -617,7 +725,95 @@
         "label": "Turn back along the clear path to Middle Landings",
         "evidence": "Unblocked carpeted aisle reaches bottom edge.",
         "turnBack": true
+      },
+      "e": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Gryffindor Common Room",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the curtain",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Mirror of Erised Chamber",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/gallery-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Fourth-floor Portrait Corridor with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "armoury": {
@@ -653,7 +849,95 @@
         "label": "Turn back along the clear path to Middle Landings",
         "evidence": "Central aisle is clear between the raised armour plinths and reaches bottom edge.",
         "turnBack": true
+      },
+      "n": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Trophy Gallery",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the suit of armour",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Forgotten Armoury",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/armoury-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Third-floor Armour Gallery with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "cloister": {
@@ -880,7 +1164,95 @@
         "kind": "door",
         "label": "Follow the doorway to Myrtle's Bathroom",
         "evidence": "Right wood leaf is swung open; exposed bathroom threshold floor connects directly to corridor. Sink and leaf excluded."
+      },
+      "e": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Prefects' Bathroom",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the weathered statue",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to One-Eyed Witch Tunnel",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/baths-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Second-floor Bathroom Corridor with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "bathroom": {
@@ -1148,11 +1520,11 @@
           ],
           [
             30.7,
-            72.0
+            72
           ],
           [
             6.6,
-            75.0
+            75
           ]
         ],
         "point": [
@@ -1521,6 +1893,67 @@
         "label": "Follow the open arch to Fourth-floor Portrait Corridor",
         "evidence": "Open right half of the tall gate exposes a floor threshold and stairwell beyond; gate leaf occupies its left half."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the screened shelves",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Library Restricted Section",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/library-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Hogwarts Library with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "charms": {
@@ -1927,6 +2360,33 @@
         "kind": "door",
         "label": "Follow the doorway to North Battlements",
         "evidence": "Door leaf swings left; a continuous stone path passes through the doorway before turning along parapet. Lower threshold is safe."
+      },
+      "n": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Owl Delivery Ledge",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -2033,6 +2493,60 @@
         "label": "Turn back along the clear path to Seventh-floor Corridor",
         "evidence": "Foreground paving connects both tower approaches and extends out bottom edge.",
         "turnBack": true
+      },
+      "n": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Clock Tower",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+      },
+      "a": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Ravenclaw Common Room",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -2317,6 +2831,67 @@
         "label": "Follow the open arch to Old Storeroom",
         "evidence": "Visually inspected opening on the scene image."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the old floorboards",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "hatch",
+        "label": "Enter the revealed passage to Trapdoor Chamber",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/oldArchive-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Archive Passage with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "crypt": {
@@ -2372,6 +2947,67 @@
         "label": "Follow the open arch to Archive Passage",
         "evidence": "Visually inspected opening on the scene image."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the whispered inscription",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Whispering Crypt",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/crypt-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Forgotten Crypt with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "slytherin": {
@@ -2521,6 +3157,67 @@
         "label": "Follow the open arch to Underground Reservoir",
         "evidence": "Visually inspected opening on the scene image."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the serpent carving",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            27.9,
+            71.7
+          ],
+          [
+            36.1,
+            71.7
+          ],
+          [
+            36.1,
+            82.3
+          ],
+          [
+            27.9,
+            82.3
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Serpent Door",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/slytherin-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Green Lantern Passage with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "reservoir": {
@@ -2788,6 +3485,33 @@
         "label": "Turn back along the clear path to Quidditch Pitch",
         "evidence": "Visually inspected opening on the scene image.",
         "turnBack": true
+      },
+      "a": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Whomping Willow Roots",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -2937,6 +3661,33 @@
         "kind": "path",
         "label": "Follow the path to Hagrid's Hut",
         "evidence": "Visually inspected opening on the scene image."
+      },
+      "s": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Covered Bridge",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -3079,6 +3830,33 @@
         "label": "Turn back along the clear path to Black Lake",
         "evidence": "Visually inspected opening on the scene image.",
         "turnBack": true
+      },
+      "n": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Boathouse Launch",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -3135,6 +3913,67 @@
         "label": "Follow the path to Black Lake",
         "evidence": "Visually inspected opening on the scene image."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the moonlit reflection",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            11.9,
+            71.7
+          ],
+          [
+            20.1,
+            71.7
+          ],
+          [
+            20.1,
+            82.3
+          ],
+          [
+            11.9,
+            82.3
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "hatch",
+        "label": "Enter the revealed passage to Black Lake Shallows",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/dock-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Old Pier with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "forest": {
@@ -3217,6 +4056,33 @@
         "kind": "path",
         "label": "Follow the path to Ancient Clearing",
         "evidence": "Visually inspected opening on the scene image."
+      },
+      "e": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Acromantula Den",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -3280,6 +4146,33 @@
         "kind": "path",
         "label": "Follow the path to Forbidden Forest",
         "evidence": "Visually inspected opening on the scene image."
+      },
+      "n": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "path",
+        "label": "Explore the passage to Centaur Grove",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -3634,7 +4527,122 @@
         "kind": "arch",
         "label": "Follow the open arch to Flying-lesson Lawn",
         "evidence": "Right timber gateway is fully open to the practice lawn and shares the foreground apron."
+      },
+      "e": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Quidditch Stands",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+      },
+      "a": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Quidditch Goal Hoops",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            43.9,
+            71.7
+          ],
+          [
+            52.1,
+            71.7
+          ],
+          [
+            52.1,
+            82.3
+          ],
+          [
+            43.9,
+            82.3
+          ]
+        ],
+        "point": [
+          48,
+          77
+        ],
+        "kind": "inspect",
+        "label": "Inspect the moving banner",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            43.9,
+            71.7
+          ],
+          [
+            52.1,
+            71.7
+          ],
+          [
+            52.1,
+            82.3
+          ],
+          [
+            43.9,
+            82.3
+          ]
+        ],
+        "point": [
+          48,
+          77
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Quidditch Referee Tower",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/quidditch-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Quidditch Pitch with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "greenhouse": {
@@ -3712,6 +4720,33 @@
         "kind": "door",
         "label": "Follow the doorway to Herbology",
         "evidence": "Visually inspected opening on the scene image."
+      },
+      "n": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Herbology Courtyard",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -3853,6 +4888,33 @@
         "kind": "path",
         "label": "Follow the path to The Lantern Path",
         "evidence": "Visually inspected opening on the scene image."
+      },
+      "e": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Flying Lesson Equipment Shed",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -4126,6 +5188,114 @@
         "label": "Turn back along the clear path to Seventh-floor Corridor",
         "evidence": "Visually inspected opening on the scene image.",
         "turnBack": true
+      },
+      "n": {
+        "polygon": [
+          [
+            12.5,
+            71.5
+          ],
+          [
+            19.5,
+            71.5
+          ],
+          [
+            19.5,
+            82.5
+          ],
+          [
+            12.5,
+            82.5
+          ]
+        ],
+        "point": [
+          16,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Room of Hidden Things",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+      },
+      "e": {
+        "polygon": [
+          [
+            28.5,
+            71.5
+          ],
+          [
+            35.5,
+            71.5
+          ],
+          [
+            35.5,
+            82.5
+          ],
+          [
+            28.5,
+            82.5
+          ]
+        ],
+        "point": [
+          32,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to D.A. Training Room",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+      },
+      "w": {
+        "polygon": [
+          [
+            44.5,
+            71.5
+          ],
+          [
+            51.5,
+            71.5
+          ],
+          [
+            51.5,
+            82.5
+          ],
+          [
+            44.5,
+            82.5
+          ]
+        ],
+        "point": [
+          48,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Diadem Niche",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+      },
+      "a": {
+        "polygon": [
+          [
+            60.5,
+            71.5
+          ],
+          [
+            67.5,
+            71.5
+          ],
+          [
+            67.5,
+            82.5
+          ],
+          [
+            60.5,
+            82.5
+          ]
+        ],
+        "point": [
+          64,
+          77
+        ],
+        "kind": "door",
+        "label": "Explore the passage to Living Archive",
+        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
       }
     }
   },
@@ -4643,6 +5813,3052 @@
         "kind": "ladder",
         "label": "Climb the silver ladder",
         "evidence": "Visually inspected opening on the scene image."
+      }
+    }
+  },
+  "hogsRoad": {
+    "src": "/assets/images/hogwarts-expansion/hogsRoad.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hogsmeade Hill Road — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to The Lantern Path",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Station",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "s": {
+        "polygon": [
+          [
+            44.4,
+            30
+          ],
+          [
+            55.6,
+            30
+          ],
+          [
+            55.6,
+            46
+          ],
+          [
+            44.4,
+            46
+          ]
+        ],
+        "point": [
+          50,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to The Shrieking Shack",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "hogsStation": {
+    "src": "/assets/images/hogwarts-expansion/hogsStation.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hogsmeade Station — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade Hill Road",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Station Wooden Bridge",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "hogsBridge": {
+    "src": "/assets/images/hogwarts-expansion/hogsBridge.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Station Wooden Bridge — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Station",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "hogsSquare": {
+    "src": "/assets/images/hogwarts-expansion/hogsSquare.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hogsmeade Village Square — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Station Wooden Bridge",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "s": {
+        "polygon": [
+          [
+            44.4,
+            30
+          ],
+          [
+            55.6,
+            30
+          ],
+          [
+            55.6,
+            46
+          ],
+          [
+            44.4,
+            46
+          ]
+        ],
+        "point": [
+          50,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Madam Puddifoot's Tea Shop",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "w": {
+        "polygon": [
+          [
+            62.4,
+            30
+          ],
+          [
+            73.6,
+            30
+          ],
+          [
+            73.6,
+            46
+          ],
+          [
+            62.4,
+            46
+          ]
+        ],
+        "point": [
+          68,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Post Office",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "hogsHigh": {
+    "src": "/assets/images/hogwarts-expansion/hogsHigh.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hogsmeade High Street — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Three Broomsticks Porch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "s": {
+        "polygon": [
+          [
+            44.4,
+            30
+          ],
+          [
+            55.6,
+            30
+          ],
+          [
+            55.6,
+            46
+          ],
+          [
+            44.4,
+            46
+          ]
+        ],
+        "point": [
+          50,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hog's Head Porch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "w": {
+        "polygon": [
+          [
+            62.4,
+            30
+          ],
+          [
+            73.6,
+            30
+          ],
+          [
+            73.6,
+            46
+          ],
+          [
+            62.4,
+            46
+          ]
+        ],
+        "point": [
+          68,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Honeydukes",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "a": {
+        "polygon": [
+          [
+            80.4,
+            30
+          ],
+          [
+            91.6,
+            30
+          ],
+          [
+            91.6,
+            46
+          ],
+          [
+            80.4,
+            46
+          ]
+        ],
+        "point": [
+          86,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Zonko's Joke Shop",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "b": {
+        "polygon": [
+          [
+            8.4,
+            65
+          ],
+          [
+            19.6,
+            65
+          ],
+          [
+            19.6,
+            81
+          ],
+          [
+            8.4,
+            81
+          ]
+        ],
+        "point": [
+          14,
+          73
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Scrivenshaft's Quill Shop",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "c": {
+        "polygon": [
+          [
+            26.4,
+            65
+          ],
+          [
+            37.6,
+            65
+          ],
+          [
+            37.6,
+            81
+          ],
+          [
+            26.4,
+            81
+          ]
+        ],
+        "point": [
+          32,
+          73
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Gladrags Wizardwear",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "d": {
+        "polygon": [
+          [
+            44.4,
+            65
+          ],
+          [
+            55.6,
+            65
+          ],
+          [
+            55.6,
+            81
+          ],
+          [
+            44.4,
+            81
+          ]
+        ],
+        "point": [
+          50,
+          73
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Dervish and Banges",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "broomsPorch": {
+    "src": "/assets/images/hogwarts-expansion/broomsPorch.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Three Broomsticks Porch — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to The Three Broomsticks",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "broomsPub": {
+    "src": "/assets/images/hogwarts-expansion/broomsPub.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "The Three Broomsticks — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Three Broomsticks Porch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "hogsHeadPorch": {
+    "src": "/assets/images/hogwarts-expansion/hogsHeadPorch.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hog's Head Porch — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to The Hog's Head",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "hogsHead": {
+    "src": "/assets/images/hogwarts-expansion/hogsHead.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "The Hog's Head — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hog's Head Porch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "inspect",
+        "label": "Inspect the old bottles",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Hog's Head Cellar",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/hogsHead-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "The Hog's Head with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
+    }
+  },
+  "hogsCellar": {
+    "src": "/assets/images/hogwarts-expansion/hogsCellar.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hog's Head Cellar — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to The Hog's Head",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "inspect",
+        "label": "Inspect the weathered statue",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Humpbacked Witch Passage",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/hogsCellar-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Hog's Head Cellar with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
+    }
+  },
+  "honeydukes": {
+    "src": "/assets/images/hogwarts-expansion/honeydukes.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Honeydukes — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "inspect",
+        "label": "Inspect the floor hatch",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "hatch",
+        "label": "Enter the revealed passage to Honeydukes Cellar",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/honeydukes-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Honeydukes with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
+    }
+  },
+  "zonkos": {
+    "src": "/assets/images/hogwarts-expansion/zonkos.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Zonko's Joke Shop — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "scribbulus": {
+    "src": "/assets/images/hogwarts-expansion/scribbulus.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Scrivenshaft's Quill Shop — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "gladrags": {
+    "src": "/assets/images/hogwarts-expansion/gladrags.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Gladrags Wizardwear — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "dervish": {
+    "src": "/assets/images/hogwarts-expansion/dervish.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Dervish and Banges — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "puddifoot": {
+    "src": "/assets/images/hogwarts-expansion/puddifoot.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Madam Puddifoot's Tea Shop — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "postOffice": {
+    "src": "/assets/images/hogwarts-expansion/postOffice.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hogsmeade Post Office — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "shriekingShack": {
+    "src": "/assets/images/hogwarts-expansion/shriekingShack.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "The Shrieking Shack — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogsmeade Hill Road",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "antechamber": {
+    "src": "/assets/images/hogwarts-expansion/antechamber.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Great Hall Antechamber — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Entrance Hall",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "trophy": {
+    "src": "/assets/images/hogwarts-expansion/trophy.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Trophy Gallery — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Third-floor Armour Gallery",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    },
+    "secret": {
+      "trigger": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "inspect",
+        "label": "Inspect the folded parchment",
+        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+      },
+      "open": {
+        "polygon": [
+          [
+            45.9,
+            49.7
+          ],
+          [
+            54.1,
+            49.7
+          ],
+          [
+            54.1,
+            60.3
+          ],
+          [
+            45.9,
+            60.3
+          ]
+        ],
+        "point": [
+          50,
+          55
+        ],
+        "kind": "door",
+        "label": "Enter the revealed passage to Marauder's Map Nook",
+        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
+        "src": "/assets/images/hogwarts-expansion/trophy-revealed.svg",
+        "width": 1600,
+        "height": 900,
+        "alt": "Trophy Gallery with a revealed hidden passage"
+      },
+      "note": "A previously hidden passage is now visible. Choose its opening to enter."
+    }
+  },
+  "clockTower": {
+    "src": "/assets/images/hogwarts-expansion/clockTower.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Clock Tower — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to North Battlements",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "prefectsBath": {
+    "src": "/assets/images/hogwarts-expansion/prefectsBath.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Prefects' Bathroom — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Second-floor Bathroom Corridor",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "commonGryff": {
+    "src": "/assets/images/hogwarts-expansion/commonGryff.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Gryffindor Common Room — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Fourth-floor Portrait Corridor",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "commonRaven": {
+    "src": "/assets/images/hogwarts-expansion/commonRaven.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Ravenclaw Common Room — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to North Battlements",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "commonHuffle": {
+    "src": "/assets/images/hogwarts-expansion/commonHuffle.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Hufflepuff Common Room — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Castle Kitchens",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "commonSlytherin": {
+    "src": "/assets/images/hogwarts-expansion/commonSlytherin.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Slytherin Common Room — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Serpent Door",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "roRThings": {
+    "src": "/assets/images/hogwarts-expansion/roRThings.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Room of Hidden Things — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Room of Requirement",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "roRDA": {
+    "src": "/assets/images/hogwarts-expansion/roRDA.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "D.A. Training Room — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Room of Requirement",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "roRDiadem": {
+    "src": "/assets/images/hogwarts-expansion/roRDiadem.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Diadem Niche — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Room of Requirement",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "roRArchive": {
+    "src": "/assets/images/hogwarts-expansion/roRArchive.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Living Archive — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Room of Requirement",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "lakeShallows": {
+    "src": "/assets/images/hogwarts-expansion/lakeShallows.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Black Lake Shallows — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Black Lake Islet",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Black Lake Underwater Cave",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "s": {
+        "polygon": [
+          [
+            44.4,
+            30
+          ],
+          [
+            55.6,
+            30
+          ],
+          [
+            55.6,
+            46
+          ],
+          [
+            44.4,
+            46
+          ]
+        ],
+        "point": [
+          50,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Old Pier",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "boatLaunch": {
+    "src": "/assets/images/hogwarts-expansion/boatLaunch.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Boathouse Launch — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to The Boathouse",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "lakeCave": {
+    "src": "/assets/images/hogwarts-expansion/lakeCave.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Black Lake Underwater Cave — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Black Lake Shallows",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Merpeople Village",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "merVillage": {
+    "src": "/assets/images/hogwarts-expansion/merVillage.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Merpeople Village — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Black Lake Underwater Cave",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "lakeIslet": {
+    "src": "/assets/images/hogwarts-expansion/lakeIslet.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Black Lake Islet — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Black Lake Shallows",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "willowRoots": {
+    "src": "/assets/images/hogwarts-expansion/willowRoots.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Whomping Willow Roots — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to South Courtyard",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "centaurGrove": {
+    "src": "/assets/images/hogwarts-expansion/centaurGrove.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Centaur Grove — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Ancient Clearing",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Unicorn Glade",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "unicornGlade": {
+    "src": "/assets/images/hogwarts-expansion/unicornGlade.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Unicorn Glade — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Centaur Grove",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "acromantulaDen": {
+    "src": "/assets/images/hogwarts-expansion/acromantulaDen.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Acromantula Den — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Forbidden Forest",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "coveredBridge": {
+    "src": "/assets/images/hogwarts-expansion/coveredBridge.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Covered Bridge — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Stone Viaduct",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "herbCourt": {
+    "src": "/assets/images/hogwarts-expansion/herbCourt.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Herbology Courtyard — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Glasshouse Passage",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "outerSlope": {
+    "src": "/assets/images/hogwarts-expansion/outerSlope.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Castle Outer Slope — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to The Lantern Path",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "quidStands": {
+    "src": "/assets/images/hogwarts-expansion/quidStands.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Quidditch Stands — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Pitch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Changing Rooms",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "quidChanging": {
+    "src": "/assets/images/hogwarts-expansion/quidChanging.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Quidditch Changing Rooms — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Stands",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Equipment Store",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "quidKit": {
+    "src": "/assets/images/hogwarts-expansion/quidKit.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Quidditch Equipment Store — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Changing Rooms",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "quidReferee": {
+    "src": "/assets/images/hogwarts-expansion/quidReferee.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Quidditch Referee Tower — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Pitch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "quidGoals": {
+    "src": "/assets/images/hogwarts-expansion/quidGoals.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Quidditch Goal Hoops — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Pitch",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Trophy Walk",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "quidTrophies": {
+    "src": "/assets/images/hogwarts-expansion/quidTrophies.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Quidditch Trophy Walk — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Quidditch Goal Hoops",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "flyingShed": {
+    "src": "/assets/images/hogwarts-expansion/flyingShed.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Flying Lesson Equipment Shed — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Flying-lesson Lawn",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "owlDrop": {
+    "src": "/assets/images/hogwarts-expansion/owlDrop.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Owl Delivery Ledge — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "path",
+        "label": "Follow the passage to The Owlery",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "humpbackTunnel": {
+    "src": "/assets/images/hogwarts-expansion/humpbackTunnel.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Humpbacked Witch Passage — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hog's Head Cellar",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "serpentDoor": {
+    "src": "/assets/images/hogwarts-expansion/serpentDoor.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Serpent Door — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Slytherin Common Room",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Green Lantern Passage",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "trapdoorChamber": {
+    "src": "/assets/images/hogwarts-expansion/trapdoorChamber.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Trapdoor Chamber — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Archive Passage",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "mirrorChamber": {
+    "src": "/assets/images/hogwarts-expansion/mirrorChamber.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Mirror of Erised Chamber — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Fourth-floor Portrait Corridor",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "mapNook": {
+    "src": "/assets/images/hogwarts-expansion/mapNook.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Marauder's Map Nook — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Trophy Gallery",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "restrictedStacks": {
+    "src": "/assets/images/hogwarts-expansion/restrictedStacks.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Library Restricted Section — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Hogwarts Library",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "oneEyedTunnel": {
+    "src": "/assets/images/hogwarts-expansion/oneEyedTunnel.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "One-Eyed Witch Tunnel — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Honeydukes Cellar",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Second-floor Bathroom Corridor",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "honeyCellar": {
+    "src": "/assets/images/hogwarts-expansion/honeyCellar.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Honeydukes Cellar — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to One-Eyed Witch Tunnel",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      },
+      "e": {
+        "polygon": [
+          [
+            26.4,
+            30
+          ],
+          [
+            37.6,
+            30
+          ],
+          [
+            37.6,
+            46
+          ],
+          [
+            26.4,
+            46
+          ]
+        ],
+        "point": [
+          32,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Honeydukes",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "whisperingCrypt": {
+    "src": "/assets/images/hogwarts-expansion/whisperingCrypt.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Whispering Crypt — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Forgotten Crypt",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
+      }
+    }
+  },
+  "forgottenArmory": {
+    "src": "/assets/images/hogwarts-expansion/forgottenArmory.svg",
+    "width": 1600,
+    "height": 900,
+    "alt": "Forgotten Armoury — illustrated, explorable Hogwarts location",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            8.4,
+            30
+          ],
+          [
+            19.6,
+            30
+          ],
+          [
+            19.6,
+            46
+          ],
+          [
+            8.4,
+            46
+          ]
+        ],
+        "point": [
+          14,
+          38
+        ],
+        "kind": "arch",
+        "label": "Follow the passage to Third-floor Armour Gallery",
+        "evidence": "Visible illustrated aperture in the new SVG scene board."
       }
     }
   }

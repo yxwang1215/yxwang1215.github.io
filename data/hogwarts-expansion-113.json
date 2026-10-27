@@ -1,0 +1,890 @@
+{
+  "date": "2026-10-27",
+  "count": 60,
+  "definitions": [
+    {
+      "id": "hogsRoad",
+      "slug": "hogsmeade/hill-road",
+      "name": "Hogsmeade Hill Road",
+      "zh": "霍格莫德山路",
+      "kind": "grounds",
+      "description": "A steep lane descends through pine trees toward the village lights.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/hill-road/"
+    },
+    {
+      "id": "hogsStation",
+      "slug": "hogsmeade/station",
+      "name": "Hogsmeade Station",
+      "zh": "霍格莫德车站",
+      "kind": "hall",
+      "description": "A quiet platform, dark rails and an old clock under the lanterns.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/station/"
+    },
+    {
+      "id": "hogsBridge",
+      "slug": "hogsmeade/station/wooden-bridge",
+      "name": "Station Wooden Bridge",
+      "zh": "车站木桥",
+      "kind": "bridge",
+      "description": "Timber planks cross the narrow stream below the station.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/station/wooden-bridge/"
+    },
+    {
+      "id": "hogsSquare",
+      "slug": "hogsmeade/village-square",
+      "name": "Hogsmeade Village Square",
+      "zh": "霍格莫德村广场",
+      "kind": "grounds",
+      "description": "Warm shop windows surround a cobbled square beneath snowy gables.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/village-square/"
+    },
+    {
+      "id": "hogsHigh",
+      "slug": "hogsmeade/high-street",
+      "name": "Hogsmeade High Street",
+      "zh": "霍格莫德高街",
+      "kind": "grounds",
+      "description": "Shop signs and crooked chimneys crowd the main street.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/high-street/"
+    },
+    {
+      "id": "broomsPorch",
+      "slug": "hogsmeade/three-broomsticks/porch",
+      "name": "Three Broomsticks Porch",
+      "zh": "三把扫帚门廊",
+      "kind": "hall",
+      "description": "Laughter and lamplight spill out across the threshold.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/three-broomsticks/porch/"
+    },
+    {
+      "id": "broomsPub",
+      "slug": "hogsmeade/three-broomsticks",
+      "name": "The Three Broomsticks",
+      "zh": "三把扫帚酒吧",
+      "kind": "study",
+      "description": "An inviting public house of honey-coloured wood and blazing hearths.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/three-broomsticks/"
+    },
+    {
+      "id": "hogsHeadPorch",
+      "slug": "hogsmeade/hogs-head/porch",
+      "name": "Hog's Head Porch",
+      "zh": "猪头酒吧门廊",
+      "kind": "hall",
+      "description": "The weathered inn sign creaks above a shadowed doorway.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/hogs-head/porch/"
+    },
+    {
+      "id": "hogsHead",
+      "slug": "hogsmeade/hogs-head",
+      "name": "The Hog's Head",
+      "zh": "猪头酒吧",
+      "kind": "study",
+      "description": "A gloomy bar with old bottles, dust and a watchful portrait.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/hogs-head/"
+    },
+    {
+      "id": "hogsCellar",
+      "slug": "hogsmeade/hogs-head/cellar",
+      "name": "Hog's Head Cellar",
+      "zh": "猪头酒吧地窖",
+      "kind": "dungeon",
+      "description": "The cellar is crowded with forgotten casks and a suspicious stone statue.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/hogs-head/cellar/"
+    },
+    {
+      "id": "honeydukes",
+      "slug": "hogsmeade/honeydukes",
+      "name": "Honeydukes",
+      "zh": "蜂蜜公爵",
+      "kind": "study",
+      "description": "Glass jars gleam with sweets in every colour imaginable.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/honeydukes/"
+    },
+    {
+      "id": "zonkos",
+      "slug": "hogsmeade/zonkos",
+      "name": "Zonko's Joke Shop",
+      "zh": "佐科笑话商店",
+      "kind": "study",
+      "description": "Mechanical marvels and mischief crowd the shelves.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/zonkos/"
+    },
+    {
+      "id": "scribbulus",
+      "slug": "hogsmeade/scribbulus",
+      "name": "Scrivenshaft's Quill Shop",
+      "zh": "斯克里文沙夫羽毛笔店",
+      "kind": "study",
+      "description": "Quills and enchanted inks cover a polished writing desk.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/scribbulus/"
+    },
+    {
+      "id": "gladrags",
+      "slug": "hogsmeade/gladrags",
+      "name": "Gladrags Wizardwear",
+      "zh": "格拉德拉格斯巫师服装店",
+      "kind": "study",
+      "description": "Robes and hats hang behind tall leaded shop windows.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/gladrags/"
+    },
+    {
+      "id": "dervish",
+      "slug": "hogsmeade/dervish-and-banges",
+      "name": "Dervish and Banges",
+      "zh": "德维什与班吉",
+      "kind": "study",
+      "description": "Magical instruments tick, spin and murmur from brass cabinets.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/dervish-and-banges/"
+    },
+    {
+      "id": "puddifoot",
+      "slug": "hogsmeade/madam-puddifoot",
+      "name": "Madam Puddifoot's Tea Shop",
+      "zh": "帕笛芙夫人茶馆",
+      "kind": "study",
+      "description": "Tiny tea tables crowd a room steeped in rose-coloured steam.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/madam-puddifoot/"
+    },
+    {
+      "id": "postOffice",
+      "slug": "hogsmeade/post-office",
+      "name": "Hogsmeade Post Office",
+      "zh": "霍格莫德邮局",
+      "kind": "hall",
+      "description": "Owls settle above a counter crowded with parcels and stamps.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/post-office/"
+    },
+    {
+      "id": "shriekingShack",
+      "slug": "hogsmeade/shrieking-shack",
+      "name": "The Shrieking Shack",
+      "zh": "尖叫棚屋",
+      "kind": "exterior",
+      "description": "A shuttered house stands alone where the village path ends.",
+      "zone": "hogsmeade",
+      "path": "/hogwarts/hogsmeade/shrieking-shack/"
+    },
+    {
+      "id": "antechamber",
+      "slug": "castle/keep/ground-floor/great-hall-antechamber",
+      "name": "Great Hall Antechamber",
+      "zh": "礼堂前厅",
+      "kind": "hall",
+      "description": "Torchlight gilds the stone antechamber outside the Great Hall.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/keep/ground-floor/great-hall-antechamber/"
+    },
+    {
+      "id": "trophy",
+      "slug": "castle/keep/third-floor/trophy-gallery",
+      "name": "Trophy Gallery",
+      "zh": "奖品陈列室",
+      "kind": "portrait",
+      "description": "Names engraved in silver catch the light among old shields.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/keep/third-floor/trophy-gallery/"
+    },
+    {
+      "id": "clockTower",
+      "slug": "castle/upper-keep/clock-tower",
+      "name": "Clock Tower",
+      "zh": "钟楼",
+      "kind": "observatory",
+      "description": "Enormous clockworks turn above the cloisters.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/upper-keep/clock-tower/"
+    },
+    {
+      "id": "prefectsBath",
+      "slug": "castle/keep/fifth-floor/prefects-bathroom",
+      "name": "Prefects' Bathroom",
+      "zh": "级长盥洗室",
+      "kind": "bathroom",
+      "description": "Coloured taps surround a vast marble bath.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/keep/fifth-floor/prefects-bathroom/"
+    },
+    {
+      "id": "commonGryff",
+      "slug": "castle/residences/gryffindor-common-room",
+      "name": "Gryffindor Common Room",
+      "zh": "格兰芬多公共休息室",
+      "kind": "study",
+      "description": "Red hangings and a warm fireplace welcome tired students.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/residences/gryffindor-common-room/"
+    },
+    {
+      "id": "commonRaven",
+      "slug": "castle/residences/ravenclaw-common-room",
+      "name": "Ravenclaw Common Room",
+      "zh": "拉文克劳公共休息室",
+      "kind": "study",
+      "description": "Blue windows frame the night sky above shelves of books.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/residences/ravenclaw-common-room/"
+    },
+    {
+      "id": "commonHuffle",
+      "slug": "castle/residences/hufflepuff-common-room",
+      "name": "Hufflepuff Common Room",
+      "zh": "赫奇帕奇公共休息室",
+      "kind": "study",
+      "description": "Round windows and copper lamps brighten a snug underground room.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/residences/hufflepuff-common-room/"
+    },
+    {
+      "id": "commonSlytherin",
+      "slug": "castle/residences/slytherin-common-room",
+      "name": "Slytherin Common Room",
+      "zh": "斯莱特林公共休息室",
+      "kind": "dungeon",
+      "description": "Greenish light ripples through windows below the water.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/residences/slytherin-common-room/"
+    },
+    {
+      "id": "roRThings",
+      "slug": "castle/academic-wing/room-of-requirement/hidden-things",
+      "name": "Room of Hidden Things",
+      "zh": "万物之室",
+      "kind": "requirement",
+      "description": "Towering heaps of lost objects form paths through the changing room.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/academic-wing/room-of-requirement/hidden-things/"
+    },
+    {
+      "id": "roRDA",
+      "slug": "castle/academic-wing/room-of-requirement/da-training",
+      "name": "D.A. Training Room",
+      "zh": "邓布利多军训练室",
+      "kind": "requirement",
+      "description": "Practice dummies and spell marks line a responsive training hall.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/academic-wing/room-of-requirement/da-training/"
+    },
+    {
+      "id": "roRDiadem",
+      "slug": "castle/academic-wing/room-of-requirement/diadem-niche",
+      "name": "Diadem Niche",
+      "zh": "失踪王冠壁龛",
+      "kind": "requirement",
+      "description": "A dusty niche lies among stacks of forgotten furniture.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/academic-wing/room-of-requirement/diadem-niche/"
+    },
+    {
+      "id": "roRArchive",
+      "slug": "castle/academic-wing/room-of-requirement/living-archive",
+      "name": "Living Archive",
+      "zh": "活体档案室",
+      "kind": "requirement",
+      "description": "Folio pages shuffle by themselves as shelves continually rearrange.",
+      "zone": "castleAnnex",
+      "path": "/hogwarts/castle/academic-wing/room-of-requirement/living-archive/"
+    },
+    {
+      "id": "lakeShallows",
+      "slug": "grounds/black-lake/shallow-water",
+      "name": "Black Lake Shallows",
+      "zh": "黑湖浅水线",
+      "kind": "lake",
+      "description": "Moonlight wrinkles across the narrow strip of shallows.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/black-lake/shallow-water/"
+    },
+    {
+      "id": "boatLaunch",
+      "slug": "grounds/black-lake/boat-launch",
+      "name": "Boathouse Launch",
+      "zh": "船屋下水处",
+      "kind": "lake",
+      "description": "Small boats rock against the timber landing.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/black-lake/boat-launch/"
+    },
+    {
+      "id": "lakeCave",
+      "slug": "grounds/black-lake/underwater-cave",
+      "name": "Black Lake Underwater Cave",
+      "zh": "黑湖水下洞穴",
+      "kind": "water",
+      "description": "Blue light filters through the roof of a submerged cavern.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/black-lake/underwater-cave/"
+    },
+    {
+      "id": "merVillage",
+      "slug": "grounds/black-lake/merpeople-village",
+      "name": "Merpeople Village",
+      "zh": "人鱼居所",
+      "kind": "water",
+      "description": "Submerged stone dwellings rise around an ancient plaza.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/black-lake/merpeople-village/"
+    },
+    {
+      "id": "lakeIslet",
+      "slug": "grounds/black-lake/islet",
+      "name": "Black Lake Islet",
+      "zh": "黑湖小岛",
+      "kind": "lake",
+      "description": "A lonely island breaks the smooth surface of the lake.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/black-lake/islet/"
+    },
+    {
+      "id": "willowRoots",
+      "slug": "grounds/whomping-willow/roots",
+      "name": "Whomping Willow Roots",
+      "zh": "打人柳树根",
+      "kind": "forest",
+      "description": "Enormous roots press against the earth beside an agitated trunk.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/whomping-willow/roots/"
+    },
+    {
+      "id": "centaurGrove",
+      "slug": "grounds/forbidden-forest/centaur-grove",
+      "name": "Centaur Grove",
+      "zh": "人马林间空地",
+      "kind": "forest",
+      "description": "A circle of old trees opens beneath the stars.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/forbidden-forest/centaur-grove/"
+    },
+    {
+      "id": "unicornGlade",
+      "slug": "grounds/forbidden-forest/unicorn-glade",
+      "name": "Unicorn Glade",
+      "zh": "独角兽林",
+      "kind": "forest",
+      "description": "Silver tracks wind between ferns and moonlit birches.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/forbidden-forest/unicorn-glade/"
+    },
+    {
+      "id": "acromantulaDen",
+      "slug": "grounds/forbidden-forest/acromantula-den",
+      "name": "Acromantula Den",
+      "zh": "八眼巨蛛巢穴",
+      "kind": "forest",
+      "description": "Heavy webs hang between black trunks.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/forbidden-forest/acromantula-den/"
+    },
+    {
+      "id": "coveredBridge",
+      "slug": "grounds/covered-bridge",
+      "name": "Covered Bridge",
+      "zh": "有顶桥",
+      "kind": "bridge",
+      "description": "A timber roof spans the ravine beneath the castle.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/covered-bridge/"
+    },
+    {
+      "id": "herbCourt",
+      "slug": "grounds/greenhouses/herbology-courtyard",
+      "name": "Herbology Courtyard",
+      "zh": "草药学庭院",
+      "kind": "greenhouse",
+      "description": "Clay pots and damp seedlings crowd the walled garden.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/greenhouses/herbology-courtyard/"
+    },
+    {
+      "id": "outerSlope",
+      "slug": "grounds/castle-outer-slope",
+      "name": "Castle Outer Slope",
+      "zh": "城堡外草坡",
+      "kind": "grounds",
+      "description": "Wind moves through the grass below the high walls.",
+      "zone": "outerGrounds",
+      "path": "/hogwarts/grounds/castle-outer-slope/"
+    },
+    {
+      "id": "quidStands",
+      "slug": "grounds/quidditch/stands",
+      "name": "Quidditch Stands",
+      "zh": "魁地奇看台",
+      "kind": "quidditch",
+      "description": "High wooden terraces rise above the green pitch.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/stands/"
+    },
+    {
+      "id": "quidChanging",
+      "slug": "grounds/quidditch/changing-rooms",
+      "name": "Quidditch Changing Rooms",
+      "zh": "魁地奇更衣室",
+      "kind": "quidditch",
+      "description": "House colours hang from the rafters beside lockers.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/changing-rooms/"
+    },
+    {
+      "id": "quidKit",
+      "slug": "grounds/quidditch/equipment-store",
+      "name": "Quidditch Equipment Store",
+      "zh": "魁地奇器材库",
+      "kind": "quidditch",
+      "description": "Brooms, bats and training balls wait behind barred shelves.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/equipment-store/"
+    },
+    {
+      "id": "quidReferee",
+      "slug": "grounds/quidditch/referee-tower",
+      "name": "Quidditch Referee Tower",
+      "zh": "魁地奇裁判塔",
+      "kind": "quidditch",
+      "description": "A private staircase climbs to the flags above the field.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/referee-tower/"
+    },
+    {
+      "id": "quidGoals",
+      "slug": "grounds/quidditch/goal-hoops",
+      "name": "Quidditch Goal Hoops",
+      "zh": "魁地奇球门区",
+      "kind": "quidditch",
+      "description": "Three hoops cast long shadows over a bright green pitch.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/goal-hoops/"
+    },
+    {
+      "id": "quidTrophies",
+      "slug": "grounds/quidditch/trophy-walk",
+      "name": "Quidditch Trophy Walk",
+      "zh": "魁地奇奖杯廊",
+      "kind": "quidditch",
+      "description": "Team pennants and battered cups line a short arcade.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/trophy-walk/"
+    },
+    {
+      "id": "flyingShed",
+      "slug": "grounds/quidditch/flying-equipment-shed",
+      "name": "Flying Lesson Equipment Shed",
+      "zh": "飞行课器材棚",
+      "kind": "quidditch",
+      "description": "Practice brooms lean against a low timber wall.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/flying-equipment-shed/"
+    },
+    {
+      "id": "owlDrop",
+      "slug": "grounds/quidditch/owl-delivery-ledge",
+      "name": "Owl Delivery Ledge",
+      "zh": "猫头鹰投递台",
+      "kind": "grounds",
+      "description": "Owl perches overlook the grounds from a sheltered ledge.",
+      "zone": "quidditchGrounds",
+      "path": "/hogwarts/grounds/quidditch/owl-delivery-ledge/"
+    },
+    {
+      "id": "humpbackTunnel",
+      "slug": "under-castle/humpbacked-witch-passage",
+      "name": "Humpbacked Witch Passage",
+      "zh": "驼背女巫通道",
+      "kind": "dungeon",
+      "description": "A narrow carved passage vanishes under the hillside.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/under-castle/humpbacked-witch-passage/"
+    },
+    {
+      "id": "serpentDoor",
+      "slug": "castle/dungeons/serpent-door",
+      "name": "Serpent Door",
+      "zh": "斯莱特林蛇门",
+      "kind": "dungeon",
+      "description": "A carved serpent coils around a door of dark stone.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/dungeons/serpent-door/"
+    },
+    {
+      "id": "trapdoorChamber",
+      "slug": "castle/dungeons/hidden-trapdoor",
+      "name": "Trapdoor Chamber",
+      "zh": "活板门密室",
+      "kind": "dungeon",
+      "description": "A hidden hatch opens onto forgotten masonry.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/dungeons/hidden-trapdoor/"
+    },
+    {
+      "id": "mirrorChamber",
+      "slug": "castle/keep/mirror-of-erised-chamber",
+      "name": "Mirror of Erised Chamber",
+      "zh": "厄里斯魔镜室",
+      "kind": "portrait",
+      "description": "An ornate mirror waits alone under a faded curtain.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/keep/mirror-of-erised-chamber/"
+    },
+    {
+      "id": "mapNook",
+      "slug": "castle/keep/marauders-map-nook",
+      "name": "Marauder's Map Nook",
+      "zh": "活点地图密室",
+      "kind": "study",
+      "description": "Old parchment shows a shifting maze of corridors.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/keep/marauders-map-nook/"
+    },
+    {
+      "id": "restrictedStacks",
+      "slug": "castle/academic-wing/first-floor/restricted-section",
+      "name": "Library Restricted Section",
+      "zh": "图书馆禁书区",
+      "kind": "library",
+      "description": "Darkened shelves stand beyond a screened doorway.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/academic-wing/first-floor/restricted-section/"
+    },
+    {
+      "id": "oneEyedTunnel",
+      "slug": "under-castle/one-eyed-witch-tunnel",
+      "name": "One-Eyed Witch Tunnel",
+      "zh": "独眼女巫通道",
+      "kind": "dungeon",
+      "description": "Stone steps wind toward an old confectioner's cellar.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/under-castle/one-eyed-witch-tunnel/"
+    },
+    {
+      "id": "honeyCellar",
+      "slug": "hogsmeade/honeydukes/cellar",
+      "name": "Honeydukes Cellar",
+      "zh": "蜂蜜公爵地窖",
+      "kind": "dungeon",
+      "description": "The sweet shop's cellar hides a stair under barrels.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/hogsmeade/honeydukes/cellar/"
+    },
+    {
+      "id": "whisperingCrypt",
+      "slug": "castle/dungeons/whispering-crypt",
+      "name": "Whispering Crypt",
+      "zh": "低语墓室",
+      "kind": "dungeon",
+      "description": "Indistinct voices drift between memorial stones.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/dungeons/whispering-crypt/"
+    },
+    {
+      "id": "forgottenArmory",
+      "slug": "castle/keep/forgotten-armory",
+      "name": "Forgotten Armoury",
+      "zh": "遗忘军械室",
+      "kind": "dungeon",
+      "description": "Old shields guard a sealed passage behind the gallery.",
+      "zone": "hiddenAnnex",
+      "path": "/hogwarts/castle/keep/forgotten-armory/"
+    }
+  ],
+  "ordinary": [
+    [
+      "forecourt",
+      "hogsRoad"
+    ],
+    [
+      "hogsRoad",
+      "hogsStation"
+    ],
+    [
+      "hogsStation",
+      "hogsBridge"
+    ],
+    [
+      "hogsBridge",
+      "hogsSquare"
+    ],
+    [
+      "hogsSquare",
+      "hogsHigh"
+    ],
+    [
+      "hogsHigh",
+      "broomsPorch"
+    ],
+    [
+      "broomsPorch",
+      "broomsPub"
+    ],
+    [
+      "hogsHigh",
+      "hogsHeadPorch"
+    ],
+    [
+      "hogsHeadPorch",
+      "hogsHead"
+    ],
+    [
+      "hogsHigh",
+      "honeydukes"
+    ],
+    [
+      "hogsHigh",
+      "zonkos"
+    ],
+    [
+      "hogsHigh",
+      "scribbulus"
+    ],
+    [
+      "hogsHigh",
+      "gladrags"
+    ],
+    [
+      "hogsHigh",
+      "dervish"
+    ],
+    [
+      "hogsSquare",
+      "puddifoot"
+    ],
+    [
+      "hogsSquare",
+      "postOffice"
+    ],
+    [
+      "hogsRoad",
+      "shriekingShack"
+    ],
+    [
+      "entry",
+      "antechamber"
+    ],
+    [
+      "armoury",
+      "trophy"
+    ],
+    [
+      "ramparts",
+      "clockTower"
+    ],
+    [
+      "baths",
+      "prefectsBath"
+    ],
+    [
+      "gallery",
+      "commonGryff"
+    ],
+    [
+      "ramparts",
+      "commonRaven"
+    ],
+    [
+      "kitchens",
+      "commonHuffle"
+    ],
+    [
+      "serpentDoor",
+      "commonSlytherin"
+    ],
+    [
+      "requirement",
+      "roRThings"
+    ],
+    [
+      "requirement",
+      "roRDA"
+    ],
+    [
+      "requirement",
+      "roRDiadem"
+    ],
+    [
+      "requirement",
+      "roRArchive"
+    ],
+    [
+      "boathouse",
+      "boatLaunch"
+    ],
+    [
+      "lakeShallows",
+      "lakeIslet"
+    ],
+    [
+      "lakeShallows",
+      "lakeCave"
+    ],
+    [
+      "lakeCave",
+      "merVillage"
+    ],
+    [
+      "courtyard",
+      "willowRoots"
+    ],
+    [
+      "clearing",
+      "centaurGrove"
+    ],
+    [
+      "centaurGrove",
+      "unicornGlade"
+    ],
+    [
+      "forest",
+      "acromantulaDen"
+    ],
+    [
+      "bridge",
+      "coveredBridge"
+    ],
+    [
+      "greenhouse",
+      "herbCourt"
+    ],
+    [
+      "forecourt",
+      "outerSlope"
+    ],
+    [
+      "quidditch",
+      "quidStands"
+    ],
+    [
+      "quidStands",
+      "quidChanging"
+    ],
+    [
+      "quidChanging",
+      "quidKit"
+    ],
+    [
+      "quidditch",
+      "quidGoals"
+    ],
+    [
+      "quidGoals",
+      "quidTrophies"
+    ],
+    [
+      "flying",
+      "flyingShed"
+    ],
+    [
+      "owlery",
+      "owlDrop"
+    ],
+    [
+      "honeyCellar",
+      "oneEyedTunnel"
+    ]
+  ],
+  "hiddenEntrances": [
+    [
+      "hogsHead",
+      "hogsCellar",
+      "bottle"
+    ],
+    [
+      "hogsCellar",
+      "humpbackTunnel",
+      "statue"
+    ],
+    [
+      "slytherin",
+      "serpentDoor",
+      "rune"
+    ],
+    [
+      "oldArchive",
+      "trapdoorChamber",
+      "hatch"
+    ],
+    [
+      "gallery",
+      "mirrorChamber",
+      "mirror"
+    ],
+    [
+      "trophy",
+      "mapNook",
+      "map"
+    ],
+    [
+      "library",
+      "restrictedStacks",
+      "books"
+    ],
+    [
+      "baths",
+      "oneEyedTunnel",
+      "statue"
+    ],
+    [
+      "honeydukes",
+      "honeyCellar",
+      "trapdoor"
+    ],
+    [
+      "crypt",
+      "whisperingCrypt",
+      "whisper"
+    ],
+    [
+      "armoury",
+      "forgottenArmory",
+      "armour"
+    ],
+    [
+      "quidditch",
+      "quidReferee",
+      "banner"
+    ],
+    [
+      "dock",
+      "lakeShallows",
+      "reflection"
+    ]
+  ],
+  "hiddenRooms": [
+    "commonSlytherin",
+    "forgottenArmory",
+    "hogsCellar",
+    "honeyCellar",
+    "humpbackTunnel",
+    "lakeCave",
+    "lakeIslet",
+    "lakeShallows",
+    "mapNook",
+    "merVillage",
+    "mirrorChamber",
+    "oneEyedTunnel",
+    "quidReferee",
+    "restrictedStacks",
+    "roRArchive",
+    "roRDA",
+    "roRDiadem",
+    "roRThings",
+    "serpentDoor",
+    "trapdoorChamber",
+    "whisperingCrypt"
+  ]
+}
