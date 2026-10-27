@@ -695,7 +695,10 @@ for (const response of ["load", "error"]) {
     assert.equal(run.roomId, "baths");
     assert.equal(run.image.src, run.scenes.baths.src);
     assert.equal(run.changes.length, changesBefore);
-    assert.equal(run.stage.querySelector("[data-secret]"), null);
+    // The expanded bathroom corridor also has its own unopened witch-statue secret.
+    // A stale bathroom image load must not reveal or remove this independent puzzle.
+    assert.equal(run.stage.querySelector("[data-secret]")?.getAttribute("data-secret"), "statue");
+    assert.equal(run.stage.querySelector("[data-secret]")?.getAttribute("role"), "button");
     assert.equal(run.document.getElementById("hgw-observation").classList.contains("is-visible"), false);
     await run.travelTo("bathroom");
     assert.equal(run.roomId, "bathroom", "Stale callbacks must not leave navigation busy");
