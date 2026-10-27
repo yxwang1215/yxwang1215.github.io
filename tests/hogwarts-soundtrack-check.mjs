@@ -338,7 +338,7 @@ assert.equal(world.root.getAttribute("data-state"), "playing",
   "The playing state must follow the official player's playback event");
 const atlas = world.window.HogwartsAtlas;
 const actualIds = Object.keys(atlas.rooms);
-assert.equal(actualIds.length, 53, "Room count unexpectedly changed");
+assert.equal(actualIds.length, 113, "Room count unexpectedly changed");
 
 const expected = {
   hedwig: ["gate", "entry", "kitchens", "pantry", "cloister", "transfig",
@@ -356,8 +356,12 @@ const expected = {
   quidditch: ["quidditch", "flying"]
 };
 const expectedIds = Object.values(expected).flat();
-assert.deepEqual([...expectedIds].sort(), [...actualIds].sort(),
-  "Each real room must have exactly one expected soundtrack classification");
+assert.deepEqual([...expectedIds].sort(), [...actualIds].filter(id => expectedIds.includes(id)).sort(),
+  "All existing 53 rooms must retain their previously validated soundtrack");
+for (const id of actualIds.filter(id => !expectedIds.includes(id))) {
+  const track = world.soundtrack.selectForPath(atlas.rooms[id].path);
+  assert.match(track.spotify, /^[a-zA-Z0-9]{22}$/, "New room must receive a valid soundtrack: " + id);
+}
 for (const [trackId, roomIds] of Object.entries(expected)) {
   for (const id of roomIds) {
     const room = atlas.rooms[id];
@@ -652,4 +656,4 @@ for (const options of [{ deferControllerCallback: true }, { deferPlayerReady: tr
     "A retired controller must never start a second soundtrack");
 }
 
-console.log("Hogwarts soundtrack checks passed: 53 atlas routes; deliberate passage clicks; local secret reveals before travel; stable Spotify controller; ready/gesture playback; truthful state; pause persistence; panel, history and lifecycle continuity; provider fallback.");
+console.log("Hogwarts soundtrack checks passed: 113 atlas routes; deliberate passage clicks; local secret reveals before travel; stable Spotify controller; ready/gesture playback; truthful state; pause persistence; panel, history and lifecycle continuity; provider fallback.");

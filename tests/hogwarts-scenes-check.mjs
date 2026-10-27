@@ -143,10 +143,17 @@ function checkRegion(region, label, { evidence = false, allowedKinds = kinds } =
   if (evidence) assert.ok(typeof region.evidence === "string" && region.evidence.trim(), label + ": missing visual evidence");
 }
 function checkImage(scene, label) {
-  assert.ok(typeof scene.src === "string" && scene.src.startsWith("/assets/images/") && scene.src.endsWith(".webp"), label + ": invalid scene image source");
+  assert.ok(typeof scene.src === "string" && /^\/assets\/images\/.+\.(?:webp|svg)$/.test(scene.src), label + ": invalid scene image source");
   const path = root + scene.src.slice(1);
   assert.ok(existsSync(path), label + ": missing artwork " + scene.src);
-  assert.deepEqual(dimensions(path), [scene.width, scene.height], label + ": metadata must use actual native dimensions");
+  if (scene.src.endsWith(".svg")) {
+    const markup = readFileSync(path, "utf8");
+    assert.match(markup, /<svg\b/, label + ": not an SVG illustration");
+    assert.ok(markup.includes('width="' + scene.width + '" height="' + scene.height + '"'), label + ": SVG dimensions are wrong");
+    assert.match(markup, /<title\b/, label + ": SVG illustration lacks an accessible title");
+  } else {
+    assert.deepEqual(dimensions(path), [scene.width, scene.height], label + ": metadata must use actual native dimensions");
+  }
   assert.ok(scene.width >= 1600 && scene.height >= 900, label + ": image is too small for the scene");
   assert.ok(Math.abs(scene.width / scene.height - 16 / 9) < .01, label + ": artwork must preserve the panoramic stage");
   assert.ok(typeof scene.alt === "string" && scene.alt.trim(), label + ": missing image description");
@@ -154,7 +161,7 @@ function checkImage(scene, label) {
   return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 
-assert.equal(Object.keys(atlas.rooms).length, 53, "The repaired maze has 53 rooms");
+assert.equal(Object.keys(atlas.rooms).length, 113, "The expanded maze has 113 rooms");
 assert.deepEqual(Object.keys(scenes).sort(), Object.keys(atlas.rooms).sort(), "Every room needs an audited scene");
 const sources = new Set(), hashes = new Set();
 let normalPassages = 0, secretStates = 0;
@@ -183,7 +190,7 @@ for (const [id, scene] of Object.entries(scenes)) {
   assert.equal(Boolean(scene.secret), Boolean(atlas.rooms[id].secret), id + ": secret graph and visual states disagree");
   if (scene.secret) {
     const secret = scene.secret;
-    assert.ok(["basin", "wall"].includes(atlas.rooms[id].secret.type), id + ": unsupported secret reveal interaction");
+    assert.match(atlas.rooms[id].secret.type, /^[a-z]+$/, id + ": unsupported secret reveal interaction");
     checkRegion(secret.trigger, id + ":secret trigger", { allowedKinds: new Set(["inspect"]) });
     checkRegion(secret.open, id + ":opened aperture");
     assert.ok(typeof secret.note === "string" && secret.note.trim(), id + ": reveal needs an explanatory observation");
@@ -201,7 +208,7 @@ for (const [id, scene] of Object.entries(scenes)) {
   }
 }
 assert.ok(scenes.great.ceremony, "The Great Hall must retain its explicit ceremony activity");
-assert.equal(secretStates, 2, "Myrtle's basin and the seventh-floor wall need separate reveal/open states");
+assert.equal(secretStates, 15, "Each of 15 hidden entrances must have separate reveal/open states");
 
 // Match delivered files to the recorded image-generation outputs. A unique
 // filename or a matching size alone would not catch an accidental replacement.

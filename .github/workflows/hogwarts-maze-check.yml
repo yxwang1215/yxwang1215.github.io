@@ -51,6 +51,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Check expansion manifest, secret artwork and new static routes
+        run: node tests/hogwarts-expansion-check.mjs
       - name: Check route graph and static pages
         run: node tests/hogwarts-maze-check.mjs
       - name: Check Hogwarts parchment map
