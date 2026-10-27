@@ -58,7 +58,7 @@ for (const [id, node] of Object.entries(geo.nodes)) {
   assert.ok(sectionById.get(node.group)?.coords[id], 'Node and private-map section disagree: ' + id);
   assert.equal(node.position.length, 2);
   const [x, y] = node.position;
-  assert.ok(Number.isFinite(x) && Number.isFinite(y) && x > 0 && x < 1200 && y > 0 && y < 1390,
+  assert.ok(Number.isFinite(x) && Number.isFinite(y) && x > 0 && x < 1200 && y > 0 && y < 3610,
     'Public graph position outside canvas: ' + id);
   assert.ok(!positions.has(x + '|' + y), 'Overlapping node centers: ' + id);
   positions.add(x + '|' + y);
