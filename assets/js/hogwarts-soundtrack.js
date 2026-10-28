@@ -483,9 +483,15 @@
     panel.hidden = true;
     seal.setAttribute("aria-expanded", "false");
   }
-  function sync() {
-    var next = routeFromLocation();
-    if (current && current.id === next.id) return;
+  // Prepare the destination score *inside* the scene-opening gesture.
+  // Waiting for the asynchronous walk or image load loses transient user
+  // activation in browsers that restrict embedded Spotify playback.
+  function activateCue(next, fromGesture) {
+    if (!next) return;
+    if (current && current.id === next.id) {
+      if (enabled && fromGesture && state !== "playing") requestPlayback(true);
+      return;
+    }
     var sameRecording = current && current.spotify === next.spotify;
     current = next;
     title.textContent = next.title;
@@ -497,13 +503,31 @@
       hasRequestedCurrent = false;
       setState(enabled ? "loading" : "paused");
       if (controllerReady) {
-        if (loadCurrentCue() && enabled) requestPlayback();
+        if (loadCurrentCue() && enabled) requestPlayback(fromGesture === true);
       } else if (apiFailed) {
         fallbackEmbed();
         setState("unavailable");
       }
+    } else if (fromGesture && enabled && state !== "playing") {
+      requestPlayback(true);
     }
     refreshControls();
+  }
+  function prepareForTravel(destinationPath) {
+    // Destination paths are atlas-defined routes, never caller-supplied audio.
+    // The user can always opt out through the existing mute preference.
+    if (!enabled || !destinationPath) return;
+    activateCue(selectForPath(destinationPath), true);
+  }
+  function sync() {
+    var next = routeFromLocation();
+    if (current && current.id === next.id) {
+      // A cue may have been prepared on click before the walk completed. Retry
+      // after arrival if Spotify has not yet confirmed that it is playing.
+      if (enabled && state !== "playing" && state !== "ended") requestPlayback();
+      return;
+    }
+    activateCue(next, false);
   }
 
   seal.addEventListener("click", function () {
@@ -558,6 +582,7 @@
   });
   window.HogwartsSoundtrack = {
     sync: sync,
+    prepareForTravel: prepareForTravel,
     selectForPath: selectForPath,
     getState: function () {
       return { track: current && current.id, state: state, enabled: enabled, ready: controllerReady };
