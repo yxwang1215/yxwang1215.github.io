@@ -6030,118 +6030,138 @@
     }
   },
   "hogsSquare": {
-    "src": "/assets/images/hogwarts-expansion/hogsSquare.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Hogsmeade Village Square — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/hogsSquare.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Hogsmeade Village Square — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            2,
+            43
           ],
           [
-            19.6,
-            30
+            8,
+            38
           ],
           [
-            19.6,
-            46
+            18,
+            42
           ],
           [
-            8.4,
-            46
+            19,
+            61
+          ],
+          [
+            3,
+            63
           ]
         ],
         "point": [
-          14,
-          38
+          11,
+          54
         ],
-        "kind": "path",
+        "kind": "arch",
         "label": "Follow the passage to Station Wooden Bridge",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: open stone station arch and visible railway approach on the far left. Manually traced."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            47,
+            73
           ],
           [
-            37.6,
-            30
+            50,
+            63
           ],
           [
-            37.6,
+            50,
+            55
+          ],
+          [
+            55,
             46
           ],
           [
-            26.4,
-            46
+            60,
+            52
+          ],
+          [
+            62,
+            64
+          ],
+          [
+            67,
+            74
           ]
         ],
         "point": [
-          32,
-          38
+          56,
+          61
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: clear central cobbled continuation between village buildings. Manually traced."
       },
       "s": {
         "polygon": [
           [
-            44.4,
-            30
+            30,
+            49
           ],
           [
-            55.6,
-            30
+            37,
+            45
           ],
           [
-            55.6,
-            46
+            41,
+            49
           ],
           [
-            44.4,
-            46
+            41,
+            63
+          ],
+          [
+            31,
+            65
           ]
         ],
         "point": [
-          50,
-          38
+          36,
+          57
         ],
-        "kind": "path",
+        "kind": "door",
         "label": "Follow the passage to Madam Puddifoot's Tea Shop",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: candidate shop approach left of village center. Exact tea-shop identity remains a visual QA item; do not claim this polygon is final."
       },
       "w": {
         "polygon": [
           [
-            62.4,
-            30
+            87,
+            36
           ],
           [
-            73.6,
-            30
+            96,
+            37
           ],
           [
-            73.6,
-            46
+            96,
+            66
           ],
           [
-            62.4,
-            46
+            87,
+            69
           ]
         ],
         "point": [
-          68,
-          38
+          91,
+          55
         ],
-        "kind": "path",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade Post Office",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: distinct red-framed timber shop door on the right. Exact post-office identification remains a visual QA item."
       }
     }
   },
@@ -6432,37 +6452,41 @@
     }
   },
   "broomsPub": {
-    "src": "/assets/images/hogwarts-expansion/broomsPub.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "The Three Broomsticks — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/broomsPub.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "The Three Broomsticks — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            34
           ],
           [
-            19.6,
-            30
+            15,
+            31
           ],
           [
-            19.6,
-            46
+            23,
+            38
           ],
           [
-            8.4,
-            46
+            23,
+            65
+          ],
+          [
+            0,
+            69
           ]
         ],
         "point": [
-          14,
-          38
+          12,
+          54
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Three Broomsticks Porch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: open timber door at left onto snowy village street, with continuous stone threshold. Manually traced."
       }
     }
   },
@@ -6529,99 +6553,119 @@
     }
   },
   "hogsHead": {
-    "src": "/assets/images/hogwarts-expansion/hogsHead.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "The Hog's Head — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/hogsHead.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "The Hog's Head — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            25
           ],
           [
-            19.6,
-            30
+            15,
+            20
           ],
           [
-            19.6,
-            46
+            21,
+            29
           ],
           [
-            8.4,
-            46
+            22,
+            62
+          ],
+          [
+            3,
+            67
           ]
         ],
         "point": [
           14,
-          38
+          50
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hog's Head Porch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: open left timber tavern door onto snow-covered village, with continuous threshold floor. Manually traced."
       }
     },
     "secret": {
       "trigger": {
         "polygon": [
           [
-            45.9,
-            49.7
+            58,
+            30
           ],
           [
-            54.1,
-            49.7
+            62,
+            24
           ],
           [
-            54.1,
-            60.3
+            72,
+            25
           ],
           [
-            45.9,
-            60.3
+            73,
+            47
+          ],
+          [
+            65,
+            52
+          ],
+          [
+            57,
+            48
           ]
         ],
         "point": [
-          50,
-          55
+          66,
+          38
         ],
         "kind": "inspect",
         "label": "Inspect the old bottles",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "Cinematic image: actual shelves of old bottles near back-right bar; inspecting them activates reveal only."
       },
       "open": {
         "polygon": [
           [
-            45.9,
-            49.7
+            66,
+            53
           ],
           [
-            54.1,
-            49.7
+            72,
+            51
           ],
           [
-            54.1,
-            60.3
+            74,
+            58
           ],
           [
-            45.9,
-            60.3
+            74,
+            69
+          ],
+          [
+            66,
+            71
+          ],
+          [
+            65,
+            63
           ]
         ],
         "point": [
-          50,
-          55
+          70,
+          61
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Hog's Head Cellar",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/hogsHead-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "The Hog's Head with a revealed hidden passage"
+        "evidence": "Edited cinematic image preserves the base camera and furniture; polygon isolates the newly visible stairs behind the bar.",
+        "src": "/assets/images/hogwarts-ai-v1/hogsHead-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "The Hog's Head with a bottle cabinet moved aside and a descending cellar stairway"
       },
-      "note": "A previously hidden passage is now visible. Choose its opening to enter."
+      "note": "The bottles shift to reveal a narrow staircase behind the bar. Click the actual stair opening to descend."
     }
   },
   "hogsCellar": {
@@ -6721,99 +6765,119 @@
     }
   },
   "honeydukes": {
-    "src": "/assets/images/hogwarts-expansion/honeydukes.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Honeydukes — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/honeydukes.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Honeydukes — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            9,
+            16
           ],
           [
-            19.6,
-            30
+            25,
+            14
           ],
           [
-            19.6,
-            46
+            32,
+            28
           ],
           [
-            8.4,
-            46
+            31,
+            61
+          ],
+          [
+            11,
+            65
           ]
         ],
         "point": [
-          14,
-          38
+          21,
+          54
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: open green glazed street-facing double door and exposed floor threshold at left. Manually traced."
       }
     },
     "secret": {
       "trigger": {
         "polygon": [
           [
-            45.9,
-            49.7
+            53,
+            73
           ],
           [
-            54.1,
-            49.7
+            76,
+            72
           ],
           [
-            54.1,
-            60.3
+            81,
+            81
           ],
           [
-            45.9,
-            60.3
+            79,
+            90
+          ],
+          [
+            57,
+            90
+          ],
+          [
+            52,
+            84
           ]
         ],
         "point": [
-          50,
-          55
+          66,
+          82
         ],
         "kind": "inspect",
         "label": "Inspect the floor hatch",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "Cinematic image: visible timber trapdoor in foreground, framed in metal; only inspecting it reveals the cellar."
       },
       "open": {
         "polygon": [
           [
-            45.9,
-            49.7
+            53,
+            73
           ],
           [
-            54.1,
-            49.7
+            75,
+            72
           ],
           [
-            54.1,
-            60.3
+            81,
+            78
           ],
           [
-            45.9,
-            60.3
+            79,
+            86
+          ],
+          [
+            58,
+            87
+          ],
+          [
+            52,
+            82
           ]
         ],
         "point": [
-          50,
-          55
+          66,
+          80
         ],
         "kind": "hatch",
         "label": "Enter the revealed passage to Honeydukes Cellar",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/honeydukes-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Honeydukes with a revealed hidden passage"
+        "evidence": "Edited cinematic image keeps the exact shop camera; click polygon follows exposed stairwell inside the lifted trapdoor.",
+        "src": "/assets/images/hogwarts-ai-v1/honeydukes-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Honeydukes with the wooden hatch open, revealing a lit stair into the cellar"
       },
-      "note": "A previously hidden passage is now visible. Choose its opening to enter."
+      "note": "The trapdoor opens onto a lit stone staircase. Click the revealed stair opening."
     }
   },
   "zonkos": {
@@ -7062,37 +7126,45 @@
     }
   },
   "antechamber": {
-    "src": "/assets/images/hogwarts-expansion/antechamber.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Great Hall Antechamber — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/antechamber.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Great Hall Antechamber — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
+            82,
+            36
+          ],
+          [
+            89,
             30
           ],
           [
-            19.6,
-            30
+            93,
+            40
           ],
           [
-            19.6,
-            46
+            93,
+            63
           ],
           [
-            8.4,
-            46
+            84,
+            70
+          ],
+          [
+            79,
+            64
           ]
         ],
         "point": [
-          14,
-          38
+          87,
+          55
         ],
         "kind": "arch",
         "label": "Follow the passage to Entrance Hall",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: right-hand lit Gothic corridor, with floor leading toward the far arched entrance. Manual visual polygon; click-through review pending."
       }
     }
   },
@@ -7263,37 +7335,45 @@
     }
   },
   "commonGryff": {
-    "src": "/assets/images/hogwarts-expansion/commonGryff.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Gryffindor Common Room — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/commonGryff.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Gryffindor Common Room — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            27
           ],
           [
-            19.6,
-            30
+            12,
+            22
           ],
           [
-            19.6,
-            46
+            22,
+            33
           ],
           [
-            8.4,
-            46
+            23,
+            66
+          ],
+          [
+            14,
+            73
+          ],
+          [
+            2,
+            70
           ]
         ],
         "point": [
-          14,
-          38
+          13,
+          56
         ],
         "kind": "arch",
         "label": "Follow the passage to Fourth-floor Portrait Corridor",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: open left Gothic arch with connected lit corridor stone floor. Manually traced."
       }
     }
   },
@@ -7729,37 +7809,49 @@
     }
   },
   "merVillage": {
-    "src": "/assets/images/hogwarts-expansion/merVillage.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Merpeople Village — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/merVillage.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Merpeople Village — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
+            0,
             30
           ],
           [
-            19.6,
-            30
+            9,
+            26
           ],
           [
-            19.6,
-            46
+            24,
+            31
           ],
           [
-            8.4,
-            46
+            29,
+            43
+          ],
+          [
+            27,
+            64
+          ],
+          [
+            10,
+            73
+          ],
+          [
+            0,
+            75
           ]
         ],
         "point": [
-          14,
-          38
+          16,
+          56
         ],
         "kind": "arch",
         "label": "Follow the passage to Black Lake Underwater Cave",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic underwater image: open rock tunnel on the left with clear stone approach connecting to the foreground. Manually traced."
       }
     }
   },
@@ -8071,64 +8163,80 @@
     }
   },
   "quidStands": {
-    "src": "/assets/images/hogwarts-expansion/quidStands.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Quidditch Stands — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v1/quidStands.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Quidditch Stands — photorealistic cinematic explorable scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            94
           ],
           [
-            19.6,
-            30
+            9,
+            79
           ],
           [
-            19.6,
-            46
+            16,
+            67
           ],
           [
-            8.4,
-            46
+            27,
+            63
+          ],
+          [
+            40,
+            75
+          ],
+          [
+            45,
+            95
           ]
         ],
         "point": [
-          14,
-          38
+          24,
+          83
         ],
-        "kind": "arch",
+        "kind": "stair",
         "label": "Follow the passage to Quidditch Pitch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: visible descending timber staircase at left connects stadium stand with Quidditch pitch. Manually traced."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            81,
+            31
           ],
           [
-            37.6,
-            30
+            85,
+            26
           ],
           [
-            37.6,
-            46
+            94,
+            28
           ],
           [
-            26.4,
-            46
+            96,
+            63
+          ],
+          [
+            89,
+            71
+          ],
+          [
+            80,
+            64
           ]
         ],
         "point": [
-          32,
-          38
+          89,
+          53
         ],
         "kind": "arch",
         "label": "Follow the passage to Quidditch Changing Rooms",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Cinematic image: visibly open Gothic timber corridor at right leads toward auxiliary rooms. Manually traced."
       }
     }
   },

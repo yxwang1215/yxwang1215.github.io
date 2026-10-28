@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-28",
+  "phase": "batch1-feature-branch",
+  "sceneCountPreserved": 113,
+  "activatedSceneIds": [
+    "antechamber",
+    "hogsSquare",
+    "hogsHead",
+    "honeydukes",
+    "broomsPub",
+    "merVillage",
+    "quidStands",
+    "commonGryff"
+  ],
+  "hiddenOpenedVariants": [
+    "hogsHead",
+    "honeydukes"
+  ],
+  "deferred": {
+    "hogsRoad": "Generated WebP exists in the local batch, but the image has only two visually defensible road directions for three graph exits; keep original SVG until a three-way fork is generated."
+  },
+  "hotspotPolicy": "Manually drawn image-space polygons; visual QA still required. No SAM-style automatic segmentation has been claimed.",
+  "formatInBranch": "JPEG (fully rendered static images)",
+  "localWebpExport": "hogwarts-ai-webp-first-batch.zip",
+  "qaStatus": "draft; no production deploy claimed"
+}
