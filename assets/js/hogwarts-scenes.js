@@ -809,8 +809,8 @@
         "label": "Enter the revealed passage to Mirror of Erised Chamber",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/gallery-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Fourth-floor Portrait Corridor — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -933,8 +933,8 @@
         "label": "Enter the revealed passage to Forgotten Armoury",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/armoury-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Third-floor Armour Gallery — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -1248,8 +1248,8 @@
         "label": "Enter the revealed passage to One-Eyed Witch Tunnel",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/baths-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Second-floor Bathroom Corridor — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -1949,8 +1949,8 @@
         "label": "Enter the revealed passage to Library Restricted Section",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/library-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Hogwarts Library — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -2887,8 +2887,8 @@
         "label": "Enter the revealed passage to Trapdoor Chamber",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/oldArchive-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Archive Passage — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -3003,8 +3003,8 @@
         "label": "Enter the revealed passage to Whispering Crypt",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/crypt-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Forgotten Crypt — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -3213,8 +3213,8 @@
         "label": "Enter the revealed passage to Serpent Door",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/slytherin-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Green Lantern Passage — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -3969,8 +3969,8 @@
         "label": "Enter the revealed passage to Black Lake Shallows",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/dock-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Old Pier — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -4638,8 +4638,8 @@
         "label": "Enter the revealed passage to Quidditch Referee Tower",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/quidditch-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Quidditch Pitch — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -6031,8 +6031,8 @@
   },
   "hogsSquare": {
     "src": "/assets/images/hogwarts-ai-v2/hogsSquare-day.jpg",
-    "width": 2016,
-    "height": 1152,
+    "width": 1672,
+    "height": 941,
     "alt": "Hogsmeade Village Square — cinematic daylight AI scene",
     "exits": {
       "n": {
@@ -6737,8 +6737,8 @@
         "label": "Enter the revealed passage to Humpbacked Witch Passage",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/hogsCellar-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Hog's Head Cellar — cinematic AI scene with visible routes — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
@@ -7237,8 +7237,8 @@
         "label": "Enter the revealed passage to Marauder's Map Nook",
         "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
         "src": "/assets/images/hogwarts-ai-v2/trophy-open.jpg",
-        "width": 2016,
-        "height": 1152,
+        "width": 1672,
+        "height": 941,
         "alt": "Trophy Gallery — cinematic AI scene with visible routes — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
