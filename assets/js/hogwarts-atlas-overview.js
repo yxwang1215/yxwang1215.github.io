@@ -32,7 +32,7 @@
       }));
       window.location.assign(destination);
     }catch(error){
-      $("ga-visit-hint").textContent="无法创建通行凭据，请检查浏览器会话存储权限。";
+      $("ga-visit-hint").textContent="The map could not seal a passage. Allow session storage and try again.";
     }
   }
 
