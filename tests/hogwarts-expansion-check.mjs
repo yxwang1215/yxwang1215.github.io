@@ -2,6 +2,56 @@ import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import vm from "node:vm";
 
+function jpegDimensions(bytes) {
+  assert.equal(bytes[0], 0xff, "JPEG missing SOI marker");
+  assert.equal(bytes[1], 0xd8, "JPEG missing SOI marker");
+  let cursor = 2;
+  const sofMarkers = new Set([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf]);
+  while (cursor + 4 < bytes.length) {
+    if (bytes[cursor] !== 0xff) { cursor++; continue; }
+    while (bytes[cursor] === 0xff) cursor++;
+    const marker = bytes[cursor++];
+    if (marker === 0xd9 || marker === 0xda) break;
+    if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) continue;
+    const length = bytes.readUInt16BE(cursor);
+    assert.ok(length >= 2 && cursor + length <= bytes.length, "Invalid JPEG segment length");
+    if (sofMarkers.has(marker)) {
+      return { width: bytes.readUInt16BE(cursor + 5), height: bytes.readUInt16BE(cursor + 3) };
+    }
+    cursor += length;
+  }
+  assert.fail("JPEG has no image-size frame marker");
+}
+
+function assertArtwork(path, source, width, height) {
+  assert.ok(existsSync(path), "Missing scene artwork " + source);
+  const bytes = readFileSync(path);
+  if (source.endsWith(".svg")) {
+    assert.match(bytes.toString("utf8"), /<svg[^>]*width="1600" height="900"/);
+  } else if (/\\.jpe?g$/i.test(source)) {
+    const size = jpegDimensions(bytes);
+    assert.deepEqual(size, { width, height }, "Unexpected JPEG size " + source);
+  } else if (source.endsWith(".webp")) {
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF", "Invalid WebP RIFF header");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP", "Invalid WebP signature");
+    assert.ok(width > 0 && height > 0, "Missing WebP dimensions " + source);
+  } else {
+    assert.fail("Unsupported scene artwork format " + source);
+  }
+}
+
+function pointInsidePolygon([px, py], vertices) {
+  let inside = false;
+  for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
+    const [xi, yi] = vertices[i], [xj, yj] = vertices[j];
+    if ((yi > py) !== (yj > py) && px < ((xj - xi) * (py - yi)) / (yj - yi) + xi) {
+      inside = !inside;
+    }
+  }
+  return inside;
+}
+
+
 const root = process.cwd();
 const expansion = JSON.parse(readFileSync(root + "/data/hogwarts-expansion-113.json", "utf8"));
 const win = { window: {} };
@@ -28,8 +78,15 @@ for (const def of expansion.definitions) {
   assert.ok(existsSync(wrapper), "Missing route " + def.path);
   assert.match(readFileSync(wrapper, "utf8"), /include hogwarts-explorer.html/);
   const graphic = root + scene.src;
-  assert.ok(existsSync(graphic), "Missing scene artwork " + scene.src);
-  assert.match(readFileSync(graphic, "utf8"), /<svg[^>]*width="1600" height="900"/);
+  assertArtwork(graphic, scene.src, scene.width, scene.height);
+  if (!scene.src.endsWith(".svg")) {
+    const clickRegions = [...Object.values(scene.exits), ...(scene.secret ? [scene.secret.trigger, scene.secret.open] : [])];
+    for (const region of clickRegions) {
+      assert.ok(region.polygon?.length >= 3 && region.point?.length === 2, "Missing polygon for " + def.id);
+      assert.ok(region.polygon.every(pair => pair.length === 2 && pair.every(v => Number.isFinite(v) && v >= 0 && v <= 100)), "Out-of-range polygon in " + def.id);
+      assert.ok(pointInsidePolygon(region.point, region.polygon), "Point is outside click polygon in " + def.id);
+    }
+  }
   assert.ok(!kinds.has(scene.src), "Shared scene artwork " + scene.src);
   kinds.set(scene.src, true);
   assert.deepEqual(Object.keys(room.exits).sort(), Object.keys(scene.exits).sort());
@@ -44,7 +101,7 @@ for (const [from, to, type] of expansion.hiddenEntrances) {
   assert.ok(Object.values(target.exits).includes(from), "No secret return " + to);
   assert.ok(visual.secret?.trigger?.point && visual.secret?.open?.src, "Missing two-state reveal " + from);
   assert.notEqual(visual.secret.open.src, visual.src);
-  assert.ok(existsSync(root + visual.secret.open.src), "Missing opened illustration " + from);
+  assertArtwork(root + visual.secret.open.src, visual.secret.open.src, visual.secret.open.width, visual.secret.open.height);
   assert.equal(geo.nodes[to].hidden, true);
 }
 const visited = new Set([atlas.start]);
@@ -64,4 +121,6 @@ for (let i = 0; i < queue.length; i++) for (const id of Object.values(atlas.room
 for (const id of expansion.hiddenRooms) assert.ok(!noSecrets.has(id), "Hidden URL leaks into normal traversal: " + id);
 assert.equal(expansion.hiddenEntrances.length, 13);
 assert.match(readFileSync(root + "/_includes/hogwarts-explorer.html", "utf8"), /hogwarts:platform934:pass:v1/);
-console.log("Expansion checks passed: 60 new static pages, 73 SVG states, 115 routes, 13 new secrets, existing session gate retained.");
+const rasterScenes = expansion.definitions.filter(def => !scenes[def.id].src.endsWith(".svg")).length;
+const rasterOpens = expansion.hiddenEntrances.filter(([from]) => !scenes[from].secret.open.src.endsWith(".svg")).length;
+console.log(`Expansion checks passed: 60 new static pages, ${rasterScenes} AI raster scenes, ${60 - rasterScenes} SVG scenes, ${rasterOpens} raster reveals, 115 routes, 13 new secrets, existing session gate retained.`);
