@@ -785,33 +785,33 @@
       "open": {
         "polygon": [
           [
-            27.9,
-            71.7
+            53,
+            25
           ],
           [
-            36.1,
-            71.7
+            71,
+            25
           ],
           [
-            36.1,
-            82.3
+            71,
+            61
           ],
           [
-            27.9,
-            82.3
+            53,
+            61
           ]
         ],
         "point": [
-          32,
-          77
+          62,
+          43
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Mirror of Erised Chamber",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/gallery-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Fourth-floor Portrait Corridor with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/gallery-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Fourth-floor Portrait Corridor — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -909,33 +909,33 @@
       "open": {
         "polygon": [
           [
-            27.9,
-            71.7
+            57,
+            22
           ],
           [
-            36.1,
-            71.7
+            79,
+            22
           ],
           [
-            36.1,
-            82.3
+            79,
+            73
           ],
           [
-            27.9,
-            82.3
+            57,
+            73
           ]
         ],
         "point": [
-          32,
-          77
+          68,
+          47.5
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Forgotten Armoury",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/armoury-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Third-floor Armour Gallery with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/armoury-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Third-floor Armour Gallery — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -1224,33 +1224,33 @@
       "open": {
         "polygon": [
           [
-            27.9,
-            71.7
+            55,
+            17
           ],
           [
-            36.1,
-            71.7
+            70,
+            17
           ],
           [
-            36.1,
-            82.3
+            70,
+            54
           ],
           [
-            27.9,
-            82.3
+            55,
+            54
           ]
         ],
         "point": [
-          32,
-          77
+          62.5,
+          35.5
         ],
         "kind": "door",
         "label": "Enter the revealed passage to One-Eyed Witch Tunnel",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/baths-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Second-floor Bathroom Corridor with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/baths-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Second-floor Bathroom Corridor — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -1925,33 +1925,33 @@
       "open": {
         "polygon": [
           [
-            11.9,
-            71.7
+            51,
+            22
           ],
           [
-            20.1,
-            71.7
+            75,
+            22
           ],
           [
-            20.1,
-            82.3
+            75,
+            74
           ],
           [
-            11.9,
-            82.3
+            51,
+            74
           ]
         ],
         "point": [
-          16,
-          77
+          63,
+          48
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Library Restricted Section",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/library-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Hogwarts Library with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/library-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Hogwarts Library — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -2863,33 +2863,33 @@
       "open": {
         "polygon": [
           [
-            11.9,
-            71.7
+            56,
+            23
           ],
           [
-            20.1,
-            71.7
+            72,
+            23
           ],
           [
-            20.1,
-            82.3
+            72,
+            71
           ],
           [
-            11.9,
-            82.3
+            56,
+            71
           ]
         ],
         "point": [
-          16,
-          77
+          64,
+          47
         ],
         "kind": "hatch",
         "label": "Enter the revealed passage to Trapdoor Chamber",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/oldArchive-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Archive Passage with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/oldArchive-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Archive Passage — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -2979,33 +2979,33 @@
       "open": {
         "polygon": [
           [
-            11.9,
-            71.7
+            59,
+            19
           ],
           [
-            20.1,
-            71.7
+            81,
+            19
           ],
           [
-            20.1,
-            82.3
+            81,
+            78
           ],
           [
-            11.9,
-            82.3
+            59,
+            78
           ]
         ],
         "point": [
-          16,
-          77
+          70,
+          48.5
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Whispering Crypt",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/crypt-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Forgotten Crypt with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/crypt-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Forgotten Crypt — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -3189,33 +3189,33 @@
       "open": {
         "polygon": [
           [
-            27.9,
-            71.7
+            71,
+            24
           ],
           [
-            36.1,
-            71.7
+            80,
+            24
           ],
           [
-            36.1,
-            82.3
+            80,
+            60
           ],
           [
-            27.9,
-            82.3
+            71,
+            60
           ]
         ],
         "point": [
-          32,
-          77
+          75.5,
+          42
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Serpent Door",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/slytherin-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Green Lantern Passage with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/slytherin-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Green Lantern Passage — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -3945,33 +3945,33 @@
       "open": {
         "polygon": [
           [
-            11.9,
-            71.7
+            69,
+            24
           ],
           [
-            20.1,
-            71.7
+            94,
+            24
           ],
           [
-            20.1,
-            82.3
+            94,
+            72
           ],
           [
-            11.9,
-            82.3
+            69,
+            72
           ]
         ],
         "point": [
-          16,
-          77
+          81.5,
+          48
         ],
         "kind": "hatch",
         "label": "Enter the revealed passage to Black Lake Shallows",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/dock-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Old Pier with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/dock-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Old Pier — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -4614,33 +4614,33 @@
       "open": {
         "polygon": [
           [
-            43.9,
-            71.7
+            53,
+            32
           ],
           [
-            52.1,
-            71.7
+            77,
+            32
           ],
           [
-            52.1,
-            82.3
+            77,
+            67
           ],
           [
-            43.9,
-            82.3
+            53,
+            67
           ]
         ],
         "point": [
-          48,
-          77
+          65,
+          49.5
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Quidditch Referee Tower",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/quidditch-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Quidditch Pitch with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/quidditch-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Quidditch Pitch — a cinematic view with visible passages — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -5817,637 +5817,617 @@
     }
   },
   "hogsRoad": {
-    "src": "/assets/images/hogwarts-expansion/hogsRoad.svg",
+    "src": "/assets/images/hogwarts-ai-v2/hogsRoad.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Hogsmeade Hill Road — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hogsmeade Hill Road — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            9,
+            49
           ],
           [
-            19.6,
-            30
+            32,
+            49
           ],
           [
-            19.6,
-            46
+            32,
+            80
           ],
           [
-            8.4,
-            46
+            9,
+            80
           ]
         ],
         "point": [
-          14,
-          38
+          20.5,
+          64.5
         ],
         "kind": "path",
         "label": "Follow the passage to The Lantern Path",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 20.5% / 64.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            43,
+            47
           ],
           [
-            37.6,
-            30
+            61,
+            47
           ],
           [
-            37.6,
-            46
+            61,
+            72
           ],
           [
-            26.4,
-            46
+            43,
+            72
           ]
         ],
         "point": [
-          32,
-          38
+          52,
+          59.5
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade Station",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 52% / 59.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "s": {
         "polygon": [
           [
-            44.4,
-            30
+            72,
+            47
           ],
           [
-            55.6,
-            30
+            94,
+            47
           ],
           [
-            55.6,
-            46
+            94,
+            80
           ],
           [
-            44.4,
-            46
+            72,
+            80
           ]
         ],
         "point": [
-          50,
-          38
+          83,
+          63.5
         ],
         "kind": "path",
         "label": "Follow the passage to The Shrieking Shack",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 83% / 63.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "hogsStation": {
-    "src": "/assets/images/hogwarts-expansion/hogsStation.svg",
+    "src": "/assets/images/hogwarts-ai-v2/hogsStation.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Hogsmeade Station — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hogsmeade Station — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            14,
+            34
           ],
           [
-            19.6,
-            30
+            30,
+            34
           ],
           [
-            19.6,
-            46
+            30,
+            67
           ],
           [
-            8.4,
-            46
+            14,
+            67
           ]
         ],
         "point": [
-          14,
-          38
+          22,
+          50.5
         ],
         "kind": "arch",
         "label": "Follow the passage to Hogsmeade Hill Road",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 22% / 50.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
+            75,
             30
           ],
           [
-            37.6,
+            98,
             30
           ],
           [
-            37.6,
-            46
+            98,
+            81
           ],
           [
-            26.4,
-            46
+            75,
+            81
           ]
         ],
         "point": [
-          32,
-          38
+          86.5,
+          55.5
         ],
-        "kind": "arch",
+        "kind": "path",
         "label": "Follow the passage to Station Wooden Bridge",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 86.5% / 55.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "hogsBridge": {
-    "src": "/assets/images/hogwarts-expansion/hogsBridge.svg",
+    "src": "/assets/images/hogwarts-ai-v2/hogsBridge.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Station Wooden Bridge — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Station Wooden Bridge — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            35,
+            83
           ],
           [
-            19.6,
-            30
+            70,
+            83
           ],
           [
-            19.6,
-            46
+            70,
+            99
           ],
           [
-            8.4,
-            46
+            35,
+            99
           ]
         ],
         "point": [
-          14,
-          38
+          52.5,
+          91
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade Station",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 52.5% / 91%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            73,
+            26
           ],
           [
-            37.6,
-            30
+            95,
+            26
           ],
           [
-            37.6,
-            46
+            95,
+            69
           ],
           [
-            26.4,
-            46
-          ]
-        ],
-        "point": [
-          32,
-          38
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
-      }
-    }
-  },
-  "hogsSquare": {
-    "src": "/assets/images/hogwarts-ai-v1/hogsSquare.jpg",
-    "width": 1672,
-    "height": 941,
-    "alt": "Hogsmeade Village Square — photorealistic cinematic explorable scene",
-    "exits": {
-      "n": {
-        "polygon": [
-          [
-            2,
-            43
-          ],
-          [
-            8,
-            38
-          ],
-          [
-            18,
-            42
-          ],
-          [
-            19,
-            61
-          ],
-          [
-            3,
-            63
-          ]
-        ],
-        "point": [
-          11,
-          54
-        ],
-        "kind": "arch",
-        "label": "Follow the passage to Station Wooden Bridge",
-        "evidence": "Cinematic image: open stone station arch and visible railway approach on the far left. Manually traced."
-      },
-      "e": {
-        "polygon": [
-          [
-            47,
-            73
-          ],
-          [
-            50,
-            63
-          ],
-          [
-            50,
-            55
-          ],
-          [
-            55,
-            46
-          ],
-          [
-            60,
-            52
-          ],
-          [
-            62,
-            64
-          ],
-          [
-            67,
-            74
-          ]
-        ],
-        "point": [
-          56,
-          61
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Cinematic image: clear central cobbled continuation between village buildings. Manually traced."
-      },
-      "s": {
-        "polygon": [
-          [
-            42.2,
-            48
-          ],
-          [
-            45.7,
-            45.4
-          ],
-          [
-            47.2,
-            48.6
-          ],
-          [
-            47.2,
-            59.6
-          ],
-          [
-            42.2,
-            60.8
-          ]
-        ],
-        "point": [
-          44.9,
-          55
-        ],
-        "kind": "door",
-        "label": "Follow the passage to Madam Puddifoot's Tea Shop",
-        "evidence": "Zoomed cinematic image: actual warm-lit wooden shop doorway immediately to the right of the central well pavilion, not the masonry well itself. Manually re-traced; tea-shop identification remains a QA candidate."
-      },
-      "w": {
-        "polygon": [
-          [
-            93,
-            36
-          ],
-          [
-            97.8,
-            38
-          ],
-          [
-            97.8,
-            68
-          ],
-          [
-            93,
+            73,
             69
           ]
         ],
         "point": [
-          95.4,
-          55
+          84,
+          47.5
         ],
-        "kind": "door",
-        "label": "Follow the passage to Hogsmeade Post Office",
-        "evidence": "Cinematic image: narrowed to the actual red-framed timber door at far right, excluding adjacent display windows. Exact shop identity to be confirmed."
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 84% / 47.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
-  "hogsHigh": {
-    "src": "/assets/images/hogwarts-expansion/hogsHigh.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Hogsmeade High Street — illustrated, explorable Hogwarts location",
+  "hogsSquare": {
+    "src": "/assets/images/hogwarts-ai-v2/hogsSquare-day.jpg",
+    "width": 1672,
+    "height": 941,
+    "alt": "Hogsmeade Village Square — cinematic daylight AI scene",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            69,
+            42
           ],
           [
-            19.6,
-            30
+            79,
+            42
           ],
           [
-            19.6,
-            46
+            79,
+            68
           ],
           [
-            8.4,
-            46
+            69,
+            68
           ]
         ],
         "point": [
-          14,
-          38
+          74,
+          58
         ],
-        "kind": "path",
-        "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "kind": "arch",
+        "label": "Follow the passage to Station Wooden Bridge",
+        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            45,
+            78
           ],
           [
-            37.6,
-            30
+            69,
+            78
           ],
           [
-            37.6,
-            46
+            71,
+            99
           ],
           [
-            26.4,
-            46
+            39,
+            99
           ]
         ],
         "point": [
-          32,
-          38
+          55,
+          90
         ],
         "kind": "path",
-        "label": "Follow the passage to Three Broomsticks Porch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
       },
       "s": {
         "polygon": [
           [
-            44.4,
-            30
+            31,
+            49
           ],
           [
-            55.6,
-            30
+            44,
+            49
           ],
           [
-            55.6,
-            46
+            44,
+            76
           ],
           [
-            44.4,
-            46
+            31,
+            76
           ]
         ],
         "point": [
-          50,
-          38
+          37.5,
+          65
         ],
-        "kind": "path",
-        "label": "Follow the passage to Hog's Head Porch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "kind": "door",
+        "label": "Follow the passage to Madam Puddifoot's Tea Shop",
+        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
       },
       "w": {
         "polygon": [
           [
-            62.4,
-            30
+            90,
+            37
           ],
           [
-            73.6,
-            30
+            99,
+            37
           ],
           [
-            73.6,
-            46
+            99,
+            78
           ],
           [
-            62.4,
-            46
+            90,
+            78
           ]
         ],
         "point": [
-          68,
-          38
+          94.5,
+          58
         ],
-        "kind": "path",
-        "label": "Follow the passage to Honeydukes",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
-      },
-      "a": {
-        "polygon": [
-          [
-            80.4,
-            30
-          ],
-          [
-            91.6,
-            30
-          ],
-          [
-            91.6,
-            46
-          ],
-          [
-            80.4,
-            46
-          ]
-        ],
-        "point": [
-          86,
-          38
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Zonko's Joke Shop",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
-      },
-      "b": {
-        "polygon": [
-          [
-            8.4,
-            65
-          ],
-          [
-            19.6,
-            65
-          ],
-          [
-            19.6,
-            81
-          ],
-          [
-            8.4,
-            81
-          ]
-        ],
-        "point": [
-          14,
-          73
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Scrivenshaft's Quill Shop",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
-      },
-      "c": {
-        "polygon": [
-          [
-            26.4,
-            65
-          ],
-          [
-            37.6,
-            65
-          ],
-          [
-            37.6,
-            81
-          ],
-          [
-            26.4,
-            81
-          ]
-        ],
-        "point": [
-          32,
-          73
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Gladrags Wizardwear",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
-      },
-      "d": {
-        "polygon": [
-          [
-            44.4,
-            65
-          ],
-          [
-            55.6,
-            65
-          ],
-          [
-            55.6,
-            81
-          ],
-          [
-            44.4,
-            81
-          ]
-        ],
-        "point": [
-          50,
-          73
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Dervish and Banges",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "kind": "door",
+        "label": "Follow the passage to Hogsmeade Post Office",
+        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
       }
     }
   },
-  "broomsPorch": {
-    "src": "/assets/images/hogwarts-expansion/broomsPorch.svg",
+  "hogsHigh": {
+    "src": "/assets/images/hogwarts-ai-v2/hogsHigh.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Three Broomsticks Porch — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hogsmeade High Street — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            42,
+            45
           ],
           [
-            19.6,
-            30
+            55,
+            45
           ],
           [
-            19.6,
-            46
+            55,
+            68
           ],
           [
-            8.4,
-            46
+            42,
+            68
           ]
         ],
         "point": [
-          14,
-          38
+          48.5,
+          56.5
         ],
-        "kind": "arch",
-        "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 48.5% / 56.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            81,
+            37
           ],
           [
-            37.6,
-            30
+            96,
+            37
           ],
           [
-            37.6,
-            46
+            96,
+            75
           ],
           [
-            26.4,
-            46
+            81,
+            75
           ]
         ],
         "point": [
-          32,
-          38
+          88.5,
+          56
         ],
-        "kind": "arch",
+        "kind": "door",
+        "label": "Follow the passage to Three Broomsticks Porch",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 88.5% / 56%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "s": {
+        "polygon": [
+          [
+            71,
+            40
+          ],
+          [
+            79,
+            40
+          ],
+          [
+            79,
+            71
+          ],
+          [
+            71,
+            71
+          ]
+        ],
+        "point": [
+          75,
+          55.5
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Hog's Head Porch",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 75% / 55.5%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "w": {
+        "polygon": [
+          [
+            5,
+            32
+          ],
+          [
+            19,
+            32
+          ],
+          [
+            19,
+            72
+          ],
+          [
+            5,
+            72
+          ]
+        ],
+        "point": [
+          12,
+          52
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Honeydukes",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 12% / 52%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "a": {
+        "polygon": [
+          [
+            22,
+            38
+          ],
+          [
+            34,
+            38
+          ],
+          [
+            34,
+            69
+          ],
+          [
+            22,
+            69
+          ]
+        ],
+        "point": [
+          28,
+          53.5
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Zonko's Joke Shop",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 28% / 53.5%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "b": {
+        "polygon": [
+          [
+            36,
+            42
+          ],
+          [
+            42,
+            42
+          ],
+          [
+            42,
+            66
+          ],
+          [
+            36,
+            66
+          ]
+        ],
+        "point": [
+          39,
+          54
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Scrivenshaft's Quill Shop",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 39% / 54%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "c": {
+        "polygon": [
+          [
+            57,
+            43
+          ],
+          [
+            65,
+            43
+          ],
+          [
+            65,
+            69
+          ],
+          [
+            57,
+            69
+          ]
+        ],
+        "point": [
+          61,
+          56
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Gladrags Wizardwear",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 61% / 56%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "d": {
+        "polygon": [
+          [
+            66,
+            44
+          ],
+          [
+            70,
+            44
+          ],
+          [
+            70,
+            70
+          ],
+          [
+            66,
+            70
+          ]
+        ],
+        "point": [
+          68,
+          57
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Dervish and Banges",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 68% / 57%; route identity from atlas graph; final browser click-through QA required."
+      }
+    }
+  },
+  "broomsPorch": {
+    "src": "/assets/images/hogwarts-ai-v2/broomsPorch.jpg",
+    "width": 1600,
+    "height": 914,
+    "alt": "Three Broomsticks Porch — cinematic AI scene with visible routes",
+    "exits": {
+      "n": {
+        "polygon": [
+          [
+            4,
+            36
+          ],
+          [
+            31,
+            36
+          ],
+          [
+            31,
+            76
+          ],
+          [
+            4,
+            76
+          ]
+        ],
+        "point": [
+          17.5,
+          56
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade High Street",
+        "evidence": "Manual approximate aperture on the independent daylight image, near 17.5% / 56%; route identity from atlas graph; final browser click-through QA required."
+      },
+      "e": {
+        "polygon": [
+          [
+            61,
+            20
+          ],
+          [
+            89,
+            20
+          ],
+          [
+            89,
+            76
+          ],
+          [
+            61,
+            76
+          ]
+        ],
+        "point": [
+          75,
+          48
+        ],
+        "kind": "door",
         "label": "Follow the passage to The Three Broomsticks",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 75% / 48%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
@@ -6491,64 +6471,64 @@
     }
   },
   "hogsHeadPorch": {
-    "src": "/assets/images/hogwarts-expansion/hogsHeadPorch.svg",
+    "src": "/assets/images/hogwarts-ai-v2/hogsHeadPorch.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Hog's Head Porch — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hog's Head Porch — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            37
           ],
           [
-            19.6,
-            30
+            29,
+            37
           ],
           [
-            19.6,
-            46
+            29,
+            80
           ],
           [
-            8.4,
-            46
+            3,
+            80
           ]
         ],
         "point": [
-          14,
-          38
+          16,
+          58.5
         ],
-        "kind": "arch",
+        "kind": "path",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 58.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            63,
+            26
           ],
           [
-            37.6,
-            30
+            92,
+            26
           ],
           [
-            37.6,
-            46
+            92,
+            77
           ],
           [
-            26.4,
-            46
+            63,
+            77
           ]
         ],
         "point": [
-          32,
-          38
+          77.5,
+          51.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to The Hog's Head",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 77.5% / 51.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
@@ -6669,97 +6649,97 @@
     }
   },
   "hogsCellar": {
-    "src": "/assets/images/hogwarts-expansion/hogsCellar.svg",
+    "src": "/assets/images/hogwarts-ai-v2/hogsCellar.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Hog's Head Cellar — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hog's Head Cellar — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            7,
+            24
           ],
           [
-            19.6,
-            30
+            33,
+            24
           ],
           [
-            19.6,
-            46
+            33,
+            75
           ],
           [
-            8.4,
-            46
+            7,
+            75
           ]
         ],
         "point": [
-          14,
-          38
+          20,
+          49.5
         ],
-        "kind": "arch",
+        "kind": "stair",
         "label": "Follow the passage to The Hog's Head",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 20% / 49.5%; route identity from atlas graph; final browser click-through QA required."
       }
     },
     "secret": {
       "trigger": {
         "polygon": [
           [
-            45.9,
-            49.7
+            65,
+            42
           ],
           [
-            54.1,
-            49.7
+            80,
+            42
           ],
           [
-            54.1,
-            60.3
+            80,
+            73
           ],
           [
-            45.9,
-            60.3
+            65,
+            73
           ]
         ],
         "point": [
-          50,
-          55
+          72.5,
+          57.5
         ],
         "kind": "inspect",
         "label": "Inspect the weathered statue",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "Approximate hotspot over visible clue in the daylight base scene; click-through review required."
       },
       "open": {
         "polygon": [
           [
-            45.9,
-            49.7
+            55,
+            19
           ],
           [
-            54.1,
-            49.7
+            86,
+            19
           ],
           [
-            54.1,
-            60.3
+            86,
+            71
           ],
           [
-            45.9,
-            60.3
+            55,
+            71
           ]
         ],
         "point": [
-          50,
-          55
+          70.5,
+          45
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Humpbacked Witch Passage",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/hogsCellar-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Hog's Head Cellar with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/hogsCellar-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Hog's Head Cellar — cinematic AI scene with visible routes — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -6881,247 +6861,247 @@
     }
   },
   "zonkos": {
-    "src": "/assets/images/hogwarts-expansion/zonkos.svg",
+    "src": "/assets/images/hogwarts-ai-v2/zonkos.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Zonko's Joke Shop — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Zonko's Joke Shop — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            8,
+            21
           ],
           [
-            19.6,
-            30
+            33,
+            21
           ],
           [
-            19.6,
-            46
+            33,
+            75
           ],
           [
-            8.4,
-            46
+            8,
+            75
           ]
         ],
         "point": [
-          14,
-          38
+          20.5,
+          48
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 20.5% / 48%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "scribbulus": {
-    "src": "/assets/images/hogwarts-expansion/scribbulus.svg",
+    "src": "/assets/images/hogwarts-ai-v2/scribbulus.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Scrivenshaft's Quill Shop — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Scrivenshaft's Quill Shop — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            21
           ],
           [
-            19.6,
-            30
+            20,
+            21
           ],
           [
-            19.6,
-            46
+            20,
+            82
           ],
           [
-            8.4,
-            46
+            0,
+            82
           ]
         ],
         "point": [
-          14,
-          38
+          10,
+          51.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 10% / 51.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "gladrags": {
-    "src": "/assets/images/hogwarts-expansion/gladrags.svg",
+    "src": "/assets/images/hogwarts-ai-v2/gladrags.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Gladrags Wizardwear — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Gladrags Wizardwear — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            1,
+            19
           ],
           [
-            19.6,
-            30
+            27,
+            19
           ],
           [
-            19.6,
-            46
+            27,
+            76
           ],
           [
-            8.4,
-            46
+            1,
+            76
           ]
         ],
         "point": [
           14,
-          38
+          47.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 14% / 47.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "dervish": {
-    "src": "/assets/images/hogwarts-expansion/dervish.svg",
+    "src": "/assets/images/hogwarts-ai-v2/dervish.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Dervish and Banges — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Dervish and Banges — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            21
           ],
           [
-            19.6,
-            30
+            28,
+            21
           ],
           [
-            19.6,
-            46
+            28,
+            80
           ],
           [
-            8.4,
-            46
+            3,
+            80
           ]
         ],
         "point": [
-          14,
-          38
+          15.5,
+          50.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 50.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "puddifoot": {
-    "src": "/assets/images/hogwarts-expansion/puddifoot.svg",
+    "src": "/assets/images/hogwarts-ai-v2/puddifoot.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Madam Puddifoot's Tea Shop — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Madam Puddifoot's Tea Shop — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            14
           ],
           [
-            19.6,
-            30
+            31,
+            14
           ],
           [
-            19.6,
-            46
+            31,
+            77
           ],
           [
-            8.4,
-            46
+            0,
+            77
           ]
         ],
         "point": [
-          14,
-          38
+          15.5,
+          45.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 45.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "postOffice": {
-    "src": "/assets/images/hogwarts-expansion/postOffice.svg",
+    "src": "/assets/images/hogwarts-ai-v2/postOffice.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Hogsmeade Post Office — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hogsmeade Post Office — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            23
           ],
           [
-            19.6,
-            30
+            27,
+            23
           ],
           [
-            19.6,
-            46
+            27,
+            78
           ],
           [
-            8.4,
-            46
+            0,
+            78
           ]
         ],
         "point": [
-          14,
-          38
+          13.5,
+          50.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 13.5% / 50.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "shriekingShack": {
-    "src": "/assets/images/hogwarts-expansion/shriekingShack.svg",
+    "src": "/assets/images/hogwarts-ai-v2/shriekingShack.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "The Shrieking Shack — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "The Shrieking Shack — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            29
           ],
           [
-            19.6,
-            30
+            30,
+            29
           ],
           [
-            19.6,
-            46
+            30,
+            78
           ],
           [
-            8.4,
-            46
+            0,
+            78
           ]
         ],
         "point": [
-          14,
-          38
+          15,
+          53.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogsmeade Hill Road",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15% / 53.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
@@ -7169,168 +7149,168 @@
     }
   },
   "trophy": {
-    "src": "/assets/images/hogwarts-expansion/trophy.svg",
+    "src": "/assets/images/hogwarts-ai-v2/trophy.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Trophy Gallery — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Trophy Gallery — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            22,
+            24
           ],
           [
-            19.6,
-            30
+            39,
+            24
           ],
           [
-            19.6,
-            46
+            39,
+            75
           ],
           [
-            8.4,
-            46
+            22,
+            75
           ]
         ],
         "point": [
-          14,
-          38
+          30.5,
+          49.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Third-floor Armour Gallery",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 30.5% / 49.5%; route identity from atlas graph; final browser click-through QA required."
       }
     },
     "secret": {
       "trigger": {
         "polygon": [
           [
-            45.9,
-            49.7
+            45,
+            49
           ],
           [
-            54.1,
-            49.7
+            66,
+            49
           ],
           [
-            54.1,
-            60.3
+            66,
+            69
           ],
           [
-            45.9,
-            60.3
+            45,
+            69
           ]
         ],
         "point": [
-          50,
-          55
+          55.5,
+          59
         ],
         "kind": "inspect",
         "label": "Inspect the folded parchment",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "Approximate hotspot over visible clue in the daylight base scene; click-through review required."
       },
       "open": {
         "polygon": [
           [
-            45.9,
-            49.7
+            57,
+            19
           ],
           [
-            54.1,
-            49.7
+            74,
+            19
           ],
           [
-            54.1,
-            60.3
+            74,
+            79
           ],
           [
-            45.9,
-            60.3
+            57,
+            79
           ]
         ],
         "point": [
-          50,
-          55
+          65.5,
+          49
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Marauder's Map Nook",
-        "evidence": "Separate opened-state aperture; this interaction activates only after a deliberate reveal.",
-        "src": "/assets/images/hogwarts-expansion/trophy-revealed.svg",
-        "width": 1600,
-        "height": 900,
-        "alt": "Trophy Gallery with a revealed hidden passage"
+        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "src": "/assets/images/hogwarts-ai-v2/trophy-open.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "Trophy Gallery — cinematic AI scene with visible routes — revealed passage opened"
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
   },
   "clockTower": {
-    "src": "/assets/images/hogwarts-expansion/clockTower.svg",
+    "src": "/assets/images/hogwarts-ai-v2/clockTower.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Clock Tower — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Clock Tower — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            10,
+            21
           ],
           [
-            19.6,
-            30
+            28,
+            21
           ],
           [
-            19.6,
-            46
+            28,
+            76
           ],
           [
-            8.4,
-            46
+            10,
+            76
           ]
         ],
         "point": [
-          14,
-          38
+          19,
+          48.5
         ],
         "kind": "arch",
         "label": "Follow the passage to North Battlements",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 19% / 48.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "prefectsBath": {
-    "src": "/assets/images/hogwarts-expansion/prefectsBath.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Prefects' Bathroom — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/prefectsBath.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Prefects' Bathroom — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            13
           ],
           [
-            19.6,
-            30
+            20,
+            13
           ],
           [
-            19.6,
-            46
+            20,
+            71
           ],
           [
-            8.4,
-            46
+            0,
+            71
           ]
         ],
         "point": [
-          14,
-          38
+          10,
+          42
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Second-floor Bathroom Corridor",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 10% / 42%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
@@ -7378,433 +7358,433 @@
     }
   },
   "commonRaven": {
-    "src": "/assets/images/hogwarts-expansion/commonRaven.svg",
+    "src": "/assets/images/hogwarts-ai-v2/commonRaven.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Ravenclaw Common Room — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Ravenclaw Common Room — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            2,
+            19
           ],
           [
-            19.6,
-            30
+            28,
+            19
           ],
           [
-            19.6,
-            46
+            28,
+            81
           ],
           [
-            8.4,
-            46
+            2,
+            81
           ]
         ],
         "point": [
-          14,
-          38
+          15,
+          50
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to North Battlements",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15% / 50%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "commonHuffle": {
-    "src": "/assets/images/hogwarts-expansion/commonHuffle.svg",
+    "src": "/assets/images/hogwarts-ai-v2/commonHuffle.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Hufflepuff Common Room — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Hufflepuff Common Room — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            6,
+            25
           ],
           [
-            19.6,
-            30
+            32,
+            25
           ],
           [
-            19.6,
-            46
+            32,
+            77
           ],
           [
-            8.4,
-            46
+            6,
+            77
           ]
         ],
         "point": [
-          14,
-          38
+          19,
+          51
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Castle Kitchens",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 19% / 51%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "commonSlytherin": {
-    "src": "/assets/images/hogwarts-expansion/commonSlytherin.svg",
+    "src": "/assets/images/hogwarts-ai-v2/commonSlytherin.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Slytherin Common Room — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Slytherin Common Room — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            4,
+            17
           ],
           [
-            19.6,
-            30
+            29,
+            17
           ],
           [
-            19.6,
-            46
+            29,
+            81
           ],
           [
-            8.4,
-            46
+            4,
+            81
           ]
         ],
         "point": [
-          14,
-          38
+          16.5,
+          49
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Serpent Door",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 16.5% / 49%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "roRThings": {
-    "src": "/assets/images/hogwarts-expansion/roRThings.svg",
+    "src": "/assets/images/hogwarts-ai-v2/roRThings.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Room of Hidden Things — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Room of Hidden Things — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            16,
+            26
           ],
           [
-            19.6,
-            30
+            34,
+            26
           ],
           [
-            19.6,
-            46
+            34,
+            78
           ],
           [
-            8.4,
-            46
+            16,
+            78
           ]
         ],
         "point": [
-          14,
-          38
+          25,
+          52
         ],
         "kind": "arch",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 25% / 52%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "roRDA": {
-    "src": "/assets/images/hogwarts-expansion/roRDA.svg",
+    "src": "/assets/images/hogwarts-ai-v2/roRDA.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "D.A. Training Room — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "D.A. Training Room — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            10,
+            17
           ],
           [
-            19.6,
-            30
+            35,
+            17
           ],
           [
-            19.6,
-            46
+            35,
+            78
           ],
           [
-            8.4,
-            46
+            10,
+            78
           ]
         ],
         "point": [
-          14,
-          38
+          22.5,
+          47.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 22.5% / 47.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "roRDiadem": {
-    "src": "/assets/images/hogwarts-expansion/roRDiadem.svg",
+    "src": "/assets/images/hogwarts-ai-v2/roRDiadem.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Diadem Niche — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Diadem Niche — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            1,
+            14
           ],
           [
-            19.6,
-            30
+            25,
+            14
           ],
           [
-            19.6,
-            46
+            25,
+            84
           ],
           [
-            8.4,
-            46
+            1,
+            84
           ]
         ],
         "point": [
-          14,
-          38
+          13,
+          49
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 13% / 49%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "roRArchive": {
-    "src": "/assets/images/hogwarts-expansion/roRArchive.svg",
+    "src": "/assets/images/hogwarts-ai-v2/roRArchive.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Living Archive — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Living Archive — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            23,
+            29
           ],
           [
-            19.6,
-            30
+            43,
+            29
           ],
           [
-            19.6,
-            46
+            43,
+            79
           ],
           [
-            8.4,
-            46
+            23,
+            79
           ]
         ],
         "point": [
-          14,
-          38
+          33,
+          54
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 33% / 54%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "lakeShallows": {
-    "src": "/assets/images/hogwarts-expansion/lakeShallows.svg",
+    "src": "/assets/images/hogwarts-ai-v2/lakeShallows.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Black Lake Shallows — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Black Lake Shallows — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            2,
+            62
           ],
           [
-            19.6,
-            30
+            31,
+            62
           ],
           [
-            19.6,
-            46
+            31,
+            95
           ],
           [
-            8.4,
-            46
+            2,
+            95
           ]
         ],
         "point": [
-          14,
-          38
+          16.5,
+          78.5
         ],
         "kind": "path",
         "label": "Follow the passage to Black Lake Islet",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 16.5% / 78.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            37,
+            45
           ],
           [
-            37.6,
-            30
+            60,
+            45
           ],
           [
-            37.6,
-            46
+            60,
+            85
           ],
           [
-            26.4,
-            46
+            37,
+            85
           ]
         ],
         "point": [
-          32,
-          38
+          48.5,
+          65
         ],
-        "kind": "path",
+        "kind": "stair",
         "label": "Follow the passage to Black Lake Underwater Cave",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 48.5% / 65%; route identity from atlas graph; final browser click-through QA required."
       },
       "s": {
         "polygon": [
           [
-            44.4,
-            30
+            73,
+            31
           ],
           [
-            55.6,
-            30
+            97,
+            31
           ],
           [
-            55.6,
-            46
+            97,
+            79
           ],
           [
-            44.4,
-            46
+            73,
+            79
           ]
         ],
         "point": [
-          50,
-          38
+          85,
+          55
         ],
         "kind": "path",
         "label": "Follow the passage to Old Pier",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 85% / 55%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "boatLaunch": {
-    "src": "/assets/images/hogwarts-expansion/boatLaunch.svg",
+    "src": "/assets/images/hogwarts-ai-v2/boatLaunch.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Boathouse Launch — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Boathouse Launch — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            32,
+            18
           ],
           [
-            19.6,
-            30
+            54,
+            18
           ],
           [
-            19.6,
-            46
+            54,
+            65
           ],
           [
-            8.4,
-            46
+            32,
+            65
           ]
         ],
         "point": [
-          14,
-          38
+          43,
+          41.5
         ],
         "kind": "path",
         "label": "Follow the passage to The Boathouse",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 43% / 41.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "lakeCave": {
-    "src": "/assets/images/hogwarts-expansion/lakeCave.svg",
+    "src": "/assets/images/hogwarts-ai-v2/lakeCave.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Black Lake Underwater Cave — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Black Lake Underwater Cave — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            2,
+            34
           ],
           [
-            19.6,
-            30
+            29,
+            34
           ],
           [
-            19.6,
-            46
+            29,
+            78
           ],
           [
-            8.4,
-            46
+            2,
+            78
           ]
         ],
         "point": [
-          14,
-          38
+          15.5,
+          56
         ],
         "kind": "arch",
         "label": "Follow the passage to Black Lake Shallows",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 56%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            73,
+            24
           ],
           [
-            37.6,
-            30
+            97,
+            24
           ],
           [
-            37.6,
-            46
+            97,
+            72
           ],
           [
-            26.4,
-            46
+            73,
+            72
           ]
         ],
         "point": [
-          32,
-          38
+          85,
+          48
         ],
         "kind": "arch",
         "label": "Follow the passage to Merpeople Village",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 85% / 48%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
@@ -7856,309 +7836,309 @@
     }
   },
   "lakeIslet": {
-    "src": "/assets/images/hogwarts-expansion/lakeIslet.svg",
+    "src": "/assets/images/hogwarts-ai-v2/lakeIslet.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Black Lake Islet — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Black Lake Islet — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            10,
+            63
           ],
           [
-            19.6,
-            30
+            45,
+            63
           ],
           [
-            19.6,
-            46
+            45,
+            97
           ],
           [
-            8.4,
-            46
+            10,
+            97
           ]
         ],
         "point": [
-          14,
-          38
+          27.5,
+          80
         ],
         "kind": "path",
         "label": "Follow the passage to Black Lake Shallows",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 27.5% / 80%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "willowRoots": {
-    "src": "/assets/images/hogwarts-expansion/willowRoots.svg",
+    "src": "/assets/images/hogwarts-ai-v2/willowRoots.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Whomping Willow Roots — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Whomping Willow Roots — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            38
           ],
           [
-            19.6,
-            30
+            29,
+            38
           ],
           [
-            19.6,
-            46
+            29,
+            82
           ],
           [
-            8.4,
-            46
+            0,
+            82
           ]
         ],
         "point": [
-          14,
-          38
+          14.5,
+          60
         ],
         "kind": "path",
         "label": "Follow the passage to South Courtyard",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 14.5% / 60%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "centaurGrove": {
-    "src": "/assets/images/hogwarts-expansion/centaurGrove.svg",
+    "src": "/assets/images/hogwarts-ai-v2/centaurGrove.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Centaur Grove — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Centaur Grove — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            44
           ],
           [
-            19.6,
-            30
+            30,
+            44
           ],
           [
-            19.6,
-            46
+            30,
+            82
           ],
           [
-            8.4,
-            46
+            0,
+            82
           ]
         ],
         "point": [
-          14,
-          38
+          15,
+          63
         ],
         "kind": "path",
         "label": "Follow the passage to Ancient Clearing",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15% / 63%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            66,
+            42
           ],
           [
-            37.6,
-            30
+            96,
+            42
           ],
           [
-            37.6,
-            46
+            96,
+            82
           ],
           [
-            26.4,
-            46
+            66,
+            82
           ]
         ],
         "point": [
-          32,
-          38
+          81,
+          62
         ],
         "kind": "path",
         "label": "Follow the passage to Unicorn Glade",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 81% / 62%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "unicornGlade": {
-    "src": "/assets/images/hogwarts-expansion/unicornGlade.svg",
+    "src": "/assets/images/hogwarts-ai-v2/unicornGlade.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Unicorn Glade — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Unicorn Glade — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            39,
+            82
           ],
           [
-            19.6,
-            30
+            62,
+            82
           ],
           [
-            19.6,
-            46
+            62,
+            98
           ],
           [
-            8.4,
-            46
+            39,
+            98
           ]
         ],
         "point": [
-          14,
-          38
+          50.5,
+          90
         ],
         "kind": "path",
         "label": "Follow the passage to Centaur Grove",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 50.5% / 90%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "acromantulaDen": {
-    "src": "/assets/images/hogwarts-expansion/acromantulaDen.svg",
+    "src": "/assets/images/hogwarts-ai-v2/acromantulaDen.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Acromantula Den — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Acromantula Den — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            27
           ],
           [
-            19.6,
-            30
+            22,
+            27
           ],
           [
-            19.6,
-            46
+            22,
+            78
           ],
           [
-            8.4,
-            46
+            0,
+            78
           ]
         ],
         "point": [
-          14,
-          38
+          11,
+          52.5
         ],
         "kind": "path",
         "label": "Follow the passage to Forbidden Forest",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 11% / 52.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "coveredBridge": {
-    "src": "/assets/images/hogwarts-expansion/coveredBridge.svg",
+    "src": "/assets/images/hogwarts-ai-v2/coveredBridge.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Covered Bridge — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Covered Bridge — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            29,
+            85
           ],
           [
-            19.6,
-            30
+            70,
+            85
           ],
           [
-            19.6,
-            46
+            70,
+            99
           ],
           [
-            8.4,
-            46
+            29,
+            99
           ]
         ],
         "point": [
-          14,
-          38
+          49.5,
+          92
         ],
         "kind": "path",
         "label": "Follow the passage to Stone Viaduct",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 49.5% / 92%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "herbCourt": {
-    "src": "/assets/images/hogwarts-expansion/herbCourt.svg",
+    "src": "/assets/images/hogwarts-ai-v2/herbCourt.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Herbology Courtyard — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Herbology Courtyard — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            1,
+            8
           ],
           [
-            19.6,
-            30
+            31,
+            8
           ],
           [
-            19.6,
-            46
+            31,
+            80
           ],
           [
-            8.4,
-            46
+            1,
+            80
           ]
         ],
         "point": [
-          14,
-          38
+          16,
+          44
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Glasshouse Passage",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 44%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "outerSlope": {
-    "src": "/assets/images/hogwarts-expansion/outerSlope.svg",
+    "src": "/assets/images/hogwarts-ai-v2/outerSlope.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Castle Outer Slope — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Castle Outer Slope — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            25,
+            34
           ],
           [
-            19.6,
-            30
+            43,
+            34
           ],
           [
-            19.6,
-            46
+            43,
+            79
           ],
           [
-            8.4,
-            46
+            25,
+            79
           ]
         ],
         "point": [
-          14,
-          38
+          34,
+          56.5
         ],
         "kind": "path",
         "label": "Follow the passage to The Lantern Path",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 34% / 56.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
@@ -8241,732 +8221,732 @@
     }
   },
   "quidChanging": {
-    "src": "/assets/images/hogwarts-expansion/quidChanging.svg",
+    "src": "/assets/images/hogwarts-ai-v2/quidChanging.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Quidditch Changing Rooms — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Quidditch Changing Rooms — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            26
           ],
           [
-            19.6,
-            30
+            18,
+            26
           ],
           [
-            19.6,
-            46
+            18,
+            77
           ],
           [
-            8.4,
-            46
+            0,
+            77
           ]
         ],
         "point": [
-          14,
-          38
+          9,
+          51.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Quidditch Stands",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 9% / 51.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            86,
+            23
           ],
           [
-            37.6,
-            30
+            99,
+            23
           ],
           [
-            37.6,
-            46
+            99,
+            80
           ],
           [
-            26.4,
-            46
+            86,
+            80
           ]
         ],
         "point": [
-          32,
-          38
+          92.5,
+          51.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Quidditch Equipment Store",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 92.5% / 51.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "quidKit": {
-    "src": "/assets/images/hogwarts-expansion/quidKit.svg",
+    "src": "/assets/images/hogwarts-ai-v2/quidKit.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Quidditch Equipment Store — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Quidditch Equipment Store — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            5,
+            21
           ],
           [
-            19.6,
-            30
+            31,
+            21
           ],
           [
-            19.6,
-            46
+            31,
+            81
           ],
           [
-            8.4,
-            46
+            5,
+            81
           ]
         ],
         "point": [
-          14,
-          38
+          18,
+          51
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Quidditch Changing Rooms",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 18% / 51%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "quidReferee": {
-    "src": "/assets/images/hogwarts-expansion/quidReferee.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Quidditch Referee Tower — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/quidReferee.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Quidditch Referee Tower — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            14
           ],
           [
-            19.6,
-            30
+            23,
+            14
           ],
           [
-            19.6,
-            46
+            23,
+            84
           ],
           [
-            8.4,
-            46
+            3,
+            84
           ]
         ],
         "point": [
-          14,
-          38
+          13,
+          49
         ],
-        "kind": "arch",
+        "kind": "stair",
         "label": "Follow the passage to Quidditch Pitch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 13% / 49%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "quidGoals": {
-    "src": "/assets/images/hogwarts-expansion/quidGoals.svg",
+    "src": "/assets/images/hogwarts-ai-v2/quidGoals.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Quidditch Goal Hoops — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Quidditch Goal Hoops — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            52
           ],
           [
-            19.6,
-            30
+            29,
+            52
           ],
           [
-            19.6,
-            46
+            29,
+            90
           ],
           [
-            8.4,
-            46
+            3,
+            90
           ]
         ],
         "point": [
-          14,
-          38
+          16,
+          71
         ],
-        "kind": "arch",
+        "kind": "path",
         "label": "Follow the passage to Quidditch Pitch",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 71%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            66,
+            58
           ],
           [
-            37.6,
-            30
+            89,
+            58
           ],
           [
-            37.6,
-            46
+            89,
+            91
           ],
           [
-            26.4,
-            46
+            66,
+            91
           ]
         ],
         "point": [
-          32,
-          38
+          77.5,
+          74.5
         ],
-        "kind": "arch",
+        "kind": "path",
         "label": "Follow the passage to Quidditch Trophy Walk",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 77.5% / 74.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "quidTrophies": {
-    "src": "/assets/images/hogwarts-expansion/quidTrophies.svg",
+    "src": "/assets/images/hogwarts-ai-v2/quidTrophies.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Quidditch Trophy Walk — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Quidditch Trophy Walk — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            30,
+            84
           ],
           [
-            19.6,
-            30
+            67,
+            84
           ],
           [
-            19.6,
-            46
+            67,
+            99
           ],
           [
-            8.4,
-            46
+            30,
+            99
           ]
         ],
         "point": [
-          14,
-          38
+          48.5,
+          91.5
         ],
-        "kind": "arch",
+        "kind": "path",
         "label": "Follow the passage to Quidditch Goal Hoops",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 48.5% / 91.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "flyingShed": {
-    "src": "/assets/images/hogwarts-expansion/flyingShed.svg",
+    "src": "/assets/images/hogwarts-ai-v2/flyingShed.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Flying Lesson Equipment Shed — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Flying Lesson Equipment Shed — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            36
           ],
           [
-            19.6,
-            30
+            23,
+            36
           ],
           [
-            19.6,
-            46
+            23,
+            82
           ],
           [
-            8.4,
-            46
+            0,
+            82
           ]
         ],
         "point": [
-          14,
-          38
+          11.5,
+          59
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Flying-lesson Lawn",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 11.5% / 59%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "owlDrop": {
-    "src": "/assets/images/hogwarts-expansion/owlDrop.svg",
+    "src": "/assets/images/hogwarts-ai-v2/owlDrop.jpg",
     "width": 1600,
-    "height": 900,
-    "alt": "Owl Delivery Ledge — illustrated, explorable Hogwarts location",
+    "height": 914,
+    "alt": "Owl Delivery Ledge — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            4,
+            16
           ],
           [
-            19.6,
-            30
+            27,
+            16
           ],
           [
-            19.6,
-            46
+            27,
+            83
           ],
           [
-            8.4,
-            46
+            4,
+            83
           ]
         ],
         "point": [
-          14,
-          38
+          15.5,
+          49.5
         ],
-        "kind": "path",
+        "kind": "door",
         "label": "Follow the passage to The Owlery",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 49.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "humpbackTunnel": {
-    "src": "/assets/images/hogwarts-expansion/humpbackTunnel.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Humpbacked Witch Passage — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/humpbackTunnel.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Humpbacked Witch Passage — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            12,
+            19
           ],
           [
-            19.6,
-            30
+            29,
+            19
           ],
           [
-            19.6,
-            46
+            29,
+            69
           ],
           [
-            8.4,
-            46
+            12,
+            69
           ]
         ],
         "point": [
-          14,
-          38
+          20.5,
+          44
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hog's Head Cellar",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 20.5% / 44%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "serpentDoor": {
-    "src": "/assets/images/hogwarts-expansion/serpentDoor.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Serpent Door — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/serpentDoor.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Serpent Door — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            4,
+            28
           ],
           [
-            19.6,
-            30
+            25,
+            28
           ],
           [
-            19.6,
-            46
+            25,
+            82
           ],
           [
-            8.4,
-            46
+            4,
+            82
           ]
         ],
         "point": [
-          14,
-          38
+          14.5,
+          55
         ],
         "kind": "arch",
         "label": "Follow the passage to Slytherin Common Room",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 14.5% / 55%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            73,
+            24
           ],
           [
-            37.6,
-            30
+            96,
+            24
           ],
           [
-            37.6,
-            46
+            96,
+            83
           ],
           [
-            26.4,
-            46
+            73,
+            83
           ]
         ],
         "point": [
-          32,
-          38
+          84.5,
+          53.5
         ],
         "kind": "arch",
         "label": "Follow the passage to Green Lantern Passage",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 84.5% / 53.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "trapdoorChamber": {
-    "src": "/assets/images/hogwarts-expansion/trapdoorChamber.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Trapdoor Chamber — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/trapdoorChamber.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Trapdoor Chamber — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            7,
+            24
           ],
           [
-            19.6,
-            30
+            27,
+            24
           ],
           [
-            19.6,
-            46
+            27,
+            79
           ],
           [
-            8.4,
-            46
+            7,
+            79
           ]
         ],
         "point": [
-          14,
-          38
+          17,
+          51.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Archive Passage",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 17% / 51.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "mirrorChamber": {
-    "src": "/assets/images/hogwarts-expansion/mirrorChamber.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Mirror of Erised Chamber — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/mirrorChamber.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Mirror of Erised Chamber — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            3,
+            22
           ],
           [
-            19.6,
-            30
+            28,
+            22
           ],
           [
-            19.6,
-            46
+            28,
+            85
           ],
           [
-            8.4,
-            46
+            3,
+            85
           ]
         ],
         "point": [
-          14,
-          38
+          15.5,
+          53.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Fourth-floor Portrait Corridor",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 53.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "mapNook": {
-    "src": "/assets/images/hogwarts-expansion/mapNook.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Marauder's Map Nook — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/mapNook.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Marauder's Map Nook — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            15
           ],
           [
-            19.6,
-            30
+            24,
+            15
           ],
           [
-            19.6,
-            46
+            24,
+            76
           ],
           [
-            8.4,
-            46
+            0,
+            76
           ]
         ],
         "point": [
-          14,
-          38
+          12,
+          45.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Trophy Gallery",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 12% / 45.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "restrictedStacks": {
-    "src": "/assets/images/hogwarts-expansion/restrictedStacks.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Library Restricted Section — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/restrictedStacks.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Library Restricted Section — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            29,
+            32
           ],
           [
-            19.6,
-            30
+            46,
+            32
           ],
           [
-            19.6,
-            46
+            46,
+            79
           ],
           [
-            8.4,
-            46
+            29,
+            79
           ]
         ],
         "point": [
-          14,
-          38
+          37.5,
+          55.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Hogwarts Library",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 37.5% / 55.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "oneEyedTunnel": {
-    "src": "/assets/images/hogwarts-expansion/oneEyedTunnel.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "One-Eyed Witch Tunnel — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/oneEyedTunnel.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "One-Eyed Witch Tunnel — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            10,
+            21
           ],
           [
-            19.6,
-            30
+            32,
+            21
           ],
           [
-            19.6,
-            46
+            32,
+            77
           ],
           [
-            8.4,
-            46
+            10,
+            77
           ]
         ],
         "point": [
-          14,
-          38
+          21,
+          49
         ],
         "kind": "arch",
         "label": "Follow the passage to Honeydukes Cellar",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 21% / 49%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            59,
+            21
           ],
           [
-            37.6,
-            30
+            85,
+            21
           ],
           [
-            37.6,
-            46
+            85,
+            80
           ],
           [
-            26.4,
-            46
+            59,
+            80
           ]
         ],
         "point": [
-          32,
-          38
+          72,
+          50.5
         ],
-        "kind": "arch",
+        "kind": "stair",
         "label": "Follow the passage to Second-floor Bathroom Corridor",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 72% / 50.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "honeyCellar": {
-    "src": "/assets/images/hogwarts-expansion/honeyCellar.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Honeydukes Cellar — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/honeyCellar.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Honeydukes Cellar — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            0,
+            24
           ],
           [
-            19.6,
-            30
+            27,
+            24
           ],
           [
-            19.6,
-            46
+            27,
+            75
           ],
           [
-            8.4,
-            46
+            0,
+            75
           ]
         ],
         "point": [
-          14,
-          38
+          13.5,
+          49.5
         ],
         "kind": "arch",
         "label": "Follow the passage to One-Eyed Witch Tunnel",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 13.5% / 49.5%; route identity from atlas graph; final browser click-through QA required."
       },
       "e": {
         "polygon": [
           [
-            26.4,
-            30
+            75,
+            14
           ],
           [
-            37.6,
-            30
+            99,
+            14
           ],
           [
-            37.6,
-            46
+            99,
+            87
           ],
           [
-            26.4,
-            46
+            75,
+            87
           ]
         ],
         "point": [
-          32,
-          38
+          87,
+          50.5
         ],
-        "kind": "arch",
+        "kind": "stair",
         "label": "Follow the passage to Honeydukes",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 87% / 50.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "whisperingCrypt": {
-    "src": "/assets/images/hogwarts-expansion/whisperingCrypt.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Whispering Crypt — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/whisperingCrypt.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Whispering Crypt — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            7,
+            13
           ],
           [
-            19.6,
-            30
+            29,
+            13
           ],
           [
-            19.6,
-            46
+            29,
+            81
           ],
           [
-            8.4,
-            46
+            7,
+            81
           ]
         ],
         "point": [
-          14,
-          38
+          18,
+          47
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Forgotten Crypt",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 18% / 47%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   },
   "forgottenArmory": {
-    "src": "/assets/images/hogwarts-expansion/forgottenArmory.svg",
-    "width": 1600,
-    "height": 900,
-    "alt": "Forgotten Armoury — illustrated, explorable Hogwarts location",
+    "src": "/assets/images/hogwarts-ai-v2/forgottenArmory.jpg",
+    "width": 2016,
+    "height": 1152,
+    "alt": "Forgotten Armoury — cinematic AI scene with visible routes",
     "exits": {
       "n": {
         "polygon": [
           [
-            8.4,
-            30
+            2,
+            19
           ],
           [
-            19.6,
-            30
+            30,
+            19
           ],
           [
-            19.6,
-            46
+            30,
+            84
           ],
           [
-            8.4,
-            46
+            2,
+            84
           ]
         ],
         "point": [
-          14,
-          38
+          16,
+          51.5
         ],
-        "kind": "arch",
+        "kind": "door",
         "label": "Follow the passage to Third-floor Armour Gallery",
-        "evidence": "Visible illustrated aperture in the new SVG scene board."
+        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 51.5%; route identity from atlas graph; final browser click-through QA required."
       }
     }
   }
