@@ -8972,3 +8972,36 @@
   }
 };
 })();
+
+
+/* Daylight AI backgrounds for expansion scenes. Hotspot polygons and exits stay in the audited scene records above. */
+(function(){
+  const jpgV1 = new Set(["antechamber","broomsPub","commonGryff","hogsHead","hogsSquare","honeydukes","merVillage","quidStands"]);
+  const jpgIds = ["acromantulaDen","antechamber","boatLaunch","broomsPorch","broomsPub","centaurGrove","clockTower","commonGryff","commonHuffle","commonRaven","commonSlytherin","coveredBridge","dervish","flyingShed","gladrags","herbCourt","hogsBridge","hogsCellar","hogsHead","hogsHeadPorch","hogsHigh","hogsRoad","hogsStation","lakeCave","lakeIslet","lakeShallows","merVillage","outerSlope","owlDrop","postOffice","puddifoot","quidChanging","quidGoals","quidKit","quidStands","quidTrophies","roRArchive","roRDA","roRDiadem","roRThings","scribbulus","shriekingShack","trophy","unicornGlade","willowRoots","zonkos"];
+  const dayWebp = {
+    forgottenArmory: "/assets/images/hogwarts-cinematic/chamber-of-secrets.webp",
+    honeyCellar: "/assets/images/hogwarts-cinematic/lantern-path-day.webp",
+    humpbackTunnel: "/assets/images/hogwarts-cinematic/enchanted-corridor.webp",
+    mapNook: "/assets/images/hogwarts-cinematic/transfiguration.webp",
+    mirrorChamber: "/assets/images/hogwarts-cinematic/glass-passage-day.webp",
+    oneEyedTunnel: "/assets/images/hogwarts-cinematic/grand-staircase.webp",
+    prefectsBath: "/assets/images/hogwarts-cinematic/myrtles-bathroom.webp",
+    quidReferee: "/assets/images/hogwarts-cinematic/quidditch.webp",
+    restrictedStacks: "/assets/images/hogwarts-cinematic/entrance-hall.webp",
+    serpentDoor: "/assets/images/hogwarts-cinematic/stone-viaduct-day.webp",
+    trapdoorChamber: "/assets/images/hogwarts-cinematic/black-lake-day.webp",
+    whisperingCrypt: "/assets/images/hogwarts-cinematic/south-courtyard-day.webp"
+  };
+  const ai = {};
+  jpgIds.forEach((id) => {
+    const dir = jpgV1.has(id) ? "hogwarts-ai-v1" : "hogwarts-ai-v2";
+    ai[id] = {src: "/assets/images/" + dir + "/" + id + ".jpg", width: 1600, height: 914};
+  });
+  Object.entries(dayWebp).forEach(([id, src]) => {
+    ai[id] = {src, width: 1672, height: 941};
+  });
+  Object.entries(ai).forEach(([id, asset]) => {
+    const scene = window.HogwartsScenes[id];
+    if (scene) Object.assign(scene, asset);
+  });
+})();
