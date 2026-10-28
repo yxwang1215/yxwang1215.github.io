@@ -1,4 +1,4 @@
-/* Readable reference atlas: station visitors can issue single-use fast-travel transfers. */
+/* Public Atlas can issue one-use admission tickets to new or existing Hogwarts visitors. */
 (function(){
   "use strict";
   var atlas=window.HogwartsAtlas,geo=window.HogwartsGeography,scenes=window.HogwartsScenes;
@@ -19,19 +19,16 @@
   }
   function travelTo(id){
     if(!atlas.rooms[id]||(!state.secrets&&geo.nodes[id].hidden))return;
+    // Only Atlas or Platform 9¾ can start a scene journey. First-time Atlas
+    // transfers create the visitor session at the destination after validation.
     var journey=validSession();
-    if(!journey){
-      $("ga-visit-hint").textContent="旅程尚未开启。请先从 9¾ 站台进入 Hogwarts。";
-      $("ga-visit").disabled=true;
-      return;
-    }
     try{
       var bytes=new Uint8Array(16);
       window.crypto.getRandomValues(bytes);
       var nonce=Array.from(bytes,function(value){return value.toString(16).padStart(2,"0")}).join("");
       var destination=atlas.rooms[id].path;
       window.sessionStorage.setItem(transferKey,JSON.stringify({
-        from:"/hogwarts/atlas/",to:destination,sessionId:journey.id,at:Date.now(),nonce:nonce
+        from:"/hogwarts/atlas/",to:destination,sessionId:journey?journey.id:null,at:Date.now(),nonce:nonce
       }));
       window.location.assign(destination);
     }catch(error){
@@ -131,12 +128,9 @@
     $("ga-detail-floor").textContent=node.floor;
     $("ga-detail-note").textContent=node.note;
     $("ga-detail-url").textContent=room.path;
-    var enabled=!!validSession();
-    $("ga-visit").disabled=!enabled;
-    $("ga-visit").textContent=enabled?"进入此地点 ↗":"请先从 9¾ 站台进入";
-    $("ga-visit-hint").textContent=enabled?
-      "点击图谱入口即可通行；直接在地址栏输入 URL 不会解锁。":
-      "地图可以查阅。首次进入 Hogwarts 仍需从 9¾ 站台开始。";
+    $("ga-visit").disabled=false;
+    $("ga-visit").textContent="进入此地点 ↗";
+    $("ga-visit-hint").textContent="可从 Atlas 直接前往所选地点，无须先经过站台；直接输入场景 URL 仍不能进入。";
     $("ga-neighbors").innerHTML=geo.neighbors(id,state.secrets).map(function(next){
       var edge=geo.edges(state.secrets).find(function(item){return item.key===geo.edgeKey(id,next)});
       var kind=edge.secret?'先显露入口':edge.status==='canon'?'关系有原著依据':'步行衔接为重建';
@@ -150,7 +144,7 @@
     var ids=visibleIds().filter(matches);
     $("ga-directory").innerHTML=ids.length?ids.map(function(id){
       var node=geo.nodes[id],room=atlas.rooms[id];
-      return '<tr><td><button type="button" data-select="'+safe(id)+'">'+safe(node.label)+'</button><small>'+safe(room.name)+'</small></td><td>'+safe(node.floor)+'<small>'+safe(labels[node.status])+'</small></td><td><code>'+safe(room.path)+'</code><button type="button" class="ga-inline-travel" data-visit="'+safe(id)+'"'+(validSession()?'':' disabled title="请先从 9¾ 站台进入"')+'>前往 ↗</button></td></tr>';
+      return '<tr><td><button type="button" data-select="'+safe(id)+'">'+safe(node.label)+'</button><small>'+safe(room.name)+'</small></td><td>'+safe(node.floor)+'<small>'+safe(labels[node.status])+'</small></td><td><code>'+safe(room.path)+'</code><button type="button" class="ga-inline-travel" data-visit="'+safe(id)+'"'+''+'>前往 ↗</button></td></tr>';
     }).join(''):'<tr><td colspan="3" class="ga-empty">没有匹配的地点。可尝试中文名或英文名。</td></tr>';
   }
   function renderRouteOptions(){
