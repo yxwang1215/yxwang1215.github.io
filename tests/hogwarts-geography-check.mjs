@@ -155,9 +155,9 @@ assert.deepEqual(Array.from(geo.route('flying', 'hut', false)), ['flying', 'quid
 
 // Preserve verified placements without claiming disputed floors are settled.
 for (const [id, floor] of Object.entries({
-  library: /Fourth floor|四楼/, charms: /Third floor|三楼/, armoury: /Third floor|三楼/,
-  bathroom: /Second floor|二楼/, corridor: /Seventh floor|七楼/, requirement: /Seventh floor|七楼/,
-  owlery: /West Tower|西塔/, divination: /North Tower|北塔/, kitchens: /礼堂正下方/
+  library: /Fourth floor/, charms: /Third floor/, armoury: /Third floor/,
+  bathroom: /Second floor/, corridor: undefined, requirement: undefined,
+  owlery: /West Tower/, divination: /North Tower/, kitchens: /Beneath the Great Hall/
 })) assert.match(geo.nodes[id].floor, floor, 'Canonical placement regressed: ' + id);
 assert.equal(geo.nodes.hospital.floorStatus, 'uncertain');
 assert.equal(geo.nodes.office.floorStatus, 'uncertain');
@@ -167,21 +167,30 @@ assert.equal(geo.nodes.boathouse.floorStatus, 'interpretation');
 for (const key of ['head', 'hospital', 'transfig', 'bathroom', 'grounds', 'chamberRowling']) {
   assert.ok(geo.sources[key].caveat, 'Material source uncertainty was discarded: ' + key);
 }
-assert.match(geo.nodes.requirement.note, /七楼/);
-assert.match(geo.nodes.requirement.note, /对面/);
-assert.match(geo.nodes.requirement.note, /三次/);
-assert.match(geo.nodes.divination.note, /活板门/);
-assert.match(geo.nodes.divination.note, /银梯/);
-assert.match(geo.nodes.sluice.note, /福克斯|魔法/);
-assert.match(geo.nodes.sanctum.note, /同一密室/);
+assert.match(geo.nodes.requirement.note, /seventh floor/i);
+assert.match(geo.nodes.requirement.note, /opposite/i);
+assert.match(geo.nodes.requirement.note, /three times/i);
+assert.match(geo.nodes.divination.note, /trapdoor/i);
+assert.match(geo.nodes.divination.note, /silver ladder/i);
+assert.match(geo.nodes.sluice.note, /Fawkes|magical/i);
+assert.match(geo.nodes.sanctum.note, /same Chamber/i);
 assert.notEqual(geo.nodes.sanctum.status, 'canon', 'A close view must not become another canonical temple');
-assert.match(geo.nodes.defense.note, /教员休息室/);
-assert.match(geo.nodes.flying.note, /不等同于魁地奇/);
+assert.match(geo.nodes.defense.note, /staff room/i);
+assert.match(geo.nodes.flying.note, /distinct from the Quidditch/i);
 
 // Execute the real public page controller with no station pass or exploration session.
 // The minimal DOM deliberately models only the APIs the page needs for these interactions.
 const overviewHtml = readFileSync('hogwarts/atlas/index.html', 'utf8');
 const overviewText = readFileSync('assets/js/hogwarts-atlas-overview.js', 'utf8');
+// Atlas descriptions, labels and controls must not contain Han-script UI copy.
+assert.equal(/[\u3400-\u9fff]/.test(overviewHtml), false, 'Atlas HTML contains untranslated text');
+assert.equal(/[\u3400-\u9fff]/.test(overviewText), false, 'Atlas controller contains untranslated text');
+for (const [id, node] of Object.entries(geo.nodes)) {
+  for (const field of ['label', 'floor', 'note']) {
+    assert.doesNotMatch(node[field], /[\u3400-\u9fff]/, id + ': untranslated ' + field);
+  }
+}
+
 assert.doesNotMatch(overviewHtml, /hogwarts-explorer\.html|hogwarts:platform934:pass:v1|data-hgw-authorized/);
 const loads = [...overviewHtml.matchAll(/<script[^>]+src="([^"]+)"/g)].map(match => match[1].split('?')[0]);
 assert.deepEqual(loads, [
@@ -391,11 +400,11 @@ $('ga-region').value = 'teaching';
 $('ga-region').fire('change');
 const teachingIds = ['firstFloorJunction', 'hospital', 'history', 'defense', 'transfig'];
 assertKeyboardRooms(teachingIds);
-for (const query of ['图书馆', '  LIBRARY  ', atlas.rooms.library.path]) {
+for (const query of ['Hogwarts Library', '  LIBRARY  ', atlas.rooms.library.path]) {
   $('ga-search').value = query;
   $('ga-search').fire('input');
-  assert.deepEqual(directoryIds(), ['library'], 'Search should accept Chinese, case-insensitive English and URLs');
-  assert.match($('ga-chart-status').textContent, /^1 个匹配/);
+  assert.deepEqual(directoryIds(), ['library'], 'Search should accept names, case-insensitive English and URLs');
+  assert.match($('ga-chart-status').textContent, /^1 matches/);
   assertKeyboardRooms(teachingIds);
 }
 selectReference('library', 'ga-directory');
@@ -404,7 +413,7 @@ assertKeyboardRooms(expectedPublic);
 $('ga-search').value = 'no-such-hogwarts-place';
 $('ga-search').fire('input');
 assert.deepEqual(directoryIds(), []);
-assert.match($('ga-chart-status').textContent, /^0 个匹配/);
+assert.match($('ga-chart-status').textContent, /^0 matches/);
 $('ga-search').value = '';
 $('ga-search').fire('input');
 assert.deepEqual(directoryIds(), expectedPublic, 'Clearing search must restore the directory');
