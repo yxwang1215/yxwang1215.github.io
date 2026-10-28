@@ -223,11 +223,24 @@ for (const [id, scene] of Object.entries(scenes)) {
     assert.notEqual(secret.open.src, scene.src, id + ": revealing a secret must visibly change the photograph");
     checkImage(secret.open, id + ":opened scene");
     assert.ok(atlas.rooms[atlas.rooms[id].secret.to], id + ": secret destination is missing");
-    // Trigger and opening are mutually exclusive states. They may share pixels;
-    // compare each active state with normal exits, never with one another.
+    // Each photograph has its own independent image-space hotspot geometry.
+    // Do not compare a revealed doorway against exit masks from an older camera.
     for (const [direction, region] of normal) {
-      for (const [state, active] of [["closed", secret.trigger], ["open", secret.open]]) {
-        assert.ok(!overlaps(region.polygon, active.polygon), id + ": " + state + " secret overlaps normal exit " + direction);
+      assert.ok(!overlaps(region.polygon, secret.trigger.polygon),
+        id + ": closed secret overlaps normal exit " + direction);
+    }
+    const openedNormals = Object.entries(secret.open.exits || scene.exits);
+    assert.deepEqual(openedNormals.map(([direction]) => direction).sort(), normal.map(([direction]) => direction).sort(),
+      id + ": opened photograph must preserve the original exit graph");
+    for (const [direction, region] of openedNormals) {
+      checkRegion(region, id + ":opened:" + direction, { evidence: true });
+      assert.ok(!overlaps(region.polygon, secret.open.polygon),
+        id + ": opened secret overlaps opened-frame normal exit " + direction);
+    }
+    for (let i = 0; i < openedNormals.length; i++) {
+      for (let j = i + 1; j < openedNormals.length; j++) {
+        assert.ok(!overlaps(openedNormals[i][1].polygon, openedNormals[j][1].polygon),
+          id + ": revealed-frame normal exits overlap (" + openedNormals[i][0] + ", " + openedNormals[j][0] + ")");
       }
     }
     secretStates++;
