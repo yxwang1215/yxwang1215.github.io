@@ -61,7 +61,8 @@
     visitedCount.textContent=String(session.visited.length).padStart(2,"0")+" / "+String(Object.keys(atlas.rooms).length).padStart(2,"0");
   }
   function approachOf(direction){
-    var point=scenes[current.id].exits[direction];
+    var scene=scenes[current.id],opened=secretOpen&&scene.secret&&scene.secret.open;
+    var point=(opened&&opened.exits&&opened.exits[direction])||scene.exits[direction];
     return {x:point.point?point.point[0]:point[0],y:point.point?point.point[1]:point[1]};
   }
   function spawnAfter(direction,room){
@@ -98,9 +99,10 @@
       region.polygon.map(function(p){return p.join(',')}).join(' ')+'"></polygon></svg></div>';
   }
   function doorMarkup(room){
-    var html="",scene=scenes[room.id];
+    var html="",scene=scenes[room.id],opened=secretOpen&&scene.secret&&scene.secret.open;
     Object.keys(room.exits).forEach(function(dir){
-      var next=atlas.rooms[room.exits[dir]],region=scene.exits[dir];
+      var next=atlas.rooms[room.exits[dir]];
+      var region=(opened&&opened.exits&&opened.exits[dir])||scene.exits[dir];
       if(!next||!region)return;
       html+=targetMarkup(region,'hgw-door','data-door="'+safe(dir)+'"',region.label||'Walk to '+next.name);
     });
@@ -195,8 +197,8 @@
     walker.classList.toggle("is-walking",!!walking);
   }
   function passagePoint(element){
-    var scene=scenes[current.id],dir=element.getAttribute("data-door");
-    var region=dir?scene.exits[dir]:element.getAttribute("data-secret")!==null?
+    var scene=scenes[current.id],dir=element.getAttribute("data-door"),opened=secretOpen&&scene.secret&&scene.secret.open;
+    var region=dir?((opened&&opened.exits&&opened.exits[dir])||scene.exits[dir]):element.getAttribute("data-secret")!==null?
       (secretOpen&&scene.secret.open?scene.secret.open:scene.secret.trigger||scene.secret):scene.ceremony;
     return region&&(region.point||region);
   }
