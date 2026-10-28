@@ -228,7 +228,7 @@
       return '<li><button type="button" data-select="'+safe(next)+'"><span aria-hidden="true">↳</span>'+safe(atlas.rooms[next].name)+'</button><small>'+safe(kind)+'</small></li>';
     }).join('');
     $("ga-detail-sources").innerHTML=node.sources.length?node.sources.map(function(key){return '<li>'+sourceLink(key)+'</li>'}).join(''):
-      '<li><small>This scene is part of the site's original reconstruction.</small></li>';
+      '<li><small>This is an original reconstruction created for the atlas.</small></li>';
   }
   function renderDirectory(){
     var ids=visibleIds().filter(matches);
