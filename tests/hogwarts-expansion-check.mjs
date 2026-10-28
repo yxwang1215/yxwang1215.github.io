@@ -71,7 +71,7 @@ for (const def of expansion.definitions) {
   const room = atlas.rooms[def.id], scene = scenes[def.id];
   assert.ok(room && scene, "Missing new scene " + def.id);
   assert.equal(room.path, def.path);
-  assert.equal(geo.nodes[def.id].label, def.zh);
+  assert.equal(geo.nodes[def.id].label, room.name, 'Expansion scenes must use their English room names');
   assert.equal(geo.nodes[def.id].group, def.zone);
   assert.ok(room.description && room.kicker);
   const wrapper = root + def.path + "index.html";
