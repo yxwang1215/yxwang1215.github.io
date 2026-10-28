@@ -6108,60 +6108,60 @@
       "s": {
         "polygon": [
           [
-            30,
-            49
+            42.2,
+            48
           ],
           [
-            37,
-            45
+            45.7,
+            45.4
           ],
           [
-            41,
-            49
+            47.2,
+            48.6
           ],
           [
-            41,
-            63
+            47.2,
+            59.6
           ],
           [
-            31,
-            65
+            42.2,
+            60.8
           ]
         ],
         "point": [
-          36,
-          57
+          44.9,
+          55
         ],
         "kind": "door",
         "label": "Follow the passage to Madam Puddifoot's Tea Shop",
-        "evidence": "Cinematic image: candidate shop approach left of village center. Exact tea-shop identity remains a visual QA item; do not claim this polygon is final."
+        "evidence": "Zoomed cinematic image: actual warm-lit wooden shop doorway immediately to the right of the central well pavilion, not the masonry well itself. Manually re-traced; tea-shop identification remains a QA candidate."
       },
       "w": {
         "polygon": [
           [
-            87,
+            93,
             36
           ],
           [
-            96,
-            37
+            97.8,
+            38
           ],
           [
-            96,
-            66
+            97.8,
+            68
           ],
           [
-            87,
+            93,
             69
           ]
         ],
         "point": [
-          91,
+          95.4,
           55
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade Post Office",
-        "evidence": "Cinematic image: distinct red-framed timber shop door on the right. Exact post-office identification remains a visual QA item."
+        "evidence": "Cinematic image: narrowed to the actual red-framed timber door at far right, excluding adjacent display windows. Exact shop identity to be confirmed."
       }
     }
   },
