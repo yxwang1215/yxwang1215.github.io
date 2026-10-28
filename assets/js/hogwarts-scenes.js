@@ -8995,7 +8995,7 @@
   const ai = {};
   jpgIds.forEach((id) => {
     const dir = jpgV1.has(id) ? "hogwarts-ai-v1" : "hogwarts-ai-v2";
-    ai[id] = {src: "/assets/images/" + dir + "/" + id + ".jpg", width: 1672, height: 941};
+    ai[id] = {src: "/assets/images/" + dir + "/" + id + ".jpg", width: jpgV1.has(id) ? 1672 : 1600, height: jpgV1.has(id) ? 941 : 914};
   });
   Object.entries(dayWebp).forEach(([id, src]) => {
     ai[id] = {src, width: 1672, height: 941};
