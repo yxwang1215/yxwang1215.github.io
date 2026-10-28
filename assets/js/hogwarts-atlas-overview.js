@@ -122,7 +122,7 @@
   // Route long cross-floor links around node labels. Intermediate bends are
   // drawing coordinates only, never extra destinations or compass claims.
   var drawingRoutes={
-    'entry|gate':{from:'gate',via:[[70,675],[70,1070]]},
+    'entry|gate':{from:'gate',via:[[30,675],[30,1070]]},
     'basementPassage|entry':{from:'entry',via:[[160,1115],[565,1115]]},
     'corridor|staircase':{from:'staircase',via:[[10,1150],[10,280],[420,280]]},
     'firstFloorJunction|staircase':{from:'staircase',via:[[30,1150],[30,445]]},
