@@ -67,7 +67,7 @@
       // Allow larger labels without clipping long Chinese room names.
       // Width changes only the drawn marker, never the graph topology.
       var charWidth=Array.from(node.label).reduce(function(n,ch){
-        return n+(/[\\u3400-\\u9fff]/.test(ch)?14.8:8.2);
+        var cp=ch.codePointAt(0);return n+(cp>=0x3400&&cp<=0x9fff?14.8:8.2);
       },0);
       var width=Math.max(148,Math.min(212,Math.round(charWidth+34)));
       if(['sluice','chamber','sanctum'].includes(id))width=Math.max(128,Math.min(178,Math.round(charWidth+30)));
