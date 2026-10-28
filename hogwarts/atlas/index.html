@@ -3,94 +3,207 @@ layout: null
 sitemap: false
 ---
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#f4f0e6">
-  <meta name="description" content="霍格沃茨地点图谱：从 Atlas 直接进入所选场景，也可以从 9¾ 站台开始探索。">
-  <title>霍格沃茨路径图谱 · Hogwarts Atlas</title>
+  <meta name="theme-color" content="#b58d5c">
+  <meta name="description" content="An interactive parchment atlas of Hogwarts: explore 113 rooms, trace real passage connections, uncover secret places, and travel into the castle.">
+  <title>The Hogwarts Atlas · A Cartographer's Map</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-atlas-overview.css?v=20261028-fasttravel-v1">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/hogwarts-marauders-atlas.css?v=20261028-parchment-v1">
   <script src="/assets/js/hogwarts-atlas.js?v=20261027-expansion-v1" defer></script>
   <script src="/assets/js/hogwarts-scenes.js?v=20261027-expansion-v1" defer></script>
   <script src="/assets/js/hogwarts-geography.js?v=20261027-expansion-v1" defer></script>
-  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261028-atlas-direct-v2" defer></script>
+  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261028-marauders-v1" defer></script>
 </head>
 <body>
-  <a class="ga-skip" href="#atlas-map">跳到关系图</a>
+  <a class="ga-skip" href="#atlas-map">Skip to the map</a>
   <div class="ga-page">
     <header class="ga-mast">
-      <a href="/platform-934/" class="ga-brand"><span aria-hidden="true">✧</span> HOGWARTS <i>FIELD ATLAS</i></a>
-      <nav aria-label="图谱导航"><a href="#atlas-map">关系图</a><a href="#passage-rules">通行规则</a><a href="#canon-notes">原著核对</a><a href="#url-directory">URL 目录</a></nav>
+      <div class="ga-mast-illustration" aria-hidden="true">
+        <svg viewBox="0 0 160 124" fill="none">
+          <path d="M8 114Q20 73 16 35M19 77Q54 65 69 32Q79 5 100 15Q108 20 108 29Q104 40 94 40Q82 38 81 27Q57 31 45 49Q38 63 19 77" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 114L23 97L38 115M13 108Q36 100 48 90M62 32Q70 38 69 50M73 28Q91 15 107 19M32 60l-9-18m20 8l-2-21" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M120 32Q137 12 149 33Q153 45 144 53Q137 58 129 50Q123 43 130 37M125 28l6-18m16 54l10 9M121 62l-17 19" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M96 87l8-11 8 11-8 13zM104 68v35M85 86h37" stroke="currentColor" stroke-width="1"/>
+          <circle cx="104" cy="86" r="22" stroke="currentColor" stroke-width=".7"/>
+          <path d="M102 13l3-9 3 9M104 3v22M5 18l5-9 5 9M10 9v18" stroke="currentColor" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="ga-mast-title">
+        <span class="ga-mast-prelude">A PARTICULARLY UNUSUAL CHART OF</span>
+        <h1 id="page-title">Hogwarts <em>Atlas</em></h1>
+        <p><span aria-hidden="true">✦</span> Explore the castle <span aria-hidden="true">✦</span> Follow the footprints <span aria-hidden="true">✦</span> Uncover the unseen</p>
+      </div>
+      <div class="ga-seal-wrap" aria-hidden="true"><span class="ga-seal">H</span><span class="ga-seal-caption">NO. IX · ¾</span></div>
     </header>
+
+    <nav class="ga-nav" aria-label="Atlas sections">
+      <a class="is-active" href="#atlas-map">The Atlas</a>
+      <a href="#route-planner">Trace a Route</a>
+      <a href="#url-directory">All Locations</a>
+      <a href="#passage-rules">Passage Rules</a>
+      <a href="#canon-notes">Cartographer's Notes</a>
+      <a class="ga-nav-exit" href="/platform-934/">Platform 9¾ <span aria-hidden="true">↗</span></a>
+    </nav>
+
     <main>
-      <section class="ga-intro" aria-labelledby="page-title">
-        <div><p class="ga-eyebrow">THE PATHS BETWEEN PLACES · CARTOGRAPHER'S EDITION</p>
-          <h1 id="page-title">霍格沃茨<span>路径图谱</span></h1>
-          <p class="ga-lede">门通向房间，楼梯连接楼层，小路伸向湖岸与森林。<br>沿着这张图，读懂整个 URL 迷宫。</p>
+      <section class="ga-intro" aria-labelledby="intro-title">
+        <div class="ga-intro-words">
+          <p class="ga-eyebrow">THE LIVING LABYRINTH · AN UNOFFICIAL FAN ATLAS</p>
+          <h2 id="intro-title">Every corridor has a story.</h2>
+          <p>The doors remember. The stairs change direction. From the greenhouses to the deepest dungeons, every marked place is part of one connected world.</p>
         </div>
-        <aside class="ga-intro-note"><span class="ga-plate-number">NO. 09¾</span><p>这是<strong>关系示意图，也是进入 Hogwarts 的入口</strong>。选择地点，即可直接进入场景；也可以从 9¾ 站台开始步行探索。连线表示通行关系，不代表实际距离。</p><a id="ga-return" href="/platform-934/">从 9¾ 站台开始探索 <span aria-hidden="true">↗</span></a></aside>
+        <aside class="ga-intro-note">
+          <span class="ga-intro-flourish" aria-hidden="true">✦ ⟡ ✦</span>
+          <p>Select any location in the map to enter its scene, or begin your journey at the enchanted station. An address alone is not a passage.</p>
+          <a id="ga-return" href="/platform-934/">Begin at Platform 9¾ <span aria-hidden="true">↗</span></a>
+        </aside>
       </section>
-      <div class="ga-stats" aria-label="迷宫概况"><span><strong id="ga-total">113</strong> 地点</span><span><strong id="ga-paths">52</strong> 普通连接</span><span><strong id="ga-secret-total">15</strong> 隐藏入口</span><span class="ga-stats-note">Atlas 和 9¾ 站台均可进入 · 场景 URL 不能直接解锁</span></div>
+
+      <div class="ga-stats" aria-label="Map ledger">
+        <span><strong id="ga-total">113</strong> charted places</span>
+        <span><strong id="ga-paths">100</strong> ordinary passages</span>
+        <span><strong id="ga-secret-total">15</strong> concealed entrances</span>
+        <span class="ga-stats-note"><span aria-hidden="true">✣</span> The ink shows a route, not its distance <span aria-hidden="true">✣</span></span>
+      </div>
 
       <section class="ga-map-section" id="atlas-map" aria-labelledby="map-title">
-        <div class="ga-section-head"><div><p class="ga-eyebrow">01 / THE CONNECTED WORLD</p><h2 id="map-title">地点之间，如何抵达</h2></div><p>选择地点查看通路，并使用「进入此地点」快速抵达。</p></div>
-        <div class="ga-toolbar">
-          <label class="ga-search"><span>查找地点</span><input id="ga-search" type="search" placeholder="海格、图书馆、Myrtle…" autocomplete="off"></label>
-          <label><span>查看区域</span><select id="ga-region"><option value="all">完整图谱</option></select></label>
-          <label class="ga-secret-switch"><input id="ga-secrets" type="checkbox"><span>显示隐藏地点与路线（剧透）</span></label>
+        <div class="ga-section-head">
+          <div><p class="ga-eyebrow">I. THE MARAUDER'S CARTOGRAPHY</p><h2 id="map-title">The Living Map</h2></div>
+          <p>Choose a room. Trace its passages. Follow the ink.</p>
         </div>
+
         <div class="ga-atlas-layout">
-          <div class="ga-map-pane">
-            <div class="ga-chart-tools"><p id="ga-chart-status" role="status">载入图谱…</p><div><button id="ga-focus-clear" type="button" disabled>取消高亮</button><button id="ga-zoom-out" type="button" aria-label="缩小关系图">−</button><button id="ga-zoom-reset" type="button">100%</button><button id="ga-zoom-in" type="button" aria-label="放大关系图">＋</button><button id="ga-export" type="button">导出 SVG</button></div></div>
-            <div class="ga-map-scroll" id="ga-map-scroll" tabindex="0" aria-label="可滚动的霍格沃茨关系图；可使用缩放按钮或选择区域">
-              <svg id="ga-chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 3610" aria-labelledby="chart-title chart-desc"><title id="chart-title">霍格沃茨地点关系图</title><desc id="chart-desc">选择地点查看 URL、相邻地点与原著资料。用区域选择器查看局部；隐藏入口需要明确开启剧透。</desc></svg>
+          <aside class="ga-left-rail" aria-label="Map navigation and legend">
+            <div class="ga-rail-top"><span class="ga-rail-star" aria-hidden="true">✣</span><h3>The Navigator's Desk</h3><span class="ga-rail-subtitle">MAPS · PATHS · PLACES</span></div>
+            <div class="ga-toolbar">
+              <label class="ga-search" for="ga-search"><span>Find a place</span><input id="ga-search" type="search" placeholder="Great Hall, Library, Hagrid…" autocomplete="off"></label>
+              <label for="ga-region"><span>Explore a region</span><select id="ga-region"><option value="all">The Entire Castle</option></select></label>
+              <label class="ga-secret-switch" for="ga-secrets"><input id="ga-secrets" type="checkbox"><span>Reveal hidden passages <small>Contains spoilers</small></span></label>
             </div>
-            <div class="ga-legend"><span><i class="ga-line is-canon"></i>原著支持的关系</span><span><i class="ga-line"></i>重建的步行连接</span><span><i class="ga-line is-secret"></i>需显露的隐藏入口</span><span class="ga-legend-hint">无需站台预先解锁 · 选中地点后点击「进入此地点」</span></div>
-          </div>
-          <aside class="ga-detail" aria-labelledby="ga-detail-title">
-            <div class="ga-detail-image"><img id="ga-detail-image" alt="" width="1672" height="941"><span id="ga-detail-status"></span></div>
-            <div class="ga-detail-content"><p class="ga-eyebrow" id="ga-detail-floor"></p><h3 id="ga-detail-title">城堡大门</h3><p class="ga-detail-en" id="ga-detail-en"></p><p id="ga-detail-note"></p><code id="ga-detail-url"></code><div class="ga-travel"><button id="ga-visit" type="button" aria-label="进入当前选中的 Hogwarts 地点">进入此地点 ↗</button><p id="ga-visit-hint" role="status">可从 Atlas 直接进入所选地点，无须先从站台出发。</p></div><h4>相连地点</h4><ul id="ga-neighbors"></ul><div class="ga-detail-sources"><h4>依据</h4><ul id="ga-detail-sources"></ul></div></div>
+            <section class="ga-rail-legend" aria-label="Map legend">
+              <h3><span aria-hidden="true">✧</span> The Ink Key</h3>
+              <ul>
+                <li><i class="ga-key-dot is-place" aria-hidden="true"></i><span>Charted location</span></li>
+                <li><i class="ga-key-dot is-selected" aria-hidden="true"></i><span>Selected chamber</span></li>
+                <li><i class="ga-key-line is-canon" aria-hidden="true"></i><span>Book-supported passage</span></li>
+                <li><i class="ga-key-line is-reconstruction" aria-hidden="true"></i><span>Reconstructed connection</span></li>
+                <li><i class="ga-key-line is-secret" aria-hidden="true"></i><span>Concealed entrance</span></li>
+                <li><i class="ga-key-foot" aria-hidden="true">◕ ◕</i><span>Footsteps on a route</span></li>
+              </ul>
+            </section>
+            <div class="ga-rail-compass" aria-hidden="true">
+              <svg viewBox="0 0 180 180" fill="none">
+                <circle cx="90" cy="90" r="63" stroke="currentColor" stroke-width="1"/>
+                <circle cx="90" cy="90" r="57" stroke="currentColor" stroke-width=".6" stroke-dasharray="3 5"/>
+                <circle cx="90" cy="90" r="24" stroke="currentColor" stroke-width="1"/>
+                <path d="M90 12L103 77L168 90L103 103L90 168L77 103L12 90L77 77Z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M90 34L96 84L146 90L96 96L90 146L84 96L34 90L84 84Z" fill="currentColor" fill-opacity=".14" stroke="currentColor" stroke-width=".8"/>
+                <path d="M90 64L98 90L90 116L82 90Z" fill="currentColor" fill-opacity=".4"/>
+                <path d="M47 47L74 74M133 47L106 74M47 133L74 106M133 133L106 106" stroke="currentColor" stroke-width="1"/>
+                <text x="90" y="9" text-anchor="middle" fill="currentColor">N</text>
+                <text x="90" y="178" text-anchor="middle" fill="currentColor">S</text>
+                <text x="4" y="95" text-anchor="middle" fill="currentColor">W</text>
+                <text x="175" y="95" text-anchor="middle" fill="currentColor">E</text>
+              </svg>
+            </div>
+            <p class="ga-rail-quote">"Not every secret is meant to stay hidden."</p>
           </aside>
-        </div>
-        <div class="ga-route-card">
-          <div><p class="ga-eyebrow">TRACE A WALK</p><h3>规划一段步行</h3><p>按连接次数寻找最短路线；不是距离或耗时估计。</p></div>
-          <form id="ga-route-form"><label>起点<select id="ga-route-from"></select></label><span class="ga-route-arrow" aria-hidden="true">→</span><label>终点<select id="ga-route-to"></select></label><button type="submit">描出路线</button><button type="button" id="ga-route-clear">清除</button></form>
-          <div id="ga-route-result" role="status" aria-live="polite"></div>
+
+          <div class="ga-map-pane">
+            <div class="ga-map-ribbon"><span>HOGWARTS &amp; ITS SURROUNDINGS</span><span aria-hidden="true">✦</span><span>THE UNFOLDING PARCHMENT</span></div>
+            <div class="ga-chart-tools">
+              <p id="ga-chart-status" role="status">Unfolding the parchment…</p>
+              <div class="ga-chart-buttons">
+                <button id="ga-focus-clear" type="button" disabled>Clear Focus</button>
+                <button id="ga-zoom-out" type="button" aria-label="Zoom out">−</button>
+                <button id="ga-zoom-reset" type="button" aria-label="Reset zoom">100%</button>
+                <button id="ga-zoom-in" type="button" aria-label="Zoom in">+</button>
+                <button id="ga-export" type="button">Save Map</button>
+              </div>
+            </div>
+            <div class="ga-map-paper">
+              <span class="ga-corner is-nw" aria-hidden="true">✥</span><span class="ga-corner is-ne" aria-hidden="true">✥</span>
+              <span class="ga-corner is-sw" aria-hidden="true">✥</span><span class="ga-corner is-se" aria-hidden="true">✥</span>
+              <div class="ga-map-scroll" id="ga-map-scroll" tabindex="0" aria-label="Scrollable, zoomable parchment map of Hogwarts locations and connected passages">
+                <svg id="ga-chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 3610" aria-labelledby="chart-title chart-desc">
+                  <title id="chart-title">The Hogwarts Marauder's Atlas</title>
+                  <desc id="chart-desc">Each cartouche is a place. Ink paths represent passages. Choose a place to inspect it and enter its scene. Reveal hidden passages to see concealed rooms.</desc>
+                </svg>
+              </div>
+            </div>
+            <div class="ga-legend"><span>✧ Follow the charted connections</span><span class="ga-legend-hint">The drawing is schematic; distances are not to scale.</span></div>
+          </div>
+
+          <aside class="ga-detail" aria-labelledby="ga-detail-title">
+            <div class="ga-detail-crest"><span aria-hidden="true">✦</span> THE SELECTED PLACE <span aria-hidden="true">✦</span></div>
+            <div class="ga-detail-image"><img id="ga-detail-image" alt="" width="1672" height="941"><span id="ga-detail-status"></span></div>
+            <div class="ga-detail-content">
+              <p class="ga-eyebrow" id="ga-detail-floor"></p>
+              <h3 id="ga-detail-title">Hogwarts</h3>
+              <p class="ga-detail-en" id="ga-detail-en">A place beyond the station</p>
+              <p id="ga-detail-note">Select a location on the map to learn its story.</p>
+              <div class="ga-travel"><button id="ga-visit" type="button" aria-label="Enter the selected Hogwarts location">✣ Enter This Place <span aria-hidden="true">↗</span></button><p id="ga-visit-hint" role="status">The atlas itself can open a passage. A copied URL cannot.</p></div>
+              <div class="ga-detail-address"><span>THE PLACE'S ADDRESS</span><code id="ga-detail-url"></code></div>
+              <h4>Nearby Passages</h4><ul id="ga-neighbors"></ul>
+              <div class="ga-detail-sources"><h4>Cartographer's Sources</h4><ul id="ga-detail-sources"></ul></div>
+            </div>
+            <section class="ga-route-card" id="route-planner" aria-labelledby="route-title">
+              <div class="ga-route-heading"><p class="ga-eyebrow">TRACE THE FOOTPRINTS</p><h3 id="route-title">Find Your Way</h3><p>Trace the shortest connected walk through the castle. Steps indicate passages, not minutes.</p></div>
+              <form id="ga-route-form">
+                <label for="ga-route-from">From<select id="ga-route-from"></select></label>
+                <span class="ga-route-arrow" aria-hidden="true">↡</span>
+                <label for="ga-route-to">To<select id="ga-route-to"></select></label>
+                <div class="ga-route-actions"><button type="submit">Show Route <span aria-hidden="true">↗</span></button><button type="button" id="ga-route-clear">Clear</button></div>
+              </form>
+              <div id="ga-route-result" role="status" aria-live="polite"></div>
+            </section>
+          </aside>
         </div>
       </section>
 
       <section class="ga-passage-rules" id="passage-rules" aria-labelledby="passage-rules-title">
-        <div class="ga-section-head"><div><p class="ga-eyebrow">02 / WALK THE WORLD</p><h2 id="passage-rules-title">通行规则</h2></div><p>看见通路，选择出口，再动身。</p></div>
+        <div class="ga-section-head"><div><p class="ga-eyebrow">II. HOW TO WANDER</p><h2 id="passage-rules-title">Rules of Passage</h2></div><p>A doorway should be entered, not merely imagined.</p></div>
         <ol class="ga-rule-list">
-          <li><span class="ga-card-no" aria-hidden="true">01</span><div><h3>从门、路与开口通行</h3><p>出口贴合画面里可通过的门洞、拱门、楼梯、活板门或小路。指向出口可查看目的地；点击桌椅、南瓜、栏杆或水面不会切换房间。返回时，沿标出的来路走。</p></div></li>
-          <li><span class="ga-card-no" aria-hidden="true">02</span><div><h3>先显露入口，再进入</h3><p>秘密机关只负责打开入口。等画面中出现真正的门或管道开口，再单独点击进入；本次探索中返回时，已经打开的入口会保留。</p></div></li>
-          <li><span class="ga-card-no" aria-hidden="true">03</span><div><h3>键盘先选择，再确认</h3><p>用 <kbd>Tab</kbd> 聚焦出口，或用方向键、<kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 选择方向；按 <kbd>Enter</kbd> 或空格确认通行。长按确认键不会连续穿过多个场景。</p></div></li>
-          <li><span class="ga-card-no" aria-hidden="true">04</span><div><h3>手机上可放大查看</h3><p>画面完整显示，点击范围随图片一起缩放。遇到窄门或较远的入口，可双指放大后点选。滑动不会自动通行；要进入下一处，需另行点选出口。</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">I</span><div><h3>Follow a real opening</h3><p>Inside the scenes, doors, arches, stairs, trapdoors and paths are the exits. Selecting furniture or scenery does not move you to another room.</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">II</span><div><h3>Reveal the hidden entrance</h3><p>A concealed passage may require a small discovery first. Uncover the opening, then select it again to pass through. Previously opened secrets remain visible in the journey.</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">III</span><div><h3>Wander with the keyboard</h3><p>Use <kbd>Tab</kbd> to focus a passage or use the arrow keys and <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to select one. Press <kbd>Enter</kbd> to take it.</p></div></li>
+          <li><span class="ga-card-no" aria-hidden="true">IV</span><div><h3>Take the map with you</h3><p>On a small screen, scroll and zoom to inspect narrow passages. In the explorable scenes, the parchment map remembers the rooms you have visited.</p></div></li>
         </ol>
       </section>
 
       <section class="ga-evidence" id="canon-notes" aria-labelledby="canon-title">
-        <div class="ga-section-head"><div><p class="ga-eyebrow">03 / BOOKS, PASSAGES & INTERPRETATION</p><h2 id="canon-title">哪些有依据，哪些是重建</h2></div><p>小说线索优先，未定的连接明确标为重建。</p></div>
-        <div class="ga-evidence-intro"><p>本轮按七部小说的章节索引与官方资料交叉核对。<strong>地点在原著中存在，不代表图上的每一扇相邻门都有原著依据。</strong>节点与连线分别标注证据；学校未被完整描写的通道，用清楚标注的重建补齐。</p><p>楼层采用英国用法：<em>Ground floor</em> 是入口层，<em>First floor</em> 是其上一层。部分旧 URL 中的楼层片段为兼容旧链接而保留，位置以这里的说明为准。</p></div>
+        <div class="ga-section-head"><div><p class="ga-eyebrow">III. BETWEEN CANON &amp; CARTOGRAPHY</p><h2 id="canon-title">Notes from the Mapmakers</h2></div><p>Where the books are clear, the passages follow. Elsewhere, the reconstruction is marked.</p></div>
+        <div class="ga-evidence-intro"><p>These locations and their connections were checked against chapter-indexed references and official material. <strong>A place appearing in the novels does not prove that every neighbouring doorway is described there.</strong> Added passages are marked as reconstructions rather than presented as canon.</p><p>Floor labels follow British usage: the <em>ground floor</em> is the entrance level and the <em>first floor</em> is above it. Some historical URL names are retained for compatibility, even where the reconstruction uses a different floor.</p></div>
         <div class="ga-evidence-cards">
-          <article><span class="ga-card-no">I</span><h3>厨房在礼堂下方</h3><p>门厅 → 下行阶梯 → 地下水果画廊 → 打开的画门 → 厨房。取消礼堂直接穿入厨房的侧门连接。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/dungeons/kitchens/" target="_blank" rel="noopener noreferrer">《火焰杯》第21章 · 章节索引 ↗</a></article>
-          <article><span class="ga-card-no">II</span><h3>教室与办公室是目的地</h3><p>通过共用走廊、平台与塔楼楼梯抵达；不再穿过魔药教室去蓄水池，或穿过校长办公室去猫头鹰棚。后者位于西塔顶部。</p><a href="https://www.harrypotter.com/fact-file/locations/owlery" target="_blank" rel="noopener noreferrer">西塔猫头鹰棚 · 官方资料 ↗</a></article>
-          <article><span class="ga-card-no">III</span><h3>占卜课，从活板门上去</h3><p>北塔平台 → 银梯 → 活板门 → 占卜教室。教室里的返回路径也是地板上的开口，与天文塔不再直接相连。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/north-tower/divination-classroom/" target="_blank" rel="noopener noreferrer">《阿兹卡班的囚徒》第6章 · 章节索引 ↗</a></article>
-          <article><span class="ga-card-no">IV</span><h3>海格的小木屋在林缘</h3><p>从校园小路即可到达海格处，再选择进入禁林或围场。画面改为木屋，去掉必须先穿越禁林的前置路线。</p><a href="https://www.harrypotter.com/fact-file/locations/hagrids-hut" target="_blank" rel="noopener noreferrer">海格小屋 · 官方资料 ↗</a></article>
+          <article><span class="ga-card-no">I</span><h3>Below the Great Hall</h3><p>Entrance Hall → descending stairs → basement passage → fruit-painted doorway → kitchens. There is no invented shortcut through a side door of the Great Hall.</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/dungeons/kitchens/" target="_blank" rel="noopener noreferrer">Goblet of Fire, Chapter 21 · Chapter index ↗</a></article>
+          <article><span class="ga-card-no">II</span><h3>Rooms are destinations</h3><p>Classrooms and offices are reached from corridors and landings, not used as implausible through-passages. The Owlery remains at the top of the West Tower.</p><a href="https://www.harrypotter.com/fact-file/locations/owlery" target="_blank" rel="noopener noreferrer">The Owlery · Official reference ↗</a></article>
+          <article><span class="ga-card-no">III</span><h3>Through the trapdoor</h3><p>North Tower landing → ladder → trapdoor → Divination Classroom. Return through the floor opening rather than inventing a direct passage to the Astronomy Tower.</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/north-tower/divination-classroom/" target="_blank" rel="noopener noreferrer">Prisoner of Azkaban, Chapter 6 ↗</a></article>
+          <article><span class="ga-card-no">IV</span><h3>At the forest's edge</h3><p>Hagrid's Hut can be reached from the school grounds before choosing to explore the Forbidden Forest or the nearby paddocks.</p><a href="https://www.harrypotter.com/fact-file/locations/hagrids-hut" target="_blank" rel="noopener noreferrer">Hagrid's Hut · Official reference ↗</a></article>
         </div>
-        <details class="ga-secret-notes"><summary>隐藏入口的核对与改法 <span>包含情节与路线剧透</span></summary><div><article><h3>七楼：门出现在挂毯对面</h3><p>有求必应屋在七楼。带着需要从空白墙前往返三次，门才会出现。本站将这个过程简化为“沿墙往返”的显露动作；门出现后，另一次点击才进入房间。</p><a href="https://www.harrypotter.com/fact-file/locations/the-room-of-requirement" target="_blank" rel="noopener noreferrer">官方资料 · 《凤凰社》第18章 ↗</a></article><article><h3>盥洗室：先开管道，再进入</h3><p>蛇形水龙头是开启机关，不是传送按钮。管口在另一张同视角画面中打开后才可通行。向上返回借用福克斯协助上升的情节；“密室尽头”只是同一房间的近景。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/hogwarts-second-floor/moaning-myrtles-bathroom/" target="_blank" rel="noopener noreferrer">《密室》第16–17章 · 章节索引 ↗</a></article></div></details>
-        <div class="ga-caveat"><h3>保留不确定性</h3><p>校医院和校长办公室的入口楼层在不同卷的路线描述中并不完全一致；变形术教室的确切楼层未被固定。本站作了可行的安排，并在对应地点注明。石桥、回廊、储物间、蓄水池等扩展场景也明确标为重建或创作，不作为原著地名。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/hogwarts-third-floor/hospital-wing/" target="_blank" rel="noopener noreferrer">校医院楼层资料 ↗</a> <a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/transfiguration-classroom/" target="_blank" rel="noopener noreferrer">变形术教室资料 ↗</a></div>
+        <details class="ga-secret-notes"><summary>Notes on hidden entrances <span>Contains story and passage spoilers</span></summary>
+          <div>
+            <article><h3>The seventh-floor wall</h3><p>The Room of Requirement appears opposite the tapestry after three deliberate passes with a particular need in mind. The site condenses this into a reveal interaction; entering remains a separate action.</p><a href="https://www.harrypotter.com/fact-file/locations/the-room-of-requirement" target="_blank" rel="noopener noreferrer">Official reference · Order of the Phoenix, Chapter 18 ↗</a></article>
+            <article><h3>The serpent-marked tap</h3><p>The tap in Myrtle's bathroom is a mechanism, not a teleport button. First expose the pipe, then enter it. The upward return draws on Fawkes's assistance; the chamber's far end is another view of the same space.</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/hogwarts-second-floor/moaning-myrtles-bathroom/" target="_blank" rel="noopener noreferrer">Chamber of Secrets, Chapters 16–17 ↗</a></article>
+          </div>
+        </details>
+        <div class="ga-caveat"><h3>The map is not infallible</h3><p>The Hospital Wing and Headmaster's Office have ambiguous floor descriptions across the books; the Transfiguration classroom has no fixed canonical floor. These are arranged plausibly here. Added bridges, cloisters, storage rooms and reservoirs are creative reconstructions, not independently established book locations.</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/hogwarts-third-floor/hospital-wing/" target="_blank" rel="noopener noreferrer">Hospital Wing references ↗</a> <a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/transfiguration-classroom/" target="_blank" rel="noopener noreferrer">Transfiguration references ↗</a></div>
       </section>
 
-      <section id="url-directory" aria-labelledby="directory-title"><div class="ga-section-head"><div><p class="ga-eyebrow">04 / EVERY PLACE HAS AN ADDRESS</p><h2 id="directory-title">地点与 URL 目录</h2></div><p>与上方查找和剧透设置同步。</p></div><p class="ga-directory-note">Atlas 与 9¾ 站台是两个进入 Hogwarts 的入口：在图谱选中地点后按「进入此地点」，或从目录按「前往」。直接打开单个场景 URL 不会获得通行权限；进入后仍可以沿门、路和楼梯探索。</p><div class="ga-table-wrap"><table><thead><tr><th scope="col">地点</th><th scope="col">位置与依据</th><th scope="col">URL</th></tr></thead><tbody id="ga-directory"></tbody></table></div><noscript><p>交互关系图与完整目录需要 JavaScript。上方的原著说明和来源仍可阅读。</p></noscript></section>
-      <details class="ga-bibliography"><summary>资料目录与章节缩写</summary><p>PS《魔法石》 · CS《密室》 · PA《阿兹卡班的囚徒》 · GF《火焰杯》 · OP《凤凰社》 · HBP《混血王子》 · DH《死亡圣器》。数字为章号。Harry Potter Lexicon 为按章节编排的二手索引；官方百科与作者补充另行标记。</p><ol id="ga-bibliography"></ol></details>
+      <section id="url-directory" aria-labelledby="directory-title">
+        <div class="ga-section-head"><div><p class="ga-eyebrow">IV. THE COMPLETE REGISTRY</p><h2 id="directory-title">Every Place Has an Address</h2></div><p>Search and hidden-place settings follow the map above.</p></div>
+        <p class="ga-directory-note">Select a location on the parchment and choose <strong>Enter This Place</strong>, or use <strong>Travel</strong> in the directory. The Atlas and Platform 9¾ can begin a journey; typing an individual scene URL cannot unlock it.</p>
+        <div class="ga-table-wrap"><table><thead><tr><th scope="col">Location</th><th scope="col">Region · Attribution</th><th scope="col">Mapped Address</th></tr></thead><tbody id="ga-directory"></tbody></table></div>
+        <noscript><p>This interactive parchment requires JavaScript. The accompanying source notes remain available for reading.</p></noscript>
+      </section>
+      <details class="ga-bibliography"><summary>The Mapmaker's Bibliography</summary><p>PS = <em>Philosopher's Stone</em>, CS = <em>Chamber of Secrets</em>, PA = <em>Prisoner of Azkaban</em>, GF = <em>Goblet of Fire</em>, OP = <em>Order of the Phoenix</em>, HBP = <em>Half-Blood Prince</em>, DH = <em>Deathly Hallows</em>. Numbers refer to chapters. Harry Potter Lexicon is a secondary chapter index; official references and later supplements are identified separately.</p><ol id="ga-bibliography"></ol></details>
     </main>
-    <footer class="ga-footer"><span>HOGWARTS · THE UNMAPPED WORLD</span><p>原著线索为经，合理通路为纬。<br><small>非官方同人场景 · 关系图不按比例</small></p><a href="/platform-934/">回到 9¾ 站台 ↗</a></footer>
+    <footer class="ga-footer"><span>✦ &nbsp; HOGWARTS · THE UNMAPPED WORLD &nbsp; ✦</span><p>Same stone walls. A thousand different stories.<small>An unofficial fan-made experience · Diagram not to scale</small></p><a href="/platform-934/">Return to Platform 9¾ ↗</a></footer>
   </div>
 </body>
 </html>
