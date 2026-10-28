@@ -9005,3 +9005,5 @@
     if (scene) Object.assign(scene, asset);
   });
 })();
+
+             (function(){const o={hogsHead:{src:"/assets/images/hogwarts-ai-v1/hogsHead-open.jpg",width:1672,height:940},honeydukes:{src:"/assets/images/hogwarts-ai-v1/honeydukes-open.jpg",width:1672,height:940}};Object.entries(o).forEach(([i,a])=>{const s=window.HogwartsScenes[i];if(s&&s.secret&&s.secret.open)Object.assign(s.secret.open,a);});})();
