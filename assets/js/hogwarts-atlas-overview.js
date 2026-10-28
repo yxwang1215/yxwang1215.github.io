@@ -58,20 +58,9 @@
   };
   function regionName(id){return regionNames[id]||"Hogwarts"}
   function floorName(node){
-    var floor=String(node.floor||"");
-    var level=floor.match(/\b(Ground|First|Second|Third|Fourth|Fifth|Sixth|Seventh)\s+floor\b/i);
-    if(level)return level[1]+" floor · "+regionName(node.group);
-    if(/七楼/.test(floor))return "Seventh floor · "+regionName(node.group);
-    if(/六楼/.test(floor))return "Sixth floor · "+regionName(node.group);
-    if(/五楼/.test(floor))return "Fifth floor · "+regionName(node.group);
-    if(/四楼/.test(floor))return "Fourth floor · "+regionName(node.group);
-    if(/三楼/.test(floor))return "Third floor · "+regionName(node.group);
-    if(/二楼/.test(floor))return "Second floor · "+regionName(node.group);
-    if(/一楼/.test(floor))return "First floor · "+regionName(node.group);
-    if(/地下|地牢|地窖/.test(floor))return "Below ground · "+regionName(node.group);
-    if(/湖底|水下/.test(floor))return "Under the Black Lake";
-    if(/禁林/.test(floor))return "The Forbidden Forest";
-    return regionName(node.group);
+    // The geography catalog now stores full English floor descriptions;
+    // do not infer a different floor from an older URL segment or legacy text.
+    return String(node.floor||regionName(node.group));
   }
   // Pure SVG ink-work; decorative silhouettes are not clickable locations or map edges.
   function engraving(section){
