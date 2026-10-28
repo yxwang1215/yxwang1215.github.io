@@ -21,6 +21,23 @@ const referencedSources = new Set();
 
 function dimensions(file) {
   const bytes = readFileSync(file);
+  if (bytes[0] === 0xff && bytes[1] === 0xd8) {
+    for (let offset = 2; offset + 9 < bytes.length;) {
+      if (bytes[offset] !== 0xff) { offset++; continue; }
+      while (bytes[offset] === 0xff) offset++;
+      const marker = bytes[offset++];
+      if (marker === 0xd8 || marker === 0xd9) continue;
+      if (offset + 2 > bytes.length) break;
+      const length = bytes.readUInt16BE(offset);
+      if (length < 2 || offset + length > bytes.length) break;
+      const sof = marker === 0xc0 || marker === 0xc1 || marker === 0xc2 || marker === 0xc3 ||
+        marker === 0xc5 || marker === 0xc6 || marker === 0xc7 || marker === 0xc9 ||
+        marker === 0xca || marker === 0xcb || marker === 0xcd || marker === 0xce || marker === 0xcf;
+      if (sof) return [bytes.readUInt16BE(offset + 5), bytes.readUInt16BE(offset + 3)];
+      offset += length;
+    }
+    throw new Error("No JPEG dimensions in " + file);
+  }
   assert.equal(bytes.toString("ascii", 0, 4), "RIFF", file + ": not a real WebP");
   assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
   for (let offset = 12; offset + 8 <= bytes.length;) {
@@ -143,7 +160,7 @@ function checkRegion(region, label, { evidence = false, allowedKinds = kinds } =
   if (evidence) assert.ok(typeof region.evidence === "string" && region.evidence.trim(), label + ": missing visual evidence");
 }
 function checkImage(scene, label) {
-  assert.ok(typeof scene.src === "string" && /^\/assets\/images\/.+\.(?:webp|svg)$/.test(scene.src), label + ": invalid scene image source");
+  assert.ok(typeof scene.src === "string" && /^\/assets\/images\/.+\.(?:webp|jpg|jpeg|svg)$/.test(scene.src), label + ": invalid scene image source");
   const path = root + scene.src.slice(1);
   assert.ok(existsSync(path), label + ": missing artwork " + scene.src);
   if (scene.src.endsWith(".svg")) {
