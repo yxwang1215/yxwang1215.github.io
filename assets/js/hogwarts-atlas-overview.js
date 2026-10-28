@@ -64,8 +64,13 @@
       var touchesHidden=edges.some(function(edge){return edge.a===id&&geo.nodes[edge.b].hidden||edge.b===id&&geo.nodes[edge.a].hidden});
       var dim=(!matches(id))||(state.query?false:state.focused&&!near&&!inRoute)||(state.region==='unmapped'&&!node.hidden&&!touchesHidden);
       var css='ga-point'+(selected?' is-selected':'')+(node.hidden?' is-hidden':'')+(inRoute?' is-route':'')+(dim?' is-dim':'');
-      var width=id==='defense'||id==='firstFloorJunction'||id==='bathroom'?164:148;
-      if(['sluice','chamber','sanctum'].includes(id))width=117;
+      // Allow larger labels without clipping long Chinese room names.
+      // Width changes only the drawn marker, never the graph topology.
+      var charWidth=Array.from(node.label).reduce(function(n,ch){
+        var cp=ch.codePointAt(0);return n+(cp>=0x3400&&cp<=0x9fff?14.8:8.2);
+      },0);
+      var width=Math.max(148,Math.min(212,Math.round(charWidth+34)));
+      if(['sluice','chamber','sanctum'].includes(id))width=Math.max(128,Math.min(178,Math.round(charWidth+30)));
       var inView=insideBox(id,box);
       html+='<g class="'+css+'" data-room="'+safe(id)+'" data-status="'+safe(node.status)+'" transform="translate('+node.position.join(',')+')" tabindex="'+(inView?'0':'-1')+'"'+(inView?'':' aria-hidden="true"')+' role="button" aria-pressed="'+selected+'" aria-label="查看'+safe(node.label)+'的关系">'+
         '<rect x="'+(-width/2)+'" y="-21" width="'+width+'" height="42"></rect><circle cx="'+(-width/2+12)+'" cy="0" r="3.1"></circle><text x="7" y="4.5" text-anchor="middle">'+safe(node.label)+'</text></g>';
@@ -73,7 +78,9 @@
     chart.innerHTML=html;
     chart.setAttribute('viewBox',box.join(' '));
     chart.style.aspectRatio=box[2]+" / "+box[3];
-    var baseline=state.region==='all'||state.region==='unmapped'?1100:540;
+    // Preserve a readable label size; small regions can scroll horizontally.
+    var baseline=state.region==='all'||state.region==='unmapped'?1250:
+      Math.max(740,Math.min(1200,box[2]*1.08));
     chart.style.minWidth='0';
     chart.style.width='calc(max(100%, '+baseline+'px) * '+state.zoom+')';
     $("ga-zoom-reset").textContent=Math.round(state.zoom*100)+'%';
@@ -168,7 +175,7 @@
   $("ga-route-clear").addEventListener('click',function(){state.route=null;renderGraph();renderRoute()});
   $("ga-export").addEventListener('click',function(){
     var copy=chart.cloneNode(true),style=document.createElementNS('http://www.w3.org/2000/svg','style');
-    style.textContent='.ga-zone rect{fill:#efefe3;stroke:#d7ddce}.ga-zone text{font:600 13px sans-serif;fill:#72806f}.ga-edge{fill:none;stroke:#9caa96;stroke-width:1.65;stroke-dasharray:5 5}.ga-edge.is-canon{stroke:#4f7460;stroke-dasharray:none;stroke-width:2.3}.ga-edge.is-secret{stroke:#9a6271;stroke-dasharray:3 6}.ga-edge.is-route{stroke:#bf8a34;stroke-width:5;stroke-dasharray:none}.ga-point rect{fill:#fcfaf3;stroke:#adbdab;stroke-width:1.3;rx:5}.ga-point text{fill:#2d4738;font:500 12.5px sans-serif}.ga-point circle{fill:#66846d}.ga-point[data-status=inferred] circle{fill:#b09460}.ga-point[data-status=invented] circle{fill:#a0a69a}.ga-point.is-hidden rect{stroke:#ae7c88;stroke-dasharray:3 2}.ga-point.is-selected rect{fill:#dfebdb;stroke:#294f3b;stroke-width:2.5}.ga-point.is-route rect{fill:#f3e7c6;stroke:#af8037;stroke-width:2.5}';
+    style.textContent='.ga-zone rect{fill:#efefe3;stroke:#d7ddce}.ga-zone text{font:700 15px sans-serif;fill:#52745e}.ga-edge{fill:none;stroke:#9caa96;stroke-width:1.65;stroke-dasharray:5 5}.ga-edge.is-canon{stroke:#4f7460;stroke-dasharray:none;stroke-width:2.3}.ga-edge.is-secret{stroke:#9a6271;stroke-dasharray:3 6}.ga-edge.is-route{stroke:#bf8a34;stroke-width:5;stroke-dasharray:none}.ga-point rect{fill:#fcfaf3;stroke:#adbdab;stroke-width:1.3;rx:5}.ga-point text{fill:#264b36;font:650 14.5px sans-serif}.ga-point circle{fill:#66846d}.ga-point[data-status=inferred] circle{fill:#b09460}.ga-point[data-status=invented] circle{fill:#a0a69a}.ga-point.is-hidden rect{stroke:#ae7c88;stroke-dasharray:3 2}.ga-point.is-selected rect{fill:#dfebdb;stroke:#294f3b;stroke-width:2.5}.ga-point.is-route rect{fill:#f3e7c6;stroke:#af8037;stroke-width:2.5}';
     copy.insertBefore(style,copy.firstChild);copy.removeAttribute('style');
     var view=copy.getAttribute('viewBox').split(' ').map(Number);copy.setAttribute('width',view[2]);copy.setAttribute('height',view[3]);
     var blob=new Blob([new XMLSerializer().serializeToString(copy)],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');
