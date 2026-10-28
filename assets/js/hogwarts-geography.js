@@ -5,12 +5,12 @@
   "reviewed": "2026-10-27",
   "nodes": {
     "gate": {
-      "label": "城堡大门",
-      "floor": "地面 · 城堡门口",
+      "label": "Hogwarts Entrance",
+      "floor": "Ground level · Castle entrance",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "这里是城堡正门，不是校界外带翼野猪石柱的大门。门厅就在门后。",
+      "note": "This is the castle's main entrance, not the winged-boar gateway on the school boundary. The Entrance Hall is just beyond the doors.",
       "sources": [
         "entry",
         "arrival"
@@ -22,12 +22,12 @@
       "hidden": false
     },
     "forecourt": {
-      "label": "提灯小径",
-      "floor": "校地 · 进校道路",
+      "label": "The Lantern Path",
+      "floor": "School grounds · Castle approach",
       "group": "grounds",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "城堡前的小路经过重新组织；一次跳转代表一段步行，不等同于从伦敦站台直接走到城堡。",
+      "note": "The approach is shortened for exploration; one scene transition represents a section of a walk, not a direct route from a London platform to Hogwarts.",
       "sources": [
         "arrival"
       ],
@@ -38,12 +38,12 @@
       "hidden": false
     },
     "entry": {
-      "label": "门厅",
-      "floor": "Ground floor · 入口层",
+      "label": "Entrance Hall",
+      "floor": "Ground floor · Entrance level",
       "group": "keep",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "原著描述了门厅、通向礼堂的门、上楼的楼梯，以及通向厨房方向的下行阶梯。",
+      "note": "The novels describe the Entrance Hall, doors to the Great Hall, an ascending staircase and steps descending towards the kitchens.",
       "sources": [
         "entry"
       ],
@@ -54,12 +54,12 @@
       "hidden": false
     },
     "great": {
-      "label": "礼堂",
-      "floor": "Ground floor · 入口层",
+      "label": "The Great Hall",
+      "floor": "Ground floor · Entrance level",
       "group": "keep",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "礼堂是用餐和集会的目的地。厨房在它正下方，不通过礼堂侧门直接抵达。",
+      "note": "The Great Hall is used for meals and gatherings. The kitchens are directly beneath it, not reached through an invented side door.",
       "sources": [
         "entry",
         "kitchens"
@@ -71,12 +71,12 @@
       "hidden": false
     },
     "kitchens": {
-      "label": "厨房",
-      "floor": "地下 · 礼堂正下方",
+      "label": "Castle Kitchens",
+      "floor": "Basement · Beneath the Great Hall",
       "group": "dungeons",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "从门厅下楼进入地下走廊，水果画中的梨会变成把手，打开厨房入口。本图采用已经打开的画门。",
+      "note": "Descend from the Entrance Hall into the basement passage. The pear in the fruit portrait becomes a handle to reveal the kitchen; this chart depicts the opened entrance.",
       "sources": [
         "kitchens"
       ],
@@ -87,12 +87,12 @@
       "hidden": false
     },
     "pantry": {
-      "label": "铜器储藏室",
-      "floor": "地下 · 厨房服务区",
+      "label": "Copper Pantry",
+      "floor": "Basement · Kitchen service wing",
       "group": "dungeons",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点补充的厨房储藏室；名称与具体布局不来自原著。",
+      "note": "An additional storeroom for the kitchen wing. Its name and layout are inventions of this site.",
       "sources": [],
       "position": [
         1035,
@@ -101,12 +101,12 @@
       "hidden": false
     },
     "gallery": {
-      "label": "四楼肖像走廊",
-      "floor": "Fourth floor · 四楼",
+      "label": "Fourth-floor Portrait Corridor",
+      "floor": "Fourth floor",
       "group": "academic",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "四楼与图书馆的楼层关系有依据；这条具体肖像走廊和相邻门的位置是重建。",
+      "note": "The fourth-floor setting follows chapter references; the exact portrait corridor and neighbouring door positions are reconstructed.",
       "sources": [
         "fourth",
         "library"
@@ -118,12 +118,12 @@
       "hidden": false
     },
     "armoury": {
-      "label": "三楼盔甲陈列室",
-      "floor": "Third floor · 三楼",
+      "label": "Third-floor Armour Gallery",
+      "floor": "Third floor",
       "group": "academic",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "原著的盔甲陈列室在三楼、靠近奖品陈列室。当前图没有第二个可靠出口，因此只作为可返回的目的地。",
+      "note": "The books place the Armour Gallery on the third floor near the Trophy Room. It is a destination rather than a shortcut.",
       "sources": [
         "armour"
       ],
@@ -134,12 +134,12 @@
       "hidden": false
     },
     "cloister": {
-      "label": "东侧回廊",
-      "floor": "地面 · 校地回廊",
+      "label": "East Cloister",
+      "floor": "School grounds · Covered cloister",
       "group": "grounds",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "为庭院与温室之间补充的有顶通道；“东侧回廊”不是已核实的小说地名。",
+      "note": "A covered passage added to link the courtyard and greenhouses. 'East Cloister' is not a verified location name in the novels.",
       "sources": [],
       "position": [
         370,
@@ -148,12 +148,12 @@
       "hidden": false
     },
     "hospital": {
-      "label": "校医院",
-      "floor": "一楼 · 本站选定方案",
+      "label": "Hospital Wing",
+      "floor": "First floor · Reconstructed placement",
       "group": "teaching",
       "status": "canon",
       "floorStatus": "uncertain",
-      "note": "《密室》第13章支持一楼位置；《凤凰社》第32章的路线暗示更高楼层。本站采用一楼重建，并不宣称楼层唯一。",
+      "note": "Chamber of Secrets chapter 13 supports a first-floor location; a later route in Order of the Phoenix chapter 32 suggests a higher floor. The site selects a first-floor reconstruction.",
       "sources": [
         "hospital"
       ],
@@ -164,12 +164,12 @@
       "hidden": false
     },
     "transfig": {
-      "label": "变形术教室",
-      "floor": "一楼 · 本站安排，原著未定",
+      "label": "Transfiguration",
+      "floor": "First floor · Site placement; canon uncertain",
       "group": "teaching",
       "status": "canon",
       "floorStatus": "interpretation",
-      "note": "原著未固定变形术教室的楼层。为保持教学区流线，本站将它接入一楼走廊。",
+      "note": "The novels do not specify a fixed floor for Transfiguration. This reconstruction places the classroom off the first-floor teaching corridor.",
       "sources": [
         "transfig"
       ],
@@ -180,12 +180,12 @@
       "hidden": false
     },
     "baths": {
-      "label": "二楼盥洗室走廊",
-      "floor": "Second floor · 二楼",
+      "label": "Second-floor Bathroom Corridor",
+      "floor": "Second floor",
       "group": "academic",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "通向桃金娘盥洗室的二楼走廊是合理衔接；原来的“废弃盥洗室”场景改为走廊。",
+      "note": "A plausible second-floor corridor towards Myrtle's Bathroom, replacing the previous abandoned-washroom setting.",
       "sources": [
         "bathroom"
       ],
@@ -196,12 +196,12 @@
       "hidden": false
     },
     "bathroom": {
-      "label": "桃金娘的盥洗室",
-      "floor": "Second floor · 二楼",
+      "label": "Myrtle's Bathroom",
+      "floor": "Second floor",
       "group": "academic",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "采用后续多次提及的二楼位置。蛇形记号在一只铜水龙头上；先显露管口，再进入。",
+      "note": "Later references place Myrtle's Bathroom on the second floor. A serpent mark on a brass tap reveals the pipe opening; discover it before entering.",
       "sources": [
         "myrtle",
         "bathroom"
@@ -213,12 +213,12 @@
       "hidden": false
     },
     "history": {
-      "label": "魔法史教室",
-      "floor": "First floor · 一楼",
+      "label": "History of Magic",
+      "floor": "First floor",
       "group": "teaching",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "魔法史教室位于一楼。与其他教室共用走廊，教室本身不承担穿行。",
+      "note": "History of Magic takes place on the first floor. Its classroom is accessed through a shared corridor and is not itself a thoroughfare.",
       "sources": [
         "history"
       ],
@@ -229,12 +229,12 @@
       "hidden": false
     },
     "staircase": {
-      "label": "主楼梯",
-      "floor": "连接多个楼层",
+      "label": "Grand Staircase",
+      "floor": "Multiple floors · Stairway junction",
       "group": "keep",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "将城堡中的数段楼梯与平台压缩成一个导航地点；不把电影中的旋转楼梯结构当成精确原著平面图。",
+      "note": "Several sets of stairs and landings are condensed into one navigation point. The moving staircase is not a precise canonical castle floor plan.",
       "sources": [
         "entry",
         "hogwarts"
@@ -246,12 +246,12 @@
       "hidden": false
     },
     "corridor": {
-      "label": "七楼走廊",
-      "floor": "Seventh floor · 七楼",
+      "label": "Seventh-floor Corridor",
+      "floor": "Seventh floor",
       "group": "towers",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "七楼的巨怪芭蕾挂毯与有求必应屋入口相对。门出现在空白墙上，不在挂毯后面。",
+      "note": "On the seventh floor, the tapestry of dancing trolls faces the blank wall where the Room of Requirement appears. The entrance is not behind the tapestry.",
       "sources": [
         "requirement",
         "requirementBook"
@@ -263,12 +263,12 @@
       "hidden": false
     },
     "library": {
-      "label": "图书馆",
-      "floor": "Fourth floor · 四楼",
+      "label": "Hogwarts Library",
+      "floor": "Fourth floor",
       "group": "academic",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "按章节资料采用四楼位置。取消了穿过图书馆直达校长办公室的连接。",
+      "note": "Chapter-based references place the library on the fourth floor. It no longer provides an invented shortcut to the Headmaster's Office.",
       "sources": [
         "fourth",
         "library"
@@ -280,12 +280,12 @@
       "hidden": false
     },
     "charms": {
-      "label": "魔咒课教室",
-      "floor": "Third floor · 三楼",
+      "label": "Charms",
+      "floor": "Third floor",
       "group": "academic",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "采用三楼魔咒课走廊的关系。教室通过中层平台接入，成为单独的目的地。",
+      "note": "The third-floor Charms corridor informs this reconstruction; the classroom is reached from the middle landings as a separate destination.",
       "sources": [
         "charms"
       ],
@@ -296,12 +296,12 @@
       "hidden": false
     },
     "defense": {
-      "label": "黑魔法防御术教室",
-      "floor": "一楼 · 根据路线推定",
+      "label": "Defence Against the Dark Arts",
+      "floor": "First floor · Route-based inference",
       "group": "teaching",
       "status": "canon",
       "floorStatus": "inferred",
-      "note": "根据《密室》第6章的行走路线安排在一楼。卢平的博格特衣柜课发生在教员休息室，本站不将其说成此教室的原著事件。",
+      "note": "Placed on the first floor by inference from Chamber of Secrets chapter 6. Lupin's Boggart demonstration occurs in the staff room, not demonstrably in this classroom.",
       "sources": [
         "defense",
         "staffWardrobe"
@@ -313,12 +313,12 @@
       "hidden": false
     },
     "office": {
-      "label": "校长办公室",
-      "floor": "塔楼 · 入口楼层有差异",
+      "label": "Headmaster's Office",
+      "floor": "Tower · Entrance floor uncertain",
       "group": "towers",
       "status": "canon",
       "floorStatus": "uncertain",
-      "note": "稳定的入口特征是滴水兽和螺旋楼梯；不同卷中入口楼层有所变化。本站从七楼接入是选定的重建。",
+      "note": "A gargoyle and spiral staircase are consistent entrance features. The books vary on entrance floor; the seventh-floor approach here is a reconstruction.",
       "sources": [
         "head"
       ],
@@ -329,12 +329,12 @@
       "hidden": false
     },
     "astrStair": {
-      "label": "天文塔螺旋梯",
-      "floor": "天文塔 · 上行楼梯",
+      "label": "Spiral Ascent",
+      "floor": "Astronomy Tower · Ascending stair",
       "group": "towers",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "以螺旋楼梯抵达天文塔有原著依据；城垛到这段楼梯的具体连接由本站重建。",
+      "note": "The spiral ascent to the Astronomy Tower has support in the books; the precise battlement connection is reconstructed.",
       "sources": [
         "astronomyBook"
       ],
@@ -345,12 +345,12 @@
       "hidden": false
     },
     "astrTower": {
-      "label": "天文塔",
-      "floor": "最高塔楼顶部",
+      "label": "Astronomy Tower",
+      "floor": "Summit of the highest tower",
       "group": "towers",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "城堡最高的塔楼。独立攀登抵达，不再通过占卜教室穿行。",
+      "note": "Hogwarts' highest tower is reached by its own stairway, not by passing through Divination.",
       "sources": [
         "astronomy",
         "astronomyBook"
@@ -362,12 +362,12 @@
       "hidden": false
     },
     "divination": {
-      "label": "占卜教室",
-      "floor": "North Tower · 北塔",
+      "label": "Divination",
+      "floor": "North Tower",
       "group": "towers",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "北塔的小平台上方有活板门，银梯从门口放下；教室返回时也使用这个开口。",
+      "note": "The North Tower landing has a trapdoor above it, reached by a silver ladder. The return path uses the same opening.",
       "sources": [
         "divination"
       ],
@@ -378,12 +378,12 @@
       "hidden": false
     },
     "owlery": {
-      "label": "猫头鹰棚",
-      "floor": "West Tower · 西塔顶部",
+      "label": "The Owlery",
+      "floor": "West Tower · Summit",
       "group": "towers",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "猫头鹰棚位于西塔顶部。通过塔楼路线抵达，不必穿过校长办公室。",
+      "note": "The Owlery stands atop the West Tower. Its route does not require passing through the Headmaster's Office.",
       "sources": [
         "owlery",
         "owleryBook"
@@ -395,12 +395,12 @@
       "hidden": false
     },
     "ramparts": {
-      "label": "高处城垛",
-      "floor": "高处 · 塔楼连接路线",
+      "label": "North Battlements",
+      "floor": "Upper levels · Tower junction",
       "group": "towers",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "为几条塔楼路线设置的风景节点；连接包含未单独展示的步行和楼梯，不代表已证实的北侧建筑平面。",
+      "note": "A scenic junction between tower routes. Some intermediate stairs and passages are condensed and not claimed as a canonical floor plan.",
       "sources": [
         "astronomyBook"
       ],
@@ -411,12 +411,12 @@
       "hidden": false
     },
     "dungeonSteps": {
-      "label": "地下楼梯",
-      "floor": "地下 · 地牢阶梯",
+      "label": "Dungeon Stairwell",
+      "floor": "Basement · Dungeon stair",
       "group": "dungeons",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "从地下服务区继续向地牢下降的楼梯。与通往深层密室的管道分开。",
+      "note": "Stairs descend from the service basement into the dungeons, separately from the much deeper pipe towards the Chamber.",
       "sources": [
         "entry"
       ],
@@ -427,12 +427,12 @@
       "hidden": false
     },
     "potions": {
-      "label": "魔药课教室",
-      "floor": "地下 · 地牢",
+      "label": "Potions",
+      "floor": "Dungeons",
       "group": "dungeons",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "斯内普的魔药课在地牢内进行。教室返回绿灯通道，不再作为蓄水池的入口。",
+      "note": "Potions lessons take place in the dungeons. The room opens back to the Green Lantern Passage, not directly to an underground reservoir.",
       "sources": [
         "potions"
       ],
@@ -443,12 +443,12 @@
       "hidden": false
     },
     "oldArchive": {
-      "label": "档案通道",
-      "floor": "地下 · 站点扩展",
+      "label": "Archive Passage",
+      "floor": "Basement · Site reconstruction",
       "group": "dungeons",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点创作的拱廊式档案通道，用来连接地窖与储物间；不再把独立阅览室当作过道。",
+      "note": "An invented archive passage connecting the cellars and storage rooms; a route rather than a private reading room.",
       "sources": [],
       "position": [
         800,
@@ -457,12 +457,12 @@
       "hidden": false
     },
     "crypt": {
-      "label": "旧地窖",
-      "floor": "地下 · 站点扩展",
+      "label": "Forgotten Crypt",
+      "floor": "Basement · Site reconstruction",
       "group": "dungeons",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点扩展场景，未找到对应的原著命名地点。",
+      "note": "An additional crypt setting created for this site, not a named canonical chamber.",
       "sources": [],
       "position": [
         565,
@@ -471,12 +471,12 @@
       "hidden": false
     },
     "slytherin": {
-      "label": "绿灯通道",
-      "floor": "地下 · 站点扩展",
+      "label": "Green Lantern Passage",
+      "floor": "Basement · Site reconstruction",
       "group": "dungeons",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点扩展的地下交通节点；名称不表示它就是斯莱特林公共休息室。",
+      "note": "A reconstructed underground junction; it is not the Slytherin Common Room.",
       "sources": [],
       "position": [
         800,
@@ -485,12 +485,12 @@
       "hidden": false
     },
     "reservoir": {
-      "label": "地下蓄水池",
-      "floor": "地下 · 站点扩展",
+      "label": "Underground Reservoir",
+      "floor": "Basement · Site reconstruction",
       "group": "dungeons",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点扩展的地下水景；只沿画面中的干燥桥面往返。",
+      "note": "An invented reservoir. Visitors use the visible dry stone walkway, never the water surface.",
       "sources": [],
       "position": [
         1035,
@@ -499,12 +499,12 @@
       "hidden": false
     },
     "vault": {
-      "label": "旧储物间",
-      "floor": "地下 · 站点扩展",
+      "label": "Old Storeroom",
+      "floor": "Basement · Site reconstruction",
       "group": "dungeons",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点扩展的旧储物间，通过档案通道进入。",
+      "note": "A reconstructed storeroom entered from the archive passage.",
       "sources": [],
       "position": [
         800,
@@ -513,12 +513,12 @@
       "hidden": false
     },
     "courtyard": {
-      "label": "南庭院",
-      "floor": "Grounds · 校地",
+      "label": "South Courtyard",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "供校地路线汇合的庭院重建，确切方位和布局不作为小说事实。",
+      "note": "A reconstructed courtyard linking paths across the school grounds. Its exact orientation is not established in the novels.",
       "sources": [],
       "position": [
         370,
@@ -527,12 +527,12 @@
       "hidden": false
     },
     "bridge": {
-      "label": "石桥",
-      "floor": "Grounds · 校地",
+      "label": "Stone Viaduct",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "保留电影感的石桥风景，但不把电影桥梁布局当成原著地图；三个实际通路连接庭院、湖岸和海格处。",
+      "note": "A cinematic stone viaduct, not a claim about the novels' actual architecture. It links courtyard, lakeshore and Hagrid's area.",
       "sources": [],
       "position": [
         580,
@@ -541,12 +541,12 @@
       "hidden": false
     },
     "lake": {
-      "label": "黑湖岸边",
-      "floor": "Grounds · 校地",
+      "label": "Black Lake",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "黑湖属于原著校园。湖岸、船屋和旧栈桥之间的具体步道是本站重建。",
+      "note": "The Black Lake belongs to the canonical school grounds; the particular paths between shore, boathouse and pier are reconstructed.",
       "sources": [
         "grounds"
       ],
@@ -557,12 +557,12 @@
       "hidden": false
     },
     "boathouse": {
-      "label": "船屋",
-      "floor": "Grounds · 校地",
+      "label": "The Boathouse",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "原著的一年级渡湖与地下泊船处有依据；这座可步行抵达的独立船屋采用电影感重建。",
+      "note": "The first-years' lake crossing has support in the books. This walkable boathouse follows a cinematic reconstruction.",
       "sources": [
         "arrival",
         "grounds"
@@ -574,12 +574,12 @@
       "hidden": false
     },
     "dock": {
-      "label": "旧栈桥",
-      "floor": "Grounds · 校地",
+      "label": "Old Pier",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "站点补充的湖岸栈桥，是尽头景点，不再连接飞行课草坪。",
+      "note": "An additional lakeside pier, no longer a shortcut to the flying-lesson lawn.",
       "sources": [],
       "position": [
         1020,
@@ -588,12 +588,12 @@
       "hidden": false
     },
     "forest": {
-      "label": "禁林边缘",
-      "floor": "Grounds · 校地",
+      "label": "Forbidden Forest",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "禁林位于校园边缘，靠近海格小屋。这里只有一条向林内延伸的路和原路返回。",
+      "note": "The Forbidden Forest borders the grounds near Hagrid's hut. Enter along a visible path and return the same way.",
       "sources": [
         "grounds",
         "hut"
@@ -605,12 +605,12 @@
       "hidden": false
     },
     "clearing": {
-      "label": "林中空地",
-      "floor": "Grounds · 校地",
+      "label": "Ancient Clearing",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "invented",
       "floorStatus": "invented",
-      "note": "林内空地是合理场景；这片特定的蘑菇圈空地属于站点创作。",
+      "note": "A plausible forest clearing; this particular mushroom-ring glade is invented.",
       "sources": [],
       "position": [
         1020,
@@ -619,12 +619,12 @@
       "hidden": false
     },
     "hut": {
-      "label": "海格小屋与花园",
-      "floor": "Grounds · 校地",
+      "label": "Hagrid's Hut",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "原著及官方资料描述了校园边缘、紧邻禁林的小木屋。现在可从校地道路直接到达，不必先穿过禁林。",
+      "note": "Hagrid's hut stands near the edge of the Forbidden Forest and can be reached from the school grounds without first crossing the forest.",
       "sources": [
         "hut",
         "hutBook"
@@ -636,12 +636,12 @@
       "hidden": false
     },
     "paddock": {
-      "label": "神奇动物围场",
-      "floor": "Grounds · 校地",
+      "label": "Creature Paddock",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "海格附近的神奇动物活动区域有情节背景；具体围栏、门和前往球场的路径是重建。",
+      "note": "Care of magical creatures has a basis in the books; the particular enclosure and route to the pitch are reconstructed.",
       "sources": [
         "hutBook"
       ],
@@ -652,12 +652,12 @@
       "hidden": false
     },
     "quidditch": {
-      "label": "魁地奇球场",
-      "floor": "Grounds · 校地",
+      "label": "Quidditch Pitch",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "原著的球场与六个球门环保留。三条地面路线通过可见的场边门洞离场。",
+      "note": "The pitch and its three sets of goal hoops follow the novels; the ground-level exits are reconstructed.",
       "sources": [
         "grounds",
         "brooms"
@@ -669,12 +669,12 @@
       "hidden": false
     },
     "greenhouse": {
-      "label": "温室通道",
-      "floor": "Grounds · 校地",
+      "label": "Glasshouse Passage",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "温室在校地；这段玻璃通道和它的门位是为连接草药学场景所作的重建。",
+      "note": "The greenhouses stand on the grounds. Their glass passage and exact door positions are reconstructed.",
       "sources": [
         "greenhouses"
       ],
@@ -685,12 +685,12 @@
       "hidden": false
     },
     "herbology": {
-      "label": "草药学温室",
-      "floor": "Grounds · 校地",
+      "label": "Herbology",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "草药学在温室授课。沿通道到达温室，再从同一入口返回。",
+      "note": "Herbology is taught in the greenhouses, entered and left through the greenhouse passage.",
       "sources": [
         "greenhouses"
       ],
@@ -701,12 +701,12 @@
       "hidden": false
     },
     "flying": {
-      "label": "飞行课草坪",
-      "floor": "Grounds · 校地",
+      "label": "Flying-lesson Lawn",
+      "floor": "School grounds",
       "group": "grounds",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "第一堂飞行课在平坦草地上，不等同于魁地奇比赛场；两者通过校园道路连接。",
+      "note": "The flying-lesson lawn is distinct from the Quidditch match pitch, connected by a site-created campus route.",
       "sources": [
         "grounds",
         "brooms"
@@ -718,12 +718,12 @@
       "hidden": false
     },
     "sluice": {
-      "label": "密室入口管道",
-      "floor": "盥洗室下的深层管道",
+      "label": "Serpent's Descent",
+      "floor": "Deep beneath Myrtle's Bathroom",
       "group": "unmapped",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "将盥洗室下的管道与深处隧道合并为一个地点。向上返回借用福克斯协助上升的情节，不冒充普通楼梯。",
+      "note": "This scene combines the pipe beneath Myrtle's Bathroom and the deep tunnel. The return uses Fawkes's magical assistance, not an ordinary staircase.",
       "sources": [
         "bathroom",
         "chamber"
@@ -735,12 +735,12 @@
       "hidden": true
     },
     "chamber": {
-      "label": "密室",
-      "floor": "城堡深处 · 密室",
+      "label": "Chamber of Secrets",
+      "floor": "Deep beneath Hogwarts · Chamber",
       "group": "unmapped",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "巨大的柱廊与斯莱特林雕像来自原著；通行沿干燥石道，水面不作为步行出口。",
+      "note": "The enormous pillars and statue of Slytherin are described in the novels; walking routes stay on dry stone, not the water.",
       "sources": [
         "chamber"
       ],
@@ -751,12 +751,12 @@
       "hidden": true
     },
     "sanctum": {
-      "label": "密室尽头",
-      "floor": "同一密室的尽头",
+      "label": "The Chamber's Far End",
+      "floor": "Far end of the same Chamber",
       "group": "unmapped",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "这是同一密室尽头的近景，属于场景拆分；原著并没有另一个名叫“巨蛇圣所”的独立房间。",
+      "note": "This is a closer view of the same Chamber, not another canonical room called the Serpent Sanctum.",
       "sources": [
         "chamber",
         "chamberRowling"
@@ -768,12 +768,12 @@
       "hidden": true
     },
     "requirement": {
-      "label": "有求必应屋",
-      "floor": "Seventh floor · 七楼",
+      "label": "Room of Requirement",
+      "floor": "Seventh floor",
       "group": "unmapped",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "七楼、挂毯对面的空白墙、带着需要往返三次，是原著入口机制。本站将往返简化成显露入口的交互。",
+      "note": "On the seventh floor opposite the tapestry, the Room of Requirement appears after pacing past the blank wall three times with a specific need. The site's reveal interaction condenses this.",
       "sources": [
         "requirement",
         "requirementBook"
@@ -785,12 +785,12 @@
       "hidden": true
     },
     "basementPassage": {
-      "label": "地下水果画廊",
-      "floor": "地下 · 厨房入口",
+      "label": "Basement Passage",
+      "floor": "Basement · Kitchen entrance",
       "group": "dungeons",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "《火焰杯》第21章描述了地下宽阔石廊与水果画入口，用它连接门厅和厨房。",
+      "note": "Goblet of Fire chapter 21 describes the broad basement passage and the fruit-portrait entrance to the kitchens.",
       "sources": [
         "kitchens"
       ],
@@ -801,12 +801,12 @@
       "hidden": false
     },
     "firstFloorJunction": {
-      "label": "教学区走廊",
-      "floor": "First floor · 一楼重建",
+      "label": "Teaching Corridor",
+      "floor": "First floor · Reconstructed corridor",
       "group": "teaching",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "将几间教室和校医院接入共同走廊。确切门序和相邻关系是重建。",
+      "note": "A reconstructed corridor connecting classrooms and the Hospital Wing; the exact sequence of doors is not established.",
       "sources": [
         "history",
         "defense",
@@ -820,12 +820,12 @@
       "hidden": false
     },
     "midFloorStair": {
-      "label": "中层楼梯平台",
-      "floor": "Second–fourth · 二至四楼",
+      "label": "Middle Landings",
+      "floor": "Second–fourth floors",
       "group": "academic",
       "status": "inferred",
       "floorStatus": "inferred",
-      "note": "用一个楼梯场景表示二至四楼的分层路线，省略未单独绘出的平台与过道；各门不是位于同一楼层。",
+      "note": "One view represents routes across the second through fourth floors; its exits are not all on the same landing.",
       "sources": [
         "bathroom",
         "charms",
@@ -838,12 +838,12 @@
       "hidden": false
     },
     "northTowerLanding": {
-      "label": "北塔入口平台",
-      "floor": "北塔 · 占卜教室下方",
+      "label": "North Tower Landing",
+      "floor": "North Tower · Below Divination",
       "group": "towers",
       "status": "canon",
       "floorStatus": "canon",
-      "note": "《阿兹卡班的囚徒》第6章的小平台、活板门和银梯。回七楼的路线经过压缩。",
+      "note": "The trapdoor, silver ladder and small landing described in Prisoner of Azkaban chapter 6. The return route to the seventh floor is condensed.",
       "sources": [
         "divination"
       ],
@@ -854,12 +854,12 @@
       "hidden": false
     },
     "hogsRoad": {
-      "label": "霍格莫德山路",
-      "floor": "霍格莫德村",
+      "label": "Hogsmeade Hill Road",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "霍格莫德山路：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A steep lane descends through pine trees toward the village lights. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -868,12 +868,12 @@
       "hidden": false
     },
     "hogsStation": {
-      "label": "霍格莫德车站",
-      "floor": "霍格莫德村",
+      "label": "Hogsmeade Station",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "霍格莫德车站：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A quiet platform, dark rails and an old clock under the lanterns. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -882,12 +882,12 @@
       "hidden": false
     },
     "hogsBridge": {
-      "label": "车站木桥",
-      "floor": "霍格莫德村",
+      "label": "Station Wooden Bridge",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "车站木桥：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Timber planks cross the narrow stream below the station. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -896,12 +896,12 @@
       "hidden": false
     },
     "hogsSquare": {
-      "label": "霍格莫德村广场",
-      "floor": "霍格莫德村",
+      "label": "Hogsmeade Village Square",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "霍格莫德村广场：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Warm shop windows surround a cobbled square beneath snowy gables. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -910,12 +910,12 @@
       "hidden": false
     },
     "hogsHigh": {
-      "label": "霍格莫德高街",
-      "floor": "霍格莫德村",
+      "label": "Hogsmeade High Street",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "霍格莫德高街：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Shop signs and crooked chimneys crowd the main street. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -924,12 +924,12 @@
       "hidden": false
     },
     "broomsPorch": {
-      "label": "三把扫帚门廊",
-      "floor": "霍格莫德村",
+      "label": "Three Broomsticks Porch",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "三把扫帚门廊：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Laughter and lamplight spill out across the threshold. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -938,12 +938,12 @@
       "hidden": false
     },
     "broomsPub": {
-      "label": "三把扫帚酒吧",
-      "floor": "霍格莫德村",
+      "label": "The Three Broomsticks",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "三把扫帚酒吧：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "An inviting public house of honey-coloured wood and blazing hearths. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -952,12 +952,12 @@
       "hidden": false
     },
     "hogsHeadPorch": {
-      "label": "猪头酒吧门廊",
-      "floor": "霍格莫德村",
+      "label": "Hog's Head Porch",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "猪头酒吧门廊：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "The weathered inn sign creaks above a shadowed doorway. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -966,12 +966,12 @@
       "hidden": false
     },
     "hogsHead": {
-      "label": "猪头酒吧",
-      "floor": "霍格莫德村",
+      "label": "The Hog's Head",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "猪头酒吧：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A gloomy bar with old bottles, dust and a watchful portrait. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -980,12 +980,12 @@
       "hidden": false
     },
     "hogsCellar": {
-      "label": "猪头酒吧地窖",
-      "floor": "霍格莫德村",
+      "label": "Hog's Head Cellar",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "猪头酒吧地窖：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "The cellar is crowded with forgotten casks and a suspicious stone statue. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -994,12 +994,12 @@
       "hidden": true
     },
     "honeydukes": {
-      "label": "蜂蜜公爵",
-      "floor": "霍格莫德村",
+      "label": "Honeydukes",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "蜂蜜公爵：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Glass jars gleam with sweets in every colour imaginable. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1008,12 +1008,12 @@
       "hidden": false
     },
     "zonkos": {
-      "label": "佐科笑话商店",
-      "floor": "霍格莫德村",
+      "label": "Zonko's Joke Shop",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "佐科笑话商店：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Mechanical marvels and mischief crowd the shelves. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1022,12 +1022,12 @@
       "hidden": false
     },
     "scribbulus": {
-      "label": "斯克里文沙夫羽毛笔店",
-      "floor": "霍格莫德村",
+      "label": "Scrivenshaft's Quill Shop",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "斯克里文沙夫羽毛笔店：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Quills and enchanted inks cover a polished writing desk. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1036,12 +1036,12 @@
       "hidden": false
     },
     "gladrags": {
-      "label": "格拉德拉格斯巫师服装店",
-      "floor": "霍格莫德村",
+      "label": "Gladrags Wizardwear",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "格拉德拉格斯巫师服装店：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Robes and hats hang behind tall leaded shop windows. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1050,12 +1050,12 @@
       "hidden": false
     },
     "dervish": {
-      "label": "德维什与班吉",
-      "floor": "霍格莫德村",
+      "label": "Dervish and Banges",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "德维什与班吉：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Magical instruments tick, spin and murmur from brass cabinets. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1064,12 +1064,12 @@
       "hidden": false
     },
     "puddifoot": {
-      "label": "帕笛芙夫人茶馆",
-      "floor": "霍格莫德村",
+      "label": "Madam Puddifoot's Tea Shop",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "帕笛芙夫人茶馆：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Tiny tea tables crowd a room steeped in rose-coloured steam. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1078,12 +1078,12 @@
       "hidden": false
     },
     "postOffice": {
-      "label": "霍格莫德邮局",
-      "floor": "霍格莫德村",
+      "label": "Hogsmeade Post Office",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "霍格莫德邮局：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Owls settle above a counter crowded with parcels and stamps. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1092,12 +1092,12 @@
       "hidden": false
     },
     "shriekingShack": {
-      "label": "尖叫棚屋",
-      "floor": "霍格莫德村",
+      "label": "The Shrieking Shack",
+      "floor": "Hogsmeade village",
       "group": "hogsmeade",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "尖叫棚屋：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A shuttered house stands alone where the village path ends. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1106,12 +1106,12 @@
       "hidden": false
     },
     "lakeShallows": {
-      "label": "黑湖浅水线",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Black Lake Shallows",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "黑湖浅水线：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Moonlight wrinkles across the narrow strip of shallows. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1120,12 +1120,12 @@
       "hidden": true
     },
     "boatLaunch": {
-      "label": "船屋下水处",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Boathouse Launch",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "船屋下水处：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Small boats rock against the timber landing. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1134,12 +1134,12 @@
       "hidden": false
     },
     "lakeCave": {
-      "label": "黑湖水下洞穴",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Black Lake Underwater Cave",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "黑湖水下洞穴：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Blue light filters through the roof of a submerged cavern. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1148,12 +1148,12 @@
       "hidden": true
     },
     "merVillage": {
-      "label": "人鱼居所",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Merpeople Village",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "人鱼居所：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Submerged stone dwellings rise around an ancient plaza. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1162,12 +1162,12 @@
       "hidden": true
     },
     "lakeIslet": {
-      "label": "黑湖小岛",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Black Lake Islet",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "黑湖小岛：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A lonely island breaks the smooth surface of the lake. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1176,12 +1176,12 @@
       "hidden": true
     },
     "willowRoots": {
-      "label": "打人柳树根",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Whomping Willow Roots",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "打人柳树根：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Enormous roots press against the earth beside an agitated trunk. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1190,12 +1190,12 @@
       "hidden": false
     },
     "centaurGrove": {
-      "label": "人马林间空地",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Centaur Grove",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "人马林间空地：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A circle of old trees opens beneath the stars. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1204,12 +1204,12 @@
       "hidden": false
     },
     "unicornGlade": {
-      "label": "独角兽林",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Unicorn Glade",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "独角兽林：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Silver tracks wind between ferns and moonlit birches. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1218,12 +1218,12 @@
       "hidden": false
     },
     "acromantulaDen": {
-      "label": "八眼巨蛛巢穴",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Acromantula Den",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "八眼巨蛛巢穴：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Heavy webs hang between black trunks. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1232,12 +1232,12 @@
       "hidden": false
     },
     "coveredBridge": {
-      "label": "有顶桥",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Covered Bridge",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "有顶桥：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A timber roof spans the ravine beneath the castle. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1246,12 +1246,12 @@
       "hidden": false
     },
     "herbCourt": {
-      "label": "草药学庭院",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Herbology Courtyard",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "草药学庭院：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Clay pots and damp seedlings crowd the walled garden. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1260,12 +1260,12 @@
       "hidden": false
     },
     "outerSlope": {
-      "label": "城堡外草坡",
-      "floor": "湖底、禁林与校地外围",
+      "label": "Castle Outer Slope",
+      "floor": "Lake, forest & outer grounds",
       "group": "outerGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "城堡外草坡：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Wind moves through the grass below the high walls. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1274,12 +1274,12 @@
       "hidden": false
     },
     "quidStands": {
-      "label": "魁地奇看台",
-      "floor": "魁地奇与飞行区域",
+      "label": "Quidditch Stands",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "魁地奇看台：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "High wooden terraces rise above the green pitch. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1288,12 +1288,12 @@
       "hidden": false
     },
     "quidChanging": {
-      "label": "魁地奇更衣室",
-      "floor": "魁地奇与飞行区域",
+      "label": "Quidditch Changing Rooms",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "魁地奇更衣室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "House colours hang from the rafters beside lockers. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1302,12 +1302,12 @@
       "hidden": false
     },
     "quidKit": {
-      "label": "魁地奇器材库",
-      "floor": "魁地奇与飞行区域",
+      "label": "Quidditch Equipment Store",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "魁地奇器材库：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Brooms, bats and training balls wait behind barred shelves. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1316,12 +1316,12 @@
       "hidden": false
     },
     "quidReferee": {
-      "label": "魁地奇裁判塔",
-      "floor": "魁地奇与飞行区域",
+      "label": "Quidditch Referee Tower",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "魁地奇裁判塔：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A private staircase climbs to the flags above the field. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1330,12 +1330,12 @@
       "hidden": true
     },
     "quidGoals": {
-      "label": "魁地奇球门区",
-      "floor": "魁地奇与飞行区域",
+      "label": "Quidditch Goal Hoops",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "魁地奇球门区：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Three hoops cast long shadows over a bright green pitch. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1344,12 +1344,12 @@
       "hidden": false
     },
     "quidTrophies": {
-      "label": "魁地奇奖杯廊",
-      "floor": "魁地奇与飞行区域",
+      "label": "Quidditch Trophy Walk",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "魁地奇奖杯廊：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Team pennants and battered cups line a short arcade. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1358,12 +1358,12 @@
       "hidden": false
     },
     "flyingShed": {
-      "label": "飞行课器材棚",
-      "floor": "魁地奇与飞行区域",
+      "label": "Flying Lesson Equipment Shed",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "飞行课器材棚：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Practice brooms lean against a low timber wall. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1372,12 +1372,12 @@
       "hidden": false
     },
     "owlDrop": {
-      "label": "猫头鹰投递台",
-      "floor": "魁地奇与飞行区域",
+      "label": "Owl Delivery Ledge",
+      "floor": "Quidditch & flying grounds",
       "group": "quidditchGrounds",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "猫头鹰投递台：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Owl perches overlook the grounds from a sheltered ledge. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1386,12 +1386,12 @@
       "hidden": false
     },
     "humpbackTunnel": {
-      "label": "驼背女巫通道",
-      "floor": "隐秘通道与失落房间",
+      "label": "Humpbacked Witch Passage",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "驼背女巫通道：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A narrow carved passage vanishes under the hillside. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1400,12 +1400,12 @@
       "hidden": true
     },
     "serpentDoor": {
-      "label": "斯莱特林蛇门",
-      "floor": "隐秘通道与失落房间",
+      "label": "Serpent Door",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "斯莱特林蛇门：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A carved serpent coils around a door of dark stone. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1414,12 +1414,12 @@
       "hidden": true
     },
     "trapdoorChamber": {
-      "label": "活板门密室",
-      "floor": "隐秘通道与失落房间",
+      "label": "Trapdoor Chamber",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "活板门密室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A hidden hatch opens onto forgotten masonry. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1428,12 +1428,12 @@
       "hidden": true
     },
     "mirrorChamber": {
-      "label": "厄里斯魔镜室",
-      "floor": "隐秘通道与失落房间",
+      "label": "Mirror of Erised Chamber",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "厄里斯魔镜室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "An ornate mirror waits alone under a faded curtain. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1442,12 +1442,12 @@
       "hidden": true
     },
     "mapNook": {
-      "label": "活点地图密室",
-      "floor": "隐秘通道与失落房间",
+      "label": "Marauder's Map Nook",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "活点地图密室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Old parchment shows a shifting maze of corridors. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1456,12 +1456,12 @@
       "hidden": true
     },
     "restrictedStacks": {
-      "label": "图书馆禁书区",
-      "floor": "隐秘通道与失落房间",
+      "label": "Library Restricted Section",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "图书馆禁书区：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Darkened shelves stand beyond a screened doorway. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1470,12 +1470,12 @@
       "hidden": true
     },
     "oneEyedTunnel": {
-      "label": "独眼女巫通道",
-      "floor": "隐秘通道与失落房间",
+      "label": "One-Eyed Witch Tunnel",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "独眼女巫通道：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Stone steps wind toward an old confectioner's cellar. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1484,12 +1484,12 @@
       "hidden": true
     },
     "honeyCellar": {
-      "label": "蜂蜜公爵地窖",
-      "floor": "隐秘通道与失落房间",
+      "label": "Honeydukes Cellar",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "蜂蜜公爵地窖：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "The sweet shop's cellar hides a stair under barrels. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1498,12 +1498,12 @@
       "hidden": true
     },
     "whisperingCrypt": {
-      "label": "低语墓室",
-      "floor": "隐秘通道与失落房间",
+      "label": "Whispering Crypt",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "低语墓室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Indistinct voices drift between memorial stones. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1512,12 +1512,12 @@
       "hidden": true
     },
     "forgottenArmory": {
-      "label": "遗忘军械室",
-      "floor": "隐秘通道与失落房间",
+      "label": "Forgotten Armoury",
+      "floor": "Hidden passages & lost rooms",
       "group": "hiddenAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "遗忘军械室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Old shields guard a sealed passage behind the gallery. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1526,12 +1526,12 @@
       "hidden": true
     },
     "antechamber": {
-      "label": "礼堂前厅",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Great Hall Antechamber",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "礼堂前厅：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Torchlight gilds the stone antechamber outside the Great Hall. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1540,12 +1540,12 @@
       "hidden": false
     },
     "trophy": {
-      "label": "奖品陈列室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Trophy Gallery",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "奖品陈列室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Names engraved in silver catch the light among old shields. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1554,12 +1554,12 @@
       "hidden": false
     },
     "clockTower": {
-      "label": "钟楼",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Clock Tower",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "钟楼：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Enormous clockworks turn above the cloisters. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1568,12 +1568,12 @@
       "hidden": false
     },
     "prefectsBath": {
-      "label": "级长盥洗室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Prefects' Bathroom",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "级长盥洗室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Coloured taps surround a vast marble bath. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1582,12 +1582,12 @@
       "hidden": false
     },
     "commonGryff": {
-      "label": "格兰芬多公共休息室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Gryffindor Common Room",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "格兰芬多公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Red hangings and a warm fireplace welcome tired students. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1596,12 +1596,12 @@
       "hidden": false
     },
     "commonRaven": {
-      "label": "拉文克劳公共休息室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Ravenclaw Common Room",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "拉文克劳公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Blue windows frame the night sky above shelves of books. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1610,12 +1610,12 @@
       "hidden": false
     },
     "commonHuffle": {
-      "label": "赫奇帕奇公共休息室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Hufflepuff Common Room",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "赫奇帕奇公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Round windows and copper lamps brighten a snug underground room. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1624,12 +1624,12 @@
       "hidden": false
     },
     "commonSlytherin": {
-      "label": "斯莱特林公共休息室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Slytherin Common Room",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "inferred",
       "floorStatus": "interpretation",
-      "note": "斯莱特林公共休息室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Greenish light ripples through windows below the water. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1638,12 +1638,12 @@
       "hidden": true
     },
     "roRThings": {
-      "label": "万物之室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Room of Hidden Things",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "万物之室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Towering heaps of lost objects form paths through the changing room. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         150,
@@ -1652,12 +1652,12 @@
       "hidden": true
     },
     "roRDA": {
-      "label": "邓布利多军训练室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "D.A. Training Room",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "邓布利多军训练室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Practice dummies and spell marks line a responsive training hall. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         430,
@@ -1666,12 +1666,12 @@
       "hidden": true
     },
     "roRDiadem": {
-      "label": "失踪王冠壁龛",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Diadem Niche",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "失踪王冠壁龛：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "A dusty niche lies among stacks of forgotten furniture. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         710,
@@ -1680,12 +1680,12 @@
       "hidden": true
     },
     "roRArchive": {
-      "label": "活体档案室",
-      "floor": "城堡新翼与有求必应屋",
+      "label": "Living Archive",
+      "floor": "Castle annex & Room of Requirement",
       "group": "castleAnnex",
       "status": "invented",
       "floorStatus": "interpretation",
-      "note": "活体档案室：地点与相邻通路按探索体验重建；未核实的入口、楼层和机关不代表原著的确定布局。",
+      "note": "Folio pages shuffle by themselves as shelves continually rearrange. The adjacent passages are reconstructed for exploration; their precise doors, levels and mechanisms should not be treated as canonical.",
       "sources": [],
       "position": [
         990,
@@ -1698,7 +1698,7 @@
     {
       "id": "grounds",
       "title": "The Grounds",
-      "zh": "校地与湖岸",
+      "zh": "Grounds & Lakeshore",
       "subtitle": "Paths · forest · lake · greenhouses",
       "coords": {
         "gate": [
@@ -1770,7 +1770,7 @@
     {
       "id": "keep",
       "title": "Entrance & Main Stairs",
-      "zh": "门厅与主楼梯",
+      "zh": "Entrance & Main Stairs",
       "subtitle": "Ground floor · vertical circulation",
       "coords": {
         "entry": [
@@ -1790,7 +1790,7 @@
     {
       "id": "teaching",
       "title": "First-floor Reconstruction",
-      "zh": "一楼教学区",
+      "zh": "First-floor Teaching Wing",
       "subtitle": "Shared corridor · destination rooms",
       "coords": {
         "firstFloorJunction": [
@@ -1818,7 +1818,7 @@
     {
       "id": "academic",
       "title": "Middle Floors",
-      "zh": "二至四楼",
+      "zh": "Second–Fourth Floors",
       "subtitle": "Second · third · fourth — joined by stairs",
       "coords": {
         "midFloorStair": [
@@ -1854,7 +1854,7 @@
     {
       "id": "towers",
       "title": "Seventh Floor & Towers",
-      "zh": "七楼与塔楼",
+      "zh": "Seventh Floor & Towers",
       "subtitle": "Distinct towers · routes include stairs",
       "coords": {
         "corridor": [
@@ -1894,7 +1894,7 @@
     {
       "id": "dungeons",
       "title": "Basement & Dungeons",
-      "zh": "地下服务区与地牢",
+      "zh": "Basements & Dungeons",
       "subtitle": "Kitchens below the hall · dungeons below the grounds",
       "coords": {
         "basementPassage": [
@@ -1942,7 +1942,7 @@
     {
       "id": "unmapped",
       "title": "Concealed Routes",
-      "zh": "隐藏路线",
+      "zh": "Concealed Routes",
       "subtitle": "The seventh-floor room · the deep Chamber",
       "coords": {
         "requirement": [
@@ -1966,9 +1966,9 @@
     },
     {
       "id": "hogsmeade",
-      "title": "霍格莫德村",
-      "zh": "霍格莫德村",
-      "subtitle": "山路、车站、酒馆与商店",
+      "title": "Hogsmeade Village",
+      "zh": "Hogsmeade Village",
+      "subtitle": "Hill roads, station, inns & shops",
       "coords": {
         "hogsRoad": [
           140,
@@ -2046,9 +2046,9 @@
     },
     {
       "id": "outerGrounds",
-      "title": "湖底、禁林与校地外围",
-      "zh": "湖底、禁林与校地外围",
-      "subtitle": "水路、古树与草药学庭院",
+      "title": "Lake, Forest & Outer Grounds",
+      "zh": "Lake, Forest & Outer Grounds",
+      "subtitle": "Water passages, ancient trees & Herbology courts",
       "coords": {
         "lakeShallows": [
           140,
@@ -2102,9 +2102,9 @@
     },
     {
       "id": "quidditchGrounds",
-      "title": "魁地奇与飞行区域",
-      "zh": "魁地奇与飞行区域",
-      "subtitle": "球场设施、看台与天空路线",
+      "title": "Quidditch & Flying Grounds",
+      "zh": "Quidditch & Flying Grounds",
+      "subtitle": "Pitch facilities, stands & flying routes",
       "coords": {
         "quidStands": [
           140,
@@ -2142,9 +2142,9 @@
     },
     {
       "id": "hiddenAnnex",
-      "title": "隐秘通道与失落房间",
-      "zh": "隐秘通道与失落房间",
-      "subtitle": "需发现机关后才能抵达",
+      "title": "Hidden Passages & Lost Rooms",
+      "zh": "Hidden Passages & Lost Rooms",
+      "subtitle": "Reached only after revealing a hidden mechanism",
       "coords": {
         "humpbackTunnel": [
           140,
@@ -2191,9 +2191,9 @@
     },
     {
       "id": "castleAnnex",
-      "title": "城堡新翼与有求必应屋",
-      "zh": "城堡新翼与有求必应屋",
-      "subtitle": "公共休息室、奖品陈列与可变空间",
+      "title": "Castle Annex & Room of Requirement",
+      "zh": "Castle Annex & Room of Requirement",
+      "subtitle": "Common rooms, trophies & shifting spaces",
       "coords": {
         "antechamber": [
           140,
@@ -2249,7 +2249,7 @@
   "overviewSections": [
     {
       "id": "grounds",
-      "title": "校地与湖岸",
+      "title": "Grounds & Lakeshore",
       "box": [
         25,
         605,
@@ -2260,7 +2260,7 @@
     },
     {
       "id": "keep",
-      "title": "门厅与主楼梯",
+      "title": "Entrance & Main Stairs",
       "box": [
         25,
         1005,
@@ -2271,7 +2271,7 @@
     },
     {
       "id": "teaching",
-      "title": "一楼教学区",
+      "title": "First-floor Teaching Wing",
       "box": [
         25,
         300,
@@ -2282,7 +2282,7 @@
     },
     {
       "id": "academic",
-      "title": "二至四楼",
+      "title": "Second–Fourth Floors",
       "box": [
         590,
         300,
@@ -2293,7 +2293,7 @@
     },
     {
       "id": "towers",
-      "title": "七楼与塔楼",
+      "title": "Seventh Floor & Towers",
       "box": [
         25,
         25,
@@ -2304,7 +2304,7 @@
     },
     {
       "id": "dungeons",
-      "title": "地下服务区与地牢",
+      "title": "Basements & Dungeons",
       "box": [
         455,
         1005,
@@ -2315,7 +2315,7 @@
     },
     {
       "id": "unmapped",
-      "title": "隐藏路线",
+      "title": "Concealed Routes",
       "box": [
         25,
         1220,
@@ -2326,7 +2326,7 @@
     },
     {
       "id": "hogsmeade",
-      "title": "霍格莫德村",
+      "title": "Hogsmeade Village",
       "box": [
         25,
         1425,
@@ -2337,7 +2337,7 @@
     },
     {
       "id": "outerGrounds",
-      "title": "湖底、禁林与校地外围",
+      "title": "Lake, Forest & Outer Grounds",
       "box": [
         25,
         2015,
@@ -2348,7 +2348,7 @@
     },
     {
       "id": "quidditchGrounds",
-      "title": "魁地奇与飞行区域",
+      "title": "Quidditch & Flying Grounds",
       "box": [
         25,
         2435,
@@ -2359,7 +2359,7 @@
     },
     {
       "id": "hiddenAnnex",
-      "title": "隐秘通道与失落房间",
+      "title": "Hidden Passages & Lost Rooms",
       "box": [
         25,
         2765,
@@ -2370,7 +2370,7 @@
     },
     {
       "id": "castleAnnex",
-      "title": "城堡新翼与有求必应屋",
+      "title": "Castle Annex & Room of Requirement",
       "box": [
         25,
         3175,
