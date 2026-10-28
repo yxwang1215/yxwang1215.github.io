@@ -1238,99 +1238,115 @@
       "s": {
         "polygon": [
           [
-            17.1,
-            68.4
+            17,
+            65
           ],
           [
-            38.5,
-            68.4
+            21,
+            63.5
           ],
           [
-            38.5,
-            65.2
+            37,
+            63.3
           ],
           [
-            17.5,
-            65.2
+            39,
+            66
+          ],
+          [
+            37,
+            69
+          ],
+          [
+            21,
+            70
+          ],
+          [
+            17,
+            68
           ]
         ],
         "point": [
-          28,
-          66.8
+          27,
+          66
         ],
         "kind": "stair",
         "label": "Follow the stairs to Middle Landings",
-        "evidence": "Visible top stone treads at left descending stair mouth, with side rails only and no obstruction."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "n": {
         "polygon": [
           [
-            72.8,
-            69.8
+            70,
+            20
           ],
           [
-            81.9,
-            70.3
+            73,
+            11
           ],
           [
-            81.9,
+            81,
+            10
+          ],
+          [
+            85,
+            16
+          ],
+          [
+            85,
             60
           ],
           [
-            80.6,
-            57.6
+            82,
+            69
           ],
           [
-            72.9,
-            57.5
+            70,
+            69
           ]
         ],
         "point": [
-          77.5,
-          65.3
+          75,
+          62
         ],
         "kind": "door",
         "label": "Follow the doorway to Myrtle's Bathroom",
-        "evidence": "Right wood leaf is swung open; exposed bathroom threshold floor connects directly to corridor. Sink and leaf excluded."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            14.32,
-            71.775
+            77,
+            91
           ],
           [
-            16,
-            71.665
+            83,
+            88
           ],
           [
-            17.68,
-            71.775
+            94,
+            86
           ],
           [
-            18.8,
-            73.04
+            100,
+            86
           ],
           [
-            19.08,
-            81.95
+            100,
+            99
           ],
           [
-            12.92,
-            81.95
-          ],
-          [
-            13.2,
-            73.04
+            75,
+            99
           ]
         ],
         "point": [
-          16,
-          77
+          88,
+          94
         ],
         "kind": "door",
         "label": "Explore the passage to Prefects' Bathroom",
-        "evidence": "Expansion hotspot (provisional). Geometry avoids the original passage polygons; visual confirmation is required before final cinematic art."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     },
     "secret": {
@@ -6445,107 +6461,119 @@
       "n": {
         "polygon": [
           [
-            17.74,
-            50.24
+            17,
+            28
           ],
           [
-            23.26,
-            50.24
+            20,
+            26
           ],
           [
-            26.25,
-            58.61
+            23,
+            27
           ],
           [
-            30.62,
-            78.45
+            23,
+            39
           ],
           [
-            10.38,
-            78.45
+            21,
+            42
           ],
           [
-            14.75,
-            58.61
+            17,
+            42
           ]
         ],
         "point": [
-          20.5,
-          64.5
+          20,
+          37
         ],
         "kind": "path",
         "label": "Follow the passage to The Lantern Path",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 20.5% / 64.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            49.84,
+            39,
             48
           ],
           [
-            54.16,
-            48
+            41,
+            46
           ],
           [
-            56.5,
-            54.75
+            45,
+            47
           ],
           [
-            59.92,
-            70.75
+            50,
+            49
           ],
           [
-            44.08,
-            70.75
+            53,
+            55
           ],
           [
-            47.5,
-            54.75
+            49,
+            60
+          ],
+          [
+            40,
+            59
           ]
         ],
         "point": [
-          52,
-          59.5
+          45,
+          53
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade Station",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 52% / 59.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "s": {
         "polygon": [
           [
-            80.36,
-            48.32
+            54,
+            49
           ],
           [
-            85.64,
-            48.32
+            56,
+            45
           ],
           [
-            88.5,
-            57.23
+            61,
+            42
           ],
           [
-            92.68,
-            78.35
+            68,
+            44
           ],
           [
-            73.32,
-            78.35
+            76,
+            53
           ],
           [
-            77.5,
-            57.23
+            80,
+            66
+          ],
+          [
+            69,
+            71
+          ],
+          [
+            58,
+            66
           ]
         ],
         "point": [
-          83,
-          63.5
+          62,
+          57
         ],
         "kind": "path",
         "label": "Follow the passage to The Shrieking Shack",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 83% / 63.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -6558,84 +6586,84 @@
       "n": {
         "polygon": [
           [
-            22,
-            34.825
+            12,
+            49
           ],
           [
-            24.88,
-            35.98
+            13,
+            45
           ],
           [
-            27.12,
-            39.28
+            16,
+            43
           ],
           [
-            28.72,
-            43.57
+            20,
+            46
           ],
           [
-            28.88,
-            65.35
+            21,
+            59
           ],
           [
-            15.12,
-            65.35
+            16,
+            68
           ],
           [
-            15.28,
-            43.57
-          ],
-          [
-            16.88,
-            39.28
-          ],
-          [
-            19.12,
-            35.98
+            11,
+            70
           ]
         ],
         "point": [
-          22,
-          50.5
+          15,
+          56
         ],
         "kind": "arch",
         "label": "Follow the passage to Hogsmeade Hill Road",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 22% / 50.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            83.74,
-            32.04
+            78,
+            44
           ],
           [
-            89.26,
-            32.04
+            81,
+            42
           ],
           [
-            92.25,
-            45.81
+            85,
+            42
           ],
           [
-            96.62,
-            78.45
+            93,
+            50
           ],
           [
-            76.38,
-            78.45
+            97,
+            72
           ],
           [
-            80.75,
-            45.81
+            93,
+            91
+          ],
+          [
+            71,
+            88
+          ],
+          [
+            73,
+            71
           ]
         ],
         "point": [
-          86.5,
-          55.5
+          83,
+          66
         ],
         "kind": "path",
         "label": "Follow the passage to Station Wooden Bridge",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 86.5% / 55.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -6648,72 +6676,76 @@
       "n": {
         "polygon": [
           [
-            48.3,
-            83.64
+            50,
+            74
           ],
           [
-            56.7,
-            83.64
+            59,
+            65
           ],
           [
-            61.25,
-            87.96
+            73,
+            61
           ],
           [
-            67.9,
-            98.2
+            78,
+            70
           ],
           [
-            37.1,
-            98.2
+            77,
+            99
           ],
           [
-            43.75,
-            87.96
+            50,
+            99
           ]
         ],
         "point": [
-          52.5,
-          91
+          64,
+          88
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade Station",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 52.5% / 91%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            81.36,
-            27.72
+            66,
+            40
           ],
           [
-            86.64,
-            27.72
+            68,
+            34
           ],
           [
-            89.5,
-            39.33
+            73,
+            32
           ],
           [
-            93.68,
-            66.85
+            78,
+            37
           ],
           [
-            74.32,
-            66.85
+            80,
+            56
           ],
           [
-            78.5,
-            39.33
+            77,
+            68
+          ],
+          [
+            68,
+            68
           ]
         ],
         "point": [
-          84,
-          47.5
+          71,
+          50
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 84% / 47.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -6726,154 +6758,146 @@
       "n": {
         "polygon": [
           [
+            72,
+            56
+          ],
+          [
             74,
-            42.65
+            54
           ],
           [
-            75.8,
-            43.56
+            78,
+            54
           ],
           [
-            77.2,
-            46.16
+            81,
+            59
           ],
           [
-            78.2,
-            49.54
+            81,
+            69
           ],
           [
-            78.3,
-            66.7
-          ],
-          [
-            69.7,
-            66.7
-          ],
-          [
-            69.8,
-            49.54
-          ],
-          [
-            70.8,
-            46.16
-          ],
-          [
-            72.2,
-            43.56
+            72,
+            70
           ]
         ],
         "point": [
-          74,
-          58
+          76,
+          62
         ],
         "kind": "arch",
         "label": "Follow the passage to Station Wooden Bridge",
-        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            45,
-            78
+            29,
+            83
           ],
           [
-            69,
-            78
+            35,
+            76
+          ],
+          [
+            44,
+            74
+          ],
+          [
+            61,
+            76
           ],
           [
             71,
+            81
+          ],
+          [
+            81,
             99
           ],
           [
-            39,
+            26,
             99
           ]
         ],
         "point": [
-          55,
-          90
+          51,
+          91
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "s": {
         "polygon": [
           [
-            34.38,
-            49.675
+            30,
+            54
           ],
           [
-            37.5,
-            49.405
+            32,
+            52
           ],
           [
-            40.62,
-            49.675
+            36,
+            53
           ],
           [
-            42.7,
-            52.78
+            37,
+            61
           ],
           [
-            43.22,
-            74.65
+            36,
+            71
           ],
           [
-            31.78,
-            74.65
-          ],
-          [
-            32.3,
-            52.78
+            30,
+            72
           ]
         ],
         "point": [
-          37.5,
-          65
+          32,
+          63
         ],
         "kind": "door",
         "label": "Follow the passage to Madam Puddifoot's Tea Shop",
-        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "w": {
         "polygon": [
           [
-            92.34,
-            38.025
+            92,
+            48
           ],
           [
-            94.5,
-            37.615
+            94,
+            45
           ],
           [
-            96.66,
-            38.025
+            97,
+            44
           ],
           [
-            98.1,
-            42.74
+            99,
+            49
           ],
           [
-            98.46,
-            75.95
+            99,
+            77
           ],
           [
-            90.54,
-            75.95
-          ],
-          [
-            90.9,
-            42.74
+            92,
+            77
           ]
         ],
         "point": [
-          94.5,
-          58
+          95,
+          62
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade Post Office",
-        "evidence": "Provisional image-space mapping to a visible route in the new daylight village image; shop/destination identity requires visual verification."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -6886,310 +6910,282 @@
       "n": {
         "polygon": [
           [
-            46.94,
-            45.92
+            34,
+            68
           ],
           [
-            50.06,
-            45.92
-          ],
-          [
-            51.75,
-            52.13
-          ],
-          [
-            54.22,
-            66.85
-          ],
-          [
-            42.78,
-            66.85
-          ],
-          [
-            45.25,
-            52.13
-          ]
-        ],
-        "point": [
-          48.5,
-          56.5
-        ],
-        "kind": "path",
-        "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 48.5% / 56.5%; route identity from atlas graph; final browser click-through QA required."
-      },
-      "e": {
-        "polygon": [
-          [
-            84.9,
-            37.95
-          ],
-          [
-            88.5,
-            37.57
-          ],
-          [
-            92.1,
-            37.95
-          ],
-          [
-            94.5,
-            42.32
-          ],
-          [
-            95.1,
-            73.1
-          ],
-          [
-            81.9,
-            73.1
-          ],
-          [
-            82.5,
-            42.32
-          ]
-        ],
-        "point": [
-          88.5,
-          56
-        ],
-        "kind": "door",
-        "label": "Follow the passage to Three Broomsticks Porch",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 88.5% / 56%; route identity from atlas graph; final browser click-through QA required."
-      },
-      "s": {
-        "polygon": [
-          [
-            73.08,
-            40.775
-          ],
-          [
-            75,
-            40.465
-          ],
-          [
-            76.92,
-            40.775
-          ],
-          [
-            78.2,
-            44.34
-          ],
-          [
-            78.52,
-            69.45
-          ],
-          [
-            71.48,
-            69.45
-          ],
-          [
-            71.8,
-            44.34
-          ]
-        ],
-        "point": [
-          75,
-          55.5
-        ],
-        "kind": "door",
-        "label": "Follow the passage to Hog's Head Porch",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 75% / 55.5%; route identity from atlas graph; final browser click-through QA required."
-      },
-      "w": {
-        "polygon": [
-          [
-            8.64,
-            33
-          ],
-          [
-            12,
-            32.6
-          ],
-          [
-            15.36,
-            33
-          ],
-          [
-            17.6,
-            37.6
-          ],
-          [
-            18.16,
-            70
-          ],
-          [
-            5.84,
-            70
-          ],
-          [
-            6.4,
-            37.6
-          ]
-        ],
-        "point": [
-          12,
-          52
-        ],
-        "kind": "door",
-        "label": "Follow the passage to Honeydukes",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 12% / 52%; route identity from atlas graph; final browser click-through QA required."
-      },
-      "a": {
-        "polygon": [
-          [
-            25.12,
-            38.775
-          ],
-          [
-            28,
-            38.465
-          ],
-          [
-            30.88,
-            38.775
-          ],
-          [
-            32.8,
-            42.34
-          ],
-          [
-            33.28,
-            67.45
-          ],
-          [
-            22.72,
-            67.45
-          ],
-          [
-            23.2,
-            42.34
-          ]
-        ],
-        "point": [
-          28,
-          53.5
-        ],
-        "kind": "door",
-        "label": "Follow the passage to Zonko's Joke Shop",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 28% / 53.5%; route identity from atlas graph; final browser click-through QA required."
-      },
-      "b": {
-        "polygon": [
-          [
-            37.56,
-            42.6
+            36,
+            61
           ],
           [
             39,
-            42.36
+            59
           ],
           [
-            40.44,
-            42.6
+            43,
+            58
           ],
           [
-            41.4,
-            45.36
+            44,
+            63
           ],
           [
-            41.64,
-            64.8
+            42,
+            70
           ],
           [
-            36.36,
-            64.8
-          ],
-          [
-            36.6,
-            45.36
+            35,
+            72
           ]
         ],
         "point": [
           39,
-          54
+          65
+        ],
+        "kind": "path",
+        "label": "Follow the passage to Hogsmeade Village Square",
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
+      },
+      "e": {
+        "polygon": [
+          [
+            90,
+            49
+          ],
+          [
+            92,
+            47
+          ],
+          [
+            96,
+            47
+          ],
+          [
+            97,
+            52
+          ],
+          [
+            97,
+            75
+          ],
+          [
+            90,
+            78
+          ]
+        ],
+        "point": [
+          93,
+          63
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Three Broomsticks Porch",
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
+      },
+      "s": {
+        "polygon": [
+          [
+            78,
+            50
+          ],
+          [
+            80,
+            48
+          ],
+          [
+            84,
+            49
+          ],
+          [
+            85,
+            74
+          ],
+          [
+            79,
+            76
+          ]
+        ],
+        "point": [
+          80,
+          62
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Hog's Head Porch",
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
+      },
+      "w": {
+        "polygon": [
+          [
+            4,
+            53
+          ],
+          [
+            5,
+            51
+          ],
+          [
+            9,
+            52
+          ],
+          [
+            9.5,
+            63
+          ],
+          [
+            8.5,
+            75
+          ],
+          [
+            4,
+            78
+          ]
+        ],
+        "point": [
+          7,
+          64
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Honeydukes",
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
+      },
+      "a": {
+        "polygon": [
+          [
+            19.5,
+            54
+          ],
+          [
+            21,
+            52
+          ],
+          [
+            23,
+            53
+          ],
+          [
+            24,
+            61
+          ],
+          [
+            23,
+            71
+          ],
+          [
+            20,
+            73
+          ]
+        ],
+        "point": [
+          21.5,
+          62
+        ],
+        "kind": "door",
+        "label": "Follow the passage to Zonko's Joke Shop",
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
+      },
+      "b": {
+        "polygon": [
+          [
+            28,
+            54
+          ],
+          [
+            29,
+            52
+          ],
+          [
+            32,
+            52
+          ],
+          [
+            33,
+            57
+          ],
+          [
+            33,
+            66
+          ],
+          [
+            29,
+            67
+          ]
+        ],
+        "point": [
+          30,
+          60
         ],
         "kind": "door",
         "label": "Follow the passage to Scrivenshaft's Quill Shop",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 39% / 54%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "c": {
         "polygon": [
           [
-            59.08,
-            43.65
+            58,
+            53
           ],
           [
-            61,
-            43.39
+            59,
+            50
           ],
           [
-            62.92,
-            43.65
+            63,
+            50
           ],
           [
-            64.2,
-            46.64
+            64,
+            55
           ],
           [
-            64.52,
-            67.7
+            63,
+            66
           ],
           [
-            57.48,
-            67.7
-          ],
-          [
-            57.8,
-            46.64
+            59,
+            67
           ]
         ],
         "point": [
-          61,
-          56
+          60.5,
+          59
         ],
         "kind": "door",
         "label": "Follow the passage to Gladrags Wizardwear",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 61% / 56%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "d": {
         "polygon": [
           [
-            67.04,
-            44.65
-          ],
-          [
             68,
-            44.39
+            51
           ],
           [
-            68.96,
-            44.65
+            69,
+            49
           ],
           [
-            69.6,
-            47.64
+            73,
+            50
           ],
           [
-            69.76,
-            68.7
+            74,
+            54
           ],
           [
-            66.24,
-            68.7
+            73,
+            68
           ],
           [
-            66.4,
-            47.64
+            69,
+            69
           ]
         ],
         "point": [
-          68,
-          57
+          70.5,
+          59
         ],
         "kind": "door",
         "label": "Follow the passage to Dervish and Banges",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 68% / 57%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7202,76 +7198,80 @@
       "n": {
         "polygon": [
           [
-            14.26,
-            37.6
+            2,
+            62
           ],
           [
-            20.74,
-            37.6
+            9,
+            57
           ],
           [
-            24.25,
-            48.4
+            18,
+            52
           ],
           [
-            29.38,
-            74
+            25,
+            53
           ],
           [
-            5.62,
-            74
+            27,
+            64
           ],
           [
-            10.75,
-            48.4
+            22,
+            77
+          ],
+          [
+            3,
+            78
           ]
         ],
         "point": [
-          17.5,
-          56
+          15,
+          67
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 17.5% / 56%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            68.28,
-            21.4
+            68,
+            30
           ],
           [
-            75,
-            20.84
+            72,
+            26
           ],
           [
-            81.72,
-            21.4
+            83,
+            26
           ],
           [
-            86.2,
-            27.84
+            88,
+            33
           ],
           [
-            87.32,
-            73.2
+            88,
+            71
           ],
           [
-            62.68,
-            73.2
+            81,
+            79
           ],
           [
-            63.8,
-            27.84
+            68,
+            77
           ]
         ],
         "point": [
-          75,
-          48
+          76,
+          57
         ],
         "kind": "door",
         "label": "Follow the passage to The Three Broomsticks",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 75% / 48%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7284,33 +7284,41 @@
       "n": {
         "polygon": [
           [
-            0,
-            34
+            4,
+            39
+          ],
+          [
+            7,
+            35
           ],
           [
             15,
-            31
+            37
           ],
           [
-            23,
-            38
+            19,
+            43
           ],
           [
-            23,
-            65
+            18,
+            63
           ],
           [
-            0,
+            13,
+            70
+          ],
+          [
+            4,
             69
           ]
         ],
         "point": [
-          12,
-          54
+          10,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Three Broomsticks Porch",
-        "evidence": "Cinematic image: open timber door at left onto snowy village street, with continuous stone threshold. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7323,76 +7331,80 @@
       "n": {
         "polygon": [
           [
-            12.88,
-            38.72
+            1,
+            59
           ],
           [
-            19.12,
-            38.72
+            8,
+            53
           ],
           [
-            22.5,
-            50.33
+            18,
+            52
           ],
           [
-            27.44,
-            77.85
+            26,
+            56
           ],
           [
-            4.56,
-            77.85
+            27,
+            69
           ],
           [
-            9.5,
-            50.33
+            21,
+            78
+          ],
+          [
+            1,
+            83
           ]
         ],
         "point": [
-          16,
-          58.5
+          14,
+          66
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 58.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            70.54,
-            27.275
+            68,
+            31
           ],
           [
-            77.5,
-            26.765
+            72,
+            28
           ],
           [
-            84.46,
-            27.275
+            82,
+            28
           ],
           [
-            89.1,
-            33.14
+            87,
+            33
           ],
           [
-            90.26,
-            74.45
+            88,
+            70
           ],
           [
-            64.74,
-            74.45
+            81,
+            78
           ],
           [
-            65.9,
-            33.14
+            68,
+            76
           ]
         ],
         "point": [
-          77.5,
-          51.5
+          77,
+          55
         ],
         "kind": "door",
         "label": "Follow the passage to The Hog's Head",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 77.5% / 51.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7405,33 +7417,41 @@
       "n": {
         "polygon": [
           [
-            3,
-            25
-          ],
-          [
-            15,
-            20
-          ],
-          [
-            21,
+            4,
             29
           ],
           [
-            22,
-            62
+            6,
+            24
+          ],
+          [
+            13,
+            21
+          ],
+          [
+            18,
+            26
+          ],
+          [
+            18,
+            64
+          ],
+          [
+            12,
+            73
           ],
           [
             3,
-            67
+            71
           ]
         ],
         "point": [
-          14,
-          50
+          11,
+          52
         ],
         "kind": "door",
         "label": "Follow the passage to Hog's Head Porch",
-        "evidence": "Cinematic image: open left timber tavern door onto snow-covered village, with continuous threshold floor. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     },
     "secret": {
@@ -7521,37 +7541,45 @@
       "n": {
         "polygon": [
           [
-            17.14,
-            26.55
+            17,
+            35
           ],
           [
-            22.86,
-            26.55
+            22,
+            32
           ],
           [
-            27.8,
-            44.4
+            30,
+            36
           ],
           [
-            31.7,
-            72.45
+            34,
+            46
           ],
           [
-            8.3,
-            72.45
+            36,
+            65
           ],
           [
-            12.2,
-            44.4
+            29,
+            79
+          ],
+          [
+            13,
+            79
+          ],
+          [
+            15,
+            62
           ]
         ],
         "point": [
-          20,
-          49.5
+          24,
+          53
         ],
         "kind": "stair",
         "label": "Follow the passage to The Hog's Head",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 20% / 49.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     },
     "secret": {
@@ -7657,33 +7685,41 @@
       "n": {
         "polygon": [
           [
-            9,
-            16
+            14,
+            17
           ],
           [
-            25,
+            18,
             14
           ],
           [
-            32,
-            28
+            25,
+            17
           ],
           [
-            31,
-            61
+            28,
+            29
           ],
           [
-            11,
-            65
+            27,
+            64
+          ],
+          [
+            14,
+            66
+          ],
+          [
+            13,
+            37
           ]
         ],
         "point": [
-          21,
-          54
+          19,
+          50
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Cinematic image: open green glazed street-facing double door and exposed floor threshold at left. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     },
     "secret": {
@@ -7773,41 +7809,41 @@
       "n": {
         "polygon": [
           [
-            14.5,
-            22.35
+            9,
+            26
           ],
           [
-            20.5,
-            21.81
+            12,
+            22
           ],
           [
-            26.5,
-            22.35
+            20,
+            22
           ],
           [
-            30.5,
-            28.56
+            24,
+            30
           ],
           [
-            31.5,
-            72.3
+            24,
+            73
           ],
           [
-            9.5,
-            72.3
+            16,
+            79
           ],
           [
-            10.5,
-            28.56
+            9,
+            78
           ]
         ],
         "point": [
-          20.5,
-          48
+          15,
+          55
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 20.5% / 48%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7820,41 +7856,41 @@
       "n": {
         "polygon": [
           [
-            5.2,
-            22.525
+            1,
+            24
           ],
           [
-            10,
-            21.915
+            5,
+            21
           ],
           [
-            14.8,
-            22.525
+            13,
+            22
           ],
           [
-            18,
-            29.54
+            16,
+            30
           ],
           [
-            18.8,
-            78.95
+            16,
+            69
           ],
           [
-            1.2,
-            78.95
+            9,
+            76
           ],
           [
-            2,
-            29.54
+            1,
+            77
           ]
         ],
         "point": [
-          10,
-          51.5
+          8,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 10% / 51.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7867,41 +7903,41 @@
       "n": {
         "polygon": [
           [
-            7.76,
-            20.425
+            11,
+            20
           ],
           [
-            14,
-            19.855
+            16,
+            17
           ],
           [
-            20.24,
-            20.425
+            23,
+            20
           ],
           [
-            24.4,
-            26.98
+            26,
+            28
           ],
           [
-            25.44,
-            73.15
+            26,
+            73
           ],
           [
-            2.56,
-            73.15
+            18,
+            83
           ],
           [
-            3.6,
-            26.98
+            11,
+            79
           ]
         ],
         "point": [
-          14,
-          47.5
+          18,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 14% / 47.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7914,41 +7950,41 @@
       "n": {
         "polygon": [
           [
-            9.5,
-            22.475
+            7,
+            25
           ],
           [
-            15.5,
-            21.885
+            10,
+            20
           ],
           [
-            21.5,
-            22.475
+            18,
+            20
           ],
           [
-            25.5,
-            29.26
+            23,
+            29
           ],
           [
-            26.5,
-            77.05
+            22,
+            74
           ],
           [
-            4.5,
-            77.05
+            15,
+            83
           ],
           [
-            5.5,
-            29.26
+            7,
+            79
           ]
         ],
         "point": [
-          15.5,
-          50.5
+          14,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade High Street",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 50.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -7961,41 +7997,41 @@
       "n": {
         "polygon": [
           [
-            8.06,
-            15.575
+            3,
+            24
           ],
           [
-            15.5,
-            14.945
+            7,
+            21
           ],
           [
-            22.94,
-            15.575
+            19,
+            23
           ],
           [
-            27.9,
-            22.82
+            23,
+            32
           ],
           [
-            29.14,
-            73.85
+            22,
+            71
           ],
           [
-            1.86,
-            73.85
+            14,
+            78
           ],
           [
-            3.1,
-            22.82
+            3,
+            77
           ]
         ],
         "point": [
-          15.5,
-          45.5
+          13,
+          51
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 45.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8008,41 +8044,41 @@
       "n": {
         "polygon": [
           [
-            7.02,
-            24.375
+            1,
+            25
           ],
           [
-            13.5,
-            23.825
+            6,
+            20
           ],
           [
-            19.98,
-            24.375
+            14,
+            23
           ],
           [
-            24.3,
-            30.7
+            18,
+            33
           ],
           [
-            25.38,
-            75.25
+            17,
+            73
           ],
           [
-            1.62,
-            75.25
+            10,
+            81
           ],
           [
-            2.7,
-            30.7
+            1,
+            80
           ]
         ],
         "point": [
-          13.5,
-          50.5
+          9,
+          54
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade Village Square",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 13.5% / 50.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8055,41 +8091,41 @@
       "n": {
         "polygon": [
           [
-            7.8,
-            30.225
+            12,
+            30
           ],
           [
-            15,
-            29.735
+            16,
+            24
           ],
           [
-            22.2,
-            30.225
+            22,
+            23
+          ],
+          [
+            26,
+            31
           ],
           [
             27,
-            35.86
+            66
           ],
           [
-            28.2,
-            75.55
+            20,
+            77
           ],
           [
-            1.8,
-            75.55
-          ],
-          [
-            3,
-            35.86
+            12,
+            73
           ]
         ],
         "point": [
-          15,
-          53.5
+          18,
+          55
         ],
         "kind": "door",
         "label": "Follow the passage to Hogsmeade Hill Road",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15% / 53.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8103,36 +8139,36 @@
         "polygon": [
           [
             82,
-            36
-          ],
-          [
-            89,
-            30
-          ],
-          [
-            93,
-            40
-          ],
-          [
-            93,
-            63
+            44
           ],
           [
             84,
-            70
+            41
           ],
           [
-            79,
-            64
+            88,
+            41
+          ],
+          [
+            92,
+            46
+          ],
+          [
+            92,
+            66
+          ],
+          [
+            85,
+            68
           ]
         ],
         "point": [
           87,
-          55
+          54
         ],
         "kind": "arch",
         "label": "Follow the passage to Entrance Hall",
-        "evidence": "Cinematic image: right-hand lit Gothic corridor, with floor leading toward the far arched entrance. Manual visual polygon; click-through review pending."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8145,41 +8181,41 @@
       "n": {
         "polygon": [
           [
-            26.42,
-            25.275
+            19,
+            27
           ],
           [
-            30.5,
-            24.765
+            24,
+            20
           ],
           [
-            34.58,
-            25.275
+            31,
+            21
           ],
           [
-            37.3,
-            31.14
+            37,
+            27
           ],
           [
-            37.98,
-            72.45
+            37,
+            67
           ],
           [
-            23.02,
-            72.45
+            31,
+            79
           ],
           [
-            23.7,
-            31.14
+            19,
+            79
           ]
         ],
         "point": [
-          30.5,
-          49.5
+          27,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Third-floor Armour Gallery",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 30.5% / 49.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     },
     "secret": {
@@ -8285,49 +8321,41 @@
       "n": {
         "polygon": [
           [
-            19,
-            22.375
+            18,
+            24
           ],
           [
-            22.24,
-            24.3
+            23,
+            20
           ],
           [
-            24.76,
-            29.8
+            29,
+            24
           ],
           [
-            26.56,
-            36.95
+            31,
+            36
           ],
           [
-            26.74,
-            73.25
+            31,
+            62
           ],
           [
-            11.26,
-            73.25
+            23,
+            69
           ],
           [
-            11.44,
-            36.95
-          ],
-          [
-            13.24,
-            29.8
-          ],
-          [
-            15.76,
-            24.3
+            17,
+            67
           ]
         ],
         "point": [
-          19,
-          48.5
+          24,
+          48
         ],
         "kind": "arch",
         "label": "Follow the passage to North Battlements",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 19% / 48.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8340,41 +8368,41 @@
       "n": {
         "polygon": [
           [
-            5.2,
-            14.45
+            0.5,
+            11
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            9,
+            13
           ],
           [
             10,
-            13.87
+            26
           ],
           [
-            14.8,
-            14.45
+            9,
+            58
           ],
           [
-            18,
-            21.12
+            4,
+            69
           ],
           [
-            18.8,
-            68.1
-          ],
-          [
-            1.2,
-            68.1
-          ],
-          [
-            2,
-            21.12
+            0.5,
+            66
           ]
         ],
         "point": [
-          10,
-          42
+          4.5,
+          43
         ],
         "kind": "door",
         "label": "Follow the passage to Second-floor Bathroom Corridor",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 10% / 42%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8387,37 +8415,41 @@
       "n": {
         "polygon": [
           [
-            3,
-            27
+            4,
+            28
           ],
           [
-            12,
-            22
+            8,
+            24
           ],
           [
-            22,
-            33
+            16,
+            25
           ],
           [
-            23,
-            66
+            18,
+            34
           ],
           [
-            14,
-            73
+            17,
+            69
           ],
           [
-            2,
-            70
+            11,
+            75
+          ],
+          [
+            4,
+            75
           ]
         ],
         "point": [
-          13,
-          56
+          11,
+          52
         ],
         "kind": "arch",
         "label": "Follow the passage to Fourth-floor Portrait Corridor",
-        "evidence": "Cinematic image: open left Gothic arch with connected lit corridor stone floor. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8430,41 +8462,37 @@
       "n": {
         "polygon": [
           [
-            8.76,
-            20.55
+            13,
+            23
           ],
           [
-            15,
-            19.93
+            18,
+            20
           ],
           [
-            21.24,
-            20.55
+            25,
+            25
           ],
           [
-            25.4,
-            27.68
+            25,
+            63
           ],
           [
-            26.44,
-            77.9
+            21,
+            77
           ],
           [
-            3.56,
-            77.9
-          ],
-          [
-            4.6,
-            27.68
+            13,
+            79
           ]
         ],
         "point": [
-          15,
-          50
+          19,
+          52
         ],
         "kind": "door",
         "label": "Follow the passage to North Battlements",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15% / 50%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8477,41 +8505,45 @@
       "n": {
         "polygon": [
           [
-            12.76,
-            26.3
+            5,
+            34
           ],
           [
-            19,
-            25.78
+            9,
+            27
           ],
           [
-            25.24,
-            26.3
+            17,
+            24
           ],
           [
-            29.4,
-            32.28
+            23,
+            27
           ],
           [
-            30.44,
-            74.4
+            25,
+            39
           ],
           [
-            7.56,
-            74.4
+            24,
+            65
           ],
           [
-            8.6,
-            32.28
+            16,
+            72
+          ],
+          [
+            6,
+            69
           ]
         ],
         "point": [
-          19,
-          51
+          15,
+          52
         ],
         "kind": "door",
         "label": "Follow the passage to Castle Kitchens",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 19% / 51%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8524,41 +8556,41 @@
       "n": {
         "polygon": [
           [
-            10.5,
-            18.6
+            13,
+            32
           ],
           [
-            16.5,
-            17.96
+            18,
+            27
           ],
           [
-            22.5,
-            18.6
+            25,
+            28
           ],
           [
-            26.5,
-            25.96
+            29,
+            35
           ],
           [
-            27.5,
-            77.8
+            29,
+            70
           ],
           [
-            5.5,
-            77.8
+            22,
+            79
           ],
           [
-            6.5,
-            25.96
+            13,
+            77
           ]
         ],
         "point": [
-          16.5,
-          49
+          21,
+          57
         ],
         "kind": "door",
         "label": "Follow the passage to Serpent Door",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 16.5% / 49%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8571,49 +8603,41 @@
       "n": {
         "polygon": [
           [
-            25,
-            27.3
+            11,
+            25
           ],
           [
-            28.24,
-            29.12
+            17,
+            20
           ],
           [
-            30.76,
-            34.32
+            26,
+            22
           ],
           [
-            32.56,
-            41.08
+            30,
+            33
           ],
           [
-            32.74,
-            75.4
+            29,
+            73
           ],
           [
-            17.26,
-            75.4
+            21,
+            84
           ],
           [
-            17.44,
-            41.08
-          ],
-          [
-            19.24,
-            34.32
-          ],
-          [
-            21.76,
-            29.12
+            10,
+            82
           ]
         ],
         "point": [
-          25,
-          52
+          19,
+          57
         ],
         "kind": "arch",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 25% / 52%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8626,41 +8650,41 @@
       "n": {
         "polygon": [
           [
-            16.5,
-            18.525
+            18,
+            22
           ],
           [
-            22.5,
-            17.915
+            23,
+            19
           ],
           [
-            28.5,
-            18.525
+            31,
+            20
           ],
           [
-            32.5,
-            25.54
+            34,
+            28
           ],
           [
-            33.5,
-            74.95
+            34,
+            62
           ],
           [
-            11.5,
-            74.95
+            25,
+            69
           ],
           [
-            12.5,
-            25.54
+            18,
+            68
           ]
         ],
         "point": [
-          22.5,
-          47.5
+          25,
+          50
         ],
         "kind": "door",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 22.5% / 47.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8673,41 +8697,41 @@
       "n": {
         "polygon": [
           [
-            7.24,
-            15.75
+            5,
+            13
           ],
           [
-            13,
-            15.05
+            8,
+            8
           ],
           [
-            18.76,
-            15.75
+            15,
+            10
           ],
           [
-            22.6,
-            23.8
+            19,
+            20
           ],
           [
-            23.56,
-            80.5
+            19,
+            68
           ],
           [
-            2.44,
-            80.5
+            11,
+            80
           ],
           [
-            3.4,
-            23.8
+            5,
+            78
           ]
         ],
         "point": [
-          13,
-          49
+          10,
+          52
         ],
         "kind": "door",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 13% / 49%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8720,41 +8744,41 @@
       "n": {
         "polygon": [
           [
-            28.2,
-            30.25
+            19,
+            29
           ],
           [
-            33,
-            29.75
+            22,
+            25
           ],
           [
-            37.8,
-            30.25
+            28,
+            25
           ],
           [
-            41,
-            36
+            30,
+            33
           ],
           [
-            41.8,
-            76.5
+            29,
+            76
           ],
           [
-            24.2,
-            76.5
+            23,
+            84
           ],
           [
-            25,
-            36
+            19,
+            82
           ]
         ],
         "point": [
-          33,
-          54
+          25,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Room of Requirement",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 33% / 54%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8767,107 +8791,123 @@
       "n": {
         "polygon": [
           [
-            13.02,
-            63.32
+            2,
+            58
           ],
           [
-            19.98,
-            63.32
+            6,
+            53
           ],
           [
-            23.75,
-            72.23
+            13,
+            49
           ],
           [
-            29.26,
-            93.35
+            22,
+            51
           ],
           [
-            3.74,
-            93.35
+            23,
+            61
           ],
           [
-            9.25,
-            72.23
+            18,
+            74
+          ],
+          [
+            12,
+            87
+          ],
+          [
+            2,
+            90
           ]
         ],
         "point": [
-          16.5,
-          78.5
+          12,
+          71
         ],
         "kind": "path",
         "label": "Follow the passage to Black Lake Islet",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 16.5% / 78.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            45.97,
-            47
+            43,
+            52
           ],
           [
-            51.03,
-            47
+            46,
+            50
           ],
           [
-            55.4,
-            61
+            54,
+            50
           ],
           [
-            58.85,
-            83
+            58,
+            56
           ],
           [
-            38.15,
-            83
+            58,
+            72
           ],
           [
-            41.6,
-            61
+            52,
+            88
+          ],
+          [
+            42,
+            87
           ]
         ],
         "point": [
-          48.5,
-          65
+          48,
+          68
         ],
         "kind": "stair",
         "label": "Follow the passage to Black Lake Underwater Cave",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 48.5% / 65%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "s": {
         "polygon": [
           [
-            82.12,
-            32.92
+            74,
+            38
           ],
           [
-            87.88,
-            32.92
+            80,
+            35
           ],
           [
-            91,
-            45.88
+            93,
+            39
           ],
           [
-            95.56,
-            76.6
+            99,
+            49
           ],
           [
-            74.44,
-            76.6
+            99,
+            65
           ],
           [
-            79,
-            45.88
+            88,
+            67
+          ],
+          [
+            75,
+            60
           ]
         ],
         "point": [
-          85,
-          55
+          90,
+          53
         ],
         "kind": "path",
         "label": "Follow the passage to Old Pier",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 85% / 55%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8880,37 +8920,41 @@
       "n": {
         "polygon": [
           [
-            40.36,
-            19.88
+            37,
+            31
           ],
           [
-            45.64,
-            19.88
+            39,
+            27
           ],
           [
-            48.5,
-            32.57
+            45,
+            27
           ],
           [
-            52.68,
-            62.65
+            49,
+            32
           ],
           [
-            33.32,
-            62.65
+            50,
+            47
           ],
           [
-            37.5,
-            32.57
+            48,
+            66
+          ],
+          [
+            37,
+            69
           ]
         ],
         "point": [
-          43,
-          41.5
+          42,
+          51
         ],
         "kind": "path",
         "label": "Follow the passage to The Boathouse",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 43% / 41.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -8923,96 +8967,80 @@
       "n": {
         "polygon": [
           [
-            15.5,
-            35.1
+            8,
+            45
           ],
           [
-            20.36,
-            36.64
+            12,
+            42
           ],
           [
-            24.14,
-            41.04
+            21,
+            42
           ],
           [
-            26.84,
-            46.76
+            24,
+            49
           ],
           [
-            27.11,
-            75.8
+            23,
+            63
           ],
           [
-            3.89,
-            75.8
+            17,
+            70
           ],
           [
-            4.16,
-            46.76
-          ],
-          [
-            6.86,
-            41.04
-          ],
-          [
-            10.64,
-            36.64
+            7,
+            68
           ]
         ],
         "point": [
-          15.5,
+          15,
           56
         ],
         "kind": "arch",
         "label": "Follow the passage to Black Lake Shallows",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 56%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
+            81,
+            36
+          ],
+          [
             85,
-            25.2
+            32
           ],
           [
-            89.32,
-            26.88
+            93,
+            33
           ],
           [
-            92.68,
-            31.68
+            97,
+            42
           ],
           [
-            95.08,
-            37.92
+            98,
+            63
           ],
           [
-            95.32,
-            69.6
+            91,
+            68
           ],
           [
-            74.68,
-            69.6
-          ],
-          [
-            74.92,
-            37.92
-          ],
-          [
-            77.32,
-            31.68
-          ],
-          [
-            80.68,
-            26.88
+            82,
+            66
           ]
         ],
         "point": [
-          85,
-          48
+          88,
+          54
         ],
         "kind": "arch",
         "label": "Follow the passage to Merpeople Village",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 85% / 48%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9025,41 +9053,41 @@
       "n": {
         "polygon": [
           [
-            0,
-            30
+            6,
+            38
           ],
           [
-            9,
-            26
-          ],
-          [
-            24,
+            13,
             31
           ],
           [
+            23,
+            32
+          ],
+          [
             29,
-            43
+            39
           ],
           [
             27,
-            64
+            69
           ],
           [
-            10,
-            73
+            19,
+            79
           ],
           [
-            0,
-            75
+            5,
+            76
           ]
         ],
         "point": [
-          16,
-          56
+          18,
+          54
         ],
         "kind": "arch",
         "label": "Follow the passage to Black Lake Underwater Cave",
-        "evidence": "Cinematic underwater image: open rock tunnel on the left with clear stone approach connecting to the foreground. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9072,37 +9100,41 @@
       "n": {
         "polygon": [
           [
-            23.3,
-            64.36
+            18,
+            79
           ],
           [
-            31.7,
-            64.36
+            23,
+            70
           ],
           [
-            36.25,
-            73.54
+            30,
+            66
           ],
           [
-            42.9,
-            95.3
+            34,
+            69
           ],
           [
-            12.1,
-            95.3
+            36,
+            76
           ],
           [
-            18.75,
-            73.54
+            31,
+            84
+          ],
+          [
+            21,
+            85
           ]
         ],
         "point": [
-          27.5,
-          80
+          27,
+          76
         ],
         "kind": "path",
         "label": "Follow the passage to Black Lake Shallows",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 27.5% / 80%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9115,37 +9147,45 @@
       "n": {
         "polygon": [
           [
-            11.02,
-            39.76
+            1,
+            47
           ],
           [
-            17.98,
-            39.76
+            6,
+            41
           ],
           [
-            21.75,
-            51.64
+            15,
+            39
           ],
           [
-            27.26,
-            79.8
+            25,
+            44
           ],
           [
-            1.74,
-            79.8
+            25,
+            58
           ],
           [
-            7.25,
-            51.64
+            19,
+            73
+          ],
+          [
+            10,
+            84
+          ],
+          [
+            1,
+            83
           ]
         ],
         "point": [
-          14.5,
-          60
+          14,
+          65
         ],
         "kind": "path",
         "label": "Follow the passage to South Courtyard",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 14.5% / 60%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9158,72 +9198,80 @@
       "n": {
         "polygon": [
           [
-            11.4,
-            45.52
+            0.5,
+            68
           ],
           [
-            18.6,
-            45.52
+            7,
+            61
           ],
           [
-            22.5,
-            55.78
+            16,
+            59
           ],
           [
-            28.2,
-            80.1
+            24,
+            60
           ],
           [
-            1.8,
-            80.1
+            28,
+            68
           ],
           [
-            7.5,
-            55.78
+            13,
+            76
+          ],
+          [
+            0.5,
+            80
           ]
         ],
         "point": [
-          15,
-          63
+          13,
+          66
         ],
         "kind": "path",
         "label": "Follow the passage to Ancient Clearing",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15% / 63%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            77.4,
-            43.6
+            69,
+            53
           ],
           [
-            84.6,
-            43.6
+            74,
+            48
           ],
           [
-            88.5,
-            54.4
+            82,
+            48
           ],
           [
-            94.2,
-            80
+            91,
+            51
           ],
           [
-            67.8,
-            80
+            95,
+            60
           ],
           [
-            73.5,
-            54.4
+            89,
+            67
+          ],
+          [
+            76,
+            64
           ]
         ],
         "point": [
-          81,
-          62
+          78,
+          58
         ],
         "kind": "path",
         "label": "Follow the passage to Unicorn Glade",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 81% / 62%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9236,37 +9284,45 @@
       "n": {
         "polygon": [
           [
-            47.74,
-            82.64
+            32,
+            99
           ],
           [
-            53.26,
-            82.64
+            37,
+            82
           ],
           [
-            56.25,
-            86.96
+            41,
+            73
           ],
           [
-            60.62,
-            97.2
+            47,
+            68
           ],
           [
-            40.38,
-            97.2
+            54,
+            69
           ],
           [
-            44.75,
-            86.96
+            60,
+            78
+          ],
+          [
+            65,
+            98
+          ],
+          [
+            32,
+            99
           ]
         ],
         "point": [
-          50.5,
-          90
+          48,
+          87
         ],
         "kind": "path",
         "label": "Follow the passage to Centaur Grove",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 50.5% / 90%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9279,37 +9335,41 @@
       "n": {
         "polygon": [
           [
-            8.36,
-            29.04
+            2,
+            48
           ],
           [
-            13.64,
-            29.04
+            7,
+            42
           ],
           [
-            16.5,
-            42.81
+            14,
+            42
           ],
           [
-            20.68,
-            75.45
+            19,
+            49
           ],
           [
-            1.32,
-            75.45
+            22,
+            63
           ],
           [
-            5.5,
-            42.81
+            16,
+            79
+          ],
+          [
+            4,
+            82
           ]
         ],
         "point": [
           11,
-          52.5
+          63
         ],
         "kind": "path",
         "label": "Follow the passage to Forbidden Forest",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 11% / 52.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9322,37 +9382,45 @@
       "n": {
         "polygon": [
           [
-            44.58,
-            85.56
+            30,
+            99
           ],
           [
-            54.42,
-            85.56
+            33,
+            82
           ],
           [
-            59.75,
-            89.34
+            40,
+            69
           ],
           [
-            67.54,
-            98.3
+            47,
+            64
           ],
           [
-            31.46,
-            98.3
+            54,
+            65
           ],
           [
-            39.25,
-            89.34
+            61,
+            72
+          ],
+          [
+            68,
+            83
+          ],
+          [
+            74,
+            99
           ]
         ],
         "point": [
-          49.5,
-          92
+          49,
+          88
         ],
         "kind": "path",
         "label": "Follow the passage to Stone Viaduct",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 49.5% / 92%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9365,41 +9433,41 @@
       "n": {
         "polygon": [
           [
-            8.8,
-            9.8
+            10,
+            22
           ],
           [
-            16,
-            9.08
+            15,
+            18
           ],
           [
-            23.2,
-            9.8
+            24,
+            19
           ],
           [
-            28,
-            18.08
+            26,
+            31
           ],
           [
-            29.2,
-            76.4
+            25,
+            77
           ],
           [
-            2.8,
-            76.4
+            17,
+            88
           ],
           [
-            4,
-            18.08
+            9,
+            87
           ]
         ],
         "point": [
-          16,
-          44
+          18,
+          60
         ],
         "kind": "door",
         "label": "Follow the passage to Glasshouse Passage",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 44%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9412,37 +9480,41 @@
       "n": {
         "polygon": [
           [
-            31.84,
-            35.8
+            27,
+            41
           ],
           [
-            36.16,
-            35.8
+            29,
+            38
           ],
           [
-            38.5,
-            47.95
+            34,
+            38
           ],
           [
-            41.92,
-            76.75
+            38,
+            44
           ],
           [
-            26.08,
-            76.75
+            39,
+            60
           ],
           [
-            29.5,
-            47.95
+            34,
+            70
+          ],
+          [
+            26,
+            70
           ]
         ],
         "point": [
-          34,
-          56.5
+          31,
+          56
         ],
         "kind": "path",
         "label": "Follow the passage to The Lantern Path",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 34% / 56.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9455,72 +9527,80 @@
       "n": {
         "polygon": [
           [
-            0,
-            94
-          ],
-          [
-            9,
-            79
-          ],
-          [
-            16,
-            67
-          ],
-          [
-            27,
-            63
-          ],
-          [
-            40,
+            1,
             75
           ],
           [
-            45,
-            95
+            6,
+            69
+          ],
+          [
+            14,
+            65
+          ],
+          [
+            27,
+            73
+          ],
+          [
+            40,
+            88
+          ],
+          [
+            38,
+            99
+          ],
+          [
+            1,
+            99
           ]
         ],
         "point": [
-          24,
-          83
+          23,
+          82
         ],
         "kind": "stair",
         "label": "Follow the passage to Quidditch Pitch",
-        "evidence": "Cinematic image: visible descending timber staircase at left connects stadium stand with Quidditch pitch. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            81,
+            82,
             31
           ],
           [
-            85,
-            26
-          ],
-          [
-            94,
+            86,
             28
           ],
           [
-            96,
-            63
+            92,
+            28
           ],
           [
-            89,
-            71
+            95,
+            34
           ],
           [
-            80,
-            64
+            95,
+            70
+          ],
+          [
+            88,
+            76
+          ],
+          [
+            82,
+            72
           ]
         ],
         "point": [
-          89,
-          53
+          88,
+          52
         ],
         "kind": "arch",
         "label": "Follow the passage to Quidditch Changing Rooms",
-        "evidence": "Cinematic image: visibly open Gothic timber corridor at right leads toward auxiliary rooms. Manually traced."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9533,80 +9613,80 @@
       "n": {
         "polygon": [
           [
-            4.68,
-            27.275
+            2,
+            40
           ],
           [
-            9,
-            26.765
+            5,
+            37
           ],
           [
-            13.32,
-            27.275
+            14,
+            38
           ],
           [
-            16.2,
-            33.14
+            15,
+            52
           ],
           [
-            16.92,
-            74.45
+            15,
+            90
           ],
           [
-            1.08,
-            74.45
+            8,
+            99
           ],
           [
-            1.8,
-            33.14
+            2,
+            98
           ]
         ],
         "point": [
           9,
-          51.5
+          65
         ],
         "kind": "door",
         "label": "Follow the passage to Quidditch Stands",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 9% / 51.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            89.38,
-            24.425
+            79,
+            22
           ],
           [
-            92.5,
-            23.855
+            83,
+            18
           ],
           [
-            95.62,
-            24.425
+            91,
+            18
           ],
           [
-            97.7,
-            30.98
+            95,
+            27
           ],
           [
-            98.22,
-            77.15
+            95,
+            79
           ],
           [
-            86.78,
-            77.15
+            87,
+            94
           ],
           [
-            87.3,
-            30.98
+            79,
+            89
           ]
         ],
         "point": [
-          92.5,
-          51.5
+          86,
+          57
         ],
         "kind": "door",
         "label": "Follow the passage to Quidditch Equipment Store",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 92.5% / 51.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9619,41 +9699,41 @@
       "n": {
         "polygon": [
           [
-            11.76,
-            22.5
+            1,
+            25
           ],
           [
-            18,
-            21.9
+            6,
+            22
           ],
           [
-            24.24,
-            22.5
+            13,
+            25
           ],
           [
-            28.4,
-            29.4
+            17,
+            34
           ],
           [
-            29.44,
-            78
+            16,
+            72
           ],
           [
-            6.56,
-            78
+            9,
+            77
           ],
           [
-            7.6,
-            29.4
+            1,
+            77
           ]
         ],
         "point": [
-          18,
-          51
+          9,
+          54
         ],
         "kind": "door",
         "label": "Follow the passage to Quidditch Changing Rooms",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 18% / 51%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9666,37 +9746,41 @@
       "n": {
         "polygon": [
           [
-            10.8,
-            17.5
+            7,
+            13
           ],
           [
-            15.2,
-            17.5
+            11,
+            10
           ],
           [
             19,
-            42
+            12
           ],
           [
-            22,
-            80.5
+            21,
+            30
           ],
           [
-            4,
-            80.5
+            21,
+            75
           ],
           [
-            7,
-            42
+            16,
+            99
+          ],
+          [
+            5,
+            99
           ]
         ],
         "point": [
-          13,
-          49
+          12,
+          56
         ],
         "kind": "stair",
         "label": "Follow the passage to Quidditch Pitch",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 13% / 49%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9709,72 +9793,80 @@
       "n": {
         "polygon": [
           [
-            12.88,
-            53.52
+            8,
+            82
           ],
           [
-            19.12,
-            53.52
+            13,
+            78
           ],
           [
-            22.5,
-            63.78
+            20,
+            74
           ],
           [
-            27.44,
-            88.1
+            26,
+            78
           ],
           [
-            4.56,
-            88.1
+            29,
+            88
           ],
           [
-            9.5,
-            63.78
+            22,
+            97
+          ],
+          [
+            8,
+            97
           ]
         ],
         "point": [
-          16,
-          71
+          18,
+          85
         ],
         "kind": "path",
         "label": "Follow the passage to Quidditch Pitch",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 71%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            74.74,
-            59.32
+            69,
+            49
           ],
           [
-            80.26,
-            59.32
+            73,
+            43
           ],
           [
-            83.25,
-            68.23
+            79,
+            43
           ],
           [
-            87.62,
-            89.35
+            82,
+            50
           ],
           [
-            67.38,
-            89.35
+            81,
+            88
           ],
           [
-            71.75,
-            68.23
+            76,
+            99
+          ],
+          [
+            68,
+            99
           ]
         ],
         "point": [
-          77.5,
-          74.5
+          74,
+          69
         ],
         "kind": "path",
         "label": "Follow the passage to Quidditch Trophy Walk",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 77.5% / 74.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9787,37 +9879,45 @@
       "n": {
         "polygon": [
           [
-            44.06,
-            84.6
+            28,
+            99
           ],
           [
-            52.94,
-            84.6
+            32,
+            81
           ],
           [
-            57.75,
-            88.65
+            39,
+            67
           ],
           [
-            64.78,
-            98.25
+            46,
+            58
           ],
           [
-            32.22,
-            98.25
+            53,
+            54
           ],
           [
-            39.25,
-            88.65
+            59,
+            58
+          ],
+          [
+            65,
+            74
+          ],
+          [
+            68,
+            99
           ]
         ],
         "point": [
-          48.5,
-          91.5
+          51,
+          86
         ],
         "kind": "path",
         "label": "Follow the passage to Quidditch Goal Hoops",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 48.5% / 91.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9830,41 +9930,41 @@
       "n": {
         "polygon": [
           [
-            5.98,
-            37.15
+            3,
+            29
           ],
           [
-            11.5,
-            36.69
+            7,
+            25
           ],
           [
-            17.02,
-            37.15
+            17,
+            26
           ],
           [
-            20.7,
-            42.44
+            19,
+            32
           ],
           [
-            21.62,
-            79.7
+            19,
+            71
           ],
           [
-            1.38,
-            79.7
+            11,
+            79
           ],
           [
-            2.3,
-            42.44
+            3,
+            78
           ]
         ],
         "point": [
-          11.5,
-          59
+          10,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Flying-lesson Lawn",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 11.5% / 59%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9877,41 +9977,41 @@
       "n": {
         "polygon": [
           [
-            9.98,
-            17.675
+            13,
+            18
           ],
           [
-            15.5,
-            17.005
+            17,
+            12
           ],
           [
-            21.02,
-            17.675
+            25,
+            12
           ],
           [
-            24.7,
-            25.38
+            30,
+            20
           ],
           [
-            25.62,
-            79.65
+            29,
+            69
           ],
           [
-            5.38,
-            79.65
+            22,
+            85
           ],
           [
-            6.3,
-            25.38
+            13,
+            82
           ]
         ],
         "point": [
-          15.5,
-          49.5
+          20,
+          55
         ],
         "kind": "door",
         "label": "Follow the passage to The Owlery",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 49.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9924,41 +10024,41 @@
       "n": {
         "polygon": [
           [
-            16.42,
-            20.25
+            24,
+            32
           ],
           [
-            20.5,
-            19.75
+            27,
+            27
           ],
           [
-            24.58,
-            20.25
+            33,
+            27
           ],
           [
-            27.3,
-            26
+            38,
+            34
           ],
           [
-            27.98,
-            66.5
+            39,
+            69
           ],
           [
-            13.02,
-            66.5
+            32,
+            78
           ],
           [
-            13.7,
-            26
+            23,
+            77
           ]
         ],
         "point": [
-          20.5,
-          44
+          31,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Hog's Head Cellar",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 20.5% / 44%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -9971,96 +10071,80 @@
       "n": {
         "polygon": [
           [
-            14.5,
-            29.35
+            11,
+            31
           ],
           [
-            18.28,
-            31.24
+            15,
+            27
           ],
           [
-            21.22,
-            36.64
+            25,
+            28
           ],
           [
-            23.32,
-            43.66
+            30,
+            36
           ],
           [
-            23.53,
-            79.3
+            30,
+            82
           ],
           [
-            5.47,
-            79.3
+            22,
+            90
           ],
           [
-            5.68,
-            43.66
-          ],
-          [
-            7.78,
-            36.64
-          ],
-          [
-            10.72,
-            31.24
+            11,
+            90
           ]
         ],
         "point": [
-          14.5,
-          55
+          19,
+          58
         ],
         "kind": "arch",
         "label": "Follow the passage to Slytherin Common Room",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 14.5% / 55%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            84.5,
-            25.475
+            75,
+            36
           ],
           [
-            88.64,
-            27.54
+            79,
+            32
           ],
           [
-            91.86,
-            33.44
+            87,
+            32
           ],
           [
-            94.16,
-            41.11
+            94,
+            39
           ],
           [
-            94.39,
-            80.05
+            95,
+            79
           ],
           [
-            74.61,
-            80.05
+            87,
+            93
           ],
           [
-            74.84,
-            41.11
-          ],
-          [
-            77.14,
-            33.44
-          ],
-          [
-            80.36,
-            27.54
+            75,
+            90
           ]
         ],
         "point": [
-          84.5,
-          53.5
+          82,
+          61
         ],
         "kind": "arch",
         "label": "Follow the passage to Green Lantern Passage",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 84.5% / 53.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10073,41 +10157,41 @@
       "n": {
         "polygon": [
           [
-            12.2,
-            25.375
+            8,
+            32
           ],
           [
-            17,
-            24.825
+            11,
+            29
           ],
           [
-            21.8,
-            25.375
+            19,
+            29
           ],
           [
-            25,
-            31.7
+            22,
+            34
           ],
           [
-            25.8,
-            76.25
+            22,
+            77
           ],
           [
-            8.2,
-            76.25
+            15,
+            85
           ],
           [
-            9,
-            31.7
+            8,
+            83
           ]
         ],
         "point": [
-          17,
-          51.5
+          15,
+          54
         ],
         "kind": "door",
         "label": "Follow the passage to Archive Passage",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 17% / 51.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10120,41 +10204,41 @@
       "n": {
         "polygon": [
           [
-            9.5,
-            23.575
+            10,
+            17
           ],
           [
-            15.5,
-            22.945
+            14,
+            14
           ],
           [
-            21.5,
-            23.575
+            23,
+            15
           ],
           [
-            25.5,
-            30.82
+            28,
+            22
           ],
           [
-            26.5,
-            81.85
+            28,
+            81
           ],
           [
-            4.5,
-            81.85
+            17,
+            90
           ],
           [
-            5.5,
-            30.82
+            10,
+            87
           ]
         ],
         "point": [
-          15.5,
-          53.5
+          16,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Fourth-floor Portrait Corridor",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 15.5% / 53.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10167,41 +10251,41 @@
       "n": {
         "polygon": [
           [
-            6.24,
-            16.525
+            2,
+            19
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            19,
+            16
+          ],
+          [
+            24,
+            27
+          ],
+          [
+            24,
+            88
           ],
           [
             12,
-            15.915
+            99
           ],
           [
-            17.76,
-            16.525
-          ],
-          [
-            21.6,
-            23.54
-          ],
-          [
-            22.56,
-            72.95
-          ],
-          [
-            1.44,
-            72.95
-          ],
-          [
-            2.4,
-            23.54
+            2,
+            98
           ]
         ],
         "point": [
-          12,
-          45.5
+          14,
+          60
         ],
         "kind": "door",
         "label": "Follow the passage to Trophy Gallery",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 12% / 45.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10214,41 +10298,41 @@
       "n": {
         "polygon": [
           [
-            33.42,
-            33.175
+            31,
+            41
           ],
           [
-            37.5,
-            32.705
+            34,
+            38
           ],
           [
-            41.58,
-            33.175
+            40,
+            38
           ],
           [
-            44.3,
-            38.58
+            44,
+            45
           ],
           [
-            44.98,
-            76.65
+            44,
+            74
           ],
           [
-            30.02,
-            76.65
+            35,
+            84
           ],
           [
-            30.7,
-            38.58
+            30,
+            80
           ]
         ],
         "point": [
-          37.5,
-          55.5
+          36,
+          60
         ],
         "kind": "door",
         "label": "Follow the passage to Hogwarts Library",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 37.5% / 55.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10261,84 +10345,80 @@
       "n": {
         "polygon": [
           [
-            21,
-            22.4
+            25,
+            43
           ],
           [
-            24.96,
-            24.36
+            30,
+            37
           ],
           [
-            28.04,
-            29.96
+            35,
+            41
           ],
           [
-            30.24,
-            37.24
+            39,
+            54
           ],
           [
-            30.46,
-            74.2
+            39,
+            80
           ],
           [
-            11.54,
-            74.2
+            31,
+            87
           ],
           [
-            11.76,
-            37.24
-          ],
-          [
-            13.96,
-            29.96
-          ],
-          [
-            17.04,
-            24.36
+            24,
+            84
           ]
         ],
         "point": [
-          21,
-          49
+          31,
+          67
         ],
         "kind": "arch",
         "label": "Follow the passage to Honeydukes Cellar",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 21% / 49%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            69.14,
-            23.95
+            64,
+            47
           ],
           [
-            74.86,
-            23.95
+            67,
+            44
           ],
           [
-            79.8,
-            44.6
+            73,
+            43
           ],
           [
-            83.7,
-            77.05
+            76,
+            49
           ],
           [
-            60.3,
-            77.05
+            77,
+            75
           ],
           [
-            64.2,
-            44.6
+            70,
+            85
+          ],
+          [
+            63,
+            83
           ]
         ],
         "point": [
-          72,
-          50.5
+          70,
+          64
         ],
         "kind": "stair",
         "label": "Follow the passage to Second-floor Bathroom Corridor",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 72% / 50.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10351,84 +10431,80 @@
       "n": {
         "polygon": [
           [
-            13.5,
-            25.275
+            1,
+            40
           ],
           [
-            18.36,
-            27.06
+            5,
+            36
           ],
           [
-            22.14,
-            32.16
+            16,
+            36
           ],
           [
-            24.84,
-            38.79
+            21,
+            45
           ],
           [
-            25.11,
-            72.45
+            21,
+            81
           ],
           [
-            1.89,
-            72.45
+            13,
+            91
           ],
           [
-            2.16,
-            38.79
-          ],
-          [
-            4.86,
-            32.16
-          ],
-          [
-            8.64,
-            27.06
+            1,
+            88
           ]
         ],
         "point": [
-          13.5,
-          49.5
+          13,
+          61
         ],
         "kind": "arch",
         "label": "Follow the passage to One-Eyed Witch Tunnel",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 13.5% / 49.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       },
       "e": {
         "polygon": [
           [
-            84.36,
-            17.65
+            76,
+            35
           ],
           [
-            89.64,
-            17.65
+            80,
+            29
           ],
           [
-            94.2,
-            43.2
+            91,
+            29
           ],
           [
-            97.8,
-            83.35
+            98,
+            40
           ],
           [
-            76.2,
-            83.35
+            99,
+            89
           ],
           [
-            79.8,
-            43.2
+            88,
+            99
+          ],
+          [
+            76,
+            98
           ]
         ],
         "point": [
-          87,
-          50.5
+          85,
+          65
         ],
         "kind": "stair",
         "label": "Follow the passage to Honeydukes",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 87% / 50.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10441,41 +10517,41 @@
       "n": {
         "polygon": [
           [
-            12.72,
-            14.7
+            4,
+            12
+          ],
+          [
+            8,
+            7
           ],
           [
             18,
-            14.02
+            8
           ],
           [
-            23.28,
-            14.7
+            24,
+            16
           ],
           [
-            26.8,
-            22.52
+            25,
+            73
           ],
           [
-            27.68,
-            77.6
+            17,
+            84
           ],
           [
-            8.32,
-            77.6
-          ],
-          [
-            9.2,
-            22.52
+            4,
+            82
           ]
         ],
         "point": [
-          18,
-          47
+          13,
+          53
         ],
         "kind": "door",
         "label": "Follow the passage to Forgotten Crypt",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 18% / 47%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   },
@@ -10488,41 +10564,41 @@
       "n": {
         "polygon": [
           [
-            9.28,
-            20.625
+            13,
+            23
           ],
           [
-            16,
-            19.975
+            18,
+            19
           ],
           [
-            22.72,
-            20.625
+            29,
+            20
           ],
           [
-            27.2,
-            28.1
+            34,
+            28
           ],
           [
-            28.32,
-            80.75
+            35,
+            71
           ],
           [
-            3.68,
-            80.75
+            28,
+            85
           ],
           [
-            4.8,
-            28.1
+            14,
+            83
           ]
         ],
         "point": [
-          16,
-          51.5
+          21,
+          57
         ],
         "kind": "door",
         "label": "Follow the passage to Third-floor Armour Gallery",
-        "evidence": "Manual approximate aperture on the independent daylight image, near 16% / 51.5%; route identity from atlas graph; final browser click-through QA required."
+        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
       }
     }
   }
