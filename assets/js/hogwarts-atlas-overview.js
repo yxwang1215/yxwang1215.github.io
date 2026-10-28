@@ -32,12 +32,12 @@
       }));
       window.location.assign(destination);
     }catch(error){
-      $("ga-visit-hint").textContent="无法创建通行凭据，请检查浏览器会话存储权限。";
+      $("ga-visit-hint").textContent="Unable to create a passage ticket. Check that browser session storage is available.";
     }
   }
 
-  var labels={canon:"原著地点",inferred:"衔接与场景重建",invented:"站点扩展"};
-  var sourceTiers={"chapter-cited secondary index":"按章节编排的二手索引","official encyclopedia":"官方百科","official editorial feature":"官方文章","later author expansion":"作者后续补充"};
+  var labels={canon:"Book location",inferred:"Reconstructed link or scene",invented:"Original site addition"};
+  var sourceTiers={"chapter-cited secondary index":"Chapter-based secondary index","official encyclopedia":"Official encyclopedia","official editorial feature":"Official feature","later author expansion":"Later author material"};
   function safe(value){return String(value==null?"":value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]})}
   function visibleIds(){return Object.keys(geo.nodes).filter(function(id){return state.secrets||!geo.nodes[id].hidden})}
   function matches(id){var node=geo.nodes[id],room=atlas.rooms[id];return !state.query||(node.label+" "+room.name+" "+room.path).toLowerCase().includes(state.query)}
@@ -75,7 +75,7 @@
   }
   function renderGraph(){
     var ids=visibleIds(),edges=geo.edges(state.secrets),neighbors=geo.neighbors(state.selected,state.secrets),pathPairs=routePairs(),box=diagramBox();
-    var html='<title id="chart-title">霍格沃茨地点关系图</title><desc id="chart-desc">实线表示有原著支持的关系，虚线表示重建路线，点线表示需开启的秘密入口。选中地点可查看相邻场景、URL 与依据。</desc>';
+    var html='<title id="chart-title">Hogwarts Passage Map</title><desc id="chart-desc">Solid lines indicate connections supported by book references; dashed lines indicate reconstructed passages; dotted lines indicate secret entrances. Select a location to view its neighbouring scenes, URL and references.</desc>';
     geo.overviewSections.forEach(function(section){
       if(section.secret&&!state.secrets)return;
       var box=section.box;
@@ -94,16 +94,13 @@
       var touchesHidden=edges.some(function(edge){return edge.a===id&&geo.nodes[edge.b].hidden||edge.b===id&&geo.nodes[edge.a].hidden});
       var dim=(!matches(id))||(state.query?false:state.focused&&!near&&!inRoute)||(state.region==='unmapped'&&!node.hidden&&!touchesHidden);
       var css='ga-point'+(selected?' is-selected':'')+(node.hidden?' is-hidden':'')+(inRoute?' is-route':'')+(dim?' is-dim':'');
-      // Allow larger labels without clipping long Chinese room names.
-      // Width changes only the drawn marker, never the graph topology.
-      var charWidth=Array.from(node.label).reduce(function(n,ch){
-        var cp=ch.codePointAt(0);return n+(cp>=0x3400&&cp<=0x9fff?14.8:8.2);
-      },0);
-      var width=Math.max(148,Math.min(212,Math.round(charWidth+34)));
-      if(['sluice','chamber','sanctum'].includes(id))width=Math.max(128,Math.min(178,Math.round(charWidth+30)));
+      // Keep long English place names legible without making the chart unwieldy.
+      // Full names remain available in aria-label, the detail pane and the directory.
+      var caption=node.label.length>24?node.label.slice(0,22).trimEnd()+"…":node.label;
+      var width=Math.max(148,Math.min(230,Math.round(caption.length*7.25+32)));
       var inView=insideBox(id,box);
-      html+='<g class="'+css+'" data-room="'+safe(id)+'" data-status="'+safe(node.status)+'" transform="translate('+node.position.join(',')+')" tabindex="'+(inView?'0':'-1')+'"'+(inView?'':' aria-hidden="true"')+' role="button" aria-pressed="'+selected+'" aria-label="查看'+safe(node.label)+'的关系">'+
-        '<rect x="'+(-width/2)+'" y="-21" width="'+width+'" height="42"></rect><circle cx="'+(-width/2+12)+'" cy="0" r="3.1"></circle><text x="7" y="4.5" text-anchor="middle">'+safe(node.label)+'</text></g>';
+      html+='<g class="'+css+'" data-room="'+safe(id)+'" data-status="'+safe(node.status)+'" transform="translate('+node.position.join(',')+')" tabindex="'+(inView?'0':'-1')+'"'+(inView?'':' aria-hidden="true"')+' role="button" aria-pressed="'+selected+'" aria-label="View connections for '+safe(node.label)+'">'+
+        '<rect x="'+(-width/2)+'" y="-21" width="'+width+'" height="42"></rect><circle cx="'+(-width/2+12)+'" cy="0" r="3.1"></circle><text x="7" y="4.5" text-anchor="middle">'+safe(caption)+'</text></g>';
     });
     chart.innerHTML=html;
     chart.setAttribute('viewBox',box.join(' '));
@@ -117,35 +114,35 @@
     $("ga-zoom-out").disabled=state.zoom<=.65;
     $("ga-zoom-in").disabled=state.zoom>=2;
     $("ga-focus-clear").disabled=!state.focused&&!state.route;
-    $("ga-chart-status").textContent=(state.query?ids.filter(matches).length+' 个匹配 · ':'')+ids.length+' 个地点 · '+edges.length+' 条关系';
+    $("ga-chart-status").textContent=(state.query?ids.filter(matches).length+' matches · ':'')+ids.length+' places · '+edges.length+' connections';
   }
   function renderDetail(){
     var id=state.selected,node=geo.nodes[id],room=atlas.rooms[id],image=$("ga-detail-image");
     image.src=scenes[id].src;image.alt=scenes[id].alt;
     $("ga-detail-title").textContent=node.label;
-    $("ga-detail-en").textContent=room.name;
+    $("ga-detail-en").textContent=room.name===node.label?"":room.name;
     $("ga-detail-status").textContent=labels[node.status]||labels.inferred;
     $("ga-detail-floor").textContent=node.floor;
     $("ga-detail-note").textContent=node.note;
     $("ga-detail-url").textContent=room.path;
     $("ga-visit").disabled=false;
-    $("ga-visit").textContent="进入此地点 ↗";
-    $("ga-visit-hint").textContent="可从 Atlas 直接前往所选地点，无须先经过站台；直接输入场景 URL 仍不能进入。";
+    $("ga-visit").textContent="Enter This Place ↗";
+    $("ga-visit-hint").textContent="Enter this place directly from the Atlas, without visiting Platform 9¾ first. Typing a scene URL alone never grants entry.";
     $("ga-neighbors").innerHTML=geo.neighbors(id,state.secrets).map(function(next){
       var edge=geo.edges(state.secrets).find(function(item){return item.key===geo.edgeKey(id,next)});
-      var kind=edge.secret?'先显露入口':edge.status==='canon'?'关系有原著依据':'步行衔接为重建';
-      if(id==='sluice'&&next==='bathroom')kind='由管口借魔法协助返回';
-      if(id==='chamber'&&next==='sanctum'||id==='sanctum'&&next==='chamber')kind='同一密室内的不同视角';
+      var kind=edge.secret?'Reveal entrance first':edge.status==='canon'?'Book-supported connection':'Reconstructed walking route';
+      if(id==='sluice'&&next==='bathroom')kind='Return through the pipe with magical help';
+      if(id==='chamber'&&next==='sanctum'||id==='sanctum'&&next==='chamber')kind='A different view of the same Chamber';
       return '<li><button type="button" data-select="'+safe(next)+'"><span aria-hidden="true">↳</span>'+safe(geo.nodes[next].label)+'</button><small>'+safe(kind)+'</small></li>';
     }).join('');
-    $("ga-detail-sources").innerHTML=node.sources.length?node.sources.map(function(key){return '<li>'+sourceLink(key)+'</li>'}).join(''):'<li><small>本站补充场景，无对应的原著命名地点。</small></li>';
+    $("ga-detail-sources").innerHTML=node.sources.length?node.sources.map(function(key){return '<li>'+sourceLink(key)+'</li>'}).join(''):'<li><small>An additional site-created scene without an established name in the novels.</small></li>';
   }
   function renderDirectory(){
     var ids=visibleIds().filter(matches);
     $("ga-directory").innerHTML=ids.length?ids.map(function(id){
       var node=geo.nodes[id],room=atlas.rooms[id];
-      return '<tr><td><button type="button" data-select="'+safe(id)+'">'+safe(node.label)+'</button><small>'+safe(room.name)+'</small></td><td>'+safe(node.floor)+'<small>'+safe(labels[node.status])+'</small></td><td><code>'+safe(room.path)+'</code><button type="button" class="ga-inline-travel" data-visit="'+safe(id)+'"'+''+'>前往 ↗</button></td></tr>';
-    }).join(''):'<tr><td colspan="3" class="ga-empty">没有匹配的地点。可尝试中文名或英文名。</td></tr>';
+      return '<tr><td><button type="button" data-select="'+safe(id)+'">'+safe(node.label)+'</button><small>'+safe(room.name)+'</small></td><td>'+safe(node.floor)+'<small>'+safe(labels[node.status])+'</small></td><td><code>'+safe(room.path)+'</code><button type="button" class="ga-inline-travel" data-visit="'+safe(id)+'"'+''+'>Go ↗</button></td></tr>';
+    }).join(''):'<tr><td colspan="3" class="ga-empty">No matching places. Try an English room name or a URL.</td></tr>';
   }
   function renderRouteOptions(){
     var from=$("ga-route-from").value||'gate',to=$("ga-route-to").value||'hut';
@@ -158,7 +155,7 @@
     if(!state.route){$("ga-route-result").innerHTML='';return}
     var result=state.route;
     var hidden=result.some(function(id){return geo.nodes[id].hidden});
-    $("ga-route-result").innerHTML='<strong>'+Math.max(0,result.length-1)+' 段连接</strong>'+(hidden?' · 包含需先开启的隐藏路线。':' · 按下面的顺序在场景中步行。')+
+    $("ga-route-result").innerHTML='<strong>'+Math.max(0,result.length-1)+' passages</strong>'+(hidden?' · Includes hidden passages that must first be revealed.':' · Follow the scenes in this order.')+
       '<ol>'+result.map(function(id){return '<li><button type="button" data-select="'+safe(id)+'">'+safe(geo.nodes[id].label)+'</button></li>'}).join('')+'</ol>';
   }
   function selectRoom(id){
@@ -187,7 +184,7 @@
   $("ga-visit").addEventListener("click",function(){travelTo(state.selected)});
   $("ga-search").addEventListener('input',function(){state.query=this.value.trim().toLowerCase();renderGraph();renderDirectory()});
   geo.sections.forEach(function(section){
-    var option=document.createElement('option');option.value=section.id;option.textContent=section.secret?'隐藏路线（跨楼层）':section.zh;option.hidden=!!section.secret;option.disabled=!!section.secret;$("ga-region").appendChild(option);
+    var option=document.createElement('option');option.value=section.id;option.textContent=section.secret?'Concealed routes (across floors)':section.zh;option.hidden=!!section.secret;option.disabled=!!section.secret;$("ga-region").appendChild(option);
   });
   $("ga-region").addEventListener('change',function(){state.region=this.value;state.focused=false;state.zoom=1;renderGraph();$("ga-map-scroll").scrollTop=0;$("ga-map-scroll").scrollLeft=0});
   $("ga-secrets").addEventListener('change',function(){
@@ -206,7 +203,7 @@
     event.preventDefault();state.route=geo.route($("ga-route-from").value,$("ga-route-to").value,state.secrets);
     state.region='all';$("ga-region").value='all';
     renderGraph();renderRoute();
-    if(!state.route)$("ga-route-result").textContent='当前显示设置中没有可行路线。';
+    if(!state.route)$("ga-route-result").textContent='No route is available under the current spoiler settings.';
   });
   $("ga-route-clear").addEventListener('click',function(){state.route=null;renderGraph();renderRoute()});
   $("ga-export").addEventListener('click',function(){
@@ -226,7 +223,7 @@
     var current=atlas.byPath[session.current];
     $("ga-return").href=atlas.rooms[current].path;
     $("ga-return").setAttribute("data-visit",current);
-    $("ga-return").textContent="回到当前旅程 ↗";
+    $("ga-return").textContent="Return to the Current Journey ↗";
   }
   renderGraph();renderDetail();renderDirectory();renderRouteOptions();
 })();
