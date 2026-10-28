@@ -58,20 +58,9 @@
   };
   function regionName(id){return regionNames[id]||"Hogwarts"}
   function floorName(node){
-    var floor=String(node.floor||"");
-    var level=floor.match(/\b(Ground|First|Second|Third|Fourth|Fifth|Sixth|Seventh)\s+floor\b/i);
-    if(level)return level[1]+" floor · "+regionName(node.group);
-    if(/七楼/.test(floor))return "Seventh floor · "+regionName(node.group);
-    if(/六楼/.test(floor))return "Sixth floor · "+regionName(node.group);
-    if(/五楼/.test(floor))return "Fifth floor · "+regionName(node.group);
-    if(/四楼/.test(floor))return "Fourth floor · "+regionName(node.group);
-    if(/三楼/.test(floor))return "Third floor · "+regionName(node.group);
-    if(/二楼/.test(floor))return "Second floor · "+regionName(node.group);
-    if(/一楼/.test(floor))return "First floor · "+regionName(node.group);
-    if(/地下|地牢|地窖/.test(floor))return "Below ground · "+regionName(node.group);
-    if(/湖底|水下/.test(floor))return "Under the Black Lake";
-    if(/禁林/.test(floor))return "The Forbidden Forest";
-    return regionName(node.group);
+    // The geography catalog now stores full English floor descriptions;
+    // do not infer a different floor from an older URL segment or legacy text.
+    return String(node.floor||regionName(node.group));
   }
   // Pure SVG ink-work; decorative silhouettes are not clickable locations or map edges.
   function engraving(section){
@@ -133,7 +122,7 @@
   // Route long cross-floor links around node labels. Intermediate bends are
   // drawing coordinates only, never extra destinations or compass claims.
   var drawingRoutes={
-    'entry|gate':{from:'gate',via:[[70,675],[70,1070]]},
+    'entry|gate':{from:'gate',via:[[30,675],[30,1070]]},
     'basementPassage|entry':{from:'entry',via:[[160,1115],[565,1115]]},
     'corridor|staircase':{from:'staircase',via:[[10,1150],[10,280],[420,280]]},
     'firstFloorJunction|staircase':{from:'staircase',via:[[30,1150],[30,445]]},
