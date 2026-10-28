@@ -12,8 +12,10 @@
   <script>
     (function(){
       "use strict";
+      // Static-site UX guard: a typed URL is not a room pass.
       var passKey="hogwarts:platform934:pass:v1";
       var sessionKey="hogwarts:session:v2";
+      var navKey="hogwarts:atlas:transfer:v1";
       var path=window.location.pathname.replace(/index\.html$/i,"").replace(/\/+$/,"")+"/";
       var atlas=window.HogwartsAtlas;
       var roomId=atlas&&atlas.byPath[path];
@@ -31,12 +33,33 @@
           }));
           allowed=true;
         }
+        // Consume a single-use transfer even when the requested destination is wrong.
+        var navRaw=window.sessionStorage.getItem(navKey);
+        window.sessionStorage.removeItem(navKey);
         if(!allowed&&roomId){
           var previous=JSON.parse(window.sessionStorage.getItem(sessionKey)||"null");
           var age=previous?now-previous.issued:-1;
-          allowed=!!(previous&&typeof previous.id==="string"&&/^[a-f0-9]{32}$/.test(previous.id)&&
+          var active=!!(previous&&typeof previous.id==="string"&&/^[a-f0-9]{32}$/.test(previous.id)&&
             typeof previous.issued==="number"&&age>=0&&age<=21600000&&
-            Array.isArray(previous.visited)&&previous.visited.indexOf(roomId)!==-1);
+            Array.isArray(previous.visited)&&typeof previous.current==="string"&&
+            atlas.byPath[previous.current]&&previous.visited.indexOf(atlas.byPath[previous.current])!==-1);
+          if(active){
+            var nav=navRaw?JSON.parse(navRaw):null;
+            var navAge=nav?now-nav.at:-1;
+            allowed=!!(nav&&nav.from==="/hogwarts/atlas/"&&nav.to===path&&
+              nav.sessionId===previous.id&&typeof nav.at==="number"&&
+              navAge>=0&&navAge<=60000&&typeof nav.nonce==="string"&&
+              /^[a-f0-9]{32}$/.test(nav.nonce));
+            // Only actual reload and history traversal may restore a visited URL.
+            if(!allowed&&previous.visited.indexOf(roomId)!==-1){
+              var entries=window.performance&&window.performance.getEntriesByType&&
+                window.performance.getEntriesByType("navigation");
+              var type=entries&&entries[0]&&entries[0].type;
+              var state=window.history&&window.history.state;
+              allowed=!!(state&&state.hogwarts===true&&state.room===roomId&&
+                (type==="reload"||type==="back_forward"));
+            }
+          }
         }
       }catch(error){allowed=false}
       if(!allowed){window.location.replace("/");return}
