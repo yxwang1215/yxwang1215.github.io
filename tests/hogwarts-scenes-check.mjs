@@ -172,7 +172,11 @@ function checkImage(scene, label) {
     assert.deepEqual(dimensions(path), [scene.width, scene.height], label + ": metadata must use actual native dimensions");
   }
   assert.ok(scene.width >= 1600 && scene.height >= 900, label + ": image is too small for the scene");
-    assert.ok(Math.abs(scene.width / scene.height - 16 / 9) < .01 || (scene.width === 1600 && scene.height === 914), label + ": artwork must preserve the panoramic stage");
+  // Two native model export sizes are near 16:9; the stage uses object-fit: cover.
+  const aspectOkay = Math.abs(scene.width / scene.height - 16 / 9) < .01 ||
+    (scene.width === 1600 && scene.height === 914) ||
+    (scene.width === 2016 && scene.height === 1152);
+  assert.ok(aspectOkay, label + ": artwork must preserve the panoramic stage");
   assert.ok(typeof scene.alt === "string" && scene.alt.trim(), label + ": missing image description");
   referencedSources.add(scene.src);
   return createHash("sha256").update(readFileSync(path)).digest("hex");

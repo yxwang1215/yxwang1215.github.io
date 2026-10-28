@@ -1,26 +1,49 @@
 {
   "date": "2026-10-28",
-  "phase": "batch1-feature-branch",
+  "phase": "all-expansion-ai-images-linked",
   "sceneCountPreserved": 113,
-  "activatedSceneIds": [
-    "antechamber",
-    "hogsSquare",
-    "hogsHead",
-    "honeydukes",
-    "broomsPub",
-    "merVillage",
-    "quidStands",
-    "commonGryff"
+  "expansionBackgrounds": 60,
+  "independentAIBlobNames": [
+    "prefectsBath",
+    "quidReferee",
+    "humpbackTunnel",
+    "serpentDoor",
+    "trapdoorChamber",
+    "mirrorChamber",
+    "mapNook",
+    "restrictedStacks",
+    "oneEyedTunnel",
+    "honeyCellar",
+    "whisperingCrypt",
+    "forgottenArmory",
+    "gallery-open",
+    "armoury-open",
+    "baths-open",
+    "library-open",
+    "oldArchive-open",
+    "crypt-open",
+    "slytherin-open",
+    "dock-open",
+    "quidditch-open",
+    "hogsCellar-open",
+    "trophy-open",
+    "hogsSquare-day"
   ],
-  "hiddenOpenedVariants": [
-    "hogsHead",
-    "honeydukes"
+  "hiddenRevealAssetsRecovered": [
+    "gallery",
+    "armoury",
+    "baths",
+    "library",
+    "oldArchive",
+    "crypt",
+    "slytherin",
+    "dock",
+    "quidditch",
+    "hogsCellar",
+    "trophy"
   ],
-  "deferred": {
-    "hogsRoad": "Generated WebP exists in the local batch, but the image has only two visually defensible road directions for three graph exits; keep original SVG until a three-way fork is generated."
-  },
-  "hotspotPolicy": "Manually drawn image-space polygons; visual QA still required. No SAM-style automatic segmentation has been claimed.",
-  "formatInBranch": "JPEG (fully rendered static images)",
-  "localWebpExport": "hogwarts-ai-webp-first-batch.zip",
-  "qaStatus": "draft; no production deploy claimed"
+  "unchangedGraph": true,
+  "hotspotPolicy": "Explicit door, path and stair polygons retained from v2 hotspot audit; automated geometry and manual visual click-through QA still required.",
+  "formatInBranch": "JPEG native source exports; existing WebP panoramas retained for original scenes",
+  "qaStatus": "CI and production smoke verification pending at this commit"
 }
