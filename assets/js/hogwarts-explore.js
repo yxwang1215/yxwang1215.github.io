@@ -268,6 +268,8 @@
         persist();
       }catch(error){
         busy=false;ceremonyArmed=false;shell.classList.remove("is-transitioning");
+        if(window.HogwartsSoundtrack&&window.HogwartsSoundtrack.sync)
+          window.HogwartsSoundtrack.sync();
         observation.textContent="The ancient door cannot open without browser session storage.";
         observation.classList.add("is-visible");
         return;
@@ -321,6 +323,10 @@
     }).catch(function(){
       if(token!==transitionId)return;
       busy=false;shell.classList.remove("is-preparing","is-transitioning");
+      // The soundtrack was prepared on click; restore the old cue if the
+      // destination could not be loaded and the URL never changed.
+      if(window.HogwartsSoundtrack&&window.HogwartsSoundtrack.sync)
+        window.HogwartsSoundtrack.sync();
       observation.textContent="The passage is taking a moment. Try it again when you are ready.";
       observation.classList.add("is-visible");
     });
