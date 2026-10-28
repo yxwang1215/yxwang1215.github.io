@@ -614,6 +614,24 @@ for (const room of ["bathroom", "corridor"]) {
     assert.equal(run.image.src, secret.open.src, "The photograph must visibly expose the opening");
     assert.equal(Number(run.image.getAttribute("width")), secret.open.width);
     assert.equal(Number(run.image.getAttribute("height")), secret.open.height);
+    assert.equal(run.stage.style.aspectRatio, secret.open.width + " / " + secret.open.height,
+      "The stage aspect ratio must follow the revealed photograph, not the closed image");
+    if (secret.open.exits) {
+      for (const [direction, region] of Object.entries(secret.open.exits)) {
+        const target = run.stage.querySelector('[data-door="' + direction + '"]');
+        assert.ok(target, room + ": opened frame lost ordinary exit " + direction);
+        const rendered = renderedRegion(target).polygon;
+        assert.equal(rendered.length, region.polygon.length,
+          room + ": revealed photograph must use its own exit polygon " + direction);
+        for (let i = 0; i < rendered.length; i++) {
+          assert.ok(Math.abs(rendered[i][0] - region.polygon[i][0]) < 1e-6 &&
+            Math.abs(rendered[i][1] - region.polygon[i][1]) < 1e-6,
+            room + ": revealed-frame exit contour does not match source image " + direction);
+        }
+        assert.ok(pointInside(region.point, rendered),
+          room + ": opened-frame approach point is outside its visible exit " + direction);
+      }
+    }
     const opening = run.stage.querySelector("[data-secret]");
     assert.equal(run.stage.querySelectorAll("[data-secret]").length, 1, "Closed and open targets cannot coexist");
     assert.equal(opening.getAttribute("role"), "link");
