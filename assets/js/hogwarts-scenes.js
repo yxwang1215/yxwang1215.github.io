@@ -810,92 +810,177 @@
       "trigger": {
         "polygon": [
           [
-            32,
-            72.336
+            75,
+            9
           ],
           [
-            34.296,
-            73.608
+            78,
+            7
           ],
           [
-            35.608,
-            76.364
+            81,
+            13
           ],
           [
-            35.116,
-            79.332
+            82,
+            48
           ],
           [
-            33.476,
-            81.452
+            78,
+            54
           ],
           [
-            30.524,
-            81.452
-          ],
-          [
-            28.884,
-            79.332
-          ],
-          [
-            28.392,
-            76.364
-          ],
-          [
-            29.704,
-            73.608
+            75,
+            43
           ]
         ],
         "point": [
-          32,
-          77
+          78,
+          32
         ],
         "kind": "inspect",
         "label": "Inspect the curtain",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            57.68,
-            25.9
+            52,
+            26
+          ],
+          [
+            55,
+            22
           ],
           [
             62,
-            25.54
+            20
           ],
           [
-            66.32,
-            25.9
+            67,
+            25
           ],
           [
-            69.2,
-            30.04
+            69,
+            61
           ],
           [
-            69.92,
-            59.2
+            62,
+            68
           ],
           [
-            54.08,
-            59.2
-          ],
-          [
-            54.8,
-            30.04
+            52,
+            67
           ]
         ],
         "point": [
-          62,
-          43
+          59,
+          46
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Mirror of Erised Chamber",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/gallery-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Fourth-floor Portrait Corridor — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Fourth-floor Portrait Corridor — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "n": {
+            "point": [
+              33,
+              91
+            ],
+            "polygon": [
+              [
+                17,
+                91
+              ],
+              [
+                22,
+                86
+              ],
+              [
+                35,
+                82
+              ],
+              [
+                44,
+                86
+              ],
+              [
+                46,
+                99
+              ],
+              [
+                14,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "s": {
+            "point": [
+              52,
+              91
+            ],
+            "polygon": [
+              [
+                44,
+                84
+              ],
+              [
+                49,
+                82
+              ],
+              [
+                59,
+                85
+              ],
+              [
+                65,
+                99
+              ],
+              [
+                39,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "e": {
+            "point": [
+              87,
+              91
+            ],
+            "polygon": [
+              [
+                77,
+                85
+              ],
+              [
+                83,
+                81
+              ],
+              [
+                94,
+                81
+              ],
+              [
+                100,
+                84
+              ],
+              [
+                100,
+                99
+              ],
+              [
+                78,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -978,92 +1063,148 @@
       "trigger": {
         "polygon": [
           [
+            27,
+            45
+          ],
+          [
+            30,
+            43
+          ],
+          [
+            35,
+            46
+          ],
+          [
+            38,
+            74
+          ],
+          [
             32,
-            72.336
+            83
           ],
           [
-            34.296,
-            73.608
-          ],
-          [
-            35.608,
-            76.364
-          ],
-          [
-            35.116,
-            79.332
-          ],
-          [
-            33.476,
-            81.452
-          ],
-          [
-            30.524,
-            81.452
-          ],
-          [
-            28.884,
-            79.332
-          ],
-          [
-            28.392,
-            76.364
-          ],
-          [
-            29.704,
-            73.608
+            26,
+            78
           ]
         ],
         "point": [
-          32,
-          77
+          31,
+          61
         ],
         "kind": "inspect",
         "label": "Inspect the suit of armour",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            62.72,
-            23.275
+            65,
+            30
           ],
           [
             68,
-            22.765
+            26
           ],
           [
-            73.28,
-            23.275
+            75,
+            26
           ],
           [
-            76.8,
-            29.14
+            80,
+            33
           ],
           [
-            77.68,
-            70.45
+            80,
+            75
           ],
           [
-            58.32,
-            70.45
+            73,
+            80
           ],
           [
-            59.2,
-            29.14
+            65,
+            78
           ]
         ],
         "point": [
-          68,
-          47.5
+          72,
+          53
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Forgotten Armoury",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/armoury-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Third-floor Armour Gallery — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Third-floor Armour Gallery — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              42,
+              94
+            ],
+            "polygon": [
+              [
+                25,
+                89
+              ],
+              [
+                31,
+                86
+              ],
+              [
+                51,
+                85
+              ],
+              [
+                60,
+                90
+              ],
+              [
+                62,
+                99
+              ],
+              [
+                25,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "n": {
+            "point": [
+              82,
+              91
+            ],
+            "polygon": [
+              [
+                74,
+                85
+              ],
+              [
+                83,
+                82
+              ],
+              [
+                94,
+                85
+              ],
+              [
+                100,
+                91
+              ],
+              [
+                100,
+                99
+              ],
+              [
+                73,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -1344,101 +1485,190 @@
           88,
           94
         ],
-        "kind": "door",
-        "label": "Explore the passage to Prefects' Bathroom",
-        "evidence": "2026-10-28 visual pass: polygon fitted to photographed aperture, route surface or image-edge turn; inspect current source image."
+        "kind": "path",
+        "label": "Turn right along the corridor toward Prefects' Bathroom",
+        "evidence": "Right foreground image-edge route: there is no separate Prefects' door depicted in this frame. No destination URL changed."
       }
     },
     "secret": {
       "trigger": {
         "polygon": [
           [
-            32,
-            72.336
+            45,
+            23
           ],
           [
-            34.296,
-            73.608
+            48,
+            21
           ],
           [
-            35.608,
-            76.364
+            52,
+            24
           ],
           [
-            35.116,
-            79.332
+            53,
+            60
           ],
           [
-            33.476,
-            81.452
+            49,
+            65
           ],
           [
-            30.524,
-            81.452
-          ],
-          [
-            28.884,
-            79.332
-          ],
-          [
-            28.392,
-            76.364
-          ],
-          [
-            29.704,
-            73.608
+            45,
+            61
           ]
         ],
         "point": [
-          32,
-          77
+          48,
+          48
         ],
         "kind": "inspect",
-        "label": "Inspect the weathered statue",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "label": "Inspect the weathered carved column",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            58.9,
-            17.925
+            64,
+            18
           ],
           [
-            62.5,
-            17.555
+            68,
+            14
           ],
           [
-            66.1,
-            17.925
+            76,
+            15
           ],
           [
-            68.5,
-            22.18
+            80,
+            22
           ],
           [
-            69.1,
-            52.15
+            80,
+            58
           ],
           [
-            55.9,
-            52.15
+            74,
+            63
           ],
           [
-            56.5,
-            22.18
+            65,
+            61
           ]
         ],
         "point": [
-          62.5,
-          35.5
+          72,
+          42
         ],
         "kind": "door",
         "label": "Enter the revealed passage to One-Eyed Witch Tunnel",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/baths-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Second-floor Bathroom Corridor — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Second-floor Bathroom Corridor — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              26,
+              52
+            ],
+            "polygon": [
+              [
+                8,
+                53
+              ],
+              [
+                12,
+                49
+              ],
+              [
+                24,
+                47
+              ],
+              [
+                36,
+                48
+              ],
+              [
+                38,
+                54
+              ],
+              [
+                18,
+                56
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "n": {
+            "point": [
+              68,
+              91
+            ],
+            "polygon": [
+              [
+                55,
+                88
+              ],
+              [
+                59,
+                83
+              ],
+              [
+                69,
+                79
+              ],
+              [
+                78,
+                82
+              ],
+              [
+                82,
+                98
+              ],
+              [
+                54,
+                98
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "e": {
+            "point": [
+              90,
+              88
+            ],
+            "polygon": [
+              [
+                83,
+                79
+              ],
+              [
+                87,
+                76
+              ],
+              [
+                96,
+                75
+              ],
+              [
+                100,
+                79
+              ],
+              [
+                100,
+                98
+              ],
+              [
+                82,
+                98
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -2086,92 +2316,115 @@
       "trigger": {
         "polygon": [
           [
+            12,
+            17
+          ],
+          [
             16,
-            72.336
+            15
           ],
           [
-            18.296,
-            73.608
+            24,
+            19
           ],
           [
-            19.608,
-            76.364
+            24,
+            63
           ],
           [
-            19.116,
-            79.332
+            17,
+            68
           ],
           [
-            17.476,
-            81.452
-          ],
-          [
-            14.524,
-            81.452
-          ],
-          [
-            12.884,
-            79.332
-          ],
-          [
-            12.392,
-            76.364
-          ],
-          [
-            13.704,
-            73.608
+            12,
+            61
           ]
         ],
         "point": [
-          16,
-          77
+          18,
+          43
         ],
         "kind": "inspect",
         "label": "Inspect the screened shelves",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            57.24,
-            23.3
+            54,
+            27
           ],
           [
-            63,
-            22.78
+            57,
+            21
           ],
           [
-            68.76,
-            23.3
+            65,
+            21
           ],
           [
-            72.6,
-            29.28
+            70,
+            27
           ],
           [
-            73.56,
-            71.4
+            70,
+            71
           ],
           [
-            52.44,
-            71.4
+            64,
+            79
           ],
           [
-            53.4,
-            29.28
+            54,
+            76
           ]
         ],
         "point": [
-          63,
-          48
+          61,
+          51
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Library Restricted Section",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/library-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Hogwarts Library — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Hogwarts Library — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              18,
+              84
+            ],
+            "polygon": [
+              [
+                7,
+                79
+              ],
+              [
+                9,
+                75
+              ],
+              [
+                21,
+                72
+              ],
+              [
+                26,
+                77
+              ],
+              [
+                28,
+                95
+              ],
+              [
+                7,
+                95
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -3092,104 +3345,181 @@
       "trigger": {
         "polygon": [
           [
-            16,
-            72.336
+            36,
+            89
           ],
           [
-            18.296,
-            73.608
+            40,
+            85
           ],
           [
-            19.608,
-            76.364
+            54,
+            84
           ],
           [
-            19.116,
-            79.332
+            65,
+            89
           ],
           [
-            17.476,
-            81.452
+            65,
+            97
           ],
           [
-            14.524,
-            81.452
-          ],
-          [
-            12.884,
-            79.332
-          ],
-          [
-            12.392,
-            76.364
-          ],
-          [
-            13.704,
-            73.608
+            36,
+            98
           ]
         ],
         "point": [
-          16,
-          77
+          49,
+          91
         ],
         "kind": "inspect",
         "label": "Inspect the old floorboards",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            64,
-            24.92
+            65,
+            22
           ],
           [
-            68.32,
-            28.76
+            69,
+            17
           ],
           [
-            70.88,
-            39.8
+            76,
+            19
           ],
           [
-            70.88,
-            54.2
+            79,
+            28
           ],
           [
-            68.32,
-            65.24
+            79,
+            73
           ],
           [
-            64,
-            69.08
+            72,
+            80
           ],
           [
-            59.68,
-            65.24
-          ],
-          [
-            57.12,
-            54.2
-          ],
-          [
-            57.12,
-            39.8
-          ],
-          [
-            59.68,
-            28.76
+            65,
+            74
           ]
         ],
         "point": [
-          64,
-          47
+          71,
+          50
         ],
         "kind": "hatch",
         "label": "Enter the revealed passage to Trapdoor Chamber",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/oldArchive-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Archive Passage — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Archive Passage — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              18,
+              93
+            ],
+            "polygon": [
+              [
+                8,
+                87
+              ],
+              [
+                12,
+                83
+              ],
+              [
+                26,
+                82
+              ],
+              [
+                32,
+                88
+              ],
+              [
+                32,
+                99
+              ],
+              [
+                7,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "w": {
+            "point": [
+              45,
+              93
+            ],
+            "polygon": [
+              [
+                35,
+                87
+              ],
+              [
+                41,
+                83
+              ],
+              [
+                51,
+                82
+              ],
+              [
+                58,
+                89
+              ],
+              [
+                60,
+                99
+              ],
+              [
+                34,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "e": {
+            "point": [
+              91,
+              93
+            ],
+            "polygon": [
+              [
+                80,
+                86
+              ],
+              [
+                84,
+                82
+              ],
+              [
+                95,
+                82
+              ],
+              [
+                100,
+                87
+              ],
+              [
+                100,
+                99
+              ],
+              [
+                79,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -3252,92 +3582,115 @@
       "trigger": {
         "polygon": [
           [
-            16,
-            72.336
+            54,
+            49
           ],
           [
-            18.296,
-            73.608
+            57,
+            46
           ],
           [
-            19.608,
-            76.364
+            64,
+            47
           ],
           [
-            19.116,
-            79.332
+            65,
+            56
           ],
           [
-            17.476,
-            81.452
+            62,
+            60
           ],
           [
-            14.524,
-            81.452
-          ],
-          [
-            12.884,
-            79.332
-          ],
-          [
-            12.392,
-            76.364
-          ],
-          [
-            13.704,
-            73.608
+            54,
+            59
           ]
         ],
         "point": [
-          16,
-          77
+          59,
+          54
         ],
         "kind": "inspect",
         "label": "Inspect the whispered inscription",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            64.72,
-            20.475
+            63,
+            20
           ],
           [
-            70,
-            19.885
+            67,
+            16
           ],
           [
-            75.28,
-            20.475
+            75,
+            17
           ],
           [
-            78.8,
-            27.26
+            77,
+            24
           ],
           [
-            79.68,
-            75.05
+            77,
+            68
           ],
           [
-            60.32,
-            75.05
+            69,
+            75
           ],
           [
-            61.2,
-            27.26
+            63,
+            72
           ]
         ],
         "point": [
-          70,
-          48.5
+          68,
+          49
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Whispering Crypt",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/crypt-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Forgotten Crypt — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Forgotten Crypt — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              23,
+              91
+            ],
+            "polygon": [
+              [
+                11,
+                87
+              ],
+              [
+                15,
+                84
+              ],
+              [
+                29,
+                82
+              ],
+              [
+                35,
+                89
+              ],
+              [
+                37,
+                99
+              ],
+              [
+                10,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -3494,92 +3847,210 @@
       "trigger": {
         "polygon": [
           [
-            32,
-            72.336
+            28,
+            33
           ],
           [
-            34.296,
-            73.608
+            31,
+            30
           ],
           [
-            35.608,
-            76.364
+            35,
+            33
           ],
           [
-            35.116,
-            79.332
+            36,
+            47
           ],
           [
-            33.476,
-            81.452
+            33,
+            54
           ],
           [
-            30.524,
-            81.452
-          ],
-          [
-            28.884,
-            79.332
-          ],
-          [
-            28.392,
-            76.364
-          ],
-          [
-            29.704,
-            73.608
+            28,
+            51
           ]
         ],
         "point": [
           32,
-          77
+          41
         ],
         "kind": "inspect",
         "label": "Inspect the serpent carving",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            73.34,
-            24.9
+            65,
+            31
           ],
           [
-            75.5,
-            24.54
+            71,
+            27
           ],
           [
-            77.66,
-            24.9
+            82,
+            28
           ],
           [
-            79.1,
-            29.04
+            86,
+            36
           ],
           [
-            79.46,
-            58.2
+            86,
+            74
           ],
           [
-            71.54,
-            58.2
+            79,
+            81
           ],
           [
-            71.9,
-            29.04
+            65,
+            78
           ]
         ],
         "point": [
-          75.5,
-          42
+          75,
+          54
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Serpent Door",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/slytherin-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Green Lantern Passage — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Green Lantern Passage — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              48,
+              92
+            ],
+            "polygon": [
+              [
+                40,
+                84
+              ],
+              [
+                45,
+                80
+              ],
+              [
+                55,
+                81
+              ],
+              [
+                58,
+                99
+              ],
+              [
+                37,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "w": {
+            "point": [
+              13,
+              87
+            ],
+            "polygon": [
+              [
+                4,
+                78
+              ],
+              [
+                8,
+                74
+              ],
+              [
+                20,
+                73
+              ],
+              [
+                26,
+                80
+              ],
+              [
+                28,
+                95
+              ],
+              [
+                4,
+                98
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "n": {
+            "point": [
+              63,
+              87
+            ],
+            "polygon": [
+              [
+                57,
+                77
+              ],
+              [
+                60,
+                73
+              ],
+              [
+                66,
+                73
+              ],
+              [
+                70,
+                82
+              ],
+              [
+                70,
+                98
+              ],
+              [
+                57,
+                98
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "e": {
+            "point": [
+              93,
+              91
+            ],
+            "polygon": [
+              [
+                87,
+                81
+              ],
+              [
+                91,
+                76
+              ],
+              [
+                98,
+                77
+              ],
+              [
+                100,
+                82
+              ],
+              [
+                100,
+                99
+              ],
+              [
+                85,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -4306,104 +4777,119 @@
       "trigger": {
         "polygon": [
           [
-            16,
-            72.336
+            10,
+            52
           ],
           [
-            18.296,
-            73.608
+            15,
+            48
           ],
           [
-            19.608,
-            76.364
+            25,
+            50
           ],
           [
-            19.116,
-            79.332
+            27,
+            61
           ],
           [
-            17.476,
-            81.452
+            20,
+            68
           ],
           [
-            14.524,
-            81.452
-          ],
-          [
-            12.884,
-            79.332
-          ],
-          [
-            12.392,
-            76.364
-          ],
-          [
-            13.704,
-            73.608
+            10,
+            65
           ]
         ],
         "point": [
-          16,
-          77
+          18,
+          58
         ],
         "kind": "inspect",
         "label": "Inspect the moonlit reflection",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            81.5,
-            25.92
+            3,
+            57
           ],
           [
-            88.25,
-            29.76
+            8,
+            52
           ],
           [
-            92.25,
-            40.8
+            19,
+            51
           ],
           [
-            92.25,
-            55.2
+            27,
+            56
           ],
           [
-            88.25,
-            66.24
+            29,
+            68
           ],
           [
-            81.5,
-            70.08
+            25,
+            79
           ],
           [
-            74.75,
-            66.24
+            14,
+            87
           ],
           [
-            70.75,
-            55.2
-          ],
-          [
-            70.75,
-            40.8
-          ],
-          [
-            74.75,
-            29.76
+            3,
+            83
           ]
         ],
         "point": [
-          81.5,
-          48
+          17,
+          68
         ],
         "kind": "hatch",
         "label": "Enter the revealed passage to Black Lake Shallows",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/dock-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Old Pier — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Old Pier — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "s": {
+            "point": [
+              86,
+              93
+            ],
+            "polygon": [
+              [
+                75,
+                85
+              ],
+              [
+                83,
+                79
+              ],
+              [
+                95,
+                78
+              ],
+              [
+                100,
+                83
+              ],
+              [
+                100,
+                99
+              ],
+              [
+                74,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -5059,92 +5545,259 @@
       "trigger": {
         "polygon": [
           [
-            48,
-            72.336
+            47,
+            44
           ],
           [
-            50.296,
-            73.608
+            50,
+            42
           ],
           [
-            51.608,
-            76.364
+            53,
+            46
           ],
           [
-            51.116,
-            79.332
+            54,
+            63
           ],
           [
-            49.476,
-            81.452
+            49,
+            67
           ],
           [
-            46.524,
-            81.452
-          ],
-          [
-            44.884,
-            79.332
-          ],
-          [
-            44.392,
-            76.364
-          ],
-          [
-            45.704,
-            73.608
+            47,
+            58
           ]
         ],
         "point": [
-          48,
-          77
+          50,
+          54
         ],
         "kind": "inspect",
         "label": "Inspect the moving banner",
-        "evidence": "An intentionally concealed interaction; the original photographic landmark is provisional."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            59.24,
-            32.875
+            64,
+            43
           ],
           [
-            65,
-            32.525
+            68,
+            40
           ],
           [
-            70.76,
-            32.875
+            74,
+            41
           ],
           [
-            74.6,
-            36.9
+            78,
+            47
           ],
           [
-            75.56,
-            65.25
+            78,
+            70
           ],
           [
-            54.44,
-            65.25
+            71,
+            76
           ],
           [
-            55.4,
-            36.9
+            64,
+            73
           ]
         ],
         "point": [
-          65,
-          49.5
+          69,
+          58
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Quidditch Referee Tower",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/quidditch-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Quidditch Pitch — a cinematic view with visible passages — revealed passage opened"
+        "alt": "Quidditch Pitch — a cinematic view with visible passages — revealed passage opened",
+        "exits": {
+          "n": {
+            "point": [
+              10,
+              57
+            ],
+            "polygon": [
+              [
+                2,
+                50
+              ],
+              [
+                6,
+                47
+              ],
+              [
+                13,
+                45
+              ],
+              [
+                17,
+                49
+              ],
+              [
+                18,
+                61
+              ],
+              [
+                9,
+                66
+              ],
+              [
+                2,
+                64
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "w": {
+            "point": [
+              11,
+              90
+            ],
+            "polygon": [
+              [
+                1,
+                84
+              ],
+              [
+                4,
+                81
+              ],
+              [
+                16,
+                79
+              ],
+              [
+                23,
+                86
+              ],
+              [
+                24,
+                99
+              ],
+              [
+                1,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "s": {
+            "point": [
+              13,
+              73
+            ],
+            "polygon": [
+              [
+                2,
+                69
+              ],
+              [
+                7,
+                65
+              ],
+              [
+                16,
+                63
+              ],
+              [
+                22,
+                66
+              ],
+              [
+                24,
+                76
+              ],
+              [
+                9,
+                78
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "e": {
+            "point": [
+              25,
+              58
+            ],
+            "polygon": [
+              [
+                16,
+                46
+              ],
+              [
+                19,
+                40
+              ],
+              [
+                24,
+                37
+              ],
+              [
+                30,
+                41
+              ],
+              [
+                32,
+                68
+              ],
+              [
+                25,
+                78
+              ],
+              [
+                16,
+                72
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          },
+          "a": {
+            "point": [
+              11,
+              40
+            ],
+            "polygon": [
+              [
+                2,
+                37
+              ],
+              [
+                6,
+                34
+              ],
+              [
+                15,
+                30
+              ],
+              [
+                23,
+                32
+              ],
+              [
+                24,
+                40
+              ],
+              [
+                14,
+                44
+              ],
+              [
+                2,
+                43
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -7586,92 +8239,115 @@
       "trigger": {
         "polygon": [
           [
-            72.5,
-            43.86
+            65,
+            41
           ],
           [
-            76.7,
-            47.58
+            68,
+            38
           ],
           [
-            79.1,
-            55.64
+            72,
+            40
           ],
           [
-            78.2,
-            64.32
+            73,
+            65
           ],
           [
-            75.2,
-            70.52
+            70,
+            73
           ],
           [
-            69.8,
-            70.52
-          ],
-          [
-            66.8,
-            64.32
-          ],
-          [
-            65.9,
-            55.64
-          ],
-          [
-            68.3,
-            47.58
+            65,
+            70
           ]
         ],
         "point": [
-          72.5,
-          57.5
+          68.5,
+          54
         ],
         "kind": "inspect",
         "label": "Inspect the weathered statue",
-        "evidence": "Approximate hotspot over visible clue in the daylight base scene; click-through review required."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            63.06,
-            20.3
+            63,
+            14
           ],
           [
-            70.5,
-            19.78
+            67,
+            10
           ],
           [
-            77.94,
-            20.3
+            77,
+            11
           ],
           [
-            82.9,
-            26.28
+            81,
+            18
           ],
           [
-            84.14,
-            68.4
+            81,
+            62
           ],
           [
-            56.86,
-            68.4
+            75,
+            69
           ],
           [
-            58.1,
-            26.28
+            61,
+            68
           ]
         ],
         "point": [
-          70.5,
+          70,
           45
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Humpbacked Witch Passage",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/hogsCellar-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Hog's Head Cellar — cinematic AI scene with visible routes — revealed passage opened"
+        "alt": "Hog's Head Cellar — cinematic AI scene with visible routes — revealed passage opened",
+        "exits": {
+          "n": {
+            "point": [
+              11,
+              93
+            ],
+            "polygon": [
+              [
+                1,
+                85
+              ],
+              [
+                6,
+                81
+              ],
+              [
+                16,
+                79
+              ],
+              [
+                24,
+                84
+              ],
+              [
+                26,
+                99
+              ],
+              [
+                1,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
@@ -8222,92 +8898,119 @@
       "trigger": {
         "polygon": [
           [
-            55.5,
-            50.2
+            48,
+            59
           ],
           [
-            61.38,
-            52.6
+            52,
+            56
           ],
           [
-            64.74,
-            57.8
+            59,
+            55
           ],
           [
-            63.48,
-            63.4
+            61,
+            58
           ],
           [
-            59.28,
-            67.4
+            62,
+            65
           ],
           [
-            51.72,
-            67.4
+            53,
+            67
           ],
           [
-            47.52,
-            63.4
-          ],
-          [
-            46.26,
-            57.8
-          ],
-          [
-            49.62,
-            52.6
+            48,
+            63
           ]
         ],
         "point": [
-          55.5,
-          59
+          55,
+          61
         ],
         "kind": "inspect",
         "label": "Inspect the folded parchment",
-        "evidence": "Approximate hotspot over visible clue in the daylight base scene; click-through review required."
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state."
       },
       "open": {
         "polygon": [
           [
-            61.42,
-            20.5
+            62,
+            30
           ],
           [
-            65.5,
-            19.9
+            65,
+            27
           ],
           [
-            69.58,
-            20.5
+            69,
+            30
           ],
           [
-            72.3,
-            27.4
+            72,
+            38
           ],
           [
-            72.98,
+            72,
+            69
+          ],
+          [
+            66,
             76
           ],
           [
-            58.02,
-            76
-          ],
-          [
-            58.7,
-            27.4
+            61,
+            74
           ]
         ],
         "point": [
-          65.5,
-          49
+          66,
+          53
         ],
         "kind": "door",
         "label": "Enter the revealed passage to Marauder's Map Nook",
-        "evidence": "Approximate opening polygon on separately generated AI reveal frame; closed/open camera alignment needs visual QA.",
+        "evidence": "2026-10-28 image-by-image visual review; tailored to the currently served image for this secret state.",
         "src": "/assets/images/hogwarts-ai-v2/trophy-open.jpg",
         "width": 1672,
         "height": 941,
-        "alt": "Trophy Gallery — cinematic AI scene with visible routes — revealed passage opened"
+        "alt": "Trophy Gallery — cinematic AI scene with visible routes — revealed passage opened",
+        "exits": {
+          "n": {
+            "point": [
+              38,
+              93
+            ],
+            "polygon": [
+              [
+                22,
+                87
+              ],
+              [
+                28,
+                83
+              ],
+              [
+                44,
+                81
+              ],
+              [
+                53,
+                87
+              ],
+              [
+                57,
+                99
+              ],
+              [
+                19,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+          }
+        }
       },
       "note": "A previously hidden passage is now visible. Choose its opening to enter."
     }
