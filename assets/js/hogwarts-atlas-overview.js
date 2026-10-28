@@ -1,4 +1,4 @@
-/* Read-only atlas: graph selection and route tracing never grant a room visit. */
+/* Readable reference atlas: station visitors can issue single-use fast-travel transfers. */
 (function(){
   "use strict";
   var atlas=window.HogwartsAtlas,geo=window.HogwartsGeography,scenes=window.HogwartsScenes;
@@ -6,6 +6,39 @@
   if(!atlas||!geo||!scenes||!chart)return;
   var $=function(id){return document.getElementById(id)};
   var state={selected:"gate",focused:false,region:"all",secrets:false,query:"",zoom:1,route:null};
+  var sessionKey="hogwarts:session:v2",transferKey="hogwarts:atlas:transfer:v1";
+  function validSession(){
+    try{
+      var item=JSON.parse(window.sessionStorage.getItem(sessionKey)||"null");
+      var age=item?Date.now()-item.issued:-1;
+      return item&&typeof item.id==="string"&&/^[a-f0-9]{32}$/.test(item.id)&&
+        typeof item.issued==="number"&&age>=0&&age<=21600000&&
+        Array.isArray(item.visited)&&typeof item.current==="string"&&
+        atlas.byPath[item.current]&&item.visited.includes(atlas.byPath[item.current])?item:null;
+    }catch(error){return null}
+  }
+  function travelTo(id){
+    if(!atlas.rooms[id]||(!state.secrets&&geo.nodes[id].hidden))return;
+    var journey=validSession();
+    if(!journey){
+      $("ga-visit-hint").textContent="旅程尚未开启。请先从 9¾ 站台进入 Hogwarts。";
+      $("ga-visit").disabled=true;
+      return;
+    }
+    try{
+      var bytes=new Uint8Array(16);
+      window.crypto.getRandomValues(bytes);
+      var nonce=Array.from(bytes,function(value){return value.toString(16).padStart(2,"0")}).join("");
+      var destination=atlas.rooms[id].path;
+      window.sessionStorage.setItem(transferKey,JSON.stringify({
+        from:"/hogwarts/atlas/",to:destination,sessionId:journey.id,at:Date.now(),nonce:nonce
+      }));
+      window.location.assign(destination);
+    }catch(error){
+      $("ga-visit-hint").textContent="无法创建通行凭据，请检查浏览器会话存储权限。";
+    }
+  }
+
   var labels={canon:"原著地点",inferred:"衔接与场景重建",invented:"站点扩展"};
   var sourceTiers={"chapter-cited secondary index":"按章节编排的二手索引","official encyclopedia":"官方百科","official editorial feature":"官方文章","later author expansion":"作者后续补充"};
   function safe(value){return String(value==null?"":value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]})}
@@ -98,6 +131,12 @@
     $("ga-detail-floor").textContent=node.floor;
     $("ga-detail-note").textContent=node.note;
     $("ga-detail-url").textContent=room.path;
+    var enabled=!!validSession();
+    $("ga-visit").disabled=!enabled;
+    $("ga-visit").textContent=enabled?"进入此地点 ↗":"请先从 9¾ 站台进入";
+    $("ga-visit-hint").textContent=enabled?
+      "点击图谱入口即可通行；直接在地址栏输入 URL 不会解锁。":
+      "地图可以查阅。首次进入 Hogwarts 仍需从 9¾ 站台开始。";
     $("ga-neighbors").innerHTML=geo.neighbors(id,state.secrets).map(function(next){
       var edge=geo.edges(state.secrets).find(function(item){return item.key===geo.edgeKey(id,next)});
       var kind=edge.secret?'先显露入口':edge.status==='canon'?'关系有原著依据':'步行衔接为重建';
@@ -111,7 +150,7 @@
     var ids=visibleIds().filter(matches);
     $("ga-directory").innerHTML=ids.length?ids.map(function(id){
       var node=geo.nodes[id],room=atlas.rooms[id];
-      return '<tr><td><button type="button" data-select="'+safe(id)+'">'+safe(node.label)+'</button><small>'+safe(room.name)+'</small></td><td>'+safe(node.floor)+'<small>'+safe(labels[node.status])+'</small></td><td><code>'+safe(room.path)+'</code></td></tr>';
+      return '<tr><td><button type="button" data-select="'+safe(id)+'">'+safe(node.label)+'</button><small>'+safe(room.name)+'</small></td><td>'+safe(node.floor)+'<small>'+safe(labels[node.status])+'</small></td><td><code>'+safe(room.path)+'</code><button type="button" class="ga-inline-travel" data-visit="'+safe(id)+'"'+(validSession()?'':' disabled title="请先从 9¾ 站台进入"')+'>前往 ↗</button></td></tr>';
     }).join(''):'<tr><td colspan="3" class="ga-empty">没有匹配的地点。可尝试中文名或英文名。</td></tr>';
   }
   function renderRouteOptions(){
@@ -144,11 +183,14 @@
     var replacement=chart.querySelector('[data-room="'+id+'"]');if(replacement)replacement.focus();
   });
   document.addEventListener('click',function(event){
+    var jump=event.target.closest('[data-visit]');
+    if(jump){event.preventDefault();travelTo(jump.getAttribute('data-visit'));return}
     var target=event.target.closest('[data-select]');if(!target)return;
     var id=target.getAttribute('data-select');selectRoom(id);
     var point=chart.querySelector('[data-room="'+id+'"]');if(point)point.focus({preventScroll:true});
     if(target.closest('#ga-directory'))$("atlas-map").scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   });
+  $("ga-visit").addEventListener("click",function(){travelTo(state.selected)});
   $("ga-search").addEventListener('input',function(){state.query=this.value.trim().toLowerCase();renderGraph();renderDirectory()});
   geo.sections.forEach(function(section){
     var option=document.createElement('option');option.value=section.id;option.textContent=section.secret?'隐藏路线（跨楼层）':section.zh;option.hidden=!!section.secret;option.disabled=!!section.secret;$("ga-region").appendChild(option);
@@ -185,12 +227,12 @@
   $("ga-secret-total").textContent=Object.values(atlas.rooms).filter(function(room){return !!room.secret}).length;
   $("ga-paths").textContent=geo.edges(true).filter(function(edge){return !edge.secret}).length;
   $("ga-bibliography").innerHTML=Object.keys(geo.sources).map(function(key){var source=geo.sources[key];return '<li>'+sourceLink(key)+'<small>'+safe(sourceTiers[source.tier]||source.tier)+'</small></li>'}).join('');
-  try{
-    var session=JSON.parse(window.sessionStorage.getItem('hogwarts:session:v2')||'null');
-    if(session&&typeof session.id==='string'&&/^[a-f0-9]{32}$/.test(session.id)&&Date.now()-session.issued>=0&&Date.now()-session.issued<=21600000&&Array.isArray(session.visited)){
-      var current=atlas.byPath[session.current];
-      if(current&&session.visited.includes(current)){$("ga-return").href=atlas.rooms[current].path;$("ga-return").textContent='回到当前旅程 ↗'}
-    }
-  }catch(error){}
+  var session=validSession();
+  if(session){
+    var current=atlas.byPath[session.current];
+    $("ga-return").href=atlas.rooms[current].path;
+    $("ga-return").setAttribute("data-visit",current);
+    $("ga-return").textContent="回到当前旅程 ↗";
+  }
   renderGraph();renderDetail();renderDirectory();renderRouteOptions();
 })();

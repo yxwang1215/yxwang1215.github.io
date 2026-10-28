@@ -368,3 +368,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
   .ga-atlas-layout,.ga-rule-list li,.ga-evidence-cards article{box-shadow:none}
 }
 
+
+
+/* Room fast travel follows the cartographer readability layer. */
+.ga-travel{padding:17px 0;border-bottom:1px solid var(--line)}
+.ga-detail-content .ga-travel #ga-visit{display:block;width:100%;align-items:center;justify-content:center;padding:13px 15px;border:1px solid var(--green);border-radius:8px;background:var(--green);color:#fffdf4;font:700 15px/1.4 var(--ui)}
+.ga-detail-content .ga-travel #ga-visit:hover:not(:disabled){background:#1f4030}
+.ga-detail-content .ga-travel #ga-visit:disabled{background:#dfe6da;color:#5d7261;border-color:#b8c9b9;opacity:1;text-decoration:none}
+.ga-travel #ga-visit-hint{font:13px/1.7 var(--ui);color:var(--muted);margin:9px 0 0}
+.ga-table-wrap .ga-inline-travel{display:inline-flex;margin:9px 0 0;padding:7px 13px;border:1px solid #a4bbaa;border-radius:7px;background:#e5eee2;color:#2b5840;font:700 13px/1.5 var(--ui)}
+.ga-table-wrap .ga-inline-travel:hover:not(:disabled){background:#d1e2cf}
+.ga-table-wrap .ga-inline-travel:disabled{opacity:.55}
+@media(max-width:700px){.ga-detail-content .ga-travel #ga-visit{font-size:15px;padding:12px}.ga-travel #ga-visit-hint{font-size:12px}}

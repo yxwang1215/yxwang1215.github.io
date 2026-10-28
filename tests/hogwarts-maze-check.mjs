@@ -300,7 +300,7 @@ const gateScript = [...shell.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/
 assert.ok(gateScript, "Station-origin session gate is missing");
 const now = 1_800_000_000_000;
 const nonce = "a".repeat(32);
-function runGate(url, initial = {}) {
+function runGate(url, initial = {}, nav = {}) {
   const storage = new Map(Object.entries(initial));
   const result = { authorized: false, redirected: null, storage };
   const gateContext = {
@@ -308,6 +308,8 @@ function runGate(url, initial = {}) {
     window: {
       HogwartsAtlas: atlas,
       location: { pathname: url, replace: to => { result.redirected = to; } },
+      history: { state: nav.room ? { hogwarts:true, room:nav.room } : null },
+      performance: { getEntriesByType: () => [{ type: nav.type || "navigate" }] },
       sessionStorage: {
         getItem: key => storage.get(key) ?? null,
         removeItem: key => storage.delete(key),
@@ -334,9 +336,29 @@ const session = { id: nonce, issued: now - 1000, current: rooms.gate.path, visit
 assert.equal(runGate(rooms.library.path, { [sessionKey]: JSON.stringify(session) }).authorized, false,
   "An active session cannot deep-link to an unvisited room");
 session.visited.push("library");
-assert.equal(runGate(rooms.library.path, { [sessionKey]: JSON.stringify(session) }).authorized, true);
-session.issued = now - 21_600_001;
-assert.equal(runGate(rooms.library.path, { [sessionKey]: JSON.stringify(session) }).authorized, false,
-  "Expired journeys must not unlock room URLs");
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session)}).authorized,false,
+  "Typing a visited URL cannot grant access");
+const navKey="hogwarts:atlas:transfer:v1";
+const nav={from:"/hogwarts/atlas/",to:rooms.library.path,sessionId:nonce,at:now-250,nonce:"b".repeat(32)};
+const transferred=runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify(nav)});
+assert.equal(transferred.authorized,true,"A station journey may transfer from Atlas");
+assert.equal(transferred.storage.has(navKey),false,"Atlas transfer must be consumed");
+assert.equal(runGate(rooms.library.path,Object.fromEntries(transferred.storage)).authorized,false,
+  "A consumed transfer cannot be replayed");
+assert.equal(runGate(rooms.gate.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify(nav)}).authorized,false,
+  "A transfer cannot authorize a different destination");
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify({...nav,at:now-61000})}).authorized,false,
+  "Expired transfers must fail");
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify({...nav,sessionId:"f".repeat(32)})}).authorized,false,
+  "Transfers are bound to their session");
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session)},{type:"reload",room:"library"}).authorized,true,
+  "Browser reload should work");
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session)},{type:"back_forward",room:"library"}).authorized,true,
+  "History restoration should work");
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session)},{type:"navigate",room:"library"}).authorized,false,
+  "Address-bar navigation is not history restoration");
+session.issued=now-21600001;
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify(nav)}).authorized,false,
+  "An expired journey must reject transfer");
 
 console.log("Hogwarts maze checks passed: 113 rooms, 49 original legacy URLs, 100 ordinary routes, 15 secrets, 3 cycles; session gates preserved.");

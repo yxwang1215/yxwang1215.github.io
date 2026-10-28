@@ -246,6 +246,7 @@ Object.defineProperty(location, 'href', { get: () => '/hogwarts/atlas/', set: fo
 const publicWindow = {
   HogwartsAtlas: atlas, HogwartsScenes: scenes, HogwartsGeography: geo,
   sessionStorage: storage, localStorage: storage,
+  crypto: { getRandomValues(bytes) { bytes.fill(0xab); return bytes; } },
   history: { pushState: forbiddenTravel, replaceState: forbiddenTravel },
   matchMedia: () => ({ matches: true })
 };
@@ -450,6 +451,23 @@ assert.equal($('ga-region').querySelector('[value="unmapped"]').disabled, true);
 assert.ok(storageReads.every(key => key === 'hogwarts:session:v2'), 'Overview must not depend on a station pass');
 assert.deepEqual(storageWrites, [], 'Inspecting the public map must not change exploration progress');
 assert.deepEqual(travels, [], 'Selections and route queries must never move the explorer');
+assert.equal($('ga-visit').disabled,true,'No station journey means no atlas transfer');
+const journey={id:"a".repeat(32),issued:Date.now()-1000,current:atlas.rooms.gate.path,visited:["gate"]};
+storage.getItem=key=>{
+  storageReads.push(key);
+  return key==="hogwarts:session:v2"?JSON.stringify(journey):null;
+};
+storage.setItem=(key,value)=>storageWrites.push([key,value]);
+location.assign=url=>travels.push(url);
+clickRoom("library");
+assert.equal($('ga-visit').disabled,false,'Station journey enables atlas transfer');
+$('ga-visit').fire('click');
+assert.deepEqual(travels,[atlas.rooms.library.path]);
+const [ticketKey,ticketValue]=storageWrites.at(-1);
+assert.equal(ticketKey,"hogwarts:atlas:transfer:v1");
+assert.equal(JSON.parse(ticketValue).to,atlas.rooms.library.path);
+assert.equal(JSON.parse(ticketValue).sessionId,journey.id);
+assert.equal(JSON.parse(ticketValue).nonce,"ab".repeat(16));
 
 console.log('Hogwarts geography checks passed: 113 annotated scenes, 115 audited edges, ' + routeChecks +
   ' shortest-route checks, zero unrelated-node crossings, regional keyboard access, focus restoration and search.');
