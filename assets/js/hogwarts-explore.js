@@ -268,6 +268,8 @@
         persist();
       }catch(error){
         busy=false;ceremonyArmed=false;shell.classList.remove("is-transitioning");
+        if(window.HogwartsSoundtrack&&window.HogwartsSoundtrack.sync)
+          window.HogwartsSoundtrack.sync();
         observation.textContent="The ancient door cannot open without browser session storage.";
         observation.classList.add("is-visible");
         return;
@@ -321,6 +323,10 @@
     }).catch(function(){
       if(token!==transitionId)return;
       busy=false;shell.classList.remove("is-preparing","is-transitioning");
+      // The soundtrack was prepared on click; restore the old cue if the
+      // destination could not be loaded and the URL never changed.
+      if(window.HogwartsSoundtrack&&window.HogwartsSoundtrack.sync)
+        window.HogwartsSoundtrack.sync();
       observation.textContent="The passage is taking a moment. Try it again when you are ready.";
       observation.classList.add("is-visible");
     });
@@ -360,17 +366,26 @@
       var dir=door.getAttribute("data-door");
       if(!current.exits[dir])return;
       var target=approachOf(dir);
+      // The click on a pictured passage is the user gesture for soundtrack playback.
+      if(window.HogwartsSoundtrack&&window.HogwartsSoundtrack.prepareForTravel)
+        window.HogwartsSoundtrack.prepareForTravel(atlas.rooms[current.exits[dir]].path);
       goTo(target.x,target.y,{exit:dir});return;
     }
     var secret=event.target.closest("[data-secret]");
     if(secret&&host.contains(secret)&&current.secret){
       var secretData=scenes[current.id].secret;
       var spot=(secretOpen?secretData.open:secretData.trigger).point;
+      // A sealed mechanism is only a local reveal; switch music on the opened
+      // doorway click, not on discovering the secret.
+      if(secretOpen&&window.HogwartsSoundtrack&&window.HogwartsSoundtrack.prepareForTravel)
+        window.HogwartsSoundtrack.prepareForTravel(atlas.rooms[current.secret.to].path);
       goTo(spot[0],spot[1],{secret:true});return;
     }
     var ceremony=event.target.closest("[data-ceremony]");
     if(ceremony&&host.contains(ceremony)&&current.id==="great"){
       var dais=scenes.great.ceremony.point;
+      if(window.HogwartsSoundtrack&&window.HogwartsSoundtrack.prepareForTravel)
+        window.HogwartsSoundtrack.prepareForTravel("/hogwarts/sorting-ceremony/");
       goTo(dais[0],dais[1],{ceremony:true});return;
     }
     // A background click is observation, never permission to leave the scene.
