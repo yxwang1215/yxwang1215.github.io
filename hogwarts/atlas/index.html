@@ -9,7 +9,7 @@ sitemap: false
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#f4f0e6">
-  <meta name="description" content="霍格沃茨 URL 迷宫的完整关系图、路径查询与原著依据。">
+  <meta name="description" content="霍格沃茨地点图谱：从 Atlas 直接进入所选场景，也可以从 9¾ 站台开始探索。">
   <title>霍格沃茨路径图谱 · Hogwarts Atlas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@ sitemap: false
   <script src="/assets/js/hogwarts-atlas.js?v=20261027-expansion-v1" defer></script>
   <script src="/assets/js/hogwarts-scenes.js?v=20261027-expansion-v1" defer></script>
   <script src="/assets/js/hogwarts-geography.js?v=20261027-expansion-v1" defer></script>
-  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261028-fasttravel-v1" defer></script>
+  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261028-atlas-direct-v2" defer></script>
 </head>
 <body>
   <a class="ga-skip" href="#atlas-map">跳到关系图</a>
@@ -33,9 +33,9 @@ sitemap: false
           <h1 id="page-title">霍格沃茨<span>路径图谱</span></h1>
           <p class="ga-lede">门通向房间，楼梯连接楼层，小路伸向湖岸与森林。<br>沿着这张图，读懂整个 URL 迷宫。</p>
         </div>
-        <aside class="ga-intro-note"><span class="ga-plate-number">NO. 09¾</span><p>这是<strong>关系示意图</strong>。连线表示一段通行关系，可能包含省略的走廊、楼梯或注明的魔法返回；距离、朝向与门序不代表原著建筑比例。</p><a id="ga-return" href="/platform-934/">从 9¾ 站台开始探索 <span aria-hidden="true">↗</span></a></aside>
+        <aside class="ga-intro-note"><span class="ga-plate-number">NO. 09¾</span><p>这是<strong>关系示意图，也是进入 Hogwarts 的入口</strong>。选择地点，即可直接进入场景；也可以从 9¾ 站台开始步行探索。连线表示通行关系，不代表实际距离。</p><a id="ga-return" href="/platform-934/">从 9¾ 站台开始探索 <span aria-hidden="true">↗</span></a></aside>
       </section>
-      <div class="ga-stats" aria-label="迷宫概况"><span><strong id="ga-total">113</strong> 地点</span><span><strong id="ga-paths">52</strong> 普通连接</span><span><strong id="ga-secret-total">15</strong> 隐藏入口</span><span class="ga-stats-note">选中地点后可直接前往 · 首次仍需从站台进入</span></div>
+      <div class="ga-stats" aria-label="迷宫概况"><span><strong id="ga-total">113</strong> 地点</span><span><strong id="ga-paths">52</strong> 普通连接</span><span><strong id="ga-secret-total">15</strong> 隐藏入口</span><span class="ga-stats-note">Atlas 和 9¾ 站台均可进入 · 场景 URL 不能直接解锁</span></div>
 
       <section class="ga-map-section" id="atlas-map" aria-labelledby="map-title">
         <div class="ga-section-head"><div><p class="ga-eyebrow">01 / THE CONNECTED WORLD</p><h2 id="map-title">地点之间，如何抵达</h2></div><p>选择地点查看通路，并使用「进入此地点」快速抵达。</p></div>
@@ -50,11 +50,11 @@ sitemap: false
             <div class="ga-map-scroll" id="ga-map-scroll" tabindex="0" aria-label="可滚动的霍格沃茨关系图；可使用缩放按钮或选择区域">
               <svg id="ga-chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 3610" aria-labelledby="chart-title chart-desc"><title id="chart-title">霍格沃茨地点关系图</title><desc id="chart-desc">选择地点查看 URL、相邻地点与原著资料。用区域选择器查看局部；隐藏入口需要明确开启剧透。</desc></svg>
             </div>
-            <div class="ga-legend"><span><i class="ga-line is-canon"></i>原著支持的关系</span><span><i class="ga-line"></i>重建的步行连接</span><span><i class="ga-line is-secret"></i>需显露的隐藏入口</span><span class="ga-legend-hint">首次从站台进入后，可从图谱快速抵达所有地点</span></div>
+            <div class="ga-legend"><span><i class="ga-line is-canon"></i>原著支持的关系</span><span><i class="ga-line"></i>重建的步行连接</span><span><i class="ga-line is-secret"></i>需显露的隐藏入口</span><span class="ga-legend-hint">无需站台预先解锁 · 选中地点后点击「进入此地点」</span></div>
           </div>
           <aside class="ga-detail" aria-labelledby="ga-detail-title">
             <div class="ga-detail-image"><img id="ga-detail-image" alt="" width="1672" height="941"><span id="ga-detail-status"></span></div>
-            <div class="ga-detail-content"><p class="ga-eyebrow" id="ga-detail-floor"></p><h3 id="ga-detail-title">城堡大门</h3><p class="ga-detail-en" id="ga-detail-en"></p><p id="ga-detail-note"></p><code id="ga-detail-url"></code><div class="ga-travel"><button id="ga-visit" type="button" disabled>进入此地点 ↗</button><p id="ga-visit-hint" role="status">请先从 9¾ 站台进入 Hogwarts，解锁图谱通行。</p></div><h4>相连地点</h4><ul id="ga-neighbors"></ul><div class="ga-detail-sources"><h4>依据</h4><ul id="ga-detail-sources"></ul></div></div>
+            <div class="ga-detail-content"><p class="ga-eyebrow" id="ga-detail-floor"></p><h3 id="ga-detail-title">城堡大门</h3><p class="ga-detail-en" id="ga-detail-en"></p><p id="ga-detail-note"></p><code id="ga-detail-url"></code><div class="ga-travel"><button id="ga-visit" type="button" aria-label="进入当前选中的 Hogwarts 地点">进入此地点 ↗</button><p id="ga-visit-hint" role="status">可从 Atlas 直接进入所选地点，无须先从站台出发。</p></div><h4>相连地点</h4><ul id="ga-neighbors"></ul><div class="ga-detail-sources"><h4>依据</h4><ul id="ga-detail-sources"></ul></div></div>
           </aside>
         </div>
         <div class="ga-route-card">
@@ -87,7 +87,7 @@ sitemap: false
         <div class="ga-caveat"><h3>保留不确定性</h3><p>校医院和校长办公室的入口楼层在不同卷的路线描述中并不完全一致；变形术教室的确切楼层未被固定。本站作了可行的安排，并在对应地点注明。石桥、回廊、储物间、蓄水池等扩展场景也明确标为重建或创作，不作为原著地名。</p><a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/hogwarts-third-floor/hospital-wing/" target="_blank" rel="noopener noreferrer">校医院楼层资料 ↗</a> <a href="https://www.hp-lexicon.org/place/hogwarts-school-of-witchcraft-and-wizardry/transfiguration-classroom/" target="_blank" rel="noopener noreferrer">变形术教室资料 ↗</a></div>
       </section>
 
-      <section id="url-directory" aria-labelledby="directory-title"><div class="ga-section-head"><div><p class="ga-eyebrow">04 / EVERY PLACE HAS AN ADDRESS</p><h2 id="directory-title">地点与 URL 目录</h2></div><p>与上方查找和剧透设置同步。</p></div><p class="ga-directory-note">URL 标识地点，并非直接通行证。先从 9¾ 站台进入 Hogwarts，再使用图谱的「进入此地点」或「前往」快速抵达；直接输入 URL 无法解锁场景。</p><div class="ga-table-wrap"><table><thead><tr><th scope="col">地点</th><th scope="col">位置与依据</th><th scope="col">URL</th></tr></thead><tbody id="ga-directory"></tbody></table></div><noscript><p>交互关系图与完整目录需要 JavaScript。上方的原著说明和来源仍可阅读。</p></noscript></section>
+      <section id="url-directory" aria-labelledby="directory-title"><div class="ga-section-head"><div><p class="ga-eyebrow">04 / EVERY PLACE HAS AN ADDRESS</p><h2 id="directory-title">地点与 URL 目录</h2></div><p>与上方查找和剧透设置同步。</p></div><p class="ga-directory-note">Atlas 与 9¾ 站台是两个进入 Hogwarts 的入口：在图谱选中地点后按「进入此地点」，或从目录按「前往」。直接打开单个场景 URL 不会获得通行权限；进入后仍可以沿门、路和楼梯探索。</p><div class="ga-table-wrap"><table><thead><tr><th scope="col">地点</th><th scope="col">位置与依据</th><th scope="col">URL</th></tr></thead><tbody id="ga-directory"></tbody></table></div><noscript><p>交互关系图与完整目录需要 JavaScript。上方的原著说明和来源仍可阅读。</p></noscript></section>
       <details class="ga-bibliography"><summary>资料目录与章节缩写</summary><p>PS《魔法石》 · CS《密室》 · PA《阿兹卡班的囚徒》 · GF《火焰杯》 · OP《凤凰社》 · HBP《混血王子》 · DH《死亡圣器》。数字为章号。Harry Potter Lexicon 为按章节编排的二手索引；官方百科与作者补充另行标记。</p><ol id="ga-bibliography"></ol></details>
     </main>
     <footer class="ga-footer"><span>HOGWARTS · THE UNMAPPED WORLD</span><p>原著线索为经，合理通路为纬。<br><small>非官方同人场景 · 关系图不按比例</small></p><a href="/platform-934/">回到 9¾ 站台 ↗</a></footer>

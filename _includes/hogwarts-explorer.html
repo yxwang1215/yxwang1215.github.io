@@ -23,7 +23,8 @@
       try{
         var raw=window.sessionStorage.getItem(passKey);
         window.sessionStorage.removeItem(passKey);
-        var ticket=raw?JSON.parse(raw):null;
+        var ticket=null;
+        try{ticket=raw?JSON.parse(raw):null}catch(error){ticket=null}
         var ticketAge=ticket?now-ticket.at:-1;
         if(path==="/hogwarts/"&&roomId==="gate"&&ticket&&ticket.from==="/platform-934/"&&
            typeof ticket.at==="number"&&ticketAge>=0&&ticketAge<=60000&&
@@ -33,23 +34,26 @@
           }));
           allowed=true;
         }
-        // Consume a single-use transfer even when the requested destination is wrong.
+        // A typed scene URL is not an entrance. Only Platform 9¾ or an
+        // Atlas-issued, one-use ticket can start a visit. Consume the Atlas
+        // ticket even when its destination or timestamp does not match.
         var navRaw=window.sessionStorage.getItem(navKey);
         window.sessionStorage.removeItem(navKey);
         if(!allowed&&roomId){
-          var previous=JSON.parse(window.sessionStorage.getItem(sessionKey)||"null");
+          var previous=null,nav=null;
+          try{previous=JSON.parse(window.sessionStorage.getItem(sessionKey)||"null")}catch(error){}
+          try{nav=navRaw?JSON.parse(navRaw):null}catch(error){}
           var age=previous?now-previous.issued:-1;
           var active=!!(previous&&typeof previous.id==="string"&&/^[a-f0-9]{32}$/.test(previous.id)&&
             typeof previous.issued==="number"&&age>=0&&age<=21600000&&
             Array.isArray(previous.visited)&&typeof previous.current==="string"&&
             atlas.byPath[previous.current]&&previous.visited.indexOf(atlas.byPath[previous.current])!==-1);
+          var navAge=nav?now-nav.at:-1;
+          var fromAtlas=!!(nav&&nav.from==="/hogwarts/atlas/"&&nav.to===path&&
+            typeof nav.at==="number"&&navAge>=0&&navAge<=60000&&
+            typeof nav.nonce==="string"&&/^[a-f0-9]{32}$/.test(nav.nonce));
           if(active){
-            var nav=navRaw?JSON.parse(navRaw):null;
-            var navAge=nav?now-nav.at:-1;
-            allowed=!!(nav&&nav.from==="/hogwarts/atlas/"&&nav.to===path&&
-              nav.sessionId===previous.id&&typeof nav.at==="number"&&
-              navAge>=0&&navAge<=60000&&typeof nav.nonce==="string"&&
-              /^[a-f0-9]{32}$/.test(nav.nonce));
+            allowed=!!(fromAtlas&&nav.sessionId===previous.id);
             // Only actual reload and history traversal may restore a visited URL.
             if(!allowed&&previous.visited.indexOf(roomId)!==-1){
               var entries=window.performance&&window.performance.getEntriesByType&&
@@ -59,6 +63,12 @@
               allowed=!!(state&&state.hogwarts===true&&state.room===roomId&&
                 (type==="reload"||type==="back_forward"));
             }
+          }else if(fromAtlas&&nav.sessionId===null){
+            // Start at the selected Atlas room; other rooms stay unvisited.
+            window.sessionStorage.setItem(sessionKey,JSON.stringify({
+              id:nav.nonce,issued:now,current:path,visited:[roomId]
+            }));
+            allowed=true;
           }
         }
       }catch(error){allowed=false}

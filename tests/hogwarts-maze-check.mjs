@@ -339,6 +339,27 @@ session.visited.push("library");
 assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session)}).authorized,false,
   "Typing a visited URL cannot grant access");
 const navKey="hogwarts:atlas:transfer:v1";
+const freshNav={from:"/hogwarts/atlas/",to:rooms.library.path,sessionId:null,at:now-250,nonce:"c".repeat(32)};
+const firstAtlas=runGate(rooms.library.path,{[navKey]:JSON.stringify(freshNav)});
+assert.equal(firstAtlas.authorized,true,"A first-time Atlas visitor can enter a chosen scene");
+assert.equal(firstAtlas.storage.has(navKey),false,"Fresh Atlas ticket must be consumed");
+assert.deepEqual(JSON.parse(firstAtlas.storage.get(sessionKey)).visited,["library"],"Atlas starts in the selected room only");
+assert.equal(JSON.parse(firstAtlas.storage.get(sessionKey)).current,rooms.library.path);
+assert.equal(JSON.parse(firstAtlas.storage.get(sessionKey)).id,freshNav.nonce);
+assert.equal(runGate(rooms.library.path,Object.fromEntries(firstAtlas.storage)).authorized,false,
+  "A consumed Atlas transfer cannot authorize a typed URL");
+for(const [reason,invalidNav,url] of [
+  ["expired", {...freshNav,at:now-60001}, rooms.library.path],
+  ["wrong destination", freshNav, rooms.gate.path],
+  ["unapproved origin", {...freshNav,from:"/journal/"}, rooms.library.path],
+  ["invalid nonce", {...freshNav,nonce:"not-hex"}, rooms.library.path],
+  ["wrong session binding", {...freshNav,sessionId:"f".repeat(32)}, rooms.library.path]
+]){
+  assert.equal(runGate(url,{[navKey]:JSON.stringify(invalidNav)}).authorized,false,
+    "Fresh Atlas entry rejects "+reason);
+}
+assert.equal(runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify(freshNav)}).authorized,false,
+  "An active journey cannot be silently restarted using an unbound Atlas ticket");
 const nav={from:"/hogwarts/atlas/",to:rooms.library.path,sessionId:nonce,at:now-250,nonce:"b".repeat(32)};
 const transferred=runGate(rooms.library.path,{[sessionKey]:JSON.stringify(session),[navKey]:JSON.stringify(nav)});
 assert.equal(transferred.authorized,true,"A station journey may transfer from Atlas");
