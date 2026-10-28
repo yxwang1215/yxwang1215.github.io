@@ -28,7 +28,7 @@ function assertArtwork(path, source, width, height) {
   const bytes = readFileSync(path);
   if (source.endsWith(".svg")) {
     assert.match(bytes.toString("utf8"), /<svg[^>]*width="1600" height="900"/);
-  } else if (/\\.jpe?g$/i.test(source)) {
+  } else if (source.endsWith(".jpg") || source.endsWith(".jpeg")) {
     const size = jpegDimensions(bytes);
     assert.deepEqual(size, { width, height }, "Unexpected JPEG size " + source);
   } else if (source.endsWith(".webp")) {
