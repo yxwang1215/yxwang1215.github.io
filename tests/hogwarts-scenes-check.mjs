@@ -141,6 +141,11 @@ function checkRegion(region, label, { evidence = false, allowedKinds = kinds } =
   assert.ok(region && !Array.isArray(region), label + ": legacy ellipse is not a passage");
   assert.ok(Array.isArray(region.polygon) && region.polygon.length >= 3, label + ": missing polygon");
   const polygon = region.polygon;
+  // All ordinary and hidden hit areas must be shaped, not axis-aligned boxes.
+  if (polygon.length === 4) {
+    const xs = new Set(polygon.map(([x]) => x)), ys = new Set(polygon.map(([, y]) => y));
+    assert.ok(xs.size !== 2 || ys.size !== 2, label + ": generic rectangular hotspot remains");
+  }
   for (const point of [...polygon, region.point]) {
     assert.ok(Array.isArray(point) && point.length === 2, label + ": invalid coordinate");
     assert.ok(point.every(n => Number.isFinite(n) && n >= 0 && n <= 100), label + ": point outside uncropped image");
