@@ -290,6 +290,9 @@ function harness(start, options = {}) {
       const target = host.querySelector('[data-door="' + direction + '"]');
       assert.ok(target, "The real scene must render the requested passage target");
       host.emit("click", { target, preventDefault() {}, stopImmediatePropagation() {} });
+      assert.equal(result.soundtrack.getState().track,
+        result.soundtrack.selectForPath(atlas.rooms[destination].path).id,
+        "Clicking the pictured passage must select its soundtrack without opening the player panel");
       await Promise.resolve();
       assert.equal(location.pathname, atlas.rooms[destination].path,
         "An intentional click on the rendered passage must reach its atlas destination");
@@ -300,7 +303,15 @@ function harness(start, options = {}) {
       assert.ok(target, "The room must render an interactive secret target");
       assert.equal(target.getAttribute("role"), expectedRole,
         "Secret discovery must be a local button before it becomes a traversable opening");
+      const scoreBefore = result.soundtrack.getState().track;
+      const fromId = window.HogwartsAtlas.byPath[location.pathname];
       host.emit("click", { target, preventDefault() {}, stopImmediatePropagation() {} });
+      assert.equal(result.soundtrack.getState().track,
+        expectedRole === "link"
+          ? result.soundtrack.selectForPath(window.HogwartsAtlas.rooms[
+            window.HogwartsAtlas.rooms[fromId].secret.to].path).id
+          : scoreBefore,
+        "Revealing a secret must preserve the score until its open doorway is clicked");
       await Promise.resolve();
     },
     key(key) {
