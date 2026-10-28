@@ -182,6 +182,13 @@ assert.match(geo.nodes.flying.note, /不等同于魁地奇/);
 // The minimal DOM deliberately models only the APIs the page needs for these interactions.
 const overviewHtml = readFileSync('hogwarts/atlas/index.html', 'utf8');
 const overviewText = readFileSync('assets/js/hogwarts-atlas-overview.js', 'utf8');
+const parchmentCss = readFileSync('assets/css/hogwarts-marauders-atlas.css', 'utf8');
+assert.match(overviewHtml, /<html lang="en">/, 'Atlas interface should use English');
+assert.match(overviewHtml, /hogwarts-marauders-atlas\.css/, 'Atlas should use the parchment frontend');
+assert.match(overviewHtml, /The Living Map/, 'Parchment atlas title is missing');
+assert.match(parchmentCss, /\.ga-atlas-layout\s*\{/, 'Parchment layout style is missing');
+assert.match(parchmentCss, /\.ga-footprint\s*\{/, 'Route footprint style is missing');
+assert.doesNotMatch(parchmentCss, /url\([^)]*\/(?:assets\/images|ghostwriter_images)/, 'Do not replace the frontend with a generated image');
 assert.doesNotMatch(overviewHtml, /hogwarts-explorer\.html|hogwarts:platform934:pass:v1|data-hgw-authorized/);
 const loads = [...overviewHtml.matchAll(/<script[^>]+src="([^"]+)"/g)].map(match => match[1].split('?')[0]);
 assert.deepEqual(loads, [
@@ -345,6 +352,12 @@ assert.doesNotMatch($('ga-chart').innerHTML, /\bis-dim\b/, 'Initial view should 
 assert.equal($('ga-focus-clear').disabled, true);
 assert.equal(Number($('ga-total').textContent), 113);
 assert.equal(Number($('ga-paths').textContent), 100);
+assert.equal($('ga-detail-title').textContent, atlas.rooms.gate.name, 'Detail title should be in English');
+assert.doesNotMatch($('ga-detail-floor').textContent, /[\u3400-\u9FFF]/, 'Floor labels should be in English');
+assert.doesNotMatch($('ga-detail-note').textContent, /[\u3400-\u9FFF]/, 'Location descriptions should be in English');
+assert.match($('ga-chart-status').textContent, /places.*passages/, 'Map counter should be in English');
+assert.doesNotMatch($('ga-chart').innerHTML, /<image\b/i, 'Do not use a static image in place of the graph');
+assert.match($('ga-chart').innerHTML, /ga-engraving/, 'Render inked landmarks as vector elements');
 assert.doesNotMatch($('ga-directory').innerHTML, /<a\b/, 'The URL directory is a reference, not fast travel');
 for (const source of Object.values(geo.sources)) {
   assert.ok($('ga-bibliography').innerHTML.includes('href="' + source.url + '"'), 'Bibliography omits ' + source.url);
@@ -359,6 +372,7 @@ const clickRoom = id => {
 };
 clickRoom('library');
 assert.equal($('ga-detail-url').textContent, atlas.rooms.library.path, 'Selecting a node should show its details');
+assert.equal($('ga-detail-title').textContent, atlas.rooms.library.name, 'Selection should show the original English scene name');
 assert.equal(scrollCalls.at(-1)?.id, 'library', 'Selection must bring the chosen point into view');
 assert.match($('ga-chart').innerHTML, /\bis-dim\b/, 'Selection should distinguish its neighbors');
 assert.equal($('ga-focus-clear').disabled, false);
@@ -369,6 +383,8 @@ $('ga-route-to').value = 'pantry';
 assert.equal($('ga-route-form').fire('submit').prevented, true);
 assert.deepEqual([...$('ga-route-result').innerHTML.matchAll(/data-select="([^"]+)"/g)].map(match => match[1]),
   ['gate', 'entry', 'basementPassage', 'kitchens', 'pantry']);
+assert.match($('ga-route-result').innerHTML, /4 passages/, 'Route instructions should be in English');
+assert.match($('ga-route-result').innerHTML, /Follow these rooms in order/, 'Retain route tracing');
 $('ga-focus-clear').fire('click');
 assert.doesNotMatch($('ga-chart').innerHTML, /\bis-dim\b/, 'Clear highlight must restore the whole graph');
 assert.equal($('ga-route-result').innerHTML, '');
@@ -395,7 +411,7 @@ for (const query of ['图书馆', '  LIBRARY  ', atlas.rooms.library.path]) {
   $('ga-search').value = query;
   $('ga-search').fire('input');
   assert.deepEqual(directoryIds(), ['library'], 'Search should accept Chinese, case-insensitive English and URLs');
-  assert.match($('ga-chart-status').textContent, /^1 个匹配/);
+  assert.match($('ga-chart-status').textContent, /^1 matching/);
   assertKeyboardRooms(teachingIds);
 }
 selectReference('library', 'ga-directory');
@@ -404,7 +420,7 @@ assertKeyboardRooms(expectedPublic);
 $('ga-search').value = 'no-such-hogwarts-place';
 $('ga-search').fire('input');
 assert.deepEqual(directoryIds(), []);
-assert.match($('ga-chart-status').textContent, /^0 个匹配/);
+assert.match($('ga-chart-status').textContent, /^0 matching/);
 $('ga-search').value = '';
 $('ga-search').fire('input');
 assert.deepEqual(directoryIds(), expectedPublic, 'Clearing search must restore the directory');
@@ -416,6 +432,7 @@ $('ga-secrets').fire('change');
 assert.deepEqual(chartIds(), ids);
 assert.deepEqual(directoryIds(), ids);
 assert.equal($('ga-region').querySelector('[value="unmapped"]').hidden, false);
+assert.match($('ga-chart').innerHTML, /ga-engraving/, 'Secret layer should retain parchment engravings');
 verifyDrawing();
 $('ga-region').value = 'towers';
 $('ga-region').fire('change');
