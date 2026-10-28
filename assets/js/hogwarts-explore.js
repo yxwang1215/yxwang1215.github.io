@@ -111,7 +111,7 @@
   function roomScene(room){
     var scene=scenes[room.id],view=secretOpen&&scene.secret?scene.secret.open:scene;
     var content='<div class="hgw-scene" data-room="'+safe(room.id)+'">'+
-      '<img class="hgw-scene-image" src="'+safe(view.src)+'" width="'+scene.width+'" height="'+scene.height+'" alt="'+safe(view.alt||scene.alt)+'" decoding="async" fetchpriority="high" draggable="false">'+
+      '<img class="hgw-scene-image" src="'+safe(view.src)+'" width="'+view.width+'" height="'+view.height+'" alt="'+safe(view.alt||scene.alt)+'" decoding="async" fetchpriority="high" draggable="false">'+
       doorMarkup(room);
     if(room.secret&&scene.secret){
       var secretRegion=secretOpen?scene.secret.open:scene.secret.trigger;
@@ -173,7 +173,8 @@
       teacher.innerHTML='<div><span class="hgw-teacher-name">'+safe(room.teacher)+'</span><span class="hgw-teacher-subject">'+safe(room.subject)+'</span></div>';
     }else teacher.innerHTML="";
     observation.classList.remove("is-visible");observation.textContent="";
-    host.style.aspectRatio=scenes[id].width+" / "+scenes[id].height;
+    var activeFrame=secretOpen&&scenes[id].secret?scenes[id].secret.open:scenes[id];
+    host.style.aspectRatio=activeFrame.width+" / "+activeFrame.height;
     renderStage(room);
     var sceneImage=host.querySelector(".hgw-scene-image");
     if(sceneImage)sceneImage.addEventListener("error",function(){
@@ -239,6 +240,7 @@
     loadSource(secret.open.src).then(function(){
       if(token!==transitionId)return;
       secretOpen=true;revealedSecrets[current.id]=true;busy=false;selectedPassage=null;
+      host.style.aspectRatio=secret.open.width+" / "+secret.open.height;
       renderStage(current);syncAvatar();
       shell.classList.remove("is-preparing");
       observation.textContent=secret.note||"An entrance has opened. Approach the opening when you are ready.";
