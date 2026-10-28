@@ -887,65 +887,73 @@
         "exits": {
           "n": {
             "point": [
-              33,
-              91
+              28,
+              92
             ],
             "polygon": [
-              [
-                17,
-                91
-              ],
-              [
-                22,
-                86
-              ],
-              [
-                35,
-                82
-              ],
-              [
-                44,
-                86
-              ],
-              [
-                46,
-                99
-              ],
               [
                 14,
                 99
-              ]
-            ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
-          },
-          "s": {
-            "point": [
-              52,
-              91
-            ],
-            "polygon": [
-              [
-                44,
-                84
               ],
               [
-                49,
-                82
+                19,
+                90
               ],
               [
-                59,
+                24,
+                87
+              ],
+              [
+                31,
                 85
               ],
               [
-                65,
-                99
+                36,
+                89
               ],
               [
-                39,
+                37,
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "stair",
+            "label": "Follow the stairs to Hogwarts Library"
+          },
+          "s": {
+            "point": [
+              53,
+              92
+            ],
+            "polygon": [
+              [
+                43,
+                99
+              ],
+              [
+                45,
+                88
+              ],
+              [
+                49,
+                85
+              ],
+              [
+                56,
+                85
+              ],
+              [
+                61,
+                89
+              ],
+              [
+                64,
+                99
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Turn back along the clear path to Middle Landings"
           },
           "e": {
             "point": [
@@ -978,7 +986,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "door",
+            "label": "Explore the passage to Gryffindor Common Room"
           }
         }
       },
@@ -1169,7 +1179,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Turn back along the clear path to Middle Landings"
           },
           "n": {
             "point": [
@@ -1202,7 +1214,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "door",
+            "label": "Explore the passage to Trophy Gallery"
           }
         }
       },
@@ -1600,7 +1614,9 @@
                 56
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "stair",
+            "label": "Follow the stairs to Middle Landings"
           },
           "n": {
             "point": [
@@ -1633,7 +1649,9 @@
                 98
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "door",
+            "label": "Follow the doorway to Myrtle's Bathroom"
           },
           "e": {
             "point": [
@@ -1666,7 +1684,9 @@
                 98
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Turn right along the corridor toward Prefects' Bathroom"
           }
         }
       },
@@ -2422,7 +2442,9 @@
                 95
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Fourth-floor Portrait Corridor"
           }
         }
       },
@@ -3345,33 +3367,37 @@
       "trigger": {
         "polygon": [
           [
-            36,
-            89
-          ],
-          [
-            40,
-            85
-          ],
-          [
-            54,
+            43,
             84
           ],
           [
-            65,
-            89
+            44,
+            77
           ],
           [
-            65,
-            97
+            49,
+            74
           ],
           [
-            36,
-            98
+            55,
+            77
+          ],
+          [
+            58,
+            83
+          ],
+          [
+            55,
+            86
+          ],
+          [
+            44,
+            86
           ]
         ],
         "point": [
           49,
-          91
+          80
         ],
         "kind": "inspect",
         "label": "Inspect the old floorboards",
@@ -3451,7 +3477,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Turn back along the clear path to Green Lantern Passage"
           },
           "w": {
             "point": [
@@ -3484,7 +3512,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Forgotten Crypt"
           },
           "e": {
             "point": [
@@ -3517,7 +3547,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Old Storeroom"
           }
         }
       },
@@ -3688,7 +3720,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Archive Passage"
           }
         }
       },
@@ -3925,31 +3959,37 @@
           "s": {
             "point": [
               48,
-              92
+              90
             ],
             "polygon": [
               [
-                40,
-                84
+                38,
+                99
               ],
               [
-                45,
-                80
+                41,
+                86
+              ],
+              [
+                46,
+                83
+              ],
+              [
+                52,
+                83
               ],
               [
                 55,
-                81
+                89
               ],
               [
-                58,
-                99
-              ],
-              [
-                37,
+                55,
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Turn back along the clear path to Dungeon Stairwell"
           },
           "w": {
             "point": [
@@ -3982,40 +4022,40 @@
                 98
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Potions"
           },
           "n": {
             "point": [
-              63,
-              87
+              61.5,
+              90
             ],
             "polygon": [
               [
-                57,
-                77
+                58,
+                99
               ],
               [
-                60,
-                73
+                59,
+                86
               ],
               [
-                66,
-                73
+                61,
+                84
               ],
               [
-                70,
-                82
+                64,
+                84
               ],
               [
-                70,
-                98
-              ],
-              [
-                57,
-                98
+                64,
+                99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Follow the path to Archive Passage"
           },
           "e": {
             "point": [
@@ -4048,7 +4088,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Underground Reservoir"
           }
         }
       },
@@ -4887,7 +4929,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "path",
+            "label": "Follow the path to Black Lake"
           }
         }
       },
@@ -5622,8 +5666,8 @@
         "exits": {
           "n": {
             "point": [
-              10,
-              57
+              7,
+              58
             ],
             "polygon": [
               [
@@ -5631,56 +5675,54 @@
                 50
               ],
               [
-                6,
+                5,
                 47
               ],
               [
-                13,
-                45
+                11,
+                47
               ],
               [
-                17,
-                49
+                14,
+                52
               ],
               [
-                18,
-                61
+                14,
+                65
               ],
               [
-                9,
-                66
-              ],
-              [
-                2,
-                64
+                3,
+                65
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to South Courtyard"
           },
           "w": {
             "point": [
-              11,
-              90
+              10,
+              91
             ],
             "polygon": [
               [
                 1,
-                84
-              ],
-              [
-                4,
-                81
-              ],
-              [
-                16,
-                79
-              ],
-              [
-                23,
                 86
               ],
               [
-                24,
+                5,
+                82
+              ],
+              [
+                15,
+                81
+              ],
+              [
+                20,
+                86
+              ],
+              [
+                22,
                 99
               ],
               [
@@ -5688,12 +5730,14 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Creature Paddock"
           },
           "s": {
             "point": [
-              13,
-              73
+              9,
+              72
             ],
             "polygon": [
               [
@@ -5701,101 +5745,103 @@
                 69
               ],
               [
-                7,
-                65
+                5,
+                67
               ],
               [
-                16,
-                63
-              ],
-              [
-                22,
-                66
-              ],
-              [
-                24,
-                76
-              ],
-              [
-                9,
-                78
-              ]
-            ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
-          },
-          "e": {
-            "point": [
-              25,
-              58
-            ],
-            "polygon": [
-              [
-                16,
-                46
-              ],
-              [
-                19,
-                40
-              ],
-              [
-                24,
-                37
-              ],
-              [
-                30,
-                41
-              ],
-              [
-                32,
-                68
-              ],
-              [
-                25,
-                78
+                13,
+                67
               ],
               [
                 16,
                 72
+              ],
+              [
+                16,
+                78
+              ],
+              [
+                3,
+                78
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "arch",
+            "label": "Follow the open arch to Flying-lesson Lawn"
+          },
+          "e": {
+            "point": [
+              25,
+              55
+            ],
+            "polygon": [
+              [
+                18,
+                47
+              ],
+              [
+                21,
+                42
+              ],
+              [
+                26,
+                40
+              ],
+              [
+                30,
+                45
+              ],
+              [
+                31,
+                65
+              ],
+              [
+                28,
+                77
+              ],
+              [
+                19,
+                76
+              ]
+            ],
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "door",
+            "label": "Explore the passage to Quidditch Stands"
           },
           "a": {
             "point": [
-              11,
-              40
+              7,
+              43
             ],
             "polygon": [
               [
                 2,
-                37
+                36
               ],
               [
-                6,
-                34
-              ],
-              [
-                15,
-                30
-              ],
-              [
-                23,
+                7,
                 32
               ],
               [
-                24,
+                13,
+                33
+              ],
+              [
+                15,
                 40
               ],
               [
                 14,
-                44
+                45
               ],
               [
                 2,
-                43
+                46
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "door",
+            "label": "Explore the passage to Quidditch Goal Hoops"
           }
         }
       },
@@ -7330,19 +7376,19 @@
         "polygon": [
           [
             50,
-            74
+            80
           ],
           [
             59,
-            65
+            74
           ],
           [
-            73,
-            61
+            70,
+            71
           ],
           [
-            78,
-            70
+            76,
+            75
           ],
           [
             77,
@@ -7354,8 +7400,8 @@
           ]
         ],
         "point": [
-          64,
-          88
+          63,
+          87
         ],
         "kind": "path",
         "label": "Follow the passage to Hogsmeade Station",
@@ -8345,7 +8391,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "stair",
+            "label": "Follow the passage to The Hog's Head"
           }
         }
       },
@@ -9008,7 +9056,9 @@
                 99
               ]
             ],
-            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph."
+            "evidence": "Alternative return-route hotspot for the revealed photograph; preserve this exit in the graph.",
+            "kind": "door",
+            "label": "Follow the passage to Third-floor Armour Gallery"
           }
         }
       },
