@@ -260,11 +260,13 @@
     chart.innerHTML=html;
     chart.setAttribute('viewBox',box.join(' '));
     chart.style.aspectRatio=box[2]+" / "+box[3];
-    var baseline=state.region==='all'||state.region==='unmapped'?1250:Math.max(740,Math.min(1200,box[2]*1.08));
+    // 100% is a genuine fit-to-viewport view, not the previous 1250px
+    // minimum that forced lateral scrolling even before zooming.
     chart.style.minWidth='0';
-    chart.style.width='calc(max(100%, '+baseline+'px) * '+state.zoom+')';
+    chart.style.width=state.zoom===1?'100%':'calc(100% * '+state.zoom+')';
+    $("ga-map-scroll").style.overflowX=state.zoom>1?'auto':'hidden';
     $("ga-zoom-reset").textContent=Math.round(state.zoom*100)+'%';
-    $("ga-zoom-out").disabled=state.zoom<=.65;
+    $("ga-zoom-out").disabled=state.zoom<=1;
     $("ga-zoom-in").disabled=state.zoom>=2;
     $("ga-focus-clear").disabled=!state.focused&&!state.route;
     $("ga-chart-status").textContent=(state.query?ids.filter(matches).length+' matching · ':'')+ids.length+' places · '+edges.length+' passages';
@@ -360,8 +362,8 @@
     renderGraph();renderDetail();renderDirectory();renderRouteOptions();renderRoute();
   });
   $("ga-zoom-in").addEventListener('click',function(){state.zoom=Math.min(2,state.zoom+.15);renderGraph()});
-  $("ga-zoom-out").addEventListener('click',function(){state.zoom=Math.max(.65,state.zoom-.15);renderGraph()});
-  $("ga-zoom-reset").addEventListener('click',function(){state.zoom=1;renderGraph()});
+  $("ga-zoom-out").addEventListener('click',function(){state.zoom=Math.max(1,Math.round((state.zoom-.15)*100)/100);renderGraph()});
+  $("ga-zoom-reset").addEventListener('click',function(){state.zoom=1;renderGraph();$("ga-map-scroll").scrollLeft=0});
   $("ga-focus-clear").addEventListener('click',function(){state.focused=false;state.route=null;renderGraph();renderDetail();renderRoute()});
   $("ga-route-form").addEventListener('submit',function(event){
     event.preventDefault();state.route=geo.route($("ga-route-from").value,$("ga-route-to").value,state.secrets);
