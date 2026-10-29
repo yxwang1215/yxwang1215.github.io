@@ -6,6 +6,32 @@
   if(!atlas||!geo||!scenes||!chart)return;
   var $=function(id){return document.getElementById(id)};
   var state={selected:"gate",focused:false,region:"all",secrets:false,query:"",zoom:1,route:null};
+  // The desktop rails are no longer permanently visible. Reuse the existing
+  // search and route controls in an optional floating parchment drawer.
+  var explorer=$("ga-left-rail"),exploreToggle=$("ga-explore-toggle");
+  var routeCard=$("route-planner");
+  if(explorer&&routeCard)explorer.appendChild(routeCard);
+  function closeExplorer(){
+    explorer.classList.remove("is-open");
+    exploreToggle.setAttribute("aria-expanded","false");
+  }
+  exploreToggle.addEventListener("click",function(){
+    var open=!explorer.classList.contains("is-open");
+    explorer.classList.toggle("is-open",open);
+    exploreToggle.setAttribute("aria-expanded",String(open));
+    if(open)$("ga-search").focus();
+  });
+  document.addEventListener("pointerdown",function(event){
+    if(explorer.classList.contains("is-open")&&!explorer.contains(event.target)&&!exploreToggle.contains(event.target))closeExplorer();
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key!=="Escape")return;
+    if(explorer.classList.contains("is-open")){
+      closeExplorer();exploreToggle.focus();
+    }else if(state.focused){
+      state.focused=false;renderGraph();renderDetail();
+    }
+  });
   var sessionKey="hogwarts:session:v2",transferKey="hogwarts:atlas:transfer:v1";
   function validSession(){
     try{
@@ -201,6 +227,9 @@
     var id=state.selected,node=geo.nodes[id],room=atlas.rooms[id],image=$("ga-detail-image");
     image.src=scenes[id].src;image.alt=scenes[id].alt;
     $("ga-detail-title").textContent=room.name;
+    // The compact travel card replaces the permanent inspector on screen.
+    $("ga-quick-name").textContent=room.name;
+    $("ga-quick-visit").hidden=!state.focused;
     $("ga-detail-en").textContent=room.kicker||regionName(node.group);
     $("ga-detail-status").textContent=labels[node.status]||labels.inferred;
     $("ga-detail-floor").textContent=floorName(node);
@@ -267,14 +296,18 @@
     if(target.closest('#ga-directory'))$("atlas-map").scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   });
   $("ga-visit").addEventListener("click",function(){travelTo(state.selected)});
+  $("ga-quick-enter").addEventListener("click",function(){travelTo(state.selected)});
+  $("ga-quick-dismiss").addEventListener("click",function(){
+    state.focused=false;renderGraph();renderDetail();
+  });
   $("ga-search").addEventListener('input',function(){state.query=this.value.trim().toLowerCase();renderGraph();renderDirectory()});
   geo.sections.forEach(function(section){
     var option=document.createElement('option');option.value=section.id;option.textContent=regionName(section.id);option.hidden=!!section.secret;option.disabled=!!section.secret;$("ga-region").appendChild(option);
   });
-  $("ga-region").addEventListener('change',function(){state.region=this.value;state.focused=false;state.zoom=1;renderGraph();$("ga-map-scroll").scrollTop=0;$("ga-map-scroll").scrollLeft=0});
+  $("ga-region").addEventListener('change',function(){state.region=this.value;state.focused=false;state.zoom=1;renderGraph();renderDetail();$("ga-map-scroll").scrollTop=0;$("ga-map-scroll").scrollLeft=0});
   $("ga-secrets").addEventListener('change',function(){
     state.secrets=this.checked;
-    if(!state.secrets&&geo.nodes[state.selected].hidden)state.selected='gate';
+    if(!state.secrets&&geo.nodes[state.selected].hidden){state.selected='gate';state.focused=false}
     if(!state.secrets&&geo.sections.some(function(section){return section.secret&&section.id===state.region})){state.region='all';$("ga-region").value='all'}
     geo.sections.filter(function(section){return section.secret}).forEach(function(section){var option=$("ga-region").querySelector('[value="'+section.id+'"]');if(option){option.hidden=!state.secrets;option.disabled=!state.secrets}});
     if(state.route&&state.route.some(function(id){return !state.secrets&&geo.nodes[id].hidden}))state.route=null;
@@ -283,7 +316,7 @@
   $("ga-zoom-in").addEventListener('click',function(){state.zoom=Math.min(2,state.zoom+.15);renderGraph()});
   $("ga-zoom-out").addEventListener('click',function(){state.zoom=Math.max(.65,state.zoom-.15);renderGraph()});
   $("ga-zoom-reset").addEventListener('click',function(){state.zoom=1;renderGraph()});
-  $("ga-focus-clear").addEventListener('click',function(){state.focused=false;state.route=null;renderGraph();renderRoute()});
+  $("ga-focus-clear").addEventListener('click',function(){state.focused=false;state.route=null;renderGraph();renderDetail();renderRoute()});
   $("ga-route-form").addEventListener('submit',function(event){
     event.preventDefault();state.route=geo.route($("ga-route-from").value,$("ga-route-to").value,state.secrets);
     state.region='all';$("ga-region").value='all';
