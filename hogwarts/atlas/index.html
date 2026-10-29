@@ -14,13 +14,13 @@ sitemap: false
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-marauders-atlas.css?v=20261028-parchment-v1">
+  <link rel="stylesheet" href="/assets/css/hogwarts-marauders-atlas.css?v=20261029-map-only-v1">
   <script src="/assets/js/hogwarts-atlas.js?v=20261028-english-passage-v1" defer></script>
   <script src="/assets/js/hogwarts-scenes.js?v=20261028-english-passage-v1" defer></script>
   <script src="/assets/js/hogwarts-geography.js?v=20261028-english-passage-v1" defer></script>
-  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261028-english-passage-v1" defer></script>
+  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261029-map-only-v1" defer></script>
 </head>
-<body>
+<body class="ga-map-only">
   <a class="ga-skip" href="#atlas-map">Skip to the map</a>
   <div class="ga-page">
     <header class="ga-mast">
@@ -79,7 +79,7 @@ sitemap: false
         </div>
 
         <div class="ga-atlas-layout">
-          <aside class="ga-left-rail" aria-label="Map navigation and legend">
+          <aside class="ga-left-rail" id="ga-left-rail" aria-label="Map search, settings and route planning">
             <div class="ga-rail-top"><span class="ga-rail-star" aria-hidden="true">✣</span><h3>The Navigator's Desk</h3><span class="ga-rail-subtitle">MAPS · PATHS · PLACES</span></div>
             <div class="ga-toolbar">
               <label class="ga-search" for="ga-search"><span>Find a place</span><input id="ga-search" type="search" placeholder="Great Hall, Library, Hagrid…" autocomplete="off"></label>
@@ -116,6 +116,11 @@ sitemap: false
           </aside>
 
           <div class="ga-map-pane">
+            <div class="ga-map-topbar">
+              <a class="ga-map-back" href="/platform-934/" aria-label="Return to Platform Nine and Three-Quarters">← Platform 9¾</a>
+              <span class="ga-map-wordmark" aria-hidden="true">✣ THE MARAUDER'S ATLAS ✣</span>
+              <button id="ga-explore-toggle" class="ga-explore-toggle" type="button" aria-controls="ga-left-rail" aria-expanded="false">Search &amp; Secrets</button>
+            </div>
             <div class="ga-map-ribbon"><span>HOGWARTS &amp; ITS SURROUNDINGS</span><span aria-hidden="true">✦</span><span>THE UNFOLDING PARCHMENT</span></div>
             <div class="ga-chart-tools">
               <p id="ga-chart-status" role="status">Unfolding the parchment…</p>
@@ -136,6 +141,11 @@ sitemap: false
                   <desc id="chart-desc">Each cartouche is a place. Ink paths represent passages. Choose a place to inspect it and enter its scene. Reveal hidden passages to see concealed rooms.</desc>
                 </svg>
               </div>
+            </div>
+            <div class="ga-quick-visit" id="ga-quick-visit" hidden aria-live="polite">
+              <div class="ga-quick-text"><span class="ga-quick-label">A PLACE ON THE PARCHMENT</span><strong id="ga-quick-name"></strong></div>
+              <button type="button" id="ga-quick-enter" class="ga-quick-enter">Enter This Place ↗</button>
+              <button type="button" id="ga-quick-dismiss" class="ga-quick-dismiss" aria-label="Clear the selected place">×</button>
             </div>
             <div class="ga-legend"><span>✧ Follow the charted connections</span><span class="ga-legend-hint">The drawing is schematic; distances are not to scale.</span></div>
           </div>
