@@ -249,9 +249,14 @@ a:hover{color:#874c29}
 }
 .ga-map-scroll:focus-visible{outline:2px dashed #9c6234;outline-offset:-6px}
 #ga-chart{display:block;width:100%;min-width:800px;height:auto;overflow:visible}
-.ga-zone rect{fill:rgba(243,225,187,.45);stroke:#a27d4e;stroke-width:1.4;stroke-dasharray:5 5;rx:8}
-.ga-zone.is-secret rect{fill:rgba(129,70,52,.045);stroke:#8e5440;stroke-dasharray:3 4}
-.ga-zone text{font:600 18px var(--caps);letter-spacing:1.1px;fill:#825a35}
+/* Region borders are drawn as winding ink contours rather than boxes. */
+.ga-zone .ga-zone-contour{
+  fill:rgba(242,222,181,.19);stroke:rgba(124,84,46,.65);
+  stroke-width:1.45;stroke-dasharray:6 9;stroke-linecap:round;
+  stroke-linejoin:round;pointer-events:none;
+}
+.ga-zone.is-secret .ga-zone-contour{fill:rgba(133,66,49,.035);stroke:#8e5440;stroke-dasharray:3 7}
+.ga-zone text{font:600 17px var(--caps);letter-spacing:1.15px;fill:#825a35;pointer-events:none}
 .ga-zone.is-secret text{fill:#86473d}
 .ga-engraving{fill:none;stroke:#805331;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.41;pointer-events:none}
 .ga-engraving.is-water{stroke:#846848;opacity:.32}
@@ -264,19 +269,46 @@ a:hover{color:#874c29}
 .ga-edge.is-route{stroke:#78382d;stroke-width:6;stroke-dasharray:4 8;opacity:1;animation:ga-footsteps 28s linear infinite}
 .ga-edge.is-dim{opacity:.095}
 .ga-footprint{fill:#773c30;opacity:.92;pointer-events:none}
+/* Rectangles remain as invisible generous pointer/touch targets for each place;
+   the visible location mark is an engraved SVG path with scroll/ribbon/crest ends. */
 .ga-point{cursor:pointer;outline:0;transition:opacity .16s}
-.ga-point rect{
-  fill:#f2dfb9;stroke:#6f482b;stroke-width:1.7;rx:2;
-  filter:drop-shadow(0 2px 2px rgba(90,52,28,.13));
+.ga-point .ga-hitbox{
+  fill:transparent;stroke:none;filter:none;pointer-events:all;
 }
-.ga-point circle{fill:#a07a48;stroke:#67462d;stroke-width:1}
-.ga-point text{fill:#422c1e;font:500 14.2px var(--book);letter-spacing:.05px;pointer-events:none}
-.ga-point.is-selected rect,.ga-point:focus-visible rect{fill:#f8e9c8;stroke:#783b2d;stroke-width:3.2}
-.ga-point.is-selected circle{fill:#7c392b}
-.ga-point.is-hidden rect{stroke:#8e4c3d;stroke-dasharray:5 3}
-.ga-point.is-route rect{fill:#ead0a4;stroke:#82422e;stroke-width:2.5}
+.ga-point .ga-cartouche{
+  fill:#f1dfbd;stroke:#6f482b;stroke-width:1.6;
+  stroke-linejoin:round;pointer-events:none;
+  filter:drop-shadow(0 2px 1px rgba(90,52,28,.17));
+  transition:fill .18s,stroke .18s,stroke-width .18s;
+}
+.ga-point.is-ribbon .ga-cartouche{fill:#f6e4c0;stroke:#8c6545}
+.ga-point.is-crest .ga-cartouche{fill:#eacfa2;stroke:#74462d;stroke-width:1.9}
+.ga-point .ga-cartouche-thread{
+  fill:none;stroke:rgba(113,69,37,.48);stroke-width:.75;
+  stroke-linecap:round;pointer-events:none;
+}
+.ga-point .ga-wax-ring{
+  fill:#c49b60;stroke:#6e4a32;stroke-width:1.15;
+  pointer-events:none;
+}
+.ga-point .ga-wax-star{fill:#64432b;stroke:none;pointer-events:none}
+.ga-point .ga-point-label{
+  fill:#422b1e;font:500 14.6px var(--book);
+  letter-spacing:.04px;pointer-events:none;
+}
+.ga-point.is-crest .ga-wax-ring{fill:#9d6850;stroke:#68392f}
+.ga-point.is-crest .ga-wax-star{fill:#f1d8ad}
+.ga-point.is-selected .ga-cartouche,
+.ga-point:focus-visible .ga-cartouche{
+  fill:#fff0cc;stroke:#7b382c;stroke-width:3;
+  filter:drop-shadow(0 2px 3px rgba(111,51,32,.27));
+}
+.ga-point.is-selected .ga-wax-ring{fill:#8e4733;stroke:#6e2e27}
+.ga-point.is-selected .ga-wax-star{fill:#fff0d2}
+.ga-point.is-hidden .ga-cartouche{stroke:#8b453d;stroke-dasharray:4 3}
+.ga-point.is-route .ga-cartouche{fill:#ecd1a2;stroke:#87452b;stroke-width:2.6}
 .ga-point.is-dim{opacity:.16}
-.ga-point:hover rect{fill:#fff0ca;stroke:#88492c;stroke-width:3}
+.ga-point:hover .ga-cartouche{fill:#fff0cf;stroke:#88492c;stroke-width:2.6}
 .ga-point:focus-visible{outline:none}
 .ga-legend{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 19px;border-top:1px solid var(--rule);font:italic 17px/1.3 var(--script);color:#6c462e}
 .ga-legend-hint{opacity:.75}
