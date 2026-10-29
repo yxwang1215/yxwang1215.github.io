@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="cover-title cover-desc">
+<title id="cover-title">The Art of Teaching and Learning</title>
+<desc id="cover-desc">A warm editorial illustration: a study desk, open notebooks, two abstract teacher-and-student figures, and a looping path of ideas. Cream parchment, muted olive, ink blue and copper.</desc>
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbf8f1"/><stop offset=".53" stop-color="#f1eadc"/><stop offset="1" stop-color="#d6c5ad"/></linearGradient>
+  <linearGradient id="sunlight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffbef" stop-opacity=".8"/><stop offset="1" stop-color="#efca93" stop-opacity=".12"/></linearGradient>
+  <linearGradient id="desktop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b99369"/><stop offset="1" stop-color="#745a48"/></linearGradient>
+  <linearGradient id="book" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#e7d7b9"/></linearGradient>
+  <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f6dcac" stop-opacity=".86"/><stop offset="1" stop-color="#e2b67f" stop-opacity="0"/></radialGradient>
+  <filter id="shadow" x="-35%" y="-35%" width="170%" height="185%"><feDropShadow dx="0" dy="19" stdDeviation="21" flood-color="#574636" flood-opacity=".18"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="37"/></filter>
+  <pattern id="grain" width="90" height="90" patternUnits="userSpaceOnUse"><circle cx="12" cy="18" r="1" fill="#62472e" opacity=".1"/><circle cx="49" cy="58" r=".8" fill="#62472e" opacity=".11"/><circle cx="80" cy="21" r=".9" fill="#fff" opacity=".35"/></pattern>
+  <clipPath id="art"><rect x="0" y="0" width="1600" height="900"/></clipPath>
+</defs>
+<g clip-path="url(#art)">
+<rect width="1600" height="900" fill="url(#paper)"/>
+<rect width="1600" height="900" fill="url(#grain)"/>
+<path d="M880 -80 L1110 -80 L1515 545 L1310 600Z" fill="url(#sunlight)" opacity=".58"/>
+<path d="M1150 -80 L1295 -80 L1690 585 L1543 585Z" fill="#fff8e7" opacity=".28"/>
+<circle cx="1240" cy="330" r="415" fill="url(#halo)" opacity=".82"/>
+<circle cx="1648" cy="-38" r="320" fill="#cfbca3" opacity=".25"/>
+<path d="M813 82 V815" stroke="#d4c4ad" stroke-width="2" opacity=".55"/>
+
+<!-- Editorial title: left column intentionally uncluttered. -->
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="104" y="117" font-size="23" letter-spacing="8" fill="#6c796e" font-weight="600">JOURNAL</text>
+<path d="M270 109 H386" stroke="#bd9f76" stroke-width="2"/>
+<text x="105" y="190" font-size="19" letter-spacing="4.5" fill="#847767">RESEARCH NOTES  /  29 OCT 2026</text>
+</g>
+<g fill="#24343a" font-family="Georgia, 'Times New Roman', serif">
+<text x="99" y="346" font-size="100" letter-spacing="-3">The art of</text>
+<text x="99" y="461" font-size="113" letter-spacing="-5" font-style="italic">teaching</text>
+<text x="99" y="580" font-size="105" letter-spacing="-4">&amp; learning.</text>
+</g>
+<path d="M104 632 H557" stroke="#b4895c" stroke-width="4" stroke-linecap="round"/>
+<g fill="#495c5b" font-size="29" font-family="'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif">
+<text x="104" y="710">Student 如何向 Teacher 学习？</text>
+<text x="104" y="763" fill="#827768" font-size="23" letter-spacing="2">SFT · OPD · SKILLS · EDUCATION</text>
+</g>
+
+<!-- Background chalk annotations, deliberately light. -->
+<g font-family="Georgia, serif" font-size="22" font-style="italic" fill="#9a8b76" opacity=".7">
+<text x="941" y="132">question</text>
+<text x="1315" y="154">guidance</text>
+<text x="1189" y="264">reflection</text>
+<text x="1390" y="412">practice</text>
+</g>
+<g fill="none" stroke="#a98d69" stroke-width="2.5" opacity=".41">
+<path d="M980 155 C1080 88 1208 113 1244 202" stroke-dasharray="7 10"/>
+<path d="M1345 180 C1418 258 1389 339 1322 369" stroke-dasharray="7 10"/>
+<path d="M1211 266 C1125 283 1079 321 1042 389" stroke-dasharray="7 10"/>
+<circle cx="1244" cy="204" r="5" fill="#c6a277"/>
+<circle cx="1320" cy="369" r="5" fill="#c6a277"/>
+</g>
+
+<!-- Warm desk and its subtle shadow. -->
+<ellipse cx="1250" cy="792" rx="540" ry="105" fill="#9b7c5d" opacity=".14" filter="url(#soft)"/>
+<path d="M791 738 Q1057 708 1600 749 L1600 930 L810 930Z" fill="url(#desktop)"/>
+<path d="M815 752 Q1131 734 1600 759" stroke="#dfb98b" stroke-width="7" fill="none" opacity=".5"/>
+<g stroke="#6c5140" stroke-width="2" opacity=".2" fill="none"><path d="M892 841 Q1120 803 1539 846"/><path d="M979 892 Q1200 868 1560 906"/></g>
+
+<!-- Two compact books under the shared notebook. -->
+<g filter="url(#shadow)">
+<path d="M917 676 L1119 634 L1323 685 L1119 728Z" fill="#6f8175"/>
+<path d="M919 686 L1119 641 L1324 691 L1122 736Z" fill="#f2e7d2"/>
+<path d="M918 685 L1123 728 L1123 757 L917 713Z" fill="#69776c"/>
+<path d="M1123 728 L1323 685 L1324 710 L1123 757Z" fill="#4f5e55"/>
+<path d="M958 712 L1151 672 L1350 717 L1158 757Z" fill="#c09061"/>
+<path d="M959 718 L1158 753 L1158 772 L960 738Z" fill="#ae8055"/>
+<path d="M1158 753 L1349 713 L1349 729 L1158 772Z" fill="#856346"/>
+</g>
+
+<!-- Open shared learning notebook, with a gentle page curl. -->
+<g filter="url(#shadow)">
+<path d="M872 722 Q995 665 1131 715 Q1285 655 1433 713 L1448 803 Q1271 759 1136 817 Q986 768 877 814Z" fill="#ac825c" opacity=".5"/>
+<path d="M871 708 Q1013 644 1130 707 L1135 798 Q1002 747 875 802Z" fill="url(#book)"/>
+<path d="M1130 707 Q1278 643 1439 705 L1441 802 Q1284 752 1135 798Z" fill="#f8efe0"/>
+<path d="M1131 706 Q1138 752 1135 800" stroke="#c2a785" stroke-width="4" fill="none"/>
+<g stroke="#a9b2a6" stroke-width="3" opacity=".55" stroke-linecap="round">
+<path d="M926 719 Q1001 696 1078 723"/><path d="M932 743 Q1002 724 1085 748"/><path d="M947 770 Q1000 756 1074 774"/>
+<path d="M1190 716 Q1266 688 1363 716"/><path d="M1197 742 Q1280 714 1381 741"/><path d="M1196 768 Q1280 745 1365 769"/>
+</g>
+</g>
+
+<!-- Teacher and student appear as simple artisanal clay forms. -->
+<g filter="url(#shadow)">
+<ellipse cx="1052" cy="608" rx="72" ry="90" fill="#c2ae92" opacity=".45"/>
+<path d="M977 665 Q962 562 1009 533 Q1040 511 1084 536 Q1123 566 1124 667Z" fill="#a5a38d"/>
+<path d="M982 664 Q980 568 1024 542 Q1061 530 1082 564 L1085 662Z" fill="#d7c7ab"/>
+<circle cx="1041" cy="494" r="52" fill="#dfcdb0"/>
+<circle cx="1027" cy="476" r="34" fill="#eadbc3" opacity=".35"/>
+<path d="M1095 596 Q1132 612 1174 651" stroke="#c9b495" stroke-width="26" fill="none" stroke-linecap="round"/>
+<circle cx="1182" cy="656" r="13" fill="#e4ceb0"/>
+<ellipse cx="1281" cy="638" rx="52" ry="73" fill="#bcb1a0" opacity=".35"/>
+<path d="M1229 683 Q1225 597 1269 580 Q1304 568 1335 608 Q1350 635 1343 686Z" fill="#cdbda1"/>
+<path d="M1247 676 Q1246 609 1280 594 Q1308 604 1315 677Z" fill="#f0dbc0" opacity=".55"/>
+<circle cx="1280" cy="549" r="39" fill="#e4d2b5"/>
+</g>
+
+<!-- Knowledge transfer: a looping curve rather than a one-way arrow. -->
+<path d="M1091 459 C1155 382 1260 402 1322 476" fill="none" stroke="#a77748" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 13" opacity=".7"/>
+<path d="M1310 449 L1326 481 L1293 478" fill="none" stroke="#a77748" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".74"/>
+<path d="M1252 469 C1191 428 1112 433 1082 479" fill="none" stroke="#83948b" stroke-width="3.5" stroke-dasharray="7 14" opacity=".48"/>
+<g fill="#b88f60"><circle cx="1193" cy="426" r="7"/><circle cx="1153" cy="430" r="4"/></g>
+
+<!-- Distinctive small index at the lower edge. -->
+<g font-family="Arial, sans-serif" fill="#f9ecda" letter-spacing="3" font-size="17" opacity=".82">
+<text x="1402" y="866">VOL. 10 / 2026</text>
+</g>
+</g>
+</svg>
