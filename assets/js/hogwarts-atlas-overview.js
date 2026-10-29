@@ -121,7 +121,8 @@
   }
   function shortenLabel(id,width){
     var name=atlas.rooms[id].name.replace(/^The\s+/i,"");
-    var length=Math.max(11,Math.floor((width-28)/6.5));
+    // Leave breathing room for the left-hand ink seal and the organic paper edge.
+    var length=Math.max(10,Math.floor((width-54)/7.2));
     if(name.length<=length)return name;
     return name.slice(0,length-1).replace(/\s+\S*$/,"").trim()+"…";
   }
@@ -137,13 +138,53 @@
     return '<a href="'+safe(source.url)+'" target="_blank" rel="noopener noreferrer">'+safe(source.title)+' ↗</a><small>'+safe((source.books||[]).join(" · "))+'</small>';
   }
   function routePairs(){var pairs=new Set();if(state.route)for(var i=1;i<state.route.length;i++)pairs.add(geo.edgeKey(state.route[i-1],state.route[i]));return pairs}
+  // The concealed annex occupies a whole horizontal band. In spoiler-free
+  // mode, collapse that *unpainted* band instead of leaving a blank continent
+  // between Quidditch and the Castle Annex. Source geography stays unchanged.
+  var hiddenAnnex=geo.overviewSections.find(function(section){return section.id==='hiddenAnnex'}).box;
+  var castleAnnex=geo.overviewSections.find(function(section){return section.id==='castleAnnex'}).box;
+  var annexShift=castleAnnex[1]-hiddenAnnex[1];
+  function paperPosition(id){
+    var point=geo.nodes[id].position;
+    return !state.secrets&&geo.nodes[id].group==='castleAnnex'?[point[0],point[1]-annexShift]:point;
+  }
+  function paperSectionBox(section){
+    var box=section.box;
+    return !state.secrets&&section.id==='castleAnnex'?[box[0],box[1]-annexShift,box[2],box[3]]:box;
+  }
   function diagramBox(){
-    if(state.region==='all'||state.region==='unmapped')return [0,0,1200,3610];
-    return (geo.overviewSections.find(function(section){return section.id===state.region})||{}).box||[0,0,1200,3610];
+    if(state.region==='all'||state.region==='unmapped')return [0,0,1200,state.secrets?3610:3610-annexShift];
+    var section=geo.overviewSections.find(function(item){return item.id===state.region});
+    return section?paperSectionBox(section):[0,0,1200,3610-annexShift];
   }
   function insideBox(id,box){
-    var point=geo.nodes[id].position;
+    var point=paperPosition(id);
     return point[0]>=box[0]&&point[0]<=box[0]+box[2]&&point[1]>=box[1]&&point[1]<=box[1]+box[3];
+  }
+  // Slightly wavering ink contours give geographic regions organic edges.
+  function zoneOutline(box){
+    var x=box[0],y=box[1],w=box[2],h=box[3];
+    return 'M'+(x+18)+','+(y+3)+
+      ' Q'+(x+w*.5)+','+(y-2)+' '+(x+w-18)+','+(y+3)+
+      ' Q'+(x+w+1)+','+(y+5)+' '+(x+w-1)+','+(y+23)+
+      ' Q'+(x+w-4)+','+(y+h*.48)+' '+(x+w)+','+(y+h-20)+
+      ' Q'+(x+w-2)+','+(y+h+2)+' '+(x+w-21)+','+(y+h-2)+
+      ' Q'+(x+w*.5)+','+(y+h+2)+' '+(x+21)+','+(y+h-1)+
+      ' Q'+(x-1)+','+(y+h-1)+' '+(x+2)+','+(y+h-24)+
+      ' Q'+(x+6)+','+(y+h*.53)+' '+(x+1)+','+(y+18)+
+      ' Q'+(x+3)+','+(y+3)+' '+(x+18)+','+(y+3)+'Z';
+  }
+  // Three hand-inked cartouches replace repetitive square map nodes.
+  function cartoucheKind(id,node){
+    if(node.hidden||/^common|^roR|requirement|chamber|sanctum/.test(id))return 'crest';
+    if(['grounds','outerGrounds','hogsmeade','quidditchGrounds'].includes(node.group))return 'ribbon';
+    return 'scroll';
+  }
+  function cartouchePath(width,kind){
+    var l=-width/2,r=width/2;
+    if(kind==='ribbon')return 'M'+(l+13)+',-18 Q'+(l+6)+',-20 '+(l+5)+',-11 L'+(l+10)+',-2 L'+(l+3)+',9 Q'+(l+3)+',15 '+(l+13)+',18 Q0,15 '+(r-13)+',18 L'+(r-3)+',9 L'+(r-10)+',-2 L'+(r-5)+',-11 Q'+(r-7)+',-20 '+(r-14)+',-18 Q0,-16 '+(l+13)+',-18 Z';
+    if(kind==='crest')return 'M'+(l+14)+',-19 Q0,-23 '+(r-14)+',-19 Q'+(r-3)+',-18 '+(r-4)+',-7 L'+(r-6)+',7 Q'+(r-10)+',19 '+(r-22)+',20 Q0,16 '+(l+22)+',20 Q'+(l+8)+',19 '+(l+5)+',7 L'+(l+4)+',-8 Q'+(l+4)+',-18 '+(l+14)+',-19 Z';
+    return 'M'+(l+13)+',-19 Q0,-16 '+(r-13)+',-19 Q'+(r+1)+',-16 '+(r-6)+',-5 Q'+(r+2)+',7 '+(r-11)+',18 Q0,21 '+(l+12)+',18 Q'+(l-1)+',14 '+(l+5)+',2 Q'+(l-1)+',-12 '+(l+13)+',-19 Z';
   }
   // Route long cross-floor links around node labels. Intermediate bends are
   // drawing coordinates only, never extra destinations or compass claims.
@@ -157,7 +198,7 @@
     'bathroom|sluice':{from:'bathroom',via:[[1190,525],[1190,1380],[105,1380]]}
   };
   function edgePath(edge){
-    var a=geo.nodes[edge.a].position,b=geo.nodes[edge.b].position,detour=drawingRoutes[edge.key];
+    var a=paperPosition(edge.a),b=paperPosition(edge.b),detour=drawingRoutes[edge.key];
     if(detour){var via=detour.from===edge.a?detour.via:detour.via.slice().reverse();return 'M'+[a].concat(via,[b]).map(function(point){return point.join(',')}).join('L')}
     var dx=b[0]-a[0],dy=b[1]-a[1];
     if(Math.abs(dx)<35||Math.abs(dy)<35)return "M"+a.join(",")+"L"+b.join(",");
@@ -170,11 +211,11 @@
       '<desc id="chart-desc">Cartouches mark the rooms. The ink connects real passageways. Select a room for its story and the option to enter.</desc>';
     geo.overviewSections.forEach(function(section){
       if(section.secret&&!state.secrets)return;
-      var zone=section.box;
-      html+='<g class="ga-zone'+(section.secret?' is-secret':'')+'"><rect x="'+zone[0]+'" y="'+zone[1]+'" width="'+zone[2]+'" height="'+zone[3]+'" rx="8"></rect>'+
-        '<text x="'+(zone[0]+19)+'" y="'+(zone[1]+30)+'">'+safe(regionName(section.id))+'</text>'+
+      var zone=paperSectionBox(section);
+      html+='<g class="ga-zone'+(section.secret?' is-secret':'')+'"><path class="ga-zone-contour" d="'+zoneOutline(zone)+'"></path>'+
+        '<text x="'+(zone[0]+20)+'" y="'+(zone[1]+30)+'">'+safe(regionName(section.id))+'</text>'+
         '<text class="ga-zone-ornament" x="'+(zone[0]+zone[2]-34)+'" y="'+(zone[1]+31)+'" text-anchor="middle">✦</text></g>';
-      html+=engraving(section);
+      html+=engraving({id:section.id,box:zone});
     });
     html+='<g aria-hidden="true">';
     edges.forEach(function(edge){
@@ -187,7 +228,7 @@
     html+='</g>';
     if(state.route&&state.route.length>1){
       for(var i=1;i<state.route.length;i++){
-        var a=geo.nodes[state.route[i-1]].position,b=geo.nodes[state.route[i]].position;
+        var a=paperPosition(state.route[i-1]),b=paperPosition(state.route[i]);
         var angle=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;
         html+=footprint((a[0]*.63+b[0]*.37),(a[1]*.63+b[1]*.37),angle);
         html+=footprint((a[0]*.37+b[0]*.63),(a[1]*.37+b[1]*.63),angle);
@@ -198,17 +239,22 @@
       var touchesHidden=edges.some(function(edge){return edge.a===id&&geo.nodes[edge.b].hidden||edge.b===id&&geo.nodes[edge.a].hidden});
       var dim=(!matches(id))||(state.query?false:state.focused&&!near&&!inRoute)||(state.region==='unmapped'&&!node.hidden&&!touchesHidden);
       var css='ga-point'+(selected?' is-selected':'')+(node.hidden?' is-hidden':'')+(inRoute?' is-route':'')+(dim?' is-dim':'');
-      // Preserve the audited original cartouche bounds; long English labels get a tooltip.
+      // Keep the original rectangular bounds as invisible hit targets for
+      // keyboard/click geometry, while painting shaped ink-and-paper badges.
       var charWidth=Array.from(node.label).reduce(function(n,ch){
         var cp=ch.codePointAt(0);return n+(cp>=0x3400&&cp<=0x9fff?14.8:8.2);
       },0);
       var width=Math.max(148,Math.min(212,Math.round(charWidth+34)));
       if(['sluice','chamber','sanctum'].includes(id))width=Math.max(128,Math.min(178,Math.round(charWidth+30)));
-      var inView=insideBox(id,box);
-      html+='<g class="'+css+'" data-room="'+safe(id)+'" data-status="'+safe(node.status)+'" transform="translate('+node.position.join(',')+')" tabindex="'+(inView?'0':'-1')+'"'+
+      var inView=insideBox(id,box),kind=cartoucheKind(id,node),left=-width/2;
+      html+='<g class="'+css+' is-'+kind+'" data-room="'+safe(id)+'" data-status="'+safe(node.status)+'" transform="translate('+paperPosition(id).join(',')+')" tabindex="'+(inView?'0':'-1')+'"'+
         (inView?'':' aria-hidden="true"')+' role="button" aria-pressed="'+selected+'" aria-label="Inspect '+safe(atlas.rooms[id].name)+'">'+
-        '<rect x="'+(-width/2)+'" y="-21" width="'+width+'" height="42"></rect><circle cx="'+(-width/2+12)+'" cy="0" r="3.1"></circle>'+
-        '<text x="7" y="4.5" text-anchor="middle">'+safe(shortenLabel(id,width))+'</text>'+
+        '<rect class="ga-hitbox" x="'+left+'" y="-21" width="'+width+'" height="42"></rect>'+
+        '<path class="ga-cartouche" d="'+cartouchePath(width,kind)+'"></path>'+
+        '<path class="ga-cartouche-thread" d="M'+(left+31)+',-11 Q7,-13 '+(width/2-12)+',-11"></path>'+
+        '<circle class="ga-wax-ring" cx="'+(left+17)+'" cy="0" r="8"></circle>'+
+        '<path class="ga-wax-star" d="M'+(left+17)+',-5 l1.6,3.4 3.5,1.6 -3.5,1.6 -1.6,3.4 -1.6,-3.4 -3.5,-1.6 3.5,-1.6 Z"></path>'+
+        '<text class="ga-point-label" x="8" y="4.5" text-anchor="middle">'+safe(shortenLabel(id,width))+'</text>'+
         '<title>'+safe(atlas.rooms[id].name)+'</title></g>';
     });
     chart.innerHTML=html;
@@ -326,7 +372,13 @@
   $("ga-route-clear").addEventListener('click',function(){state.route=null;renderGraph();renderRoute()});
   $("ga-export").addEventListener('click',function(){
     var copy=chart.cloneNode(true),style=document.createElementNS('http://www.w3.org/2000/svg','style');
-    style.textContent='.ga-zone rect{fill:#ebd3a5;fill-opacity:.5;stroke:#a17c50;stroke-width:1.4;stroke-dasharray:5 5}.ga-zone text{font:600 18px Georgia,serif;fill:#825a35}.ga-engraving{fill:none;stroke:#805331;stroke-width:1.6;opacity:.35}.ga-edge{fill:none;stroke:#956f48;stroke-width:2.7;stroke-dasharray:4 6;stroke-linecap:round}.ga-edge.is-canon{stroke:#77502f;stroke-dasharray:none}.ga-edge.is-secret{stroke:#844238;stroke-width:3.3;stroke-dasharray:2 7}.ga-edge.is-route{stroke:#78382d;stroke-width:6;stroke-dasharray:4 8}.ga-edge.is-dim{opacity:.09}.ga-footprint{fill:#773c30}.ga-point rect{fill:#f2dfb9;stroke:#6f482b;stroke-width:1.7;rx:2}.ga-point text{fill:#422c1e;font:500 14.2px Georgia,serif}.ga-point circle{fill:#a07a48}.ga-point.is-hidden rect{stroke:#8e4c3d;stroke-dasharray:5 3}.ga-point.is-selected rect{fill:#f8e9c8;stroke:#783b2d;stroke-width:3.2}.ga-point.is-route rect{fill:#ead0a4;stroke:#82422e;stroke-width:2.5}.ga-point.is-dim{opacity:.16}';
+    style.textContent='.ga-zone .ga-zone-contour{fill:#ebd3a5;fill-opacity:.22;stroke:#a17c50;stroke-width:1.4;stroke-dasharray:7 9}.ga-zone text{font:600 18px Georgia,serif;fill:#825a35}.ga-engraving{fill:none;stroke:#805331;stroke-width:1.6;opacity:.35}.ga-edge{fill:none;stroke:#956f48;stroke-width:2.7;stroke-dasharray:4 6;stroke-linecap:round}.ga-edge.is-canon{stroke:#77502f;stroke-dasharray:none}.ga-edge.is-secret{stroke:#844238;stroke-width:3.3;stroke-dasharray:2 7}.ga-edge.is-route{stroke:#78382d;stroke-width:6;stroke-dasharray:4 8}.ga-edge.is-dim{opacity:.09}.ga-footprint{fill:#773c30}.ga-point rect{fill:#f2dfb9;stroke:#6f482b;stroke-width:1.7;rx:2}.ga-point text{fill:#422c1e;font:500 14.2px Georgia,serif}.ga-point circle{fill:#a07a48}.ga-point.is-hidden rect{stroke:#8e4c3d;stroke-dasharray:5 3}.ga-point.is-selected rect{fill:#f8e9c8;stroke:#783b2d;stroke-width:3.2}.ga-point.is-route rect{fill:#ead0a4;stroke:#82422e;stroke-width:2.5}.ga-point.is-dim{opacity:.16}'+
+      '.ga-point .ga-hitbox{fill:transparent;stroke:none}.ga-point .ga-cartouche{fill:#f2dfb9;stroke:#724a31;stroke-width:1.6}'+
+      '.ga-point.is-crest .ga-cartouche{fill:#edcf9f}.ga-point.is-ribbon .ga-cartouche{fill:#f3e1bc}'+
+      '.ga-point.is-selected .ga-cartouche{fill:#ffecc3;stroke:#783b2d;stroke-width:3}'+
+      '.ga-point .ga-cartouche-thread{fill:none;stroke:#9c724d;stroke-width:.65}'+
+      '.ga-point .ga-wax-ring{fill:#b78853;stroke:#65402c;stroke-width:1}'+
+      '.ga-point .ga-wax-star{fill:#533421;stroke:none}';
     copy.insertBefore(style,copy.firstChild);copy.removeAttribute('style');
     var view=copy.getAttribute('viewBox').split(' ').map(Number);copy.setAttribute('width',view[2]);copy.setAttribute('height',view[3]);
     var blob=new Blob([new XMLSerializer().serializeToString(copy)],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');
