@@ -356,6 +356,16 @@ function verifyDrawing() {
 const expectedPublic = ids.filter(id => !hiddenIds.includes(id));
 assert.deepEqual(chartIds(), expectedPublic, 'Public graph must render without station authorization');
 assert.deepEqual(directoryIds(), expectedPublic);
+assert.equal($('ga-chart').style.width,'100%', 'Initial atlas width must fit the screen, with no hard minimum');
+assert.equal($('ga-map-scroll').style.overflowX,'hidden', 'Initial atlas must not require horizontal dragging');
+assert.equal($('ga-zoom-out').disabled,true, 'Fit width should be the smallest zoom level');
+$('ga-zoom-in').fire('click');
+assert.equal($('ga-chart').style.width,'calc(100% * 1.15)', 'Explicit zoom should enlarge relative to the viewport');
+assert.equal($('ga-map-scroll').style.overflowX,'auto', 'Only explicit magnification should allow horizontal panning');
+$('ga-zoom-reset').fire('click');
+assert.equal($('ga-chart').style.width,'100%', 'Reset zoom must return to fit width');
+assert.equal($('ga-map-scroll').style.overflowX,'hidden', 'Reset zoom must disable horizontal scrolling');
+assert.equal($('ga-map-scroll').scrollLeft,0, 'Reset zoom must clear previous horizontal offset');
 assert.equal($('ga-chart').getAttribute('viewBox'), '0 0 1200 3200',
   'Spoiler-free drawing must collapse the omitted Hidden Annex band');
 assert.match($('ga-chart').innerHTML, /data-room="antechamber"[^>]*transform="translate\(150,2850\)"/,
