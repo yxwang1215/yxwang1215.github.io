@@ -356,6 +356,16 @@ function verifyDrawing() {
 const expectedPublic = ids.filter(id => !hiddenIds.includes(id));
 assert.deepEqual(chartIds(), expectedPublic, 'Public graph must render without station authorization');
 assert.deepEqual(directoryIds(), expectedPublic);
+assert.equal($('ga-chart').getAttribute('viewBox'), '0 0 1200 3200',
+  'Spoiler-free drawing must collapse the omitted Hidden Annex band');
+assert.match($('ga-chart').innerHTML, /data-room="antechamber"[^>]*transform="translate\(150,2850\)"/,
+  'Castle Annex should immediately follow the Quidditch section when spoilers are hidden');
+assert.equal([...$('ga-chart').innerHTML.matchAll(/class="ga-cartouche"/g)].length, expectedPublic.length,
+  'Every public location should render as an inked scroll or ribbon, not a rectangle');
+assert.equal([...$('ga-chart').innerHTML.matchAll(/class="ga-hitbox"/g)].length, expectedPublic.length,
+  'Shaped location markers must retain large rectangular click targets');
+assert.match($('ga-chart').innerHTML, /class="ga-zone-contour"/,
+  'Section outlines should be drawn with winding ink, not a rigid grid');
 assertKeyboardRooms(expectedPublic);
 assert.doesNotMatch($('ga-chart').innerHTML, /\bis-dim\b/, 'Initial view should show the whole graph clearly');
 assert.equal($('ga-focus-clear').disabled, true);
@@ -438,6 +448,10 @@ $('ga-focus-clear').fire('click');
 
 $('ga-secrets').checked = true;
 $('ga-secrets').fire('change');
+assert.equal($('ga-chart').getAttribute('viewBox'), '0 0 1200 3610',
+  'Opening concealed regions should restore the full geographical canvas');
+assert.match($('ga-chart').innerHTML, /data-room="antechamber"[^>]*transform="translate\(150,3260\)"/,
+  'Revealing the Hidden Annex must restore original position and connection geometry');
 assert.deepEqual(chartIds(), ids);
 assert.deepEqual(directoryIds(), ids);
 assert.equal($('ga-region').querySelector('[value="unmapped"]').hidden, false);
@@ -468,12 +482,22 @@ assert.deepEqual([...$('ga-route-result').innerHTML.matchAll(/data-select="([^"]
   ['bathroom', 'sluice', 'chamber', 'sanctum']);
 $('ga-secrets').checked = false;
 $('ga-secrets').fire('change');
+assert.equal($('ga-chart').getAttribute('viewBox'), '0 0 1200 3200',
+  'Rehiding concealed regions must immediately recompact the map');
 assert.deepEqual(chartIds(), expectedPublic);
 assert.deepEqual(directoryIds(), expectedPublic);
 assertKeyboardRooms(expectedPublic);
 assert.equal($('ga-detail-url').textContent, atlas.rooms.gate.path, 'Hiding spoilers must clear a hidden selection');
 assert.equal($('ga-route-result').innerHTML, '', 'Hiding spoilers must clear a concealed route');
 assert.equal($('ga-region').querySelector('[value="unmapped"]').disabled, true);
+$('ga-region').value = 'castleAnnex';
+$('ga-region').fire('change');
+assert.equal($('ga-chart').getAttribute('viewBox'), '25 2765 1150 400',
+  'The Castle Annex region crop must follow its compacted coordinates');
+assertKeyboardRooms(['antechamber', 'trophy', 'clockTower', 'prefectsBath',
+  'commonGryff', 'commonRaven', 'commonHuffle']);
+$('ga-region').value = 'all';
+$('ga-region').fire('change');
 assert.ok(storageReads.every(key => key === 'hogwarts:session:v2'), 'Overview must not depend on a station pass');
 assert.deepEqual(storageWrites, [], 'Inspecting the public map must not change exploration progress');
 assert.deepEqual(travels, [], 'Selections and route queries must never move the explorer');
