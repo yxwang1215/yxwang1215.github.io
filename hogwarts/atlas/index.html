@@ -14,11 +14,11 @@ sitemap: false
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/hogwarts-marauders-atlas.css?v=20261029-cartographic-v2">
+  <link rel="stylesheet" href="/assets/css/hogwarts-marauders-atlas.css?v=20261029-fit-width-v3">
   <script src="/assets/js/hogwarts-atlas.js?v=20261028-english-passage-v1" defer></script>
   <script src="/assets/js/hogwarts-scenes.js?v=20261028-english-passage-v1" defer></script>
   <script src="/assets/js/hogwarts-geography.js?v=20261028-english-passage-v1" defer></script>
-  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261029-cartographic-v2" defer></script>
+  <script src="/assets/js/hogwarts-atlas-overview.js?v=20261029-fit-width-v3" defer></script>
 </head>
 <body class="ga-map-only">
   <a class="ga-skip" href="#atlas-map">Skip to the map</a>
@@ -127,7 +127,7 @@ sitemap: false
               <div class="ga-chart-buttons">
                 <button id="ga-focus-clear" type="button" disabled>Clear Focus</button>
                 <button id="ga-zoom-out" type="button" aria-label="Zoom out">−</button>
-                <button id="ga-zoom-reset" type="button" aria-label="Reset zoom">100%</button>
+                <button id="ga-zoom-reset" type="button" aria-label="Fit map to screen width" title="Fit map to screen width">100%</button>
                 <button id="ga-zoom-in" type="button" aria-label="Zoom in">+</button>
                 <button id="ga-export" type="button">Save Map</button>
               </div>
@@ -135,7 +135,7 @@ sitemap: false
             <div class="ga-map-paper">
               <span class="ga-corner is-nw" aria-hidden="true">✥</span><span class="ga-corner is-ne" aria-hidden="true">✥</span>
               <span class="ga-corner is-sw" aria-hidden="true">✥</span><span class="ga-corner is-se" aria-hidden="true">✥</span>
-              <div class="ga-map-scroll" id="ga-map-scroll" tabindex="0" aria-label="Scrollable, zoomable parchment map of Hogwarts locations and connected passages">
+              <div class="ga-map-scroll" id="ga-map-scroll" tabindex="0" aria-label="Vertically scrollable parchment map of Hogwarts locations and connected passages. Use the zoom controls to inspect details.">
                 <svg id="ga-chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 3610" aria-labelledby="chart-title chart-desc">
                   <title id="chart-title">The Hogwarts Marauder's Atlas</title>
                   <desc id="chart-desc">Each cartouche is a place. Ink paths represent passages. Choose a place to inspect it and enter its scene. Reveal hidden passages to see concealed rooms.</desc>
