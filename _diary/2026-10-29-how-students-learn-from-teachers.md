@@ -3,6 +3,9 @@ title: "Student 究竟应该如何向 Teacher 学习？"
 date: 2026-10-29 14:00:00 +0800
 subtitle: "从 SFT、OPD 到孔子、苏格拉底与最近发展区：知识传递之外，还有学习本身。"
 excerpt: "读 OPD 与 Agent Skill Distillation 时想到：Teacher 知道什么，与 Student 最后能够学会什么，未必是一回事。古今教育思想或许能帮助我们重新设计教学信号、介入时机与验证方式。"
+cover: /images/diary/teacher-student-learning.svg
+cover_alt: "暖色学习空间的插画：两个人物围坐在摊开的笔记本前，知识的往复路径连接 Teacher 与 Student"
+cover_caption: "The Art of Teaching and Learning · 为这篇知识蒸馏随笔绘制的原创封面。"
 tags:
   - 科研随想
   - 知识蒸馏
