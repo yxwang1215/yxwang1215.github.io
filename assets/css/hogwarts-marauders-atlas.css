@@ -596,8 +596,12 @@ td code{font:12px/1.45 ui-monospace,Consolas,monospace;color:#735237;overflow-wr
   .ga-map-only .ga-map-paper::after {inset:11px;border:1px dashed rgba(112,71,32,.17)}
   .ga-map-only .ga-map-scroll {
     position:absolute;inset:0;width:100%;height:100%;max-height:none;
-    margin:0;border:0;overflow:auto;scroll-padding:82px 18px 100px;
+    margin:0;border:0;overflow-x:hidden;overflow-y:auto;
+    scroll-padding:82px 18px 100px;
   }
+  /* The atlas fills the available screen width at its default zoom.
+     Wider content is possible only after an explicit zoom-in action. */
+  .ga-map-only #ga-chart {display:block;width:100%;min-width:0;max-width:none;height:auto}
   .ga-map-only .ga-map-topbar {
     position:absolute;z-index:30;top:14px;left:17px;right:17px;
     display:flex;justify-content:space-between;align-items:center;gap:12px;
