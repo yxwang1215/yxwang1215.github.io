@@ -12,13 +12,13 @@
 .paper-project__crumbs { display: flex; gap: 10px; margin: 0 0 26px; color: var(--paper-muted); font: 600 11px/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .paper-project__crumbs a, .paper-project a { color: inherit; text-decoration: none; }
 .paper-project__crumbs a:hover, .paper-project__artifact-grid a:hover { color: var(--paper-blue); }
-.paper-project__hero { max-width: 980px; margin: 0 auto; padding: 20px 0 44px; text-align: center; }
+.paper-project__hero { max-width: 1120px; margin: 0 auto; padding: 20px 0 44px; text-align: center; }
 .paper-project__venue, .paper-project__eyebrow { margin: 0; color: var(--paper-blue); font: 700 11px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
-.paper-project__hero h1 { margin: 22px auto 23px; color: var(--paper-ink); font: 700 clamp(30px, 3.4vw, 44px)/1.14 Georgia, "Times New Roman", serif; letter-spacing: -.03em; }
+.paper-project__hero h1 { max-width: 1040px; margin: 22px auto 23px; color: var(--paper-ink); font: 700 clamp(28px, 3vw, 38px)/1.16 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
 .paper-project__hero h1 em { color: var(--paper-blue); font-style: normal; }
-.paper-project__authors { margin: 0; color: #3e4856; font-size: 17px; line-height: 1.8; }
+.paper-project__authors { margin: 0; color: #3e4856; font-size: 15px; line-height: 1.8; }
 .paper-project__authors strong { color: var(--paper-blue); }
-.paper-project__affiliations { margin: 10px 0 0; color: var(--paper-muted); font-size: 14px; line-height: 1.75; }
+.paper-project__affiliations { margin: 10px 0 0; color: var(--paper-muted); font-size: 12px; line-height: 1.75; }
 .paper-project__affiliations span { color: #8a94a1; }
 .paper-project__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 25px; }
 .paper-project__button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; border: 1px solid #c8d0db; border-radius: 999px; color: var(--paper-ink) !important; background: #fff; font-size: 12px; font-weight: 700; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; }
@@ -30,7 +30,7 @@
 .paper-project__teaser figcaption, .paper-project__figure figcaption { margin-top: 12px; color: var(--paper-muted); font: 13px/1.6 Georgia, "Times New Roman", serif; text-align: center; }
 .paper-project__abstract { max-width: 910px; margin: 0 auto 62px; padding: 24px 0 0; border-top: 2px solid var(--paper-ink); }
 .paper-project__abstract-grid { display: grid; grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr); gap: 70px; margin-top: 17px; }
-.paper-project h2 { margin: 0; color: var(--paper-ink); font: 700 clamp(24px, 3vw, 36px)/1.15 Georgia, "Times New Roman", serif; letter-spacing: -.03em; }
+.paper-project h2 { margin: 0; color: var(--paper-ink); font: 700 clamp(22px, 2.6vw, 30px)/1.18 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
 .paper-project__abstract-grid h2 { max-width: 450px; }
 .paper-project__abstract-grid > p { margin: 0; color: #475364; font: 15px/1.8 Georgia, "Times New Roman", serif; }
 .paper-project__problem { padding: 56px 0; border-top: 1px solid var(--paper-line); }
@@ -58,7 +58,7 @@
 .paper-project__method-grid p, .paper-project__takeaways p { margin: 0; color: var(--paper-muted); font-size: 13px; line-height: 1.7; }
 .paper-project__stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 22px; }
 .paper-project__stat-grid article { padding: 24px 22px; border: 1px solid var(--paper-line); background: #fafbfd; }
-.paper-project__stat-grid strong { display: block; color: var(--paper-blue); font: 700 clamp(28px, 3.2vw, 36px)/1 Georgia, "Times New Roman", serif; letter-spacing: -.04em; }
+.paper-project__stat-grid strong { display: block; color: var(--paper-blue); font: 700 clamp(25px, 2.8vw, 30px)/1 Georgia, "Times New Roman", serif; letter-spacing: -.03em; }
 .paper-project__stat-grid strong span { margin-left: 2px; font-size: .52em; }
 .paper-project__stat-grid article > span { display: block; margin-top: 12px; color: var(--paper-ink); font-size: 13px; font-weight: 700; }
 .paper-project__stat-grid small { display: block; margin-top: 6px; color: var(--paper-muted); font-size: 11px; line-height: 1.5; }
