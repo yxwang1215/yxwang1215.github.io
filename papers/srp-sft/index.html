@@ -116,7 +116,7 @@ page_class: "paper-project"
   </section>
 
   <section class="paper-project__section" aria-labelledby="mechanism-heading">
-    <div class="paper-project__section-head"><div><span class="paper-project__number">03</span><p class="paper-project__eyebrow">Mechanism</p><h2 id="mechanism-heading">Preservation is about geometry, not only KL.</h2></div><p class="paper-project__section-note">On 998 held-out examples, SRP-SFT reduces contraction and rank inversions while allowing more margin expansion.</p></div>
+    <div class="paper-project__section-head"><div><span class="paper-project__number">03</span><p class="paper-project__eyebrow">Mechanism</p><h2 class="paper-project__nowrap" id="mechanism-heading">Preservation is about geometry, not only KL.</h2></div><p class="paper-project__section-note">On 998 held-out examples, SRP-SFT reduces contraction and rank inversions while allowing more margin expansion.</p></div>
     <figure class="paper-project__figure paper-project__figure--mechanism">
       <div class="paper-project__mechanism-visual">
         <img src="{{ '/papers/assets/srp-sft-mechanism.png' | relative_url }}" alt="Mechanism diagnostics comparing CE, LP-SFT, and SRP-SFT on local KL, margin contraction, and margin expansion." width="3300" height="1500" loading="lazy" decoding="async">
@@ -144,7 +144,7 @@ page_class: "paper-project"
   </section>
 
   <section class="paper-project__section paper-project__section--notes" aria-labelledby="notes-heading">
-    <div class="paper-project__section-head"><div><span class="paper-project__number">04</span><p class="paper-project__eyebrow">What to remember</p><h2 id="notes-heading">Three design choices define SRP-SFT.</h2></div></div>
+    <div class="paper-project__section-head"><div><span class="paper-project__number">04</span><p class="paper-project__eyebrow">What to remember</p><h2 class="paper-project__nowrap" id="notes-heading">Three design choices define SRP-SFT.</h2></div></div>
     <div class="paper-project__takeaways"><article><span>01</span><h3>Exclude the target</h3><p>Cross-entropy learns the observed response token; the auxiliary only acts on non-target alternatives.</p></article><article><span>02</span><h3>Keep the direction</h3><p>The frozen reference orients each pair, so the student is asked to avoid losing a preferred relation.</p></article><article><span>03</span><h3>Stop at the bound</h3><p>Once the scaled margin is met, expansion is allowed. The auxiliary does not force exact distribution matching.</p></article></div>
   </section>
 

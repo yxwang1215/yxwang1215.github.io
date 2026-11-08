@@ -43,6 +43,7 @@
 .paper-project__section-head > div { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; align-items: start; }
 .paper-project__section-head > div .paper-project__eyebrow { grid-column: 2; }
 .paper-project__section-head h2 { grid-column: 2; margin-top: 10px; max-width: 630px; }
+.paper-project__nowrap { white-space: nowrap; }
 .paper-project__number { grid-row: 1 / span 3; color: var(--paper-blue); font: 700 24px/1 Georgia, "Times New Roman", serif; }
 .paper-project__section-note { max-width: 310px; margin: 0; color: var(--paper-muted); font-size: 14px; line-height: 1.75; text-align: right; }
 .paper-project__method-card, .paper-project__chart-card { border: 1px solid var(--paper-line); background: #fff; }
@@ -105,6 +106,7 @@
   .paper-project__shell { padding-top: 8px; }
   .paper-project__abstract-grid, .paper-project__method-grid, .paper-project__takeaways { grid-template-columns: 1fr; gap: 12px; }
   .paper-project__section-head { display: block; }
+  .paper-project__nowrap { white-space: normal; }
   .paper-project__section-note { max-width: 540px; margin-top: 15px; text-align: left; }
   .paper-project__stat-grid { grid-template-columns: 1fr; }
   .paper-project__artifacts { grid-template-columns: 1fr; gap: 18px; }
