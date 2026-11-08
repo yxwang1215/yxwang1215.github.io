@@ -70,10 +70,10 @@ class PaperPagesTest(unittest.TestCase):
             "srp-sft-method.png",
         ):
             self.assertIn(value, html)
-        self.assertIn('viewBox="0 0 900 350"', html)
-        self.assertIn('class="paper-project__figure paper-project__figure--mechanism"', html)
-        self.assertIn('mechanism-chart-title', html)
-        self.assertGreaterEqual(html.count('role="img"'), 2)
+        self.assertIn('viewBox="0 0 880 332"', html)
+        self.assertIn('class="srp-figure"', html)
+        self.assertIn('srp-diagnostics', html)
+        self.assertGreaterEqual(html.count('role="img"'), 1)
         css = (ROOT / "assets/css/paper-project.css").read_text()
         self.assertIn('clamp(28px, 3vw, 38px)', css)
         self.assertIn('max-width: 880px', css)
@@ -133,6 +133,18 @@ class PaperPagesTest(unittest.TestCase):
         ):
             with self.subTest(path=path):
                 self.assertTrue(path.is_file(), f"Missing generated route or asset: {path}")
+        rendered_page = (SITE / "papers/glance-etd/index.html").read_text()
+        for value in (
+            "Glance, then Select",
+            "Anonymous CVPR submission",
+            "glance-etd-paper.pdf",
+            "glance-etd-overview.png",
+            "glance-etd-motivation.png",
+            "glance-etd-efficiency.png",
+            "glance-etd-acceleration.png",
+        ):
+            self.assertIn(value, rendered_page)
+        self.assertNotIn("{{", rendered_page)
 
 
 if __name__ == "__main__":
