@@ -282,7 +282,7 @@
       "topic": "systems",
       "resource": true,
       "title": "Operating System Review",
-      "authors": "Xidian University · Course notes",
+      "authors": "**Y. Wang** · Xidian University · Course notes",
       "description": "An open study guide for Software Engineering students, covering Modern Operating Systems.",
       "venue": "Learning resource · June 2025",
       "image": "/images/xidian.png",
