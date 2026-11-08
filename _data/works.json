@@ -186,9 +186,10 @@
     {
       "id": "glance-etd",
       "topic": "audio",
+      "first_author": true,
       "project_url": "/papers/glance-etd/",
       "title": "Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs",
-      "authors": "Anonymous CVPR submission",
+      "authors": "**Yuxuan Wang**, Guangxiang Zhao, Yuxuan Tian, Yahui Han, Xinyu Tan, Feiyu Wang, Zongwei Lv, Xiangzheng Zhang, Lin Sun, Tong Yang",
       "description": "A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.",
       "venue": "submitted to CVPR 2027",
       "image": "/images/works/glance-etd-overview.png",
@@ -198,7 +199,7 @@
       "links": [
         {
           "label": "Paper",
-          "url": "/papers/assets/glance-etd-paper.pdf"
+          "url": "/papers/assets/glance-etd-camera.pdf"
         },
         {
           "label": "Project page",
