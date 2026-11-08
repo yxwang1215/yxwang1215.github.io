@@ -20,7 +20,8 @@
   font-size: clamp(23px, 2.2vw, 26px);
 }
 .home-profile .page__content > h1.home-about-heading { font-size: 28px; }
-.home-profile .page__content > h1.home-compact-heading { font-size: 21px; }
+.home-profile .page__content > h1.home-compact-heading,
+.home-profile .page__content .home-reports > h1.home-compact-heading { font-size: 21px; }
 .home-profile .page__content .home-intro { font-size: 19px; }
 .home-profile .page__content .home-intro p { font-size: inherit; }
 .home-profile .page__content .home-intro__interests { font-size: 17px; }
@@ -108,7 +109,8 @@
   .home-profile .page__content > h1,
   .home-profile .page__content .home-works h1 { font-size: 24px; }
   .home-profile .page__content > h1.home-about-heading { font-size: 26px; }
-  .home-profile .page__content > h1.home-compact-heading { font-size: 20px; }
+  .home-profile .page__content > h1.home-compact-heading,
+  .home-profile .page__content .home-reports > h1.home-compact-heading { font-size: 20px; }
   .home-profile .page__content .home-intro { font-size: 18px; }
   .home-profile .page__content .home-intro__interests { font-size: 16px; }
   .home-profile .page__content .work-filters button { font-size: 14px; }
