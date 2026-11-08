@@ -159,7 +159,6 @@
     {
       "id": "glance-etd",
       "topic": "audio",
-      "also_topic": "training",
       "first_author": true,
       "project_url": "/papers/glance-etd/",
       "title": "Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs",

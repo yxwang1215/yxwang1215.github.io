@@ -15,10 +15,7 @@
       groups.forEach(function (group) {
         var groupCount = 0;
         group.querySelectorAll('[data-work-topic]').forEach(function (card) {
-          var extra = card.dataset.workAlso === 'true';
-          var inThisTag = extra && topic === group.dataset.workGroup;
-          var notFirstAuthor = topic === 'first-author' && card.dataset.workFirstAuthor !== 'true';
-          card.hidden = (extra && !inThisTag) || notFirstAuthor;
+          card.hidden = topic === 'first-author' && card.dataset.workFirstAuthor !== 'true';
           if (!card.hidden) groupCount += 1;
         });
         group.hidden = groupCount === 0 || (topic !== 'all' && topic !== 'first-author' && group.dataset.workGroup !== topic);
