@@ -75,9 +75,9 @@
       "venue": "Preprints.org · 2026",
       "contribution": "First author",
       "image": "/images/works/efficient-opd.webp",
-      "alt": "Six efficiency tracks for on-policy distillation feeding an evidence ledger of cost, time, and memory",
-      "width": 1920,
-      "height": 1040,
+      "alt": "Six tracks of efficient on-policy distillation: a learning loop across data, rollout, teacher, and update, with systems accounting, deployment amortization, and an evidence ledger",
+      "width": 1575,
+      "height": 894,
       "links": [
         {
           "label": "Paper",
