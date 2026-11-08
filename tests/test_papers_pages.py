@@ -56,6 +56,7 @@ class PaperPagesTest(unittest.TestCase):
             "lp-sft-motivation.png",
         ):
             self.assertIn(value, html)
+        self.assertIn('viewBox="0 0 980 440"', html)
 
     def test_navigation_and_directory_link_to_paper_area(self):
         nav = (ROOT / "_data/navigation.yml").read_text()
