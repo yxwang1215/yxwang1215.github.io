@@ -111,7 +111,7 @@ page_class: "research-map-page"
         <p>A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.</p>
         <div class="research-work__links">
           <a href="{{ '/papers/glance-etd/' | relative_url }}">Project</a>
-          <a href="{{ '/papers/assets/glance-etd-paper.pdf' | relative_url }}">PDF</a>
+          <a href="{{ '/papers/assets/glance-etd-camera.pdf' | relative_url }}">PDF</a>
         </div>
       </article>
       <article class="research-work">
