@@ -14,7 +14,7 @@
 .paper-project__crumbs a:hover, .paper-project__artifact-grid a:hover { color: var(--paper-blue); }
 .paper-project__hero { max-width: 980px; margin: 0 auto; padding: 20px 0 44px; text-align: center; }
 .paper-project__venue, .paper-project__eyebrow { margin: 0; color: var(--paper-blue); font: 700 11px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
-.paper-project__hero h1 { margin: 22px auto 23px; color: var(--paper-ink); font: 700 clamp(34px, 4.2vw, 52px)/1.12 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
+.paper-project__hero h1 { margin: 22px auto 23px; color: var(--paper-ink); font: 700 clamp(30px, 3.4vw, 44px)/1.14 Georgia, "Times New Roman", serif; letter-spacing: -.03em; }
 .paper-project__hero h1 em { color: var(--paper-blue); font-style: normal; }
 .paper-project__authors { margin: 0; color: #3e4856; font-size: 17px; line-height: 1.8; }
 .paper-project__authors strong { color: var(--paper-blue); }

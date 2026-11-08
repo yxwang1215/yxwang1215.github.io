@@ -66,6 +66,8 @@ class PaperPagesTest(unittest.TestCase):
         self.assertIn('class="paper-project__figure paper-project__figure--mechanism"', html)
         self.assertIn('mechanism-chart-title', html)
         self.assertGreaterEqual(html.count('role="img"'), 2)
+        css = (ROOT / "assets/css/paper-project.css").read_text()
+        self.assertIn('clamp(30px, 3.4vw, 44px)', css)
 
     def test_navigation_and_directory_link_to_paper_area(self):
         nav = (ROOT / "_data/navigation.yml").read_text()
