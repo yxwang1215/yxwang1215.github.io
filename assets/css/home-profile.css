@@ -94,6 +94,7 @@
 .home-profile [data-work-group="systems"] .work-topic-dot { background: #c6ac90; }
 .home-profile .work-topic-count { color: #a49aa0; font-size: 12px; font-weight: 400; }
 .home-profile .work-card { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 23px; align-items: center; padding: 12px 15px; margin-bottom: 10px; border: 1px solid #e1dfe2; border-radius: 9px; background: #fff; box-sizing: border-box; transition: border-color 150ms ease,box-shadow 150ms ease; }
+.home-profile .work-card[hidden] { display: none; }
 .home-profile .work-card:hover { border-color: #d5c7ce; box-shadow: 0 5px 18px #5132410a; }
 .home-profile .work-card--first { border: 1.5px solid #e7b8ac; background: #fffaf8; }
 .home-profile .work-media { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; min-width: 0; height: 160px; border-radius: 6px; overflow: hidden; background: #fff; text-decoration: none !important; cursor: zoom-in; }
