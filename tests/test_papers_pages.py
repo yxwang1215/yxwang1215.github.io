@@ -20,6 +20,9 @@ class PaperPagesTest(unittest.TestCase):
         expected = (
             ROOT / "papers/index.html",
             ROOT / "papers/lp-sft/index.html",
+            ROOT / "papers/README.md",
+            ROOT / "papers/assets/README.md",
+            ROOT / "papers/lp-sft/README.md",
             ROOT / "papers/assets/lp-sft-motivation.png",
             ROOT / "papers/assets/lp-sft-paper.pdf",
             ROOT / "papers/assets/lp-sft-reproduction.pdf",
@@ -28,6 +31,16 @@ class PaperPagesTest(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertTrue(path.is_file(), f"Missing paper artifact: {path}")
                 self.assertGreater(path.stat().st_size, 100)
+
+    def test_paper_directory_docs_explain_each_level(self):
+        docs = {
+            ROOT / "papers/README.md": "papers/",
+            ROOT / "papers/assets/README.md": "assets/",
+            ROOT / "papers/lp-sft/README.md": "lp-sft/",
+        }
+        for path, marker in docs.items():
+            with self.subTest(path=path):
+                self.assertIn(marker, path.read_text())
 
     def test_project_page_contains_evidence_and_visualization_contract(self):
         html = (ROOT / "papers/lp-sft/index.html").read_text()
