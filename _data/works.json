@@ -6,14 +6,14 @@
       "heading": "LLM training & fine-tuning"
     },
     {
+      "id": "audio",
+      "label": "Efficient Multimodal",
+      "heading": "Efficient multimodal models"
+    },
+    {
       "id": "diffusion",
       "label": "Diffusion LLMs",
       "heading": "Diffusion language models"
-    },
-    {
-      "id": "audio",
-      "label": "Audio & Multimodal",
-      "heading": "Audio & multimodal intelligence"
     },
     {
       "id": "robotics",
