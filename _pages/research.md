@@ -106,7 +106,7 @@ page_class: "research-map-page"
         </div>
       </article>
       <article class="research-work">
-        <span class="research-work__status">CVPR 2027 · Anonymous review copy</span>
+        <span class="research-work__status">submitted to CVPR 2027 · Anonymous</span>
         <h3>Glance-ETD</h3>
         <p>A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.</p>
         <div class="research-work__links">

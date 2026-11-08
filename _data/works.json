@@ -184,7 +184,7 @@
       "title": "Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs",
       "authors": "Anonymous CVPR submission",
       "description": "A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.",
-      "venue": "CVPR 2027 review copy · 2026",
+      "venue": "submitted to CVPR 2027",
       "image": "/images/works/glance-etd-overview.png",
       "alt": "Glance-ETD overview: a glance encoder chooses native-resolution regions and ETD selects evidence-tempered visual tokens",
       "width": 2100,

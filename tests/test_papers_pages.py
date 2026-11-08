@@ -33,7 +33,8 @@ class PaperPagesTest(unittest.TestCase):
             ROOT / "papers/assets/glance-etd-overview.png",
             ROOT / "papers/assets/glance-etd-motivation.png",
             ROOT / "papers/assets/glance-etd-efficiency.png",
-            ROOT / "papers/assets/glance-etd-acceleration.png",
+            ROOT / "papers/assets/glance-etd-budget.png",
+            ROOT / "papers/assets/glance-etd-gemma-budget.png",
         )
         for path in expected:
             with self.subTest(path=path):
@@ -79,8 +80,9 @@ class PaperPagesTest(unittest.TestCase):
         self.assertIn('max-width: 880px', css)
         self.assertIn('font-size: 14px; line-height: 1.75', css)
         self.assertIn('font-size: 13px; line-height: 1.6', css)
-        self.assertIn('problem-heading', html)
-        self.assertIn('Why previous objectives fall short', html)
+        self.assertIn('abstract-heading', html)
+        self.assertIn('Beyond Distribution Matching:<br>', html)
+        self.assertIn('bibtex-heading', html)
 
     def test_navigation_and_directory_link_to_paper_area(self):
         nav = (ROOT / "_data/navigation.yml").read_text()
@@ -99,6 +101,7 @@ class PaperPagesTest(unittest.TestCase):
         html = (ROOT / "papers/glance-etd/index.html").read_text()
         for value in (
             "permalink: /papers/glance-etd/",
+            'page_class: "paper-project paper-project--glance"',
             "Glance, then Select",
             "Anonymous CVPR submission",
             "Evidence-Tempered Diversity",
@@ -106,7 +109,8 @@ class PaperPagesTest(unittest.TestCase):
             "glance-etd-overview.png",
             "glance-etd-motivation.png",
             "glance-etd-efficiency.png",
-            "glance-etd-acceleration.png",
+            "glance-etd-budget.png",
+            "glance-etd-gemma-budget.png",
             "glance-etd-paper.pdf",
             "90.3",
             "91.7",
@@ -115,6 +119,15 @@ class PaperPagesTest(unittest.TestCase):
         ):
             self.assertIn(value, html)
         self.assertGreaterEqual(html.count('role="img"'), 3)
+        css = (ROOT / "assets/css/paper-project.css").read_text()
+        for token in (
+            ".paper-project--glance",
+            "#3273DC",
+            "#209CEE",
+            'font-family: "Noto Sans"',
+            "border-radius: 5px",
+        ):
+            self.assertIn(token, css)
 
     @unittest.skipUnless(SITE, "Pass --site to validate the Jekyll build")
     def test_rendered_routes_exist(self):
@@ -128,7 +141,8 @@ class PaperPagesTest(unittest.TestCase):
             SITE / "papers/assets/glance-etd-overview.png",
             SITE / "papers/assets/glance-etd-motivation.png",
             SITE / "papers/assets/glance-etd-efficiency.png",
-            SITE / "papers/assets/glance-etd-acceleration.png",
+            SITE / "papers/assets/glance-etd-budget.png",
+            SITE / "papers/assets/glance-etd-gemma-budget.png",
             SITE / "papers/assets/glance-etd-paper.pdf",
         ):
             with self.subTest(path=path):
@@ -141,7 +155,8 @@ class PaperPagesTest(unittest.TestCase):
             "glance-etd-overview.png",
             "glance-etd-motivation.png",
             "glance-etd-efficiency.png",
-            "glance-etd-acceleration.png",
+            "glance-etd-budget.png",
+            "glance-etd-gemma-budget.png",
         ):
             self.assertIn(value, rendered_page)
         self.assertNotIn("{{", rendered_page)

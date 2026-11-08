@@ -5,105 +5,94 @@ title: "Glance-ETD"
 excerpt: "Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs."
 author_profile: false
 wide: true
-page_class: "paper-project"
+page_class: "paper-project paper-project--glance"
 ---
 
-<main class="paper-project__shell">
-  <nav class="paper-project__crumbs" aria-label="Paper project navigation">
+<main class="paper-project__shell paper-project--glance">
+  <nav class="srp-crumbs" aria-label="Paper project navigation">
     <a href="{{ '/papers/' | relative_url }}">Paper projects</a>
-    <span aria-hidden="true">/</span>
-    <span>Glance-ETD</span>
   </nav>
 
-  <header class="paper-project__hero">
-    <p class="paper-project__venue">CVPR 2027 review copy · Anonymous CVPR submission</p>
-    <h1>Glance, then Select:<br><em>Evidence-Tempered Visual Token Selection</em><br>for Extremely Compressed Multimodal LLMs</h1>
-    <p class="paper-project__authors"><strong>Anonymous CVPR submission</strong></p>
-    <p class="paper-project__affiliations">Review manuscript · The supplied PDF is a confidential, anonymized CVPR 2027 submission.</p>
-    <div class="paper-project__links" aria-label="Paper links">
-      <a class="paper-project__button paper-project__button--dark" href="{{ '/papers/assets/glance-etd-paper.pdf' | relative_url }}">PDF <span aria-hidden="true">↓</span></a>
-      <a class="paper-project__button" href="{{ '/papers/' | relative_url }}">All papers <span aria-hidden="true">↗</span></a>
-      <a class="paper-project__button" href="{{ '/research/' | relative_url }}">Research <span aria-hidden="true">↗</span></a>
+  <header class="srp-hero">
+    <h1 class="srp-title"><span>Glance, then Select:</span><span>Evidence-Tempered Visual Token Selection</span><span>for Extremely Compressed Multimodal LLMs</span></h1>
+    <p class="srp-authors"><span class="srp-author">Anonymous CVPR submission</span></p>
+    <p class="srp-affil">Anonymous review manuscript</p>
+    <p class="srp-venue">submitted to CVPR 2027</p>
+    <div class="srp-links" aria-label="Paper links">
+      <a class="srp-btn" href="{{ '/papers/assets/glance-etd-paper.pdf' | relative_url }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>PDF</span></a>
+      <a class="srp-btn" href="{{ '/papers/' | relative_url }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 1.5V9h4.5"/></svg><span>All papers</span></a>
+      <a class="srp-btn" href="{{ '/research/' | relative_url }}"><span>Research</span></a>
     </div>
   </header>
 
-  <figure class="paper-project__teaser" role="img" aria-labelledby="overview-caption">
-    <img src="{{ '/papers/assets/glance-etd-overview.png' | relative_url }}" alt="Glance-ETD training and inference pipeline: a low-resolution glance encoder selects regions for native-resolution encoding, then Evidence-Tempered Diversity combines evidence with diversity to keep a strict five percent of visual tokens." width="2100" height="1335" loading="eager" decoding="async">
-    <figcaption id="overview-caption">Glance-ETD separates two decisions: where to spend native-resolution vision compute, and which visual tokens should reach the language model.</figcaption>
+  <figure role="img" class="srp-figure srp-teaser">
+    <img src="{{ '/papers/assets/glance-etd-overview.png' | relative_url }}" alt="Glance-ETD training and inference. Training distills a glance-encoder student with DivPrune toward a frozen full-token teacher. Inference re-encodes a diverse quarter of the image at native resolution, then Evidence-Tempered Diversity keeps a strict five percent of tokens." width="2100" height="1335" loading="eager" decoding="async">
+    <figcaption>Glance-ETD separates two decisions: where to spend native-resolution vision compute, and which visual tokens should reach the language model.</figcaption>
   </figure>
 
-  <section class="paper-project__abstract" aria-labelledby="abstract-heading">
-    <p class="paper-project__eyebrow">Abstract</p>
-    <div class="paper-project__abstract-grid">
-      <h2 id="abstract-heading">Spend vision compute where it matters, then keep the evidence that answers the question.</h2>
-      <p>
-        At a strict 5% visual-token budget, a multimodal LLM still pays the cost of encoding every image patch, and the few surviving tokens can miss the answer. Glance-ETD uses a two-stage pipeline: a glance encoder reads a quarter-resolution image, chooses diverse cells, and re-encodes only those regions at native resolution; Evidence-Tempered Diversity (ETD) then tilts max–min selection toward a supervised evidence map. In the supplied review copy, the pipeline reaches 90.3±0.8% retention of the full-token score, while a dense encoder plus ETD reaches 91.7%, and the glance encoder reduces HR-Bench 4K prefill from 373 to 65 TFLOPs.
-      </p>
+  <section class="srp-section" aria-labelledby="abstract-heading">
+    <h2 id="abstract-heading">Abstract</h2>
+    <div class="srp-prose">
+      <p>At a 5% visual-token budget a multimodal LLM sees about one token in twenty, and two costs remain: the vision encoder still processes every patch of a large image, and the few surviving tokens must still contain the answer. <strong>Glance-ETD</strong> decides where to look and which tokens to keep. A glance encoder encodes the whole image at a quarter of the patches, picks 25% of the coarse cells by max–min diversity, and re-encodes only those at native resolution, producing a native-size token grid at a sixth of the encoder FLOPs. Evidence-Tempered Diversity (ETD) then selects the final tokens by multiplying each token’s max–min diversity gain by its relative evidence <em>(Np<sub>i</sub>)<sup>βt</sup></em>, where <em>p</em> and the text confidence <em>t</em> come from a 1.9M-parameter scorer trained on box annotations with the MLLM frozen. With the MLLM frozen, ETD raises retention at strict 5% from 75.8% (DivPrune) to 84.2%. On Qwen3.5-4B trained with on-policy self-distillation, the same recipe with DivPrune retains 88.8%; ETD raises it to 91.7%, and the glance encoder then trades 1.4 points for a 2.9× shorter time-to-first-token on 4K images, giving 90.3±0.8%. The released LT-OPD checkpoint retains 85.4% at the same budget. On held-out document benchmarks ETD raises DocVQA from 52.5 to 74.5.</p>
     </div>
   </section>
 
-  <section class="paper-project__section" aria-labelledby="method-heading">
-    <div class="paper-project__section-head">
-      <div><span class="paper-project__number">01</span><p class="paper-project__eyebrow">Method</p><h2 id="method-heading">A glance decides where to look; ETD decides what to keep.</h2></div>
-      <p class="paper-project__section-note">The model is trained with on-policy self-distillation and DivPrune, then evaluated with the evidence-tempered selector at the same token budget.</p>
+  <section class="srp-section" aria-labelledby="method-heading">
+    <h2 id="method-heading">Method</h2>
+    <div class="srp-prose">
+      <p>The student is trained with on-policy self-distillation and DivPrune. At inference the glance encoder chooses where to look, and ETD chooses which tokens to keep. Every selector on this page uses the same strict budget, <em>K</em> = ⌈0.05<em>N</em>⌉ tokens per image.</p>
     </div>
-    <div class="paper-project__method-grid">
-      <article><span class="paper-project__card-index">A</span><h3>Stage 1 · Glance encoder</h3><p>Average-pool the image into a coarse grid, select 25% of cells by max–min diversity, and re-encode those cells at native resolution. The merged grid keeps the dense encoder’s positions at about one sixth of its FLOPs.</p></article>
-      <article><span class="paper-project__card-index">B</span><h3>Stage 2 · Evidence scorer</h3><p>A 1.9M-parameter scorer reads image tokens and the question, producing a relative evidence map <em>p</em> and a text confidence <em>t</em> from box supervision.</p></article>
-      <article><span class="paper-project__card-index">C</span><h3>Evidence-Tempered Diversity</h3><p>ETD keeps the diversity gain <em>dᵢ</em> while weighting candidates by relative evidence: <em>i⋆ = arg max dᵢ · (Npᵢ)<sup>βt</sup></em>. With flat evidence it becomes DivPrune; with text evidence it protects the answer region without giving up context.</p></article>
+    <div class="srp-points">
+      <article><h3>Glance encoder</h3><p>Encode the image at a quarter of the patches, keep 25% of the coarse cells by max–min diversity, and re-encode only those cells at native resolution.</p></article>
+      <article><h3>Evidence scorer</h3><p>A 1.9M-parameter scorer reads the image tokens and the question. It predicts a relative evidence map <em>p</em> and a text confidence <em>t</em> from box supervision, with the MLLM frozen.</p></article>
+      <article><h3>Evidence-Tempered Diversity</h3><p>ETD keeps the DivPrune loop and tilts it: <em>i</em><sup>⋆</sup> = arg max <em>d<sub>i</sub></em> · <em>(Np<sub>i</sub>)<sup>βt</sup></em>. Flat evidence returns DivPrune; a confident reading question moves the selection toward the answer.</p></article>
     </div>
+    <figure role="img" class="srp-figure">
+      <img src="{{ '/papers/assets/glance-etd-motivation.png' | relative_url }}" alt="Motivation at a strict five percent budget: time to first token on HR-Bench 4K, one TextVQA example, and the share of answer tokens kept by each selector." width="2760" height="622" loading="lazy" decoding="async">
+      <figcaption>Pruning after the vision encoder still spends 2.59 s in the encoder on HR-Bench 4K. The glance encoder cuts that stage to 0.65 s. On TextVQA, ETD keeps answer tokens and surrounding context.</figcaption>
+    </figure>
   </section>
 
-  <section class="paper-project__section paper-project__section--results" aria-labelledby="results-heading">
-    <div class="paper-project__section-head">
-      <div><span class="paper-project__number">02</span><p class="paper-project__eyebrow">Strict 5% results</p><h2 id="results-heading">Retention rises while the visual prefill gets smaller.</h2></div>
-      <p class="paper-project__section-note">Numbers below are transcribed from the supplied CVPR review copy. Retention is the mean ratio to the corresponding full-token model across nine benchmarks.</p>
+  <section class="srp-section" aria-labelledby="results-heading">
+    <h2 id="results-heading">Results</h2>
+    <div class="srp-prose">
+      <p>Retention is the mean, over nine benchmarks, of each score divided by the non-thinking full-token score. Qwen3.5-4B, strict 5% tokens per image. Glance-ETD at 5% is the mean of three training seeds; the other budgets use one seed.</p>
     </div>
-    <div class="paper-project__stat-grid">
+    <div class="srp-stats">
       <article><strong>90.3<span>±0.8%</span></strong><span>Glance-ETD retention</span><small>Qwen3.5-4B · three training seeds</small></article>
-      <article><strong>91.7<span>%</span></strong><span>Dense encoder + ETD</span><small>Accuracy variant at the same strict budget</small></article>
+      <article><strong>91.7<span>%</span></strong><span>Dense encoder + ETD</span><small>Same recipe, without the glance encoder</small></article>
       <article><strong>84.2<span>%</span></strong><span>Frozen MLLM + ETD</span><small>8.4 points above frozen DivPrune</small></article>
     </div>
-    <div class="paper-project__result-note">On held-out document benchmarks, ETD raises DocVQA from 52.5 to 74.5 over DivPrune. On TextVQA, ETD keeps at least one answer-box token for 99.0% of questions and retains 62.9% of answer tokens.</div>
-    <figure class="paper-project__figure" role="img" aria-labelledby="motivation-caption">
-      <img src="{{ '/papers/assets/glance-etd-motivation.png' | relative_url }}" alt="Motivation figure showing persistent ViT cost, the diversity versus relevance trade-off, and answer evidence retained by ETD." width="2760" height="622" loading="lazy" decoding="async">
-      <figcaption id="motivation-caption"><span>Why selection matters.</span> Pruning after the ViT leaves most encoder cost untouched; ETD keeps both answer evidence and surrounding scene context.</figcaption>
-    </figure>
-  </section>
-
-  <section class="paper-project__section" aria-labelledby="efficiency-heading">
-    <div class="paper-project__section-head">
-      <div><span class="paper-project__number">03</span><p class="paper-project__eyebrow">Efficiency</p><h2 id="efficiency-heading">The glance path moves the bottleneck before token pruning.</h2></div>
-      <p class="paper-project__section-note">On HR-Bench 4K, Glance-ETD reports a 2.9× prefill speed-up and 1.4 points less retention than the dense encoder plus ETD.</p>
+    <div class="srp-figure-pair">
+      <figure role="img" class="srp-figure">
+        <img src="{{ '/papers/assets/glance-etd-budget.png' | relative_url }}" alt="Retention across visual-token budgets on Qwen3.5-4B. Solid lines are trained models and dashed lines are training-free." width="1050" height="767" loading="lazy" decoding="async">
+        <figcaption>Qwen3.5-4B. At 5% of the tokens, Glance-ETD keeps 90.3% of the full-token score, 14.5 points above DivPrune.</figcaption>
+      </figure>
+      <figure role="img" class="srp-figure">
+        <img src="{{ '/papers/assets/glance-etd-gemma-budget.png' | relative_url }}" alt="Retention of Gemma 4 E4B-it across visual-token budgets for ETD and DivPrune." width="1004" height="794" loading="lazy" decoding="async">
+        <figcaption>Gemma 4 E4B-it, same token count per image. Filled markers average nine benchmarks. At 5%, ETD is 10.4 points above DivPrune. The open marker at 25% omits MMBench.</figcaption>
+      </figure>
     </div>
-    <figure class="paper-project__figure" role="img" aria-labelledby="efficiency-caption">
-      <img src="{{ '/papers/assets/glance-etd-efficiency.png' | relative_url }}" alt="Efficiency plots comparing retention and speed, peak memory, prefill speed-up, and end-to-end speed-up for Glance-ETD and dense ETD." width="1680" height="491" loading="lazy" decoding="async">
-      <figcaption id="efficiency-caption"><span>Accuracy and speed.</span> The glance encoder cuts encoder work for large images while ETD preserves the strict five percent token budget.</figcaption>
+    <figure role="img" class="srp-figure">
+      <img src="{{ '/papers/assets/glance-etd-efficiency.png' | relative_url }}" alt="Efficiency of Qwen3.5-4B at a strict five percent budget: retention against speed-up, peak memory, prefill speed-up, and end-to-end speed-up." width="1680" height="491" loading="lazy" decoding="async">
+      <figcaption>On HR-Bench 4K the glance encoder cuts prefill from 373 to 65 TFLOPs and time to first token from 3305 to 1376 ms, at a cost of 1.4 retention points against the dense encoder with the same recipe.</figcaption>
     </figure>
-    <figure class="paper-project__figure" role="img" aria-labelledby="acceleration-caption">
-      <img src="{{ '/papers/assets/glance-etd-acceleration.png' | relative_url }}" alt="Acceleration breakdown showing time-to-first-token for full tokens, pruning after the ViT, and Glance-ETD." width="1575" height="956" loading="lazy" decoding="async">
-      <figcaption id="acceleration-caption"><span>Where the time goes.</span> The review copy reports 3.95 seconds for full tokens, 3.30 seconds when pruning after the ViT, and 1.38 seconds with Glance-ETD on HR-Bench 4K.</figcaption>
-    </figure>
-  </section>
-
-  <section class="paper-project__section paper-project__section--notes" aria-labelledby="notes-heading">
-    <div class="paper-project__section-head"><div><span class="paper-project__number">04</span><p class="paper-project__eyebrow">What to remember</p><h2 id="notes-heading">Three choices make extreme compression usable.</h2></div></div>
-    <div class="paper-project__takeaways">
-      <article><span>01</span><h3>Look cheaply first</h3><p>A coarse pass chooses a small set of regions before native-resolution vision work begins.</p></article>
-      <article><span>02</span><h3>Keep diversity in the loop</h3><p>Evidence moves the selector toward text and answer regions, while max–min distance preserves coverage for scene questions.</p></article>
-      <article><span>03</span><h3>Use one budget everywhere</h3><p>All selectors compare the same strict K = ⌈0.05N⌉ tokens per image, so the difference comes from which tokens survive.</p></article>
+    <div class="srp-prose">
+      <p>On held-out document benchmarks, ETD raises DocVQA from 52.5 to 74.5 over DivPrune. On 4,123 TextVQA validation questions, ETD keeps 62.9% of answer-box tokens and at least one such token for 99.0% of questions. The same pipeline retains 89.5±1.1% on Gemma 4 E4B-it.</p>
     </div>
   </section>
 
-  <section class="paper-project__artifacts" aria-labelledby="artifacts-heading">
-    <p class="paper-project__eyebrow" id="artifacts-heading">Artifacts</p>
-    <div class="paper-project__artifact-grid">
-      <a href="{{ '/papers/assets/glance-etd-paper.pdf' | relative_url }}"><span>Download</span><strong>Review PDF ↓</strong></a>
-      <a href="{{ '/papers/glance-etd/' | relative_url }}"><span>Project</span><strong>Glance-ETD ↗</strong></a>
-      <a href="{{ '/papers/' | relative_url }}"><span>Collection</span><strong>Back to papers ↗</strong></a>
-      <a href="{{ '/research/' | relative_url }}"><span>Research</span><strong>Efficient multimodal AI ↗</strong></a>
+  <section class="srp-section" aria-labelledby="notes-heading">
+    <h2 id="notes-heading">Design choices</h2>
+    <div class="srp-points">
+      <article><h3>Look cheaply first</h3><p>A coarse pass chooses a quarter of the image before native-resolution vision work begins, and the output keeps the native token grid.</p></article>
+      <article><h3>Keep diversity in the loop</h3><p>Evidence moves the selector toward text and answer regions. Max–min distance still covers the scene when the question is not about reading.</p></article>
+      <article><h3>Use one budget everywhere</h3><p>Compared selectors keep the same <em>K</em> per image. The difference is which tokens survive, not how many.</p></article>
     </div>
   </section>
 
-  <footer class="paper-project__footer"><p><strong>Glance-ETD</strong> · Evidence-tempered visual token selection</p><p>Anonymous CVPR 2027 review copy · figures and results from the supplied manuscript</p></footer>
+  <footer class="srp-footer">
+    <p>Glance-ETD · Evidence-tempered visual token selection</p>
+    <p>submitted to CVPR 2027 · <a href="{{ '/papers/' | relative_url }}">All paper projects</a></p>
+  </footer>
 </main>

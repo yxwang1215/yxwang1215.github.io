@@ -11,179 +11,125 @@ page_class: "paper-project paper-project--srp"
 <main class="paper-project__shell paper-project--srp">
   <nav class="srp-crumbs" aria-label="Paper project navigation">
     <a href="{{ '/papers/' | relative_url }}">Paper projects</a>
-    <span aria-hidden="true">/</span>
-    <span>SRP-SFT</span>
   </nav>
 
   <header class="srp-hero">
-    <div class="srp-hero__copy">
-      <p class="srp-kicker">ACL submission · arXiv:2610.19685v1</p>
-      <h1>Beyond Distribution Matching: <em>Selective Margin Preservation</em> for Supervised Fine-Tuning</h1>
-      <p class="srp-hero__claim">Selective Rank-Preserving Supervised Fine-Tuning</p>
-      <div class="srp-links" aria-label="Paper links">
-        <a class="srp-button srp-button--primary" href="https://arxiv.org/abs/2610.19685">Paper <span aria-hidden="true">↗</span></a>
-        <a class="srp-button" href="{{ '/papers/assets/srp-sft-paper.pdf' | relative_url }}">PDF <span aria-hidden="true">↓</span></a>
-        <a class="srp-button" href="https://github.com/yxwang1215/SRP-SFT">Code <span aria-hidden="true">↗</span></a>
-        <a class="srp-button" href="{{ '/papers/' | relative_url }}">All papers <span aria-hidden="true">↗</span></a>
-      </div>
+    <h1>Beyond Distribution Matching:<br>Selective Margin Preservation for Supervised Fine-Tuning</h1>
+    <p class="srp-authors">
+      <span class="srp-author">Yuxuan Wang<sup>1,3*</sup></span>
+      <span class="srp-author">Guangxiang Zhao<sup>2*</sup></span>
+      <span class="srp-author">Xinyu Tan<sup>1</sup></span>
+      <span class="srp-author">Yahui Han<sup>1</sup></span>
+      <span class="srp-author">Xinxiang Yin<sup>4</sup></span>
+      <span class="srp-author">Zhonghai Wu<sup>1</sup></span>
+      <span class="srp-author">Xiangzheng Zhang<sup>2</sup></span>
+      <span class="srp-author">Lin Sun<sup>2</sup></span>
+      <span class="srp-author">Tong Yang<sup>1†</sup></span>
+    </p>
+    <p class="srp-affil"><sup>1</sup>Peking University &nbsp;&nbsp; <sup>2</sup>Qiyuan Tech &nbsp;&nbsp; <sup>3</sup>Xidian University &nbsp;&nbsp; <sup>4</sup>The University of Hong Kong</p>
+    <p class="srp-equal">* Equal contribution &nbsp;&nbsp; † Corresponding author</p>
+    <p class="srp-venue">ACL submission · arXiv:2610.19685v1</p>
+    <div class="srp-links" aria-label="Paper links">
+      <a class="srp-btn" href="https://arxiv.org/abs/2610.19685"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 1.5V9h4.5"/></svg><span>Paper</span></a>
+      <a class="srp-btn" href="{{ '/papers/assets/srp-sft-paper.pdf' | relative_url }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>PDF</span></a>
+      <a class="srp-btn" href="https://github.com/yxwang1215/SRP-SFT"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8 4 12l4 4M16 8l4 4-4 4"/></svg><span>Code</span></a>
     </div>
-    <aside class="srp-hero__meta">
-      <p class="srp-authors">
-        <strong>Yuxuan Wang<sup>1,3*</sup></strong>
-        <span>Guangxiang Zhao<sup>2*</sup></span>
-        <span>Xinyu Tan<sup>1</sup></span>
-        <span>Yahui Han<sup>1</sup></span>
-        <span>Xinxiang Yin<sup>4</sup></span>
-        <span>Zhonghai Wu<sup>1</sup></span>
-        <span>Xiangzheng Zhang<sup>2</sup></span>
-        <span>Lin Sun<sup>2</sup></span>
-        <span>Tong Yang<sup>1†</sup></span>
-      </p>
-      <p class="srp-affiliations"><sup>1</sup> Peking University<br><sup>2</sup> Qiyuan Tech<br><sup>3</sup> Xidian University<br><sup>4</sup> The University of Hong Kong</p>
-      <p class="srp-notes">* Equal contribution · † Corresponding author</p>
-    </aside>
   </header>
 
-  <section class="srp-abstract" aria-labelledby="abstract-heading">
-    <p class="srp-kicker">Abstract</p>
-    <h2 id="abstract-heading">Preserve the relation that matters, and leave room to adapt.</h2>
-    <p>
-      Supervised fine-tuning changes logit margins among non-target tokens at teacher-forced prefixes. Matching a local reference distribution keeps those probabilities and also penalizes margin expansions. SRP-SFT asks whether a soft auxiliary can preserve selected local non-target margin relations without freezing that distribution. A frozen reference selects top-<em>K</em> non-target pairs; a hinge penalty activates only when the student falls below a reference-scaled lower bound. Once the bound is met, the auxiliary stops acting.
-    </p>
+  <figure class="srp-figure srp-teaser">
+    <img src="{{ '/papers/assets/srp-sft-intro.png' | relative_url }}" alt="Horizontal comparison of cross-entropy, LP-SFT, and SRP-SFT showing the quantities each objective preserves." width="1415" height="415" loading="eager" decoding="async">
+    <figcaption>CE fits the target, LP-SFT matches local probabilities, and SRP-SFT keeps teacher-preferred margins above a lower bound.</figcaption>
+  </figure>
+
+  <section class="srp-section" aria-labelledby="abstract-heading">
+    <h2 id="abstract-heading">Abstract</h2>
+    <div class="srp-prose">
+      <p>Supervised fine-tuning changes logit margins among non-target tokens at teacher-forced prefixes. Matching a local reference distribution keeps those probabilities and also penalizes margin expansions. <strong>SRP-SFT</strong> asks whether a soft auxiliary can preserve selected local non-target margin relations without freezing that distribution. A frozen reference selects top-<em>K</em> non-target pairs; a hinge penalty activates only when the student falls below a reference-scaled lower bound. Once the bound is met, the auxiliary stops acting.</p>
+    </div>
   </section>
 
-  <section class="srp-block" aria-labelledby="problem-heading">
-    <div class="srp-block__head">
-      <p class="srp-kicker"><span>00</span> Why this paper</p>
-      <h2 id="problem-heading">Why previous objectives fall short</h2>
-      <p class="srp-lede">CE supervises the observed target, while distribution matching can over-constrain useful adaptation. SRP-SFT protects only the selected directional relations that should not collapse.</p>
+  <section class="srp-section" aria-labelledby="method-heading">
+    <h2 id="method-heading">Method</h2>
+    <div class="srp-prose">
+      <p>The target token remains the job of cross-entropy. SRP-SFT only repairs selected teacher-preferred alternative pairs when their margin becomes too small. CE supervises the observed target, while distribution matching can over-constrain useful adaptation.</p>
+    </div>
+    <div class="srp-points">
+      <article><h3>Reference-guided set</h3><p>Select the frozen model's top-<em>K</em> non-target alternatives at the same teacher-forced prefix.</p></article>
+      <article><h3>Teacher-preferred pairs</h3><p>Keep one orientation for every strictly ordered pair, up to <em>K(K−1)/2</em> constraints.</p></article>
+      <article><h3>One-sided hinge</h3><p>Penalize only violations of the scaled lower bound; expansion beyond the bound is free.</p></article>
     </div>
     <figure class="srp-figure">
-      <img src="{{ '/papers/assets/srp-sft-intro.png' | relative_url }}" alt="Horizontal comparison of cross-entropy, LP-SFT, and SRP-SFT showing the quantities each objective preserves." width="1415" height="415" loading="eager" decoding="async">
-      <figcaption><span>Figure 1.</span> The three objectives preserve different local quantities: CE fits the target, LP-SFT matches local probabilities, and SRP-SFT keeps teacher-preferred margins above a lower bound.</figcaption>
-    </figure>
-  </section>
-
-  <section class="srp-block" aria-labelledby="method-heading">
-    <div class="srp-block__head">
-      <p class="srp-kicker"><span>01</span> Method</p>
-      <h2 id="method-heading">From matching distributions to preserving margins</h2>
-      <p class="srp-lede">The target token remains the job of CE. SRP-SFT only repairs selected teacher-preferred alternative pairs when their margin becomes too small.</p>
-    </div>
-    <figure class="srp-figure srp-figure--method">
       <img src="{{ '/papers/assets/srp-sft-method.png' | relative_url }}" alt="SRP-SFT method overview at one response position: the frozen reference selects non-target pairs and a one-sided hinge repairs undersized or reversed margins." width="2333" height="1308" loading="lazy" decoding="async">
-      <figcaption><span>Figure 2.</span> At each response position, the reference chooses plausible alternatives and orients their pairs. CE supervises the excluded target; SRP-SFT applies a one-sided margin hinge.</figcaption>
+      <figcaption>At each response position, the reference chooses plausible alternatives and orients their pairs. CE supervises the excluded target; SRP-SFT applies a one-sided margin hinge.</figcaption>
     </figure>
-    <div class="srp-steps">
-      <article>
-        <span>A</span>
-        <h3>Reference-guided set</h3>
-        <p>Select the frozen model's top-<em>K</em> non-target alternatives at the same teacher-forced prefix.</p>
-      </article>
-      <article>
-        <span>B</span>
-        <h3>Teacher-preferred pairs</h3>
-        <p>Keep one orientation for every strictly ordered pair, up to <em>K(K−1)/2</em> constraints.</p>
-      </article>
-      <article>
-        <span>C</span>
-        <h3>One-sided hinge</h3>
-        <p>Penalize only violations of the scaled lower bound; expansion beyond the bound is free.</p>
-      </article>
-    </div>
   </section>
 
-  <section class="srp-block" aria-labelledby="results-heading">
-    <div class="srp-block__head srp-block__head--split">
-      <div>
-        <p class="srp-kicker"><span>02</span> Main results</p>
-        <h2 id="results-heading">The margin objective improves the one-epoch screen.</h2>
-      </div>
+  <section class="srp-section" aria-labelledby="results-heading">
+    <h2 id="results-heading">Results</h2>
+    <div class="srp-prose">
       <p>Qwen3-4B-Base on UltraFeedback, seed 1234. Reasoning and code are reported under the paper's common one-epoch screen.</p>
     </div>
-
     <div class="srp-stats">
-      <article>
-        <strong>54.56<span>%</span></strong>
-        <span>MATH-500 pass@1</span>
-        <small>SRP-SFT · +4.78 vs. CE</small>
-      </article>
-      <article>
-        <strong>69.50<span>%</span></strong>
-        <span>Code mean</span>
-        <small>HumanEval+ / MBPP+ · +14.40 vs. CE</small>
-      </article>
-      <article>
-        <strong>0.110</strong>
-        <span>Margin contraction</span>
-        <small>Held-out diagnostics · ↓ from 0.268 LP-SFT</small>
-      </article>
+      <article><strong>54.56<span>%</span></strong><span>MATH-500 pass@1</span><small>SRP-SFT · +4.78 vs. CE</small></article>
+      <article><strong>69.50<span>%</span></strong><span>Code mean</span><small>HumanEval+ / MBPP+ · +14.40 vs. CE</small></article>
+      <article><strong>0.110</strong><span>Margin contraction</span><small>Held-out diagnostics · ↓ from 0.268 LP-SFT</small></article>
     </div>
-
-    <div class="srp-panel">
-      <div class="srp-panel__title">
-        <div>
-          <h3>CE vs. LP-SFT vs. SRP-SFT</h3>
-          <p>Aggregate scores from the seed-1234 one-epoch comparison.</p>
-        </div>
-        <span>↑ higher is better</span>
-      </div>
+    <figure class="srp-figure">
       <div class="srp-chart-scroll">
         <svg class="srp-chart" viewBox="0 0 880 332" role="img" aria-labelledby="srp-chart-title srp-chart-desc">
           <title id="srp-chart-title">SRP-SFT aggregate benchmark comparison</title>
           <desc id="srp-chart-desc">Reasoning means are 36.20 for CE, 42.52 for LP-SFT, and 45.11 for SRP-SFT. Code means are 55.10, 65.38, and 69.50.</desc>
-          <g font-family="Source Sans 3, Segoe UI, sans-serif">
-            <rect x="652" y="28" width="156" height="236" rx="14" fill="#f8efe9"/>
-            <g stroke="#efe8e0" stroke-dasharray="2 6">
+          <g font-family="Noto Sans, Segoe UI, sans-serif">
+            <rect x="652" y="28" width="156" height="236" rx="12" fill="#eef5fc"/>
+            <g stroke="#ececec">
               <line x1="64" y1="207" x2="850" y2="207"/>
               <line x1="64" y1="154" x2="850" y2="154"/>
               <line x1="64" y1="101" x2="850" y2="101"/>
               <line x1="64" y1="48" x2="850" y2="48"/>
             </g>
-            <line x1="64" y1="260" x2="850" y2="260" stroke="#d9d0c6"/>
-            <g fill="#8a8178" font-size="12" text-anchor="end">
+            <line x1="64" y1="260" x2="850" y2="260" stroke="#dbdbdb"/>
+            <g fill="#7a7a7a" font-size="12" text-anchor="end">
               <text x="54" y="264">0</text>
               <text x="54" y="211">20</text>
               <text x="54" y="158">40</text>
               <text x="54" y="105">60</text>
               <text x="54" y="52">80</text>
             </g>
-            <rect x="158" y="164.1" width="24" height="95.9" rx="5" fill="#2a3544"/>
-            <rect x="210" y="114" width="24" height="146" rx="5" fill="#c4614f"/>
-            <rect x="423" y="147.3" width="24" height="112.7" rx="5" fill="#2a3544"/>
-            <rect x="475" y="86.7" width="24" height="173.3" rx="5" fill="#c4614f"/>
-            <rect x="688" y="140.5" width="24" height="119.5" rx="5" fill="#2a3544"/>
-            <rect x="740" y="75.8" width="24" height="184.2" rx="5" fill="#c4614f"/>
-            <g fill="#2a3544" font-size="12" font-weight="700" text-anchor="middle">
+            <rect x="158" y="164.1" width="24" height="95.9" rx="4" fill="#4a4a4a"/>
+            <rect x="210" y="114" width="24" height="146" rx="4" fill="#3273dc"/>
+            <rect x="423" y="147.3" width="24" height="112.7" rx="4" fill="#4a4a4a"/>
+            <rect x="475" y="86.7" width="24" height="173.3" rx="4" fill="#3273dc"/>
+            <rect x="688" y="140.5" width="24" height="119.5" rx="4" fill="#4a4a4a"/>
+            <rect x="740" y="75.8" width="24" height="184.2" rx="4" fill="#3273dc"/>
+            <g fill="#363636" font-size="12" font-weight="700" text-anchor="middle">
               <text x="170" y="156">36.20</text>
               <text x="222" y="106">55.10</text>
               <text x="435" y="139">42.52</text>
               <text x="487" y="78">65.38</text>
               <text x="700" y="132">45.11</text>
-              <text x="752" y="67" fill="#9c3d32">69.50</text>
+              <text x="752" y="67">69.50</text>
             </g>
-            <g fill="#5c534c" font-size="13" font-weight="700" text-anchor="middle">
+            <g fill="#363636" font-size="13" font-weight="700" text-anchor="middle">
               <text x="196" y="284">CE</text>
               <text x="461" y="284">LP-SFT</text>
               <text x="726" y="284">SRP-SFT</text>
             </g>
-            <g fill="#8a8178" font-size="11" text-anchor="middle">
+            <g fill="#7a7a7a" font-size="11" text-anchor="middle">
               <text x="196" y="304">reasoning · code</text>
               <text x="461" y="304">reasoning · code</text>
               <text x="726" y="304">reasoning · code</text>
             </g>
-            <g font-size="12" fill="#5c534c">
-              <rect x="64" y="14" width="10" height="10" rx="2" fill="#2a3544"/>
+            <g font-size="12" fill="#4a4a4a">
+              <rect x="64" y="14" width="10" height="10" rx="2" fill="#4a4a4a"/>
               <text x="80" y="23">Reasoning</text>
-              <rect x="158" y="14" width="10" height="10" rx="2" fill="#c4614f"/>
-              <text x="174" y="23">Code</text>
+              <rect x="168" y="14" width="10" height="10" rx="2" fill="#3273dc"/>
+              <text x="184" y="23">Code</text>
             </g>
           </g>
         </svg>
       </div>
-      <p class="srp-note">Reasoning mean averages the paper's twelve displayed metrics; code mean averages HumanEval+ and MBPP+ pass@1/pass@4.</p>
-    </div>
-
+      <figcaption>Reasoning mean averages the paper's twelve displayed metrics; code mean averages HumanEval+ and MBPP+ pass@1/pass@4. Higher is better.</figcaption>
+    </figure>
     <div class="srp-table-wrap">
       <table>
         <caption>Selected seed-1234 results from the common one-epoch screen</caption>
@@ -205,20 +151,19 @@ page_class: "paper-project paper-project--srp"
         </tbody>
       </table>
     </div>
-    <p class="srp-callout">Independent seed checks keep the same ordering on reasoning: SRP-SFT reaches 44.05 / 44.35 across seeds 42 / 3407, while its code mean is 65.78 / 69.48.</p>
+    <div class="srp-prose">
+      <p>Independent seed checks keep the same ordering on reasoning: SRP-SFT reaches 44.05 / 44.35 across seeds 42 / 3407, while its code mean is 65.78 / 69.48.</p>
+    </div>
   </section>
 
-  <section class="srp-block" aria-labelledby="mechanism-heading">
-    <div class="srp-block__head srp-block__head--split">
-      <div>
-        <p class="srp-kicker"><span>03</span> Mechanism</p>
-        <h2 id="mechanism-heading">Preservation is about geometry, not only KL.</h2>
-      </div>
-      <p>On 998 held-out examples, SRP-SFT reduces contraction and rank inversions while allowing more margin expansion.</p>
+  <section class="srp-section" aria-labelledby="mechanism-heading">
+    <h2 id="mechanism-heading">Mechanism</h2>
+    <div class="srp-prose">
+      <p>On 998 held-out examples, SRP-SFT reduces contraction and rank inversions while allowing more margin expansion. Preservation is about geometry, not only KL.</p>
     </div>
     <figure class="srp-figure">
       <img src="{{ '/papers/assets/srp-sft-mechanism.png' | relative_url }}" alt="Mechanism diagnostics comparing CE, LP-SFT, and SRP-SFT on local KL, margin contraction, and margin expansion." width="3300" height="1500" loading="lazy" decoding="async">
-      <figcaption><span>Held-out diagnostics.</span> SRP-SFT has local KL 0.075, 5.65% inverted teacher-preferred pairs, 0.110 contraction, and 0.593 expansion.</figcaption>
+      <figcaption>SRP-SFT has local KL 0.075, 5.65% inverted teacher-preferred pairs, 0.110 contraction, and 0.593 expansion.</figcaption>
     </figure>
     <div class="srp-diagnostics" aria-label="Held-out diagnostic comparison">
       <div class="srp-diagnostics__legend">
@@ -256,30 +201,27 @@ page_class: "paper-project paper-project--srp"
     </div>
   </section>
 
-  <section class="srp-block" aria-labelledby="notes-heading">
-    <div class="srp-block__head">
-      <p class="srp-kicker"><span>04</span> What to remember</p>
-      <h2 id="notes-heading">Three design choices define SRP-SFT.</h2>
-    </div>
-    <div class="srp-takeaways">
-      <article><span>01</span><h3>Exclude the target</h3><p>Cross-entropy learns the observed response token; the auxiliary only acts on non-target alternatives.</p></article>
-      <article><span>02</span><h3>Keep the direction</h3><p>The frozen reference orients each pair, so the student is asked to avoid losing a preferred relation.</p></article>
-      <article><span>03</span><h3>Stop at the bound</h3><p>Once the scaled margin is met, expansion is allowed. The auxiliary does not force exact distribution matching.</p></article>
+  <section class="srp-section" aria-labelledby="notes-heading">
+    <h2 id="notes-heading">Design choices</h2>
+    <div class="srp-points">
+      <article><h3>Exclude the target</h3><p>Cross-entropy learns the observed response token; the auxiliary only acts on non-target alternatives.</p></article>
+      <article><h3>Keep the direction</h3><p>The frozen reference orients each pair, so the student is asked to avoid losing a preferred relation.</p></article>
+      <article><h3>Stop at the bound</h3><p>Once the scaled margin is met, expansion is allowed. The auxiliary does not force exact distribution matching.</p></article>
     </div>
   </section>
 
-  <section class="srp-artifacts" aria-labelledby="artifacts-heading">
-    <p class="srp-kicker" id="artifacts-heading">Artifacts</p>
-    <div class="srp-artifact-grid">
-      <a href="https://arxiv.org/abs/2610.19685"><span>Paper</span><strong>arXiv 2610.19685v1</strong></a>
-      <a href="{{ '/papers/assets/srp-sft-paper.pdf' | relative_url }}"><span>Download</span><strong>PDF</strong></a>
-      <a href="https://github.com/yxwang1215/SRP-SFT"><span>Repository</span><strong>Code</strong></a>
-      <a href="{{ '/papers/' | relative_url }}"><span>Collection</span><strong>Back to papers</strong></a>
-    </div>
+  <section class="srp-section" aria-labelledby="bibtex-heading">
+    <h2 id="bibtex-heading">BibTeX</h2>
+    <pre class="srp-bibtex"><code>@article{wang2026srpsft,
+  title={Beyond Distribution Matching: Selective Margin Preservation for Supervised Fine-Tuning},
+  author={Wang, Yuxuan and Zhao, Guangxiang and Tan, Xinyu and Han, Yahui and Yin, Xinxiang and Wu, Zhonghai and Zhang, Xiangzheng and Sun, Lin and Yang, Tong},
+  journal={arXiv preprint arXiv:2610.19685},
+  year={2026}
+}</code></pre>
   </section>
 
   <footer class="srp-footer">
-    <p><strong>SRP-SFT</strong> · Selective Rank-Preserving Supervised Fine-Tuning</p>
-    <p>Yuxuan Wang et al. · ACL submission / arXiv 2026</p>
+    <p>SRP-SFT · Selective Rank-Preserving Supervised Fine-Tuning</p>
+    <p><a href="{{ '/papers/' | relative_url }}">All paper projects</a></p>
   </footer>
 </main>

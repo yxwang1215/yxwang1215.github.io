@@ -35,8 +35,13 @@
     {% if page.page_class == 'paper-directory' %}
       <link rel="stylesheet" href="{{ '/assets/css/paper-directory.css' | relative_url }}?v=20261107-lp-sft-directory">
     {% endif %}
-    {% if page.page_class == 'paper-project' %}
-      <link rel="stylesheet" href="{{ '/assets/css/paper-project.css' | relative_url }}?v=20261108-srp-sft-project">
+    {% if page.page_class contains 'paper-project' %}
+      {% if page.page_class contains 'paper-project--srp' or page.page_class contains 'paper-project--glance' %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+      {% endif %}
+      <link rel="stylesheet" href="{{ '/assets/css/paper-project.css' | relative_url }}?v=20261108-glance-title">
     {% endif %}
     {% if page.talent_assessment %}
       <script src="{{ '/assets/js/talent-atlas-data.js' | relative_url }}?v=20261021-v1" defer></script>
