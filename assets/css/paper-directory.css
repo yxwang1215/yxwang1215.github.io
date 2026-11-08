@@ -45,7 +45,7 @@
 .paper-directory h1 {
   margin: 0;
   color: var(--paper-ink);
-  font: 400 clamp(42px, 7vw, 86px)/.96 Georgia, "Times New Roman", serif;
+  font: 400 clamp(36px, 5vw, 58px)/1.02 Georgia, "Times New Roman", serif;
   letter-spacing: -.065em;
   text-transform: none;
 }
@@ -174,7 +174,7 @@
 .paper-card h2 {
   margin: 27px 0 16px;
   color: var(--paper-ink);
-  font: 400 clamp(28px, 4vw, 48px)/1.05 Georgia, "Times New Roman", serif;
+  font: 400 clamp(26px, 3.2vw, 36px)/1.12 Georgia, "Times New Roman", serif;
   letter-spacing: -.045em;
   text-transform: none;
 }
