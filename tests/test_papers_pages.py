@@ -68,6 +68,9 @@ class PaperPagesTest(unittest.TestCase):
         self.assertGreaterEqual(html.count('role="img"'), 2)
         css = (ROOT / "assets/css/paper-project.css").read_text()
         self.assertIn('clamp(30px, 3.4vw, 44px)', css)
+        self.assertIn('max-width: 880px', css)
+        self.assertIn('problem-heading', html)
+        self.assertIn('Why previous objectives fall short', html)
 
     def test_navigation_and_directory_link_to_paper_area(self):
         nav = (ROOT / "_data/navigation.yml").read_text()

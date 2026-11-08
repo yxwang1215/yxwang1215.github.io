@@ -17,7 +17,7 @@ page_class: "paper-project"
 
   <header class="paper-project__hero">
     <p class="paper-project__venue">ACL submission · arXiv:2610.19685v1</p>
-    <h1>Beyond Distribution Matching:<br><em>Selective Margin Preservation</em><br>for Supervised Fine-Tuning</h1>
+    <h1>Beyond Distribution Matching: <em>Selective Margin Preservation</em> for Supervised Fine-Tuning</h1>
     <p class="paper-project__authors">
       <strong>Yuxuan Wang</strong><sup>1,3*</sup> · Guangxiang Zhao<sup>2*</sup> · Xinyu Tan<sup>1</sup> · Yahui Han<sup>1</sup> · Xinxiang Yin<sup>4</sup><br>
       Zhonghai Wu<sup>1</sup> · Xiangzheng Zhang<sup>2</sup> · Lin Sun<sup>2</sup> · Tong Yang<sup>1†</sup>
@@ -31,11 +31,6 @@ page_class: "paper-project"
     </div>
   </header>
 
-  <figure class="paper-project__teaser">
-    <img src="{{ '/papers/assets/srp-sft-intro.png' | relative_url }}" alt="Comparison of cross-entropy, LP-SFT, and SRP-SFT: the one-sided margin target protects teacher-preferred relations while leaving expansion unpenalized." width="1415" height="415" loading="eager" decoding="async">
-    <figcaption>SRP-SFT protects selected reference-preferred margins without forcing the student to reproduce the full reference distribution.</figcaption>
-  </figure>
-
   <section class="paper-project__abstract" aria-labelledby="abstract-heading">
     <p class="paper-project__eyebrow">Abstract</p>
     <div class="paper-project__abstract-grid">
@@ -44,6 +39,17 @@ page_class: "paper-project"
         Supervised fine-tuning changes logit margins among non-target tokens at teacher-forced prefixes. Matching a local reference distribution keeps those probabilities and also penalizes margin expansions. SRP-SFT asks whether a soft auxiliary can preserve selected local non-target margin relations without freezing that distribution. A frozen reference selects top-<em>K</em> non-target pairs; a hinge penalty activates only when the student falls below a reference-scaled lower bound. Once the bound is met, the auxiliary stops acting.
       </p>
     </div>
+  </section>
+
+  <section class="paper-project__problem" aria-labelledby="problem-heading">
+    <div class="paper-project__section-head">
+      <div><span class="paper-project__number">00</span><p class="paper-project__eyebrow">Why this paper</p><h2 id="problem-heading">Why previous objectives fall short</h2></div>
+      <p class="paper-project__section-note">CE supervises the observed target, while distribution matching can over-constrain useful adaptation. SRP-SFT protects only the selected directional relations that should not collapse.</p>
+    </div>
+    <figure class="paper-project__problem-figure">
+      <img src="{{ '/papers/assets/srp-sft-intro.png' | relative_url }}" alt="Horizontal comparison of cross-entropy, LP-SFT, and SRP-SFT showing the quantities each objective preserves." width="1415" height="415" loading="eager" decoding="async">
+      <figcaption><span>Figure 1.</span> The three objectives preserve different local quantities: CE fits the target, LP-SFT matches local probabilities, and SRP-SFT keeps teacher-preferred margins above a lower bound.</figcaption>
+    </figure>
   </section>
 
   <section class="paper-project__section" aria-labelledby="method-heading">
