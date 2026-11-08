@@ -57,7 +57,7 @@
 }
 
 .home-profile .report-card h2 {
-  margin: 0 0 2px;
+  margin: 0 0 5px;
   padding: 0;
   border: 0;
   color: #30343b;
@@ -69,7 +69,7 @@
 }
 
 .home-profile .report-card__subtitle {
-  margin: 0 0 8px !important;
+  margin: 0 0 5px !important;
   color: #65748a;
   font-size: 16px !important;
   font-weight: 600;
@@ -97,7 +97,6 @@
   .home-profile .report-card h2 {
     font-size: 18px;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
