@@ -66,6 +66,26 @@
       ]
     },
     {
+      "id": "efficient-opd",
+      "topic": "training",
+      "first_author": true,
+      "title": "Efficient On-Policy Distillation for Language Models: A Survey of Costs, Trade-Offs, and Evaluation",
+      "authors": "**Y. Wang**",
+      "description": "A survey of efficient on-policy distillation across data, rollout, supervision, optimization, systems, and deployment, with a cost-to-quality evidence ledger.",
+      "venue": "Preprints.org · 2026",
+      "contribution": "First author",
+      "image": "/images/works/efficient-opd.svg",
+      "alt": "Six efficiency tracks for on-policy distillation feeding an evidence ledger of cost, time, and memory",
+      "width": 960,
+      "height": 520,
+      "links": [
+        {
+          "label": "Paper",
+          "url": "https://www.preprints.org/manuscript/202610.2702"
+        }
+      ]
+    },
+    {
       "id": "slowfast",
       "topic": "diffusion",
       "title": "Accelerating Diffusion Large Language Models with SlowFast: The Three Golden Principles",
