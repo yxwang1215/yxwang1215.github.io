@@ -16,6 +16,8 @@ main:
     url: "/memories/"
   - title: "Works"
     url: "/#works"
+  - title: "Reports"
+    url: "/#reports"
   - title: "Service"
     url: "/#service"
   - title: "Awards"

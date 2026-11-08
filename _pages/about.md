@@ -106,6 +106,8 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 
 {% include home-works.html %}
 
+{% include home-reports.html %}
+
 <span class='anchor' id='activities'></span>
 
 # Service

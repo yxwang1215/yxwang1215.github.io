@@ -1,0 +1,164 @@
+/* Homepage report section. Keep the card aligned with Works and the compact
+   academic sections while giving a long-form report its own clear entry point. */
+.home-profile .home-reports {
+  margin: 0;
+}
+
+.home-profile .home-reports > h1.home-compact-heading {
+  margin-top: 22px !important;
+  margin-bottom: 12px !important;
+}
+
+.home-profile .report-card {
+  display: grid;
+  grid-template-columns: minmax(210px, 31%) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  min-width: 0;
+  margin: 0 0 6px;
+  padding: 14px 15px;
+  border: 1px solid #ddd9e0;
+  border-left: 3px solid #b7a0bd;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #faf8fb 0%, #fff 72%);
+  box-sizing: border-box;
+  font-family: "Arial Rounded MT Bold", Verdana, "Segoe UI", sans-serif;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.home-profile .report-card:hover {
+  border-color: #cdbbd1;
+  box-shadow: 0 5px 18px rgba(81, 50, 65, .07);
+}
+
+.home-profile .report-card__cover {
+  position: relative;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e2dce4;
+  border-radius: 6px;
+  background: #fff;
+  line-height: 0;
+  text-decoration: none !important;
+}
+
+.home-profile .report-card__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+
+.home-profile .report-card__cover-hint {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .9);
+  color: #765c7d;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.home-profile .report-card__body {
+  min-width: 0;
+}
+
+.home-profile .report-card__eyebrow {
+  margin: 0 0 6px !important;
+  color: #806c86;
+  font-size: 12px !important;
+  font-weight: 700;
+  letter-spacing: .075em;
+  line-height: 1.4;
+}
+
+.home-profile .report-card h2 {
+  margin: 0 0 2px;
+  padding: 0;
+  border: 0;
+  color: #30343b;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.35;
+}
+
+.home-profile .report-card__subtitle {
+  margin: 0 0 8px !important;
+  color: #65748a;
+  font-size: 16px !important;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.home-profile .report-card__description {
+  margin: 0 0 8px !important;
+  color: #62636c;
+  font-size: 15px !important;
+  line-height: 1.6;
+}
+
+.home-profile .report-card__meta {
+  margin: 0 0 11px !important;
+  color: #7a7a84;
+  font-size: 13px !important;
+  line-height: 1.55;
+}
+
+.home-profile .report-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.home-profile .report-card__links a {
+  display: inline-block;
+  color: #934855;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.home-profile .report-card__links a:hover {
+  color: #703440;
+}
+
+@media (max-width: 620px) {
+  .home-profile .report-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    padding: 12px;
+  }
+
+  .home-profile .report-card__cover {
+    max-width: 100%;
+  }
+
+  .home-profile .report-card h2 {
+    font-size: 18px;
+  }
+
+  .home-profile .report-card__description {
+    font-size: 14.5px !important;
+  }
+
+  .home-profile .report-card__links a {
+    min-height: 36px;
+    padding: 7px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-profile .report-card {
+    transition: none;
+  }
+}
