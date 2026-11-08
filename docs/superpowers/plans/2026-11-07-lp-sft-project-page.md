@@ -1,5 +1,7 @@
 # LP-SFT Paper Project Page Implementation Plan
 
+> Implementation correction: the requested paper was later identified as SRP-SFT (`paper/latex_acl/2610.19685v1.pdf`). The shipped implementation follows that source; `papers/lp-sft/` is a compatibility redirect.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
 **Goal:** Build a reusable `/papers/` directory with a visually polished `/papers/lp-sft/` academic project page for LP-SFT, including double-column inspired layout, accessible SVG visualizations, results, source artifacts, and navigation.

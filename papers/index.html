@@ -32,7 +32,7 @@ page_class: "paper-directory"
 
     <article class="paper-card paper-card--featured">
       <div class="paper-card__visual" aria-hidden="true">
-        <span class="paper-card__visual-label">LP-SFT</span>
+        <span class="paper-card__visual-label">SRP-SFT</span>
         <span class="paper-card__visual-line paper-card__visual-line--one"></span>
         <span class="paper-card__visual-line paper-card__visual-line--two"></span>
         <span class="paper-card__visual-line paper-card__visual-line--three"></span>
@@ -42,18 +42,18 @@ page_class: "paper-directory"
       </div>
       <div class="paper-card__body">
         <div class="paper-card__meta">
-          <span>Supervised fine-tuning</span>
+          <span>Selective margin preservation</span>
           <span>2026</span>
         </div>
-        <h2 id="featured-paper-heading">LP-SFT: Local-Preserving Supervised Fine-Tuning via Multimodal Entropy Structure</h2>
+        <h2 id="featured-paper-heading">Beyond Distribution Matching: Selective Margin Preservation for Supervised Fine-Tuning</h2>
         <p>
-          A local preservation objective that protects the base model's non-label preference structure while learning from supervised target tokens.
+          SRP-SFT preserves selected teacher-preferred non-target margins with a one-sided hinge, improving reasoning and code scores without forcing exact distribution matching.
         </p>
         <div class="paper-card__status">
           <span class="paper-card__status-dot" aria-hidden="true"></span>
-          Directionally reproduced · Qwen3-4B / UltraFeedback
+          Qwen3-4B · UltraFeedback · seed 1234
         </div>
-        <a class="paper-card__link" href="{{ '/papers/lp-sft/' | relative_url }}">
+        <a class="paper-card__link" href="{{ '/papers/srp-sft/' | relative_url }}">
           <span>Open project page</span>
           <span aria-hidden="true">↗</span>
         </a>

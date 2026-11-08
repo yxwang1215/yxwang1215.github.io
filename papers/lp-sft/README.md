@@ -1,9 +1,6 @@
-# LP-SFT project page
+# Legacy LP-SFT route
 
-`papers/lp-sft/` contains the standalone project page for **LP-SFT: Local-Preserving Supervised Fine-Tuning via Multimodal Entropy Structure**.
+`papers/lp-sft/` is retained as a compatibility directory for the earlier draft route.
 
-- `index.html` is the rendered project page with the paper-style layout, method diagrams, results, and artifact links.
-- Shared styling lives in `../../assets/css/paper-project.css`.
-- Paper figures and PDFs live in `../assets/`.
-
-The page distinguishes the paper's reported results from the local reconstructed reproduction protocol.
+- `index.html` redirects visitors to `../srp-sft/`, the project page for the requested paper.
+- The current paper assets and page source live under `papers/srp-sft/` and `papers/assets/`.

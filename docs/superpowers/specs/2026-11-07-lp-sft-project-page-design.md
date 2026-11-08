@@ -1,5 +1,7 @@
 # LP-SFT paper project page design
 
+> Superseded during implementation: the requested source was corrected to `paper/latex_acl/2610.19685v1.pdf`, so the shipped page is SRP-SFT. The final page and assets under `papers/srp-sft/` are authoritative.
+
 ## Intent
 
 Create a reusable paper-project area in the personal site, starting with a polished project page for the LP-SFT paper and its local reproduction work. The page should let a research visitor understand the problem, method, main result, and available artifacts within one scroll, while leaving a clear path for adding future paper pages under the same URL structure. The visual reference is the supplied double-column SRP-SFT paper: dense but readable academic hierarchy, compact metadata, blue citation accents, and diagrams that explain the objective before the details.
