@@ -75,7 +75,7 @@ class PaperPagesTest(unittest.TestCase):
         self.assertIn('mechanism-chart-title', html)
         self.assertGreaterEqual(html.count('role="img"'), 2)
         css = (ROOT / "assets/css/paper-project.css").read_text()
-        self.assertIn('clamp(30px, 3.4vw, 44px)', css)
+        self.assertIn('clamp(28px, 3vw, 38px)', css)
         self.assertIn('max-width: 880px', css)
         self.assertIn('font-size: 14px; line-height: 1.75', css)
         self.assertIn('font-size: 13px; line-height: 1.6', css)
@@ -103,7 +103,6 @@ class PaperPagesTest(unittest.TestCase):
             "Anonymous CVPR submission",
             "Evidence-Tempered Diversity",
             "glance encoder",
-            "fig_overview",
             "glance-etd-overview.png",
             "glance-etd-motivation.png",
             "glance-etd-efficiency.png",

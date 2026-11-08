@@ -106,6 +106,15 @@ page_class: "research-map-page"
         </div>
       </article>
       <article class="research-work">
+        <span class="research-work__status">CVPR 2027 · Anonymous review copy</span>
+        <h3>Glance-ETD</h3>
+        <p>A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.</p>
+        <div class="research-work__links">
+          <a href="{{ '/papers/glance-etd/' | relative_url }}">Project</a>
+          <a href="{{ '/papers/assets/glance-etd-paper.pdf' | relative_url }}">PDF</a>
+        </div>
+      </article>
+      <article class="research-work">
         <span class="research-work__status">ACL 2026 · Submitted</span>
         <h3>AudioMarathon</h3>
         <p>A benchmark for long-context audio understanding and efficiency.</p>
