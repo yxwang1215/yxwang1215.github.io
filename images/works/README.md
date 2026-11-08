@@ -5,7 +5,7 @@ Local copies avoid third-party image requests on the homepage. Figures remain co
 Original authors and publishers retain rights to the figures; the website's MIT license does not relicense these assets.
 
 - srp-sft-figure-2.webp — Figure 2: SRP-SFT method overview, rendered directly from page 4 of https://arxiv.org/pdf/2610.19685v1 at 360 DPI. PDF crop in points: `[70, 69, 525, 299]`; dimensions: 2275 × 1150; lossless WebP. Source and crop metadata are also recorded in `_data/works.json`.
-- efficient-opd.svg — Homepage diagram for the Preprints.org survey https://www.preprints.org/manuscript/202610.2702. It summarizes the paper's six efficiency tracks and evidence ledger; it is not a crop of a paper figure.
+- efficient-opd.webp — Homepage diagram for the Preprints.org survey https://www.preprints.org/manuscript/202610.2702. It summarizes the paper's six efficiency tracks and evidence ledger; it is not a crop of a paper figure. 1920 × 1040, lossless WebP.
 - audiokv-figure-3.webp — Figure 3: Overview of AudioKV (arXiv v2): https://arxiv.org/html/2604.06694v2/AudioKV_comparison_fig2_cropped.png
 - slowfast.webp — slowfast.webp: https://raw.githubusercontent.com/LiangrunFlora/Slow-Fast-Sampling/e12b9de37fe4ac7762bb3a124daa0bf755548eb5/assets/method.png
 - ultrahit.webp — ultrahit.webp: https://raw.githubusercontent.com/LeapLabTHU/UltraHiT/75e3a415b33042b2ea9eccbe2e07494d6fff3278/fig/overall.jpg

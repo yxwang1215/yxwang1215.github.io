@@ -74,10 +74,10 @@
       "description": "A survey of efficient on-policy distillation across data, rollout, supervision, optimization, systems, and deployment, with a cost-to-quality evidence ledger.",
       "venue": "Preprints.org · 2026",
       "contribution": "First author",
-      "image": "/images/works/efficient-opd.svg",
+      "image": "/images/works/efficient-opd.webp",
       "alt": "Six efficiency tracks for on-policy distillation feeding an evidence ledger of cost, time, and memory",
-      "width": 960,
-      "height": 520,
+      "width": 1920,
+      "height": 1040,
       "links": [
         {
           "label": "Paper",
