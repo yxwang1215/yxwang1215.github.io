@@ -57,6 +57,10 @@
         {
           "label": "Code",
           "url": "https://github.com/yxwang1215/SRP-SFT"
+        },
+        {
+          "label": "Project page",
+          "url": "/papers/srp-sft/"
         }
       ]
     },
@@ -191,12 +195,12 @@
       "height": 1335,
       "links": [
         {
-          "label": "Project page",
-          "url": "/papers/glance-etd/"
+          "label": "Paper",
+          "url": "/papers/assets/glance-etd-paper.pdf"
         },
         {
-          "label": "PDF",
-          "url": "/papers/assets/glance-etd-paper.pdf"
+          "label": "Project page",
+          "url": "/papers/glance-etd/"
         }
       ]
     },
