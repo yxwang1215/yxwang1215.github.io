@@ -36,7 +36,7 @@
               <span class="work-media-hint" aria-hidden="true">↗</span>
             </a>
             <div class="work-details">
-              <h3 id="work-{{ work.id }}-title"><a href="{{ work.links.first.url | escape }}">{{ work.title | escape }}</a></h3>
+              <h3 id="work-{{ work.id }}-title"><a href="{% if work.project_url %}{{ work.project_url | escape }}{% else %}{{ work.links.first.url | escape }}{% endif %}">{{ work.title | escape }}</a></h3>
               <div class="work-authors">{{ work.authors | markdownify }}</div>
               <p class="work-description">{{ work.description | escape }}</p>
               <div class="work-meta">

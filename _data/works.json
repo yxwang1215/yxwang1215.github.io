@@ -31,6 +31,7 @@
       "id": "srp-sft",
       "topic": "training",
       "first_author": true,
+      "project_url": "/papers/srp-sft/",
       "title": "Beyond Distribution Matching: Selective Margin Preservation for Supervised Fine-Tuning",
       "authors": "**Y. Wang\\***, G. Zhao\\*, X. Tan, Y. Han, X. Yin, Z. Wu, X. Zhang, L. Sun, T. Yang",
       "description": "SRP-SFT preserves selected non-target logit margins during supervised fine-tuning, improving mathematical reasoning and code generation while allowing margin expansion.",
@@ -185,6 +186,7 @@
     {
       "id": "glance-etd",
       "topic": "audio",
+      "project_url": "/papers/glance-etd/",
       "title": "Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs",
       "authors": "Anonymous CVPR submission",
       "description": "A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.",

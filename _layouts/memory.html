@@ -53,7 +53,7 @@ layout: default
       {% assign work = site.data.works.items | where: 'id', work_id | first %}
       {% if work %}
       <article class="memory-work">
-        <h3><a href="{{ work.links.first.url | escape }}">{{ work.title | escape }}</a></h3>
+        <h3><a href="{% if work.project_url %}{{ work.project_url | escape }}{% else %}{{ work.links.first.url | escape }}{% endif %}">{{ work.title | escape }}</a></h3>
         <p>{{ work.description | escape }}</p>
         <div class="memory-work__links"><span>{{ work.venue | escape }}</span>{% for link in work.links %}<a href="{{ link.url | escape }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>{% endfor %}</div>
       </article>
