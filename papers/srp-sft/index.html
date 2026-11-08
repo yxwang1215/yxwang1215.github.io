@@ -42,10 +42,8 @@ page_class: "paper-project"
   </section>
 
   <section class="paper-project__problem" aria-labelledby="problem-heading">
-    <div class="paper-project__section-head">
-      <div><span class="paper-project__number">00</span><p class="paper-project__eyebrow">Why this paper</p><h2 id="problem-heading">Why previous objectives fall short</h2></div>
-      <p class="paper-project__section-note">CE supervises the observed target, while distribution matching can over-constrain useful adaptation. SRP-SFT protects only the selected directional relations that should not collapse.</p>
-    </div>
+    <div class="paper-project__problem-head"><span class="paper-project__number">00</span><div><p class="paper-project__eyebrow">Why this paper</p><h2 id="problem-heading">Why previous objectives fall short</h2></div></div>
+    <p class="paper-project__problem-lede">CE supervises the observed target, while distribution matching can over-constrain useful adaptation. SRP-SFT protects only the selected directional relations that should not collapse.</p>
     <figure class="paper-project__problem-figure">
       <img src="{{ '/papers/assets/srp-sft-intro.png' | relative_url }}" alt="Horizontal comparison of cross-entropy, LP-SFT, and SRP-SFT showing the quantities each objective preserves." width="1415" height="415" loading="eager" decoding="async">
       <figcaption><span>Figure 1.</span> The three objectives preserve different local quantities: CE fits the target, LP-SFT matches local probabilities, and SRP-SFT keeps teacher-preferred margins above a lower bound.</figcaption>
