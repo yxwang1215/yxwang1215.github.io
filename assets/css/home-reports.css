@@ -101,8 +101,7 @@
   .home-profile .report-card__description {
     font-size: 14.5px !important;
   }
-
-  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .home-profile .report-card {
