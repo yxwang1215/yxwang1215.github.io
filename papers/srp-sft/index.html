@@ -111,7 +111,30 @@ page_class: "paper-project"
 
   <section class="paper-project__section" aria-labelledby="mechanism-heading">
     <div class="paper-project__section-head"><div><span class="paper-project__number">03</span><p class="paper-project__eyebrow">Mechanism</p><h2 id="mechanism-heading">Preservation is about geometry, not only KL.</h2></div><p class="paper-project__section-note">On 998 held-out examples, SRP-SFT reduces contraction and rank inversions while allowing more margin expansion.</p></div>
-    <figure class="paper-project__figure"><img src="{{ '/papers/assets/srp-sft-mechanism.png' | relative_url }}" alt="Mechanism diagnostics comparing CE, LP-SFT, and SRP-SFT on local KL, margin contraction, and margin expansion." width="3300" height="1500" loading="lazy" decoding="async"><figcaption><span>Held-out diagnostics.</span> SRP-SFT has local KL 0.075, 5.65% inverted teacher-preferred pairs, 0.110 contraction, and 0.593 expansion.</figcaption></figure>
+    <figure class="paper-project__figure paper-project__figure--mechanism">
+      <div class="paper-project__mechanism-visual">
+        <img src="{{ '/papers/assets/srp-sft-mechanism.png' | relative_url }}" alt="Mechanism diagnostics comparing CE, LP-SFT, and SRP-SFT on local KL, margin contraction, and margin expansion." width="3300" height="1500" loading="lazy" decoding="async">
+        <figcaption><span>Held-out diagnostics.</span> SRP-SFT has local KL 0.075, 5.65% inverted teacher-preferred pairs, 0.110 contraction, and 0.593 expansion.</figcaption>
+      </div>
+      <div class="paper-project__mechanism-chart">
+        <p class="paper-project__chart-kicker">Four diagnostics</p>
+        <svg viewBox="0 0 620 270" role="img" aria-labelledby="mechanism-chart-title mechanism-chart-desc">
+          <title id="mechanism-chart-title">Held-out mechanism diagnostics</title>
+          <desc id="mechanism-chart-desc">SRP-SFT has lower flip and contraction than CE and LP-SFT, while allowing more margin expansion.</desc>
+          <g font-family="Arial, sans-serif">
+            <text x="12" y="25" fill="#687282" font-size="11" font-weight="700">VALUE (LOWER IS BETTER EXCEPT EXPANSION)</text>
+            <g fill="#687282" font-size="11" text-anchor="middle"><text x="145" y="54">Local KL</text><text x="285" y="54">Flip %</text><text x="425" y="54">Contraction</text><text x="565" y="54">Expansion</text></g>
+            <g stroke="#e3e6eb" stroke-dasharray="3 5"><line x1="75" y1="218" x2="615" y2="218"/><line x1="75" y1="126" x2="615" y2="126"/><line x1="75" y1="80" x2="615" y2="80"/></g>
+            <g fill="#c6ced9"><rect x="110" y="164" width="20" height="54" rx="3"/><rect x="250" y="97" width="20" height="121" rx="3"/><rect x="390" y="80" width="20" height="138" rx="3"/><rect x="530" y="98" width="20" height="120" rx="3"/></g>
+            <g fill="#7da5d6"><rect x="137" y="211" width="20" height="7" rx="3"/><rect x="277" y="160" width="20" height="58" rx="3"/><rect x="417" y="156" width="20" height="62" rx="3"/><rect x="557" y="177" width="20" height="41" rx="3"/></g>
+            <g fill="#315f9f"><rect x="164" y="207" width="20" height="11" rx="3"/><rect x="304" y="174" width="20" height="44" rx="3"/><rect x="444" y="193" width="20" height="25" rx="3"/><rect x="584" y="80" width="20" height="138" rx="3"/></g>
+            <g fill="#26364c" font-size="10" text-anchor="middle"><text x="120" y="155">.359</text><text x="260" y="88">15.40</text><text x="400" y="71">.600</text><text x="540" y="89">.543</text><text x="147" y="202">.049</text><text x="287" y="151">7.41</text><text x="427" y="147">.268</text><text x="567" y="168">.183</text><text x="174" y="199">.075</text><text x="314" y="165">5.65</text><text x="454" y="184">.110</text><text x="594" y="71">.593</text></g>
+            <g fill="#687282" font-size="10"><rect x="86" y="242" width="10" height="10" rx="2" fill="#c6ced9"/><text x="102" y="251">CE</text><rect x="146" y="242" width="10" height="10" rx="2" fill="#7da5d6"/><text x="162" y="251">LP-SFT</text><rect x="225" y="242" width="10" height="10" rx="2" fill="#315f9f"/><text x="241" y="251">SRP-SFT</text></g>
+          </g>
+        </svg>
+        <p>SRP-SFT lowers contraction and inversions without collapsing the room for expansion.</p>
+      </div>
+    </figure>
   </section>
 
   <section class="paper-project__section paper-project__section--notes" aria-labelledby="notes-heading">

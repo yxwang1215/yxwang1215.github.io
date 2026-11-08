@@ -63,6 +63,9 @@ class PaperPagesTest(unittest.TestCase):
         ):
             self.assertIn(value, html)
         self.assertIn('viewBox="0 0 900 350"', html)
+        self.assertIn('class="paper-project__figure paper-project__figure--mechanism"', html)
+        self.assertIn('mechanism-chart-title', html)
+        self.assertGreaterEqual(html.count('role="img"'), 2)
 
     def test_navigation_and_directory_link_to_paper_area(self):
         nav = (ROOT / "_data/navigation.yml").read_text()
