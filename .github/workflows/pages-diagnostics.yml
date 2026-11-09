@@ -15,36 +15,55 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Read Pages configuration and deployment state
+      - name: Correlate Pages state, completed runs, and public freshness
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         shell: python
         run: |
+          import concurrent.futures
+          import datetime
           import json
           import os
           import urllib.error
           import urllib.request
 
           base = 'https://api.github.com/repos/' + os.environ['REPOSITORY'] + '/'
-          paths = [
-              'pages',
-              'pages/builds/latest',
-              'pages/deployments/f5acf8b523a2d37ed80ba62e3cebeaaf9a1c4f44',
-              'pages/deployments/ec11138d746d62f07eb2859759452ddbdf7cdd05',
-          ]
-          for path in paths:
-              request = urllib.request.Request(base + path, headers={
-                  'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
-                  'Accept': 'application/vnd.github+json',
-                  'X-GitHub-Api-Version': '2022-11-28',
-                  'User-Agent': 'Read-only-Pages-diagnostics',
-              }, method='GET')
+          headers = {
+              'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
+              'Accept': 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2022-11-28',
+              'User-Agent': 'Read-only-Pages-diagnostics',
+          }
+          def read(path):
+              request = urllib.request.Request(base + path, headers=headers, method='GET')
               try:
                   with urllib.request.urlopen(request, timeout=20) as response:
-                      data = json.load(response)
-                      print(json.dumps({'endpoint': path, 'http_status': response.status, 'data': data}, ensure_ascii=False))
+                      return {'endpoint': path, 'http_status': response.status, 'data': json.load(response)}
               except urllib.error.HTTPError as error:
-                  print(json.dumps({'endpoint': path, 'http_status': error.code, 'body': error.read().decode('utf-8', 'replace')}, ensure_ascii=False))
+                  return {'endpoint': path, 'http_status': error.code, 'body': error.read().decode('utf-8', 'replace')}
               except Exception as error:
-                  print(json.dumps({'endpoint': path, 'error': str(error)}, ensure_ascii=False))
+                  return {'endpoint': path, 'error': str(error)}
+          paths = ['pages', 'pages/health', 'pages/builds?per_page=15', 'actions/runs?branch=main&per_page=20', 'deployments?environment=github-pages&per_page=15']
+          results = list(concurrent.futures.ThreadPoolExecutor(max_workers=5).map(read, paths))
+          runs = []
+          for result in results:
+              data = result.get('data')
+              if result['endpoint'].startswith('actions/runs') and isinstance(data, dict):
+                  runs = data.get('workflow_runs', [])
+                  result['data'] = [{k: x.get(k) for k in ('id','head_sha','path','status','conclusion','run_attempt','created_at','updated_at')} for x in runs]
+              elif isinstance(data, list):
+                  result['data'] = [{k: x.get(k) for k in ('id','status','commit','sha','ref','environment','created_at','updated_at','error','duration','statuses_url')} for x in data]
+              print(json.dumps(result, ensure_ascii=False))
+          shas = list(dict.fromkeys(x['head_sha'] for x in runs if 'pages-build-deployment' in x.get('path','')))[:15]
+          for result in concurrent.futures.ThreadPoolExecutor(max_workers=5).map(read, ['pages/deployments/' + sha for sha in shas]):
+              print(json.dumps(result, ensure_ascii=False))
+          for path in ['/', '/journal/2026-11-09-opd-eight-topics-report/', '/assets/css/masthead-typography.css']:
+              request = urllib.request.Request('https://yxwang1215.top' + path, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Pages-freshness-check'})
+              try:
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      text = response.read().decode('utf-8')
+                      print(json.dumps({'public_path': path, 'status': response.status, 'last_modified': response.headers.get('Last-Modified'), 'blue_nav': '#315f9f' in text, 'new_css_reference': '20261109-homepage-blue-nav-v4' in text}))
+              except urllib.error.HTTPError as error:
+                  print(json.dumps({'public_path': path, 'status': error.code}))
+          print('checked_at_utc=' + datetime.datetime.now(datetime.timezone.utc).isoformat())
