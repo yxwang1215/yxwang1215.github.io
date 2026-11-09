@@ -19,11 +19,7 @@
                 {% assign show_on_journal = false %}
               {% endif %}
             {% endif %}
-            {% assign show_on_home = true %}
-            {% if page.url == '/' and link.sidebar %}
-              {% assign show_on_home = false %}
-            {% endif %}
-            {% if show_on_journal and show_on_home %}
+            {% if show_on_journal %}
             {% assign link_is_active = false %}
             {% if page.url == link.url %}
               {% assign link_is_active = true %}
