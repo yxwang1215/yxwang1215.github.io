@@ -98,3 +98,37 @@ body.modal-open{overflow:hidden}
    When opened on a phone, keep the drawer above the modal scrim. */
 @media(min-width:741px){.icon-button.mobile-menu{display:none}}
 @media(max-width:740px){.sidebar.is-open{z-index:70}}
+
+/* Journal-aligned reading scale. Labels stay lighter, but nothing drops to 8–11px. */
+:root{--bg:#f7faff;--ink:#26384d;--muted:#647386;--line:#dce6f1;--line-strong:#dce6f1;--blue:#315f9f;--blue-dark:#214a83;--blue-soft:#edf4fc}
+body{font:16px/1.7 'Noto Sans SC','DM Sans',system-ui,sans-serif;color:var(--ink)}
+.identity-sub,.nav-section-label,.crumb,.eyebrow,.overview-label,.section-kicker,.card-type,.library-end,.footer,.detail-top,.detail-kicker,.visual-label,.art-deco-top,.art-deco-bottom{font-size:14px;letter-spacing:.04em;line-height:1.45}
+.identity-name{font-size:22px}
+.nav-item{font-size:15px}
+.nav-count{font-size:13px}
+.sidebar-quote{font-size:20px}
+.quote-caption,.storage-note{font-size:14px;line-height:1.5}
+.search-wrap,.search-wrap input,.search-shortcut,.top-new-button,.hero-action,.view-actions select,.filter-chip,.status-select,.detail-primary,.form-buttons button,.footer-actions button,.toast{font-size:15px}
+.search-wrap kbd,.search-shortcut kbd{font-size:13px}
+.hero-copy p,.section-sub,.card-description,.card-source,.detail-source,.detail-prose,.related-link,.empty-state p,.overview-motto,.overview-suffix{font-size:16px;line-height:1.75;color:#526277}
+h1{font-size:clamp(40px,4vw,52px)}
+h2,.section-header h2{font-size:clamp(28px,2.6vw,36px)}
+.card-title{font-size:22px}
+.resource-card.featured .card-title{font-size:clamp(26px,2.4vw,32px)}
+.card-date,.tag,.status-pill,.card-domain,.card-cta,.visual-top,.visual-bottom,.filter-count,.detail-status-row label,.detail-note,.detail-footer button,.field-hint{font-size:14px}
+.overview-number>span:first-child{font-size:34px}
+.detail-title{font-size:32px}
+.detail-section h3{font-size:16px}
+.form-modal-header h2{font-size:26px}
+.resource-form label{font-size:15px}
+.resource-form input:not([type="checkbox"]),.resource-form textarea,.resource-form select{font-size:16px}
+.empty-state h3{font-size:20px}
+@media(max-width:740px){
+  .crumb,.overview-label,.art-deco-top,.art-deco-bottom,.section-sub,.view-actions select,.filter-chip,.footer,.hero-copy h1,.overview-number>span:first-child,.overview-suffix,.section-header h2,.resource-card.featured .card-title,.detail-title,.form-modal-header h2{font-size:inherit}
+  .hero-copy h1{font-size:36px}
+  .section-header h2{font-size:28px}
+  .overview-label,.crumb,.filter-chip,.footer,.section-sub,.view-actions select,.art-deco-top,.art-deco-bottom,.overview-suffix{font-size:14px}
+  .overview-number>span:first-child{font-size:28px}
+  .resource-card.featured .card-title,.detail-title{font-size:24px}
+  .form-modal-header h2{font-size:22px}
+}
