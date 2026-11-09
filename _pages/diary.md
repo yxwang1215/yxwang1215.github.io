@@ -141,13 +141,6 @@ redirect_from:
   </div>
 </section>
 
-<section class="journal-crosslink">
-  <div>
-    <span>Research</span>
-    <p>查看论文、项目和研究方向。</p>
-  </div>
-  <a href="{{ '/research/' | relative_url }}">查看 Research <span aria-hidden="true">→</span></a>
-</section>
 {% else %}
 <div class="journal-empty">
   <span aria-hidden="true">☁</span>

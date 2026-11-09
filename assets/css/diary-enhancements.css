@@ -86,10 +86,18 @@ body.journal-shell {
   -webkit-backdrop-filter: blur(14px);
 }
 
+/* Match the homepage masthead container and its surrounding whitespace. */
 .masthead--journal .masthead__inner-wrap {
-  max-width: 1440px;
-  padding-top: 0;
-  padding-bottom: 0;
+  max-width: 1190px;
+  width: calc(100% - 64px);
+  margin: auto;
+  padding: 12px 0;
+}
+
+@media (max-width: 900px) {
+  .masthead--journal .masthead__inner-wrap {
+    width: calc(100% - 32px);
+  }
 }
 
 .masthead--journal .masthead__menu {
@@ -604,11 +612,6 @@ body.journal-shell {
 }
 
 @media (max-width: 760px) {
-  .masthead--journal .masthead__inner-wrap {
-    padding-right: 0.9rem;
-    padding-left: 0.9rem;
-  }
-
   .journal-masthead {
     min-height: 58px;
     gap: 0.7rem;
