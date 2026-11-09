@@ -11,7 +11,10 @@ main{padding-top:16px}main .heading{margin-bottom:12px}main .heading h1{font-siz
 .task-panel .sort-label:hover{border-color:#b9c9f6;background:#f7f9ff}
 .task-panel .sort-label:focus-within{box-shadow:0 0 0 3px rgba(59,99,235,.16)}
 .task-panel .panel-title,.task-panel .table-tools,.task-panel .sort-label{overflow:visible}
+.task-panel .panel-title{position:relative;z-index:4}
+.task-panel .table-scroll{position:relative;z-index:1}
 .task-panel .sort-label{position:relative}
+.task-panel .sort-label:has(.task-menu:not([hidden])){z-index:5}
 .task-panel .sort-label select{position:absolute;width:1px;height:1px;margin:0;padding:0;border:0;opacity:0;pointer-events:none}
 .task-panel .task-menu-btn{position:relative;height:32px;min-width:118px;margin:0;padding:0 22px 0 2px;border:0;border-radius:8px;background:transparent;color:inherit;font-size:12.5px;font-weight:640;line-height:32px;text-align:left;box-shadow:none}
 .task-panel .task-menu-btn::after{content:"";position:absolute;right:4px;top:50%;width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-70%) rotate(45deg)}

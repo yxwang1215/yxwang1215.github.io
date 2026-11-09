@@ -32,6 +32,9 @@
     {% if page.tests_page %}
       <link rel="stylesheet" href="{{ '/assets/css/test-lab.css' | relative_url }}?v=20261021-tests-v2">
     {% endif %}
+    {% if page.page_class == 'journal-monitor' %}
+      <link rel="stylesheet" href="{{ '/assets/css/journal-monitor.css' | relative_url }}?v=20261109-monitor-stage">
+    {% endif %}
     {% if page.page_class == 'paper-directory' %}
       <link rel="stylesheet" href="{{ '/assets/css/paper-directory.css' | relative_url }}?v=20261107-lp-sft-directory">
     {% endif %}
