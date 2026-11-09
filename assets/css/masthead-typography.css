@@ -60,3 +60,22 @@
     margin-left: 0;
   }
 }
+
+/* Homepage primary navigation: match the Glance-ETD project page's blue accent. */
+.home-profile .masthead #site-nav .visible-links > li > a,
+.home-profile .masthead #site-nav .hidden-links > li > a,
+.home-profile .masthead #site-nav .visible-links > li > a:visited,
+.home-profile .masthead #site-nav .hidden-links > li > a:visited {
+  color: #315f9f;
+}
+
+.home-profile .masthead #site-nav .visible-links > li > a:hover,
+.home-profile .masthead #site-nav .hidden-links > li > a:hover,
+.home-profile .masthead #site-nav .visible-links > li > a:focus-visible,
+.home-profile .masthead #site-nav .hidden-links > li > a:focus-visible {
+  color: #214a83;
+}
+
+.home-profile .masthead #site-nav .visible-links > li > a::before {
+  background: #315f9f;
+}
