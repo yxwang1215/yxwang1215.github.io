@@ -1,0 +1,37 @@
+name: Import uploaded English resume (temporary)
+
+on:
+  push:
+    paths:
+      - ".github/workflows/import-english-resume.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Download and verify resume
+        shell: bash
+        env:
+          SOURCE_URL: "https://at.adobe.com/I1lsKNobO0shhgCw"
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --connect-timeout 20 --max-time 120 "$SOURCE_URL" -o "_pdf/yxwang_resume_uploaded_en.pdf"
+          test "$(head -c 4 _pdf/yxwang_resume_uploaded_en.pdf)" = "%PDF"
+          echo "036dbc9bba11773135c81ee054c85aa109e5770c7b97021129e13634aacd9ca4  _pdf/yxwang_resume_uploaded_en.pdf" | sha256sum -c -
+      - name: Commit uploaded PDF to main for integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _pdf/yxwang_resume_uploaded_en.pdf
+          git commit -m "Stage uploaded English resume PDF"
+          git push origin HEAD:main
