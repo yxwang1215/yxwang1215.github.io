@@ -4,18 +4,30 @@ main:
     url: "/#about-me"
   - title: "Navigation"
     url: "/navigation/"
+    sidebar: true
+    sidebar_icon: "fas fa-compass"
   - title: "Journal"
     url: "/journal/"
+    sidebar: true
+    sidebar_icon: "fas fa-book-open"
   - title: "Resources"
     url: "/resources/"
+    sidebar: true
+    sidebar_icon: "fas fa-folder-open"
   - title: "Tools"
     url: "/tools/"
+    sidebar: true
+    sidebar_icon: "fas fa-tools"
   - title: "Test"
     url: "/tests/"
+    sidebar: true
+    sidebar_icon: "fas fa-flask"
   - title: "Experience"
     url: "/#experience"
   - title: "Memories"
     url: "/memories/"
+    sidebar: true
+    sidebar_icon: "fas fa-images"
   - title: "Works"
     url: "/#works"
   - title: "Reports"
