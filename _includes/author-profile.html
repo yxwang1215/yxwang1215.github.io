@@ -116,6 +116,13 @@
           </a>
         </li>
       {% endif %}
+      {% if author.cv_zh %}
+        <li>
+          <a href="{{ author.cv_zh | relative_url }}" download="{{ author.cv_zh | split:'/' | last }}">
+            <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> {{ author.cv_zh_label | default: '简历（中文）' }}
+          </a>
+        </li>
+      {% endif %}
       {% if author.flickr %}
         <li><a href="https://www.flickr.com/{{ author.flickr }}"><i class="fab fa-fw fa-flickr" aria-hidden="true"></i> Flickr</a></li>
       {% endif %}
@@ -219,7 +226,12 @@
         </a>
       {% endif %}
       {% if author.cv %}
-        <a href="{{ author.cv }}" download="{{ author.cv | split:'/' | last }}">
+        <a href="{{ author.cv | relative_url }}" download="{{ author.cv | split:'/' | last }}" title="{{ author.cv_label | default: 'CV / Resume' }}" aria-label="{{ author.cv_label | default: 'CV / Resume' }}">
+          <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+      {% if author.cv_zh %}
+        <a href="{{ author.cv_zh | relative_url }}" download="{{ author.cv_zh | split:'/' | last }}" title="{{ author.cv_zh_label | default: '简历（中文）' }}" aria-label="{{ author.cv_zh_label | default: '简历（中文）' }}">
           <i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>
         </a>
       {% endif %}
