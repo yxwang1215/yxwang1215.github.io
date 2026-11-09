@@ -127,6 +127,7 @@ h2,.section-header h2{font-size:clamp(36px,3vw,46px)}
 .resource-form input:not([type="checkbox"]),.resource-form textarea,.resource-form select{font-size:20px}
 .empty-state h3{font-size:26px}
 @media(max-width:740px){
+  :root{--sidebar:min(440px,88vw)}
   .hero-copy h1{font-size:42px}
   .section-header h2{font-size:34px}
   .overview-number>span:first-child{font-size:36px}
