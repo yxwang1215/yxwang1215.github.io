@@ -2,7 +2,10 @@
 title: "谁占着这批显卡：我写的 Prophet 监控"
 date: 2026-11-09 15:10:00 +0800
 subtitle: "点开一个分区，就能看到每个用户占了多少卡。"
-excerpt: "按项目和型号看占卡。这篇里直接放了可交互的监控界面。"
+excerpt: "按项目和型号看占卡。这篇里放了竖屏界面，也可以直接试交互。"
+cover: /images/diary/2026-11-09-prophet-monitor/overview.png
+cover_alt: "Prophet 显卡监控的竖屏界面，上面是占用概览和用户排行，下面是任务明细"
+cover_caption: "整页界面。上面是分区占卡和用户排行，下面是任务明细。"
 page_class: journal-monitor
 tags:
   - 工具

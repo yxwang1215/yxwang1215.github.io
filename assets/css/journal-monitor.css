@@ -15,6 +15,19 @@ body.journal-monitor .diary-entry__content {
   line-height: 1.7;
 }
 
+body.journal-monitor .diary-entry__cover {
+  width: min(100%, 460px);
+  margin: 0 auto 1.6rem;
+}
+
+body.journal-monitor .diary-entry__cover img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e4e9f0;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(24, 36, 54, 0.08);
+}
+
 body.journal-monitor .monitor-stage {
   margin: 0 0 1.1rem;
   overflow: hidden;
