@@ -1,0 +1,50 @@
+name: Read-only Pages diagnostics
+
+on:
+  push:
+    branches: [ops/pages-diagnostics-20261109]
+    paths: [.github/workflows/pages-diagnostics.yml]
+
+permissions:
+  contents: read
+  pages: read
+  actions: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Read Pages configuration and deployment state
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        shell: python
+        run: |
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+
+          base = 'https://api.github.com/repos/' + os.environ['REPOSITORY'] + '/'
+          paths = [
+              'pages',
+              'pages/builds/latest',
+              'pages/deployments/f5acf8b523a2d37ed80ba62e3cebeaaf9a1c4f44',
+              'pages/deployments/ec11138d746d62f07eb2859759452ddbdf7cdd05',
+          ]
+          for path in paths:
+              request = urllib.request.Request(base + path, headers={
+                  'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
+                  'Accept': 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+                  'User-Agent': 'Read-only-Pages-diagnostics',
+              }, method='GET')
+              try:
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      data = json.load(response)
+                      print(json.dumps({'endpoint': path, 'http_status': response.status, 'data': data}, ensure_ascii=False))
+              except urllib.error.HTTPError as error:
+                  print(json.dumps({'endpoint': path, 'http_status': error.code, 'body': error.read().decode('utf-8', 'replace')}, ensure_ascii=False))
+              except Exception as error:
+                  print(json.dumps({'endpoint': path, 'error': str(error)}, ensure_ascii=False))
