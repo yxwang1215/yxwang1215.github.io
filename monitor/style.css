@@ -6,7 +6,7 @@ main{padding-top:16px}main .heading{margin-bottom:12px}main .heading h1{font-siz
 .idle-strip{flex-wrap:wrap;row-gap:8px}.idle-strip.mine-only{border-color:#d5e0f5;border-left-color:#3b63eb}.mine-split{width:1px;align-self:stretch;background:#d5deea;margin:0 2px}.idle-group,.mine-sizes{display:inline-flex;align-items:center;gap:18px;border-radius:7px;padding:4px 10px}.idle-group{background:#e5f6ec}.idle-group .idle-k,.idle-group .idle-u{color:#1d6b45}.run-sizes{background:#e7efff}.run-label,.run-sizes .idle-k,.run-sizes .idle-u{color:#2457d6}.idle-strip .run-chip b{color:#1d4ed8}.mine-sizes:not(.run-sizes){background:#fff1e0}.mine-label,.mine-sizes:not(.run-sizes) .idle-k,.mine-sizes:not(.run-sizes) .idle-u{color:#c2410c}.idle-strip .mine-chip b{color:#c2410c}
 
 /* Task-detail toolbar: capsule selects and matched buttons, not native controls. */
-.task-panel .table-tools{gap:8px}
+.task-panel .table-tools{flex:1 1 100%;gap:8px;justify-content:flex-start}
 .task-panel .sort-label{gap:6px;height:34px;padding:0 2px 0 10px;border:1px solid #d5deea;border-radius:8px;background:#fff;color:#748197;font-size:12px;font-weight:620;letter-spacing:.01em;transition:border-color .15s,background .15s,box-shadow .15s}
 .task-panel .sort-label:hover{border-color:#b9c9f6;background:#f7f9ff}
 .task-panel .sort-label:focus-within{box-shadow:0 0 0 3px rgba(59,99,235,.16)}
@@ -35,10 +35,13 @@ main{padding-top:16px}main .heading{margin-bottom:12px}main .heading h1{font-siz
 .task-panel .sort-label:has(#sort) .task-menu-item.is-selected,.task-panel .sort-label:has(#sort) .task-menu-item:hover{background:#f3e8ff;color:#7c3aed}
 .task-panel #task-user{min-width:148px}
 .task-panel #outcome{min-width:132px}
-.task-panel .copy-tools{gap:6px;align-items:center}
+.task-panel .copy-tools{gap:6px;align-items:center;justify-content:flex-start}
 .task-panel .copy-tools button{height:34px;padding:0 12px;border-radius:8px;border-color:#d5deea;background:#fff;color:#31445f;font-size:12px;font-weight:580;line-height:1;box-shadow:0 1px 0 rgba(24,36,54,.03)}
 .task-panel .copy-tools button:hover{background:#f4f7ff;border-color:#b7c6f3;color:#2f52cd}
-.task-panel .copy-tools #csv{margin-left:8px}
+.task-panel .copy-tools #copy-3h,.task-panel .copy-tools #csv{margin-left:8px}
+.task-panel .copy-tools #refresh{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:650}
+.task-panel .copy-tools #refresh:hover{background:#2f52cd;border-color:#2f52cd;color:#fff}
+.task-panel .copy-tools #mine[aria-pressed=true],.task-panel .copy-tools #mine[aria-pressed=true]:hover{background:#edf2ff;border-color:#becdfa;color:var(--blue)}
 .task-panel .copy-tools #csv,.task-panel .copy-tools #json{background:#eef3ff;border-color:#c9d6fb;color:#2a4ec4;font-weight:650}
 .task-panel .copy-tools #csv:hover,.task-panel .copy-tools #json:hover{background:#3b63eb;border-color:#3b63eb;color:#fff}
 
