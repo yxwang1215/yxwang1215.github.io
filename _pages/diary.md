@@ -37,7 +37,6 @@ redirect_from:
   </div>
 </section>
 
-{% include section-pager.html position="top" previous_url="/journey/" previous_label="Journey" next_url="/research/" next_label="Research" %}
 
 {% if diary_entries.size > 0 %}
 <section id="all" class="journal-discovery" data-journal-toolbar aria-labelledby="journal-all-title">
@@ -157,4 +156,3 @@ redirect_from:
 </div>
 {% endif %}
 
-{% include section-pager.html position="bottom" previous_url="/journey/" previous_label="Journey" next_url="/research/" next_label="Research" %}

@@ -6,22 +6,6 @@
 <div class="masthead{% if is_journal_page %} masthead--journal{% endif %}">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      {% if is_journal_page %}
-      <nav class="journal-masthead" aria-label="Journal navigation">
-        <a class="journal-masthead__brand" href="{{ '/journal/' | relative_url }}">
-          <span class="journal-masthead__brand-name">Yuxuan Wang</span>
-          <span class="journal-masthead__brand-divider" aria-hidden="true">/</span>
-          <span class="journal-masthead__brand-section">Journal</span>
-        </a>
-        <div class="journal-masthead__actions">
-          <a href="{{ '/' | relative_url }}">Homepage</a>
-          <a href="{{ '/navigation/' | relative_url }}">Navigation</a>
-          <a class="journal-masthead__optional" href="{{ '/research/' | relative_url }}">Research</a>
-          <a class="journal-masthead__optional" href="{{ '/journal/#archive' | relative_url }}">Archive</a>
-          <a class="is-active" href="{{ '/journal/' | relative_url }}" aria-current="page">Journal</a>
-        </div>
-      </nav>
-      {% else %}
       <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         <button aria-label="展开导航菜单"><span class="navicon"></span></button>
         <ul class="visible-links">
@@ -29,6 +13,13 @@
             <a href="{{ '/' | relative_url }}">Home</a>
           </li>
           {% for link in site.data.navigation.main %}
+            {% assign show_on_journal = true %}
+            {% if is_journal_page %}
+              {% if link.url == '/resources/' or link.url == '/#friends' %}
+                {% assign show_on_journal = false %}
+              {% endif %}
+            {% endif %}
+            {% if show_on_journal %}
             {% assign link_is_active = false %}
             {% if page.url == link.url %}
               {% assign link_is_active = true %}
@@ -36,14 +27,17 @@
             {% if link.url == '/tests/' and page.url contains '/tests/' %}
               {% assign link_is_active = true %}
             {% endif %}
+            {% if link.url == '/journal/' and is_journal_page %}
+              {% assign link_is_active = true %}
+            {% endif %}
             <li class="masthead__menu-item">
               <a href="{{ link.url | relative_url }}"{% if link_is_active %} class="is-active" aria-current="page"{% endif %}>{{ link.title }}</a>
             </li>
+            {% endif %}
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
-      {% endif %}
     </div>
   </div>
 </div>
