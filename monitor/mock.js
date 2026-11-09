@@ -19,16 +19,28 @@
     return result;
   }
 
-  function live(id, name, user, status, priority, project, gpuType, cards, ageHours) {
+  function live(id, name, user, status, priority, project, gpuType, nodeCount, perNode, ageHours) {
     const now = Math.floor(Date.now() / 1000);
-    const nodes = 1;
     return {
       id, name, project, status, user, display_name: user, priority, gpu_type: gpuType,
-      nodes, gpus_per_node: cards, gpus: cards,
+      nodes: nodeCount, gpus_per_node: perNode, gpus: nodeCount * perNode,
       created_at: now - ageHours * HOUR,
       started_at: status === 'Pending' ? null : now - Math.max(1, ageHours - 1) * HOUR,
       ended_at: null, duration_seconds: null, cluster: 'mock', stale: false,
     };
+  }
+
+  function many(user, status, priority, project, gpuType, nodeCount, perNode, count, namePrefix, ageStart) {
+    const rows = [];
+    for (let i = 0; i < count; i++) {
+      rows.push(live(
+        namePrefix + '-' + String(i + 1).padStart(2, '0'),
+        namePrefix + '-' + String(i + 1).padStart(2, '0'),
+        user, status, priority, project, gpuType, nodeCount, perNode,
+        ageStart + (i % 18),
+      ));
+    }
+    return rows;
   }
 
   function done(id, name, user, status, priority, project, gpuType, cards, endedHours, duration) {
@@ -42,60 +54,56 @@
     };
   }
 
-  function machines(project, gpuType, count, freeCount) {
+  function machines(project, gpuType, freeList, fullCount) {
     const rows = [];
-    for (let i = 0; i < count; i++) {
-      const free = i < freeCount ? 8 : 0;
+    const layout = freeList.concat(Array(fullCount).fill(0));
+    layout.forEach((free, index) => {
       rows.push({
-        name: project.toLowerCase() + '-' + String(i + 1).padStart(2, '0'),
+        name: project.toLowerCase() + '-' + gpuType.slice(0, 4).toLowerCase() + '-' + String(index + 1).padStart(2, '0'),
         project, projects: [project], gpu_type: gpuType,
         total_gpus: 8, allocated_gpus: 8 - free, free_gpus: free,
         schedulable: true, consistent: true,
       });
-    }
+    });
     return rows;
   }
 
   function snapshot() {
+    const A = 'ZhinaoRD2_A800';
     const jobs = [
-      live('m-01', 'glance-etd-50', 'wangyuxuan', 'Running', 'P2', 'ZhinaoRD2_A800', A800, 8, 6),
-      live('m-02', 'glance-etd-25', 'wangyuxuan', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 4),
-      live('m-03', 'lt-opd-budget', 'wangyuxuan', 'Pending', 'P2', 'ZhinaoRD2_A800', A800, 4, 1),
-      live('m-04', 'lt-opd-sft', 'wangyuxuan', 'Pending', 'P3', 'ZhinaoRD2_A800', A800, 8, 2),
-      live('m-05', 'align-pass-3', 'linzhou', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 9),
-      live('m-06', 'align-pass-4', 'linzhou', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 7),
-      live('m-07', 'align-pass-5', 'linzhou', 'Running', 'P2', 'ZhinaoRD2_A800', A800, 8, 3),
-      live('m-08', 'dpo-mix-a', 'chenrui', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 11),
-      live('m-09', 'dpo-mix-b', 'chenrui', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 5),
-      live('m-10', 'dpo-mix-c', 'chenrui', 'Pending', 'P2', 'ZhinaoRD2_A800', A800, 8, 1),
-      live('m-11', 'dpo-mix-d', 'chenrui', 'Pending', 'P3', 'ZhinaoRD2_A800', A800, 8, 2),
-      live('m-12', 'retrieval-sft', 'zhaoan', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 8),
-      live('m-13', 'retrieval-queue', 'zhaoan', 'Pending', 'P3', 'ZhinaoRD2_A800', A800, 8, 3),
-      live('m-14', 'eval-suite', 'sunqi', 'Running', 'P2', 'ZhinaoRD2_A800', A800, 8, 2),
-      live('m-15', 'pack-long-1', 'heyan', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 14),
-      live('m-16', 'pack-long-2', 'heyan', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 10),
-      live('m-17', 'pack-long-3', 'heyan', 'Pending', 'P3', 'ZhinaoRD2_A800', A800, 8, 1),
-      live('m-18', 'pretrain-west', 'guowei', 'Running', 'P3', 'ZhinaoRD2_A800', A800, 8, 20),
-      live('m-19', 'pretrain-queue', 'guowei', 'Pending', 'P2', 'ZhinaoRD2_A800', A800, 8, 1),
-      live('m-20', 'distill-mix', 'majie', 'Running', 'P3', 'ZhinaoRD2_A800', MIX, 8, 6),
-      live('m-21', 'distill-queue', 'guowei', 'Pending', 'P3', 'ZhinaoRD2_A800', MIX, 8, 2),
-      live('m-22', 'longctx-h800', 'wangyuxuan', 'Running', 'P2', 'CP', H800, 8, 5),
-      live('m-23', 'sft-h800', 'linzhou', 'Running', 'P3', 'CP', H800, 8, 12),
-      live('m-24', 'sft-h800-queue', 'sunqi', 'Pending', 'P3', 'CP', H800, 8, 1),
-      live('m-25', 'ablation-a100', 'chenrui', 'Running', 'P3', 'CPE', A100, 4, 3),
-      live('m-26', 'baseline-a100', 'zhaoan', 'Running', 'P2', 'CPE', A100, 8, 4),
+      ...many('我', 'Running', 'P0', A, A800, 1, 8, 8, 'a800-me', 6),
+      ...many('用户 B', 'Running', 'P0', A, A800, 1, 8, 4, 'a800-b-p0', 10),
+      ...many('用户 B', 'Running', 'P3', A, A800, 1, 8, 4, 'a800-b-p3', 8),
+      ...many('用户 C', 'Running', 'P3', A, A800, 1, 8, 7, 'a800-c', 12),
+      ...many('用户 C', 'Pending', 'P3', A, A800, 1, 8, 63, 'a800-c-queue', 2),
+      ...many('用户 D', 'Running', 'P0', A, A800, 1, 2, 15, 'a800-d-small', 20),
+      ...many('用户 D', 'Running', 'P3', A, A800, 1, 8, 1, 'a800-d', 9),
+      ...many('用户 E', 'Running', 'P0', 'CP', H800, 4, 8, 1, 'h800-e', 30),
+      ...many('用户 F', 'Running', 'P3', 'CP', H800, 1, 4, 6, 'h800-f', 14),
+      ...many('用户 G', 'Running', 'P3', 'CP', H800, 2, 8, 1, 'h800-g', 18),
+      ...many('用户 H', 'Running', 'P3', 'CP', H800, 1, 8, 1, 'h800-h', 7),
+      ...many('用户 H', 'Pending', 'P3', 'CP', H800, 4, 8, 1, 'h800-h-queue32', 1),
+      ...many('用户 H', 'Pending', 'P3', 'CP', H800, 1, 8, 1, 'h800-h-queue8', 1),
+      ...many('用户 I', 'Running', 'P0', A, MIX, 8, 8, 1, 'mix-i', 16),
+      ...many('用户 I', 'Running', 'P3', A, MIX, 1, 4, 1, 'mix-i-small', 5),
+      ...many('用户 J', 'Running', 'P0', A, MIX, 1, 8, 2, 'mix-j', 11),
+      ...many('用户 J', 'Running', 'P0', A, MIX, 1, 2, 1, 'mix-j-small', 4),
+      ...many('用户 K', 'Running', 'P3', A, MIX, 1, 4, 1, 'mix-k', 6),
+      ...many('用户 L', 'Running', 'P3', 'CPE', A100, 1, 8, 6, 'a100-l', 15),
+      ...many('用户 M', 'Running', 'P0', A, A100, 1, 8, 2, 'a100-m', 13),
+      ...many('用户 N', 'Running', 'P0', A, A100, 1, 8, 1, 'a100-n', 8),
     ];
     const finished = [
-      done('f-01', 'glance-etd-prev', 'wangyuxuan', 'Succeeded', 'P2', 'ZhinaoRD2_A800', A800, 8, 5, 6 * HOUR),
-      done('f-02', 'smoke-a800-canary', 'wangyuxuan', 'Succeeded', 'P3', 'ZhinaoRD2_A800', A800, 8, 2, 420),
-      done('f-03', 'oom-repro', 'linzhou', 'Failed', 'P3', 'ZhinaoRD2_A800', A800, 8, 8, 2400),
-      done('f-04', 'longctx-stop', 'chenrui', 'Interrupted', 'P2', 'CP', H800, 8, 20, 5000),
-      done('f-05', 'quick-check', 'sunqi', 'Succeeded', 'P3', 'ZhinaoRD2_A800', A800, 4, 1, 45),
-      done('f-06', 'preflight-pack', 'heyan', 'Succeeded', 'P3', 'ZhinaoRD2_A800', A800, 8, 30, 900),
-      done('f-07', 'retrieval-full', 'zhaoan', 'Succeeded', 'P3', 'ZhinaoRD2_A800', A800, 8, 18, 10 * HOUR),
-      done('f-08', 'distill-prev', 'majie', 'Succeeded', 'P3', 'ZhinaoRD2_A800', MIX, 8, 40, 8 * HOUR),
-      done('f-09', 'smoke-h800', 'guowei', 'Succeeded', 'P3', 'CP', H800, 8, 36, 180),
-      done('f-10', 'align-fail', 'linzhou', 'Failed', 'P2', 'ZhinaoRD2_A800', A800, 8, 14, 3 * HOUR),
+      done('f-01', 'a800-result-3h', '我', 'Succeeded', 'P0', A, A800, 8, 3, 6 * HOUR),
+      done('f-02', 'smoke-a800', '用户 C', 'Failed', 'P3', A, A800, 8, 2, 400),
+      done('f-03', 'a800-fail', '用户 B', 'Failed', 'P3', A, A800, 8, 8, 2 * HOUR),
+      done('f-04', 'h800-stop', '用户 H', 'Interrupted', 'P3', 'CP', H800, 8, 6, 4 * HOUR),
+      done('f-05', 'a800-short', '用户 D', 'Succeeded', 'P3', A, A800, 2, 1, 40),
+      done('f-06', 'a800-result-18h', '用户 B', 'Succeeded', 'P3', A, A800, 8, 18, 10 * HOUR),
+      done('f-07', 'h800-result-20h', '用户 F', 'Succeeded', 'P3', 'CP', H800, 4, 20, 5 * HOUR),
+      done('f-08', 'preflight-a800', '用户 D', 'Succeeded', 'P3', A, A800, 8, 30, 800),
+      done('f-09', 'a800-result-40h', '我', 'Succeeded', 'P0', A, A800, 8, 40, 8 * HOUR),
+      done('f-10', 'smoke-h800', '用户 E', 'Succeeded', 'P3', 'CP', H800, 8, 36, 160),
     ];
     const projects = [
       ['ZhinaoRD2_A800', 'A800'],
@@ -107,17 +115,17 @@
       summary: summarize(jobs.filter(job => job.project === name)),
     }));
     const nodes = [
-      ...machines('ZhinaoRD2_A800', A800, 28, 2),
-      ...machines('ZhinaoRD2_A800', MIX, 4, 0),
-      ...machines('CP', H800, 12, 2),
-      ...machines('CPE', A100, 8, 1),
+      ...machines(A, A800, [4, 6, 4, 2, 4, 4], 37),
+      ...machines('CP', H800, [], 10),
+      ...machines('CPE', A100, [], 7),
+      ...machines(A, A100, [], 3),
     ];
     const usage = quotas();
     return {
       checked_at: checkedAt,
       complete: true,
       scope: '模拟数据，结构与本机监控相同，不连接 Prophet。',
-      default_user: 'wangyuxuan',
+      default_user: '我',
       capabilities: {pool_capacity: true, gpu_utilization: false},
       projects, jobs, finished,
       summary: summarize(jobs),
