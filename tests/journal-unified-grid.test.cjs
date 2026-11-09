@@ -37,6 +37,6 @@ test("16:9 Journal covers show one unblurred source image at every breakpoint", 
 });
 
 test("Journal index keeps its cache keys distinct from older CSS", () => {
-  assert.match(read("assets/css/site-polish.css"), /journal-visual-refresh\.css\?v=20261109-journal-visual-refresh-v1/);
-  assert.match(read("_includes/head/custom.html"), /site-polish\.css[^"]*20261109-journal-visual-refresh-v1/);
+  assert.match(read("assets/css/site-polish.css"), /journal-visual-refresh\.css\?v=20261109-journal-archive-two-col-v2/);
+  assert.match(read("_includes/head/custom.html"), /site-polish\.css[^"]*20261109-journal-archive-two-col-v2/);
 });

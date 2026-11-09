@@ -472,3 +472,56 @@
     white-space: normal;
   }
 }
+
+/* Yearly archive: compact, chronological two-column index on wide screens.
+   Source order remains newest-first, read left-to-right across each row. */
+@media (min-width: 1000px) {
+  .journal-shell .journal-archive ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.35rem;
+    align-items: stretch;
+    border-top: 1px solid #e1ebf5;
+  }
+
+  .journal-shell .journal-archive li {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    column-gap: 0.66rem;
+    row-gap: 0.15rem;
+    align-content: center;
+    align-items: start;
+    padding: 0.84rem 0.2rem;
+  }
+
+  .journal-shell .journal-archive time {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    padding-top: 0.08rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .journal-shell .journal-archive li a {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.55;
+  }
+
+  .journal-shell .journal-archive li > span {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+    overflow: visible;
+    text-align: left;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+  }
+}
