@@ -1,11 +1,13 @@
 ---
 title: "OPD: Eight Topics and Internal Experiments"
-date: 2026-11-09 10:00:00 +0800
+date: 2026-10-27 10:00:00 +0800
 subtitle: "Recent Advances and Emerging Research Directions"
 excerpt: "This report examines the design and efficiency trade-offs of on-policy distillation, drawing on recent research and internal experiments."
 cover: /images/works/opd-eight-topics-report-cover.png
 cover_alt: "Cover slide of OPD: Eight Topics and Internal Experiments"
 cover_caption: "OPD: Eight Topics and Internal Experiments · Peking University–360 Joint Laboratory paper reading, 27 October 2026."
+redirect_from:
+  - /journal/2026-11-09-opd-eight-topics-report/
 tags:
   - 科研随想
   - 知识蒸馏
