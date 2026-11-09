@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="{{ '/assets/css/diary-enhancements.css' | relative_url }}?v=20261016-nav-journal-uniform">
 <link rel="stylesheet" href="{{ '/assets/css/journal-columns.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/site-polish.css' | relative_url }}?v=20261109-journal-visual-refresh-v1">
+{% if page.url contains 'tianjin-pku-ds-lab' %}
+<link rel="stylesheet" href="{{ '/assets/css/journal-tianjin-trip.css' | relative_url }}?v=20261109-v1">
+{% endif %}
 {% if page.url == '/' %}
 <link rel="stylesheet" href="{{ '/assets/css/publication-typography.css' | relative_url }}?v=20261017-selen-rounded-works-v2">
 <link rel="stylesheet" href="{{ '/assets/css/home-reports.css' | relative_url }}?v=20261109-opd-layout-v2">

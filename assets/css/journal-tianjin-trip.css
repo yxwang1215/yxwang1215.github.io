@@ -1,0 +1,74 @@
+/* Photo essay: 2026 October Tianjin trip with PKU DS Lab.
+   Scoped to this Journal entry; no impact on the index or other articles. */
+.journal-shell--entry .tianjin-story {
+  --tianjin-blue: #315f9f;
+  --tianjin-muted: #6b7d91;
+  --tianjin-border: #e0e9f3;
+}
+.journal-shell--entry .tianjin-story__stamp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.25rem;
+  margin: 0.15rem 0 1.5rem;
+  padding: 0.82rem 1rem;
+  border-left: 3px solid var(--tianjin-blue);
+  background: #f4f8fd;
+  color: #42638c;
+  font: 700 0.8rem/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0.025em;
+}
+.journal-shell--entry .tianjin-story h2 {
+  margin-top: 2.9rem;
+  border-bottom-color: var(--tianjin-border);
+}
+.journal-shell--entry .tianjin-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+  margin: 1.55rem 0 2.5rem;
+}
+.journal-shell--entry .diary-entry__content .tianjin-gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+.journal-shell--entry .tianjin-gallery__photo--wide { grid-column: 1 / -1; }
+.journal-shell--entry .tianjin-gallery__photo a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--tianjin-border);
+  border-radius: 12px;
+  background: #f4f7fb;
+}
+.journal-shell--entry .diary-entry__content .tianjin-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 230ms ease;
+}
+.journal-shell--entry .tianjin-gallery__photo--portrait img { aspect-ratio: 3 / 4 !important; }
+.journal-shell--entry .tianjin-gallery__photo--wide img { aspect-ratio: 16 / 9 !important; }
+.journal-shell--entry .tianjin-gallery a:hover img { transform: scale(1.018); }
+.journal-shell--entry .diary-entry__content .tianjin-gallery figcaption {
+  margin: 0.52rem 0 0;
+  color: var(--tianjin-muted);
+  font: 400 0.8rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-align: left;
+}
+@media (max-width: 620px) {
+  .journal-shell--entry .tianjin-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.05rem;
+  }
+  .journal-shell--entry .tianjin-gallery__photo--wide { grid-column: auto; }
+  .journal-shell--entry .diary-entry__content .tianjin-gallery img { aspect-ratio: 4 / 3; }
+  .journal-shell--entry .tianjin-gallery__photo--wide img { aspect-ratio: 4 / 3 !important; }
+  .journal-shell--entry .tianjin-story__stamp { font-size: 0.73rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journal-shell--entry .tianjin-gallery img { transition: none; }
+}
