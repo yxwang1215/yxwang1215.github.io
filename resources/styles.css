@@ -99,39 +99,39 @@ body.modal-open{overflow:hidden}
 @media(min-width:741px){.icon-button.mobile-menu{display:none}}
 @media(max-width:740px){.sidebar.is-open{z-index:70}}
 
-/* Journal-aligned reading scale. The floor is 16px, including the sidebar. */
-:root{--bg:#f7faff;--ink:#26384d;--muted:#647386;--line:#dce6f1;--line-strong:#dce6f1;--blue:#315f9f;--blue-dark:#214a83;--blue-soft:#edf4fc;--sidebar:340px}
-body{font:17px/1.7 'Noto Sans SC','DM Sans',system-ui,sans-serif;color:var(--ink)}
-.identity-name{font-size:26px;letter-spacing:-.4px}
-.identity-sub{font-size:16px;letter-spacing:.02em;line-height:1.45;white-space:normal}
-.nav-section-label{font-size:16px;letter-spacing:.04em;line-height:1.4}
-.nav-item{height:auto;min-height:50px;font-size:19px;padding:10px 14px;white-space:normal}
-.nav-item .ico{width:20px;height:20px}
-.nav-count{font-size:16px}
-.sidebar-quote{font-size:22px}
-.quote-caption,.storage-note{font-size:16px;line-height:1.55}
-.crumb,.eyebrow,.overview-label,.section-kicker,.card-type,.library-end,.footer,.detail-top,.detail-kicker,.visual-label,.art-deco-top,.art-deco-bottom,.card-date,.tag,.status-pill,.card-domain,.card-cta,.visual-top,.visual-bottom,.filter-count,.detail-status-row label,.detail-note,.detail-footer button,.field-hint,.search-wrap kbd,.search-shortcut kbd{font-size:16px;letter-spacing:.02em;line-height:1.45}
-.search-wrap,.search-shortcut{height:42px;width:300px}
-.search-wrap,.search-wrap input,.search-shortcut,.top-new-button,.hero-action,.view-actions select,.filter-chip,.status-select,.detail-primary,.form-buttons button,.footer-actions button,.toast{font-size:17px}
-.top-new-button,.view-actions select,.filter-chip{min-height:40px}
-.hero-copy p,.section-sub,.card-description,.card-source,.detail-source,.detail-prose,.related-link,.empty-state p,.overview-motto,.overview-suffix{font-size:17px;line-height:1.75;color:#526277}
-h1{font-size:clamp(42px,4vw,54px)}
-h2,.section-header h2{font-size:clamp(30px,2.6vw,38px)}
-.card-title{font-size:24px}
-.resource-card.featured .card-title{font-size:clamp(28px,2.4vw,34px)}
-.overview-number>span:first-child{font-size:36px}
-.detail-title{font-size:34px}
-.detail-section h3{font-size:19px}
-.form-modal-header h2{font-size:28px}
-.resource-form label{font-size:16px}
-.resource-form input:not([type="checkbox"]),.resource-form textarea,.resource-form select{font-size:17px}
-.empty-state h3{font-size:22px}
+/* Journal-aligned reading scale. The floor is 15px, including the sidebar. */
+:root{--bg:#f7faff;--ink:#26384d;--muted:#647386;--line:#dce6f1;--line-strong:#dce6f1;--blue:#315f9f;--blue-dark:#214a83;--blue-soft:#edf4fc;--sidebar:320px}
+body{font:16px/1.7 'Noto Sans SC','DM Sans',system-ui,sans-serif;color:var(--ink)}
+.identity-name{font-size:25px;letter-spacing:-.4px}
+.identity-sub{font-size:15px;letter-spacing:.02em;line-height:1.45;white-space:normal}
+.nav-section-label{font-size:15px;letter-spacing:.04em;line-height:1.4}
+.nav-item{height:auto;min-height:48px;font-size:18px;padding:9px 14px;white-space:normal}
+.nav-item .ico{width:19px;height:19px}
+.nav-count{font-size:15px}
+.sidebar-quote{font-size:21px}
+.quote-caption,.storage-note{font-size:15px;line-height:1.55}
+.crumb,.eyebrow,.overview-label,.section-kicker,.card-type,.library-end,.footer,.detail-top,.detail-kicker,.visual-label,.art-deco-top,.art-deco-bottom,.card-date,.tag,.status-pill,.card-domain,.card-cta,.visual-top,.visual-bottom,.filter-count,.detail-status-row label,.detail-note,.detail-footer button,.field-hint,.search-wrap kbd,.search-shortcut kbd{font-size:15px;letter-spacing:.02em;line-height:1.45}
+.search-wrap,.search-shortcut{height:40px;width:290px}
+.search-wrap,.search-wrap input,.search-shortcut,.top-new-button,.hero-action,.view-actions select,.filter-chip,.status-select,.detail-primary,.form-buttons button,.footer-actions button,.toast{font-size:16px}
+.top-new-button,.view-actions select,.filter-chip{min-height:38px}
+.hero-copy p,.section-sub,.card-description,.card-source,.detail-source,.detail-prose,.related-link,.empty-state p,.overview-motto,.overview-suffix{font-size:16px;line-height:1.75;color:#526277}
+h1{font-size:clamp(40px,3.8vw,52px)}
+h2,.section-header h2{font-size:clamp(28px,2.5vw,36px)}
+.card-title{font-size:23px}
+.resource-card.featured .card-title{font-size:clamp(26px,2.2vw,32px)}
+.overview-number>span:first-child{font-size:34px}
+.detail-title{font-size:32px}
+.detail-section h3{font-size:18px}
+.form-modal-header h2{font-size:26px}
+.resource-form label{font-size:15px}
+.resource-form input:not([type="checkbox"]),.resource-form textarea,.resource-form select{font-size:16px}
+.empty-state h3{font-size:21px}
 @media(max-width:740px){
-  :root{--sidebar:min(340px,88vw)}
-  .hero-copy h1{font-size:38px}
-  .section-header h2{font-size:30px}
-  .overview-number>span:first-child{font-size:32px}
-  .resource-card.featured .card-title,.detail-title{font-size:26px}
-  .form-modal-header h2{font-size:24px}
-  .nav-item{font-size:18px}
+  :root{--sidebar:min(320px,88vw)}
+  .hero-copy h1{font-size:36px}
+  .section-header h2{font-size:28px}
+  .overview-number>span:first-child{font-size:30px}
+  .resource-card.featured .card-title,.detail-title{font-size:24px}
+  .form-modal-header h2{font-size:22px}
+  .nav-item{font-size:17px}
 }
