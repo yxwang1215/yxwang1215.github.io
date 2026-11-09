@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><title>Prophet · GPU 占用</title>
+  <link rel="stylesheet" href="/style.css?v=copyone1"><script type="module" src="/app.js?v=copyone1"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="brand-icon">P</span> Prophet <span class="brand-sub">本机控制台</span></a><span class="readonly">只读查询 <span class="dot"></span></span></header>
+  <main>
+    <div class="heading"><h1>GPU 占用概览</h1><div class="sync"><span id="sync-status" role="status">正在连接 Prophet…</span><div class="sync-actions"><button id="refresh" class="primary">↻ 刷新数据</button><button id="mine" type="button" aria-pressed="false">只看我的</button><button id="reset" type="button">清空筛选</button></div></div></div>
+    <div id="notice" class="notice" role="alert" hidden></div>
+    <div id="claude-usage" class="claude-strip" hidden></div>
+    <div id="codex-usage" class="claude-strip codex-strip" hidden></div>
+    <div id="cursor-usage" class="claude-strip cursor-strip" hidden></div>
+    <div id="idle-machines" class="idle-strip" hidden></div>
+    <div class="charts">
+      <section class="panel"><div class="panel-title"><div><h2>项目与型号占卡</h2><p class="subtle">点一行查看该分区的占卡用户</p></div><span class="legend"><i class="running-key"></i>运行 <i class="pending-key"></i>排队 <i class="free-key"></i>空闲</span></div><div id="gpu-users" class="gpu-users chart-users"></div><div class="chart-stack"><div id="gpu-chart" class="chart"><p class="empty">正在读取 GPU 型号…</p></div><p id="resource-notice" class="resource-note" hidden></p></div></section>
+      <section class="panel"><div class="panel-title"><div><h2>用户占卡排行</h2><p class="subtle">运行中的训练任务，点名字筛选</p></div><span id="user-rank-count" class="count">—</span></div><div id="user-chart" class="chart"><p class="empty">正在读取用户…</p></div></section>
+    </div>
+    <section class="panel task-panel"><div class="panel-title"><div class="table-title"><h2>任务明细</h2><span id="task-count" class="count">—</span></div><div class="table-tools"><select id="user" hidden><option value="">全部用户</option></select><label class="sort-label">用户<select id="task-user"><option value="">全部用户</option></select></label><label class="sort-label">项目<select id="project"><option value="">全部项目</option></select></label><label class="sort-label">型号<select id="gpu"><option value="">全部型号</option></select></label><label class="sort-label">队列<select id="status"><option value="">运行 + 排队</option><option value="Running">只看运行</option><option value="Pending">只看排队</option></select></label><label class="sort-label">优先级<select id="priority"><option value="">全部优先级</option></select></label><label class="sort-label">状态<select id="finished"><option value="">运行中</option><option value="12">过去 12 小时</option><option value="24">过去 24 小时</option><option value="48">过去 48 小时</option></select></label><label class="sort-label">类别<select id="outcome"><option value="all">全部</option><option value="result">有效结果</option><option value="smoke">smoke test</option><option value="failed">失败 / 中断</option><option value="probe">探测与过短</option></select></label><label class="sort-label">排序<select id="sort"><option value="gpu">占卡数 ↓</option><option value="priority">优先级</option><option value="runtime">已运行 ↓</option><option value="duration">任务耗时 ↓</option><option value="created">提交时间 ↓</option><option value="user">用户名</option><option value="project">项目</option></select></label><label class="sort-label search-label">搜索<input id="search" type="search" placeholder="名称、ID、卡型" autocomplete="off"></label></div><div class="copy-tools"><button type="button" id="copy-3h" data-hours="3" title="复制当前筛选下，提交、开始或结束落在近 3 小时内的任务名，一行一个">复制近 3 小时</button><button type="button" id="copy-6h" data-hours="6" data-require-user="1" title="只复制当前选中用户在近 6 小时内提交、开始或结束的任务名，一行一个">复制近 6 小时</button><button type="button" id="copy-12h" data-hours="12" title="复制当前筛选下，提交、开始或结束落在近 12 小时内的任务名，一行一个">复制近 12 小时</button><button type="button" id="copy-24h" data-hours="24" title="复制当前筛选下，提交、开始或结束落在近 24 小时内的任务名，一行一个">复制近 24 小时</button><button id="csv">导出 CSV</button><button id="json">导出 JSON</button></div></div>
+      <div class="table-scroll"><table><thead><tr><th class="col-name">任务</th><th class="col-project">项目</th><th class="col-user">用户</th><th class="col-status">状态</th><th class="col-priority">优先级</th><th class="col-gpus">卡数</th><th class="col-runtime" id="col-runtime">已运行</th><th class="col-resource">资源</th><th class="col-time" id="col-time">提交</th></tr></thead><tbody id="tasks"><tr><td colspan="9" class="empty">首次查询中，请稍候…</td></tr></tbody></table></div>
+    </section>
+    <footer><span>Prophet 本机查询 · 每 <span id="interval">60</span> 秒自动更新</span><span id="footer-time">凭据仅保留在后端</span></footer>
+  </main>
+  <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden>已复制</div>
+</body>
+</html>
