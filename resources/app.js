@@ -21,7 +21,7 @@ const pad = value => String(value).padStart(2, '0');
 const newId = () => (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : `res-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 const validUrl = value => {try {const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null;} catch {return null;}};
 const domain = value => {try {return new URL(value).hostname.replace(/^www\./, '');} catch {return 'external link';}};
-const fmtDate = value => {const d = new Date(value);return Number.isNaN(+d) ? '—' : new Intl.DateTimeFormat('zh-CN', {year:'numeric', month:'2-digit', day:'2-digit'}).format(d).replaceAll('/','.');};
+const fmtDate = value => {const raw=String(value||'');if(/^\d{4}-\d{2}-\d{2}$/.test(raw))return raw.replaceAll('-','.');const d = new Date(raw);return Number.isNaN(+d) ? '—' : new Intl.DateTimeFormat('zh-CN', {year:'numeric', month:'2-digit', day:'2-digit'}).format(d).replaceAll('/','.');};
 const normalized = v => String(v || '').toLocaleLowerCase().normalize('NFKC');
 const escAttr = esc;
 function normalizeResource(input){
