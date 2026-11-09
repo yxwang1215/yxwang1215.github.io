@@ -6,6 +6,8 @@ main:
     url: "/navigation/"
   - title: "Journal"
     url: "/journal/"
+  - title: "Resources"
+    url: "/resources/"
   - title: "Tools"
     url: "/tools/"
   - title: "Test"

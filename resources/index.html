@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9fc">
+  <meta name="description" content="一个属于研究者的私人知识收藏馆：收藏值得阅读的论文、手册、代码与博客，记录笔记和阅读进度。">
+  <title>Research Shelf — 值得留下的知识</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="resources.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg aria-hidden="true" class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.9" cy="10.9" r="7.4"/><path d="m16.5 16.5 4.5 4.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M5 4.7A1.7 1.7 0 0 1 6.7 3h10.6A1.7 1.7 0 0 1 19 4.7V21l-7-4.5L5 21z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4.5 4.5C6.5 3.8 9.5 4 12 5.6c2.5-1.6 5.5-1.8 7.5-1.1V19c-2-.7-5-.5-7.5 1.1C9.5 18.5 6.5 18.3 4.5 19zM12 5.6v14.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.6 2.1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.4 5.2 5.2 9.8-10.3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.8 2.9 5.9 6.5.95-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.95z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3-9 5 9 5 9-5-9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.4 12s3.5-6.5 9.6-6.5 9.6 6.5 9.6 6.5-3.5 6.5-9.6 6.5S2.4 12 2.4 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.8a5 5 0 0 0 7.4.3l2-2a5 5 0 0 0-7.1-7.1l-1.4 1.4M14 10.2a5 5 0 0 0-7.4-.3l-2 2a5 5 0 1 0 7.1 7.1l1.4-1.4"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6M19 5l-9 9M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 17v3h16v-3"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 17V5m0 0L7.5 9.5M12 5l4.5 4.5M4 17v3h16v-3"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m14 5 5 5M4 20l5-1 11-11a2.1 2.1 0 0 0-3-3L6 16z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v6m4-6v6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7zM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6zM14 3v6h5M9 13h7M9 17h7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+  </svg>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="侧边导航">
+      <div class="identity">
+        <div class="identity-icon" aria-hidden="true"><span class="id-shape a"></span><span class="id-shape b"></span><span class="id-shape c"></span></div>
+        <div><div class="identity-name">Research<span>Shelf.</span></div><div class="identity-sub">THE CURATED KNOWLEDGE SPACE</div></div>
+      </div>
+      <div class="nav-section-label">我的资料馆</div>
+      <nav class="nav-group" id="primaryNav">
+        <button class="nav-item active" data-filter="all"><svg class="ico"><use href="#i-grid"/></svg>全部收藏 <span class="nav-count" id="allCount">01</span></button>
+        <button class="nav-item" data-filter="starred"><svg class="ico"><use href="#i-star"/></svg>重点收藏</button>
+        <button class="nav-item" data-filter="to-read"><svg class="ico"><use href="#i-bookmark"/></svg>待读清单</button>
+        <button class="nav-item" data-filter="reading"><svg class="ico"><use href="#i-clock"/></svg>正在学习</button>
+        <button class="nav-item" data-filter="done"><svg class="ico"><use href="#i-check"/></svg>已经读完</button>
+      </nav>
+      <div class="nav-section-label section-space">研究领域</div>
+      <nav class="nav-group" id="categoryNav">
+        <button class="nav-item category-nav" data-category="MoE"><span class="cat-dot moe"></span>Mixture of Experts <span class="nav-count" data-count-cat="MoE">01</span></button>
+        <button class="nav-item category-nav" data-category="OPD"><span class="cat-dot opd"></span>On-Policy Distillation</button>
+        <button class="nav-item category-nav" data-category="Multimodal"><span class="cat-dot mm"></span>Multimodal / Vision</button>
+        <button class="nav-item category-nav" data-category="Systems"><span class="cat-dot sys"></span>Systems & Infra</button>
+        <button class="nav-item category-nav" data-category="Other"><span class="cat-dot other"></span>Others</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-quote"><span class="quote-mark">“</span>Collect less.<br>Understand more.<span class="quote-mark end">”</span><div class="quote-caption">不止收藏，更要消化。</div></div>
+        <div class="storage-note"><span class="storage-led"></span><span>本地保存 · 可导出备份</span></div>
+      </div>
+    </aside>
+
+    <div class="content-area">
+      <header class="topbar">
+        <div class="topbar-left"><button class="icon-button mobile-menu" id="mobileMenu" aria-label="打开导航"><svg class="ico"><use href="#i-menu"/></svg></button><div class="crumb">WORKSPACE <svg class="ico tiny"><use href="#i-chevron"/></svg> <strong>MY LIBRARY</strong></div></div>
+        <div class="topbar-right"><label class="search-wrap"><svg class="ico"><use href="#i-search"/></svg><input id="searchInput" type="search" aria-label="搜索收藏资料" placeholder="搜索资料、标签与笔记..." autocomplete="off"><kbd>/</kbd></label><button class="top-new-button" id="newResourceTop"><svg class="ico"><use href="#i-plus"/></svg><span>添加收藏</span></button></div>
+      </header>
+
+      <main id="main">
+        <section class="hero" aria-label="欢迎">
+          <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> A PERSONAL RESEARCH ARCHIVE <span class="eyebrow-no">/ 001</span></div><h1>让好内容，<br><em>有处可寻。</em></h1><p>论文、技术手册、开源项目与灵感碎片。<br class="desktop-only">把真正值得学习的内容，收进自己的知识资料馆。</p><button class="hero-action" id="heroAdd">收藏下一篇 <svg class="ico"><use href="#i-arrow"/></svg></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="art-grid"></div><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-center"><span>R</span><span class="art-asterisk">✳</span></div><div class="art-deco-top">INDEX — 01<br>THINGS WORTH KEEPING</div><div class="art-deco-bottom">KNOWLEDGE<br>IN PROGRESS ↗</div><span class="art-dot dot-a"></span><span class="art-dot dot-b"></span></div>
+        </section>
+
+        <section class="overview" aria-label="资料库概览">
+          <div class="overview-item"><div class="overview-label">TOTAL COLLECTION</div><div class="overview-number"><span id="statTotal">01</span><span class="overview-suffix">条珍藏</span></div></div>
+          <div class="overview-item"><div class="overview-label">CURRENTLY READING</div><div class="overview-number"><span id="statReading">00</span><span class="overview-suffix">篇进行中</span></div></div>
+          <div class="overview-item"><div class="overview-label">COMPLETED</div><div class="overview-number"><span id="statDone">00</span><span class="overview-suffix">篇已完成</span></div></div>
+          <div class="overview-motto"><svg class="ico"><use href="#i-spark"/></svg><span>给研究灵感一个长期居所。</span></div>
+        </section>
+
+        <section class="library-area" aria-label="全部收藏">
+          <div class="section-header"><div><div class="section-kicker">YOUR COLLECTION <span class="kicker-line"></span> <span id="resultCount">01</span> ITEMS</div><h2 id="libraryHeading">全部收藏 <span class="heading-period">.</span></h2><p class="section-sub" id="librarySub">每一份留下来的资料，都有它值得被再次打开的理由。</p></div><div class="view-actions"><select aria-label="排序方式" id="sortSelect"><option value="newest">最近收藏</option><option value="oldest">最早收藏</option><option value="title">标题 A–Z</option></select></div></div>
+          <div class="filters"><div class="filter-chips" id="typeFilters"><button class="filter-chip active" data-type="all">全部类型</button><button class="filter-chip" data-type="guide">技术手册</button><button class="filter-chip" data-type="paper">学术论文</button><button class="filter-chip" data-type="code">代码项目</button><button class="filter-chip" data-type="blog">文章博客</button><button class="filter-chip" data-type="video">视频课程</button></div><div class="filter-count" id="filterResultCount">显示 1 条</div></div>
+          <div class="card-grid" id="cards" aria-live="polite"></div>
+          <div class="library-end"><span></span> END OF YOUR SHELF <span></span></div>
+        </section>
+        <footer class="footer"><span>RESEARCH SHELF © 2026 · BUILT FOR CURIOUS MINDS</span><div class="footer-actions"><button id="exportBtn"><svg class="ico"><use href="#i-download"/></svg> 导出资料</button><button id="importBtn"><svg class="ico"><use href="#i-upload"/></svg> 导入备份</button><input id="importFile" type="file" accept=".json,application/json" hidden></div></footer>
+      </main>
+    </div>
+  </div>
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
+    <div class="detail-top"><span>RESOURCE DETAIL / 资料卡片</span><button class="icon-button" id="closeDetail" aria-label="关闭详情"><svg class="ico"><use href="#i-x"/></svg></button></div>
+    <div class="detail-scroll" id="detailBody"></div>
+  </aside>
+  <section class="form-modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formHeading" hidden>
+    <div class="form-modal-header"><div><div class="section-kicker">NEW KNOWLEDGE ENTRY</div><h2 id="formHeading">添加一份收藏</h2></div><button class="icon-button" id="closeForm" aria-label="关闭表单"><svg class="ico"><use href="#i-x"/></svg></button></div>
+    <form id="resourceForm" class="resource-form">
+      <input type="hidden" id="formId">
+      <div class="form-row"><label>资料标题 <span>*</span><input id="formTitle" required maxlength="180" placeholder="例如：The Ultimate MoE Training Handbook"></label></div>
+      <div class="form-row"><label>原文链接 <span>*</span><input id="formUrl" type="url" required placeholder="https://..." autocomplete="url"></label></div>
+      <div class="form-two"><label>研究主题<select id="formCategory"><option value="MoE">Mixture of Experts</option><option value="OPD">On-Policy Distillation</option><option value="Multimodal">Multimodal / Vision</option><option value="Systems">Systems & Infra</option><option value="Other">Others</option></select></label><label>资料类型<select id="formType"><option value="guide">技术手册</option><option value="paper">学术论文</option><option value="code">代码项目</option><option value="blog">文章博客</option><option value="video">视频课程</option></select></label></div>
+      <div class="form-two"><label>来源 / 作者<input id="formSource" maxlength="120" placeholder="Hugging Face / 作者名"></label><label>学习进度<select id="formStatus"><option value="to-read">待读</option><option value="reading">正在学习</option><option value="done">已经读完</option></select></label></div>
+      <div class="form-row"><label>为什么收藏它？ / 内容摘要<textarea id="formSummary" rows="3" maxlength="1500" placeholder="写下它解决了什么问题，为什么对研究有价值..."></textarea></label></div>
+      <div class="form-row"><label>标签 <span class="field-hint">用逗号分隔</span><input id="formTags" maxlength="260" placeholder="MoE, Routing, Systems, RL"></label></div>
+      <div class="form-row"><label>个人学习笔记<textarea id="formNotes" rows="5" maxlength="16000" placeholder="值得关注的结论、实验启发、疑问...（仅自己可见，保存在当前浏览器）"></textarea></label></div>
+      <div class="form-row"><label>更多相关链接 <span class="field-hint">每行：名称 | https://链接</span><textarea id="formLinks" rows="3" placeholder="中文翻译 | https://example.com\n代码仓库 | https://github.com/..."></textarea></label></div>
+      <label class="star-check"><input type="checkbox" id="formStarred"><span class="star-check-icon">★</span><span>标记为重点收藏</span></label>
+      <div class="form-buttons"><button type="button" class="cancel-button" id="cancelForm">取消</button><button type="submit" class="save-button" id="formSubmit"><svg class="ico"><use href="#i-check"/></svg> 保存收藏</button></div>
+    </form>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
