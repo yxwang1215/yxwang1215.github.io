@@ -112,6 +112,7 @@ page_class: "research-map-page"
         <div class="research-work__links">
           <a href="{{ '/papers/glance-etd/' | relative_url }}">Project</a>
           <a href="{{ '/papers/assets/glance-etd-camera.pdf' | relative_url }}">PDF</a>
+          <a href="https://github.com/yxwang1215/Glance-ETD">Code</a>
         </div>
       </article>
       <article class="research-work">

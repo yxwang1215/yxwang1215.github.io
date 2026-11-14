@@ -198,6 +198,10 @@
         {
           "label": "Project page",
           "url": "/papers/glance-etd/"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/yxwang1215/Glance-ETD"
         }
       ]
     },
