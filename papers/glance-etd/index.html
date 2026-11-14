@@ -26,7 +26,7 @@ page_class: "paper-project paper-project--glance"
   </header>
 
   <figure role="img" class="srp-figure srp-teaser">
-    <img src="{{ '/papers/assets/glance-etd-overview.png' | relative_url }}" alt="Glance-ETD training and inference. Training distills a glance-encoder student with DivPrune toward a frozen full-token teacher. Inference re-encodes a diverse quarter of the image at native resolution, then Evidence-Tempered Diversity keeps a strict five percent of tokens." width="2100" height="1335" loading="eager" decoding="async">
+    <img src="{{ '/papers/assets/glance-etd-overview.png' | relative_url }}" alt="Glance-ETD training and inference. Training distills a glance-encoder student that selects with DivPrune toward a frozen full-token teacher, and trains a separate box-supervised scorer. At inference the scorer keeps the top 25 percent of coarse cells for native-resolution re-encoding, then Evidence-Tempered Diversity with exponent 0.25 keeps a strict five percent of tokens." width="2100" height="1335" loading="eager" decoding="async">
     <figcaption>Glance-ETD separates two decisions: where to spend native-resolution vision compute, and which visual tokens should reach the language model.</figcaption>
   </figure>
 

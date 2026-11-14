@@ -187,7 +187,7 @@
       "description": "A two-stage visual-token pipeline that reduces encoder cost with a glance pass and protects answer evidence with Evidence-Tempered Diversity at a strict 5% budget.",
       "venue": "submitted to CVPR 2027",
       "image": "/images/works/glance-etd-overview.png",
-      "alt": "Glance-ETD overview: a glance encoder chooses native-resolution regions and ETD selects evidence-tempered visual tokens",
+      "alt": "Glance-ETD overview: the scorer picks the top 25 percent of coarse cells for native re-encoding, then ETD with exponent 0.25 keeps a strict five percent of tokens",
       "width": 2100,
       "height": 1335,
       "links": [
