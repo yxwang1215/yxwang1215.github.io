@@ -2,6 +2,7 @@
 permalink: /
 title: "Home"
 excerpt: "About me"
+description: "Yuxuan Wang, incoming Ph.D. at Peking University, working on efficient multimodal LLMs, supervised fine-tuning, and KV-cache compression."
 author_profile: true
 page_class: "home-profile"
 redirect_from:

@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yuxuan Wang"
-description              : "san jamais renouncer"
+description              : "Incoming Ph.D. at Peking University. Efficient multimodal LLMs, supervised fine-tuning, and KV-cache compression."
 repository               : "yxwang1215/yxwang1215.github.io"
 url                      : "https://yxwang1215.github.io"
 baseurl                  : ""
