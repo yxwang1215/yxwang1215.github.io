@@ -8,7 +8,13 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ site.title }} - Homepage</title>
+{% if page.url == "/" or page.url == "/index.html" %}
+<title>{{ site.title }} · Efficient Multimodal LLMs</title>
+{% elsif page.title %}
+<title>{{ page.title | markdownify | strip_html | strip_newlines }} · {{ site.title }}</title>
+{% else %}
+<title>{{ site.title }}</title>
+{% endif %}
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -38,8 +44,42 @@
   <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
-{% if page.excerpt %}
+{% if seo_description %}
+  <meta name="description" content="{{ seo_description }}">
+  <meta name="author" content="Yuxuan Wang">
   <meta property="og:description" content="{{ seo_description }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yuxuan Wang",
+    "alternateName": "王宇轩",
+    "url": "https://yxwang1215.top",
+    "email": "mailto:yxwang1215@gmail.com",
+    "jobTitle": "Incoming Ph.D. student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Peking University",
+      "url": "https://cs.pku.edu.cn/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Xidian University",
+      "url": "https://www.xidian.edu.cn/"
+    },
+    "sameAs": [
+      "https://github.com/yxwang1215",
+      "https://scholar.google.com/citations?user=UQgYoZ4AAAAJ&hl=en",
+      "https://yxwang1215.github.io"
+    ],
+    "knowsAbout": [
+      "Multimodal large language models",
+      "Supervised fine-tuning",
+      "KV-cache compression",
+      "Efficient inference"
+    ]
+  }
+  </script>
 {% endif %}
 
 {% if site.twitter.username %}
