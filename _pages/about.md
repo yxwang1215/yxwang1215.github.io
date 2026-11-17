@@ -136,7 +136,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 <div class="section-divider"></div>
 
 <ul class="award-list">
-  <li class="award-item"><time class="award-date" datetime="2026-12">Dec 2026</time><div class="award-copy"><strong>Huameng Scholarship — Excellence Award Nominee</strong><span class="award-note">卓越奖拟推荐</span></div></li>
+  <li class="award-item"><time class="award-date" datetime="2026-12">Dec 2026</time><div class="award-copy"><strong>Huameng Scholarship (Excellence Award Nominee)</strong></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-12">Dec 2025</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">Top 0.1% · Huawei Xi'an Research Institute</span></div></li>
   <li class="award-item"><span class="award-date">2023–26</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">3 consecutive years · 2023–2026</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-04">Apr 2025</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
