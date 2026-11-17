@@ -121,6 +121,14 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
     <div class="service-copy"><strong>ICLR 2027</strong><span class="service-subline"><span class="service-role">Reviewer</span></span></div>
   </li>
   <li class="service-item">
+    <time class="service-date" datetime="2027">2027</time>
+    <div class="service-copy"><strong>CVPR 2027</strong><span class="service-subline"><span class="service-role">Reviewer Candidate</span></span></div>
+  </li>
+  <li class="service-item">
+    <time class="service-date" datetime="2026-10">Oct 2026</time>
+    <div class="service-copy"><strong>ACL Rolling Review (ARR)</strong><span class="service-subline"><span class="service-role">Reviewer</span></span></div>
+  </li>
+  <li class="service-item">
     <span class="service-date">2025 - 2026</span>
     <div class="service-copy">
       <strong>Xidian Inspur Club</strong>
@@ -136,7 +144,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 <div class="section-divider"></div>
 
 <ul class="award-list">
-  <li class="award-item"><time class="award-date" datetime="2026-12">Dec 2026</time><div class="award-copy"><strong>Huameng Scholarship (Excellence Award Nominee)</strong></div></li>
+  <li class="award-item"><time class="award-date" datetime="2026-12">Dec 2026</time><div class="award-copy"><strong>Huameng Scholarship (Excellence Award Nominee)</strong><span class="award-note">Shenzhen Huameng Charity Foundation</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-12">Dec 2025</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">Top 0.1% · Huawei Xi'an Research Institute</span></div></li>
   <li class="award-item"><span class="award-date">2023–26</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">3 consecutive years · 2023–2026</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-04">Apr 2025</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
