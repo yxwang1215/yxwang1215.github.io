@@ -136,6 +136,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 <div class="section-divider"></div>
 
 <ul class="award-list">
+  <li class="award-item"><time class="award-date" datetime="2026">2026</time><div class="award-copy"><strong>Huameng Scholarship</strong><span class="award-note">Nominated for Excellence Award · Preliminary recommendation</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-12">Dec 2025</time><div class="award-copy"><strong>Huawei Scholarship</strong><span class="award-note">Top 0.1% · Huawei Xi'an Research Institute</span></div></li>
   <li class="award-item"><span class="award-date">2023–26</span><div class="award-copy"><strong>National Scholarship</strong><span class="award-note">3 consecutive years · 2023–2026</span></div></li>
   <li class="award-item"><time class="award-date" datetime="2025-04">Apr 2025</time><div class="award-copy"><strong>National First Prize</strong><span class="award-note">National English Competition for College Students (NECCS)</span></div></li>
@@ -158,7 +159,7 @@ At Xidian, I rank <span class="academic-emphasis"><strong>1st/335</strong></span
 </div>
 
 <div class="last-updated">
-  <em>Last updated: 2026/11/09.</em>
+  <em>Last updated: 2026/11/17.</em>
   <a class="home-platform-portal" href="{{ '/platform-934/' | relative_url }}" aria-label="Enter the hidden Platform nine and three quarters">9<sup>¾</sup></a>
 </div>
 <style>
