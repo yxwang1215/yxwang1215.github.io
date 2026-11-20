@@ -103,7 +103,7 @@ class PaperPagesTest(unittest.TestCase):
             "permalink: /papers/glance-etd/",
             'page_class: "paper-project paper-project--glance"',
             "Glance, then Select",
-            "Anonymous CVPR submission",
+            "Research manuscript",
             "Evidence-Tempered Diversity",
             "glance encoder",
             "glance-etd-overview.png",
@@ -150,7 +150,7 @@ class PaperPagesTest(unittest.TestCase):
         rendered_page = (SITE / "papers/glance-etd/index.html").read_text()
         for value in (
             "Glance, then Select",
-            "Anonymous CVPR submission",
+            "Research manuscript",
             "glance-etd-paper.pdf",
             "glance-etd-overview.png",
             "glance-etd-motivation.png",
