@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Add a polished `/papers/glance-etd/` project page for the supplied Glance-ETD CVPR 2027 review PDF and connect it to the site’s paper directory, homepage Works catalogue, and Research page.
+**Goal:** Add a polished `/papers/glance-etd/` project page for the public Glance-ETD manuscript PDF and connect it to the site’s paper directory, homepage Works catalogue, and Research page.
 
 **Architecture:** Reuse the existing Jekyll `paper-project` page class and `paper-project.css`. Store the PDF and selected source figures under `papers/assets/`, author the page as a static Jekyll HTML source, and update the existing data-driven/hand-authored indexes to point at the same route.
 
@@ -13,14 +13,14 @@
 ## Global Constraints
 
 - Use `/papers/glance-etd/` and the `glance-etd` asset prefix.
-- Preserve the supplied PDF’s anonymous CVPR review status; do not invent authors, affiliations, arXiv, or code links.
+- Preserve the manuscript’s anonymous metadata; do not invent authors, affiliations, arXiv, or code links.
 - Reuse `page_class: paper-project` and the existing `assets/css/paper-project.css` component system.
 - Keep the page free of new JavaScript and external dependencies.
 - Surface only numbers from the supplied review copy, with captions/notes identifying that source.
 
 ## Review Focus
 
-- Anonymous paper metadata: the page must say “Anonymous CVPR submission” and must not imply a named author or public venue. Test in the page contract.
+- Anonymous paper metadata: the page must say “Research manuscript” and must not imply a named author or public venue. Test in the page contract.
 - Asset paths: source and built pages must contain the PDF plus every referenced figure. Test source paths and rendered paths.
 - Mobile layout: use existing responsive classes and avoid new fixed-width markup. Test that the page uses the shared `paper-project` class and figure elements rather than a bespoke layout.
 - Navigation consistency: the paper directory, homepage Works item, and Research card must all point to `/papers/glance-etd/`. Test each source file.
@@ -65,7 +65,7 @@
 
 - [ ] **Step 2: Write the project page**
 
-  Add front matter with `permalink: /papers/glance-etd/`, `page_class: paper-project`, `wide: true`, and anonymous CVPR review metadata. Build sections for: breadcrumb/hero and links; overview teaser; abstract; the two stages (glance encoder and ETD); strict-5% headline results; efficiency and answer-evidence figures; takeaways; artifacts. Use accessible alt text, `figure` captions, and SVG only if a small comparison chart improves readability without duplicating the paper figures.
+  Add front matter with `permalink: /papers/glance-etd/`, `page_class: paper-project`, `wide: true`, and general research manuscript metadata. Build sections for: breadcrumb/hero and links; overview teaser; abstract; the two stages (glance encoder and ETD); strict-5% headline results; efficiency and answer-evidence figures; takeaways; artifacts. Use accessible alt text, `figure` captions, and SVG only if a small comparison chart improves readability without duplicating the paper figures.
 
 - [ ] **Step 3: Add the directory README**
 
@@ -88,7 +88,7 @@
 
 - [ ] **Step 2: Add a Works catalogue item**
 
-  Add an `audio` or `systems`-appropriate item (choose `audio` only if the existing taxonomy remains semantically correct; otherwise use `systems`) with id `glance-etd`, title, anonymous authors string, description, local overview image, dimensions, venue `CVPR 2027 review · 2026`, and links for `Project page` and `PDF`.
+  Add an `audio` or `systems`-appropriate item (choose `audio` only if the existing taxonomy remains semantically correct; otherwise use `systems`) with id `glance-etd`, title, anonymous authors string, description, local overview image, dimensions, venue `Under Review`, and links for `Project page` and `PDF`.
 
 - [ ] **Step 3: Add a Research card**
 
