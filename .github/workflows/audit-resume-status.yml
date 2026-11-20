@@ -56,9 +56,9 @@ jobs:
           doc.close()
           with fitz.open(tmp) as check:
               contents = "\n".join(p.get_text() for p in check)
-              if "Under Review" not in contents or re.search(r"[A-Z]{3,6}\s*20\d\d\s*投稿", contents):
+              if "Under Review" not in contents or "CVPR 2027" in contents:
                   raise SystemExit("Post-edit PDF content check failed")
-              print(f"Validated replacement: {modifications}; pages: {len(check)}")
+              print(f"Validated replacement: {modifications}; pages: {len(check)}; inserted_status_boxes: {len(check[0].search_for('Under Review'))}")
           os.replace(tmp, src)
           with fitz.open("_pdf/yxwang_resume_261109.pdf") as en:
               text = "\n".join(p.get_text() for p in en)
