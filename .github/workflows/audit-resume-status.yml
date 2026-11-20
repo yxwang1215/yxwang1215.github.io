@@ -1,0 +1,41 @@
+name: Audit public resume status
+on:
+  push:
+    paths:
+      - .github/workflows/audit-resume-status.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --disable-pip-version-check -q pymupdf
+      - name: Inspect venue-status spans without changing files
+        run: |
+          python - <<'PY'
+          import fitz, re
+          files = ['_pdf/resume_zh.pdf', '_pdf/yxwang_resume_261109.pdf']
+          for filename in files:
+              doc = fitz.open(filename)
+              print(f'FILE={filename} PAGE_COUNT={len(doc)}')
+              for i, page in enumerate(doc):
+                  text = page.get_text(sort=True)
+                  lines = text.splitlines()
+                  for j, line in enumerate(lines):
+                      if re.search('CVPR|Glance|投稿|Under Review|Submitted', line, re.I):
+                          print(f'PAGE={i+1} LINE={j+1} TEXT={line.strip()[:260]!r}')
+                  for block in page.get_text('dict')['blocks']:
+                      if block.get('type') != 0:
+                          continue
+                      for line in block['lines']:
+                          spans = line['spans']
+                          label = ''.join(sp['text'] for sp in spans)
+                          if re.search('CVPR|Glance|投稿|Under Review|Submitted', label, re.I):
+                              parts = [(sp['text'], tuple(round(float(t), 1) for t in sp['bbox'])) for sp in spans]
+                              print(f'PAGE={i+1} SPANS={parts!r}')
+          PY
