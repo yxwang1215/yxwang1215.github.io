@@ -1,5 +1,8 @@
 # Glance-ETD Paper Page Implementation Plan
 
+
+> **Superseded (2026-11-20):** The project page now links to the public [arXiv PDF](https://arxiv.org/pdf/2611.20006). The locally hosted review PDFs were removed. Historical steps below that call for re-adding or linking those PDFs must not be reapplied.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
 **Goal:** Add a polished `/papers/glance-etd/` project page for the public Glance-ETD manuscript PDF and connect it to the site’s paper directory, homepage Works catalogue, and Research page.
