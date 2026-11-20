@@ -2,7 +2,7 @@
 
 ## Intent
 
-Add a public project page for the supplied CVPR 2027 review PDF, “Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs.” The page should make the method legible before a visitor opens the paper, while preserving the existing personal site’s paper-project visual language.
+Add a public project page for the supplied research manuscript PDF, “Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs.” The page should make the method legible before a visitor opens the paper, while preserving the existing personal site’s paper-project visual language.
 
 ## Scope
 
@@ -14,7 +14,7 @@ Add a public project page for the supplied CVPR 2027 review PDF, “Glance, then
 
 ## Out of scope
 
-- No author names, affiliations, arXiv URL, or code URL are invented; the supplied PDF is an anonymous CVPR review copy.
+- No author names, affiliations, arXiv URL, or code URL are invented; the supplied PDF is an anonymous manuscript.
 - No new JavaScript interaction or external dependency is needed.
 - No redesign of the existing paper-project CSS system.
 
