@@ -1,41 +1,75 @@
-name: Audit public resume status
+name: Normalize public resume status
 on:
   push:
     paths:
       - .github/workflows/audit-resume-status.yml
-  workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
-  inspect:
+  normalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - run: python -m pip install --disable-pip-version-check -q pymupdf
-      - name: Inspect venue-status spans without changing files
+      - name: Replace unpublished-venue label in the public Chinese resume
         run: |
           python - <<'PY'
-          import fitz, re
-          files = ['_pdf/resume_zh.pdf', '_pdf/yxwang_resume_261109.pdf']
-          for filename in files:
-              doc = fitz.open(filename)
-              print(f'FILE={filename} PAGE_COUNT={len(doc)}')
-              for i, page in enumerate(doc):
-                  text = page.get_text(sort=True)
-                  lines = text.splitlines()
-                  for j, line in enumerate(lines):
-                      if re.search('CVPR|Glance|投稿|Under Review|Submitted', line, re.I):
-                          print(f'PAGE={i+1} LINE={j+1} TEXT={line.strip()[:260]!r}')
-                  for block in page.get_text('dict')['blocks']:
-                      if block.get('type') != 0:
-                          continue
-                      for line in block['lines']:
-                          spans = line['spans']
-                          label = ''.join(sp['text'] for sp in spans)
-                          if re.search('CVPR|Glance|投稿|Under Review|Submitted', label, re.I):
-                              parts = [(sp['text'], tuple(round(float(t), 1) for t in sp['bbox'])) for sp in spans]
-                              print(f'PAGE={i+1} SPANS={parts!r}')
+          import fitz, pathlib, re, os
+          src = pathlib.Path("_pdf/resume_zh.pdf")
+          doc = fitz.open(src)
+          modifications = 0
+          replacement = "Under Review · 第一作者"
+          for page in doc:
+              matches = []
+              for block in page.get_text("dict")["blocks"]:
+                  if block.get("type") != 0:
+                      continue
+                  for line in block.get("lines", []):
+                      spans = line.get("spans", [])
+                      label = "".join(s.get("text", "") for s in spans).strip()
+                      if "投稿" in label and "第一作者" in label and re.search(r"[A-Z]{3,6}\s*20\d\d", label):
+                          matches.append(spans)
+              for spans in matches:
+                  bounding = fitz.Rect(spans[0]["bbox"])
+                  for span in spans[1:]:
+                      bounding |= fitz.Rect(span["bbox"])
+                  right = bounding.x1
+                  baseline = float(spans[0]["origin"][1])
+                  font_size = float(spans[0].get("size", 10))
+                  color_raw = int(spans[0].get("color", 0))
+                  color = tuple(((color_raw >> shift) & 255) / 255.0 for shift in (16, 8, 0))
+                  redact_rect = fitz.Rect(bounding.x0-1, bounding.y0-1.6, bounding.x1+1.2, bounding.y1+1.6)
+                  page.add_redact_annot(redact_rect, fill=(1, 1, 1))
+                  page.apply_redactions(images=0, graphics=0, text=0)
+                  width = fitz.Font("china-s").text_length(replacement, fontsize=font_size)
+                  page.insert_text((right-width, baseline), replacement, fontname="china-s", fontsize=font_size, color=color, overlay=True)
+                  modifications += 1
+          if modifications != 1:
+              raise SystemExit(f"Expected exactly one unpublished-venue status label, found {modifications}")
+          tmp = src.with_name("_resume_zh_cleaned.pdf")
+          doc.save(tmp, garbage=3, deflate=True)
+          doc.close()
+          with fitz.open(tmp) as check:
+              contents = "\n".join(p.get_text() for p in check)
+              if "Under Review" not in contents or re.search(r"[A-Z]{3,6}\s*20\d\d\s*投稿", contents):
+                  raise SystemExit("Post-edit PDF content check failed")
+              print(f"Validated replacement: {modifications}; pages: {len(check)}")
+          os.replace(tmp, src)
+          with fitz.open("_pdf/yxwang_resume_261109.pdf") as en:
+              text = "\n".join(p.get_text() for p in en)
+              print(f"English resume check: {len(en)} pages, explicit submission references: {len(re.findall('投稿|submitted to', text, flags=re.I))}")
           PY
+      - name: Commit updated public PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _pdf/resume_zh.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Replace venue-specific status in public Chinese resume"
+            git push origin HEAD:main
+          fi
