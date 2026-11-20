@@ -1,5 +1,8 @@
 # Glance-ETD paper project page design
 
+
+> **Superseded (2026-11-20):** The project page now links to the public [arXiv PDF](https://arxiv.org/pdf/2611.20006). The locally hosted review PDFs were removed. Historical steps below that call for re-adding or linking those PDFs must not be reapplied.
+
 ## Intent
 
 Add a public project page for the supplied research manuscript PDF, “Glance, then Select: Evidence-Tempered Visual Token Selection for Extremely Compressed Multimodal LLMs.” The page should make the method legible before a visitor opens the paper, while preserving the existing personal site’s paper-project visual language.
