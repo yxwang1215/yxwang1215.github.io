@@ -29,7 +29,7 @@ class PaperPagesTest(unittest.TestCase):
             ROOT / "papers/assets/srp-sft-paper.pdf",
             ROOT / "papers/glance-etd/index.html",
             ROOT / "papers/glance-etd/README.md",
-            ROOT / "papers/assets/glance-etd-paper.pdf",
+            ROOT / "papers/glance-etd/index.html",
             ROOT / "papers/assets/glance-etd-overview.png",
             ROOT / "papers/assets/glance-etd-motivation.png",
             ROOT / "papers/assets/glance-etd-efficiency.png",
@@ -111,7 +111,7 @@ class PaperPagesTest(unittest.TestCase):
             "glance-etd-efficiency.png",
             "glance-etd-budget.png",
             "glance-etd-gemma-budget.png",
-            "glance-etd-paper.pdf",
+            "https://arxiv.org/pdf/2611.20006",
             "90.3",
             "91.7",
             "2.9×",
@@ -143,7 +143,7 @@ class PaperPagesTest(unittest.TestCase):
             SITE / "papers/assets/glance-etd-efficiency.png",
             SITE / "papers/assets/glance-etd-budget.png",
             SITE / "papers/assets/glance-etd-gemma-budget.png",
-            SITE / "papers/assets/glance-etd-paper.pdf",
+            SITE / "papers/glance-etd/index.html",
         ):
             with self.subTest(path=path):
                 self.assertTrue(path.is_file(), f"Missing generated route or asset: {path}")
@@ -151,7 +151,7 @@ class PaperPagesTest(unittest.TestCase):
         for value in (
             "Glance, then Select",
             "Research manuscript",
-            "glance-etd-paper.pdf",
+            "https://arxiv.org/pdf/2611.20006",
             "glance-etd-overview.png",
             "glance-etd-motivation.png",
             "glance-etd-efficiency.png",
