@@ -29,7 +29,6 @@ class PaperPagesTest(unittest.TestCase):
             ROOT / "papers/assets/srp-sft-paper.pdf",
             ROOT / "papers/glance-etd/index.html",
             ROOT / "papers/glance-etd/README.md",
-            ROOT / "papers/glance-etd/index.html",
             ROOT / "papers/assets/glance-etd-overview.png",
             ROOT / "papers/assets/glance-etd-motivation.png",
             ROOT / "papers/assets/glance-etd-efficiency.png",
@@ -104,6 +103,7 @@ class PaperPagesTest(unittest.TestCase):
             'page_class: "paper-project paper-project--glance"',
             "Glance, then Select",
             "Research manuscript",
+            "Under Review",
             "Evidence-Tempered Diversity",
             "glance encoder",
             "glance-etd-overview.png",
@@ -143,7 +143,6 @@ class PaperPagesTest(unittest.TestCase):
             SITE / "papers/assets/glance-etd-efficiency.png",
             SITE / "papers/assets/glance-etd-budget.png",
             SITE / "papers/assets/glance-etd-gemma-budget.png",
-            SITE / "papers/glance-etd/index.html",
         ):
             with self.subTest(path=path):
                 self.assertTrue(path.is_file(), f"Missing generated route or asset: {path}")
