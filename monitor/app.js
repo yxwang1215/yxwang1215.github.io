@@ -1,3 +1,30 @@
+export const cpuqJobIdle = job => job.status === 'running' && !job.idle_exempt
+  && typeof job.cpu_pct === 'number' && job.cpu_pct < 5;
+
+export function cpuqSpanSeconds(job, now = Date.now() / 1000) {
+  if(job.status === 'running' && job.start_ts) return now - job.start_ts;
+  if(job.end_ts && job.start_ts) return job.end_ts - job.start_ts;
+  return job.submit_ts ? now - job.submit_ts : 0;
+}
+
+export function filterCpuqJobs(jobs = [], options = {}) {
+  const { owner = '', status = '', search = '', mine = false, me = '', sort = 'default', now } = options;
+  const term = String(search).trim().toLowerCase();
+  let rows = jobs.filter(job => {
+    if(mine && job.owner !== me) return false;
+    if(owner && job.owner !== owner) return false;
+    if(status === 'running' && job.status !== 'running') return false;
+    if(status === 'queued' && !['queued','pending'].includes(job.status)) return false;
+    if(status === 'idle' && !cpuqJobIdle(job)) return false;
+    if(term && ![job.id, job.name, job.machine, job.owner].some(v => String(v || '').toLowerCase().includes(term))) return false;
+    return true;
+  });
+  if(sort === 'duration') rows = rows.slice().sort((a,b) => cpuqSpanSeconds(b, now) - cpuqSpanSeconds(a, now));
+  else if(sort === 'cpus') rows = rows.slice().sort((a,b) => (parseInt(b.cpus)||0) - (parseInt(a.cpus)||0));
+  else if(sort === 'owner') rows = rows.slice().sort((a,b) => String(a.owner).localeCompare(String(b.owner)) || String(a.id).localeCompare(String(b.id)));
+  return rows;
+}
+
 export function filterJobs(jobs, filters = {}) {
   const q = (filters.search || '').trim().toLowerCase();
   return jobs.filter(j => (!filters.project || j.project === filters.project)
@@ -307,16 +334,255 @@ export function exportSnapshot(data, jobs, filters) {
   return out;
 }
 
+const STATUS_TEXT = {Running:'运行', Pending:'排队', Succeeded:'完成', Failed:'失败', Error:'失败', Interrupted:'中断'};
+const FINISHED_KIND = {smoke:'smoke', probe:'探测', thin:'过短'};
+const OUTCOME_TEXT = {result:'有效结果', smoke:'smoke test', failed:'失败 / 中断', probe:'探测与过短'};
+
+export function htmlEscape(value) {
+  return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function epochSeconds(value) {
+  if (Number.isInteger(value) && value > 10_000_000_000) value = Math.floor(value / 1000);
+  return Number.isInteger(value) && value > 1_000_000_000 ? value : null;
+}
+
+function clockStamp(seconds) {
+  if (!Number.isInteger(seconds)) return '—';
+  const moment = new Date(seconds * 1000);
+  const pad = n => String(n).padStart(2, '0');
+  return `${pad(moment.getMonth() + 1)}-${pad(moment.getDate())} ${pad(moment.getHours())}:${pad(moment.getMinutes())}`;
+}
+
+export function exportTasksHtml(jobs, options = {}) {
+  const hours = Number(options.hours) || 0;
+  const filters = options.filters || {};
+  const projects = options.projects || [];
+  const projectLabel = name => projects.find(p => p.name === name)?.label || name || '—';
+  const nowMs = options.nowMs ?? Date.now();
+  const countText = n => n == null ? '—' : n.toLocaleString('zh-CN');
+  const bits = [];
+  if (filters.project) bits.push(`项目 ${projectLabel(filters.project)}`);
+  if (filters.gpu) bits.push(`型号 ${filters.gpu}`);
+  if (filters.user) bits.push(`用户 ${filters.user}`);
+  if (filters.status === 'Running') bits.push('只看运行');
+  else if (filters.status === 'Pending') bits.push('只看排队');
+  if (filters.priority) bits.push(`优先级 ${filters.priority}`);
+  if (hours) bits.push(`过去 ${hours} 小时`);
+  if (options.outcome && options.outcome !== 'all') bits.push(OUTCOME_TEXT[options.outcome] || options.outcome);
+  if ((filters.search || '').trim()) bits.push(`搜索 ${filters.search.trim()}`);
+  const checked = options.checkedAt ? new Date(options.checkedAt).toLocaleString('zh-CN', {hour12:false}) : '';
+  const summary = totals(jobs);
+  const cards = hours ? '' : ` · 运行 ${summary.running_gpus} 卡 / ${summary.running_jobs} 项 · 排队 ${summary.pending_gpus} 卡 / ${summary.pending_jobs} 项`;
+  const heading = `${hours ? `过去 ${hours} 小时 · ` : ''}${jobs.length} 项${cards}${checked ? ` · 最近查询 ${checked}` : ''}`;
+  const rows = jobs.map(job => {
+    const name = job.name || job.id || '—';
+    const stale = job.stale ? '<span class="stale">上次成功数据</span>' : '';
+    const status = STATUS_TEXT[job.status] || job.status || '—';
+    const statusClass = job.status === 'Pending' ? 'pending' : job.status === 'Succeeded' ? 'done' : job.status === 'Failed' || job.status === 'Error' ? 'failed' : job.status === 'Interrupted' ? 'interrupted' : 'running';
+    const tags = hours ? finishedTags(job).filter(tag => FINISHED_KIND[tag]).map(tag => `<span class="kind ${tag}">${htmlEscape(FINISHED_KIND[tag])}</span>`).join('') : '';
+    const rank = priorityRank(job.priority);
+    const duration = taskDurationSeconds(job, nowMs);
+    const when = hours ? endSeconds(job) : epochSeconds(job.created_at);
+    const resource = `${countText(job.nodes)}×${countText(job.gpus_per_node)} ${gpuFamily(job.gpu_type)}`;
+    const title = job.id && job.id !== name ? ` title="${htmlEscape(job.id)}"` : '';
+    return `<tr><td class="name"${title}>${htmlEscape(name)}${stale}</td><td>${htmlEscape(projectLabel(job.project))}</td><td>${htmlEscape(job.user || '—')}</td><td><span class="status ${statusClass}">${htmlEscape(status)}</span>${tags}</td><td><span class="priority ${rank === 99 ? 'unknown' : 'p' + rank}">${htmlEscape(job.priority || '—')}</span></td><td class="num">${htmlEscape(job.gpus == null ? '—' : String(job.gpus))}</td><td>${htmlEscape(duration == null ? '—' : formatDuration(duration))}</td><td>${htmlEscape(resource)}</td><td>${htmlEscape(clockStamp(when))}</td></tr>`;
+  }).join('');
+  const body = rows || '<tr><td class="empty" colspan="9">没有符合筛选条件的任务</td></tr>';
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prophet 任务明细</title>
+<style>
+body{margin:0;color:#182436;background:#f5f7fa;font:13px/1.45 Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1280px;margin:0 auto;padding:28px 24px 40px}
+h1{margin:0 0 6px;font-size:22px;letter-spacing:-.4px}
+p{margin:0;color:#748197}
+.filters{margin-top:4px}
+table{width:100%;margin-top:18px;border-collapse:collapse;background:#fff;border:1px solid #e4e9f0}
+th,td{padding:10px 12px;border-bottom:1px solid #eef1f5;text-align:left;white-space:nowrap}
+th{background:#fafbfd;color:#8b97a9;font-weight:550}
+.name{font-weight:620;color:#243044}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.stale{margin-left:8px;color:#bf8b25;font-size:11px;font-weight:500}
+.status,.priority,.kind{display:inline-block;padding:2px 7px;border-radius:4px;font-size:12px;font-weight:650}
+.status.running{background:#eaf7f1;color:#268e6d}.status.pending{background:#fff3dd;color:#b2862d}.status.done{background:#eef2ff;color:#3b63eb}.status.failed{background:#fde8e6;color:#c2412d}.status.interrupted{background:#fff1e0;color:#c26a12}
+.kind{margin-left:4px}.kind.smoke{background:#fff6df;color:#a16207}.kind.probe{background:#f3f0ff;color:#6d5cae}.kind.thin{background:#f0f3f8;color:#7c8aa1}
+.priority.p0{background:#fde8e6;color:#c2412d}.priority.p1{background:#fff1e0;color:#c26a12}.priority.p2{background:#fff6df;color:#a16207}.priority.p3{background:#eef2ff;color:#3b63eb}.priority.unknown{background:#f0f3f8;color:#7c8aa1}
+.empty{padding:28px;text-align:center;color:#9aa6b8}
+</style>
+</head>
+<body>
+<main>
+<h1>Prophet 任务明细</h1>
+<p>${htmlEscape(heading)}</p>
+<p class="filters">${htmlEscape(bits.join(' · ') || '当前筛选下的全部任务')}</p>
+<table>
+<thead><tr><th>任务</th><th>项目</th><th>用户</th><th>状态</th><th>优先级</th><th>卡数</th><th>${hours ? '用时' : '已运行'}</th><th>资源</th><th>${hours ? '完成' : '提交'}</th></tr></thead>
+<tbody>${body}</tbody>
+</table>
+</main>
+</body>
+</html>
+`;
+}
+
 if (typeof document !== 'undefined') init();
 
 function init() {
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const n = document.createElement(tag); if(cls) n.className = cls; if(text != null) n.textContent = text; return n; };
   const format = n => n == null ? '—' : n.toLocaleString('zh-CN');
-  let data = null, claudeUsage = null, codexUsage = null, cursorUsage = null, visible = [], shown = [], mine = false, connectionError = '', fetching = false, openPartition = '';
+  let cpuqMine = false; const cpuqOpen = new Set();
+  let data = null, cpuq = null, claudeUsage = null, codexUsage = null, cursorUsage = null, arvoFactory = null, visible = [], shown = [], mine = false, connectionError = '', fetching = false, openPartition = '', currentPage = 'gpu';
   const filters = () => Object.fromEntries(['project','gpu','user','status','priority','search'].map(id=>[id,$(id).value]));
   const projectLabel = name => data?.projects.find(p=>p.name===name)?.label || name;
   const localDate = value => value ? new Date(value).toLocaleString('zh-CN',{hour12:false}) : '尚未成功查询';
+
+  function renderCpuq() {
+    if(!$('cpuq-memory')) return;
+    const memory = cpuq?.memory || {};
+    const cards = [['内存占用', memory.percent == null ? '—' : memory.percent + '%', '当前机器'],
+      ['已用内存', memory.used_mb == null ? '—' : format(memory.used_mb) + ' MB', ''],
+      ['可用内存', memory.available_mb == null ? '—' : format(memory.available_mb) + ' MB', ''],
+      ['总内存', memory.total_mb == null ? '—' : format(memory.total_mb) + ' MB', '']];
+    $('cpuq-memory').replaceChildren(...cards.map(([label,value,note]) => { const c=el('div','stat'+(label==='内存占用'?' accent':'')); c.append(el('span','',label),el('strong','',value),el('small','',note)); return c; }));
+    const summary=cpuq?.summary||{};
+    const host=cpuq?.host||{}; const psi=host.pressure||{}; const swap=host.swap||{};
+    const summaryEl = $('cpuq-summary');
+    if(summaryEl){
+      summaryEl.classList.add('cpuq-summary-highlight');
+      summaryEl.textContent=`全机队作业 ${summary.total ?? 0} 个 · 运行 ${summary.running ?? 0} 个 · 排队 ${summary.queued ?? 0} 个 · 提交人 ${(summary.owners||[]).length} 人 · 节点 ${summary.nodes_free ?? '—'}/${summary.nodes_total ?? '—'} 空闲　|　CPU 负载 ${host.load1 ?? '—'} / ${host.cpu_count ?? '—'} 核（${host.load_ratio ?? '—'}%） · 根盘 ${host.disk_percent ?? '—'}% · Swap ${swap.percent ?? '—'}% · 压力 CPU/内存/IO ${psi.cpu ?? '—'}%/${psi.memory ?? '—'}%/${psi.io ?? '—'}%`;
+    }
+    if($('cpuq-count')) $('cpuq-count').textContent=`${summary.total ?? 0} 项`;
+    if($('cpuq-updated')) $('cpuq-updated').textContent=cpuq?.checked_at ? `更新于 ${localDate(cpuq.checked_at)}${cpuq.stale?' · 使用缓存':''}` : '等待 CPUQ 查询…';
+    const notice=$('cpuq-notice'); const messages=[];
+    if(cpuq?.error) messages.push(cpuq.error);
+    if(cpuq?.stale && cpuq?.checked_at) messages.push('CPUQ 查询暂时失败，当前显示最近一次成功数据。');
+    messages.push(...(cpuq?.notices||[]));
+    if(notice){ notice.hidden=!messages.length; notice.textContent=messages.join(' '); }
+    renderCpuqOwners(summary);
+    renderCpuqTable();
+  }
+
+  function cpuqFiltered() {
+    return filterCpuqJobs(cpuq?.jobs || [], {
+      owner: $('cpuq-owner')?.value || '', status: $('cpuq-status')?.value || '',
+      search: $('cpuq-search')?.value || '', mine: cpuqMine, me: cpuq?.me || '',
+      sort: $('cpuq-sort')?.value || 'default' });
+  }
+
+  const cpuqIdle = cpuqJobIdle;
+
+  function renderCpuqOwners(summary) {
+    const host = $('cpuq-owners');
+    if(!host) return;
+    const owners = summary.owners || [];
+    host.replaceChildren();
+    if(!owners.length) { host.hidden = true; return; }
+    host.hidden = false;
+    for(const o of owners) {
+      const chip = el('button', 'cpuq-owner-chip' + ($('cpuq-owner').value === o.owner ? ' active' : ''));
+      chip.type = 'button';
+      chip.append(el('strong', '', o.owner), el('span', '', `运行 ${o.running} · 排队 ${o.queued}`));
+      chip.onclick = () => { cpuqMine = false; $('cpuq-owner').value = $('cpuq-owner').value === o.owner ? '' : o.owner; renderCpuq(); };
+      host.append(chip);
+    }
+  }
+
+  function syncCpuqOwnerOptions() {
+    const select = $('cpuq-owner');
+    if(!select) return;
+    const owners = [...new Set((cpuq?.jobs || []).map(j => j.owner).filter(Boolean))].sort();
+    const current = select.value;
+    if(select.dataset.owners === owners.join('|')) return;
+    select.dataset.owners = owners.join('|');
+    select.replaceChildren(el('option', '', '全部提交人'), ...owners.map(o => { const n = el('option', '', o); n.value = o; return n; }));
+    select.firstChild.value = '';
+    select.value = owners.includes(current) ? current : '';
+  }
+
+  function cpuqDetailRow(job, columns) {
+    const tr = el('tr', 'cpuq-detail-row');
+    const td = el('td'); td.colSpan = columns;
+    const d = job.detail || {};
+    const facts = [['名字', job.name], ['镜像', d.image], ['工作目录', d.workdir], ['输出目录', d.output_dir],
+      ['时限', d.time_limit], ['内存', d.mem_gb ? d.mem_gb + ' GB' : '整机减 8G'],
+      ['提交', job.submit_ts ? localDate(new Date(job.submit_ts*1000).toISOString()) : '—'],
+      ['开始', job.start_ts ? localDate(new Date(job.start_ts*1000).toISOString()) : '—'],
+      ['结束', job.end_ts ? localDate(new Date(job.end_ts*1000).toISOString()) : '—'],
+      ['退出码', d.exit_code == null ? '—' : String(d.exit_code)],
+      ['选项', [d.docker_host && 'docker-host', d.independent && 'independent', d.agent_runtime && 'agent'].filter(Boolean).join(' · ') || '—'],
+      ['空转', job.idle_exempt ? '已豁免回收' : (job.idle_s ? Math.round(job.idle_s/60) + ' 分钟' : '—')]];
+    const grid = el('div', 'cpuq-detail-grid');
+    for(const [label, value] of facts) {
+      if(value == null || value === '') continue;
+      const cell = el('div', 'cpuq-fact');
+      cell.append(el('span', '', label), el('strong', '', String(value)));
+      grid.append(cell);
+    }
+    td.append(grid);
+    for(const [label, text] of [['丢失', d.lost_reason], ['取消', d.cancelled_by], ['回收', d.reap_reason]]) {
+      if(text) td.append(el('p', 'cpuq-detail-warn', `${label}：${text}`));
+    }
+    if((d.shards || []).length) {
+      const table = el('table', 'cpuq-shards');
+      const head = el('tr');
+      for(const h of ['分片', '机器', '核数', '内存', '状态', 'CPU 实时', 'CPU 均值', '退出码']) head.append(el('th', '', h));
+      table.append(el('thead').appendChild(head).parentNode);
+      const body = el('tbody');
+      for(const sh of d.shards) {
+        const row = el('tr');
+        for(const value of [`#${sh.index ?? '—'}`, sh.node, sh.cpus ?? '—', sh.mem_gb ? sh.mem_gb + 'G' : '—', sh.state || '—',
+          sh.cpu_pct == null ? '—' : sh.cpu_pct + '%', sh.cpu_avg_pct == null ? '—' : sh.cpu_avg_pct + '%',
+          sh.exit_code == null ? '—' : String(sh.exit_code)]) row.append(el('td', '', String(value)));
+        body.append(row);
+      }
+      table.append(body);
+      td.append(table);
+    }
+    td.append(el('p', 'cpuq-detail-hint', '看板只读，取消任务请用 cpuq cancel ' + job.id));
+    tr.append(td);
+    return tr;
+  }
+
+  function renderCpuqTable() {
+    if(!$('cpuq-jobs')) return;
+    syncCpuqOwnerOptions();
+    const body = $('cpuq-jobs'); body.replaceChildren();
+    const rows = cpuqFiltered();
+    const columns = 9;
+    for(const job of rows) {
+      const tr = el('tr', 'cpuq-row' + (cpuqOpen.has(job.id) ? ' open' : '') + (cpuqIdle(job) ? ' idle-warn' : ''));
+      tr.tabIndex = 0;
+      const cells = [job.id, job.owner, job.status, job.nodes, job.cpus, job.machine,
+        job.cpu_pct == null ? '—' : job.cpu_pct + '%', job.duration, job.name];
+      cells.forEach((value, i) => tr.append(el('td', i === 2 ? 'cpuq-state ' + job.status : '', String(value ?? ''))));
+      const toggle = () => { cpuqOpen.has(job.id) ? cpuqOpen.delete(job.id) : cpuqOpen.add(job.id); renderCpuqTable(); };
+      tr.onclick = toggle;
+      tr.onkeydown = ev => { if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(); } };
+      body.append(tr);
+      if(cpuqOpen.has(job.id)) body.append(cpuqDetailRow(job, columns));
+    }
+    const total = (cpuq?.jobs || []).length;
+    $('cpuq-count').textContent = rows.length === total ? `${total} 项` : `${rows.length} / ${total} 项`;
+    $('cpuq-mine').setAttribute('aria-pressed', String(cpuqMine));
+    $('cpuq-finished').setAttribute('aria-pressed', String(!!cpuq?.include_finished));
+    if(!body.children.length) {
+      const tr = el('tr'), td = el('td', 'empty', cpuq?.error ? 'CPUQ 暂无可用数据' : (total ? '没有符合筛选条件的作业' : '当前没有 CPUQ 作业'));
+      td.colSpan = columns; tr.append(td); body.append(tr);
+    }
+  }
+
+  function setPage(page) {
+    currentPage=page;
+    if($('gpu-page')) $('gpu-page').hidden=page!=='gpu';
+    if($('cpuq-page')) $('cpuq-page').hidden=page!=='cpuq';
+    if($('page-title')) $('page-title').textContent=page==='cpuq'?'CPUQ 监控':'GPU 占用概览';
+    document.querySelectorAll('.page-tab').forEach(btn=>{const active=btn.dataset.page===page;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active));});
+  }
 
   function notice() {
     const warnings = [];
@@ -411,29 +677,81 @@ function init() {
     if(n>=60) return 'warm';
     return 'ok';
   }
-  function subscriptionLabel(iso) {
+  function subscriptionLabel(iso, estimated=false) {
     const when=beijingParts(iso);
     if(!when) return null;
     const ms=Date.parse(iso)-Date.now();
-    if(ms<=0) return {text:'订阅已到期', title:`北京时间 ${when.full} 已到期`, expired:true};
-    const minutes=Math.floor(ms/60000), hours=Math.floor(minutes/60), days=Math.floor(hours/24);
-    const remain=days>=1?`还有 ${days}天${hours%24}小时`:(hours>=1?`还有 ${hours}小时${minutes%60}分`:`还有 ${Math.max(minutes,1)}分钟`);
+    const remain=remainText(iso);
+    if(estimated) return {
+      text:`预计可用至 ${when.short}${ms<=0?' · 日期已过':''}`,
+      title:`预计可用至北京时间 ${when.full}。续费状态请查看 ChatGPT 账单。`,
+      expired:ms<=0
+    };
+    if(ms<=0) return {text:`订阅到期 ${when.short} 已到期`, title:`北京时间 ${when.full} 已到期`, expired:true};
     return {text:`订阅到期 ${when.short}`, title:`北京时间 ${when.full} 到期 · ${remain}`, expired:false};
+  }
+  function windowSeconds(window, label) {
+    const n=Number(window?.window_seconds);
+    if(Number.isFinite(n) && n>0) return n;
+    if(label==='一周') return 7*24*3600;
+    if(label==='5小时') return 5*3600;
+    return null;
+  }
+  function expectedPercent(window, label) {
+    const seconds=windowSeconds(window, label);
+    const resets=Date.parse(window?.resets_at);
+    if(!Number.isFinite(seconds) || !Number.isFinite(resets)) return null;
+    const remainMs=resets-Date.now();
+    if(remainMs<=0) return 0;
+    const elapsed=Math.max(0, Math.min(1, 1-remainMs/(seconds*1000)));
+    return elapsed*100;
+  }
+  function paceInfo(percent, expected) {
+    if(!Number.isFinite(percent) || !Number.isFinite(expected)) return null;
+    const delta=percent-expected;
+    if(Math.abs(delta)<1.5) return null;
+    if(delta>0) return {kind:'fast', text:'快于均匀', title:`均匀速率应约 ${percentText(expected)}，当前已用 ${percentText(percent)}，偏快 ${percentText(delta)}`};
+    return {kind:'slow', text:'慢于均匀', title:`均匀速率应约 ${percentText(expected)}，当前已用 ${percentText(percent)}，偏慢 ${percentText(-delta)}`};
+  }
+  function paintPaceMeter(meter) {
+    const percent=Number(meter.dataset.percent);
+    const expected=expectedPercent({resets_at:meter.dataset.resets, window_seconds:meter.dataset.windowSeconds}, meter.dataset.label);
+    const mark=meter.querySelector('.pace-mark');
+    const pace=meter.querySelector('.claude-pace');
+    if(mark){
+      if(expected==null){mark.hidden=true;}
+      else{
+        mark.hidden=false;
+        mark.style.left=Math.max(0, Math.min(100, expected))+'%';
+        mark.title=`均匀速率应约 ${percentText(expected)}`;
+      }
+    }
+    if(pace){
+      const info=paceInfo(percent, expected);
+      if(!info){pace.hidden=true;pace.textContent='';pace.removeAttribute('title');pace.className='claude-pace';}
+      else{
+        pace.hidden=false;
+        pace.textContent=info.text;
+        pace.title=info.title;
+        pace.className='claude-pace '+info.kind;
+      }
+    }
   }
   function paintQuotaClocks() {
     for(const node of document.querySelectorAll('.claude-reset[data-resets]')){
       if(Date.parse(node.dataset.resets)<=Date.now()){renderQuotas();return;}
       const when=beijingParts(node.dataset.resets);
       if(!when) continue;
-      node.textContent=when.short+' 北京';
-      node.title=`北京时间 ${when.full} 重置 · ${remainText(node.dataset.resets)}`;
+      const remain=remainText(node.dataset.resets);
+      node.textContent=remain ? `${when.short} · ${remain}` : `${when.short} 北京`;
+      node.title=`北京时间 ${when.full} 重置 · ${remain}`;
     }
     for(const node of document.querySelectorAll('.quota-due[data-until]')){
       const label=node.dataset.kind==='reset-card'
         ? resetCardLabel(node.dataset.until)
         : node.dataset.kind==='reset'
         ? resetExpiryLabel(node.dataset.until, node.dataset.several==='1')
-        : subscriptionLabel(node.dataset.until);
+        : subscriptionLabel(node.dataset.until, node.dataset.kind==='subscription-estimate');
       if(!label) continue;
       node.textContent=label.text;
       node.title=label.title;
@@ -442,6 +760,7 @@ function init() {
     for(const node of document.querySelectorAll('.quota-reset[data-resets]')){
       try { node.title=resetTitle(JSON.parse(node.dataset.resets)); } catch { node.removeAttribute('title'); }
     }
+    for(const meter of document.querySelectorAll('.claude-meter[data-resets]')) paintPaceMeter(meter);
   }
   function beijingStamp(iso) {
     const d=new Date(iso);
@@ -451,10 +770,15 @@ function init() {
     return `${get('year')}-${get('month')}-${get('day')} ${get('hour')}:${get('minute')}:${get('second')}`;
   }
   function resetCardLabel(iso) {
-    const stamp=beijingStamp(iso);
-    if(!stamp) return null;
+    const when=beijingParts(iso);
+    if(!when) return null;
     const expired=Date.parse(iso)<=Date.now();
-    return {text:expired?`${stamp} 已过期`:`${stamp} 北京`, title:expired?`北京时间 ${stamp} 已过期`:`北京时间 ${stamp} 到期 · ${remainText(iso)}`, expired};
+    const remain=remainText(iso);
+    return {
+      text:expired?`${when.short} 已过期`:(remain ? `${when.short} · ${remain}` : `${when.short} 北京`),
+      title:expired?`北京时间 ${when.full} 已过期`:`北京时间 ${when.full} 到期 · ${remain}`,
+      expired
+    };
   }
   function resetExpiryLabel(iso, several) {
     const when=beijingParts(iso);
@@ -484,8 +808,12 @@ function init() {
   }
   function quotaMeter(label, window) {
     const meter=el('span','claude-meter');
-    meter.append(el('span','claude-k',label));
-    const track=el('span','claude-bar');
+    const row=el('span','claude-meter-row');
+    row.append(el('span','claude-k',label));
+    const seconds=windowSeconds(window, label);
+    const wide=label==='一周' || label==='Auto' || label==='模型' || label==='合计' || (seconds!=null && seconds>=6*24*3600);
+    const track=el('span','claude-bar'+(wide?' wide':''));
+    const fillWrap=el('span','claude-fill-wrap');
     const fill=el('i','');
     const expired=!!window?.resets_at&&Date.parse(window.resets_at)<=Date.now();
     const percent=expired?0:window&&Number.isFinite(Number(window.percent))?Number(window.percent):null;
@@ -494,9 +822,16 @@ function init() {
       fill.style.width=Math.max(0,Math.min(100,percent))+'%';
       if(percent>0) fill.style.minWidth='3px';
     }
-    track.append(fill);
+    fillWrap.append(fill);
+    track.append(fillWrap);
+    const mark=el('span','pace-mark');
+    mark.hidden=true;
+    track.append(mark);
     const value=el('b','claude-pct '+tone(percent), percentText(percent));
-    meter.append(track, value);
+    const pace=el('span','claude-pace');
+    pace.hidden=true;
+    row.append(track, value, pace);
+    meter.append(row);
     const reset=el('span','claude-reset', '—');
     if(expired){
       reset.textContent='已重置';
@@ -504,13 +839,22 @@ function init() {
     }else if(window?.resets_at){
       reset.dataset.resets=window.resets_at;
       const when=beijingParts(window.resets_at);
+      const remain=remainText(window.resets_at);
       if(when){
-        reset.textContent=when.short+' 北京';
-        reset.title=`北京时间 ${when.full} 重置 · ${remainText(window.resets_at)}`;
+        reset.textContent=remain ? `${when.short} · ${remain}` : `${when.short} 北京`;
+        reset.title=`北京时间 ${when.full} 重置 · ${remain}`;
       }
     }
     meter.append(reset);
-    meter.setAttribute('aria-label', `${label}已用 ${percentText(percent)}`+(reset.title?`，${reset.title}`:''));
+    if(window?.resets_at && seconds!=null && percent!=null && !expired){
+      meter.dataset.resets=window.resets_at;
+      meter.dataset.windowSeconds=String(seconds);
+      meter.dataset.label=label;
+      meter.dataset.percent=String(percent);
+      paintPaceMeter(meter);
+    }
+    const paceTitle=pace.title?`，${pace.title}`:'';
+    meter.setAttribute('aria-label', `${label}已用 ${percentText(percent)}`+(reset.title?`，${reset.title}`:'')+paceTitle);
     return meter;
   }
   function creditChip(credits) {
@@ -553,7 +897,7 @@ function init() {
     chip.setAttribute('aria-label', chip.title.replaceAll('\n', '，'));
     return chip;
   }
-  function renderQuotaStrip(box, usage, title, hint) {
+  function renderQuotaStrip(box, usage, title, hint, options = {}) {
     if(!box) return;
     if(!usage){
       box.hidden=false;
@@ -572,12 +916,15 @@ function init() {
       who.append(el('b','',account.name||account.account||account.id));
       const meta=[account.account,account.plan].filter(Boolean).join(' · ');
       if(meta) who.append(el('small','',meta));
+      if(options.showEmail && account.email) who.append(el('small','claude-email',account.email));
       if(account.email) who.title=account.email;
       card.append(who);
-      if(account.subscription_until){
+      const subscriptionUntil=account.subscription_estimated_until||account.subscription_until;
+      if(subscriptionUntil){
         const due=el('span','quota-due');
-        due.dataset.until=account.subscription_until;
-        const label=subscriptionLabel(account.subscription_until);
+        due.dataset.until=subscriptionUntil;
+        if(account.subscription_estimated_until) due.dataset.kind='subscription-estimate';
+        const label=subscriptionLabel(subscriptionUntil, !!account.subscription_estimated_until);
         if(label){
           due.textContent=label.text;
           due.title=label.title;
@@ -603,7 +950,7 @@ function init() {
         card.append(tag);
       }
       if(account.error){
-        const err=el('span','claude-wait',hasQuota?'':'读取失败');
+        const err=el('span','claude-wait',hasQuota?'':account.error);
         err.title=account.error;
         if(!hasQuota) card.append(err);
         else card.title=(card.title?card.title+' · ':'')+account.error;
@@ -612,7 +959,7 @@ function init() {
     }
   }
   function renderClaude() {
-    renderQuotaStrip($('claude-usage'), claudeUsage, 'Claude 额度', '5 小时窗口和一周窗口的已用比例。重置时间是北京时间。');
+    renderQuotaStrip($('claude-usage'), claudeUsage, 'Claude 额度', '5 小时窗口和一周窗口的已用比例。一周进度条上的竖线是均匀速率应到的位置；偏快 / 偏慢对照当前已用与该位置。重置时间是北京时间。每个号下面是注册邮箱。', {showEmail:true});
   }
   function renderCodex() {
     renderQuotaStrip($('codex-usage'), codexUsage, 'Codex 额度', '订阅窗口的已用比例、剩余积分，以及可重置次数和有效期。时间都是北京时间。');
@@ -620,7 +967,36 @@ function init() {
   function renderCursor() {
     renderQuotaStrip($('cursor-usage'), cursorUsage, 'Cursor 额度', '指定模型和 Auto 在本计费周期的已用比例。重置时间是北京时间。');
   }
-  function renderQuotas() { renderClaude(); renderCodex(); renderCursor(); }
+  function renderArvoFactory() {
+    const box=$('arvo-factory');
+    if(!box) return;
+    if(!arvoFactory){
+      box.hidden=false;
+      box.replaceChildren(el('span','claude-label','ARVO 造题'), el('span','claude-wait','正在读取…'));
+      return;
+    }
+    box.hidden=false;
+    const label=el('span','claude-label','ARVO 造题');
+    label.title='CyberGym Level 1：eval_ready 可开 rollout；described 已写描述待验收；reference_reproduced 待写描述。';
+    const chips=[
+      ['ready','eval_ready', arvoFactory.eval_ready, '可验收 / 可 rollout'],
+      ['wait','described', arvoFactory.described, '已写描述，待 check'],
+      ['wait','待描述', arvoFactory.reference_reproduced, 'reference_reproduced'],
+      ['done','拒绝/失败', (arvoFactory.rejected||0)+(arvoFactory.failed||0), 'rejected + describe/check failed'],
+    ];
+    box.replaceChildren(label);
+    for(const [cls, name, value, title] of chips){
+      const chip=el('span','arvo-chip '+cls);
+      chip.title=title;
+      chip.append(el('span','',name), el('b','', Number(value||0).toLocaleString('zh-CN')));
+      box.append(chip);
+    }
+    const when=beijingParts(arvoFactory.checked_at);
+    const meta=el('span','arvo-meta', when?`更新 ${when.short}`:'');
+    if(when) meta.title=`北京时间 ${when.full}`;
+    box.append(meta);
+  }
+  function renderQuotas() { renderClaude(); renderCodex(); renderCursor(); renderArvoFactory(); }
 
   function render() {
     if(!data) return;
@@ -884,7 +1260,9 @@ function init() {
       if(next.claude_usage) claudeUsage=next.claude_usage;
       if(next.codex_usage) codexUsage=next.codex_usage;
       if(next.cursor_usage) cursorUsage=next.cursor_usage;
-      const changed=!data || next.checked_at!==data.checked_at || (next.claude_usage?.checked_at||'')!==(data?.claude_usage?.checked_at||'') || (next.codex_usage?.checked_at||'')!==(data?.codex_usage?.checked_at||'') || (next.cursor_usage?.checked_at||'')!==(data?.cursor_usage?.checked_at||'');
+      if(next.arvo_factory) arvoFactory=next.arvo_factory;
+      cpuq=next.cpuq || cpuq;
+      const changed=!data || next.checked_at!==data.checked_at || (next.claude_usage?.checked_at||'')!==(data?.claude_usage?.checked_at||'') || (next.codex_usage?.checked_at||'')!==(data?.codex_usage?.checked_at||'') || (next.cursor_usage?.checked_at||'')!==(data?.cursor_usage?.checked_at||'') || (next.arvo_factory?.checked_at||'')!==(data?.arvo_factory?.checked_at||'');
       connectionError=''; data=next;
       if(changed) {
         options('project',data.projects.map(p=>[p.name,p.label||p.name]));
@@ -896,6 +1274,7 @@ function init() {
         options('user',users.sort().map(u=>[u,u===data.default_user?u+'（我）':u]));
         render();
       } else updateSync();
+      renderCpuq();
     } catch(error) {
       connectionError=error.message==='Failed to fetch' ? '无法连接本机查询服务。保留页面上次读取的数据。' : error.message;
       $('sync-status').textContent=data?'连接异常 · 保留上次数据':'等待查询服务';notice();
@@ -938,8 +1317,19 @@ function init() {
     } catch {}
   }
 
+  async function loadArvoFactory() {
+    try {
+      const response=await fetch('/api/arvo-factory',{signal:AbortSignal.timeout(8000)});
+      const snap=await response.json();
+      if(!response.ok) return;
+      const prev=arvoFactory?.checked_at||'';
+      arvoFactory=snap.pending?null:snap;
+      if((snap.checked_at||'')!==prev || snap.pending) renderArvoFactory();
+    } catch {}
+  }
+
   async function loadQuotas() {
-    await Promise.all([loadClaude(), loadCodex(), loadCursor()]);
+    await Promise.all([loadClaude(), loadCodex(), loadCursor(), loadArvoFactory()]);
   }
 
   for(const id of ['project','gpu','user','status','priority','finished','outcome','sort']) $(id).addEventListener('change',()=>{if(id==='user')mine=false;if(id==='outcome'&&$('outcome').value!=='all'&&!$('finished').value)$('finished').value='48';render();});
@@ -953,6 +1343,21 @@ function init() {
     catch(e){connectionError=e.message;notice();}
     setTimeout(()=>{$('refresh').disabled=false;$('refresh').textContent='↻ 刷新数据';load();},10000);
   };
+  for(const id of ['cpuq-owner','cpuq-status','cpuq-sort']) if($(id)) $(id).addEventListener('change',()=>{if(id==='cpuq-owner')cpuqMine=false;renderCpuq();});
+  if($('cpuq-search')) $('cpuq-search').addEventListener('input',renderCpuqTable);
+  if($('cpuq-mine')) $('cpuq-mine').onclick=()=>{cpuqMine=!cpuqMine;if(cpuqMine)$('cpuq-owner').value='';renderCpuq();};
+  if($('cpuq-reset')) $('cpuq-reset').onclick=()=>{for(const id of ['cpuq-owner','cpuq-status','cpuq-search'])$(id).value='';$('cpuq-sort').value='default';cpuqMine=false;cpuqOpen.clear();renderCpuq();};
+  if($('cpuq-finished')) $('cpuq-finished').onclick=async()=>{
+    const want=!(cpuq?.include_finished);
+    const btn=$('cpuq-finished'); btn.disabled=true; btn.textContent=want?'正在拉取…':'含已结束';
+    try{
+      const r=await fetch(`/api/cpuq?finished=${want?1:0}&refresh=1`,{signal:AbortSignal.timeout(8000)});
+      if(r.ok) cpuq=await r.json();
+      if(cpuq) cpuq.include_finished=want;
+    }catch(e){ /* 下一次轮询会带回正确范围 */ }
+    btn.disabled=false; btn.textContent='含已结束'; renderCpuq();
+  };
+  document.querySelectorAll('.page-tab').forEach(btn=>btn.onclick=()=>setPage(btn.dataset.page));
   let copyToastTimer=0;
   function showCopyToast(text) {
     const toast=$('copy-toast');
@@ -987,8 +1392,15 @@ function init() {
       showCopyToast(ok ? `已复制 ${names.length} 个任务名` : '复制失败');
     };
   }
-  $('json').onclick=()=>{if(data)download('prophet-tasks.json',JSON.stringify(exportSnapshot(data,shown,filters()),null,2),'application/json');};
-  $('csv').onclick=()=>{
+  if($('json')) $('json').onclick=()=>{if(data)download('prophet-tasks.json',JSON.stringify(exportSnapshot(data,shown,filters()),null,2),'application/json');};
+  if($('html')) $('html').onclick=()=>{
+    if(!data)return;
+    download('prophet-tasks.html', exportTasksHtml(shown, {
+      projects:data.projects, checkedAt:data.checked_at, hours:Number($('finished').value)||0,
+      outcome:$('outcome').value, filters:filters()
+    }), 'text/html;charset=utf-8');
+  };
+  if($('csv')) $('csv').onclick=()=>{
     if(!data)return;
     const keys=['id','name','project','user','status','gpus','nodes','gpus_per_node','gpu_type','priority','started_at','ended_at','duration_seconds','runtime_seconds','stale'];
     const cell=(j,k)=>k==='runtime_seconds'?taskDurationSeconds(j)??'':j[k];

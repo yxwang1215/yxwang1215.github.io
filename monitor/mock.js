@@ -157,15 +157,20 @@
         pending: false, checked_at: checkedAt,
         accounts: [{
           id: 'demo-codex', name: '演示', account: 'demo', plan: 'Plus',
-          windows: [windowMeter('5小时', 27, 4)],
+          windows: [windowMeter('一周', 48, 96)],
           credits: {balance: 860, unlimited: false, local_messages: [40, 70]},
+          resets: {available: 2, items: [
+            {title: '重置卡1', expires_at: new Date(Date.now()+5*864e5).toISOString()},
+            {title: '重置卡2', expires_at: new Date(Date.now()+12*864e5).toISOString()},
+          ]},
+          subscription_until: new Date(Date.now()+20*864e5).toISOString(),
         }],
       },
       cursor: {
         pending: false, checked_at: checkedAt,
         accounts: [{
           id: 'demo-cursor', name: '演示', account: 'demo', plan: 'Pro',
-          windows: [windowMeter('指定模型', 63, 12), windowMeter('Auto', 21, 12)],
+          windows: [windowMeter('模型', 63, 12), windowMeter('Auto', 21, 12)],
         }],
       },
     };
@@ -185,6 +190,10 @@
     if (url.indexOf('/api/claude-usage') !== -1) return Promise.resolve(json(quotas().claude));
     if (url.indexOf('/api/codex-usage') !== -1) return Promise.resolve(json(quotas().codex));
     if (url.indexOf('/api/cursor-usage') !== -1) return Promise.resolve(json(quotas().cursor));
+    if (url.indexOf('/api/arvo-factory') !== -1) return Promise.resolve(json({
+      checked_at: checkedAt, eval_ready: 305, described: 12, reference_reproduced: 5400,
+      rejected: 80, failed: 0, dirs: 5800, total_active: 5797,
+    }));
     if (url.indexOf('/api/refresh') !== -1) {
       checkedAt = new Date().toISOString();
       return Promise.resolve(json({ok: true}));
