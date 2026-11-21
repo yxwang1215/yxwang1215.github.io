@@ -172,6 +172,7 @@
         accounts: [{
           id: 'demo-cursor', name: '演示', account: 'demo', plan: 'Pro',
           windows: [windowMeter('模型', 63, 12*24), windowMeter('Auto', 21, 12*24)],
+          subscription_until: new Date(Date.now()+22*864e5).toISOString(),
         }],
       },
     };

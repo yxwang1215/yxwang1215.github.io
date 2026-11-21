@@ -683,12 +683,12 @@ function init() {
     const ms=Date.parse(iso)-Date.now();
     const remain=remainText(iso);
     if(estimated) return {
-      text:`预计可用至 ${when.short}${ms<=0?' · 日期已过':''}`,
+      text:`预计可用至\n${when.short}${ms<=0?' · 日期已过':''}`,
       title:`预计可用至北京时间 ${when.full}。续费状态请查看 ChatGPT 账单。`,
       expired:ms<=0
     };
-    if(ms<=0) return {text:`订阅到期 ${when.short} 已到期`, title:`北京时间 ${when.full} 已到期`, expired:true};
-    return {text:`订阅到期 ${when.short}`, title:`北京时间 ${when.full} 到期 · ${remain}`, expired:false};
+    if(ms<=0) return {text:`订阅到期\n${when.short} 已到期`, title:`北京时间 ${when.full} 已到期`, expired:true};
+    return {text:`订阅到期\n${when.short}`, title:`北京时间 ${when.full} 到期 · ${remain}`, expired:false};
   }
   function windowSeconds(window, label) {
     const n=Number(window?.window_seconds);
