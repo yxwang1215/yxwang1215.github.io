@@ -140,8 +140,9 @@
     };
   }
 
-  function windowMeter(label, percent, hoursAhead) {
-    return {label, percent, resets_at: new Date(Date.now() + hoursAhead * HOUR * 1000).toISOString()};
+  function windowMeter(label, percent, hoursAhead, windowSeconds) {
+    const seconds = windowSeconds || (label === '5小时' ? 5 * 3600 : label === '一周' ? 7 * 24 * 3600 : 30 * 24 * 3600);
+    return {label, percent, resets_at: new Date(Date.now() + hoursAhead * HOUR * 1000).toISOString(), window_seconds: seconds};
   }
 
   function quotas() {
@@ -170,7 +171,7 @@
         pending: false, checked_at: checkedAt,
         accounts: [{
           id: 'demo-cursor', name: '演示', account: 'demo', plan: 'Pro',
-          windows: [windowMeter('模型', 63, 12), windowMeter('Auto', 21, 12)],
+          windows: [windowMeter('模型', 63, 12*24), windowMeter('Auto', 21, 12*24)],
         }],
       },
     };
@@ -190,10 +191,6 @@
     if (url.indexOf('/api/claude-usage') !== -1) return Promise.resolve(json(quotas().claude));
     if (url.indexOf('/api/codex-usage') !== -1) return Promise.resolve(json(quotas().codex));
     if (url.indexOf('/api/cursor-usage') !== -1) return Promise.resolve(json(quotas().cursor));
-    if (url.indexOf('/api/arvo-factory') !== -1) return Promise.resolve(json({
-      checked_at: checkedAt, eval_ready: 305, described: 12, reference_reproduced: 5400,
-      rejected: 80, failed: 0, dirs: 5800, total_active: 5797,
-    }));
     if (url.indexOf('/api/refresh') !== -1) {
       checkedAt = new Date().toISOString();
       return Promise.resolve(json({ok: true}));

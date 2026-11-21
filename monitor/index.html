@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light"><title>Prophet · GPU 占用（模拟）</title>
-  <link rel="stylesheet" href="style.css?v=mock9"><script src="mock.js?v=mock9"></script><script type="module" src="app.js?v=mock9"></script>
+  <link rel="stylesheet" href="style.css?v=mock10"><script src="mock.js?v=mock10"></script><script type="module" src="app.js?v=mock10"></script>
 </head>
 <body>
   <header class="topbar"><a class="brand" href="/"><span class="brand-icon">P</span> Prophet <span class="brand-sub">交互演示</span></a><span class="readonly">模拟数据 <span class="dot"></span></span></header>
@@ -14,8 +14,7 @@
     <div id="claude-usage" class="claude-strip" hidden></div>
     <div id="codex-usage" class="claude-strip codex-strip" hidden></div>
     <div id="cursor-usage" class="claude-strip cursor-strip" hidden></div>
-    <div id="arvo-factory" class="claude-strip arvo-strip" hidden></div>
-    <div id="idle-machines" class="idle-strip" hidden></div>
+        <div id="idle-machines" class="idle-strip" hidden></div>
     <div id="gpu-page">
     <div class="charts">
       <section class="panel"><div class="panel-title"><div><h2>项目与型号占卡</h2><p class="subtle">点一行查看该分区的占卡用户</p></div><span class="legend"><i class="running-key"></i>运行 <i class="pending-key"></i>排队 <i class="free-key"></i>空闲</span></div><div id="gpu-users" class="gpu-users chart-users"></div><div class="chart-stack"><div id="gpu-chart" class="chart"><p class="empty">正在读取 GPU 型号…</p></div><p id="resource-notice" class="resource-note" hidden></p></div></section>

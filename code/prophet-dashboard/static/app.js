@@ -436,7 +436,7 @@ function init() {
   const el = (tag, cls, text) => { const n = document.createElement(tag); if(cls) n.className = cls; if(text != null) n.textContent = text; return n; };
   const format = n => n == null ? '—' : n.toLocaleString('zh-CN');
   let cpuqMine = false; const cpuqOpen = new Set();
-  let data = null, cpuq = null, claudeUsage = null, codexUsage = null, cursorUsage = null, arvoFactory = null, visible = [], shown = [], mine = false, connectionError = '', fetching = false, openPartition = '', currentPage = 'gpu';
+  let data = null, cpuq = null, claudeUsage = null, codexUsage = null, cursorUsage = null, visible = [], shown = [], mine = false, connectionError = '', fetching = false, openPartition = '', currentPage = 'gpu';
   const filters = () => Object.fromEntries(['project','gpu','user','status','priority','search'].map(id=>[id,$(id).value]));
   const projectLabel = name => data?.projects.find(p=>p.name===name)?.label || name;
   const localDate = value => value ? new Date(value).toLocaleString('zh-CN',{hour12:false}) : '尚未成功查询';
@@ -695,6 +695,7 @@ function init() {
     if(Number.isFinite(n) && n>0) return n;
     if(label==='一周') return 7*24*3600;
     if(label==='5小时') return 5*3600;
+    if(label==='Auto' || label==='模型' || label==='合计') return 30*24*3600;
     return null;
   }
   function expectedPercent(window, label) {
@@ -965,38 +966,9 @@ function init() {
     renderQuotaStrip($('codex-usage'), codexUsage, 'Codex 额度', '订阅窗口的已用比例、剩余积分，以及可重置次数和有效期。时间都是北京时间。');
   }
   function renderCursor() {
-    renderQuotaStrip($('cursor-usage'), cursorUsage, 'Cursor 额度', '指定模型和 Auto 在本计费周期的已用比例。重置时间是北京时间。');
+    renderQuotaStrip($('cursor-usage'), cursorUsage, 'Cursor 额度', '指定模型和 Auto 在本计费周期的已用比例。进度条上的竖线是均匀速率应到的位置；偏快 / 偏慢对照当前已用与该位置。重置时间是北京时间。');
   }
-  function renderArvoFactory() {
-    const box=$('arvo-factory');
-    if(!box) return;
-    if(!arvoFactory){
-      box.hidden=false;
-      box.replaceChildren(el('span','claude-label','ARVO 造题'), el('span','claude-wait','正在读取…'));
-      return;
-    }
-    box.hidden=false;
-    const label=el('span','claude-label','ARVO 造题');
-    label.title='CyberGym Level 1：eval_ready 可开 rollout；described 已写描述待验收；reference_reproduced 待写描述。';
-    const chips=[
-      ['ready','eval_ready', arvoFactory.eval_ready, '可验收 / 可 rollout'],
-      ['wait','described', arvoFactory.described, '已写描述，待 check'],
-      ['wait','待描述', arvoFactory.reference_reproduced, 'reference_reproduced'],
-      ['done','拒绝/失败', (arvoFactory.rejected||0)+(arvoFactory.failed||0), 'rejected + describe/check failed'],
-    ];
-    box.replaceChildren(label);
-    for(const [cls, name, value, title] of chips){
-      const chip=el('span','arvo-chip '+cls);
-      chip.title=title;
-      chip.append(el('span','',name), el('b','', Number(value||0).toLocaleString('zh-CN')));
-      box.append(chip);
-    }
-    const when=beijingParts(arvoFactory.checked_at);
-    const meta=el('span','arvo-meta', when?`更新 ${when.short}`:'');
-    if(when) meta.title=`北京时间 ${when.full}`;
-    box.append(meta);
-  }
-  function renderQuotas() { renderClaude(); renderCodex(); renderCursor(); renderArvoFactory(); }
+  function renderQuotas() { renderClaude(); renderCodex(); renderCursor(); }
 
   function render() {
     if(!data) return;
@@ -1260,9 +1232,8 @@ function init() {
       if(next.claude_usage) claudeUsage=next.claude_usage;
       if(next.codex_usage) codexUsage=next.codex_usage;
       if(next.cursor_usage) cursorUsage=next.cursor_usage;
-      if(next.arvo_factory) arvoFactory=next.arvo_factory;
       cpuq=next.cpuq || cpuq;
-      const changed=!data || next.checked_at!==data.checked_at || (next.claude_usage?.checked_at||'')!==(data?.claude_usage?.checked_at||'') || (next.codex_usage?.checked_at||'')!==(data?.codex_usage?.checked_at||'') || (next.cursor_usage?.checked_at||'')!==(data?.cursor_usage?.checked_at||'') || (next.arvo_factory?.checked_at||'')!==(data?.arvo_factory?.checked_at||'');
+      const changed=!data || next.checked_at!==data.checked_at || (next.claude_usage?.checked_at||'')!==(data?.claude_usage?.checked_at||'') || (next.codex_usage?.checked_at||'')!==(data?.codex_usage?.checked_at||'') || (next.cursor_usage?.checked_at||'')!==(data?.cursor_usage?.checked_at||'');
       connectionError=''; data=next;
       if(changed) {
         options('project',data.projects.map(p=>[p.name,p.label||p.name]));
@@ -1317,19 +1288,8 @@ function init() {
     } catch {}
   }
 
-  async function loadArvoFactory() {
-    try {
-      const response=await fetch('/api/arvo-factory',{signal:AbortSignal.timeout(8000)});
-      const snap=await response.json();
-      if(!response.ok) return;
-      const prev=arvoFactory?.checked_at||'';
-      arvoFactory=snap.pending?null:snap;
-      if((snap.checked_at||'')!==prev || snap.pending) renderArvoFactory();
-    } catch {}
-  }
-
   async function loadQuotas() {
-    await Promise.all([loadClaude(), loadCodex(), loadCursor(), loadArvoFactory()]);
+    await Promise.all([loadClaude(), loadCodex(), loadCursor()]);
   }
 
   for(const id of ['project','gpu','user','status','priority','finished','outcome','sort']) $(id).addEventListener('change',()=>{if(id==='user')mine=false;if(id==='outcome'&&$('outcome').value!=='all'&&!$('finished').value)$('finished').value='48';render();});
